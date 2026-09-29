@@ -76,7 +76,10 @@ test('the rendered quiz exposes no answer key (DOM, globals, page-load network) 
   expect(errors).toEqual([]);
 });
 
-test('progress page does not show a mastery status after assessment (C1 deferred)', async ({page}) => {
+// P1.2: C1 is enabled for the pilot (lu.9.15 is a pilot unit). The previous invariant ("no mastery on the
+// progress page") was a P1.1 deferral, not a product rule. What must hold now: the lesson indicator and the
+// mastery indicator are separate, mastery is a band (never a number), and one assessment alone is never "mastered".
+test('progress page shows lesson and mastery separately after assessment; mastery is a band, never "mastered" from one test', async ({page}) => {
   await page.goto(`${server.url}/learn/lu.9.15/quiz`);
   const questions = page.locator('fieldset.kl-quiz-question');
   await expect(questions).toHaveCount(5);
@@ -84,7 +87,11 @@ test('progress page does not show a mastery status after assessment (C1 deferred
   await page.getByRole('button', {name: 'Javoblarni tekshirish'}).click();
   await expect(page.locator('.kl-feedback')).toContainText('Natija:');
   await page.goto(`${server.url}/progress`);
-  await expect(page.locator('main')).toContainText('Test topshirildi');
+  const card = page.locator('.kl-progress-card').first();
+  await expect(card.locator('.kl-progress-card__lesson')).toHaveText('Dars: Test topshirildi');
+  const mastery = card.locator('[data-mastery-band]');
+  await expect(mastery).toBeVisible();
+  expect(await mastery.getAttribute('data-mastery-band')).not.toBe('MASTERED');
   await expect(page.locator('main')).not.toContainText('O‘zlashtirilgan');
-  await expect(page.locator('main')).not.toContainText('Takrorlash kerak');
+  expect(await card.innerText()).not.toMatch(/%|\d+[.,]\d+/);
 });

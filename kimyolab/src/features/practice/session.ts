@@ -16,6 +16,7 @@ import {KineticsModel} from '../../domain/chemistry/kinetics-model.ts';
 import {EquilibriumModel} from '../../domain/chemistry/equilibrium-model.ts';
 import type {StudentPracticePageModel} from './model.ts';
 import type {ExecutionRuntime} from '../../runtime/practice-router/execution-plan.ts';
+import {launchDecision} from '../../domain/readiness/readiness.ts';
 
 export type PracticeCommand =
   | {kind:'experiment-action';action:any}
@@ -45,6 +46,7 @@ export class ReferencePracticeSession {
     // P1.1 (D8): one canonical plan decides the runtime; there is no second routing key and no fallback.
     const plan=model.executionPlan;
     if(!plan||plan.activityId!==model.id||plan.engine!==model.type) throw new Error('EXECUTION_PLAN_ACTIVITY_MISMATCH');
+    if(!launchDecision(model.readiness).allowed) throw new Error('ACTIVITY_NOT_AVAILABLE');
     const runtime:ExecutionRuntime=plan.runtime;
     if(runtime==='generic'){
       const registry=loadBeta1ConfigRegistry({[model.id]:config});
@@ -99,7 +101,9 @@ export class ReferencePracticeSession {
     this.activity={
       id:model.id,type:model.type,title:model.title,goal:model.goal,
       conceptIds:[String(config.conceptId)],prerequisiteConceptIds:[],
-      lifecycleStatus:'ready',approvals:{} as any,accessibilityProfile:[...model.accessibility],
+      // P1.2: no synthesized 'ready'. The student model carries no governance fields (P0 invariant), so the
+      // lifecycle is DERIVED from canonical readiness; the router's gate uses the readiness itself.
+      lifecycleStatus:model.readiness.status==='READY'?'ready':'planned',approvals:{} as any,accessibilityProfile:[...model.accessibility],
       engineCompatibility:{engine:model.type,range:'*'},sourceRefs:[],legacyIds:[],version:String(config.version??'1.0.0'),
     };
     this.context={inputs:{[model.id]:{}}};
@@ -121,7 +125,7 @@ export class ReferencePracticeSession {
   }
 
   async result():Promise<any>{
-    const result=await this.router.run(this.activity,this.context,this.model.executionPlan);
+    const result=await this.router.run(this.activity,this.context,this.model.executionPlan,this.model.readiness);
     if(!result.ok) throw new Error(result.error.code);
     return result.value;
   }

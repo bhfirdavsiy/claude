@@ -9,6 +9,8 @@ import type {ConceptMastery,MasteryContext,MasteryVersionPolicy} from '../../dom
 import {newUuid} from '../../runtime/shared/ids.ts';
 import {createWebLocksLiveness} from './liveness.ts';
 import type {AssessmentResponse} from '../../domain/assessment/evaluator.ts';
+import type {MasteryViewModel} from '../../domain/mastery/view.ts';
+import type {AssessmentAvailability} from '../../domain/readiness/unit-readiness.ts';
 import {LearningOrchestrator} from '../../runtime/learning-orchestrator/orchestrator.ts';
 import {beginInputFromPage,versionsFromPage,versionsFromRuntime} from '../../runtime/learning-orchestrator/adapters.ts';
 import type {AssessmentContentSource,AssessmentSessionState,PracticeEnginePort,PracticeSessionState,SessionLivenessPort} from '../../runtime/learning-orchestrator/types.ts';
@@ -136,6 +138,12 @@ export class BrowserProgressService {
 
   retryAssessment(session:AssessmentSessionState){return this.orchestrator.retryAssessment(session);}
   leaveAssessment(session:AssessmentSessionState){this.orchestrator.leaveAssessment(session);}
+
+  /** Learner-facing mastery view (C1), version-safe: computed under the given active versions. */
+  getMasteryView(learningUnitId:string,versions:RuntimeVersionsLike,conceptIds:string[],assessmentAvailability:AssessmentAvailability):Promise<MasteryViewModel>{
+    const v=versionsFromRuntime(versions);
+    return this.orchestrator.getMasteryView(learningUnitId,{contentVersion:v.contentVersion,scoringVersion:v.scoringVersion,...(v.curriculumVersion?{curriculumVersion:v.curriculumVersion}:{})},conceptIds,assessmentAvailability);
+  }
 
   async getCycleSnapshot(learningUnitId:string):Promise<CycleSnapshot>{
     const progress=await this.store.loadProgress(learningUnitId);

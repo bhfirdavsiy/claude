@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-09-29T16:59:50.231Z",
+  "createdAt": "2026-09-29T17:21:15.272Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -11,14 +11,14 @@
     {
       "path": "app-preview/app/bootstrap.js",
       "sourcePath": "public/app-preview/app/bootstrap.js",
-      "checksum": "a06d6d1a4df85820432dd75f59f67f8dbd02afa64c122256f3658e2fd85a9fa5",
-      "size": 8571
+      "checksum": "2a24b03a5577655fa3ca84f296e4fce255caca1b5e8da25bacbcaf702a54e9e8",
+      "size": 9434
     },
     {
       "path": "app-preview/app/content-client.js",
       "sourcePath": "public/app-preview/app/content-client.js",
-      "checksum": "9abc8ee9143bf27f9130bcecbcc198463693ea3784ce8b06e45667c8800b5b93",
-      "size": 18600
+      "checksum": "f1ae65540b3704baad77d98d4b0fd33237539b24e654b77c1c06c3dc882cb5ee",
+      "size": 20178
     },
     {
       "path": "app-preview/app/routes.js",
@@ -33,10 +33,16 @@
       "size": 4441
     },
     {
+      "path": "app-preview/domain/assessment/governance.js",
+      "sourcePath": "public/app-preview/domain/assessment/governance.js",
+      "checksum": "b84fc00795365c18baa0328a6b3dd3c29e1228405855aa259b330f7bf023d993",
+      "size": 5965
+    },
+    {
       "path": "app-preview/domain/assessment/model.js",
       "sourcePath": "public/app-preview/domain/assessment/model.js",
-      "checksum": "6eb077afec3af386e851d5eef98c0f21d11199d42d4127f13c4bede6d91f767f",
-      "size": 6991
+      "checksum": "d54b47f9d9d84687d448100fad83c3bca10670a283b016783a2af0ddca72edc6",
+      "size": 7371
     },
     {
       "path": "app-preview/domain/assessment/scoring.js",
@@ -213,6 +219,24 @@
       "size": 5802
     },
     {
+      "path": "app-preview/domain/mastery/view.js",
+      "sourcePath": "public/app-preview/domain/mastery/view.js",
+      "checksum": "ce1583fa3ebff18d33d1b55692389460f55ccbbc9ee849ecd40be781b098fa62",
+      "size": 6410
+    },
+    {
+      "path": "app-preview/domain/readiness/readiness.js",
+      "sourcePath": "public/app-preview/domain/readiness/readiness.js",
+      "checksum": "49e46839265ed5ed7ac252f683b7b509bd4938bb2e6ddba746bf34031d53fd69",
+      "size": 6059
+    },
+    {
+      "path": "app-preview/domain/readiness/unit-readiness.js",
+      "sourcePath": "public/app-preview/domain/readiness/unit-readiness.js",
+      "checksum": "6365b53057bcfd94085eb0d76c98de4aba4d27b63f95d9c031f7f13c72cb0eef",
+      "size": 466
+    },
+    {
       "path": "app-preview/engines/calculation/engine.js",
       "sourcePath": "public/app-preview/engines/calculation/engine.js",
       "checksum": "04e6b66b2bc5d1fc5dcb2c4331fc1a4de76da6ec31c399849aec8937dd56e34a",
@@ -299,20 +323,20 @@
     {
       "path": "app-preview/features/learning-hub/model.js",
       "sourcePath": "public/app-preview/features/learning-hub/model.js",
-      "checksum": "e3c8a20d357eb54c46fc1b0c91747c08d447a46b03c5ecfad204e68e8d4ae203",
-      "size": 4293
+      "checksum": "34e1aa352a334d3a0abefc5b96386c295e84d0fb0a1f797fd444f437d738a44e",
+      "size": 5964
     },
     {
       "path": "app-preview/features/learning-hub/render.js",
       "sourcePath": "public/app-preview/features/learning-hub/render.js",
-      "checksum": "41f34e7a544e373e217d0faf5805bdaac8bc7849b8dbc31d11a79b7d1c2a2b40",
-      "size": 14910
+      "checksum": "271aa8a236407658b927469145011bbd7a6a024693ac142e84ea1ef41542adf1",
+      "size": 16362
     },
     {
       "path": "app-preview/features/practice/model.js",
       "sourcePath": "public/app-preview/features/practice/model.js",
-      "checksum": "96779da17b04f48592b9d63dc7b51d919e4392522dbea7eb58f5953bf3eb937d",
-      "size": 3338
+      "checksum": "638ba5a5cc550cb3c1dce8872495e12b4a1e5613be96e0b134e299d0fd93815e",
+      "size": 3784
     },
     {
       "path": "app-preview/features/practice/render.js",
@@ -323,8 +347,8 @@
     {
       "path": "app-preview/features/practice/session.js",
       "sourcePath": "public/app-preview/features/practice/session.js",
-      "checksum": "ba00a95f5a3edf89e330da45e058bc408564195cfddf66e2d459cd0bc170d323",
-      "size": 7471
+      "checksum": "25151579ea99ac6103966aa5cc90db9aff3a1dbc32037927cf7129abcde00293",
+      "size": 7905
     },
     {
       "path": "app-preview/features/practice/ui-model.js",
@@ -339,22 +363,28 @@
       "size": 1505
     },
     {
+      "path": "app-preview/features/progress/mastery-render.js",
+      "sourcePath": "public/app-preview/features/progress/mastery-render.js",
+      "checksum": "6495ea2190da834a0afa6d1e93eb913e3d5c70db2b606a224d20e4e62cab36fb",
+      "size": 1254
+    },
+    {
       "path": "app-preview/features/progress/model.js",
       "sourcePath": "public/app-preview/features/progress/model.js",
-      "checksum": "d67d7c4adfcdac44961a2c7dff9449fa53389121f7bada8fa8edd62eb1e5edfb",
-      "size": 1625
+      "checksum": "2364112c4632e6ad96d555e3fe2b102a5ab33eecb6e81162e7ef5945dc23f863",
+      "size": 1947
     },
     {
       "path": "app-preview/features/progress/render.js",
       "sourcePath": "public/app-preview/features/progress/render.js",
-      "checksum": "aba990516d98f0ba4314cafe7e373ef68f0fba540537695539ad9bfb20dcf843",
-      "size": 1345
+      "checksum": "d36613eec99925f4617091aa9afadf3182fc2f68ea6ab6eae90e8e7cabca540e",
+      "size": 1565
     },
     {
       "path": "app-preview/features/progress/service.js",
       "sourcePath": "public/app-preview/features/progress/service.js",
-      "checksum": "4dde4c385177711a1f0784c5ff8e810e8005def0ba5a1a4d4e813a170c317810",
-      "size": 9029
+      "checksum": "fdb6cfab8a73da288c97ad8a6140e8b669eff31174c86277d2a55ed643825781",
+      "size": 9721
     },
     {
       "path": "app-preview/features/search/model.js",
@@ -563,14 +593,14 @@
     {
       "path": "app-preview/runtime/learning-orchestrator/orchestrator.js",
       "sourcePath": "public/app-preview/runtime/learning-orchestrator/orchestrator.js",
-      "checksum": "3f67d9ab408c68745ff66ae87b07fa2f771b964529c7ff9d56701e00c8110447",
-      "size": 24317
+      "checksum": "4c0acf2ad2d5ebd4af0ab6b0c1f98159bb4bbecd152f641b2ed1cf3b86192d2d",
+      "size": 25869
     },
     {
       "path": "app-preview/runtime/learning-orchestrator/selectors.js",
       "sourcePath": "public/app-preview/runtime/learning-orchestrator/selectors.js",
-      "checksum": "47b79bb98ac2faf19978f974a5d4c534f6c053974b56ff89449f228f0a46ee27",
-      "size": 4976
+      "checksum": "aa1cd2a345f7ae822ed1248de3e56ab13ea8a0ab9fef0a05c0a189baba773aca",
+      "size": 5054
     },
     {
       "path": "app-preview/runtime/learning-orchestrator/state.js",
@@ -581,8 +611,8 @@
     {
       "path": "app-preview/runtime/learning-orchestrator/types.js",
       "sourcePath": "public/app-preview/runtime/learning-orchestrator/types.js",
-      "checksum": "6a1ada5a3a7de7e682a6f5c85f658aa314efa989b69ef69cfa38fc4d0924c3eb",
-      "size": 4347
+      "checksum": "69b0f865e528c5e726b5e520b8902f2ec200b52afb7546209c713053ac382c75",
+      "size": 4383
     },
     {
       "path": "app-preview/runtime/learning-runner/runner.js",
@@ -599,8 +629,8 @@
     {
       "path": "app-preview/runtime/practice-router/router.js",
       "sourcePath": "public/app-preview/runtime/practice-router/router.js",
-      "checksum": "50e298049eadf67bdc109357f791690d1cbdc12fef81134167618d728fdf78f0",
-      "size": 1810
+      "checksum": "803c94000cc4d21ea49c30eb3ec0f35324b1d905aa44c6743520dab83776e56b",
+      "size": 2352
     },
     {
       "path": "app-preview/runtime/progress/concept-migration.js",
@@ -707,8 +737,8 @@
     {
       "path": "app-preview/ui/tokens/kimyolab.css",
       "sourcePath": "public/app-preview/ui/tokens/kimyolab.css",
-      "checksum": "ae947931b06d25781c888c44ef596f24a6ef301dfb266b45b7df395f9cce58e6",
-      "size": 23523
+      "checksum": "9dd508a1594b79f7375a3f3e617d066d89f97e85f7641d44b2bfc21cf05ac87b",
+      "size": 24508
     },
     {
       "path": "assets/home/results.png",
@@ -777,6 +807,12 @@
       "size": 4877
     },
     {
+      "path": "content/2026.09.1/activity-readiness.json",
+      "sourcePath": "public/content/2026.09.1/activity-readiness.json",
+      "checksum": "61eec94cf899d19dc6a716007c19f861a0516ae0a3b1841f1e084c1e5a603c11",
+      "size": 58030
+    },
+    {
       "path": "content/2026.09.1/aliases.yaml",
       "sourcePath": "public/content/2026.09.1/aliases.yaml",
       "checksum": "7db3ed84e10c586d4f269dd951eaac13a89519e18df8e09f695e5a002daabd37",
@@ -791,8 +827,8 @@
     {
       "path": "content/2026.09.1/assessment/prompts.json",
       "sourcePath": "public/content/2026.09.1/assessment/prompts.json",
-      "checksum": "841c79bd42e4a9d1dd3bfcbae1957f9aec4a1a058f8e92f333215de6e00bb1d2",
-      "size": 3988
+      "checksum": "fbc78848d528780175b6d469ec1f67252ac121d222cba15810cb013b39766f0a",
+      "size": 4128
     },
     {
       "path": "content/2026.09.1/chemistry/constants.json",
@@ -941,8 +977,8 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "65339edbb1c10f95e1b1f3fd905a34dc785b08da321c188bfb7781dc1d15a60e",
-      "size": 6664
+      "checksum": "0a5ec384266cad486fefed6f54b5e05369b39f5741d5f24f9f4878820ab025e2",
+      "size": 6824
     },
     {
       "path": "content/2026.09.1/mapping-links.json",
@@ -965,7 +1001,7 @@
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "f0f895ccb4ecee512d498d3e7ec282fa01b46cbc548370941c3b05cf700b7945",
+      "checksum": "13a026e3a6e31e6ca5ac776ab97b253e9c02517fe1b6f1278be2c0099bd02077",
       "size": 158
     },
     {

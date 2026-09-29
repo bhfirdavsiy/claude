@@ -56,18 +56,24 @@ export function assessmentIdFor(learningUnitId       ){ return `assessment.${lea
 function text(v        )             { return typeof v==='string'&&v.trim().length>0; }
 function fail(code       ,detail        )       { throw new Error(detail?`${code}: ${detail}`:code); }
 
-/** Splits the authored bank (content-src/assessment-items.json) into prompt and key packs. */
-export function splitAssessmentBank(bank    )                                                      {
+/**
+ * Splits the authored bank (content-src/assessment-items.json) into prompt and key packs.
+ * `effectiveReview` (build time, from the human review register — P1.2) decides the shipped review state;
+ * without it the bank's own review field is used. RETIRED items are not shipped.
+ */
+export function splitAssessmentBank(bank    ,options                                                                              ={})                                                      {
   if(!bank||!Array.isArray(bank.items)||!text(bank.version)) fail('ASSESSMENT_BANK_INVALID');
   const prompts                   =[];
   const keys                =[];
   for(const item of bank.items){
+    if(item.lifecycle==='RETIRED') continue;
+    const review=options.effectiveReview?.(item)??{chemistry:item.review?.chemistry??'pending',didactic:item.review?.didactic??'pending'};
     prompts.push({
       id:String(item.id),learningUnitId:String(item.learningUnitId),type:'single_select',stem:String(item.prompt),
       options:(item.options??[]).map((o    )=>({id:String(o.id),text:String(o.text)})),
       conceptIds:[...(item.conceptIds??[])].map(String),outcomeIds:[...(item.outcomeIds??[])].map(String),
       version:String(item.version),
-      review:{chemistry:item.review?.chemistry??'pending',didactic:item.review?.didactic??'pending'},
+      review,
     });
     keys.push({itemId:String(item.id),correctOptionId:String(item.correctOptionId),scoringRule:{...DEFAULT_SCORING_RULE},explanation:String(item.explanation??'')});
   }

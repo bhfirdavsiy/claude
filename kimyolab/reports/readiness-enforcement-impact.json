@@ -1,0 +1,1129 @@
+{
+  "generatedAt": "2026-09-29T17:14:27.091Z",
+  "activities": {
+    "total": 146,
+    "ready": 118,
+    "pending": 27,
+    "disabled": 1,
+    "blocked": 0
+  },
+  "byGrade": {
+    "grade-10": {
+      "total": 32,
+      "ready": 27,
+      "pending": 4,
+      "disabled": 1,
+      "blocked": 0
+    },
+    "grade-11": {
+      "total": 22,
+      "ready": 22,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "grade-7": {
+      "total": 25,
+      "ready": 20,
+      "pending": 5,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "grade-8": {
+      "total": 31,
+      "ready": 23,
+      "pending": 8,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "grade-9": {
+      "total": 36,
+      "ready": 26,
+      "pending": 10,
+      "disabled": 0,
+      "blocked": 0
+    }
+  },
+  "byEngine": {
+    "calculation": {
+      "total": 10,
+      "ready": 10,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "case": {
+      "total": 10,
+      "ready": 10,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "experiment": {
+      "total": 57,
+      "ready": 30,
+      "pending": 27,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "simulation": {
+      "total": 52,
+      "ready": 51,
+      "pending": 0,
+      "disabled": 1,
+      "blocked": 0
+    },
+    "trainer": {
+      "total": 17,
+      "ready": 17,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    }
+  },
+  "units": {
+    "total": 122,
+    "fullyReady": 85,
+    "partiallyReady": 37,
+    "blocked": 0
+  },
+  "byLearningUnit": {
+    "lu.7.01": {
+      "state": "partially_ready",
+      "total": 2,
+      "ready": 1,
+      "pending": 1,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.7.02": {
+      "state": "partially_ready",
+      "total": 3,
+      "ready": 2,
+      "pending": 1,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.7.03": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.7.04": {
+      "state": "partially_ready",
+      "total": 2,
+      "ready": 1,
+      "pending": 1,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.7.05": {
+      "state": "fully_ready",
+      "total": 3,
+      "ready": 3,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.7.06": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.7.07": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.7.08": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.7.09": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.7.10": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.7.11": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.7.12": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.7.13": {
+      "state": "fully_ready",
+      "total": 2,
+      "ready": 2,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.7.14": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.7.15": {
+      "state": "partially_ready",
+      "total": 6,
+      "ready": 3,
+      "pending": 3,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.7.16": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.7.17": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.7.18": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.7.19": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.7.20": {
+      "state": "partially_ready",
+      "total": 3,
+      "ready": 1,
+      "pending": 2,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.7.21": {
+      "state": "partially_ready",
+      "total": 5,
+      "ready": 3,
+      "pending": 2,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.7.22": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.7.23": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.8.01": {
+      "state": "partially_ready",
+      "total": 2,
+      "ready": 1,
+      "pending": 1,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.8.02": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.8.03": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.8.04": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.8.05": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.8.06": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.8.07": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.8.08": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.8.09": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.8.10": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.8.11": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.8.12": {
+      "state": "fully_ready",
+      "total": 2,
+      "ready": 2,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.8.13": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.8.14": {
+      "state": "partially_ready",
+      "total": 3,
+      "ready": 2,
+      "pending": 1,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.8.15": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.8.16": {
+      "state": "partially_ready",
+      "total": 5,
+      "ready": 1,
+      "pending": 4,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.8.17": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.8.18": {
+      "state": "partially_ready",
+      "total": 3,
+      "ready": 2,
+      "pending": 1,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.8.19": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.8.20": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.8.21": {
+      "state": "fully_ready",
+      "total": 2,
+      "ready": 2,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.8.22": {
+      "state": "partially_ready",
+      "total": 3,
+      "ready": 2,
+      "pending": 1,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.8.23": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.8.24": {
+      "state": "partially_ready",
+      "total": 2,
+      "ready": 1,
+      "pending": 1,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.9.01": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.9.02": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.9.03": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.9.04": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.9.05": {
+      "state": "partially_ready",
+      "total": 7,
+      "ready": 2,
+      "pending": 5,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.9.06": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.9.07": {
+      "state": "partially_ready",
+      "total": 5,
+      "ready": 3,
+      "pending": 2,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.9.08": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.9.09": {
+      "state": "partially_ready",
+      "total": 2,
+      "ready": 1,
+      "pending": 1,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.9.10": {
+      "state": "partially_ready",
+      "total": 2,
+      "ready": 1,
+      "pending": 1,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.9.11": {
+      "state": "fully_ready",
+      "total": 2,
+      "ready": 2,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.9.12": {
+      "state": "partially_ready",
+      "total": 3,
+      "ready": 1,
+      "pending": 2,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.9.13": {
+      "state": "partially_ready",
+      "total": 3,
+      "ready": 1,
+      "pending": 2,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.9.14": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.9.15": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.9.16": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.9.17": {
+      "state": "fully_ready",
+      "total": 2,
+      "ready": 2,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.9.18": {
+      "state": "fully_ready",
+      "total": 2,
+      "ready": 2,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.9.19": {
+      "state": "partially_ready",
+      "total": 4,
+      "ready": 2,
+      "pending": 2,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.9.20": {
+      "state": "partially_ready",
+      "total": 4,
+      "ready": 2,
+      "pending": 2,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.9.21": {
+      "state": "partially_ready",
+      "total": 2,
+      "ready": 1,
+      "pending": 1,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.9.22": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.9.23": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.9.24": {
+      "state": "partially_ready",
+      "total": 2,
+      "ready": 1,
+      "pending": 1,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.9.25": {
+      "state": "partially_ready",
+      "total": 2,
+      "ready": 1,
+      "pending": 1,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.9.26": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.10.01": {
+      "state": "partially_ready",
+      "total": 2,
+      "ready": 1,
+      "pending": 1,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.10.02": {
+      "state": "partially_ready",
+      "total": 3,
+      "ready": 1,
+      "pending": 1,
+      "disabled": 1,
+      "blocked": 0
+    },
+    "lu.10.03": {
+      "state": "partially_ready",
+      "total": 2,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 1,
+      "blocked": 0
+    },
+    "lu.10.04": {
+      "state": "partially_ready",
+      "total": 2,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 1,
+      "blocked": 0
+    },
+    "lu.10.05": {
+      "state": "partially_ready",
+      "total": 3,
+      "ready": 2,
+      "pending": 1,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.10.06": {
+      "state": "partially_ready",
+      "total": 8,
+      "ready": 5,
+      "pending": 3,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.10.07": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.10.08": {
+      "state": "partially_ready",
+      "total": 2,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 1,
+      "blocked": 0
+    },
+    "lu.10.09": {
+      "state": "partially_ready",
+      "total": 2,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 1,
+      "blocked": 0
+    },
+    "lu.10.10": {
+      "state": "partially_ready",
+      "total": 2,
+      "ready": 1,
+      "pending": 1,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.10.11": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.10.12": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.10.13": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.10.14": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.10.15": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.10.16": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.10.17": {
+      "state": "partially_ready",
+      "total": 2,
+      "ready": 1,
+      "pending": 1,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.10.18": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.10.19": {
+      "state": "partially_ready",
+      "total": 2,
+      "ready": 1,
+      "pending": 1,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.10.20": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.10.21": {
+      "state": "partially_ready",
+      "total": 3,
+      "ready": 1,
+      "pending": 2,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.10.22": {
+      "state": "partially_ready",
+      "total": 2,
+      "ready": 1,
+      "pending": 1,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.10.23": {
+      "state": "partially_ready",
+      "total": 2,
+      "ready": 1,
+      "pending": 1,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.10.24": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.10.25": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.10.26": {
+      "state": "fully_ready",
+      "total": 2,
+      "ready": 2,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.10.27": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.11.01": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.11.02": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.11.03": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.11.04": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.11.05": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.11.06": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.11.07": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.11.08": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.11.09": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.11.10": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.11.11": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.11.12": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.11.13": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.11.14": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.11.15": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.11.16": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.11.17": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.11.18": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.11.19": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.11.20": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.11.21": {
+      "state": "fully_ready",
+      "total": 1,
+      "ready": 1,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    },
+    "lu.11.22": {
+      "state": "fully_ready",
+      "total": 2,
+      "ready": 2,
+      "pending": 0,
+      "disabled": 0,
+      "blocked": 0
+    }
+  },
+  "activityReviewPending": 146,
+  "globalStrictEnforcement": {
+    "enabled": false,
+    "wouldBlockCurrentlyLaunchable": [
+      "practice.experiment.10.10",
+      "practice.experiment.10.2",
+      "practice.experiment.10.6",
+      "practice.experiment.10.7",
+      "practice.experiment.7.1",
+      "practice.experiment.7.10",
+      "practice.experiment.7.11",
+      "practice.experiment.7.12",
+      "practice.experiment.7.9",
+      "practice.experiment.8.10",
+      "practice.experiment.8.11",
+      "practice.experiment.8.13",
+      "practice.experiment.8.14",
+      "practice.experiment.8.15",
+      "practice.experiment.8.6",
+      "practice.experiment.8.8",
+      "practice.experiment.8.9",
+      "practice.experiment.9.12",
+      "practice.experiment.9.13",
+      "practice.experiment.9.15",
+      "practice.experiment.9.16",
+      "practice.experiment.9.19",
+      "practice.experiment.9.20",
+      "practice.experiment.9.4",
+      "practice.experiment.9.6",
+      "practice.experiment.9.7",
+      "practice.experiment.9.9"
+    ],
+    "learningUnitsAffected": 33,
+    "decision": "NOT enabled globally: it would hide currently launchable (pending, observe-mode) supporting activities in many units; C4 is enforced strictly only in the pilot."
+  },
+  "pilot": {
+    "learningUnitIds": [
+      "lu.9.15",
+      "lu.7.11",
+      "lu.7.12",
+      "lu.7.07"
+    ],
+    "strictActivities": [
+      {
+        "activityId": "practice.calculation.7.5",
+        "status": "READY"
+      },
+      {
+        "activityId": "practice.experiment.9.10",
+        "status": "READY"
+      },
+      {
+        "activityId": "practice.simulation.7.07.planned",
+        "status": "READY"
+      },
+      {
+        "activityId": "practice.trainer.7.4",
+        "status": "READY"
+      }
+    ]
+  }
+}

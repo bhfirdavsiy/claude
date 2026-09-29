@@ -26,6 +26,9 @@ const PRESENTATION=[/^src\/features\//,/^src\/app\/bootstrap\.ts$/];
 /** Answer-key layer and evaluator: owned by the domain + orchestrator + content source only. */
 export const ASSESSMENT_KEY_NAMES=new Set(['AssessmentKey','AssessmentKeyPack','validateKeyPack','ASSESSMENT_KEY_PACK_PATH','evaluateAssessment','evaluationToEvidenceDrafts','correctOptionId']);
 
+/** Mastery is derived by the orchestrator; presentation receives a MasteryViewModel only (P1.2 §26). */
+const MASTERY_DERIVATION=new Set(['computeConceptMastery','buildMasteryView','rescoreEvidence']);
+
 export interface GuardViolation {file:string;line:number;rule:string;detail:string}
 
 const MASTERY_FUNCTION='computeConceptMastery';
@@ -66,6 +69,7 @@ export function checkSource(rel:string,source:string):GuardViolation[]{
           const original=(e.propertyName??e.name).text;
           aliases.set(e.name.text,original);
           flagKey(e,original);
+          if(presentation&&!e.isTypeOnly&&!typeOnly&&MASTERY_DERIVATION.has(original)) out.push({file:rel,line:line(e),rule:'MASTERY_COMPUTED_IN_PRESENTATION',detail:original});
           if(!typeOnly&&!e.isTypeOnly) flagBoundary(e,original);
         }
       }

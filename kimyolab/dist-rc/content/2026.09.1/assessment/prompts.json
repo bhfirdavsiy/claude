@@ -29,7 +29,9 @@
         "concept.c184",
         "concept.c186"
       ],
-      "outcomeIds": [],
+      "outcomeIds": [
+        "lu.9.15#o1"
+      ],
       "version": "1.0.0-rc.1",
       "review": {
         "chemistry": "pending",
@@ -63,7 +65,9 @@
         "concept.c185",
         "concept.c187"
       ],
-      "outcomeIds": [],
+      "outcomeIds": [
+        "lu.9.15#o1"
+      ],
       "version": "1.0.0-rc.1",
       "review": {
         "chemistry": "pending",
@@ -97,7 +101,9 @@
         "concept.c184",
         "concept.c186"
       ],
-      "outcomeIds": [],
+      "outcomeIds": [
+        "lu.9.15#o1"
+      ],
       "version": "1.0.0-rc.1",
       "review": {
         "chemistry": "pending",
@@ -132,7 +138,9 @@
         "concept.c186",
         "concept.c188"
       ],
-      "outcomeIds": [],
+      "outcomeIds": [
+        "lu.9.15#o1"
+      ],
       "version": "1.0.0-rc.1",
       "review": {
         "chemistry": "pending",
@@ -166,7 +174,9 @@
         "concept.c187",
         "concept.c188"
       ],
-      "outcomeIds": [],
+      "outcomeIds": [
+        "lu.9.15#o1"
+      ],
       "version": "1.0.0-rc.1",
       "review": {
         "chemistry": "pending",

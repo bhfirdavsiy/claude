@@ -9,6 +9,7 @@ import type {LabCatalogModel} from '../features/labs/model.ts';
 import { sha256Hex, utf8 } from '../domain/content/sha256.ts';
 import type { MasteryVersionPolicy } from '../domain/mastery/mastery.ts';
 import { EXECUTION_PLAN_PACK_PATH, resolveExecutionPlan } from '../runtime/practice-router/execution-plan.ts';
+import { READINESS_PACK_PATH, launchDecision, readinessMessage, resolveReadiness, READINESS_PACK_SCHEMA, type LearningActivityReadiness, type ReadinessPack, type ReadinessReason } from '../domain/readiness/readiness.ts';
 import { ASSESSMENT_KEY_PACK_PATH, ASSESSMENT_PROMPT_PACK_PATH, isApproved, validateKeyPack, validatePromptPack, type AssessmentKey, type AssessmentPrompt } from '../domain/assessment/model.ts';
 
 type FetchLike=(url:string)=>Promise<{ok:boolean;status:number;json:()=>Promise<any>;text?:()=>Promise<string>;arrayBuffer?:()=>Promise<ArrayBuffer>}>;
@@ -17,8 +18,11 @@ export class ContentLoadError extends Error {
   code:string;
   status?:number;
   resource?:string;
-  constructor(code:string,options:{status?:number;resource?:string}={}){
+  /** Readiness reasons of an activity that must not launch (machine codes; the UI maps them to text). */
+  reasons?:ReadinessReason[];
+  constructor(code:string,options:{status?:number;resource?:string;reasons?:ReadinessReason[]}={}){
     super(code); this.name='ContentLoadError'; this.code=code; this.status=options.status; this.resource=options.resource;
+    if(options.reasons) this.reasons=[...options.reasons];
   }
 }
 
@@ -27,6 +31,8 @@ export function contentErrorMessage(error:unknown,fallback:string):string{
   const code=error instanceof ContentLoadError?error.code:undefined;
   if(code==='CONTENT_INTEGRITY_ERROR') return 'Kontent fayli tekshiruvdan o‘tmadi. Sahifani yangilang; muammo takrorlansa, administratorga murojaat qiling.';
   if(code==='APP_VERSION_INCOMPATIBLE'||code==='SCHEMA_VERSION_INCOMPATIBLE') return 'Kontent to‘plami ilova versiyasiga mos emas. Ilovani yangilang.';
+  // P1.2: readiness never reaches the learner as a raw code — always as localized text.
+  if(code==='ACTIVITY_NOT_AVAILABLE') return readinessMessage((error as ContentLoadError).reasons??[]);
   return fallback;
 }
 
@@ -120,7 +126,7 @@ export class ContentClient {
     const grade=Number(match[1]);
     const version=await this.version();
     const prefix=`${this.baseUrl}/${version}`;
-    const [units,theories,practices,mappings,concepts,externalRaw,assessmentPrompts]=await Promise.all([
+    const [units,theories,practices,mappings,concepts,externalRaw,assessmentPrompts,readinessPack]=await Promise.all([
       this.packJson(version,`learning-units/grade-${grade}.json`),
       this.packJson(version,`theory-activities.json`),
       this.packJson(version,`practice-activities.json`),
@@ -128,8 +134,9 @@ export class ContentClient {
       this.packJson(version,`concepts.json`),
       this.packJson(version,`external-lab-bindings.json`),
       this.packJson(version,ASSESSMENT_PROMPT_PACK_PATH),
+      this.packJson(version,READINESS_PACK_PATH),
     ]);
-    try{return buildLearningHubModel(learningUnitId,{units,theories,practices,mappings,concepts,externalLabs:bindingsForLearningUnit(validateExternalLabBindings(externalRaw),learningUnitId),assessmentPrompts});}
+    try{return buildLearningHubModel(learningUnitId,{units,theories,practices,mappings,concepts,externalLabs:bindingsForLearningUnit(validateExternalLabBindings(externalRaw),learningUnitId),assessmentPrompts,readiness:readinessPack});}
     catch(error){
       const code=error instanceof Error?error.message.split(':')[0]:'CONTENT_MODEL_ERROR';
       throw new ContentLoadError(code,{resource:learningUnitId});
@@ -158,6 +165,10 @@ export class ContentClient {
     ]);
     const activity=practices.find((x:any)=>x.id===practiceActivityId);
     if(!activity) throw new ContentLoadError('PRACTICE_ACTIVITY_NOT_FOUND',{resource:practiceActivityId});
+    // P1.2 (C4): the canonical readiness decides whether the activity may launch — before anything else.
+    const readiness=resolveReadiness(await this.packJson(version,READINESS_PACK_PATH),practiceActivityId);
+    const decision=launchDecision(readiness);
+    if(!decision.allowed) throw new ContentLoadError('ACTIVITY_NOT_AVAILABLE',{resource:practiceActivityId,reasons:decision.reasons});
     let executionPlan;
     try{executionPlan=resolveExecutionPlan(planPack,practiceActivityId);}
     catch(error){throw new ContentLoadError(error instanceof Error&&error.message==='EXECUTION_PLAN_NOT_FOUND'?'PRACTICE_CONFIG_NOT_FOUND':'EXECUTION_PLAN_INVALID',{resource:practiceActivityId});}
@@ -173,7 +184,7 @@ export class ContentClient {
     const unit=units.find((x:any)=>x.id===mapping.learningUnitId);
     if(!unit) throw new ContentLoadError('LEARNING_UNIT_NOT_FOUND',{resource:mapping.learningUnitId});
     return buildPracticePageModel({
-      activity,mapping,unit,executionPlan,referenceConfig,contentVersion:version,
+      activity,mapping,unit,executionPlan,readiness:readiness!,referenceConfig,contentVersion:version,
       schemaVersion:String(packManifest.schemaVersion??'0'),
       scoringVersion:String(packManifest.scoringVersion??'0'),
       ...(packManifest.curriculumVersion?{curriculumVersion:String(packManifest.curriculumVersion)}:{}),
@@ -249,6 +260,14 @@ export class ContentClient {
     return {version:prompts.version,prompts:presented,keys:keys.keys.filter(k=>wanted.has(k.itemId))};
   }
 
+  /** The canonical readiness pack (activity readiness, unit assessment availability, pilot units). */
+  async loadReadiness():Promise<ReadinessPack>{
+    const version=await this.version();
+    const pack=await this.packJson(version,READINESS_PACK_PATH);
+    if(!pack||pack.schema!==READINESS_PACK_SCHEMA) throw new ContentLoadError('READINESS_PACK_INVALID');
+    return structuredClone(pack);
+  }
+
   async getRuntimeVersions(){
     const contentVersion=await this.version();
     const manifest=this.manifestCache;
@@ -280,6 +299,6 @@ export class ContentClient {
     if(![7,8,9,10,11].includes(grade)) throw new ContentLoadError('GRADE_INVALID');
     const version=await this.version();
     const units=await this.packJson(version,`learning-units/grade-${grade}.json`);
-    return units.map((u:any)=>({id:u.id,grade:u.grade,title:u.title,chapter:u.chapter,learningOutcomes:[...(u.learningOutcomes??[])]}));
+    return units.map((u:any)=>({id:u.id,grade:u.grade,title:u.title,chapter:u.chapter,learningOutcomes:[...(u.learningOutcomes??[])],conceptIds:[...(u.conceptIds??[])]}));
   }
 }

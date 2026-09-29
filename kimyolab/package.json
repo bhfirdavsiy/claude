@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "typecheck:next": "node scripts/typecheck-ratchet.mjs",
     "schema:validate": "node scripts/validate-schemas.ts",
-    "content:validate": "node scripts/validate-content.ts && node scripts/validate-external-labs.ts",
+    "content:validate": "node scripts/validate-content.ts && node scripts/validate-external-labs.ts && node scripts/learning-readiness.ts",
     "chemistry:validate": "node --experimental-strip-types scripts/validate-chemistry.ts",
     "test": "node --test --test-concurrency=1 tests/*.test.mjs",
     "test:integration": "node --test --test-concurrency=1 tests/integration/*.test.mjs",
@@ -99,7 +99,11 @@
     "reviewer:handoff": "npm run beta:review-registers && npm run signoff:targets && npm run signoff:templates && npm run chemistry:review-package && npm run didactic:review-package && npm run reviewer:workspace",
     "reviewer:return:refresh": "npm run approvals:refresh && npm run reviewer:workspace",
     "assessment:validate": "node --experimental-strip-types scripts/validate-assessment-bank.ts",
-    "release:freeze": "node scripts/release-freeze.ts"
+    "release:freeze": "node scripts/release-freeze.ts",
+    "assessment:review:pack": "node scripts/assessment-review/pack.ts",
+    "assessment:review:validate": "node scripts/assessment-review/validate.ts",
+    "assessment:review:import": "node scripts/assessment-review/import.ts",
+    "learning:readiness": "node scripts/learning-readiness.ts"
   },
   "devDependencies": {
     "@playwright/test": "1.56.1",

@@ -1,5 +1,6 @@
                                                  
 import {clear,el,link} from '../../ui/components/dom.js';
+import {renderMasteryPanel} from './mastery-render.js';
 
 export function renderProgress(root            ,items                   ){
   clear(root);
@@ -8,5 +9,5 @@ export function renderProgress(root            ,items                   ){
   const section=el('section',{className:'kl-shell kl-section'});
   if(!items.length){const card=el('div',{className:'kl-card'});card.append(el('h2',{text:'Hali natija yo‘q'}),el('p',{text:'Birinchi mavzuni boshlab, amaliy faoliyatni bajaring.'}),link('Mavzularni ko‘rish','/','kl-button kl-button--primary'));section.append(card);root.append(header,section);return;}
   const grid=el('div',{className:'kl-progress-grid'});
-  for(const item of items){const card=el('article',{className:'kl-card kl-progress-card'});card.append(el('p',{className:'kl-kicker',text:item.grade?`${item.grade}-sinf`:'Mavzu'}),el('h2',{text:item.title}),el('p',{text:item.statusLabel}),link('Davom etish',item.resumeHref,'kl-button kl-button--secondary'));grid.append(card);} section.append(grid);root.append(header,section);
+  for(const item of items){const card=el('article',{className:'kl-card kl-progress-card'});card.append(el('p',{className:'kl-kicker',text:item.grade?`${item.grade}-sinf`:'Mavzu'}),el('h2',{text:item.title}),el('p',{className:'kl-progress-card__lesson',text:`Dars: ${item.statusLabel}`,attrs:{'data-lesson-status':item.status}}));if(item.mastery)card.append(renderMasteryPanel(item.mastery));card.append(link('Davom etish',item.resumeHref,'kl-button kl-button--secondary'));grid.append(card);} section.append(grid);root.append(header,section);
 }

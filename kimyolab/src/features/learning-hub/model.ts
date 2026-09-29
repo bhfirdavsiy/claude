@@ -1,5 +1,7 @@
 import type { Concept, LearningUnit, MappingLink, PracticeActivity, TheoryActivity } from '../../domain/content/types.ts';
 import type {ExternalLabBinding} from '../../integrations/external-labs/types.ts';
+import {launchDecision,readinessMessage,resolveReadiness,type ReadinessPack} from '../../domain/readiness/readiness.ts';
+import type {AssessmentAvailability} from '../../domain/readiness/unit-readiness.ts';
 import {assessmentIdFor,isApproved,toPromptView,validatePromptPack,type AssessmentPromptView} from '../../domain/assessment/model.ts';
 
 export interface LearningHubContentData {
@@ -11,6 +13,8 @@ export interface LearningHubContentData {
   externalLabs?:ExternalLabBinding[];
   /** Prompt layer only (assessment/prompts.json). The answer-key layer never reaches a view model (C3). */
   assessmentPrompts?:unknown;
+  /** Canonical readiness pack (P1.2): launchability of practices, unit assessment availability, pilot. */
+  readiness?:ReadinessPack;
 }
 
 export interface StudentPracticeModel {
@@ -19,6 +23,9 @@ export interface StudentPracticeModel {
   title:string;
   goal:string;
   accessibility:string[];
+  /** Whether the canonical launch gate lets this activity start; otherwise a learner-facing reason. */
+  launchable:boolean;
+  unavailableMessage?:string;
 }
 
 /** Objective assessment as the learner sees it: prompts only — no key, no explanation, no scoring rule. */
@@ -47,15 +54,24 @@ export interface LearningHubModel {
   supportingPractices:StudentPracticeModel[];
   externalLabs:Array<{id:string;provider:string;title:string;description:string;mode:string;status:string}>;
   assessment:StudentAssessmentModel;
+  /** Part of the controlled P1.2 pilot (strict readiness + learner-facing mastery). */
+  pilot:boolean;
+  /** Unit assessment availability with a learner-facing note (never a raw code). */
+  assessmentAvailability:{status:AssessmentAvailability;message?:string};
 }
 
-function studentPractice(activity:PracticeActivity):StudentPracticeModel {
+function studentPractice(activity:PracticeActivity,pack?:ReadinessPack):StudentPracticeModel {
+  // Without a readiness pack (legacy callers/tests) nothing is decided here; the page itself still gates.
+  const readiness=pack?resolveReadiness(pack,activity.id):undefined;
+  const decision=pack?launchDecision(readiness):{allowed:true as const};
   return {
     id:activity.id,
     type:activity.type,
     title:activity.title,
     goal:activity.goal,
     accessibility:[...activity.accessibilityProfile],
+    launchable:decision.allowed,
+    ...(decision.allowed?{}:{unavailableMessage:readinessMessage(decision.reasons)}),
   };
 }
 
@@ -75,7 +91,7 @@ export function buildLearningHubModel(learningUnitId:string,data:LearningHubCont
     .filter(x=>x.learningUnitId===learningUnitId&&x.role==='supporting')
     .map(x=>data.practices.find(p=>p.id===x.practiceActivityId))
     .filter((x):x is PracticeActivity=>Boolean(x))
-    .map(studentPractice);
+    .map(p=>studentPractice(p,data.readiness));
 
   return {
     id:unit.id,
@@ -91,7 +107,7 @@ export function buildLearningHubModel(learningUnitId:string,data:LearningHubCont
       blocks:theory.explanationBlocks.map(block=>({type:block.type,text:block.text})),
       representationModes:[...theory.representationModes],
     },
-    primaryPractice:studentPractice(practice),
+    primaryPractice:studentPractice(practice,data.readiness),
     supportingPractices:supporting,
     externalLabs:(data.externalLabs??[]).map(x=>({id:x.id,provider:x.provider,title:x.title,description:x.description,mode:x.mode,status:x.status})),
     assessment:(()=>{
@@ -99,6 +115,12 @@ export function buildLearningHubModel(learningUnitId:string,data:LearningHubCont
       const all=(pack?.items??[]).filter(x=>x.learningUnitId===learningUnitId);
       const approved=all.filter(isApproved);
       return {assessmentId:assessmentIdFor(learningUnitId),version:String(pack?.version??'0.0.0'),items:approved.map(toPromptView),pendingCount:all.length-approved.length};
+    })(),
+    pilot:Boolean(data.readiness?.pilotLearningUnitIds.includes(learningUnitId)),
+    assessmentAvailability:(()=>{
+      const unitReadiness=data.readiness?.units?.find(u=>u.learningUnitId===learningUnitId);
+      const status:AssessmentAvailability=unitReadiness?.assessment.status??'NONE';
+      return status==='AVAILABLE'?{status}:{status,message:readinessMessage(unitReadiness?.assessment.reasons.length?unitReadiness.assessment.reasons:['ASSESSMENT_NOT_AVAILABLE'])};
     })(),
   };
 }
