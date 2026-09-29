@@ -133,3 +133,13 @@ Topilgan va tuzatilgan blocker’lar (har biri uchun tuzatishsiz yiqiladigan tes
    keyin 9 buyruqli tajriba seansi 9 Attempt va 45 evidence (8 ta noyob) bo‘lib saqlanar edi. Endi bitta ochilgan
    practice sahifasi = bitta Attempt (`beginPracticeSession`), faqat yangi yoki o‘zgargan dalillar (vaqt tamg‘asidan
    tashqari) shu attempt’ga qo‘shiladi; o‘zgargan natija tarix sifatida saqlanadi (`tests/p0-attempt-sessions.test.mjs`).
+
+### Merge’dan keyingi hotfix (freeze)
+
+Merge commit `9af4b1d` toza klonda `npm ci && npm run verify` → PASS. Ammo `release:freeze` birinchi urinishda
+(to‘g‘ri) rad etdi: `git status --porcelain` chiqishi `trim()` qilingani sababli birinchi qatorning status
+ustuni siljib, `reports/...` yo‘li `imyolab/reports/...` bo‘lib qolgan va ruxsat etilgan artefakt deb tanilmagan —
+freeze hech qachon muvaffaqiyatli tugamas edi. Tag yaratilmadi. Tuzatish: `--porcelain=v1 -z` trim’siz parse
+qilinadi, `--show-prefix` bilan yo‘l nisbiylashtiriladi, oldingi `verify` qoldirgan hisobot artefaktlari
+boshlang‘ich tekshiruvda ham ruxsat etiladi. Freeze’ning muvaffaqiyatli yo‘li endi test bilan qoplangan
+(annotated tag, SHA, barcha versiya maydonlari).
