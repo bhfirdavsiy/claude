@@ -1,6 +1,6 @@
 import type {Evidence} from '../evidence/types.ts';
 import {validateEvidence} from '../evidence/types.ts';
-import {computeConceptMastery} from '../../domain/mastery/mastery.ts';
+import {computeConceptMastery,type MasteryContext,type MasteryVersionPolicy} from '../../domain/mastery/mastery.ts';
 
 export function migrateConceptSplit(input:{
   sourceConceptId:string;
@@ -26,9 +26,12 @@ export function migrateConceptMerge(input:{
   sourceConceptIds:string[];
   targetConceptId:string;
   evidence:Evidence[];
-  scoringVersion:string;
+  /** Explicit versions the merged mastery is computed for (P1.0, baseline C7). Required. */
+  context:MasteryContext;
+  versionPolicy?:MasteryVersionPolicy;
   transferRequired?:boolean;
 }){
+  if(!input.context||typeof input.context.scoringVersion!=='string'||typeof input.context.contentVersion!=='string') throw new Error('MASTERY_CONTEXT_REQUIRED');
   const sources=new Set(input.sourceConceptIds);
   const seen=new Set<string>();
   const migrated:Evidence[]=[];
@@ -41,7 +44,9 @@ export function migrateConceptMerge(input:{
   const mastery=computeConceptMastery({
     conceptId:input.targetConceptId,
     evidence:migrated,
-    scoringVersion:input.scoringVersion,
+    scoringVersion:input.context.scoringVersion,
+    context:input.context,
+    versionPolicy:input.versionPolicy,
     transferRequired:input.transferRequired,
   });
   return {evidence:migrated,mastery};

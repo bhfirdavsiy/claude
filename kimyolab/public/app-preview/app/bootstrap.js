@@ -4,7 +4,7 @@ import { renderHome } from '../features/home/render.js';
 import { renderError, renderLearningGuide, renderLearningPracticeStage, renderLearningQuiz, renderLoading, renderNotFound } from '../features/learning-hub/render.js';
 import {renderPractice} from '../features/practice/render.js';
 import {ReferencePracticeSession} from '../features/practice/session.js';
-import {BrowserProgressService} from '../features/progress/service.js';
+import {BrowserProgressService,                           } from '../features/progress/service.js';
 import {buildProgressViewModel} from '../features/progress/model.js';
 import {renderProgress} from '../features/progress/render.js';
 import {renderSearch} from '../features/search/render.js';
@@ -41,7 +41,11 @@ function navigateInternal(href       ){
   void renderCurrent();
 }
 
+let activePractice                                 ;
+
 async function renderCurrent(){
+  // Leaving a practice page ends its session: an unfinished attempt is closed as abandoned (never a success).
+  if(activePractice){const previous=activePractice;activePractice=undefined;void progressService.leavePracticeSession(previous).catch(()=>undefined);}
   const active=currentLocation();
   const route=parseAppRoute(active.pathname);
   if(route.name==='home'){renderHome(main);return;}
@@ -56,7 +60,10 @@ async function renderCurrent(){
   }
   if(route.name==='practice'){
     renderLoading(main);
-    try{const page=await client.loadPractice(route.practiceActivityId);progressService.setVersionPolicy(await client.getEvidenceCompatibility());const attemptSession=progressService.beginPracticeSession(page);renderPractice(main,page,new ReferencePracticeSession(page),(result)=>progressService.recordPracticeResult(page,result,attemptSession).then(()=>undefined));}
+    try{const page=await client.loadPractice(route.practiceActivityId);progressService.setVersionPolicy(await client.getEvidenceCompatibility());// One opened practice page = one attempt: commands go UI → orchestrator → engine → evidence boundary.
+      const attemptSession=progressService.beginPracticeSession(page,new ReferencePracticeSession(page));activePractice=attemptSession;
+      let persistError        ;
+      renderPractice(main,page,{apply:async(command)=>{const out=await progressService.applyPracticeCommand(attemptSession,command);persistError=out.persistError;return out.result;}},async()=>{if(persistError)throw persistError;});}
     catch(error){renderError(main,contentErrorMessage(error,'Faoliyatni yuklab bo‘lmadi.'));}
     return;
   }
@@ -97,6 +104,8 @@ document.addEventListener('click',(event)=>{
   event.preventDefault();
   navigateInternal(href);
 });
+// Attempts left open by a previous page lifetime (refresh, tab/window close) are closed as abandoned.
+void progressService.recoverOrphanedAttempts().catch(()=>undefined);
 window.addEventListener('popstate',()=>void renderCurrent());
 if(standalone) window.addEventListener('hashchange',()=>void renderCurrent());
 void renderCurrent();

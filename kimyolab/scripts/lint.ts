@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {stripTypeScriptTypes} from 'node:module';
+import {checkTree} from './lib/architecture-guard.ts';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const issues:string[]=[];
@@ -76,6 +77,9 @@ for(const file of pathFiles){
   });
 }
 if(/\/api\/external-labs\/nobook\/auth/.test(server)) issues.push('NOBOOK_AUTH_ENDPOINT_EXPOSED:server/app.mjs');
+
+// Canonical learning runtime boundaries (P1.0): AST-based, see scripts/lib/architecture-guard.ts.
+for(const v of checkTree(root)) issues.push(`${v.rule}:${v.file}:${v.line}: ${v.detail}`);
 
 console.log(JSON.stringify({files:srcFiles.length,issues:issues.length}));
 for(const issue of issues) console.error(issue);

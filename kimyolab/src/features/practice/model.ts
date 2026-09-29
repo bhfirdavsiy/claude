@@ -16,7 +16,8 @@ export interface StudentPracticePageModel {
   title:string;
   goal:string;
   accessibility:string[];
-  learningUnit:{id:string;grade:number;title:string};
+  /** conceptIds: the unit's concepts — the canonical mastery scope for this unit. */
+  learningUnit:{id:string;grade:number;title:string;conceptIds?:string[]};
   configFamily:StudentPracticeConfigFamily;
   referenceConfig:Record<string,any>;
   activityVersion:string;
@@ -40,7 +41,7 @@ export interface StudentPracticePageModel {
 export function buildPracticePageModel(input:{
   activity:PracticeActivity;
   mapping:{learningUnitId:string};
-  unit:{id:string;grade:number;title:string};
+  unit:{id:string;grade:number;title:string;conceptIds?:string[]};
   configFamily:StudentPracticeConfigFamily;
   referenceConfig:Record<string,any>;
   contentVersion:string;
@@ -62,7 +63,7 @@ export function buildPracticePageModel(input:{
     title:input.activity.title,
     goal:input.activity.goal,
     accessibility:[...input.activity.accessibilityProfile],
-    learningUnit:{id:input.unit.id,grade:input.unit.grade,title:input.unit.title},
+    learningUnit:{id:input.unit.id,grade:input.unit.grade,title:input.unit.title,...(Array.isArray(input.unit.conceptIds)?{conceptIds:[...input.unit.conceptIds]}:{})},
     configFamily:input.configFamily,
     referenceConfig:structuredClone(input.referenceConfig),
     activityVersion:String(input.activity.version??'0'),

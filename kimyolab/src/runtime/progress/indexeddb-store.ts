@@ -296,6 +296,31 @@ export class IndexedDbProgressStore {
 
   saveProgress(progress:LearningUnitProgress){ return this.put('progress',progress,progress.learningUnitId); }
 
+  /**
+   * Atomic progress mutation (P1.0, baseline C8): read → migrate/validate → update → save inside ONE
+   * readwrite transaction, so concurrent mutations of the same unit are serialized by IndexedDB and
+   * cannot overwrite each other. `updater` must be pure and synchronous (no awaits inside the transaction).
+   * A stored record that cannot be migrated is isolated to quarantine in the same transaction.
+   */
+  async updateProgress(learningUnitId:string,updater:(current:LearningUnitProgress|undefined)=>LearningUnitProgress):Promise<LearningUnitProgress>{
+    return this.run(['progress','quarantine'],'readwrite','PROGRESS_SAVE_FAILED',async tx=>{
+      const store=tx.objectStore('progress');
+      const raw=await this.request<unknown>(store.get(learningUnitId));
+      let current:LearningUnitProgress|undefined;
+      if(raw!==undefined){
+        const loaded=loadProgressRecord(raw);
+        if(loaded.status==='isolated'){
+          const entry:QuarantineRecord={id:this.newId(),store:'progress',key:learningUnitId,code:loaded.code,reason:loaded.reason,record:raw,isolatedAt:this.now()};
+          await this.request(tx.objectStore('quarantine').put(entry));
+        }else current=loaded.record;
+      }
+      const next=updater(current);
+      if(next.learningUnitId!==learningUnitId) throw coded('PROGRESS_KEY_MISMATCH');
+      await this.request(store.put(next,learningUnitId));
+      return next;
+    });
+  }
+
   async loadProgress(learningUnitId:string):Promise<LearningUnitProgress|undefined>{
     const raw=await this.get<unknown>('progress',learningUnitId);
     if(raw===undefined) return undefined;
@@ -352,12 +377,29 @@ export class IndexedDbProgressStore {
   }
 
   /** Appends evidence to an attempt that already exists (same session). Never overwrites. */
+  /**
+   * Terminal attempt transition (P1.0): in_progress → completed | abandoned, exactly once.
+   * Legacy attempts without status are already completed. Evidence is never touched here.
+   */
+  async finishAttempt(attemptId:string,status:'completed'|'abandoned',at:string):Promise<Attempt>{
+    return this.run(['attempts'],'readwrite','EVIDENCE_SAVE_FAILED',async tx=>{
+      const store=tx.objectStore('attempts');
+      const attempt=await this.request<Attempt|undefined>(store.get(attemptId));
+      if(!attempt) throw coded('ATTEMPT_UNKNOWN');
+      if(attempt.status!=='in_progress') throw coded('ATTEMPT_ALREADY_FINISHED');
+      const next=validateAttempt({...attempt,status,completedAt:at});
+      await this.request(store.put(next));
+      return next;
+    });
+  }
+
   async appendAttemptEvidence(attemptId:string,evidence:PersistedEvidence[]):Promise<void>{
     const validEvidence=evidence.map(validatePersistedEvidence);
     for(const e of validEvidence) if(e.attemptId!==attemptId) throw coded('EVIDENCE_ATTEMPT_MISMATCH');
     await this.run(['attempts','evidence'],'readwrite','EVIDENCE_SAVE_FAILED',async tx=>{
       const attempt=await this.request<Attempt|undefined>(tx.objectStore('attempts').get(attemptId));
       if(!attempt) throw coded('EVIDENCE_ATTEMPT_UNKNOWN');
+      if(attempt.status==='abandoned') throw coded('EVIDENCE_ATTEMPT_ABANDONED');
       try{for(const e of validEvidence) await this.request(tx.objectStore('evidence').add(e));}
       catch(error){if(error&&typeof error==='object'&&(error as any).name==='ConstraintError') throw coded('EVIDENCE_ID_COLLISION',error); throw error;}
     });

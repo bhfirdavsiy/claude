@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-09-29T13:41:40.844Z",
+  "createdAt": "2026-09-29T16:01:02.019Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -11,8 +11,8 @@
     {
       "path": "app-preview/app/bootstrap.js",
       "sourcePath": "public/app-preview/app/bootstrap.js",
-      "checksum": "4193d9cb59ce04e99fa02d69c3adaa6393bf1423a64ae199dcbbe1c36b11c41c",
-      "size": 6578
+      "checksum": "abd8c0c43fce2910bdb2b688e746ef74ed7be1d6b2f0ff02643dfe68cf8fa551",
+      "size": 7382
     },
     {
       "path": "app-preview/app/content-client.js",
@@ -269,8 +269,8 @@
     {
       "path": "app-preview/features/labs/external-render.js",
       "sourcePath": "public/app-preview/features/labs/external-render.js",
-      "checksum": "460f1d8400b23af4ce82be62761c6dbbdae7a9ffcae933eb3800231d8dab1afc",
-      "size": 6351
+      "checksum": "f06218224d1f6c292dd0f8f5c88568cc10b50972963134a85bc709272662f7a4",
+      "size": 6211
     },
     {
       "path": "app-preview/features/labs/model.js",
@@ -299,14 +299,14 @@
     {
       "path": "app-preview/features/practice/model.js",
       "sourcePath": "public/app-preview/features/practice/model.js",
-      "checksum": "ae96e7ba5e035d6aa1d5c0a64bd573da08920a1e1a7bbcbe20dafdf82b1bcdaa",
-      "size": 2924
+      "checksum": "e9c0f000b061d787953e1e20acd733fe368a31f541ba7e1c0a9aa194a44dcfbe",
+      "size": 3139
     },
     {
       "path": "app-preview/features/practice/render.js",
       "sourcePath": "public/app-preview/features/practice/render.js",
-      "checksum": "01213b5b73cd27798c8b60d2eb7f62311a5f8c3b1b8a5fea13f96dbf28bbd15a",
-      "size": 11014
+      "checksum": "6fc9e9546586875971acb366a59f0a377402e323cb6e466c8e6917d8908de738",
+      "size": 11048
     },
     {
       "path": "app-preview/features/practice/session.js",
@@ -321,10 +321,16 @@
       "size": 5084
     },
     {
+      "path": "app-preview/features/progress/liveness.js",
+      "sourcePath": "public/app-preview/features/progress/liveness.js",
+      "checksum": "d5e060fd659d1b245de90429b063aefb0dd07ac8463cd0571af808091c38415c",
+      "size": 1505
+    },
+    {
       "path": "app-preview/features/progress/model.js",
       "sourcePath": "public/app-preview/features/progress/model.js",
-      "checksum": "300b71f75f89122ec31dd07dffaa3e3a74e86d0ac688aec3af635bba64b42dd7",
-      "size": 1877
+      "checksum": "d67d7c4adfcdac44961a2c7dff9449fa53389121f7bada8fa8edd62eb1e5edfb",
+      "size": 1625
     },
     {
       "path": "app-preview/features/progress/render.js",
@@ -335,8 +341,8 @@
     {
       "path": "app-preview/features/progress/service.js",
       "sourcePath": "public/app-preview/features/progress/service.js",
-      "checksum": "07864e1e0d2db6916df8b6c60b33cdff2118ba0ad098375e456dee7a43333eef",
-      "size": 8989
+      "checksum": "ae0bffc9b28d4a8d9dc6ce34a39437f151ed33c52c19bef08db8b5950d524c97",
+      "size": 7032
     },
     {
       "path": "app-preview/features/search/model.js",
@@ -503,8 +509,8 @@
     {
       "path": "app-preview/runtime/evidence/types.js",
       "sourcePath": "public/app-preview/runtime/evidence/types.js",
-      "checksum": "c3bddab8c7e65adf8216fb36592a9bf1045cca65408e37094252456d63420b1d",
-      "size": 9016
+      "checksum": "4efe8fa24dac1b830ebb8a6a8d9085b4c2433c1dc1fa02e5317ecad88fd39812",
+      "size": 9815
     },
     {
       "path": "app-preview/runtime/governance/approvals.js",
@@ -531,10 +537,46 @@
       "size": 793
     },
     {
+      "path": "app-preview/runtime/learning-orchestrator/adapters.js",
+      "sourcePath": "public/app-preview/runtime/learning-orchestrator/adapters.js",
+      "checksum": "ea2944951443f2efb62ddae6524fc0299f80c5d255ad176a6abaf435ab5cf813",
+      "size": 2034
+    },
+    {
+      "path": "app-preview/runtime/learning-orchestrator/events.js",
+      "sourcePath": "public/app-preview/runtime/learning-orchestrator/events.js",
+      "checksum": "9f531b50d5b2fe12bdaf9f0ae57ce8a0dc6aa8c0a8262a341b229615f3e43537",
+      "size": 1649
+    },
+    {
+      "path": "app-preview/runtime/learning-orchestrator/orchestrator.js",
+      "sourcePath": "public/app-preview/runtime/learning-orchestrator/orchestrator.js",
+      "checksum": "cbe95a2c4a5ae3446f9a9a9a24961fc6d8fbe007a32b44f64bfc04cd5e7eb198",
+      "size": 19322
+    },
+    {
+      "path": "app-preview/runtime/learning-orchestrator/selectors.js",
+      "sourcePath": "public/app-preview/runtime/learning-orchestrator/selectors.js",
+      "checksum": "a9f1841112a5ecf90513a7757758cf8348621443afb2e3c7644a76ba00de34a9",
+      "size": 4187
+    },
+    {
+      "path": "app-preview/runtime/learning-orchestrator/state.js",
+      "sourcePath": "public/app-preview/runtime/learning-orchestrator/state.js",
+      "checksum": "d84a0809db3f602d40c9e31ae421adda12ad97ee242baf15b79d4ab0b63e8c4c",
+      "size": 2396
+    },
+    {
+      "path": "app-preview/runtime/learning-orchestrator/types.js",
+      "sourcePath": "public/app-preview/runtime/learning-orchestrator/types.js",
+      "checksum": "bb378f3a250801dd52b1dd522a8762c630dbc2805e16292f5f62a2297fedf940",
+      "size": 3586
+    },
+    {
       "path": "app-preview/runtime/learning-runner/runner.js",
       "sourcePath": "public/app-preview/runtime/learning-runner/runner.js",
-      "checksum": "09e1c1ecf0519ee6fab9db0dae12c260c90616d45af1f32551d653aec77b331d",
-      "size": 7056
+      "checksum": "428ccf524bb7d0bfc1ffc4e361af27e5bbbecd57945029716d1fcec43c75c073",
+      "size": 5852
     },
     {
       "path": "app-preview/runtime/practice-router/router.js",
@@ -545,14 +587,14 @@
     {
       "path": "app-preview/runtime/progress/concept-migration.js",
       "sourcePath": "public/app-preview/runtime/progress/concept-migration.js",
-      "checksum": "1292f171134d5d73616f93cac94205173dc0c646de123d5282917529e09f0d3c",
-      "size": 1671
+      "checksum": "a73bad1bc80c97bf593bb14433038be189c8ed5d9445975cbf99d55d20130032",
+      "size": 2086
     },
     {
       "path": "app-preview/runtime/progress/indexeddb-store.js",
       "sourcePath": "public/app-preview/runtime/progress/indexeddb-store.js",
-      "checksum": "d424bdae781172e527c1f545f8f3c96106f0b774f5ad2f3ed76e2adf64360e13",
-      "size": 19590
+      "checksum": "46c306edda4a66c46377340cbd176bb872dab1dc830b60d6c71ae2a5c3087911",
+      "size": 21892
     },
     {
       "path": "app-preview/runtime/progress/migrations.js",
@@ -569,8 +611,8 @@
     {
       "path": "app-preview/runtime/progress/reducer.js",
       "sourcePath": "public/app-preview/runtime/progress/reducer.js",
-      "checksum": "516a0cc9f9cb6924d227686d44f3cf97a683ad189aabea249f6dc4376e453e65",
-      "size": 2328
+      "checksum": "fcf5564f20ca1c5956ebd91cae355b856a807408afb9c33b960df44f10f17abb",
+      "size": 6453
     },
     {
       "path": "app-preview/runtime/progress/types.js",

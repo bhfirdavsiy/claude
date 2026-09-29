@@ -1,6 +1,6 @@
                                                    
 import {validateEvidence} from '../evidence/types.js';
-import {computeConceptMastery} from '../../domain/mastery/mastery.js';
+import {computeConceptMastery,                                             } from '../../domain/mastery/mastery.js';
 
 export function migrateConceptSplit(input  
                          
@@ -26,9 +26,12 @@ export function migrateConceptMerge(input
                             
                          
                       
-                        
+                                                                                            
+                         
+                                      
                             
  ){
+  if(!input.context||typeof input.context.scoringVersion!=='string'||typeof input.context.contentVersion!=='string') throw new Error('MASTERY_CONTEXT_REQUIRED');
   const sources=new Set(input.sourceConceptIds);
   const seen=new Set        ();
   const migrated           =[];
@@ -41,7 +44,9 @@ export function migrateConceptMerge(input
   const mastery=computeConceptMastery({
     conceptId:input.targetConceptId,
     evidence:migrated,
-    scoringVersion:input.scoringVersion,
+    scoringVersion:input.context.scoringVersion,
+    context:input.context,
+    versionPolicy:input.versionPolicy,
     transferRequired:input.transferRequired,
   });
   return {evidence:migrated,mastery};

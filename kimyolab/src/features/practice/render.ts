@@ -1,6 +1,9 @@
 import type {StudentPracticePageModel} from './model.ts';
 import {buildPracticeUiModel} from './ui-model.ts';
-import {ReferencePracticeSession} from './session.ts';
+import {isPracticeResultComplete} from '../../runtime/learning-orchestrator/selectors.ts';
+
+/** What the page needs from a practice session: send a command, get the engine result (no persistence here). */
+export interface PracticeCommandPort { apply(command:any):Promise<any> }
 import {el,clear,link} from '../../ui/components/dom.ts';
 
 function feedbackNode(){return el('div',{className:'kl-feedback',attrs:{role:'status','aria-live':'polite'}});}
@@ -27,14 +30,14 @@ function chemistryObservationText(result:any,fallback:string){
   return `${fallback} — ${labels.join('; ')} qayd etildi.`;
 }
 
-export function renderPractice(root:HTMLElement,page:StudentPracticePageModel,session:ReferencePracticeSession,onResult?:(result:any)=>void|Promise<void>){
+export function renderPractice(root:HTMLElement,page:StudentPracticePageModel,session:PracticeCommandPort,onResult?:(result:any)=>void|Promise<void>){
   clear(root); const model=buildPracticeUiModel(page);
   const head=el('header',{className:'kl-unit-hero'}); const hi=el('div',{className:'kl-shell'});
   hi.append(link('← Mavzuga qaytish',model.backHref,'kl-back-link'),el('p',{className:'kl-kicker',text:'Interaktiv faoliyat'}),el('h1',{text:model.title}),el('p',{className:'kl-unit-outcome',text:model.goal})); head.append(hi);
   const shell=el('div',{className:'kl-shell kl-practice-workspace'}); const card=el('section',{className:'kl-card'}); const feedback=feedbackNode();
 
   const nextStage=el('div',{className:'kl-practice-next'});
-  const isResultComplete=(result:any)=>{const status=result?.finalState?.status;if(status==='complete'||status==='correct')return true;if(page.type==='simulation')return (result?.evidence??[]).some((e:any)=>e.type==='construction'&&e.achieved===true);return false;};
+  const isResultComplete=(result:any)=>isPracticeResultComplete(page.type,result);
   const run=async(command:any)=>{try{const result=await session.apply(command);setFeedback(feedback,result);try{await onResult?.(result);}catch{feedback.textContent='Faoliyat bajarildi, lekin natijani saqlab bo‘lmadi.';}if(isResultComplete(result)&&!nextStage.childElementCount){nextStage.append(link('Mustahkamlashga o‘tish',`/learn/${page.learningUnit.id}/quiz`,'kl-button kl-button--primary'));}return result;}catch{feedback.textContent='Amalni bajarib bo‘lmadi. Kiritilgan ma’lumotni tekshiring.';}};
 
   if(model.kind==='experiment'){

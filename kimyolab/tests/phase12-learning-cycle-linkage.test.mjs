@@ -38,7 +38,10 @@ test('guide and reinforcement completion persist independently while reinforceme
   assert.equal(snap.practiceComplete,false);
   assert.equal(snap.reinforcementComplete,false);
   const saved=await service.recordReinforcement('lu.9.15',versions,{conceptReflection:'Elektrolizni tushuntirdim',practiceReflection:'Elektrodlarda o‘zgarish kuzatildi',connectionReflection:'Nazariya va kuzatuv bog‘landi',confidence:'partial'});
-  assert.equal(saved.status,'assessment_complete');
+  // P1.0 (baseline C5): this line used to assert status 'assessment_complete'. That encoded the bug —
+  // a reflection is not a scored assessment. The real invariants of this test (reinforcement persists,
+  // it does not award mastery) are kept; the corrected status contract is in tests/p1-event-taxonomy.test.mjs.
+  assert.notEqual(saved.status,'assessment_complete');
   assert.notEqual(saved.status,'mastered');
   snap=await service.getCycleSnapshot('lu.9.15');
   assert.equal(snap.reinforcementComplete,true);
