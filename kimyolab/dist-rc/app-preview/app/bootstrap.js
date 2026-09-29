@@ -45,7 +45,7 @@ let activePractice                                 ;
 
 async function renderCurrent(){
   // Leaving a practice page ends its session: an unfinished attempt is closed as abandoned (never a success).
-  if(activePractice){const previous=activePractice;activePractice=undefined;void progressService.abandonPracticeSession(previous).catch(()=>undefined);}
+  if(activePractice){const previous=activePractice;activePractice=undefined;void progressService.leavePracticeSession(previous).catch(()=>undefined);}
   const active=currentLocation();
   const route=parseAppRoute(active.pathname);
   if(route.name==='home'){renderHome(main);return;}
@@ -104,6 +104,8 @@ document.addEventListener('click',(event)=>{
   event.preventDefault();
   navigateInternal(href);
 });
+// Attempts left open by a previous page lifetime (refresh, tab/window close) are closed as abandoned.
+void progressService.recoverOrphanedAttempts().catch(()=>undefined);
 window.addEventListener('popstate',()=>void renderCurrent());
 if(standalone) window.addEventListener('hashchange',()=>void renderCurrent());
 void renderCurrent();

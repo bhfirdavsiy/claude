@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-09-29T14:55:58.454Z",
+  "createdAt": "2026-09-29T16:01:02.019Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -11,8 +11,8 @@
     {
       "path": "app-preview/app/bootstrap.js",
       "sourcePath": "public/app-preview/app/bootstrap.js",
-      "checksum": "32c644942c0ff1ff4a9d3f14bb7108ed1ecffcd88beb34af96740671f97cec89",
-      "size": 7212
+      "checksum": "abd8c0c43fce2910bdb2b688e746ef74ed7be1d6b2f0ff02643dfe68cf8fa551",
+      "size": 7382
     },
     {
       "path": "app-preview/app/content-client.js",
@@ -321,10 +321,16 @@
       "size": 5084
     },
     {
+      "path": "app-preview/features/progress/liveness.js",
+      "sourcePath": "public/app-preview/features/progress/liveness.js",
+      "checksum": "d5e060fd659d1b245de90429b063aefb0dd07ac8463cd0571af808091c38415c",
+      "size": 1505
+    },
+    {
       "path": "app-preview/features/progress/model.js",
       "sourcePath": "public/app-preview/features/progress/model.js",
-      "checksum": "d66b0aec400f762e858e68ff1f6d1fb6b4feab23913dd7ace2f701eef35660c0",
-      "size": 1583
+      "checksum": "d67d7c4adfcdac44961a2c7dff9449fa53389121f7bada8fa8edd62eb1e5edfb",
+      "size": 1625
     },
     {
       "path": "app-preview/features/progress/render.js",
@@ -335,8 +341,8 @@
     {
       "path": "app-preview/features/progress/service.js",
       "sourcePath": "public/app-preview/features/progress/service.js",
-      "checksum": "b01669902638378349aaf840ab870ee6802e5710365c16f5d9ab66cf8d0385fd",
-      "size": 6398
+      "checksum": "ae0bffc9b28d4a8d9dc6ce34a39437f151ed33c52c19bef08db8b5950d524c97",
+      "size": 7032
     },
     {
       "path": "app-preview/features/search/model.js",
@@ -539,20 +545,20 @@
     {
       "path": "app-preview/runtime/learning-orchestrator/events.js",
       "sourcePath": "public/app-preview/runtime/learning-orchestrator/events.js",
-      "checksum": "a22bcfc52e69df118b5ead398f0c191724c296c975e41eb52188487262fa4777",
-      "size": 1592
+      "checksum": "9f531b50d5b2fe12bdaf9f0ae57ce8a0dc6aa8c0a8262a341b229615f3e43537",
+      "size": 1649
     },
     {
       "path": "app-preview/runtime/learning-orchestrator/orchestrator.js",
       "sourcePath": "public/app-preview/runtime/learning-orchestrator/orchestrator.js",
-      "checksum": "2af3045164f33cb1498840dce9cfffe742ec7b6bda6852c23754e0cf07a415c5",
-      "size": 15970
+      "checksum": "cbe95a2c4a5ae3446f9a9a9a24961fc6d8fbe007a32b44f64bfc04cd5e7eb198",
+      "size": 19322
     },
     {
       "path": "app-preview/runtime/learning-orchestrator/selectors.js",
       "sourcePath": "public/app-preview/runtime/learning-orchestrator/selectors.js",
-      "checksum": "c2c133d66b1c5562b6b4f0116f3ec10dca171ec96dd66d043de5665ab3600c87",
-      "size": 3486
+      "checksum": "a9f1841112a5ecf90513a7757758cf8348621443afb2e3c7644a76ba00de34a9",
+      "size": 4187
     },
     {
       "path": "app-preview/runtime/learning-orchestrator/state.js",
@@ -563,14 +569,14 @@
     {
       "path": "app-preview/runtime/learning-orchestrator/types.js",
       "sourcePath": "public/app-preview/runtime/learning-orchestrator/types.js",
-      "checksum": "91021ce6aa450d89f18dcb24b3fdaecee6346970e8eb43195069eeeb4ec16302",
-      "size": 2975
+      "checksum": "bb378f3a250801dd52b1dd522a8762c630dbc2805e16292f5f62a2297fedf940",
+      "size": 3586
     },
     {
       "path": "app-preview/runtime/learning-runner/runner.js",
       "sourcePath": "public/app-preview/runtime/learning-runner/runner.js",
-      "checksum": "43a838f12a13e2481cd7b89c9de8d1dab93f4998f9241d6ed5b3379830c2e40b",
-      "size": 5854
+      "checksum": "428ccf524bb7d0bfc1ffc4e361af27e5bbbecd57945029716d1fcec43c75c073",
+      "size": 5852
     },
     {
       "path": "app-preview/runtime/practice-router/router.js",
@@ -605,8 +611,8 @@
     {
       "path": "app-preview/runtime/progress/reducer.js",
       "sourcePath": "public/app-preview/runtime/progress/reducer.js",
-      "checksum": "b795138be47b2b0e72843b3cf0511548ebe543a9a1347be8afda14c40c295214",
-      "size": 3964
+      "checksum": "fcf5564f20ca1c5956ebd91cae355b856a807408afb9c33b960df44f10f17abb",
+      "size": 6453
     },
     {
       "path": "app-preview/runtime/progress/types.js",

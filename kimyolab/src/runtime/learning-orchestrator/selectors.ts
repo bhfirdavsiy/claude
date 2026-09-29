@@ -26,10 +26,16 @@ export function isPracticeComplete(progress:LearningUnitProgress|undefined):bool
   return Boolean(progress)&&ACHIEVEMENT_RANK[progress!.status]>=ACHIEVEMENT_RANK.practice_complete;
 }
 
+/** Reflection/reinforcement completion. It is NOT derived from the achievement status (C5). */
 export function isReinforcementComplete(progress:LearningUnitProgress|undefined):boolean{
-  if(!progress) return false;
-  // Legacy (pre-P1.0) records encoded reflection as assessment_complete; keep reading them as complete.
-  return ACHIEVEMENT_RANK[progress.status]>=ACHIEVEMENT_RANK.assessment_complete||isStateComplete(readActivityState(progress,CYCLE_STATE_KEYS.reinforcement));
+  // Pre-P1.0 records always wrote cycle.reinforcement together with their (mis-named) assessment status,
+  // so the activity state alone is complete for legacy records too.
+  return isStateComplete(readActivityState(progress,CYCLE_STATE_KEYS.reinforcement));
+}
+
+/** An objective assessment was submitted AND evaluated (ASSESSMENT_EVALUATED). */
+export function isAssessmentComplete(progress:LearningUnitProgress|undefined):boolean{
+  return isStateComplete(readActivityState(progress,CYCLE_STATE_KEYS.assessment));
 }
 
 export function isLearningUnitComplete(progress:LearningUnitProgress|undefined):boolean{
@@ -48,12 +54,18 @@ export function practiceActivityIds(progress:LearningUnitProgress|undefined):str
   return Object.keys(progress?.activityStates??{}).filter(id=>id.startsWith('practice.'));
 }
 
+/** What the learner sees. Separate from the achievement status so labels never redefine semantics. */
+export type DisplayStatus=LearningUnitProgress['status']|'reinforcement_complete';
+
 /**
- * Status shown to the learner. Unchanged wording for P1.0: a completed reflection is still shown as
- * "reinforcement done" even though it no longer writes assessment_complete (C5).
+ * Status shown to the learner. A completed reflection is shown as "reinforcement done"; it is never an
+ * assessment. Pre-P1.0 records stored reflection as `assessment_complete` without an evaluated
+ * assessment — those are shown as what they really were.
  */
-export function displayStatus(progress:LearningUnitProgress):LearningUnitProgress['status']{
-  if(ACHIEVEMENT_RANK[progress.status]<ACHIEVEMENT_RANK.assessment_complete&&isStateComplete(readActivityState(progress,CYCLE_STATE_KEYS.reinforcement))) return 'assessment_complete';
+export function displayStatus(progress:LearningUnitProgress):DisplayStatus{
+  const reinforced=isReinforcementComplete(progress);
+  if(progress.status==='assessment_complete'&&!isAssessmentComplete(progress)) return reinforced?'reinforcement_complete':'practice_complete';
+  if(ACHIEVEMENT_RANK[progress.status]<ACHIEVEMENT_RANK.assessment_complete&&reinforced) return 'reinforcement_complete';
   return progress.status;
 }
 

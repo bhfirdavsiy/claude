@@ -214,7 +214,7 @@ function normalize(snapshot){
   // Store order is by random UUID key; order attempts semantically so ids never influence the comparison.
   const attempts=[...snapshot.attempts].sort((x,y)=>x.activityId.localeCompare(y.activityId));
   const attemptIndex=new Map(attempts.map((a,i)=>[a.id,i]));
-  const strip=(v)=>{try{const o=JSON.parse(v);delete o.completedAt;return o;}catch{return v;}};
+  const strip=(v)=>{try{const o=JSON.parse(v);for(const k of ['completedAt','attemptId','submittedAt','evaluatedAt'])delete o[k];return o;}catch{return v;}};
   return {
     progress:{status:snapshot.progress[0].status,contentVersion:snapshot.progress[0].contentVersion,activityStates:Object.fromEntries(Object.entries(snapshot.progress[0].activityStates).map(([k,v])=>[k,strip(v)]))},
     attempts:attempts.map(a=>({activityId:a.activityId,status:a.status,contentVersion:a.contentVersion,scoringVersion:a.scoringVersion,curriculumVersion:a.curriculumVersion,completed:Boolean(a.completedAt)})),
@@ -259,5 +259,25 @@ test('adapter parity: LearningRunner and BrowserProgressService produce the same
   assert.deepEqual(b,a);
   assert.equal(a.attempts.length,2);
   assert.equal(a.evidence.length,4);
+  // assessment_complete here comes from the OBJECTIVE assessment both paths submit (ev.a1 is a
+  // concept-assessment item), not from the reflection: see the next test for the flow without it.
   assert.equal(a.progress.status,'assessment_complete');
+  assert.deepEqual(a.progress.activityStates['cycle.assessment'],{complete:true,objectiveItems:1,score:100});
+});
+
+test('parity flow WITHOUT an objective assessment never reaches assessment_complete (theory→practice→reflection)',async()=>{
+  const service=new BrowserProgressService(createFakeIndexedDb(),'parity-no-assessment',{now:clock});
+  const runtimeVersions={contentVersion:V.contentVersion,schemaVersion:V.contentSchemaVersion,scoringVersion:V.scoringVersion,curriculumVersion:V.curriculumVersion};
+  const page={id:'practice.trainer.demo',type:'trainer',learningUnit:{id:'lu.demo',grade:7,title:'Demo',conceptIds:['concept.c1']},activityVersion:'1',contentVersion:V.contentVersion,schemaVersion:V.contentSchemaVersion,scoringVersion:V.scoringVersion,curriculumVersion:V.curriculumVersion};
+  await service.markGuideComplete('lu.demo',runtimeVersions);
+  const session=service.beginPracticeSession(page,{apply:async()=>({evidence:[draft('ev.p1','concept.c1')],finalState:{status:'complete'}})});
+  await service.applyPracticeCommand(session,{});
+  const progress=await service.recordReinforcement('lu.demo',runtimeVersions,{mode:'reflection',confidence:'understood'});
+  assert.equal(progress.status,'practice_complete');
+  assert.equal(progress.activityStates['cycle.assessment'],undefined);
+  const snapshot=await service.getCycleSnapshot('lu.demo');
+  assert.deepEqual([snapshot.guideComplete,snapshot.practiceComplete,snapshot.reinforcementComplete],[true,true,true]);
+  // reflection and practice evidence alone cannot be submitted as an assessment either
+  await assert.rejects(service.submitAssessment('lu.demo',V,{assessmentVersion:'1',conceptIds:['concept.c1'],drafts:[draft('ev.r','concept.c1',{cls:'practice-observation'})]}),/ASSESSMENT_NO_OBJECTIVE_ITEMS/);
+  assert.equal((await service.loadProgress('lu.demo')).status,'practice_complete');
 });

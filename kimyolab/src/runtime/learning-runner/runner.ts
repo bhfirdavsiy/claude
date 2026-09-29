@@ -92,7 +92,7 @@ export class LearningRunner<Context=unknown> {
     // The runner contract: one run = one complete practice attempt.
     const session=orchestrator.beginPractice(beginInputFromActivity(learningUnitId,practice,versions,unit.conceptIds));
     const practiceRun=await o.practiceRouter.run(practice,context);
-    if(!practiceRun.ok){ await orchestrator.abandonPractice(session); return {ok:false,error:practiceRun.error}; }
+    if(!practiceRun.ok){ await orchestrator.leavePractice(session); return {ok:false,error:practiceRun.error}; }
     const step=await orchestrator.applyPracticeResult(session,practiceRun.value);
     const completed=await orchestrator.completePractice(step.session);
 

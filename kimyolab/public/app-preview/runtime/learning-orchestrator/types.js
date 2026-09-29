@@ -59,6 +59,19 @@
                                                     
                                                                   
                                                         
+                                                                                  
+                                    
+ 
+
+/**
+ * Which attempts are owned by a live page. The browser implementation uses Web Locks, which the
+ * platform releases when a page dies (refresh, tab/window close, crash) — no unload handler needed.
+ */
+                                      
+                               
+                                 
+                                                                                          
+                                                  
  
 
                                       
@@ -66,4 +79,5 @@
                     
                                       
                                                 
+                                
  

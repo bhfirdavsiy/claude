@@ -42,3 +42,33 @@ test('mastery must always be computed with an explicit version context',()=>{
   assert.deepEqual(rules(checkSource('src/domain/x.ts','computeConceptMastery({conceptId,evidence,scoringVersion});')),['MASTERY_WITHOUT_CONTEXT']);
   assert.deepEqual(checkSource('src/domain/x.ts','computeConceptMastery({conceptId,evidence,scoringVersion,context});'),[]);
 });
+
+// P1.0 closeout §10 — the usual ways around a name-based guard are all caught.
+test('guard bypass attempts are caught: alias, namespace, element access, destructuring, re-export, helper',()=>{
+  const f='src/features/progress/service.ts';
+  const has=(src,rule,detail)=>{const v=checkSource(f,src);assert.ok(v.some(x=>x.rule===rule&&(detail===undefined||x.detail.includes(detail))),`${rule} not reported for: ${src}\n${JSON.stringify(v)}`);};
+  // aliased import of a boundary function, then a call under the alias
+  has("import {bindDraftsToAttempt as bind} from '../../runtime/evidence/types.ts'; bind(a,b,c);",'PROGRESS_TRANSITION_OUTSIDE_ORCHESTRATOR','bindDraftsToAttempt');
+  has("import {reduceProgress as r} from '../../runtime/progress/reducer.ts'; r(p,e);",'PROGRESS_TRANSITION_OUTSIDE_ORCHESTRATOR','reduceProgress');
+  // namespace import of the transition module
+  has("import * as R from '../../runtime/progress/reducer.ts'; R.reduceProgress(p,e);",'PROGRESS_TRANSITION_OUTSIDE_ORCHESTRATOR');
+  // element access with a literal key, and a detached method reference
+  has("store['updateProgress']('lu',x=>x);",'STATE_MUTATION_OUTSIDE_BOUNDARY','updateProgress');
+  has("store[`saveMastery`](m);",'STATE_MUTATION_OUTSIDE_BOUNDARY','saveMastery');
+  has("const f=store.recordAttempt.bind(store); f(a,[]);",'STATE_MUTATION_OUTSIDE_BOUNDARY','recordAttempt');
+  // destructuring (plain and renamed)
+  has("const {updateProgress}=store; updateProgress('lu',x=>x);",'STATE_MUTATION_OUTSIDE_BOUNDARY','updateProgress');
+  has("const {saveProgress:write}=store; write(p);",'STATE_MUTATION_OUTSIDE_BOUNDARY','saveProgress');
+  // re-export laundering from a non-privileged module
+  has("export {IndexedDbProgressStore} from '../../runtime/progress/indexeddb-store.ts';",'REEXPORT_OF_BOUNDARY_MODULE');
+  has("export * from '../../runtime/progress/reducer.ts';",'REEXPORT_OF_BOUNDARY_MODULE');
+  has("export {bindDraftsToAttempt} from '../../runtime/evidence/types.ts';",'REEXPORT_OF_BOUNDARY_MODULE','bindDraftsToAttempt');
+  // an indirect helper still has to perform the mutation somewhere — and that place is flagged
+  has("export function persist(s,p){ return s.saveProgress(p); }",'STATE_MUTATION_OUTSIDE_BOUNDARY','saveProgress');
+  // presentation layers: namespace/default imports of persistence are layer violations too
+  assert.ok(checkSource('src/features/practice/render.ts',"import * as S from '../../runtime/progress/indexeddb-store.ts';").some(v=>v.rule==='LAYER_IMPORTS_PERSISTENCE'));
+  // aliased mastery computation still needs an explicit context
+  assert.ok(checkSource('src/domain/x.ts',"import {computeConceptMastery as cm} from './mastery.ts'; cm({conceptId,evidence,scoringVersion});").some(v=>v.rule==='MASTERY_WITHOUT_CONTEXT'));
+  // privileged modules are unaffected
+  assert.deepEqual(checkSource('src/runtime/learning-orchestrator/orchestrator.ts',"import {reduceProgress as r} from '../progress/reducer.ts'; const {updateProgress}=this.store; r(p,e);"),[]);
+});

@@ -12,7 +12,7 @@ import {scoreAssessment,type AssessmentResult} from '../../domain/assessment/sco
 import {newUuid} from '../shared/ids.ts';
 import type {PracticeType} from '../../domain/content/types.ts';
 import type {LearningIntent} from './events.ts';
-import type {LearningSnapshot,LearningStorePort,OrchestratorOptions,PracticeEnginePort,PracticeSessionState,VersionContext} from './types.ts';
+import type {LearningSnapshot,LearningStorePort,OrchestratorOptions,PracticeEnginePort,PracticeSessionState,SessionLivenessPort,VersionContext} from './types.ts';
 import {aggregateMasteryStatus,buildSnapshot,sessionView,type SessionRecord} from './state.ts';
 import {isPracticeResultComplete} from './selectors.ts';
 
@@ -57,6 +57,7 @@ export class LearningOrchestrator {
   private readonly transferRequired?:(conceptId:string)=>boolean;
   private versionPolicy?:MasteryVersionPolicy;
   private readonly sessions=new Map<string,SessionRecord>();
+  private readonly liveness?:SessionLivenessPort;
 
   constructor(store:LearningStorePort,options:OrchestratorOptions={}){
     this.store=store;
@@ -64,6 +65,7 @@ export class LearningOrchestrator {
     this.newId=options.newId??newUuid;
     this.versionPolicy=options.versionPolicy;
     this.transferRequired=options.transferRequired;
+    this.liveness=options.liveness;
   }
 
   setVersionPolicy(policy:MasteryVersionPolicy|undefined){this.versionPolicy=policy;}
@@ -78,6 +80,7 @@ export class LearningOrchestrator {
       case 'APPLY_PRACTICE_RESULT': return this.applyPracticeResult(intent.session,intent.result);
       case 'COMPLETE_PRACTICE': return this.completePractice(intent.session);
       case 'ABANDON_PRACTICE': return this.abandonPractice(intent.session);
+      case 'LEAVE_PRACTICE': return this.leavePractice(intent.session);
       case 'RETRY_PRACTICE': return this.retryPractice(intent.session);
       case 'SUBMIT_REINFORCEMENT': return this.submitReinforcement(intent.learningUnitId,intent.versions,intent.payload);
       case 'SUBMIT_ASSESSMENT': return this.submitAssessment(intent);
@@ -93,6 +96,11 @@ export class LearningOrchestrator {
     const planned=events(at);
     return this.store.updateProgress(learningUnitId,current=>{
       let progress=current??createProgress(learningUnitId,versions.contentVersion,versions.contentSchemaVersion,at);
+      if(current&&current.contentVersion!==versions.contentVersion){
+        // Monotonic achievement holds inside ONE compatibility context (same policy as evidence, P0.5).
+        const compatibility=this.versionPolicy?.content?.[current.contentVersion]??'incompatible';
+        progress=reduceProgress(progress,{type:'ACHIEVEMENT_CONTEXT_CHANGED',fromContentVersion:current.contentVersion,toContentVersion:versions.contentVersion,compatibility,at});
+      }
       for(const event of planned) progress=reduceProgress(progress,event);
       return {...progress,contentVersion:versions.contentVersion};
     });
@@ -103,11 +111,11 @@ export class LearningOrchestrator {
   }
 
   completeTheory(learningUnitId:string,versions:VersionContext){
-    return this.transition(learningUnitId,versions,at=>[{type:'OPEN',at},{type:'THEORY_COMPLETE',at}]);
+    return this.transition(learningUnitId,versions,at=>[{type:'OPEN',at},{type:'THEORY_COMPLETED',at}]);
   }
 
   submitReinforcement(learningUnitId:string,versions:VersionContext,payload:Record<string,unknown>){
-    return this.transition(learningUnitId,versions,at=>[{type:'OPEN',at},{type:'REINFORCEMENT_COMPLETE',payload,at}]);
+    return this.transition(learningUnitId,versions,at=>[{type:'OPEN',at},{type:'REINFORCEMENT_COMPLETED',payload,at}]);
   }
 
   // ---------------------------------------------------------------- practice attempt lifecycle
@@ -130,6 +138,7 @@ export class LearningOrchestrator {
       conceptIds:unique(input.conceptIds??[]),status:'active',persisted:false,recorded:new Map(),evidenceCount:0,
     };
     this.sessions.set(record.id,record);
+    this.liveness?.claim(attempt.id);
     return sessionView(record);
   }
 
@@ -172,7 +181,7 @@ export class LearningOrchestrator {
     const progress=await this.transition(record.attempt.learningUnitId,record.versions,at=>[
       {type:'OPEN',at},
       ...(serializedState!==undefined?[{type:'SAVE_ACTIVITY_STATE' as const,activityId:record.attempt.activityId,serializedState,at}]:[]),
-      ...(complete?[{type:'PRACTICE_COMPLETE' as const,at}]:[]),
+      ...(complete?[{type:'PRACTICE_COMPLETED' as const,at}]:[]),
     ]);
     if(complete&&record.status==='active') await this.finishSession(record,'completed');
     const mastery=evidence.length?await this.recomputeMastery(unique(evidence.map(e=>e.conceptId)),record.versions):[];
@@ -196,7 +205,7 @@ export class LearningOrchestrator {
     const record=this.session(view);
     if(record.status==='abandoned') throw new Error('PRACTICE_SESSION_CLOSED');
     if(record.status==='active') await this.finishSession(record,'completed');
-    const progress=await this.transition(record.attempt.learningUnitId,record.versions,at=>[{type:'OPEN',at},{type:'PRACTICE_COMPLETE',at}]);
+    const progress=await this.transition(record.attempt.learningUnitId,record.versions,at=>[{type:'OPEN',at},{type:'PRACTICE_COMPLETED',at}]);
     return {session:sessionView(record),attempt:{...record.attempt},progress};
   }
 
@@ -212,21 +221,61 @@ export class LearningOrchestrator {
       else record.status='abandoned';
     }
     this.sessions.delete(record.id);
+    this.liveness?.release(record.attempt.id);
     return record.persisted?{...record.attempt}:undefined;
   }
 
-  /** ABANDON_PRACTICE: an unfinished attempt is closed as abandoned (never shown as a success). */
+  /**
+   * ABANDON_PRACTICE: an unfinished attempt is closed as abandoned (never shown as a success).
+   * A terminal attempt takes exactly one terminal transition: abandoning a completed or already
+   * abandoned attempt is rejected (ATTEMPT_ALREADY_FINISHED).
+   */
   async abandonPractice(view:PracticeSessionState):Promise<PracticeSessionState>{
+    const record=this.session(view);
+    if(record.status!=='active') throw new Error('ATTEMPT_ALREADY_FINISHED');
+    await this.finishSession(record,'abandoned');
+    this.liveness?.release(record.attempt.id);
+    return sessionView(record);
+  }
+
+  /**
+   * LEAVE_PRACTICE: the learner left the page. An active attempt becomes abandoned; a finished one is
+   * left exactly as it is. The session is released either way.
+   */
+  async leavePractice(view:PracticeSessionState):Promise<PracticeSessionState>{
     const record=this.session(view);
     if(record.status==='active') await this.finishSession(record,'abandoned');
     this.sessions.delete(record.id);
+    this.liveness?.release(record.attempt.id);
     return sessionView(record);
+  }
+
+  /**
+   * Recovery for page lifetimes that ended without LEAVE_PRACTICE (refresh, tab/window close, crash).
+   * Browsers do not guarantee async IndexedDB writes during unload, so the canonical contract is:
+   * an `in_progress` attempt that no live page owns is abandoned on the next boot.
+   * Ownership comes from the liveness port (Web Locks in the browser). Without one, only attempts
+   * older than `staleAfterMs` are considered orphaned.
+   */
+  async recoverOrphanedAttempts(options:{staleAfterMs?:number}={}):Promise<Attempt[]>{
+    const live=await this.liveness?.liveAttemptIds();
+    const now=Date.parse(this.now());
+    const staleAfter=options.staleAfterMs??24*60*60*1000;
+    const recovered:Attempt[]=[];
+    for(const attempt of await this.store.listAttempts()){
+      if(attempt.status!=='in_progress'||this.sessions.has(attempt.id)) continue;
+      const orphaned=live?!live.has(attempt.id):now-Date.parse(attempt.startedAt)>staleAfter;
+      if(!orphaned) continue;
+      try{ recovered.push(await this.store.finishAttempt(attempt.id,'abandoned',this.now())); }
+      catch(error){ if((error as any)?.code!=='ATTEMPT_ALREADY_FINISHED'&&(error as any)?.message!=='ATTEMPT_ALREADY_FINISHED') throw error; }
+    }
+    return recovered;
   }
 
   /** RETRY_PRACTICE: always a NEW attempt; the previous one is left as it was (or abandoned if unfinished). */
   async retryPractice(view:PracticeSessionState,engine?:PracticeEnginePort):Promise<PracticeSessionState>{
     const record=this.session(view);
-    await this.abandonPractice(view);
+    await this.leavePractice(view);
     return this.beginPractice({
       learningUnitId:record.attempt.learningUnitId,activityId:record.attempt.activityId,activityVersion:record.attempt.activityVersion,
       practiceType:record.practiceType,versions:record.versions,engine:engine??record.engine,conceptIds:record.conceptIds,
@@ -235,26 +284,35 @@ export class LearningOrchestrator {
 
   // ---------------------------------------------------------------- assessment (boundary only in P1.0)
 
-  /** SUBMIT_ASSESSMENT: scored evidence → assessment result → unit mastery → MASTERY_UPDATED. Not wired to the UI (C2). */
+  /**
+   * SUBMIT_ASSESSMENT: objective assessment evidence → ASSESSMENT_SUBMITTED → scoring →
+   * ASSESSMENT_EVALUATED → unit mastery → MASTERY_UPDATED. Not wired to the UI yet (C2).
+   * Fails closed without at least one objective (`concept-assessment`) item: reflection, practice or
+   * transfer evidence alone never makes a unit `assessment_complete`.
+   */
   async submitAssessment(input:{learningUnitId:string;versions:VersionContext;assessmentVersion:string;drafts:unknown[];conceptIds:string[]}):Promise<AssessmentStepResult>{
-    const at=this.now();
+    const drafts=input.drafts.map(validateEvidence);
+    const objectiveItems=drafts.filter(d=>d.evidenceClass==='concept-assessment').length;
+    if(objectiveItems<1) throw new Error('ASSESSMENT_NO_OBJECTIVE_ITEMS');
+    const startedAt=this.now();
     const attempt=validateAttempt({
       id:this.newId(),learningUnitId:input.learningUnitId,activityId:`assessment.${input.learningUnitId}`,activityVersion:input.assessmentVersion,
       contentVersion:input.versions.contentVersion,scoringVersion:input.versions.scoringVersion,
       ...(input.versions.curriculumVersion?{curriculumVersion:input.versions.curriculumVersion}:{}),
-      startedAt:at,completedAt:this.now(),status:'completed',
+      startedAt,completedAt:this.now(),status:'completed',
     });
-    const evidence=bindDraftsToAttempt(attempt,input.drafts,this.newId);
+    const evidence=bindDraftsToAttempt(attempt,drafts,this.newId);
     await this.store.recordAttempt(attempt,evidence);
+    await this.transition(input.learningUnitId,input.versions,at=>[{type:'ASSESSMENT_SUBMITTED',attemptId:attempt.id,at}]);
     const assessment=scoreAssessment({
       id:`assessment.${input.learningUnitId}.${attempt.id}`,learningUnitId:input.learningUnitId,evidence,
       assessmentVersion:input.assessmentVersion,scoringVersion:input.versions.scoringVersion,createdAt:this.now(),
     });
     await this.store.saveAssessment(assessment);
-    await this.transition(input.learningUnitId,input.versions,a=>[{type:'ASSESSMENT_COMPLETE',at:a}]);
+    await this.transition(input.learningUnitId,input.versions,at=>[{type:'ASSESSMENT_EVALUATED',attemptId:attempt.id,objectiveItems,score:assessment.score,at}]);
     const mastery=await this.recomputeMastery(unique([...input.conceptIds,...evidence.map(e=>e.conceptId)]),input.versions);
     const unitMastery=mastery.filter(m=>input.conceptIds.includes(m.conceptId));
-    const progress=await this.transition(input.learningUnitId,input.versions,a=>[{type:'MASTERY_UPDATED',masteryStatus:aggregateMasteryStatus(unitMastery),at:a}]);
+    const progress=await this.transition(input.learningUnitId,input.versions,at=>[{type:'MASTERY_UPDATED',masteryStatus:aggregateMasteryStatus(unitMastery),at}]);
     return {attempt,evidence,assessment,mastery:unitMastery,progress};
   }
 

@@ -7,9 +7,10 @@ import {IndexedDbProgressStore} from '../../runtime/progress/indexeddb-store.js'
                                                                                
                                                                                                         
 import {newUuid} from '../../runtime/shared/ids.js';
+import {createWebLocksLiveness} from './liveness.js';
 import {LearningOrchestrator} from '../../runtime/learning-orchestrator/orchestrator.js';
 import {beginInputFromPage,versionsFromPage,versionsFromRuntime} from '../../runtime/learning-orchestrator/adapters.js';
-                                                                                                                         
+                                                                                                                                             
 import {isPracticeComplete,isReinforcementComplete,isTheoryComplete} from '../../runtime/learning-orchestrator/selectors.js';
 
                                 
@@ -39,11 +40,12 @@ import {isPracticeComplete,isReinforcementComplete,isTheoryComplete} from '../..
 export class BrowserProgressService {
                    store                       ;
                    orchestrator                     ;
-  constructor(factory    =(globalThis       ).indexedDB,dbName='kimyolab-runtime',options                                                                        ={}){
+  constructor(factory    =(globalThis       ).indexedDB,dbName='kimyolab-runtime',options                                                                                                           ={}){
     const now=options.now??(()=>new Date().toISOString());
     const newId=options.newId??newUuid;
     this.store=new IndexedDbProgressStore(factory,dbName,undefined,{now,newId});
-    this.orchestrator=new LearningOrchestrator(this.store,{now,newId,versionPolicy:options.versionPolicy});
+    const liveness=options.liveness===null?undefined:options.liveness??createWebLocksLiveness();
+    this.orchestrator=new LearningOrchestrator(this.store,{now,newId,versionPolicy:options.versionPolicy,...(liveness?{liveness}:{})});
   }
   get storage(){return this.store;}
   /** Applies the active pack's declared evidence compatibility (see content manifest `evidenceCompatibility`). */
@@ -60,6 +62,10 @@ export class BrowserProgressService {
   }
 
   abandonPracticeSession(session                       ){return this.orchestrator.abandonPractice(session);}
+  /** The learner left the practice page (route change, back/forward): abandons only an unfinished attempt. */
+  leavePracticeSession(session                       ){return this.orchestrator.leavePractice(session);}
+  /** Boot-time recovery for page lifetimes that ended without a leave (refresh, tab/window close). */
+  recoverOrphanedAttempts(){return this.orchestrator.recoverOrphanedAttempts();}
   retryPracticeSession(session                       ,engine                    ){return this.orchestrator.retryPractice(session,engine);}
 
   async recordPracticeResult(page                         ,result    ,session                        )                              {

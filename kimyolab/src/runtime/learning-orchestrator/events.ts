@@ -13,6 +13,7 @@ export type LearningIntent =
   | {type:'APPLY_PRACTICE_RESULT';session:PracticeSessionState;result:unknown}
   | {type:'COMPLETE_PRACTICE';session:PracticeSessionState}
   | {type:'ABANDON_PRACTICE';session:PracticeSessionState}
+  | {type:'LEAVE_PRACTICE';session:PracticeSessionState}
   | {type:'RETRY_PRACTICE';session:PracticeSessionState}
   | {type:'SUBMIT_REINFORCEMENT';learningUnitId:string;versions:VersionContext;payload:Record<string,unknown>}
   | {type:'SUBMIT_ASSESSMENT';learningUnitId:string;versions:VersionContext;assessmentVersion:string;drafts:unknown[];conceptIds:string[]}

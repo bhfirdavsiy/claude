@@ -79,3 +79,21 @@ Canonical doira: LearningUnit `conceptIds` ∪ yangi dalil tegadigan konseptlar.
   - D9 — `learning-cycle.json` asosidagi oqim.
 
   Orkestratorda ular uchun chegara bor (`submitAssessment`, `BeginPracticeInput`), lekin UI’ga ulanmagan.
+
+## Qo‘shimcha — P1.0 closeout (kill-critic review asosida)
+
+Batafsil: `docs/reviews/p1.0-kill-critic.md`.
+
+| # | Qaror | Asos |
+|---|---|---|
+| 11 | Event taksonomiyasi semantik jihatdan ajratildi: `THEORY_COMPLETED`, `PRACTICE_COMPLETED`, `REINFORCEMENT_COMPLETED`, `ASSESSMENT_SUBMITTED`, `ASSESSMENT_EVALUATED`, `MASTERY_UPDATED`, `ACHIEVEMENT_CONTEXT_CHANGED`. Noma’lum event fail-closed (`PROGRESS_EVENT_UNKNOWN`). | Faqat baholangan objective assessment (`objectiveItems ≥ 1`) `assessment_complete` beradi. Mastery update assessment yaratmaydi. |
+| 12 | `progress.status` (achievement), `activeStage` (sikl bosqichi), `DisplayStatus` (label) va `Attempt.status` alohida tushunchalar. | Label semantikani qayta ta’riflamaydi. Legacy reflection yozuvlari `cycle.assessment` yo‘qligidan aniqlanadi, schema migratsiyasi kerak emas. |
+| 13 | Monotonlik **bitta compatibility context ichida** amal qiladi. Content version almashsa va eski versiya `compatible` deb e’lon qilinmagan bo‘lsa, achievement va cycle state `cycle.archive.<version>@<vaqt>` ga arxivlanadi va unit qaytadan boshlanadi. | Evidence uchun P0.5 dagi version siyosatining o‘zi achievement’ga ham qo‘llanadi. |
+| 14 | Zero-evidence attempt: **Variant B**. Hech qanday evidence’siz ochilib yopilgan sahifa attempt qoldirmaydi, evidence’li attempt esa hech qachon yo‘qolmaydi. | Phantom attempt ham, yo‘qolgan meaningful attempt ham bo‘lmaydi. |
+| 15 | Unload ishonchliligi: unload handler’ga tayanilmaydi. SPA navigatsiyasida `LEAVE_PRACTICE` ishlaydi. Refresh, yopilish va crash holatida Web Locks liveness va keyingi boot’da `recoverOrphanedAttempts` ishlaydi. | Brauzer unload paytida async IndexedDB yozuvini kafolatlamaydi. Web Lock sahifa o‘lganda platforma tomonidan bo‘shatiladi. |
+| 16 | Terminal transition bir marta bo‘ladi: ikkinchi `complete`/`abandon` rad etiladi (`ATTEMPT_ALREADY_FINISHED` / `PRACTICE_SESSION_CLOSED`). Sahifadan chiqish esa alohida intent (`LEAVE_PRACTICE`): tugallangan attempt’ga tegmaydi. | “Abandon ≠ success” va “completed ≠ abandoned” ikkala yo‘nalishda ham kafolatlanadi. |
+
+**Ma’lum cheklovlar:**
+- Tiklangan attempt’ning `completedAt` vaqti — tiklash vaqti.
+- Web Locks bo‘lmagan platformada faqat 24 soatdan eski attempt’lar tiklanadi.
+- External lab evidence (`features/labs`) o‘z store metodi (`saveExternalEvidence`) orqali saqlanadi. U canonical attempt tarixiga kirmaydi va guard’ning mutation ro‘yxatida yo‘q (P0 integratsiya kontrakti).

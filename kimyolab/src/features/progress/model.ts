@@ -1,7 +1,7 @@
 import type {LearningUnitProgress} from '../../runtime/progress/types.ts';
 import {displayStatus,isReinforcementComplete,isPracticeComplete,isTheoryComplete,practiceActivityIds} from '../../runtime/learning-orchestrator/selectors.ts';
 
-const LABELS:Record<string,string>={not_started:'Boshlanmagan',in_progress:'Jarayonda',practice_complete:'Amaliyot bajarildi',assessment_complete:'Mustahkamlash bajarildi',mastered:'O‘zlashtirilgan',needs_review:'Takrorlash kerak'};
+const LABELS:Record<string,string>={not_started:'Boshlanmagan',in_progress:'Jarayonda',practice_complete:'Amaliyot bajarildi',reinforcement_complete:'Mustahkamlash bajarildi',assessment_complete:'Test topshirildi',mastered:'O‘zlashtirilgan',needs_review:'Takrorlash kerak'};
 export interface ProgressViewItem {learningUnitId:string;grade:number;title:string;status:string;statusLabel:string;lastVisitedAt:string;resumeHref:string;}
 export function buildProgressViewModel(progress:LearningUnitProgress[],units:Array<{id:string;grade:number;title:string}>):ProgressViewItem[]{
   const byId=new Map(units.map(x=>[x.id,x]));

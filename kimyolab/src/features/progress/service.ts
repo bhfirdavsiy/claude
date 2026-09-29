@@ -7,9 +7,10 @@ import type {StudentPracticePageModel} from '../practice/model.ts';
 import type {Attempt,PersistedEvidence} from '../../runtime/evidence/types.ts';
 import type {ConceptMastery,MasteryContext,MasteryVersionPolicy} from '../../domain/mastery/mastery.ts';
 import {newUuid} from '../../runtime/shared/ids.ts';
+import {createWebLocksLiveness} from './liveness.ts';
 import {LearningOrchestrator} from '../../runtime/learning-orchestrator/orchestrator.ts';
 import {beginInputFromPage,versionsFromPage,versionsFromRuntime} from '../../runtime/learning-orchestrator/adapters.ts';
-import type {PracticeEnginePort,PracticeSessionState,VersionContext} from '../../runtime/learning-orchestrator/types.ts';
+import type {PracticeEnginePort,PracticeSessionState,SessionLivenessPort,VersionContext} from '../../runtime/learning-orchestrator/types.ts';
 import {isPracticeComplete,isReinforcementComplete,isTheoryComplete} from '../../runtime/learning-orchestrator/selectors.ts';
 
 export interface CycleSnapshot {
@@ -39,11 +40,12 @@ export type PracticeAttemptSession=PracticeSessionState;
 export class BrowserProgressService {
   private readonly store:IndexedDbProgressStore;
   private readonly orchestrator:LearningOrchestrator;
-  constructor(factory:any=(globalThis as any).indexedDB,dbName='kimyolab-runtime',options:{now?:()=>string;newId?:()=>string;versionPolicy?:MasteryVersionPolicy}={}){
+  constructor(factory:any=(globalThis as any).indexedDB,dbName='kimyolab-runtime',options:{now?:()=>string;newId?:()=>string;versionPolicy?:MasteryVersionPolicy;liveness?:SessionLivenessPort|null}={}){
     const now=options.now??(()=>new Date().toISOString());
     const newId=options.newId??newUuid;
     this.store=new IndexedDbProgressStore(factory,dbName,undefined,{now,newId});
-    this.orchestrator=new LearningOrchestrator(this.store,{now,newId,versionPolicy:options.versionPolicy});
+    const liveness=options.liveness===null?undefined:options.liveness??createWebLocksLiveness();
+    this.orchestrator=new LearningOrchestrator(this.store,{now,newId,versionPolicy:options.versionPolicy,...(liveness?{liveness}:{})});
   }
   get storage(){return this.store;}
   /** Applies the active pack's declared evidence compatibility (see content manifest `evidenceCompatibility`). */
@@ -60,6 +62,10 @@ export class BrowserProgressService {
   }
 
   abandonPracticeSession(session:PracticeAttemptSession){return this.orchestrator.abandonPractice(session);}
+  /** The learner left the practice page (route change, back/forward): abandons only an unfinished attempt. */
+  leavePracticeSession(session:PracticeAttemptSession){return this.orchestrator.leavePractice(session);}
+  /** Boot-time recovery for page lifetimes that ended without a leave (refresh, tab/window close). */
+  recoverOrphanedAttempts(){return this.orchestrator.recoverOrphanedAttempts();}
   retryPracticeSession(session:PracticeAttemptSession,engine?:PracticeEnginePort){return this.orchestrator.retryPractice(session,engine);}
 
   async recordPracticeResult(page:StudentPracticePageModel,result:any,session?:PracticeAttemptSession):Promise<LearningUnitProgress>{

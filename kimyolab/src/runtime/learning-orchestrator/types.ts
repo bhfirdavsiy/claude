@@ -59,6 +59,19 @@ export interface LearningStorePort {
   saveMastery(mastery:ConceptMastery):Promise<void>;
   loadMastery(conceptId:string):Promise<ConceptMastery|undefined>;
   saveAssessment(result:AssessmentResult):Promise<void>;
+  /** Used only by boot-time recovery of orphaned attempts (never per command). */
+  listAttempts():Promise<Attempt[]>;
+}
+
+/**
+ * Which attempts are owned by a live page. The browser implementation uses Web Locks, which the
+ * platform releases when a page dies (refresh, tab/window close, crash) — no unload handler needed.
+ */
+export interface SessionLivenessPort {
+  claim(attemptId:string):void;
+  release(attemptId:string):void;
+  /** Attempt ids held by any live page, or undefined when liveness cannot be observed. */
+  liveAttemptIds():Promise<Set<string>|undefined>;
 }
 
 export interface OrchestratorOptions {
@@ -66,4 +79,5 @@ export interface OrchestratorOptions {
   newId?:()=>string;
   versionPolicy?:MasteryVersionPolicy;
   transferRequired?:(conceptId:string)=>boolean;
+  liveness?:SessionLivenessPort;
 }
