@@ -17,6 +17,15 @@ test.beforeAll(async () => {
 });
 test.afterAll(async () => { await server?.close(); });
 
+// globals the app added (vs. a pristine window) must not hold key material
+const keyInGlobals = (page) => page.evaluate(() => {
+  const frame = document.createElement('iframe'); document.body.append(frame);
+  const pristine = new Set(Object.keys(frame.contentWindow)); frame.remove();
+  const added = Object.keys(window).filter((k) => !pristine.has(k));
+  let dump = ''; for (const k of added) { try { dump += JSON.stringify(window[k]) ?? ''; } catch { /* non-serialisable */ } }
+  return {added, leaks: /correctOptionId|scoringRule/.test(dump + document.documentElement.outerHTML)};
+});
+
 const store = (page) => page.evaluate(async () => {
   const {IndexedDbProgressStore} = await import('/app-preview/runtime/progress/indexeddb-store.js');
   const s = new IndexedDbProgressStore(indexedDB, 'kimyolab-runtime');
@@ -35,14 +44,7 @@ test('the rendered quiz exposes no answer key (DOM, globals, page-load network) 
   // UI confidentiality: nothing about the key in the DOM, in window globals, or in what the page loaded
   const html = await page.content();
   expect(html).not.toMatch(/correctOptionId|scoringRule|data-correct/);
-  // globals the app added (vs. a pristine window) must not hold key material
-  const appGlobals = await page.evaluate(() => {
-    const frame = document.createElement('iframe'); document.body.append(frame);
-    const pristine = new Set(Object.keys(frame.contentWindow)); frame.remove();
-    const added = Object.keys(window).filter((k) => !pristine.has(k));
-    let dump = ''; for (const k of added) { try { dump += JSON.stringify(window[k]) ?? ''; } catch { /* non-serialisable */ } }
-    return {added, leaks: /correctOptionId|scoringRule/.test(dump)};
-  });
+  const appGlobals = await keyInGlobals(page);
   expect(appGlobals.leaks).toBe(false);
   expect(appGlobals.added.filter((k) => /key|answer|assessment/i.test(k))).toEqual([]);
   expect(requests.some((u) => u.endsWith('/assessment/keys.json'))).toBe(false);
@@ -62,6 +64,8 @@ test('the rendered quiz exposes no answer key (DOM, globals, page-load network) 
   // results are marked per item without ever revealing which option was right
   expect(await page.locator('fieldset[data-result]').count()).toBe(5);
   expect(await page.content()).not.toMatch(/correctOptionId/);
+  // after submission the key pack was fetched for evaluation — it still did not land in globals or the DOM
+  expect((await keyInGlobals(page)).leaks).toBe(false);
 
   // a second submission on the same page is a retry: a NEW attempt, the first one is untouched
   const first = state.attempts[0];

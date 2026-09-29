@@ -18,6 +18,7 @@ for(const item of bank.items??[]){
   if(typeof item.prompt!=='string'||!item.prompt.trim()) issues.push(`ASSESSMENT_PROMPT_REQUIRED:${item.id}`);
   if(typeof item.explanation!=='string'||!item.explanation.trim()) issues.push(`ASSESSMENT_EXPLANATION_REQUIRED:${item.id}`);
   if(!Array.isArray(item.conceptIds)||!item.conceptIds.length) issues.push(`ASSESSMENT_CONCEPT_REQUIRED:${item.id}`);
+  else if(new Set(item.conceptIds).size!==item.conceptIds.length) issues.push(`ASSESSMENT_CONCEPT_MAPPING_DUPLICATE:${item.id}`);
   if(!Array.isArray(item.sourceRefs)||!item.sourceRefs.length) issues.push(`ASSESSMENT_SOURCE_REQUIRED:${item.id}`);
   for(const role of ['chemistry','didactic']) if(!['pending','approved','rejected'].includes(item.review?.[role])) issues.push(`ASSESSMENT_REVIEW_INVALID:${item.id}:${role}`);
 }

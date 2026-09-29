@@ -56,6 +56,7 @@ export function evaluateAssessment(input:{prompts:AssessmentPrompt[];keys:Assess
     const key=keyByItem.get(prompt.id);
     if(!key) fail('ASSESSMENT_KEY_MISSING',prompt.id);
     if(!prompt.conceptIds.length) fail('ASSESSMENT_ITEM_UNMAPPED',prompt.id);
+    if(new Set(prompt.conceptIds).size!==prompt.conceptIds.length) fail('ASSESSMENT_CONCEPT_MAPPING_DUPLICATE',prompt.id);
     const correct=response.selectedOptionId===key.correctOptionId;
     return {itemId:prompt.id,itemVersion:prompt.version,conceptIds:[...prompt.conceptIds],selectedOptionId:response.selectedOptionId,correct,score:correct?key.scoringRule.correctScore:key.scoringRule.incorrectScore};
   });

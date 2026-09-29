@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-09-29T16:22:20.214Z",
+  "createdAt": "2026-09-29T16:59:50.231Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -17,8 +17,8 @@
     {
       "path": "app-preview/app/content-client.js",
       "sourcePath": "public/app-preview/app/content-client.js",
-      "checksum": "1010892e63c8ce03d7b4f73d3dff95868fa5442d2f4211ad00eeac8d3c675386",
-      "size": 18476
+      "checksum": "9abc8ee9143bf27f9130bcecbcc198463693ea3784ce8b06e45667c8800b5b93",
+      "size": 18600
     },
     {
       "path": "app-preview/app/routes.js",
@@ -29,14 +29,14 @@
     {
       "path": "app-preview/domain/assessment/evaluator.js",
       "sourcePath": "public/app-preview/domain/assessment/evaluator.js",
-      "checksum": "47355874b73a98be8d934b12b005a3a306550b81079bad7622a07f93706fdae8",
-      "size": 4318
+      "checksum": "89c6e9138c588e4fc2ea451c0e1588d4c51d29a8fdab29df0ac6f84e4937fbfb",
+      "size": 4441
     },
     {
       "path": "app-preview/domain/assessment/model.js",
       "sourcePath": "public/app-preview/domain/assessment/model.js",
-      "checksum": "909114ebe2830480c46c4ef4b51a43c2640875407c0d51332bb02cb3cf7579ee",
-      "size": 6559
+      "checksum": "6eb077afec3af386e851d5eef98c0f21d11199d42d4127f13c4bede6d91f767f",
+      "size": 6991
     },
     {
       "path": "app-preview/domain/assessment/scoring.js",

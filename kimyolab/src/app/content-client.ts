@@ -39,7 +39,8 @@ export class ContentClient {
   private readonly baseUrl:string;
   private activeVersion?:string;
   private files=new Map<string,ManifestFile>();
-  private cache=new Map<string,Promise<any>>();
+  /** True private (#): verified pack files — including the key pack after an evaluation — are unreachable from outside. */
+  #cache=new Map<string,Promise<any>>();
   private versionPromise?:Promise<string>;
   constructor(options:ContentClientOptions={}){
     const globalFetch=(globalThis as any).fetch as FetchLike|undefined;
@@ -67,7 +68,7 @@ export class ContentClient {
   /** Pack data file: raw bytes are hashed and compared with manifest.files[path] before parsing (fail-closed). */
   private packJson(version:string,rel:string):Promise<any>{
     const url=`${this.baseUrl}/${version}/${rel}`;
-    const cached=this.cache.get(url);
+    const cached=this.#cache.get(url);
     if(cached) return cached;
     const pending=(async()=>{
       const entry=this.files.get(rel);
@@ -83,8 +84,8 @@ export class ContentClient {
       try{ return JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(bytes)); }
       catch{ throw new ContentLoadError('CONTENT_JSON_INVALID',{resource:url}); }
     })();
-    pending.catch(()=>this.cache.delete(url));
-    this.cache.set(url,pending);
+    pending.catch(()=>this.#cache.delete(url));
+    this.#cache.set(url,pending);
     return pending;
   }
 

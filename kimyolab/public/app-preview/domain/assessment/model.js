@@ -86,6 +86,9 @@ export function validatePromptPack(input    )                     {
     for(const key of Object.keys(item??{})) if(!PROMPT_KEYS.has(key)) fail('ASSESSMENT_PROMPT_LEAKS_FIELD',`${item?.id}:${key}`);
     for(const option of item.options??[]) for(const key of Object.keys(option??{})) if(key!=='id'&&key!=='text') fail('ASSESSMENT_PROMPT_LEAKS_FIELD',`${item?.id}:options.${key}`);
     if(!text(item.id)||!text(item.learningUnitId)||!text(item.stem)||!Array.isArray(item.options)||item.options.length<2) fail('ASSESSMENT_PROMPT_INVALID',String(item?.id));
+    // One response yields one evidence per mapped concept: a duplicated mapping would double that concept's weight.
+    if(!Array.isArray(item.conceptIds)||new Set(item.conceptIds).size!==item.conceptIds.length) fail('ASSESSMENT_CONCEPT_MAPPING_DUPLICATE',String(item.id));
+    if(Array.isArray(item.outcomeIds)&&new Set(item.outcomeIds).size!==item.outcomeIds.length) fail('ASSESSMENT_OUTCOME_MAPPING_DUPLICATE',String(item.id));
   }
   return input                        ;
 }
