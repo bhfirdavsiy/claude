@@ -1,0 +1,36 @@
+name: KimyoLab verify
+
+on:
+  push:
+    paths:
+      - 'kimyolab/**'
+      - '.github/workflows/kimyolab-verify.yml'
+  pull_request:
+    paths:
+      - 'kimyolab/**'
+      - '.github/workflows/kimyolab-verify.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: kimyolab
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: kimyolab/.nvmrc
+          cache: npm
+          cache-dependency-path: kimyolab/package-lock.json
+      - name: Install exact dependencies from the lockfile
+        run: npm ci
+      - name: Install Chromium for E2E
+        run: npx playwright install --with-deps chromium
+      - name: verify (lint → typecheck → schema → content → chemistry → unit → integration → E2E → build)
+        run: npm run verify
+      - name: Generated browser preview and content pack must be committed
+        run: git status --porcelain -- public src schemas | tee /dev/stderr | (! grep .)

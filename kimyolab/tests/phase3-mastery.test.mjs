@@ -20,7 +20,8 @@ test('requires three independent evidence records including assessment and trans
     ev('2',.9,'concept-assessment',dates[1]),
     ev('3',.9,'transfer-case',dates[2]),
   ];
-  const m=computeConceptMastery({conceptId:'concept.c1',evidence,scoringVersion:'1.0.0',transferRequired:true});
+  // Evidence fixtures are scored with scoring model '1'; mastery must be computed under the same version (P0.5).
+  const m=computeConceptMastery({conceptId:'concept.c1',evidence,scoringVersion:'1',transferRequired:true});
   assert.equal(m.status,'mastered');
   assert.ok(m.confidence>=.75);
   assert.equal(m.evidenceIds.length,3);

@@ -6,7 +6,10 @@ import {validateExternalLabBindings,bindingsForLearningUnit} from '../integratio
 import type {ExternalLabBinding} from '../integrations/external-labs/types.ts';
 import type {LabCatalogModel} from '../features/labs/model.ts';
 
-type FetchLike=(url:string)=>Promise<{ok:boolean;status:number;json:()=>Promise<any>}>;
+import { sha256Hex, utf8 } from '../domain/content/sha256.ts';
+import type { MasteryVersionPolicy } from '../domain/mastery/mastery.ts';
+
+type FetchLike=(url:string)=>Promise<{ok:boolean;status:number;json:()=>Promise<any>;text?:()=>Promise<string>;arrayBuffer?:()=>Promise<ArrayBuffer>}>;
 
 export class ContentLoadError extends Error {
   code:string;
@@ -17,41 +20,96 @@ export class ContentLoadError extends Error {
   }
 }
 
+/** User-facing message for a content load failure (fail-closed states get an explicit explanation). */
+export function contentErrorMessage(error:unknown,fallback:string):string{
+  const code=error instanceof ContentLoadError?error.code:undefined;
+  if(code==='CONTENT_INTEGRITY_ERROR') return 'Kontent fayli tekshiruvdan o‘tmadi. Sahifani yangilang; muammo takrorlansa, administratorga murojaat qiling.';
+  if(code==='APP_VERSION_INCOMPATIBLE'||code==='SCHEMA_VERSION_INCOMPATIBLE') return 'Kontent to‘plami ilova versiyasiga mos emas. Ilovani yangilang.';
+  return fallback;
+}
+
 interface ContentClientOptions { fetchImpl?:FetchLike; baseUrl?:string }
+
+interface ManifestFile { path:string; checksum:string; size:number }
 
 export class ContentClient {
   private readonly fetchImpl:FetchLike;
   private readonly baseUrl:string;
   private activeVersion?:string;
-  private cache=new Map<string,any>();
+  private files=new Map<string,ManifestFile>();
+  private cache=new Map<string,Promise<any>>();
+  private versionPromise?:Promise<string>;
   constructor(options:ContentClientOptions={}){
     const globalFetch=(globalThis as any).fetch as FetchLike|undefined;
     if(!options.fetchImpl&&!globalFetch) throw new ContentLoadError('CONTENT_FETCH_UNAVAILABLE');
-    this.fetchImpl=options.fetchImpl??globalFetch!;
+    // window.fetch must be called with the global receiver; an unbound method throws "Illegal invocation".
+    this.fetchImpl=options.fetchImpl??globalFetch!.bind(globalThis);
     this.baseUrl=(options.baseUrl??'/content').replace(/\/$/,'');
   }
 
-  private async json(url:string){
-    if(this.cache.has(url)) return this.cache.get(url);
+  private async request(url:string){
     let response;
     try{ response=await this.fetchImpl(url); }
     catch{ throw new ContentLoadError('CONTENT_NETWORK_ERROR',{resource:url}); }
     if(!response.ok) throw new ContentLoadError('CONTENT_HTTP_ERROR',{status:response.status,resource:url});
-    let value;
-    try{ value=await response.json(); }
+    return response;
+  }
+
+  /** Unverified JSON: only for the release pointer and the pack manifest, which are verified structurally. */
+  private async json(url:string){
+    const response=await this.request(url);
+    try{ return await response.json(); }
     catch{ throw new ContentLoadError('CONTENT_JSON_INVALID',{resource:url}); }
-    this.cache.set(url,value); return value;
+  }
+
+  /** Pack data file: raw bytes are hashed and compared with manifest.files[path] before parsing (fail-closed). */
+  private packJson(version:string,rel:string):Promise<any>{
+    const url=`${this.baseUrl}/${version}/${rel}`;
+    const cached=this.cache.get(url);
+    if(cached) return cached;
+    const pending=(async()=>{
+      const entry=this.files.get(rel);
+      if(!entry) throw new ContentLoadError('CONTENT_INTEGRITY_ERROR',{resource:url});
+      const response=await this.request(url);
+      let bytes:Uint8Array;
+      try{
+        if(typeof response.arrayBuffer==='function') bytes=new Uint8Array(await response.arrayBuffer());
+        else if(typeof response.text==='function') bytes=utf8(await response.text());
+        else throw new Error('RAW_BODY_UNAVAILABLE');
+      }catch{ throw new ContentLoadError('CONTENT_INTEGRITY_ERROR',{resource:url}); }
+      if(bytes.length!==entry.size||await sha256Hex(bytes)!==entry.checksum) throw new ContentLoadError('CONTENT_INTEGRITY_ERROR',{resource:url});
+      try{ return JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(bytes)); }
+      catch{ throw new ContentLoadError('CONTENT_JSON_INVALID',{resource:url}); }
+    })();
+    pending.catch(()=>this.cache.delete(url));
+    this.cache.set(url,pending);
+    return pending;
   }
 
   private async version(){
     if(this.activeVersion) return this.activeVersion;
+    this.versionPromise??=this.resolveVersion().catch((error)=>{this.versionPromise=undefined;throw error;});
+    return this.versionPromise;
+  }
+
+  private async resolveVersion(){
     const pointer=await this.json(`${this.baseUrl}/manifest.json`);
-    if(!pointer||typeof pointer.activeVersion!=='string'||typeof pointer.checksum!=='string'||typeof pointer.manifest!=='string') throw new ContentLoadError('CONTENT_MANIFEST_INVALID',{resource:`${this.baseUrl}/manifest.json`});
-    const packManifest=await this.json(`${this.baseUrl}/${pointer.activeVersion}/manifest.json`);
+    if(!pointer||typeof pointer.activeVersion!=='string'||typeof pointer.checksum!=='string'||typeof pointer.manifest!=='string'||!/^[A-Za-z0-9.-]+$/.test(pointer.activeVersion)) throw new ContentLoadError('CONTENT_MANIFEST_INVALID',{resource:`${this.baseUrl}/manifest.json`});
+    const manifestUrl=`${this.baseUrl}/${pointer.activeVersion}/manifest.json`;
+    const packManifest=await this.json(manifestUrl);
     const compatibility=evaluateContentPackCompatibility(pointer,packManifest,APP_COMPATIBILITY);
-    if(compatibility.status==='block') throw new ContentLoadError(compatibility.code,{resource:`${this.baseUrl}/${pointer.activeVersion}/manifest.json`});
+    if(compatibility.status==='block') throw new ContentLoadError(compatibility.code,{resource:manifestUrl});
+    // The manifest's aggregate checksum must be reproducible from its own file list.
+    const files:ManifestFile[]=Array.isArray(packManifest.files)?packManifest.files:[];
+    if(!files.length||files.some(f=>!f||typeof f.path!=='string'||!/^[a-f0-9]{64}$/.test(String(f.checksum))||!Number.isInteger(f.size))) throw new ContentLoadError('CONTENT_INTEGRITY_ERROR',{resource:manifestUrl});
+    const aggregate=await sha256Hex(utf8(files.map(f=>`${f.path}:${f.checksum}:${f.size}`).join('\n')));
+    if(aggregate!==packManifest.checksum) throw new ContentLoadError('CONTENT_INTEGRITY_ERROR',{resource:manifestUrl});
+    this.files=new Map(files.map(f=>[f.path,f]));
+    this.manifestCache=packManifest;
     this.activeVersion=compatibility.version; return this.activeVersion;
   }
+
+  private manifestCache?:any;
 
   async loadLearningHub(learningUnitId:string):Promise<LearningHubModel>{
     const match=learningUnitId.match(/^lu\.(7|8|9|10|11)\.[A-Za-z0-9.-]+$/);
@@ -60,13 +118,13 @@ export class ContentClient {
     const version=await this.version();
     const prefix=`${this.baseUrl}/${version}`;
     const [units,theories,practices,mappings,concepts,externalRaw,assessmentBank]=await Promise.all([
-      this.json(`${prefix}/learning-units/grade-${grade}.json`),
-      this.json(`${prefix}/theory-activities.json`),
-      this.json(`${prefix}/practice-activities.json`),
-      this.json(`${prefix}/mapping-links.json`),
-      this.json(`${prefix}/concepts.json`),
-      this.json(`${prefix}/external-lab-bindings.json`),
-      this.json(`${prefix}/assessment-items.json`),
+      this.packJson(version,`learning-units/grade-${grade}.json`),
+      this.packJson(version,`theory-activities.json`),
+      this.packJson(version,`practice-activities.json`),
+      this.packJson(version,`mapping-links.json`),
+      this.packJson(version,`concepts.json`),
+      this.packJson(version,`external-lab-bindings.json`),
+      this.packJson(version,`assessment-items.json`),
     ]);
     try{return buildLearningHubModel(learningUnitId,{units,theories,practices,mappings,concepts,externalLabs:bindingsForLearningUnit(validateExternalLabBindings(externalRaw),learningUnitId),assessmentBank});}
     catch(error){
@@ -80,25 +138,25 @@ export class ContentClient {
     const version=await this.version();
     const prefix=`${this.baseUrl}/${version}`;
     const [packManifest,practices,mappings,referenceConfigs,guidedConfigs,beta1Configs,beta2Configs,beta2AdvancedConfigs,beta2OrganicConfigs,beta3Configs,beta3AdvancedConfigs,reactions,solutionRules,hydrolysis,electrolysis,manganeseRedox,organic,kinetics,equilibrium]=await Promise.all([
-      this.json(`${prefix}/manifest.json`),
-      this.json(`${prefix}/practice-activities.json`),
-      this.json(`${prefix}/mapping-links.json`),
-      this.json(`${prefix}/activity-configs/reference-slices.json`),
-      this.json(`${prefix}/activity-configs/guided-labs.json`),
-      this.json(`${prefix}/activity-configs/beta1.json`),
-      this.json(`${prefix}/activity-configs/beta2-safe.json`),
-      this.json(`${prefix}/activity-configs/beta2-advanced.json`),
-      this.json(`${prefix}/activity-configs/beta2-organic.json`),
-      this.json(`${prefix}/activity-configs/beta3-safe.json`),
-      this.json(`${prefix}/activity-configs/beta3-advanced.json`),
-      this.json(`${prefix}/chemistry/reactions.json`),
-      this.json(`${prefix}/chemistry/solubility.json`),
-      this.json(`${prefix}/chemistry/hydrolysis.json`),
-      this.json(`${prefix}/chemistry/electrolysis.json`),
-      this.json(`${prefix}/chemistry/manganese-redox.json`),
-      this.json(`${prefix}/chemistry/organic.json`),
-      this.json(`${prefix}/chemistry/kinetics.json`),
-      this.json(`${prefix}/chemistry/equilibrium.json`),
+      Promise.resolve(this.manifestCache),
+      this.packJson(version,`practice-activities.json`),
+      this.packJson(version,`mapping-links.json`),
+      this.packJson(version,`activity-configs/reference-slices.json`),
+      this.packJson(version,`activity-configs/guided-labs.json`),
+      this.packJson(version,`activity-configs/beta1.json`),
+      this.packJson(version,`activity-configs/beta2-safe.json`),
+      this.packJson(version,`activity-configs/beta2-advanced.json`),
+      this.packJson(version,`activity-configs/beta2-organic.json`),
+      this.packJson(version,`activity-configs/beta3-safe.json`),
+      this.packJson(version,`activity-configs/beta3-advanced.json`),
+      this.packJson(version,`chemistry/reactions.json`),
+      this.packJson(version,`chemistry/solubility.json`),
+      this.packJson(version,`chemistry/hydrolysis.json`),
+      this.packJson(version,`chemistry/electrolysis.json`),
+      this.packJson(version,`chemistry/manganese-redox.json`),
+      this.packJson(version,`chemistry/organic.json`),
+      this.packJson(version,`chemistry/kinetics.json`),
+      this.packJson(version,`chemistry/equilibrium.json`),
     ]);
     const activity=practices.find((x:any)=>x.id===practiceActivityId);
     if(!activity) throw new ContentLoadError('PRACTICE_ACTIVITY_NOT_FOUND',{resource:practiceActivityId});
@@ -110,13 +168,14 @@ export class ContentClient {
     if(!mapping) throw new ContentLoadError('PRACTICE_MAPPING_NOT_FOUND',{resource:practiceActivityId});
     const gradeMatch=String(mapping.learningUnitId).match(/^lu\.(7|8|9|10|11)\./);
     if(!gradeMatch) throw new ContentLoadError('LEARNING_UNIT_ID_INVALID',{resource:mapping.learningUnitId});
-    const units=await this.json(`${prefix}/learning-units/grade-${gradeMatch[1]}.json`);
+    const units=await this.packJson(version,`learning-units/grade-${gradeMatch[1]}.json`);
     const unit=units.find((x:any)=>x.id===mapping.learningUnitId);
     if(!unit) throw new ContentLoadError('LEARNING_UNIT_NOT_FOUND',{resource:mapping.learningUnitId});
     return buildPracticePageModel({
       activity,mapping,unit,configFamily,referenceConfig,contentVersion:version,
       schemaVersion:String(packManifest.schemaVersion??'0'),
       scoringVersion:String(packManifest.scoringVersion??'0'),
+      ...(packManifest.curriculumVersion?{curriculumVersion:String(packManifest.curriculumVersion)}:{}),
       reactions,solutionRules,hydrolysis,electrolysis,manganeseRedox,organic,kinetics,equilibrium,
     });
   }
@@ -129,7 +188,7 @@ export class ContentClient {
 
   async loadExternalLabBindings():Promise<ExternalLabBinding[]> {
     const version=await this.version();
-    return validateExternalLabBindings(await this.json(`${this.baseUrl}/${version}/external-lab-bindings.json`));
+    return validateExternalLabBindings(await this.packJson(version,`external-lab-bindings.json`));
   }
 
   async getExternalLabBinding(bindingId:string):Promise<ExternalLabBinding>{
@@ -142,18 +201,18 @@ export class ContentClient {
   async loadLabCatalog():Promise<LabCatalogModel>{
     const version=await this.version(); const prefix=`${this.baseUrl}/${version}`;
     const [practices,mappings,externalRaw,groups,referenceConfigs,guidedConfigs,beta1Configs,beta2Configs,beta2AdvancedConfigs,beta2OrganicConfigs,beta3Configs,beta3AdvancedConfigs]=await Promise.all([
-      this.json(`${prefix}/practice-activities.json`),
-      this.json(`${prefix}/mapping-links.json`),
-      this.json(`${prefix}/external-lab-bindings.json`),
-      Promise.all([7,8,9,10,11].map(g=>this.json(`${prefix}/learning-units/grade-${g}.json`))),
-      this.json(`${prefix}/activity-configs/reference-slices.json`),
-      this.json(`${prefix}/activity-configs/guided-labs.json`),
-      this.json(`${prefix}/activity-configs/beta1.json`),
-      this.json(`${prefix}/activity-configs/beta2-safe.json`),
-      this.json(`${prefix}/activity-configs/beta2-advanced.json`),
-      this.json(`${prefix}/activity-configs/beta2-organic.json`),
-      this.json(`${prefix}/activity-configs/beta3-safe.json`),
-      this.json(`${prefix}/activity-configs/beta3-advanced.json`),
+      this.packJson(version,`practice-activities.json`),
+      this.packJson(version,`mapping-links.json`),
+      this.packJson(version,`external-lab-bindings.json`),
+      Promise.all([7,8,9,10,11].map(g=>this.packJson(version,`learning-units/grade-${g}.json`))),
+      this.packJson(version,`activity-configs/reference-slices.json`),
+      this.packJson(version,`activity-configs/guided-labs.json`),
+      this.packJson(version,`activity-configs/beta1.json`),
+      this.packJson(version,`activity-configs/beta2-safe.json`),
+      this.packJson(version,`activity-configs/beta2-advanced.json`),
+      this.packJson(version,`activity-configs/beta2-organic.json`),
+      this.packJson(version,`activity-configs/beta3-safe.json`),
+      this.packJson(version,`activity-configs/beta3-advanced.json`),
     ]);
     const units=groups.flat(); const unitMap=new Map(units.map((u:any)=>[u.id,u]));
     const configured=new Set<string>();
@@ -176,15 +235,22 @@ export class ContentClient {
 
   async getRuntimeVersions(){
     const contentVersion=await this.version();
-    const manifest=await this.json(`${this.baseUrl}/${contentVersion}/manifest.json`);
+    const manifest=this.manifestCache;
     return {contentVersion,assessmentVersion:String(manifest.assessmentVersion??'0.0.0'),schemaVersion:String(manifest.schemaVersion??'0.0.0'),scoringVersion:String(manifest.scoringVersion??'0.0.0')};
+  }
+
+  /** Evidence compatibility declared by the active pack; versions not listed are incompatible. */
+  async getEvidenceCompatibility():Promise<MasteryVersionPolicy>{
+    await this.version();
+    const declared=this.manifestCache?.evidenceCompatibility;
+    return declared&&typeof declared==='object'?structuredClone(declared):{};
   }
 
   async loadSearchIndex(){
     const version=await this.version(); const prefix=`${this.baseUrl}/${version}`;
     const [groups,practices,mappings,concepts]=await Promise.all([
-      Promise.all([7,8,9,10,11].map(g=>this.json(`${prefix}/learning-units/grade-${g}.json`))),
-      this.json(`${prefix}/practice-activities.json`),this.json(`${prefix}/mapping-links.json`),this.json(`${prefix}/concepts.json`),
+      Promise.all([7,8,9,10,11].map(g=>this.packJson(version,`learning-units/grade-${g}.json`))),
+      this.packJson(version,`practice-activities.json`),this.packJson(version,`mapping-links.json`),this.packJson(version,`concepts.json`),
     ]);
     const units=groups.flat(); const conceptMap=new Map(concepts.map((x:any)=>[x.id,x])); const unitMap=new Map(units.map((x:any)=>[x.id,x]));
     const out:any[]=[];
@@ -196,7 +262,7 @@ export class ContentClient {
   async listLearningUnits(grade:number){
     if(![7,8,9,10,11].includes(grade)) throw new ContentLoadError('GRADE_INVALID');
     const version=await this.version();
-    const units=await this.json(`${this.baseUrl}/${version}/learning-units/grade-${grade}.json`);
+    const units=await this.packJson(version,`learning-units/grade-${grade}.json`);
     return units.map((u:any)=>({id:u.id,grade:u.grade,title:u.title,chapter:u.chapter,learningOutcomes:[...(u.learningOutcomes??[])]}));
   }
 }

@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-09-29T10:48:57.944Z",
+  "createdAt": "2026-09-29T12:56:50.131Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -11,14 +11,14 @@
     {
       "path": "app-preview/app/bootstrap.js",
       "sourcePath": "public/app-preview/app/bootstrap.js",
-      "checksum": "a028ef70ce5e0e188c2bd442add1d28acf762f25c1bd21af9e7287f1c7f14d9c",
-      "size": 5999
+      "checksum": "1553cd45102118c89b2dd7f80217f1fa9f8fda4172e02b6f13ff5e0120843a1a",
+      "size": 6499
     },
     {
       "path": "app-preview/app/content-client.js",
       "sourcePath": "public/app-preview/app/content-client.js",
-      "checksum": "87428e4e318192e91d6a3541e7860a55c2f8e4a7585ff7f6c2a876f96ea72084",
-      "size": 13739
+      "checksum": "e876edcf1c3a69426adf833c432320bc846999fcb4feb7efafc9f3cca525e63f",
+      "size": 17617
     },
     {
       "path": "app-preview/app/routes.js",
@@ -53,8 +53,8 @@
     {
       "path": "app-preview/domain/chemistry/equilibrium-model.js",
       "sourcePath": "public/app-preview/domain/chemistry/equilibrium-model.js",
-      "checksum": "48e8a34b65065216136c0fc912bd23ed57a6bd07609ed863b403b25c3ccb5ef3",
-      "size": 1080
+      "checksum": "6b0324697273e8b316a11921300d55f0e59610fdf6b21673caa135b2026b34af",
+      "size": 1098
     },
     {
       "path": "app-preview/domain/chemistry/faraday-model.js",
@@ -65,8 +65,8 @@
     {
       "path": "app-preview/domain/chemistry/formula-parser.js",
       "sourcePath": "public/app-preview/domain/chemistry/formula-parser.js",
-      "checksum": "9b35d43351bd1610fc568da96b8d3a91023927a56e20c73d40bfce3d143a67de",
-      "size": 5273
+      "checksum": "b0be8f776f95fcee7d06de50e1464a53cb8bc919f846a4d6e46674a357f66d39",
+      "size": 5281
     },
     {
       "path": "app-preview/domain/chemistry/gas-laws.js",
@@ -89,8 +89,8 @@
     {
       "path": "app-preview/domain/chemistry/kinetics-model.js",
       "sourcePath": "public/app-preview/domain/chemistry/kinetics-model.js",
-      "checksum": "caf18f6a4444c7c76def59811883ed90b5f18f9b8d426952525fcfd6cba40a00",
-      "size": 1343
+      "checksum": "78b51ad157f1db506135b518314ea7537a14a1e3890b6ccc9499b31c45a42dde",
+      "size": 1361
     },
     {
       "path": "app-preview/domain/chemistry/manganese-redox-model.js",
@@ -171,6 +171,12 @@
       "size": 1422
     },
     {
+      "path": "app-preview/domain/content/sha256.js",
+      "sourcePath": "public/app-preview/domain/content/sha256.js",
+      "checksum": "30647dfcfd2592e44d3d1d799bd7cf5711648aad00097a8a61422bf214f2409f",
+      "size": 3042
+    },
+    {
       "path": "app-preview/domain/content/types.js",
       "sourcePath": "public/app-preview/domain/content/types.js",
       "checksum": "712ba4d9f1b955f4cf42ee5722c5406f8066c0965f95b78c9b9b8eb50a94ed62",
@@ -191,8 +197,8 @@
     {
       "path": "app-preview/domain/mastery/mastery.js",
       "sourcePath": "public/app-preview/domain/mastery/mastery.js",
-      "checksum": "08dfb93a842369f9a7d3b7b1ae74dc3c6780de9af2b612e080ce85e1f2385791",
-      "size": 2293
+      "checksum": "7779983cea8b157fcdca8dddcb543d02fbd157be8cffc06f0bb9aa13ff26e66e",
+      "size": 5470
     },
     {
       "path": "app-preview/engines/calculation/engine.js",
@@ -263,8 +269,8 @@
     {
       "path": "app-preview/features/labs/external-render.js",
       "sourcePath": "public/app-preview/features/labs/external-render.js",
-      "checksum": "a080d083ef43f1e34c0d95fee402deacf586274f183ae3be18ade9b8e0e334db",
-      "size": 5488
+      "checksum": "5c914606afe7bc1681f99dade7c93c81c0a69f7d0b9b84973973e844dda74e5a",
+      "size": 6245
     },
     {
       "path": "app-preview/features/labs/model.js",
@@ -293,8 +299,8 @@
     {
       "path": "app-preview/features/practice/model.js",
       "sourcePath": "public/app-preview/features/practice/model.js",
-      "checksum": "dcda7d0b1a1955c774c3ff7e6c351efc10c85ee0df84cf4721e24b96c49b926c",
-      "size": 2702
+      "checksum": "ae96e7ba5e035d6aa1d5c0a64bd573da08920a1e1a7bbcbe20dafdf82b1bcdaa",
+      "size": 2924
     },
     {
       "path": "app-preview/features/practice/render.js",
@@ -329,8 +335,8 @@
     {
       "path": "app-preview/features/progress/service.js",
       "sourcePath": "public/app-preview/features/progress/service.js",
-      "checksum": "b7189487f011845c7c2451264b627f72a188c1c6682c654b9bdaed05836eba7d",
-      "size": 4303
+      "checksum": "21188220beb86945a8b4822e688fb5fbabbb325a55d772d5e4de3529cddf11d1",
+      "size": 7355
     },
     {
       "path": "app-preview/features/search/model.js",
@@ -357,16 +363,22 @@
       "size": 1435
     },
     {
+      "path": "app-preview/integrations/external-labs/evidence.js",
+      "sourcePath": "public/app-preview/integrations/external-labs/evidence.js",
+      "checksum": "71c2e12844adefe578aa4097ddff2b3cb0de1acec363957d9e08320aafd29912",
+      "size": 3740
+    },
+    {
       "path": "app-preview/integrations/external-labs/external-link-provider.js",
       "sourcePath": "public/app-preview/integrations/external-labs/external-link-provider.js",
-      "checksum": "c41f1384f82201ccc3ddeec6c9d92649fb04c44b5cdc80333d4cf97a3534707a",
-      "size": 1227
+      "checksum": "0aca0604f13e41de36a16030b6476631c3257f898ce3a38d31355f4847f980e5",
+      "size": 1265
     },
     {
       "path": "app-preview/integrations/external-labs/nobook/nobook-provider.js",
       "sourcePath": "public/app-preview/integrations/external-labs/nobook/nobook-provider.js",
-      "checksum": "cfb243a102ef902f60fa8892b14fb8c61e9a3f966beaae430205db09e0a43c7e",
-      "size": 4811
+      "checksum": "15ccb9ddfc2b83677fa22fa1ecd4f7dd8ca033ce7e31c1f81a457bf7def4a666",
+      "size": 4899
     },
     {
       "path": "app-preview/integrations/external-labs/nobook/sdk-adapter.js",
@@ -383,14 +395,20 @@
     {
       "path": "app-preview/integrations/external-labs/registry.js",
       "sourcePath": "public/app-preview/integrations/external-labs/registry.js",
-      "checksum": "34f3e48ebfa487303bd1f1a80ae30fcebeb418281265f6b3b6a0b47a8e6821f7",
-      "size": 2248
+      "checksum": "16ae2321bbbbb15f61e86b21641a90b544295823e5d7bddadff461bc00bf4468",
+      "size": 2466
     },
     {
       "path": "app-preview/integrations/external-labs/types.js",
       "sourcePath": "public/app-preview/integrations/external-labs/types.js",
       "checksum": "fb738bccb860270cf96c7f9a04b09e22e23b94d0ba9f88ab85c32b89ef26cbad",
       "size": 1732
+    },
+    {
+      "path": "app-preview/integrations/external-labs/url-policy.js",
+      "sourcePath": "public/app-preview/integrations/external-labs/url-policy.js",
+      "checksum": "ea3a9f0cfa3e4e70432e604953352bf0dca4309e1a1aa56357c5e77a0f8cdf26",
+      "size": 2905
     },
     {
       "path": "app-preview/runtime/beta1/config.js",
@@ -419,8 +437,8 @@
     {
       "path": "app-preview/runtime/beta2/advanced.js",
       "sourcePath": "public/app-preview/runtime/beta2/advanced.js",
-      "checksum": "319c598c053927063af5c1343c33da091264dc0bb25f7330142c361040ffaea7",
-      "size": 8696
+      "checksum": "a899386ddaeec90f20318cc49964204950f0d709c53b5ff98f404fc42a6c0398",
+      "size": 8705
     },
     {
       "path": "app-preview/runtime/beta2/capability.js",
@@ -485,8 +503,8 @@
     {
       "path": "app-preview/runtime/evidence/types.js",
       "sourcePath": "public/app-preview/runtime/evidence/types.js",
-      "checksum": "e12fe27bd2a82492d9b0ec5fd09b24c5cd1ef83750aadccac6e2bdd18b2de798",
-      "size": 3539
+      "checksum": "24629af56d54b5617877c5bc648af551d3f437c6cb2c56c7be752271ae55a1d0",
+      "size": 8213
     },
     {
       "path": "app-preview/runtime/governance/approvals.js",
@@ -515,8 +533,8 @@
     {
       "path": "app-preview/runtime/learning-runner/runner.js",
       "sourcePath": "public/app-preview/runtime/learning-runner/runner.js",
-      "checksum": "b08bc54ce3ed36148a899afb6f084ca6407dbd925858731f5bdb8b6b563ac9b8",
-      "size": 5850
+      "checksum": "09e1c1ecf0519ee6fab9db0dae12c260c90616d45af1f32551d653aec77b331d",
+      "size": 7056
     },
     {
       "path": "app-preview/runtime/practice-router/router.js",
@@ -533,26 +551,32 @@
     {
       "path": "app-preview/runtime/progress/indexeddb-store.js",
       "sourcePath": "public/app-preview/runtime/progress/indexeddb-store.js",
-      "checksum": "b7e9e417ef8d46e2de4b131b75295168e609fc2011cec5c556c1ab93f4250d2a",
-      "size": 5283
+      "checksum": "f039975ee6a40e7cd2326e3edd9b5cf0baaa9b873ebeb7092e5103ec00f9b876",
+      "size": 17897
+    },
+    {
+      "path": "app-preview/runtime/progress/migrations.js",
+      "sourcePath": "public/app-preview/runtime/progress/migrations.js",
+      "checksum": "97d2443a6b975cce6c1686be6d890725c4a5183886f643cd591f1ed2375741bb",
+      "size": 5800
     },
     {
       "path": "app-preview/runtime/progress/recovery.js",
       "sourcePath": "public/app-preview/runtime/progress/recovery.js",
-      "checksum": "0ddaca0e065e8c646a71e58703c905f73df62fce62a6c74c88885c4984e60898",
-      "size": 832
+      "checksum": "1176112c2737ea63a37909b64a4dadd631a7388489b5bf3fd9bc1bb30eb315fb",
+      "size": 778
     },
     {
       "path": "app-preview/runtime/progress/reducer.js",
       "sourcePath": "public/app-preview/runtime/progress/reducer.js",
-      "checksum": "9873e571454a93472c822ac4b06f17cbf1ff0bab074b609913825845b19db7b2",
-      "size": 2897
+      "checksum": "516a0cc9f9cb6924d227686d44f3cf97a683ad189aabea249f6dc4376e453e65",
+      "size": 2328
     },
     {
       "path": "app-preview/runtime/progress/types.js",
       "sourcePath": "public/app-preview/runtime/progress/types.js",
-      "checksum": "13c3915330f8037900021e4c05526f80d95e7a56f8e1c0161ab814ed8553f949",
-      "size": 380
+      "checksum": "c8c12387ffde3ffa81d0e681e1c73052bc8499cc8c9fb15db461ce833c01c209",
+      "size": 663
     },
     {
       "path": "app-preview/runtime/reference-slices/calculation-adapter.js",
@@ -607,6 +631,12 @@
       "sourcePath": "public/app-preview/runtime/remediation/router.js",
       "checksum": "45e249de373ae5c3b52a877781d9f94da9bcd8feefad0d0df41ceda24e479e1a",
       "size": 888
+    },
+    {
+      "path": "app-preview/runtime/shared/ids.js",
+      "sourcePath": "public/app-preview/runtime/shared/ids.js",
+      "checksum": "577635bc650618202044e092ee5892737f9280da341ed27b1897824b573c4cc5",
+      "size": 1004
     },
     {
       "path": "app-preview/ui/components/dom.js",

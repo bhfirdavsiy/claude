@@ -70,7 +70,7 @@ export function createBeta2AdvancedRouter(o:Options):PracticeRouter<ReferenceSli
     if(config.capability==='hydrolysis-experiment'){
       const selected=actions.find((a:any)=>a.type==='selectSalt')?.payload?.salt as string|undefined;
       const recorded=[...actions].reverse().find((a:any)=>a.type==='recordMedium')?.payload?.medium as HydrolysisMedium|undefined;
-      const model=selected?o.hydrolysisModel.classify(selected):{modeled:false,code:'HYDROLYSIS_NOT_MODELED' as const};
+      const model=selected?o.hydrolysisModel.classify(selected):{modeled:false as const,code:'HYDROLYSIS_NOT_MODELED' as const};
       const achieved=!!selected&&model.modeled&&selected===config.salt&&recorded===model.medium&&recorded===config.expectedMedium;
       const evidence:ConstructionEvidence={...meta(activity,config,o),id:`${activity.id}.hydrolysis`,score:achieved?1:0,evidenceClass:'practice-observation',type:'construction',targetId:`hydrolysis-${config.salt}-${config.expectedMedium}`,achieved,independenceKey:`${activity.id}:hydrolysis`};
       return {evidence:[evidence],serializedState:JSON.stringify({selected,recorded,model}),model} as any;

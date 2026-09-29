@@ -14,8 +14,8 @@ const result={serializedState:'{"state":"C-14"}',finalState:{isotope:'C-14'},evi
 
 test('IndexedDbProgressStore can list progress records for the student progress screen',async()=>{
   const factory=createFakeIndexedDb(); const store=new IndexedDbProgressStore(factory,'list-db');
-  await store.saveProgress({learningUnitId:'lu.7.01',status:'in_progress',activityStates:{},lastVisitedAt:'2026-09-15T00:00:00.000Z',contentVersion:'1',schemaVersion:'1'});
-  await store.saveProgress({learningUnitId:'lu.7.02',status:'mastered',activityStates:{},lastVisitedAt:'2026-09-15T00:01:00.000Z',contentVersion:'1',schemaVersion:'1'});
+  await store.saveProgress({learningUnitId:'lu.7.01',status:'in_progress',activityStates:{},lastVisitedAt:'2026-09-15T00:00:00.000Z',contentVersion:'1',schemaVersion:'2.0.0'});
+  await store.saveProgress({learningUnitId:'lu.7.02',status:'mastered',activityStates:{},lastVisitedAt:'2026-09-15T00:01:00.000Z',contentVersion:'1',schemaVersion:'2.0.0'});
   const rows=await store.listProgress();
   assert.equal(rows.length,2);
   assert.deepEqual(rows.map(x=>x.learningUnitId).sort(),['lu.7.01','lu.7.02']);

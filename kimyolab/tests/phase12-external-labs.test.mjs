@@ -28,11 +28,13 @@ test('external lab routes are first-class app routes',()=>{
 
 test('NOBOOK adapter keeps app_secret on the server side',()=>{
   const provider=fs.readFileSync(path.join(root,'src/integrations/external-labs/nobook/nobook-provider.ts'),'utf8');
-  const server=fs.readFileSync(path.join(root,'server.mjs'),'utf8');
+  const server=fs.readFileSync(path.join(root,'server/app.mjs'),'utf8');
   assert.ok(!provider.includes('NOBOOK_APP_SECRET'));
   assert.ok(server.includes('NOBOOK_APP_SECRET'));
   assert.ok(server.includes("https://nbapi.nobook.com/v1/auth"));
   assert.ok(server.includes("createHash('md5')"));
+  // P0.10: the browser-facing /auth endpoint is removed; the partner token never leaves the server.
+  assert.ok(!server.includes('/api/external-labs/nobook/auth'));
 });
 
 test('browser preview contains external lab integration modules',()=>{

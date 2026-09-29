@@ -1,0 +1,104 @@
+                                                                                
+import {PROGRESS_SCHEMA_VERSION} from './types.js';
+
+// Progress record migrations (P0.6). Every load goes through
+//   load → validate → version check → migrate if possible → otherwise isolate → return
+// and the registry below is the only way a record changes format.
+
+                                                                                      
+
+const STATUSES=new Set                            (['not_started','in_progress','practice_complete','assessment_complete','mastered','needs_review']);
+/** Records written before `schemaVersion` existed are treated as this version. */
+export const LEGACY_PROGRESS_SCHEMA_VERSION='0';
+
+function object(v        )                            {return typeof v==='object'&&v!==null&&!Array.isArray(v);}
+function text(v        )            {return typeof v==='string'&&v.length>0;}
+
+function sanitizeStates(value        )                      {
+  if(!object(value)) return {};
+  const out                      ={};
+  for(const [k,v] of Object.entries(value)) if(typeof v==='string') out[k]=v;
+  return out;
+}
+
+export const progressMigrations                                 ={
+  // Pre-schema records: `complete` was the only terminal status.
+  '0→1.0.0':(src)=>({
+    ...src,
+    status:src.status==='complete'?'practice_complete':(src.status??'not_started'),
+    activityStates:sanitizeStates(src.activityStates),
+    schemaVersion:'1.0.0',
+  }),
+  // 1.0.0 stored the *content* schema version in `schemaVersion`; 2.0.0 separates it.
+  '1.0.0→2.0.0':(src)=>({
+    learningUnitId:src.learningUnitId,
+    status:src.status==='complete'?'practice_complete':src.status,
+    activityStates:sanitizeStates(src.activityStates),
+    lastVisitedAt:src.lastVisitedAt,
+    contentVersion:src.contentVersion,
+    schemaVersion:'2.0.0',
+    contentSchemaVersion:'1.0.0',
+  }),
+};
+
+export class ProgressMigrationError extends Error {
+  code       ;
+  constructor(code       ,detail=''){super(detail?`${code}:${detail}`:code);this.name='ProgressMigrationError';this.code=code;}
+}
+
+/** Returns the ordered list of registry keys that lead from `from` to `to`, or undefined if no path exists. */
+export function resolveMigrationPath(from       ,to       ,registry                                 =progressMigrations)                   {
+  if(from===to) return [];
+  const edges=new Map                 ();
+  for(const key of Object.keys(registry)){
+    const [a,b]=key.split('→');
+    if(!a||!b) continue;
+    edges.set(a,[...(edges.get(a)??[]),b]);
+  }
+  const queue                                      =[{version:from,path:[]}];
+  const seen=new Set([from]);
+  while(queue.length){
+    const {version,path}=queue.shift() ;
+    for(const next of edges.get(version)??[]){
+      const step=[...path,`${version}→${next}`];
+      if(next===to) return step;
+      if(!seen.has(next)){seen.add(next);queue.push({version:next,path:step});}
+    }
+  }
+  return undefined;
+}
+
+export function validateProgressRecord(input        ,expectedSchemaVersion       =PROGRESS_SCHEMA_VERSION)                     {
+  if(!object(input)) throw new ProgressMigrationError('PROGRESS_RECORD_INVALID','record required');
+  for(const key of ['learningUnitId','contentVersion','lastVisitedAt','schemaVersion']) if(!text(input[key])) throw new ProgressMigrationError('PROGRESS_RECORD_INVALID',`${key} required`);
+  if(input.schemaVersion!==expectedSchemaVersion) throw new ProgressMigrationError('PROGRESS_SCHEMA_VERSION_MISMATCH',String(input.schemaVersion));
+  if(!STATUSES.has(input.status                              )) throw new ProgressMigrationError('PROGRESS_MIGRATION_UNSUPPORTED_STATUS',String(input.status));
+  if(!object(input.activityStates)||Object.values(input.activityStates).some(v=>typeof v!=='string')) throw new ProgressMigrationError('PROGRESS_RECORD_INVALID','activityStates');
+  if(input.contentSchemaVersion!==undefined&&!text(input.contentSchemaVersion)) throw new ProgressMigrationError('PROGRESS_RECORD_INVALID','contentSchemaVersion');
+  return input                                   ;
+}
+
+                                
+                                                  
+                                                                              
+                                                  
+
+/** load → validate → version check → migrate if possible → otherwise isolate. Never throws. */
+export function loadProgressRecord(input        ,options                                                                         ={})                   {
+  const target=options.targetSchemaVersion??PROGRESS_SCHEMA_VERSION;
+  const registry=options.registry??progressMigrations;
+  try{
+    if(!object(input)) throw new ProgressMigrationError('PROGRESS_RECORD_INVALID','record required');
+    if(!text(input.learningUnitId)||!text(input.contentVersion)||!text(input.lastVisitedAt)) throw new ProgressMigrationError('PROGRESS_RECORD_INVALID','identity/version fields required');
+    const from=input.schemaVersion===undefined?LEGACY_PROGRESS_SCHEMA_VERSION:String(input.schemaVersion);
+    if(from===target) return {status:'current',record:validateProgressRecord(input,target)};
+    const steps=resolveMigrationPath(from,target,registry);
+    if(!steps) throw new ProgressMigrationError('PROGRESS_MIGRATION_PATH_MISSING',`${from}→${target}`);
+    let record                       ={...input};
+    for(const step of steps) record=registry[step] (record);
+    return {status:'migrated',record:validateProgressRecord(record,target),from,steps};
+  }catch(error){
+    const code=error instanceof ProgressMigrationError?error.code:'PROGRESS_MIGRATION_FAILED';
+    return {status:'isolated',code,reason:error instanceof Error?error.message:String(error)};
+  }
+}

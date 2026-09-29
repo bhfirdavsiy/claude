@@ -1,8 +1,0 @@
-{
-  "version":"1.0.0",
-  "records":[
-    {"medium":"acidic","reactant":"MnO4^-","product":"Mn^2+","observation":"Purple permanganate color is strongly discharged in the bounded model.","sourceRefs":["src.curriculum.9.23"],"reviewStatus":"pending"},
-    {"medium":"neutral","reactant":"MnO4^-","product":"MnO2","observation":"Brown manganese(IV) oxide precipitate is modeled.","sourceRefs":["src.curriculum.9.23"],"reviewStatus":"pending"},
-    {"medium":"basic","reactant":"MnO4^-","product":"MnO4^2-","observation":"Green manganate species is modeled.","sourceRefs":["src.curriculum.9.23"],"reviewStatus":"pending"}
-  ]
-}

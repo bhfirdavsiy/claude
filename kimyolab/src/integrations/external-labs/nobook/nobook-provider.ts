@@ -10,7 +10,8 @@ async function loadPostmate():Promise<PostmateCtor>{
   const injected=(globalThis as any).__KIMYOLAB_NOBOOK_POSTMATE__;
   if(injected) return injected as PostmateCtor;
   try{
-    const sdk:any=await import('/vendor/nobook/postmate.js');
+    const sdkUrl='/vendor/nobook/postmate.js';
+    const sdk:any=await import(sdkUrl);
     const ctor=sdk.default??sdk.Postmate;
     if(typeof ctor!=='function') throw new Error('NOBOOK_SDK_EXPORT_INVALID');
     (globalThis as any).__KIMYOLAB_NOBOOK_POSTMATE__=ctor;
@@ -24,10 +25,11 @@ async function loadPostmate():Promise<PostmateCtor>{
 async function getSessionConfig(binding:ExternalLabBinding,learningUnitId:string){
   const response=await fetch('/api/external-labs/nobook/session',{
     method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({bindingId:binding.id,learningUnitId,moduleId:binding.nobookModuleId}),
+    // The server derives provider/module from the canonical binding; the client only names it.
+    body:JSON.stringify({bindingId:binding.id,learningUnitId}),
   });
   const body=await response.json().catch(()=>({}));
-  if(!response.ok) throw new Error(String(body?.error??'NOBOOK_SESSION_FAILED'));
+  if(!response.ok) throw new Error(String(body?.code??'NOBOOK_SESSION_FAILED'));
   if(typeof body.experimentalUrl!=='string') throw new Error('NOBOOK_EXPERIMENT_URL_MISSING');
   return body as {experimentalUrl:string};
 }

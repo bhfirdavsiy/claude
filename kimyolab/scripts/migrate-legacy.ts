@@ -257,7 +257,7 @@ if (fs.existsSync(additionsFile)) {
       throw new Error('PRACTICE_ADDITION_INVALID');
     }
     if (practiceActivities.some((p) => p.id === addition.id)) throw new Error(`PRACTICE_ADDITION_DUPLICATE:${addition.id}`);
-    const unit = learningUnits.find((u) => u.legacyIds.includes(addition.learningUnitLegacyId));
+    const unit = learningUnits.find((u: any) => u.legacyIds.includes(addition.learningUnitLegacyId));
     if (!unit) throw new Error(`PRACTICE_ADDITION_UNIT_UNKNOWN:${addition.learningUnitLegacyId}`);
     const type = addition.type as PracticeType;
     if (!['experiment','simulation','trainer','calculation','case'].includes(type)) throw new Error(`PRACTICE_ADDITION_TYPE_INVALID:${addition.id}`);
@@ -331,7 +331,7 @@ if (fs.existsSync(mappingOverridesFile)) {
       if (override.preservePreviousAsSupporting) {
         const already = mappings.some((m) => m.learningUnitId === mapping.learningUnitId && m.role === 'supporting' && m.practiceActivityId === previousPracticeId);
         if (!already) {
-          const unit = learningUnits.find((u) => u.id === mapping.learningUnitId);
+          const unit = learningUnits.find((u: any) => u.id === mapping.learningUnitId);
           if (!unit) throw new Error(`MAPPING_OVERRIDE_UNIT_MISSING:${mapping.learningUnitId}`);
           const legacyId = unit.legacyIds[0];
           const nextIndex = mappings.filter((m) => m.learningUnitId === mapping.learningUnitId && m.role === 'supporting').length + 1;

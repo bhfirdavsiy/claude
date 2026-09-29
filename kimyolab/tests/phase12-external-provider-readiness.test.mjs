@@ -40,10 +40,10 @@ test('external provider readiness report is fail-closed for missing NOBOOK partn
 
 test('NOBOOK runtime only loads a same-origin vendored SDK artifact and server keeps secret values server-side',()=>{
   const provider=read('src/integrations/external-labs/nobook/nobook-provider.ts');
-  const server=read('server.mjs');
-  assert.match(provider,/import\('\/vendor\/nobook\/postmate\.js'\)/);
+  const server=read('server/app.mjs');
+  assert.match(provider,/const sdkUrl='\/vendor\/nobook\/postmate\.js';\s*const sdk:any=await import\(sdkUrl\)/);
   assert.ok(!provider.includes('NOBOOK_APP_SECRET'));
-  assert.match(server,/public','vendor','nobook','postmate\.js/);
+  assert.match(server,/publicRoot, 'vendor', 'nobook', 'postmate\.js'/);
   assert.match(server,/NOBOOK_APP_SECRET/);
   assert.match(server,/experimentUrlValid/);
   assert.match(server,/nobookSdkChecksumValid/);

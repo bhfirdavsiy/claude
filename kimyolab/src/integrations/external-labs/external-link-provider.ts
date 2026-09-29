@@ -1,11 +1,12 @@
 import type {ExternalLabBinding,ExternalLabProvider,ExternalLabSession,ExternalProviderReadiness} from './types.ts';
+import {validateExternalLabUrl} from './url-policy.ts';
 
 export class ExternalLinkLabProvider implements ExternalLabProvider {
   readonly id:'chemai'|'chem-lab-station';
   constructor(id:'chemai'|'chem-lab-station'){this.id=id;}
   readiness(binding:ExternalLabBinding):ExternalProviderReadiness{
     if(binding.provider!==this.id||binding.status==='disabled') return {provider:this.id,ready:false,code:'DISABLED',retryable:false};
-    const ready=binding.status==='active'&&typeof binding.externalUrl==='string'&&binding.externalUrl.startsWith('https://');
+    const ready=binding.status==='active'&&validateExternalLabUrl(binding.provider,binding.externalUrl).ok;
     return {provider:this.id,ready,code:ready?'READY':'PROVIDER_UNAVAILABLE',retryable:false};
   }
   canLaunch(binding:ExternalLabBinding){return this.readiness(binding).ready;}

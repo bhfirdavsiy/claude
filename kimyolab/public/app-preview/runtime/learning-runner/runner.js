@@ -1,9 +1,10 @@
                                                                                                                  
-                                                     
-import { validateEvidence } from '../evidence/types.js';
+                                                                                 
+import { bindEvidenceToAttempt } from '../evidence/types.js';
+import { newUuid } from '../shared/ids.js';
                                                                    
 import { scoreAssessment,                       } from '../../domain/assessment/scoring.js';
-import { computeConceptMastery,                                         } from '../../domain/mastery/mastery.js';
+import { computeConceptMastery,                                                                    } from '../../domain/mastery/mastery.js';
 import { createProgress, reduceProgress } from '../progress/reducer.js';
                                                                  
 
@@ -17,8 +18,9 @@ import { createProgress, reduceProgress } from '../progress/reducer.js';
                                        
                                                                               
                                                             
-                                                
-                                                               
+                                                                                      
+                                                                            
+                                                                        
                                                         
                                                     
  
@@ -32,7 +34,11 @@ import { createProgress, reduceProgress } from '../progress/reducer.js';
                        
                            
                         
+                            
+                                                                                                     
+                                      
                  
+                    
                                                 
  
 
@@ -47,7 +53,8 @@ import { createProgress, reduceProgress } from '../progress/reducer.js';
                     
                         
                             
-                      
+                               
+                     
                               
                            
                                 
@@ -76,20 +83,25 @@ export class LearningRunner                  {
 
     const practiceRun=await o.practiceRouter.run(practice,context);
     if(!practiceRun.ok) return {ok:false,error:practiceRun.error};
-    const practiceEvidence=practiceRun.value.evidence.map(validateEvidence);
-    for(const evidence of practiceEvidence) await o.store.saveEvidence(evidence);
+    const newId=o.newId??newUuid;
+    const versions={contentVersion:o.contentVersion,scoringVersion:o.scoringVersion,...(o.curriculumVersion?{curriculumVersion:o.curriculumVersion}:{})};
+    const practiceStartedAt=now;
+    const practiceBound=bindEvidenceToAttempt({...versions,learningUnitId,activityId:practice.id,activityVersion:practice.version,startedAt:practiceStartedAt,completedAt:o.now()},practiceRun.value.evidence,newId);
+    await o.store.recordAttempt(practiceBound.attempt,practiceBound.evidence);
     if(practiceRun.value.serializedState!==undefined){
       progress=reduceProgress(progress,{type:'SAVE_ACTIVITY_STATE',activityId:practice.id,serializedState:practiceRun.value.serializedState,at:o.now()});
     }
     progress=reduceProgress(progress,{type:'PRACTICE_COMPLETE',at:o.now()});
     await o.store.saveProgress(progress);
 
-    const assessmentEvidence=(await o.assessmentRunner(unit,context)).map(validateEvidence);
-    for(const evidence of assessmentEvidence) await o.store.saveEvidence(evidence);
+    const assessmentStartedAt=o.now();
+    const assessmentDrafts=await o.assessmentRunner(unit,context);
+    const assessmentBound=bindEvidenceToAttempt({...versions,learningUnitId,activityId:`assessment.${learningUnitId}`,activityVersion:o.assessmentVersion,startedAt:assessmentStartedAt,completedAt:o.now()},assessmentDrafts,newId);
+    await o.store.recordAttempt(assessmentBound.attempt,assessmentBound.evidence);
     const assessment=scoreAssessment({
-      id:`assessment.${learningUnitId}.${o.now()}`,
+      id:`assessment.${learningUnitId}.${assessmentBound.attempt.id}`,
       learningUnitId,
-      evidence:assessmentEvidence,
+      evidence:assessmentBound.evidence,
       assessmentVersion:o.assessmentVersion,
       scoringVersion:o.scoringVersion,
       createdAt:o.now(),
@@ -104,6 +116,8 @@ export class LearningRunner                  {
         conceptId,
         evidence:allEvidence,
         scoringVersion:o.scoringVersion,
+        context:versions,
+        versionPolicy:o.versionPolicy,
         transferRequired:o.transferRequired?.(conceptId)??false,
       });
       mastery.push(result);
@@ -116,6 +130,6 @@ export class LearningRunner                  {
     progress=reduceProgress(progress,{type:'MASTERY_UPDATED',masteryStatus:aggregate,at:o.now()});
     await o.store.saveProgress(progress);
 
-    return {ok:true,value:{unit,theory,practice,evidence:[...practiceEvidence,...assessmentEvidence],assessment,mastery,progress}};
+    return {ok:true,value:{unit,theory,practice,evidence:[...practiceBound.evidence,...assessmentBound.evidence],attempts:[practiceBound.attempt,assessmentBound.attempt],assessment,mastery,progress}};
   }
 }

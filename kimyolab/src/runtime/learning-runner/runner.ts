@@ -1,9 +1,10 @@
 import type { LearningUnit, MappingLink, PracticeActivity, TheoryActivity } from '../../domain/content/types.ts';
-import type { Evidence } from '../evidence/types.ts';
-import { validateEvidence } from '../evidence/types.ts';
+import type { Attempt, Evidence, PersistedEvidence } from '../evidence/types.ts';
+import { bindEvidenceToAttempt } from '../evidence/types.ts';
+import { newUuid } from '../shared/ids.ts';
 import type { PracticeRouter } from '../practice-router/router.ts';
 import { scoreAssessment, type AssessmentResult } from '../../domain/assessment/scoring.ts';
-import { computeConceptMastery, type ConceptMastery, type MasteryStatus } from '../../domain/mastery/mastery.ts';
+import { computeConceptMastery, type ConceptMastery, type MasteryStatus, type MasteryVersionPolicy } from '../../domain/mastery/mastery.ts';
 import { createProgress, reduceProgress } from '../progress/reducer.ts';
 import type { LearningUnitProgress } from '../progress/types.ts';
 
@@ -17,8 +18,9 @@ export interface LearningContentRepository {
 export interface LearningRuntimeStore {
   loadProgress(learningUnitId:string):Promise<LearningUnitProgress|undefined>;
   saveProgress(progress:LearningUnitProgress):Promise<void>;
-  saveEvidence(evidence:Evidence):Promise<void>;
-  loadEvidenceForConcept(conceptId:string):Promise<Evidence[]>;
+  /** Persists one immutable attempt together with its evidence (never overwrites). */
+  recordAttempt(attempt:Attempt,evidence:PersistedEvidence[]):Promise<void>;
+  loadEvidenceForConcept(conceptId:string):Promise<PersistedEvidence[]>;
   saveAssessment(result:AssessmentResult):Promise<void>;
   saveMastery(mastery:ConceptMastery):Promise<void>;
 }
@@ -32,7 +34,11 @@ export interface LearningRunnerOptions<Context=unknown> {
   schemaVersion:string;
   assessmentVersion:string;
   scoringVersion:string;
+  curriculumVersion?:string;
+  /** Declared evidence compatibility for older content/scoring versions (defaults: incompatible). */
+  versionPolicy?:MasteryVersionPolicy;
   now:()=>string;
+  newId?:()=>string;
   transferRequired?:(conceptId:string)=>boolean;
 }
 
@@ -47,7 +53,8 @@ export interface LearningRunValue {
   unit:LearningUnit;
   theory:TheoryActivity;
   practice:PracticeActivity;
-  evidence:Evidence[];
+  evidence:PersistedEvidence[];
+  attempts:Attempt[];
   assessment:AssessmentResult;
   mastery:ConceptMastery[];
   progress:LearningUnitProgress;
@@ -76,20 +83,25 @@ export class LearningRunner<Context=unknown> {
 
     const practiceRun=await o.practiceRouter.run(practice,context);
     if(!practiceRun.ok) return {ok:false,error:practiceRun.error};
-    const practiceEvidence=practiceRun.value.evidence.map(validateEvidence);
-    for(const evidence of practiceEvidence) await o.store.saveEvidence(evidence);
+    const newId=o.newId??newUuid;
+    const versions={contentVersion:o.contentVersion,scoringVersion:o.scoringVersion,...(o.curriculumVersion?{curriculumVersion:o.curriculumVersion}:{})};
+    const practiceStartedAt=now;
+    const practiceBound=bindEvidenceToAttempt({...versions,learningUnitId,activityId:practice.id,activityVersion:practice.version,startedAt:practiceStartedAt,completedAt:o.now()},practiceRun.value.evidence,newId);
+    await o.store.recordAttempt(practiceBound.attempt,practiceBound.evidence);
     if(practiceRun.value.serializedState!==undefined){
       progress=reduceProgress(progress,{type:'SAVE_ACTIVITY_STATE',activityId:practice.id,serializedState:practiceRun.value.serializedState,at:o.now()});
     }
     progress=reduceProgress(progress,{type:'PRACTICE_COMPLETE',at:o.now()});
     await o.store.saveProgress(progress);
 
-    const assessmentEvidence=(await o.assessmentRunner(unit,context)).map(validateEvidence);
-    for(const evidence of assessmentEvidence) await o.store.saveEvidence(evidence);
+    const assessmentStartedAt=o.now();
+    const assessmentDrafts=await o.assessmentRunner(unit,context);
+    const assessmentBound=bindEvidenceToAttempt({...versions,learningUnitId,activityId:`assessment.${learningUnitId}`,activityVersion:o.assessmentVersion,startedAt:assessmentStartedAt,completedAt:o.now()},assessmentDrafts,newId);
+    await o.store.recordAttempt(assessmentBound.attempt,assessmentBound.evidence);
     const assessment=scoreAssessment({
-      id:`assessment.${learningUnitId}.${o.now()}`,
+      id:`assessment.${learningUnitId}.${assessmentBound.attempt.id}`,
       learningUnitId,
-      evidence:assessmentEvidence,
+      evidence:assessmentBound.evidence,
       assessmentVersion:o.assessmentVersion,
       scoringVersion:o.scoringVersion,
       createdAt:o.now(),
@@ -104,6 +116,8 @@ export class LearningRunner<Context=unknown> {
         conceptId,
         evidence:allEvidence,
         scoringVersion:o.scoringVersion,
+        context:versions,
+        versionPolicy:o.versionPolicy,
         transferRequired:o.transferRequired?.(conceptId)??false,
       });
       mastery.push(result);
@@ -116,6 +130,6 @@ export class LearningRunner<Context=unknown> {
     progress=reduceProgress(progress,{type:'MASTERY_UPDATED',masteryStatus:aggregate,at:o.now()});
     await o.store.saveProgress(progress);
 
-    return {ok:true,value:{unit,theory,practice,evidence:[...practiceEvidence,...assessmentEvidence],assessment,mastery,progress}};
+    return {ok:true,value:{unit,theory,practice,evidence:[...practiceBound.evidence,...assessmentBound.evidence],attempts:[practiceBound.attempt,assessmentBound.attempt],assessment,mastery,progress}};
   }
 }

@@ -9,6 +9,8 @@ const active=JSON.parse(fs.readFileSync(path.join(root,'public/content/manifest.
 const packRoot=path.join(root,'public/content',active.activeVersion);
 
 function response(value,status=200){return {ok:status>=200&&status<300,status,json:async()=>value};}
+// Pack files are served as raw bytes so the ContentClient can verify SHA-256 against the manifest.
+function rawResponse(text,status=200){return {ok:status>=200&&status<300,status,text:async()=>text,json:async()=>JSON.parse(text)};}
 function fakeFetch(){
   const calls=[];
   const fn=async(url)=>{
@@ -20,7 +22,7 @@ function fakeFetch(){
     const rel=u.slice(prefix.length);
     const file=path.join(packRoot,rel);
     if(!fs.existsSync(file)) return response({message:'not found'},404);
-    return response(JSON.parse(fs.readFileSync(file,'utf8')));
+    return rawResponse(fs.readFileSync(file,'utf8'));
   };
   fn.calls=calls;
   return fn;

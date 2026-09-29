@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kimyolab.local/schemas/assessment-bank.schema.json",
+  "title": "AssessmentBank",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "version",
+    "items"
+  ],
+  "properties": {
+    "schema": {
+      "const": "kimyolab.assessment-bank.v1"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "learningUnitId",
+          "type",
+          "prompt",
+          "options",
+          "correctOptionId",
+          "explanation",
+          "conceptIds",
+          "sourceRefs",
+          "version",
+          "review"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^q\\.[0-9]+(\\.[0-9]+)+$"
+          },
+          "learningUnitId": {
+            "$ref": "common.schema.json#/$defs/learningUnitId"
+          },
+          "type": {
+            "enum": [
+              "single_select"
+            ]
+          },
+          "prompt": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "id",
+                "text"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[A-Z]$"
+                },
+                "text": {
+                  "$ref": "common.schema.json#/$defs/text"
+                }
+              }
+            },
+            "minItems": 2
+          },
+          "correctOptionId": {
+            "type": "string",
+            "pattern": "^[A-Z]$"
+          },
+          "explanation": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "conceptIds": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/conceptId"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "sourceRefs": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/text"
+            }
+          },
+          "version": {
+            "$ref": "common.schema.json#/$defs/version"
+          },
+          "review": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "chemistry",
+              "didactic"
+            ],
+            "properties": {
+              "chemistry": {
+                "enum": [
+                  "pending",
+                  "approved",
+                  "rejected"
+                ]
+              },
+              "didactic": {
+                "enum": [
+                  "pending",
+                  "approved",
+                  "rejected"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

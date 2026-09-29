@@ -1,7 +1,7 @@
 export type FormulaErrorCode = 'FORMULA_INVALID'|'FORMULA_SYNTAX_UNSUPPORTED'|'INPUT_TOO_LONG';
 export class FormulaError extends Error {
   code: FormulaErrorCode;
-  constructor(code: FormulaErrorCode, message = code) { super(message); this.name = 'FormulaError'; this.code = code; }
+  constructor(code: FormulaErrorCode, message: string = code) { super(message); this.name = 'FormulaError'; this.code = code; }
 }
 
 export interface ParsedFormula {

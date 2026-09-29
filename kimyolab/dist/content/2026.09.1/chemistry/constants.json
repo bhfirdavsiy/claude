@@ -1,9 +1,0 @@
-{
-  "version": "1.0.0",
-  "sourceRefs": [{"id":"src.school.constants","type":"internal","title":"KimyoLab school-scope chemistry constants"}],
-  "constants": {
-    "avogadroConstant": {"value": 6.02214076e23, "unit": "1/mol"},
-    "standardTemperature": {"value": 273.15, "unit": "K"},
-    "standardPressure": {"value": 101.325, "unit": "kPa"}
-  }
-}

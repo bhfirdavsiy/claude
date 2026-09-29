@@ -1,4 +1,6 @@
                                                        
+import { PROGRESS_SCHEMA_VERSION } from './types.js';
+import { loadProgressRecord } from './migrations.js';
                                                                      
 
                            
@@ -8,8 +10,8 @@
                                           
                                                                    
 
-export function createProgress(learningUnitId       ,contentVersion       ,schemaVersion       ,at       )                      {
-  return {learningUnitId,status:'not_started',activityStates:{},lastVisitedAt:at,contentVersion,schemaVersion};
+export function createProgress(learningUnitId       ,contentVersion       ,contentSchemaVersion       ,at       )                      {
+  return {learningUnitId,status:'not_started',activityStates:{},lastVisitedAt:at,contentVersion,schemaVersion:PROGRESS_SCHEMA_VERSION,contentSchemaVersion};
 }
 
 export function reduceProgress(state                     ,event              )                      {
@@ -34,23 +36,9 @@ export function reduceProgress(state                     ,event              )  
   }
 }
 
-export function migrateProgressRecord(input        ,targetSchemaVersion       )                      {
-  if(typeof input!=='object'||input===null) throw new Error('PROGRESS_MIGRATION_INVALID');
-  const src=input                          ;
-  if(typeof src.learningUnitId!=='string'||typeof src.contentVersion!=='string'||typeof src.lastVisitedAt!=='string') throw new Error('PROGRESS_MIGRATION_INVALID');
-  if(src.schemaVersion===targetSchemaVersion){
-    return input                        ;
-  }
-  const legacyStatus=String(src.status??'not_started');
-  const status=legacyStatus==='complete'?'practice_complete':legacyStatus;
-  const allowed=new Set(['not_started','in_progress','practice_complete','assessment_complete','mastered','needs_review']);
-  if(!allowed.has(status)) throw new Error('PROGRESS_MIGRATION_UNSUPPORTED_STATUS');
-  return {
-    learningUnitId:src.learningUnitId,
-    status:status                                  ,
-    activityStates:(src.activityStates&&typeof src.activityStates==='object'&&!Array.isArray(src.activityStates))?src.activityStates                         :{},
-    lastVisitedAt:src.lastVisitedAt,
-    contentVersion:src.contentVersion,
-    schemaVersion:targetSchemaVersion,
-  };
+/** Migrates a stored progress record through the registry; throws when it must be isolated instead. */
+export function migrateProgressRecord(input        ,targetSchemaVersion       =PROGRESS_SCHEMA_VERSION)                      {
+  const result=loadProgressRecord(input,{targetSchemaVersion});
+  if(result.status==='isolated') throw new Error(result.code==='PROGRESS_MIGRATION_UNSUPPORTED_STATUS'?'PROGRESS_MIGRATION_UNSUPPORTED_STATUS':'PROGRESS_MIGRATION_INVALID');
+  return result.record;
 }

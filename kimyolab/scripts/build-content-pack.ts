@@ -93,6 +93,8 @@ const manifest = {
   createdAt: meta.createdAt,
   checksum,
   compatibility: { minAppVersion: '20.1.0' },
+  // Optional declaration of how evidence recorded under older versions may be reused (P0.5).
+  ...(fs.existsSync(path.join(source, 'evidence-compatibility.json')) ? { evidenceCompatibility: JSON.parse(fs.readFileSync(path.join(source, 'evidence-compatibility.json'), 'utf8')) } : {}),
   grades,
   files,
 };

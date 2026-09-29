@@ -1,6 +1,9 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kimyolab.local/schemas/theory-activity.schema.json",
+  "title": "TheoryActivity",
   "type": "object",
+  "additionalProperties": false,
   "required": [
     "id",
     "title",
@@ -15,64 +18,94 @@
   ],
   "properties": {
     "id": {
-      "type": "string"
+      "$ref": "common.schema.json#/$defs/theoryId"
     },
     "title": {
-      "type": "string"
+      "$ref": "common.schema.json#/$defs/text"
     },
     "conceptIds": {
       "type": "array",
       "items": {
-        "type": "string"
-      }
+        "$ref": "common.schema.json#/$defs/conceptId"
+      },
+      "minItems": 1,
+      "uniqueItems": true
     },
     "explanationBlocks": {
-      "type": "array"
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "text"
+        ],
+        "properties": {
+          "type": {
+            "enum": [
+              "concept-summary",
+              "legacy-mapping-note",
+              "example",
+              "misconception",
+              "representation"
+            ]
+          },
+          "text": {
+            "$ref": "common.schema.json#/$defs/text"
+          }
+        }
+      }
     },
     "representationModes": {
       "type": "array",
       "items": {
-        "enum": [
-          "macro",
-          "micro",
-          "symbolic"
-        ]
-      }
+        "$ref": "common.schema.json#/$defs/representation"
+      },
+      "uniqueItems": true
     },
     "interactionType": {
-      "type": "string"
+      "enum": [
+        "legacy-interaction-description"
+      ]
     },
     "interactionConfig": {
-      "type": "object"
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "visualFormat",
+        "interaction"
+      ],
+      "properties": {
+        "visualFormat": {
+          "type": "string"
+        },
+        "interaction": {
+          "type": "string"
+        }
+      }
     },
     "misconceptionCheckIds": {
       "type": "array",
       "items": {
-        "type": "string"
-      }
+        "$ref": "common.schema.json#/$defs/misconceptionId"
+      },
+      "uniqueItems": true
     },
     "lifecycleStatus": {
-      "enum": [
-        "draft",
-        "planned",
-        "in_progress",
-        "implemented",
-        "ready",
-        "deprecated"
-      ]
+      "$ref": "common.schema.json#/$defs/lifecycleStatus"
     },
     "approvals": {
-      "type": "object"
+      "$ref": "common.schema.json#/$defs/approvals"
     },
     "version": {
-      "type": "string"
+      "$ref": "common.schema.json#/$defs/version"
     },
     "legacyIds": {
       "type": "array",
       "items": {
-        "type": "string"
-      }
+        "$ref": "common.schema.json#/$defs/legacyId"
+      },
+      "uniqueItems": true
     }
-  },
-  "additionalProperties": true
+  }
 }

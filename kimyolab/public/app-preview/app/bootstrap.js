@@ -1,5 +1,5 @@
 import { parseAppRoute } from './routes.js';
-import { ContentClient } from './content-client.js';
+import { ContentClient, contentErrorMessage } from './content-client.js';
 import { renderHome } from '../features/home/render.js';
 import { renderError, renderLearningGuide, renderLearningPracticeStage, renderLearningQuiz, renderLoading, renderNotFound } from '../features/learning-hub/render.js';
 import {renderPractice} from '../features/practice/render.js';
@@ -14,8 +14,9 @@ import {renderLabs} from '../features/labs/render.js';
 import {renderCurriculum} from '../features/curriculum/render.js';
 import {renderExternalLab} from '../features/labs/external-render.js';
 
-const main=document.getElementById('app-main');
-if(!(main instanceof HTMLElement)) throw new Error('APP_MAIN_MISSING');
+const mainElement=document.getElementById('app-main');
+if(!(mainElement instanceof HTMLElement)) throw new Error('APP_MAIN_MISSING');
+const main            =mainElement;
 const client=new ContentClient({baseUrl:'/content'});
 const progressService=new BrowserProgressService((globalThis       ).indexedDB);
 const standalone=(globalThis       ).__KIMYOLAB_STANDALONE__===true;
@@ -44,19 +45,19 @@ async function renderCurrent(){
   const active=currentLocation();
   const route=parseAppRoute(active.pathname);
   if(route.name==='home'){renderHome(main);return;}
-  if(route.name==='curriculum'){renderLoading(main);try{renderCurriculum(main,await client.loadCurriculum());}catch{renderError(main,'Mavzularni yuklab bo‘lmadi.');}return;}
-  if(route.name==='labs'){renderLoading(main);try{renderLabs(main,await client.loadLabCatalog());}catch{renderError(main,'Virtual laboratoriyalarni yuklab bo‘lmadi.');}return;}
-  if(route.name==='external-lab'){renderLoading(main);try{const binding=await client.getExternalLabBinding(route.bindingId);const lu=active.searchParams.get('lu')??binding.learningUnitIds[0];if(!binding.learningUnitIds.includes(lu))throw new Error('EXTERNAL_LAB_LEARNING_UNIT_MISMATCH');await renderExternalLab(main,binding,lu);}catch{renderError(main,'Tashqi laboratoriya integratsiyasini yuklab bo‘lmadi.');}return;}
+  if(route.name==='curriculum'){renderLoading(main);try{renderCurriculum(main,await client.loadCurriculum());}catch(error){renderError(main,contentErrorMessage(error,'Mavzularni yuklab bo‘lmadi.'));}return;}
+  if(route.name==='labs'){renderLoading(main);try{renderLabs(main,await client.loadLabCatalog());}catch(error){renderError(main,contentErrorMessage(error,'Virtual laboratoriyalarni yuklab bo‘lmadi.'));}return;}
+  if(route.name==='external-lab'){renderLoading(main);try{const binding=await client.getExternalLabBinding(route.bindingId);const lu=active.searchParams.get('lu')??binding.learningUnitIds[0];if(!binding.learningUnitIds.includes(lu))throw new Error('EXTERNAL_LAB_LEARNING_UNIT_MISMATCH');await renderExternalLab(main,binding,lu,progressService.storage);}catch(error){renderError(main,contentErrorMessage(error,'Tashqi laboratoriya integratsiyasini yuklab bo‘lmadi.'));}return;}
   if(route.name==='worksheet'){
     renderLoading(main);
     try{const [hub,versions]=await Promise.all([client.loadLearningHub(route.learningUnitId),client.getRuntimeVersions()]);renderWorksheet(main,buildWorksheetModel(hub,versions));}
-    catch{renderError(main,'Ish varaqasini yuklab bo‘lmadi.');}
+    catch(error){renderError(main,contentErrorMessage(error,'Ish varaqasini yuklab bo‘lmadi.'));}
     return;
   }
   if(route.name==='practice'){
     renderLoading(main);
-    try{const page=await client.loadPractice(route.practiceActivityId);renderPractice(main,page,new ReferencePracticeSession(page),(result)=>progressService.recordPracticeResult(page,result).then(()=>undefined));}
-    catch{renderError(main,'Faoliyatni yuklab bo‘lmadi.');}
+    try{const page=await client.loadPractice(route.practiceActivityId);progressService.setVersionPolicy(await client.getEvidenceCompatibility());renderPractice(main,page,new ReferencePracticeSession(page),(result)=>progressService.recordPracticeResult(page,result).then(()=>undefined));}
+    catch(error){renderError(main,contentErrorMessage(error,'Faoliyatni yuklab bo‘lmadi.'));}
     return;
   }
   if(route.name==='learning-unit'||route.name==='learning-guide'||route.name==='learning-practice'||route.name==='learning-quiz'){
@@ -69,16 +70,16 @@ async function renderCurrent(){
       else if(route.name==='learning-quiz') renderLearningQuiz(main,hub,cycle,async payload=>{await progressService.recordReinforcement(learningUnitId,versions,payload);});
       else renderLearningGuide(main,hub,cycle,async()=>{try{await progressService.markGuideComplete(learningUnitId,versions);}catch{}navigateInternal(`/learn/${learningUnitId}/practice`);});
     }
-    catch{renderError(main);}
+    catch(error){const message=contentErrorMessage(error,'');if(message)renderError(main,message);else renderError(main);}
     return;
   }
   if(route.name==='progress'){
     renderLoading(main);
     try{const [rows,groups]=await Promise.all([progressService.listProgress(),Promise.all([7,8,9,10,11].map(g=>client.listLearningUnits(g)))]);renderProgress(main,buildProgressViewModel(rows,groups.flat()));}
-    catch{renderError(main,'Natijalarni yuklab bo‘lmadi. Brauzer saqlash imkoniyatini tekshiring.');}
+    catch(error){renderError(main,contentErrorMessage(error,'Natijalarni yuklab bo‘lmadi. Brauzer saqlash imkoniyatini tekshiring.'));}
     return;
   }
-  if(route.name==='search'){renderLoading(main);try{renderSearch(main,await client.loadSearchIndex(),active.searchParams.get('q')??'');}catch{renderError(main,'Qidiruv ma’lumotlarini yuklab bo‘lmadi.');}return;}
+  if(route.name==='search'){renderLoading(main);try{renderSearch(main,await client.loadSearchIndex(),active.searchParams.get('q')??'');}catch(error){renderError(main,contentErrorMessage(error,'Qidiruv ma’lumotlarini yuklab bo‘lmadi.'));}return;}
   renderNotFound(main);
 }
 

@@ -1,6 +1,6 @@
-import {IndexedDbProgressStore} from './indexeddb-store.ts';
+import {IndexedDbProgressStore,type StoreName} from './indexeddb-store.ts';
 
-type RecoverableStore='progress'|'evidence'|'assessmentAttempts'|'mastery'|'appMeta'|'activityState';
+type RecoverableStore=StoreName;
 
 function isQuota(error:unknown){
   if(!(error instanceof Error)) return false;

@@ -1,6 +1,6 @@
-import {IndexedDbProgressStore} from './indexeddb-store.js';
+import {IndexedDbProgressStore,              } from './indexeddb-store.js';
 
-                                                                                                     
+                                
 
 function isQuota(error        ){
   if(!(error instanceof Error)) return false;

@@ -1,7 +1,7 @@
                                                                                                
 export class FormulaError extends Error {
   code                  ;
-  constructor(code                  , message = code) { super(message); this.name = 'FormulaError'; this.code = code; }
+  constructor(code                  , message         = code) { super(message); this.name = 'FormulaError'; this.code = code; }
 }
 
                                 

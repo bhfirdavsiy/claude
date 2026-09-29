@@ -58,14 +58,17 @@ if(fs.existsSync(assetRoot)){
   }
 }
 
-const content:Record<string,unknown>={};
+const content:Record<string,string>={};
 const walkContent=(dir:string)=>{
   for(const entry of fs.readdirSync(dir,{withFileTypes:true})){
     const full=path.join(dir,entry.name);
     if(entry.isDirectory()) walkContent(full);
     else if(entry.isFile()&&entry.name.endsWith('.json')){
       const key=posix(path.relative(contentRoot,full));
-      content[key]=JSON.parse(fs.readFileSync(full,'utf8'));
+      // Raw text is embedded verbatim so runtime SHA-256 integrity checks see the exact pack bytes.
+      const text=fs.readFileSync(full,'utf8');
+      JSON.parse(text);
+      content[key]=text;
     }
   }
 };
@@ -94,7 +97,7 @@ const boot=`
       const url=new URL(raw,'https://standalone.kimyolab.local');
       if(url.pathname.startsWith('/content/')){
         const key=decodeURIComponent(url.pathname.slice('/content/'.length));
-        if(Object.prototype.hasOwnProperty.call(content,key)) return new Response(JSON.stringify(content[key]),{status:200,headers:{'Content-Type':'application/json; charset=utf-8'}});
+        if(Object.prototype.hasOwnProperty.call(content,key)) return new Response(content[key],{status:200,headers:{'Content-Type':'application/json; charset=utf-8'}});
         return new Response(JSON.stringify({error:'NOT_FOUND',resource:key}),{status:404,headers:{'Content-Type':'application/json; charset=utf-8'}});
       }
       if(nativeFetch) return nativeFetch(input,init);

@@ -4,7 +4,7 @@ import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const fail=(code:string):never=>{throw new Error(code)};
+function fail(code:string):never{throw new Error(code);}
 const sha256=(file:string)=>createHash('sha256').update(fs.readFileSync(file)).digest('hex');
 function readJson(file:string){return JSON.parse(fs.readFileSync(file,'utf8'));}
 function copyTree(src:string,dst:string){fs.mkdirSync(dst,{recursive:true});for(const e of fs.readdirSync(src,{withFileTypes:true})){const a=path.join(src,e.name),b=path.join(dst,e.name);if(e.isDirectory())copyTree(a,b);else fs.copyFileSync(a,b);}}

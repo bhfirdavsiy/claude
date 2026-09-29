@@ -1,4 +1,5 @@
                                                    
+import {validateExternalLabUrl} from './url-policy.js';
 
 export function validateExternalLabBindings(input        )                      {
   if(!Array.isArray(input)) throw new Error('EXTERNAL_LAB_BINDINGS_INVALID');
@@ -14,6 +15,7 @@ export function validateExternalLabBindings(input        )                      
     if(!Array.isArray(raw.learningUnitIds)||raw.learningUnitIds.length===0||raw.learningUnitIds.some((x    )=>!/^lu\.(7|8|9|10|11)\.[A-Za-z0-9.-]+$/.test(String(x)))) throw new Error(`EXTERNAL_LAB_LEARNING_UNIT_INVALID:${id}`);
     if(raw.provider==='nobook'&&![9,10,27].includes(Number(raw.nobookModuleId))) throw new Error(`EXTERNAL_LAB_NOBOOK_MODULE_INVALID:${id}`);
     if(raw.provider!=='nobook'&&typeof raw.externalUrl!=='string') throw new Error(`EXTERNAL_LAB_URL_MISSING:${id}`);
+    if(raw.externalUrl!==undefined){const verdict=validateExternalLabUrl(raw.provider,raw.externalUrl);if(!verdict.ok) throw new Error(`${verdict.code}:${id}`);}
     return {
       id,
       provider:raw.provider,

@@ -1,4 +1,6 @@
 import type { LearningUnitProgress } from './types.ts';
+import { PROGRESS_SCHEMA_VERSION } from './types.ts';
+import { loadProgressRecord } from './migrations.ts';
 import type { MasteryStatus } from '../../domain/mastery/mastery.ts';
 
 export type ProgressEvent =
@@ -8,8 +10,8 @@ export type ProgressEvent =
   | {type:'ASSESSMENT_COMPLETE';at:string}
   | {type:'MASTERY_UPDATED';masteryStatus:MasteryStatus;at:string};
 
-export function createProgress(learningUnitId:string,contentVersion:string,schemaVersion:string,at:string):LearningUnitProgress {
-  return {learningUnitId,status:'not_started',activityStates:{},lastVisitedAt:at,contentVersion,schemaVersion};
+export function createProgress(learningUnitId:string,contentVersion:string,contentSchemaVersion:string,at:string):LearningUnitProgress {
+  return {learningUnitId,status:'not_started',activityStates:{},lastVisitedAt:at,contentVersion,schemaVersion:PROGRESS_SCHEMA_VERSION,contentSchemaVersion};
 }
 
 export function reduceProgress(state:LearningUnitProgress,event:ProgressEvent):LearningUnitProgress {
@@ -34,23 +36,9 @@ export function reduceProgress(state:LearningUnitProgress,event:ProgressEvent):L
   }
 }
 
-export function migrateProgressRecord(input:unknown,targetSchemaVersion:string):LearningUnitProgress {
-  if(typeof input!=='object'||input===null) throw new Error('PROGRESS_MIGRATION_INVALID');
-  const src=input as Record<string,unknown>;
-  if(typeof src.learningUnitId!=='string'||typeof src.contentVersion!=='string'||typeof src.lastVisitedAt!=='string') throw new Error('PROGRESS_MIGRATION_INVALID');
-  if(src.schemaVersion===targetSchemaVersion){
-    return input as LearningUnitProgress;
-  }
-  const legacyStatus=String(src.status??'not_started');
-  const status=legacyStatus==='complete'?'practice_complete':legacyStatus;
-  const allowed=new Set(['not_started','in_progress','practice_complete','assessment_complete','mastered','needs_review']);
-  if(!allowed.has(status)) throw new Error('PROGRESS_MIGRATION_UNSUPPORTED_STATUS');
-  return {
-    learningUnitId:src.learningUnitId,
-    status:status as LearningUnitProgress['status'],
-    activityStates:(src.activityStates&&typeof src.activityStates==='object'&&!Array.isArray(src.activityStates))?src.activityStates as Record<string,string>:{},
-    lastVisitedAt:src.lastVisitedAt,
-    contentVersion:src.contentVersion,
-    schemaVersion:targetSchemaVersion,
-  };
+/** Migrates a stored progress record through the registry; throws when it must be isolated instead. */
+export function migrateProgressRecord(input:unknown,targetSchemaVersion:string=PROGRESS_SCHEMA_VERSION):LearningUnitProgress {
+  const result=loadProgressRecord(input,{targetSchemaVersion});
+  if(result.status==='isolated') throw new Error(result.code==='PROGRESS_MIGRATION_UNSUPPORTED_STATUS'?'PROGRESS_MIGRATION_UNSUPPORTED_STATUS':'PROGRESS_MIGRATION_INVALID');
+  return result.record;
 }

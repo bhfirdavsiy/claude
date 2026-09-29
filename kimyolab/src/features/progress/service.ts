@@ -2,6 +2,9 @@ import {IndexedDbProgressStore} from '../../runtime/progress/indexeddb-store.ts'
 import {createProgress,reduceProgress} from '../../runtime/progress/reducer.ts';
 import type {LearningUnitProgress} from '../../runtime/progress/types.ts';
 import type {StudentPracticePageModel} from '../practice/model.ts';
+import {bindEvidenceToAttempt,type Attempt,type PersistedEvidence} from '../../runtime/evidence/types.ts';
+import {computeConceptMastery,type ConceptMastery,type MasteryContext,type MasteryVersionPolicy} from '../../domain/mastery/mastery.ts';
+import {newUuid} from '../../runtime/shared/ids.ts';
 
 function isComplete(page:StudentPracticePageModel,result:any):boolean{
   const status=result?.finalState?.status;
@@ -22,27 +25,86 @@ export interface RuntimeVersionsLike {
   schemaVersion:string;
 }
 
+export interface PracticeRecordResult {
+  progress:LearningUnitProgress;
+  attempt?:Attempt;
+  evidence:PersistedEvidence[];
+  mastery:ConceptMastery[];
+}
+
 function truthyState(value:string|undefined){
   if(!value) return false;
   if(value==='complete') return true;
   try{return Boolean(JSON.parse(value)?.complete);}catch{return false;}
 }
 
+/**
+ * Storage adapter used by the browser UI. Every practice submission is an
+ * independent Attempt; evidence is appended (never overwritten) and mastery is
+ * recomputed only from evidence compatible with the active content version.
+ */
 export class BrowserProgressService {
   private readonly store:IndexedDbProgressStore;
   private readonly now:()=>string;
-  constructor(factory:any=(globalThis as any).indexedDB,dbName='kimyolab-runtime',options:{now?:()=>string}={}){
-    this.store=new IndexedDbProgressStore(factory,dbName); this.now=options.now??(()=>new Date().toISOString());
+  private readonly newId:()=>string;
+  private versionPolicy?:MasteryVersionPolicy;
+  constructor(factory:any=(globalThis as any).indexedDB,dbName='kimyolab-runtime',options:{now?:()=>string;newId?:()=>string;versionPolicy?:MasteryVersionPolicy}={}){
+    this.now=options.now??(()=>new Date().toISOString());
+    this.newId=options.newId??newUuid;
+    this.versionPolicy=options.versionPolicy;
+    this.store=new IndexedDbProgressStore(factory,dbName,undefined,{now:this.now,newId:this.newId});
   }
-  async recordPracticeResult(page:StudentPracticePageModel,result:any):Promise<LearningUnitProgress>{
+  get storage(){return this.store;}
+  /** Applies the active pack's declared evidence compatibility (see content manifest `evidenceCompatibility`). */
+  setVersionPolicy(policy:MasteryVersionPolicy|undefined){this.versionPolicy=policy;}
+
+  async recordPracticeResult(page:StudentPracticePageModel,result:any,startedAt?:string):Promise<LearningUnitProgress>{
+    return (await this.recordPracticeAttempt(page,result,startedAt)).progress;
+  }
+
+  async recordPracticeAttempt(page:StudentPracticePageModel,result:any,startedAt?:string):Promise<PracticeRecordResult>{
     const at=this.now();
     let progress=await this.store.loadProgress(page.learningUnit.id)??createProgress(page.learningUnit.id,page.contentVersion,page.schemaVersion,at);
     progress=reduceProgress(progress,{type:'OPEN',at});
     if(typeof result?.serializedState==='string') progress=reduceProgress(progress,{type:'SAVE_ACTIVITY_STATE',activityId:page.id,serializedState:result.serializedState,at});
-    for(const evidence of result?.evidence??[]) await this.store.saveEvidence(evidence);
+    const drafts:unknown[]=Array.isArray(result?.evidence)?result.evidence:[];
+    let attempt:Attempt|undefined;
+    let evidence:PersistedEvidence[]=[];
+    let mastery:ConceptMastery[]=[];
+    if(drafts.length){
+      const bound=bindEvidenceToAttempt({
+        learningUnitId:page.learningUnit.id,
+        activityId:page.id,
+        activityVersion:page.activityVersion??'0',
+        contentVersion:page.contentVersion,
+        scoringVersion:page.scoringVersion,
+        ...(page.curriculumVersion?{curriculumVersion:page.curriculumVersion}:{}),
+        startedAt:startedAt??at,
+        completedAt:at,
+      },drafts,this.newId);
+      await this.store.recordAttempt(bound.attempt,bound.evidence);
+      attempt=bound.attempt; evidence=bound.evidence;
+      const context:MasteryContext={contentVersion:page.contentVersion,scoringVersion:page.scoringVersion,...(page.curriculumVersion?{curriculumVersion:page.curriculumVersion}:{})};
+      mastery=await this.recomputeMastery([...new Set(evidence.map(e=>e.conceptId))],context);
+    }
     if(isComplete(page,result)) progress=reduceProgress(progress,{type:'PRACTICE_COMPLETE',at});
-    await this.store.saveProgress(progress); return progress;
+    progress={...progress,contentVersion:page.contentVersion};
+    await this.store.saveProgress(progress);
+    return {progress,attempt,evidence,mastery};
   }
+
+  /** Recomputes and caches mastery for the given concepts under an explicit version context. */
+  async recomputeMastery(conceptIds:string[],context:MasteryContext):Promise<ConceptMastery[]>{
+    const out:ConceptMastery[]=[];
+    for(const conceptId of conceptIds){
+      const all=await this.store.loadEvidenceForConcept(conceptId);
+      const mastery=computeConceptMastery({conceptId,evidence:all,scoringVersion:context.scoringVersion,context,versionPolicy:this.versionPolicy});
+      await this.store.saveMastery(mastery);
+      out.push(mastery);
+    }
+    return out;
+  }
+
   async markGuideComplete(learningUnitId:string,versions:RuntimeVersionsLike):Promise<LearningUnitProgress>{
     const at=this.now();
     let progress=await this.store.loadProgress(learningUnitId)??createProgress(learningUnitId,versions.contentVersion,versions.schemaVersion,at);

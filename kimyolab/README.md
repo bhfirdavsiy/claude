@@ -22,11 +22,22 @@ Bu build uchta manbani birlashtiradi:
 - `data/methodology.json` — mapping metodikasi.
 
 ## Ishga tushirish
-Node.js o'rnatilgan bo'lsa Windowsda `start.bat` ni bosing. Brauzerda:
-`http://127.0.0.1:4173`
+Talab: Node.js 22.18+ (`.nvmrc`).
 
-Yoki terminalda:
-`npm start`
+```
+npm ci
+npm run build      # content pack + browser preview + dist/
+npm start          # faqat dist/ ni http://127.0.0.1:4173 da beradi
+```
+Windowsda `start.bat`, Linux/macOS’da `start.sh` (dist yo‘q bo‘lsa avval build qiladi).
+Server hech qachon repository ildizini bermaydi: faqat `dist/` (yoki `KIMYOLAB_PUBLIC_ROOT`).
 
 ## Tekshirish
-`npm test`
+```
+npx playwright install chromium   # E2E uchun bir marta
+npm run verify
+```
+`verify`: lint → typecheck → schema → content → chemistry → unit → integration → E2E → build.
+Alohida: `npm run lint`, `npm run typecheck`, `npm test`, `npm run test:integration`, `npm run test:e2e`.
+
+P0 Integrity Release tafsilotlari: `docs/releases/p0-integrity-release.md`.

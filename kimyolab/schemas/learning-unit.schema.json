@@ -1,6 +1,9 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kimyolab.local/schemas/learning-unit.schema.json",
+  "title": "LearningUnit",
   "type": "object",
+  "additionalProperties": false,
   "required": [
     "id",
     "grade",
@@ -15,19 +18,13 @@
   ],
   "properties": {
     "id": {
-      "type": "string"
+      "$ref": "common.schema.json#/$defs/learningUnitId"
     },
     "grade": {
-      "enum": [
-        7,
-        8,
-        9,
-        10,
-        11
-      ]
+      "$ref": "common.schema.json#/$defs/grade"
     },
     "title": {
-      "type": "string"
+      "$ref": "common.schema.json#/$defs/text"
     },
     "chapter": {
       "type": "string"
@@ -35,39 +32,47 @@
     "learningOutcomes": {
       "type": "array",
       "items": {
-        "type": "string"
-      }
+        "$ref": "common.schema.json#/$defs/text"
+      },
+      "minItems": 1
     },
     "conceptIds": {
       "type": "array",
       "items": {
-        "type": "string"
-      }
+        "$ref": "common.schema.json#/$defs/conceptId"
+      },
+      "minItems": 1,
+      "uniqueItems": true
     },
     "prerequisiteConceptIds": {
       "type": "array",
       "items": {
-        "type": "string"
-      }
+        "$ref": "common.schema.json#/$defs/conceptId"
+      },
+      "uniqueItems": true
     },
     "lessonTemplates": {
       "type": "array",
       "items": {
-        "type": "string"
-      }
+        "$ref": "common.schema.json#/$defs/text"
+      },
+      "uniqueItems": true
     },
     "curriculumVersion": {
-      "type": "string"
+      "$ref": "common.schema.json#/$defs/version"
     },
     "sourceRefs": {
-      "type": "array"
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/sourceRef"
+      }
     },
     "legacyIds": {
       "type": "array",
       "items": {
-        "type": "string"
-      }
+        "$ref": "common.schema.json#/$defs/legacyId"
+      },
+      "uniqueItems": true
     }
-  },
-  "additionalProperties": true
+  }
 }

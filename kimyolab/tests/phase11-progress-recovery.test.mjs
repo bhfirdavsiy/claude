@@ -4,8 +4,8 @@ import {createFakeIndexedDb} from './helpers/fake-indexeddb.mjs';
 import {IndexedDbProgressStore} from '../src/runtime/progress/indexeddb-store.ts';
 import {saveWithQuotaRecovery,recoverCorruptStore} from '../src/runtime/progress/recovery.ts';
 
-const progress={learningUnitId:'lu.7.01',status:'in_progress',activityStates:{},lastVisitedAt:'2026-09-20T00:00:00.000Z',contentVersion:'2026.09.1',schemaVersion:'1.0.0'};
-const evidence={id:'ev.keep',conceptId:'concept.c1',activityId:'practice.demo',activityVersion:'1',contentVersion:'2026.09.1',scoringVersion:'1',createdAt:'2026-09-20T00:00:00.000Z',score:.8,evidenceClass:'trainer-calculation',type:'answer',questionId:'q',correct:true};
+const progress={learningUnitId:'lu.7.01',status:'in_progress',activityStates:{},lastVisitedAt:'2026-09-20T00:00:00.000Z',contentVersion:'2026.09.1',schemaVersion:'2.0.0'};
+const evidence={id:'0b8f7c2e-5d4a-4e1b-8c3d-2f1e0a9b8c7d',attemptId:'attempt.keep',learningUnitId:'lu.7.01',sourceEvidenceId:'ev.keep',correctness:'correct',conceptId:'concept.c1',activityId:'practice.demo',activityVersion:'1',contentVersion:'2026.09.1',scoringVersion:'1',createdAt:'2026-09-20T00:00:00.000Z',score:.8,evidenceClass:'trainer-calculation',type:'answer',questionId:'q',correct:true};
 
 test('quota recovery purges optional cache and retries without deleting progress evidence',async()=>{
   let attempts=0,purges=0;

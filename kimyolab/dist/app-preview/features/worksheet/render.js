@@ -1,7 +1,0 @@
-                                               
-import {clear,el,link} from '../../ui/components/dom.js';
-export function renderWorksheet(root            ,model               ){
-  clear(root);const header=el('header',{className:'kl-unit-hero kl-no-print'});const hi=el('div',{className:'kl-shell'});hi.append(link('← Mavzuga qaytish',`/learn/${model.learningUnitId}`,'kl-back-link'),el('p',{className:'kl-kicker',text:'Ish varaqasi'}),el('h1',{text:model.title}));header.append(hi);
-  const sheet=el('article',{className:'kl-shell kl-worksheet'});sheet.append(el('p',{className:'kl-worksheet-meta',text:`${model.grade}-sinf · Kontent ${model.contentVersion} · Baholash ${model.assessmentVersion}`}),el('h1',{text:model.title}),el('p',{text:model.learningOutcome}),el('p',{text:`Amaliy faoliyat: ${model.primaryPracticeTitle}`}));
-  for(const section of model.sections){const block=el('section',{className:'kl-worksheet-section'});block.append(el('h2',{text:section.title}),el('p',{text:section.prompt}));for(let i=0;i<section.lines;i++)block.append(el('div',{className:'kl-write-line',attrs:{'aria-hidden':'true'}}));sheet.append(block);}const actions=el('div',{className:'kl-actions kl-no-print'});const print=el('button',{className:'kl-button kl-button--primary',text:'Chop etish',attrs:{type:'button'}});print.addEventListener('click',()=>window.print());actions.append(print);sheet.append(actions);root.append(header,sheet);
-}

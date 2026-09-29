@@ -12,7 +12,9 @@ const root=path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const active=JSON.parse(fs.readFileSync(path.join(root,'public/content/manifest.json'),'utf8'));
 const packRoot=path.join(root,'public/content',active.activeVersion);
 function response(value,status=200){return {ok:status>=200&&status<300,status,json:async()=>value};}
-const fetchImpl=async(url)=>{const u=String(url);if(u==='/content/manifest.json')return response(active);const prefix=`/content/${active.activeVersion}/`;if(!u.startsWith(prefix))return response({},404);const file=path.join(packRoot,u.slice(prefix.length));if(!fs.existsSync(file))return response({},404);return response(JSON.parse(fs.readFileSync(file,'utf8')));};
+// Pack files are served as raw bytes so the ContentClient can verify SHA-256 against the manifest.
+function rawResponse(text,status=200){return {ok:status>=200&&status<300,status,text:async()=>text,json:async()=>JSON.parse(text)};}
+const fetchImpl=async(url)=>{const u=String(url);if(u==='/content/manifest.json')return response(active);const prefix=`/content/${active.activeVersion}/`;if(!u.startsWith(prefix))return response({},404);const file=path.join(packRoot,u.slice(prefix.length));if(!fs.existsSync(file))return response({},404);return rawResponse(fs.readFileSync(file,'utf8'));};
 
 test('worksheet route is canonical and deep-linkable',()=>{
   assert.deepEqual(parseAppRoute('/worksheet/lu.7.07'),{name:'worksheet',learningUnitId:'lu.7.07'});

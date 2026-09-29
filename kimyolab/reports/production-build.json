@@ -1,16 +1,17 @@
 {
-  "generatedAt": "2026-09-29T10:48:59.088Z",
+  "generatedAt": "2026-09-29T12:57:40.832Z",
   "builder": "dependency-free production pack",
   "entry": "index.html",
-  "fileCount": 146,
-  "sha256": "1656cf4f3a6338add96e81fcea306d0e60cf7175227b3d506a015ab74775e435",
-  "deployFileCount": 145,
-  "deploySurfaceSha256": "c19ba7710e9430d82ea8b9eeac215560cea5311da9d3a07c417ae071285061a4",
+  "fileCount": 151,
+  "sha256": "02400ba18a542a57cfa2ed7a54015c733752b9fa61028f5f03afff3cef839b26",
+  "deployFileCount": 150,
+  "deploySurfaceSha256": "dfabac8af10f0b8f7f661184e15aaa5443502f7a417738ec0ecd86c3c4a18a68",
   "requiredFiles": [
     "app.html",
     "index.html",
     "app-preview/app/bootstrap.js",
     "content/manifest.json"
   ],
-  "valid": true
+  "valid": true,
+  "forbiddenFiles": []
 }

@@ -19,9 +19,11 @@
                                                      
                                            
                                      
+                         
                         
                        
                         
+                            
                                                                                                       
              
                     
@@ -44,6 +46,7 @@ export function buildPracticePageModel(input
                         
                        
                         
+                            
                   
                     
                   
@@ -62,9 +65,11 @@ export function buildPracticePageModel(input
     learningUnit:{id:input.unit.id,grade:input.unit.grade,title:input.unit.title},
     configFamily:input.configFamily,
     referenceConfig:structuredClone(input.referenceConfig),
+    activityVersion:String(input.activity.version??'0'),
     contentVersion:input.contentVersion,
     schemaVersion:input.schemaVersion,
     scoringVersion:input.scoringVersion,
+    ...(input.curriculumVersion?{curriculumVersion:input.curriculumVersion}:{}),
     legacyContent:structuredClone((input.activity       ).legacyContent??{}),
     chemistry:{
       reactions:structuredClone(input.reactions),
