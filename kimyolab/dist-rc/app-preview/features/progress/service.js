@@ -8,16 +8,20 @@ import {IndexedDbProgressStore} from '../../runtime/progress/indexeddb-store.js'
                                                                                                         
 import {newUuid} from '../../runtime/shared/ids.js';
 import {createWebLocksLiveness} from './liveness.js';
+                                                                             
 import {LearningOrchestrator} from '../../runtime/learning-orchestrator/orchestrator.js';
 import {beginInputFromPage,versionsFromPage,versionsFromRuntime} from '../../runtime/learning-orchestrator/adapters.js';
-                                                                                                                                             
-import {isPracticeComplete,isReinforcementComplete,isTheoryComplete} from '../../runtime/learning-orchestrator/selectors.js';
+                                                                                                                                                                             
+import {displayStatus,                   isAssessmentComplete,isPracticeComplete,isReinforcementComplete,isTheoryComplete} from '../../runtime/learning-orchestrator/selectors.js';
 
                                 
                         
                            
                                 
-                                                      
+                                                                                                              
+                             
+                                                                                                          
+                                     
  
 
                                       
@@ -37,15 +41,26 @@ import {isPracticeComplete,isReinforcementComplete,isTheoryComplete} from '../..
 /** One opened practice page = one Attempt (see LearningOrchestrator.beginPractice). */
                                                         
 
+/** What the browser learns from an evaluated submission (no key, no explanation, no mastery status). */
+                                           
+                                                                                                        
+                                 
+                   
+                        
+                      
+                                               
+ 
+
 export class BrowserProgressService {
                    store                       ;
-                   orchestrator                     ;
-  constructor(factory    =(globalThis       ).indexedDB,dbName='kimyolab-runtime',options                                                                                                           ={}){
+  /** The canonical workflow authority this facade delegates to (exposed for headless adapters/tests). */
+           orchestrator                     ;
+  constructor(factory    =(globalThis       ).indexedDB,dbName='kimyolab-runtime',options                                                                                                                                                      ={}){
     const now=options.now??(()=>new Date().toISOString());
     const newId=options.newId??newUuid;
     this.store=new IndexedDbProgressStore(factory,dbName,undefined,{now,newId});
     const liveness=options.liveness===null?undefined:options.liveness??createWebLocksLiveness();
-    this.orchestrator=new LearningOrchestrator(this.store,{now,newId,versionPolicy:options.versionPolicy,...(liveness?{liveness}:{})});
+    this.orchestrator=new LearningOrchestrator(this.store,{now,newId,versionPolicy:options.versionPolicy,...(liveness?{liveness}:{}),...(options.assessmentContent?{assessmentContent:options.assessmentContent}:{})});
   }
   get storage(){return this.store;}
   /** Applies the active pack's declared evidence compatibility (see content manifest `evidenceCompatibility`). */
@@ -99,10 +114,28 @@ export class BrowserProgressService {
     return this.orchestrator.submitReinforcement(learningUnitId,versionsFromRuntime(versions),payload);
   }
 
-  /** SUBMIT_ASSESSMENT boundary (P1.2 will wire it to the UI; not used by the browser flow yet — C2). */
-  submitAssessment(learningUnitId       ,versions               ,input                                                                ){
-    return this.orchestrator.submitAssessment({learningUnitId,versions,...input});
+  /** BEGIN_ASSESSMENT: the learner opened the objective assessment of a unit (nothing persisted yet). */
+  beginAssessment(learningUnitId       ,versions                    ,conceptIds         )                       {
+    return this.orchestrator.beginAssessment({learningUnitId,versions:versionsFromRuntime(versions),conceptIds});
   }
+
+  /**
+   * SUBMIT_ASSESSMENT (C2): the UI hands over responses only; evaluation, evidence, persistence and mastery
+   * happen in the orchestrator. The learner gets per-item correctness back — never the key, never mastery (C1).
+   */
+  async submitAssessment(session                       ,responses                     )                                  {
+    const out=await this.orchestrator.submitAssessment(session,responses);
+    return {
+      session:out.session,
+      attemptId:out.attempt.id,
+      objectiveItems:out.evaluation.objectiveItems,
+      correctItems:out.evaluation.correctItems,
+      items:out.evaluation.items.map(i=>({itemId:i.itemId,correct:i.correct})),
+    };
+  }
+
+  retryAssessment(session                       ){return this.orchestrator.retryAssessment(session);}
+  leaveAssessment(session                       ){this.orchestrator.leaveAssessment(session);}
 
   async getCycleSnapshot(learningUnitId       )                       {
     const progress=await this.store.loadProgress(learningUnitId);
@@ -110,7 +143,8 @@ export class BrowserProgressService {
       guideComplete:isTheoryComplete(progress),
       practiceComplete:isPracticeComplete(progress),
       reinforcementComplete:isReinforcementComplete(progress),
-      status:progress?.status??'not_started',
+      assessmentComplete:isAssessmentComplete(progress),
+      status:progress?displayStatus(progress):'not_started',
     };
   }
   listProgress(){return this.store.listProgress();}

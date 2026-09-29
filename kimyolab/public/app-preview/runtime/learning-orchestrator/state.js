@@ -3,7 +3,7 @@
                                                                     
                                                                 
                                                   
-                                                                                                                              
+                                                                                                                                                     
 import {activeStage} from './selectors.js';
 
 /** Internal (orchestrator-owned) session record. Never handed out; callers get PracticeSessionState views. */
@@ -53,4 +53,17 @@ export function aggregateMasteryStatus(mastery                 )                
   if(mastery.length&&mastery.every(m=>m.status==='mastered')) return 'mastered';
   if(mastery.some(m=>m.status==='needs_review')) return 'needs_review';
   return 'developing';
+}
+
+                                          
+            
+                        
+                          
+                      
+                   
+                                        
+ 
+
+export function assessmentView(record                        )                       {
+  return Object.freeze({id:record.id,learningUnitId:record.learningUnitId,startedAt:record.startedAt,status:record.status});
 }

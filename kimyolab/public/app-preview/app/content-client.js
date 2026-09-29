@@ -251,7 +251,8 @@ export class ContentClient {
   async getRuntimeVersions(){
     const contentVersion=await this.version();
     const manifest=this.manifestCache;
-    return {contentVersion,assessmentVersion:String(manifest.assessmentVersion??'0.0.0'),schemaVersion:String(manifest.schemaVersion??'0.0.0'),scoringVersion:String(manifest.scoringVersion??'0.0.0')};
+    // curriculumVersion is part of the mastery context: stage 3 evidence must carry the same context as practice evidence.
+    return {contentVersion,assessmentVersion:String(manifest.assessmentVersion??'0.0.0'),schemaVersion:String(manifest.schemaVersion??'0.0.0'),scoringVersion:String(manifest.scoringVersion??'0.0.0'),...(manifest.curriculumVersion?{curriculumVersion:String(manifest.curriculumVersion)}:{})};
   }
 
   /** Evidence compatibility declared by the active pack; versions not listed are incompatible. */

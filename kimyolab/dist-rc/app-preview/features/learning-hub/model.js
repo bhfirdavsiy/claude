@@ -1,5 +1,6 @@
                                                                                                                           
                                                                                   
+import {assessmentIdFor,isApproved,toPromptView,validatePromptPack,                         } from '../../domain/assessment/model.js';
 
                                          
                        
@@ -8,7 +9,8 @@
                          
                      
                                      
-                                                 
+                                                                                                           
+                             
  
 
                                        
@@ -19,12 +21,12 @@
                          
  
 
-                                  
-            
-                
+/** Objective assessment as the learner sees it: prompts only — no key, no explanation, no scoring rule. */
                                          
-                         
-                     
+                      
+                 
+                               
+                      
  
 
                                    
@@ -44,7 +46,7 @@
                                        
                                              
                                                                                                             
-                                                                                 
+                                    
  
 
 function studentPractice(activity                 )                      {
@@ -92,6 +94,11 @@ export function buildLearningHubModel(learningUnitId       ,data                
     primaryPractice:studentPractice(practice),
     supportingPractices:supporting,
     externalLabs:(data.externalLabs??[]).map(x=>({id:x.id,provider:x.provider,title:x.title,description:x.description,mode:x.mode,status:x.status})),
-    reinforcementQuiz:(()=>{const all=(data.assessmentBank?.items??[]).filter((x    )=>x.learningUnitId===learningUnitId);const approved=all.filter((x    )=>x.review?.chemistry==='approved'&&x.review?.didactic==='approved');return {version:String(data.assessmentBank?.version??'0.0.0'),items:approved.map((x    )=>({id:String(x.id),prompt:String(x.prompt),options:(x.options??[]).map((o    )=>({id:String(o.id),text:String(o.text)})),correctOptionId:String(x.correctOptionId),explanation:String(x.explanation??'')})),pendingCount:all.length-approved.length};})(),
+    assessment:(()=>{
+      const pack=data.assessmentPrompts===undefined?undefined:validatePromptPack(data.assessmentPrompts);
+      const all=(pack?.items??[]).filter(x=>x.learningUnitId===learningUnitId);
+      const approved=all.filter(isApproved);
+      return {assessmentId:assessmentIdFor(learningUnitId),version:String(pack?.version??'0.0.0'),items:approved.map(toPromptView),pendingCount:all.length-approved.length};
+    })(),
   };
 }

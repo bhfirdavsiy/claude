@@ -14,6 +14,8 @@ import {PracticeRouter} from '../src/runtime/practice-router/router.ts';
 import {ContentClient} from '../src/app/content-client.ts';
 import {ReferencePracticeSession} from '../src/features/practice/session.ts';
 import {computeConceptMastery} from '../src/domain/mastery/mastery.ts';
+// P1.1: the drafts-based entry point is now `submitAssessmentEvidence` (headless adapter); `submitAssessment`
+// is the canonical responses → evaluator path. Same invariants, renamed call.
 
 const V={contentVersion:'2026.09.1',contentSchemaVersion:'1.0.0',scoringVersion:'1.0.0',curriculumVersion:'2026.09'};
 let tick=0; const clock=()=>new Date(Date.UTC(2026,8,29,10,0,tick++)).toISOString();
@@ -184,7 +186,7 @@ test('monotonic achievement: mastered → retry practice → failure does not re
   const {o,store}=orchestrator('p1-mono');
   const s=begin(o);
   await o.applyPracticeResult(s,{evidence:[draft('ev.p1','concept.c1',{cls:'practice-observation'})],finalState:{status:'complete'}});
-  const assessed=await o.submitAssessment({learningUnitId:'lu.demo',versions:V,assessmentVersion:'1',conceptIds:['concept.c1'],drafts:[
+  const assessed=await o.submitAssessmentEvidence({learningUnitId:'lu.demo',versions:V,assessmentVersion:'1',conceptIds:['concept.c1'],drafts:[
     {...draft('ev.a1','concept.c1',{cls:'concept-assessment',activityId:'assessment.a'})},{...draft('ev.t1','concept.c1',{cls:'transfer-case',activityId:'case.b'})},{...draft('ev.a2','concept.c1',{cls:'concept-assessment',activityId:'assessment.c'})}]});
   assert.equal(assessed.progress.status,'mastered');
   const retry=await o.retryPractice(s);
@@ -251,7 +253,7 @@ test('adapter parity: LearningRunner and BrowserProgressService produce the same
   const session=service.beginPracticeSession(page,{apply:async()=>practiceResult()});
   const out=await service.applyPracticeCommand(session,{kind:'trainer-answer',answer:'x'});
   assert.equal(out.persistError,undefined);
-  await service.submitAssessment('lu.demo',V,{assessmentVersion:'1',drafts:assessment(),conceptIds:unit.conceptIds});
+  await service.orchestrator.submitAssessmentEvidence({learningUnitId:'lu.demo',versions:V,assessmentVersion:'1',drafts:assessment(),conceptIds:unit.conceptIds});
   await service.recordReinforcement('lu.demo',runtimeVersions,reflection);
 
   const a=normalize(await new IndexedDbProgressStore(factoryA,'parity').exportSnapshot());
@@ -278,6 +280,6 @@ test('parity flow WITHOUT an objective assessment never reaches assessment_compl
   const snapshot=await service.getCycleSnapshot('lu.demo');
   assert.deepEqual([snapshot.guideComplete,snapshot.practiceComplete,snapshot.reinforcementComplete],[true,true,true]);
   // reflection and practice evidence alone cannot be submitted as an assessment either
-  await assert.rejects(service.submitAssessment('lu.demo',V,{assessmentVersion:'1',conceptIds:['concept.c1'],drafts:[draft('ev.r','concept.c1',{cls:'practice-observation'})]}),/ASSESSMENT_NO_OBJECTIVE_ITEMS/);
+  await assert.rejects(service.orchestrator.submitAssessmentEvidence({learningUnitId:'lu.demo',versions:V,assessmentVersion:'1',conceptIds:['concept.c1'],drafts:[draft('ev.r','concept.c1',{cls:'practice-observation'})]}),/ASSESSMENT_NO_OBJECTIVE_ITEMS/);
   assert.equal((await service.loadProgress('lu.demo')).status,'practice_complete');
 });

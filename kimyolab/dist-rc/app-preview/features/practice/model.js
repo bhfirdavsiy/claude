@@ -1,14 +1,5 @@
                                                                     
-
-                                        
-               
-            
-           
-           
-                    
-                   
-           
-                     
+                                                                                           
 
                                            
             
@@ -18,7 +9,8 @@
                          
                                                                                      
                                                                           
-                                           
+                                                                                            
+                                      
                                      
                          
                         
@@ -42,7 +34,7 @@ export function buildPracticePageModel(input
                             
                                   
                                                                   
-                                           
+                                      
                                      
                         
                        
@@ -64,7 +56,11 @@ export function buildPracticePageModel(input
     goal:input.activity.goal,
     accessibility:[...input.activity.accessibilityProfile],
     learningUnit:{id:input.unit.id,grade:input.unit.grade,title:input.unit.title,...(Array.isArray(input.unit.conceptIds)?{conceptIds:[...input.unit.conceptIds]}:{})},
-    configFamily:input.configFamily,
+    executionPlan:(()=>{
+      const plan=input.executionPlan;
+      if(plan.activityId!==input.activity.id||plan.engine!==input.activity.type) throw new Error('EXECUTION_PLAN_ACTIVITY_MISMATCH');
+      return {...plan};
+    })(),
     referenceConfig:structuredClone(input.referenceConfig),
     activityVersion:String(input.activity.version??'0'),
     contentVersion:input.contentVersion,

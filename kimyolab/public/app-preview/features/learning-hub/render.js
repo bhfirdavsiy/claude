@@ -12,7 +12,7 @@ function practiceCard(practice                     ,learningUnitId       ,primar
 }
 
 function stageStateClass(stage                   ,status              ,current                   ){
-  const done=stage==='guide'?status.guideComplete:stage==='practice'?status.practiceComplete:status.reinforcementComplete;
+  const done=stage==='guide'?status.guideComplete:stage==='practice'?status.practiceComplete:(status.reinforcementComplete||status.assessmentComplete);
   return `kl-cycle-step${stage===current?' is-current':''}${done?' is-done':''}`;
 }
 
@@ -121,7 +121,7 @@ export function renderLearningQuiz(root            ,model                 ,statu
   layout.append(main,side);root.append(layout);
 }
 
-export function renderLearningHub(root            ,model                 ){renderLearningGuide(root,model,{guideComplete:false,practiceComplete:false,reinforcementComplete:false,status:'not_started'});}
+export function renderLearningHub(root            ,model                 ){renderLearningGuide(root,model,{guideComplete:false,practiceComplete:false,reinforcementComplete:false,assessmentComplete:false,status:'not_started'});}
 export function renderLoading(root            ){clear(root);const box=el('div',{className:'kl-shell kl-state'});box.append(el('p',{text:'Mavzu yuklanmoqda…',attrs:{role:'status','aria-live':'polite'}}));root.append(box);}
 export function renderError(root            ,message='Mavzuni yuklab bo‘lmadi.'){clear(root);const box=el('div',{className:'kl-shell kl-state'});box.append(el('h1',{text:'Xatolik yuz berdi'}),el('p',{text:message}),link('Bosh sahifaga qaytish','/','kl-button kl-button--secondary'));root.append(box);}
 export function renderNotFound(root            ){clear(root);const box=el('div',{className:'kl-shell kl-state'});box.append(el('h1',{text:'Sahifa topilmadi'}),el('p',{text:'Manzilni tekshiring yoki bosh sahifaga qayting.'}),link('Bosh sahifa','/','kl-button kl-button--primary'));root.append(box);}

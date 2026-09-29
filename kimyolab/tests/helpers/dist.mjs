@@ -72,3 +72,25 @@ export async function rawRequest(url, requestPath, {method = 'GET', headers = {}
     req.end();
   });
 }
+
+/**
+ * Lets a test change pack files in a CLONED dist and re-seal the pack exactly like build-content-pack does
+ * (file checksums/sizes, aggregate checksum, activation pointer). Used to exercise states the committed
+ * content does not have yet (e.g. approved assessment items) without weakening integrity checks.
+ */
+export async function resealContentPack(distRoot, mutate) {
+  const {createHash} = await import('node:crypto');
+  const sha = (b) => createHash('sha256').update(b).digest('hex');
+  const pointerFile = path.join(distRoot, 'content', 'manifest.json');
+  const pointer = JSON.parse(fs.readFileSync(pointerFile, 'utf8'));
+  const packDir = path.join(distRoot, 'content', pointer.activeVersion);
+  await mutate(packDir);
+  const manifestFile = path.join(packDir, 'manifest.json');
+  const manifest = JSON.parse(fs.readFileSync(manifestFile, 'utf8'));
+  manifest.files = manifest.files.map((f) => { const bytes = fs.readFileSync(path.join(packDir, f.path)); return {path: f.path, checksum: sha(bytes), size: bytes.length}; });
+  manifest.checksum = sha(Buffer.from(manifest.files.map((x) => `${x.path}:${x.checksum}:${x.size}`).join('\n'), 'utf8'));
+  fs.writeFileSync(manifestFile, `${JSON.stringify(manifest, null, 2)}\n`);
+  pointer.checksum = manifest.checksum;
+  fs.writeFileSync(pointerFile, `${JSON.stringify(pointer, null, 2)}\n`);
+  return distRoot;
+}

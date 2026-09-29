@@ -3,6 +3,7 @@
                                                                                          
                                                                          
                                                                 
+                                                                                     
 
                                                                          
 
@@ -80,4 +81,20 @@
                                       
                                                 
                                 
+                                                                                                                
+                                             
+ 
+
+                                          
+                                                                                                                               
+ 
+
+                                                                   
+
+/** Read-only view of one opened objective assessment (= one assessment attempt once submitted). */
+                                         
+                     
+                                 
+                            
+                                          
  

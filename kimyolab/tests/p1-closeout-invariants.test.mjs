@@ -8,6 +8,8 @@ import {LearningOrchestrator} from '../src/runtime/learning-orchestrator/orchest
 import {displayStatus,isAssessmentComplete,isReinforcementComplete} from '../src/runtime/learning-orchestrator/selectors.ts';
 import {buildProgressViewModel} from '../src/features/progress/model.ts';
 import {createWebLocksLiveness} from '../src/features/progress/liveness.ts';
+// P1.1: the drafts-based entry point is now `submitAssessmentEvidence` (headless adapter); `submitAssessment`
+// is the canonical responses → evaluator path. Same invariants, renamed call.
 
 const V={contentVersion:'2026.09.1',contentSchemaVersion:'1.0.0',scoringVersion:'1.0.0',curriculumVersion:'2026.09'};
 let tick=0; const clock=()=>new Date(Date.UTC(2026,8,29,10,0,tick++)).toISOString();
@@ -25,7 +27,7 @@ test('reinforcement/reflection never yields assessment_complete; an evaluated ob
   const afterReflection=await o.submitReinforcement('lu.demo',V,{mode:'reflection'});
   assert.equal(afterReflection.status,'practice_complete');
   assert.equal(isAssessmentComplete(afterReflection),false);
-  const assessed=await o.submitAssessment({learningUnitId:'lu.demo',versions:V,assessmentVersion:'1',conceptIds:['concept.c1'],drafts:[objective('ev.q1','concept.c1')]});
+  const assessed=await o.submitAssessmentEvidence({learningUnitId:'lu.demo',versions:V,assessmentVersion:'1',conceptIds:['concept.c1'],drafts:[objective('ev.q1','concept.c1')]});
   assert.equal(isAssessmentComplete(assessed.progress),true);
   assert.ok(['assessment_complete','mastered','needs_review'].includes(assessed.progress.status));
 });
@@ -127,7 +129,7 @@ async function masteredUnder(o,versions){
   const s=o.beginPractice({learningUnitId:'lu.demo',activityId:'practice.trainer.demo',activityVersion:'1',practiceType:'trainer',versions,conceptIds:['concept.c1']});
   await o.applyPracticeResult(s,{evidence:[draft('ev.p','concept.c1',{contentVersion:versions.contentVersion})],finalState:{status:'complete'}});
   const drafts=[1,2,3,4].map(i=>objective(`ev.q${i}`,'concept.c1',{contentVersion:versions.contentVersion}));
-  return o.submitAssessment({learningUnitId:'lu.demo',versions,assessmentVersion:'1',conceptIds:['concept.c1'],drafts});
+  return o.submitAssessmentEvidence({learningUnitId:'lu.demo',versions,assessmentVersion:'1',conceptIds:['concept.c1'],drafts});
 }
 
 test('a new, undeclared content version does NOT carry an old achievement forever',async()=>{
