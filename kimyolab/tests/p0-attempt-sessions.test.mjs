@@ -77,6 +77,8 @@ test('a session cannot be reused for another activity',async()=>{
 
 test('the browser practice route records through a per-page attempt session',()=>{
   const bootstrap=fs.readFileSync(path.join(root,'src/app/bootstrap.ts'),'utf8');
-  assert.match(bootstrap,/const attemptSession=progressService\.beginPracticeSession\(page\);/);
-  assert.match(bootstrap,/recordPracticeResult\(page,result,attemptSession\)/);
+  // P1.0: the per-page session is opened with the engine and every command goes through it
+  // (the behavioural contract "N commands = 1 attempt" is tested in tests/p1-orchestrator-contract.test.mjs).
+  assert.match(bootstrap,/const attemptSession=progressService\.beginPracticeSession\(page,new ReferencePracticeSession\(page\)\);/);
+  assert.match(bootstrap,/progressService\.applyPracticeCommand\(attemptSession,command\)/);
 });

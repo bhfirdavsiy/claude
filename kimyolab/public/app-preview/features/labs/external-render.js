@@ -1,7 +1,6 @@
                                                                                                       
 import {getExternalLabProvider} from '../../integrations/external-labs/providers.js';
 import {el,clear,link} from '../../ui/components/dom.js';
-import {IndexedDbProgressStore} from '../../runtime/progress/indexeddb-store.js';
 
 /** External evidence is persisted in IndexedDB.externalEvidence (never localStorage) and validated on save and restore. */
                                         
@@ -12,7 +11,7 @@ import {IndexedDbProgressStore} from '../../runtime/progress/indexeddb-store.js'
 
 const providerLabel=(id       )=>id==='nobook'?'NOBOOK':id==='chemai'?'ChemAI':'Chem Lab Station';
 
-export async function renderExternalLab(root            ,binding                   ,learningUnitId       ,evidenceStore                      =new IndexedDbProgressStore((globalThis       ).indexedDB)){
+export async function renderExternalLab(root            ,binding                   ,learningUnitId       ,evidenceStore                      ){
   const expected={bindingId:binding.id,learningUnitId,provider:binding.provider};
   clear(root); const provider=getExternalLabProvider(binding.provider);
   const hero=el('section',{className:'kl-unit-hero'}); const hi=el('div',{className:'kl-shell'});

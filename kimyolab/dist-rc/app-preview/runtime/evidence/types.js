@@ -125,8 +125,16 @@ export function validateEvidence(input         )           {
                          
                              
                     
-                      
+                                                 
+                       
+     
+                                                                                             
+                                                                                  
+     
+                         
  
+
+                                                                      
 
                                             
                     
@@ -139,10 +147,13 @@ export function validateEvidence(input         )           {
 
 export function validateAttempt(input         )          {
   if (!object(input)) throw new Error('ATTEMPT_INVALID: record required');
-  for (const key of ['id','learningUnitId','activityId','activityVersion','contentVersion','scoringVersion','startedAt','completedAt']) {
+  for (const key of ['id','learningUnitId','activityId','activityVersion','contentVersion','scoringVersion','startedAt']) {
     if (!text(input[key])) throw new Error(`ATTEMPT_INVALID: ${key} required`);
   }
-  if (!Number.isFinite(Date.parse(String(input.startedAt))) || !Number.isFinite(Date.parse(String(input.completedAt)))) throw new Error('ATTEMPT_INVALID: timestamps must be ISO dates');
+  if (input.status !== undefined && !['in_progress','completed','abandoned'].includes(String(input.status))) throw new Error('ATTEMPT_INVALID: unknown status');
+  const inProgress = input.status === 'in_progress';
+  if (inProgress ? input.completedAt !== undefined : !text(input.completedAt)) throw new Error(inProgress ? 'ATTEMPT_INVALID: in_progress attempt cannot have completedAt' : 'ATTEMPT_INVALID: completedAt required');
+  if (!Number.isFinite(Date.parse(String(input.startedAt))) || (!inProgress && !Number.isFinite(Date.parse(String(input.completedAt))))) throw new Error('ATTEMPT_INVALID: timestamps must be ISO dates');
   if (input.userId !== undefined && !text(input.userId)) throw new Error('ATTEMPT_INVALID: userId must be text');
   return input                      ;
 }
@@ -179,7 +190,8 @@ export function deriveCorrectness(evidence          )                      {
                              
                   
                     
-                      
+                       
+                         
  
 
 /**

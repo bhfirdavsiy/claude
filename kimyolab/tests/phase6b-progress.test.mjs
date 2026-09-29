@@ -51,7 +51,8 @@ test('progress browser route renders saved results instead of a placeholder and 
   const bootstrap=fs.readFileSync(path.join(projectRoot,'src/app/bootstrap.ts'),'utf8');
   assert.match(bootstrap,/BrowserProgressService/);
   assert.match(bootstrap,/renderProgress/);
-  assert.match(bootstrap,/recordPracticeResult/);
+  // P1.0: practice commands go through the progress service's canonical session API (UI → orchestrator).
+  assert.match(bootstrap,/progressService\.applyPracticeCommand\(/);
   assert.doesNotMatch(bootstrap,/Progress sahifasi keyingi UI paketida ulanadi/);
   const render=fs.readFileSync(path.join(projectRoot,'src/features/progress/render.ts'),'utf8');
   assert.match(render,/Natijalarim/);

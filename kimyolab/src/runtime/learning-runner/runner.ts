@@ -1,12 +1,15 @@
+// LearningRunner — compatibility facade (P1.0). It resolves content from the repository and runs the
+// practice engine, then DELEGATES every state change, persistence step and mastery computation to the
+// canonical LearningOrchestrator. It holds no progress, attempt or mastery logic of its own.
 import type { LearningUnit, MappingLink, PracticeActivity, TheoryActivity } from '../../domain/content/types.ts';
 import type { Attempt, Evidence, PersistedEvidence } from '../evidence/types.ts';
-import { bindEvidenceToAttempt } from '../evidence/types.ts';
-import { newUuid } from '../shared/ids.ts';
 import type { PracticeRouter } from '../practice-router/router.ts';
-import { scoreAssessment, type AssessmentResult } from '../../domain/assessment/scoring.ts';
-import { computeConceptMastery, type ConceptMastery, type MasteryStatus, type MasteryVersionPolicy } from '../../domain/mastery/mastery.ts';
-import { createProgress, reduceProgress } from '../progress/reducer.ts';
+import type { AssessmentResult } from '../../domain/assessment/scoring.ts';
+import type { ConceptMastery, MasteryVersionPolicy } from '../../domain/mastery/mastery.ts';
 import type { LearningUnitProgress } from '../progress/types.ts';
+import { LearningOrchestrator } from '../learning-orchestrator/orchestrator.ts';
+import { beginInputFromActivity } from '../learning-orchestrator/adapters.ts';
+import type { LearningStorePort, VersionContext } from '../learning-orchestrator/types.ts';
 
 export interface LearningContentRepository {
   getLearningUnit(id:string):LearningUnit|undefined;
@@ -15,15 +18,8 @@ export interface LearningContentRepository {
   getPracticeActivity(id:string):PracticeActivity|undefined;
 }
 
-export interface LearningRuntimeStore {
-  loadProgress(learningUnitId:string):Promise<LearningUnitProgress|undefined>;
-  saveProgress(progress:LearningUnitProgress):Promise<void>;
-  /** Persists one immutable attempt together with its evidence (never overwrites). */
-  recordAttempt(attempt:Attempt,evidence:PersistedEvidence[]):Promise<void>;
-  loadEvidenceForConcept(conceptId:string):Promise<PersistedEvidence[]>;
-  saveAssessment(result:AssessmentResult):Promise<void>;
-  saveMastery(mastery:ConceptMastery):Promise<void>;
-}
+/** Persistence port of the canonical runtime (implemented by IndexedDbProgressStore). */
+export type LearningRuntimeStore = LearningStorePort;
 
 export interface LearningRunnerOptions<Context=unknown> {
   repository:LearningContentRepository;
@@ -62,7 +58,20 @@ export interface LearningRunValue {
 
 export class LearningRunner<Context=unknown> {
   private readonly options:LearningRunnerOptions<Context>;
-  constructor(options:LearningRunnerOptions<Context>){ this.options=options; }
+  /** The canonical workflow authority this facade delegates to. */
+  readonly orchestrator:LearningOrchestrator;
+  constructor(options:LearningRunnerOptions<Context>){
+    this.options=options;
+    this.orchestrator=new LearningOrchestrator(options.store,{now:options.now,newId:options.newId,versionPolicy:options.versionPolicy,transferRequired:options.transferRequired});
+  }
+
+  private versions():VersionContext{
+    const o=this.options;
+    return {contentVersion:o.contentVersion,contentSchemaVersion:o.schemaVersion,scoringVersion:o.scoringVersion,...(o.curriculumVersion?{curriculumVersion:o.curriculumVersion}:{})};
+  }
+
+  completeTheory(learningUnitId:string){ return this.orchestrator.completeTheory(learningUnitId,this.versions()); }
+  submitReinforcement(learningUnitId:string,payload:Record<string,unknown>){ return this.orchestrator.submitReinforcement(learningUnitId,this.versions(),payload); }
 
   async run(learningUnitId:string,context:Context):Promise<{ok:true;value:LearningRunValue}|{ok:false;error:LearningRunError}>{
     const o=this.options;
@@ -76,60 +85,27 @@ export class LearningRunner<Context=unknown> {
     const practice=o.repository.getPracticeActivity(mapping.practiceActivityId);
     if(!practice) return {ok:false,error:{code:'PRACTICE_ACTIVITY_NOT_FOUND',practiceActivityId:mapping.practiceActivityId}};
 
-    const now=o.now();
-    let progress=await o.store.loadProgress(learningUnitId)??createProgress(learningUnitId,o.contentVersion,o.schemaVersion,now);
-    progress=reduceProgress(progress,{type:'OPEN',at:now});
-    await o.store.saveProgress(progress);
+    const versions=this.versions();
+    const orchestrator=this.orchestrator;
+    await orchestrator.openUnit(learningUnitId,versions);
 
+    // The runner contract: one run = one complete practice attempt.
+    const session=orchestrator.beginPractice(beginInputFromActivity(learningUnitId,practice,versions,unit.conceptIds));
     const practiceRun=await o.practiceRouter.run(practice,context);
-    if(!practiceRun.ok) return {ok:false,error:practiceRun.error};
-    const newId=o.newId??newUuid;
-    const versions={contentVersion:o.contentVersion,scoringVersion:o.scoringVersion,...(o.curriculumVersion?{curriculumVersion:o.curriculumVersion}:{})};
-    const practiceStartedAt=now;
-    const practiceBound=bindEvidenceToAttempt({...versions,learningUnitId,activityId:practice.id,activityVersion:practice.version,startedAt:practiceStartedAt,completedAt:o.now()},practiceRun.value.evidence,newId);
-    await o.store.recordAttempt(practiceBound.attempt,practiceBound.evidence);
-    if(practiceRun.value.serializedState!==undefined){
-      progress=reduceProgress(progress,{type:'SAVE_ACTIVITY_STATE',activityId:practice.id,serializedState:practiceRun.value.serializedState,at:o.now()});
-    }
-    progress=reduceProgress(progress,{type:'PRACTICE_COMPLETE',at:o.now()});
-    await o.store.saveProgress(progress);
+    if(!practiceRun.ok){ await orchestrator.abandonPractice(session); return {ok:false,error:practiceRun.error}; }
+    const step=await orchestrator.applyPracticeResult(session,practiceRun.value);
+    const completed=await orchestrator.completePractice(step.session);
 
-    const assessmentStartedAt=o.now();
     const assessmentDrafts=await o.assessmentRunner(unit,context);
-    const assessmentBound=bindEvidenceToAttempt({...versions,learningUnitId,activityId:`assessment.${learningUnitId}`,activityVersion:o.assessmentVersion,startedAt:assessmentStartedAt,completedAt:o.now()},assessmentDrafts,newId);
-    await o.store.recordAttempt(assessmentBound.attempt,assessmentBound.evidence);
-    const assessment=scoreAssessment({
-      id:`assessment.${learningUnitId}.${assessmentBound.attempt.id}`,
-      learningUnitId,
-      evidence:assessmentBound.evidence,
-      assessmentVersion:o.assessmentVersion,
-      scoringVersion:o.scoringVersion,
-      createdAt:o.now(),
-    });
-    await o.store.saveAssessment(assessment);
-    progress=reduceProgress(progress,{type:'ASSESSMENT_COMPLETE',at:o.now()});
+    const assessed=await orchestrator.submitAssessment({learningUnitId,versions,assessmentVersion:o.assessmentVersion,drafts:assessmentDrafts,conceptIds:unit.conceptIds});
 
-    const mastery:ConceptMastery[]=[];
-    for(const conceptId of unit.conceptIds){
-      const allEvidence=await o.store.loadEvidenceForConcept(conceptId);
-      const result=computeConceptMastery({
-        conceptId,
-        evidence:allEvidence,
-        scoringVersion:o.scoringVersion,
-        context:versions,
-        versionPolicy:o.versionPolicy,
-        transferRequired:o.transferRequired?.(conceptId)??false,
-      });
-      mastery.push(result);
-      await o.store.saveMastery(result);
-    }
-
-    let aggregate:MasteryStatus='developing';
-    if(mastery.length&&mastery.every(m=>m.status==='mastered')) aggregate='mastered';
-    else if(mastery.some(m=>m.status==='needs_review')) aggregate='needs_review';
-    progress=reduceProgress(progress,{type:'MASTERY_UPDATED',masteryStatus:aggregate,at:o.now()});
-    await o.store.saveProgress(progress);
-
-    return {ok:true,value:{unit,theory,practice,evidence:[...practiceBound.evidence,...assessmentBound.evidence],attempts:[practiceBound.attempt,assessmentBound.attempt],assessment,mastery,progress}};
+    return {ok:true,value:{
+      unit,theory,practice,
+      evidence:[...step.evidence,...assessed.evidence],
+      attempts:[completed.attempt,assessed.attempt],
+      assessment:assessed.assessment,
+      mastery:assessed.mastery,
+      progress:assessed.progress,
+    }};
   }
 }

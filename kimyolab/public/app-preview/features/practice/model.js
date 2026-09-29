@@ -16,7 +16,8 @@
                
               
                          
-                                                     
+                                                                                     
+                                                                          
                                            
                                      
                          
@@ -40,7 +41,7 @@
 export function buildPracticePageModel(input  
                             
                                   
-                                             
+                                                                  
                                            
                                      
                         
@@ -62,7 +63,7 @@ export function buildPracticePageModel(input
     title:input.activity.title,
     goal:input.activity.goal,
     accessibility:[...input.activity.accessibilityProfile],
-    learningUnit:{id:input.unit.id,grade:input.unit.grade,title:input.unit.title},
+    learningUnit:{id:input.unit.id,grade:input.unit.grade,title:input.unit.title,...(Array.isArray(input.unit.conceptIds)?{conceptIds:[...input.unit.conceptIds]}:{})},
     configFamily:input.configFamily,
     referenceConfig:structuredClone(input.referenceConfig),
     activityVersion:String(input.activity.version??'0'),
