@@ -8,14 +8,14 @@ type OrganicCapability='organic-structure-model'|'organic-valence-model'|'organi
 type Property='formula'|'name'|'class'|'carbonValence'|'ringSize'|'aromatic';
 type OrganicConfig={capability:OrganicCapability;type:'simulation'|'trainer'|'experiment';version:string;conceptId:string;task:'molecule-property'|'isomer-count'|'homolog-formula'|'reaction-type'|'reaction-product'|'experiment-reaction';moleculeId?:string;property?:Property;field?:string;formula?:string;series?:string;carbonCount?:number;reactionId?:string;productIndex?:number;requiredActions?:string[]};
 export type Beta2OrganicRegistry=Record<string,OrganicConfig>;
-const capabilities=new Set<OrganicCapability>(['organic-structure-model','organic-valence-model','organic-isomerism','organic-reaction-template','organic-nomenclature','homologous-series','cyclic-structure-model','organic-polymerization','organic-addition','aromatic-structure','organic-qualitative-reaction','saponification','carbohydrate-reaction-model']);
+export const BETA2_ORGANIC_CAPABILITIES:ReadonlySet<string>=new Set<OrganicCapability>(['organic-structure-model','organic-valence-model','organic-isomerism','organic-reaction-template','organic-nomenclature','homologous-series','cyclic-structure-model','organic-polymerization','organic-addition','aromatic-structure','organic-qualitative-reaction','saponification','carbohydrate-reaction-model']);
 const tasks=new Set<OrganicConfig['task']>(['molecule-property','isomer-count','homolog-formula','reaction-type','reaction-product','experiment-reaction']);
 function obj(v:unknown):v is Record<string,unknown>{return !!v&&typeof v==='object'&&!Array.isArray(v)}
 function text(v:unknown):v is string{return typeof v==='string'&&v.length>0}
 export function loadBeta2OrganicRegistry(raw:unknown):Beta2OrganicRegistry{
  if(!obj(raw))throw new Error('BETA2_ORGANIC_INVALID:root');const out:Beta2OrganicRegistry={};
  for(const [id,v] of Object.entries(raw)){
-  if(!obj(v)||!capabilities.has(v.capability as OrganicCapability)||!['simulation','trainer','experiment'].includes(String(v.type))||!text(v.version)||!text(v.conceptId)||!tasks.has(v.task as any))throw new Error(`BETA2_ORGANIC_INVALID:${id}`);
+  if(!obj(v)||!BETA2_ORGANIC_CAPABILITIES.has(v.capability as OrganicCapability)||!['simulation','trainer','experiment'].includes(String(v.type))||!text(v.version)||!text(v.conceptId)||!tasks.has(v.task as any))throw new Error(`BETA2_ORGANIC_INVALID:${id}`);
   const c=v as unknown as OrganicConfig;
   if(c.task==='molecule-property'&&(!text(c.moleculeId)||!text(c.property)))throw new Error(`BETA2_ORGANIC_INVALID:${id}:molecule-property`);
   if(c.task==='isomer-count'&&!text(c.formula))throw new Error(`BETA2_ORGANIC_INVALID:${id}:isomer-count`);

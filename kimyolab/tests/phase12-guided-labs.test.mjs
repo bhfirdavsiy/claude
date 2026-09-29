@@ -31,12 +31,22 @@ test('guided labs are generated only from authored legacy steps and retain safet
   }
 });
 
+// P1.1 (D8): the old check grepped the client for a first-match `?'guided'` chain and the session for
+// `configFamily==='guided'` — i.e. it pinned the ambiguous routing this phase removes. The invariant is
+// that every guided lab is executed by the generic ExperimentEngine adapter; it is now asserted on the
+// compiled execution plans (behaviour), not on source text.
 test('guided lab config is routed through the generic ExperimentEngine adapter',()=>{
-  const client=fs.readFileSync(path.join(root,'src/app/content-client.ts'),'utf8');
+  const pointer=JSON.parse(fs.readFileSync(path.join(root,'public/content/manifest.json'),'utf8'));
+  const plans=JSON.parse(fs.readFileSync(path.join(root,'public/content',pointer.activeVersion,'execution-plans.json'),'utf8')).plans;
+  const guided=JSON.parse(fs.readFileSync(path.join(root,'content-src/activity-configs/guided-labs.json'),'utf8'));
+  assert.ok(Object.keys(guided).length>0);
+  for(const id of Object.keys(guided)){
+    const matching=plans.filter(p=>p.activityId===id);
+    assert.equal(matching.length,1,id);
+    assert.deepEqual([matching[0].configSource,matching[0].runtime,matching[0].engine],['guided-labs','generic','experiment'],id);
+  }
   const session=fs.readFileSync(path.join(root,'src/features/practice/session.ts'),'utf8');
-  assert.match(client,/guided-labs\.json/);
-  assert.match(client,/\?'guided'/);
-  assert.match(session,/configFamily==='guided'/);
+  assert.match(session,/runtime==='generic'/);
 });
 
 test('reaction-grounded guided steps use only curated Reaction KB observation records',()=>{

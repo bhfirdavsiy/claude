@@ -82,6 +82,9 @@ export function checkSource(rel:string,source:string):GuardViolation[]{
     }
     // ---- property access of a mutation method (call, read, bind — all the same)
     if(ts.isPropertyAccessExpression(node)){ flagMutation(node.name,node.name.text); flagKey(node.name,node.name.text); }
+    // P1.1 (D8): the legacy second routing key must not come back anywhere in the runtime.
+    if((ts.isPropertyAccessExpression(node)||ts.isPropertySignature(node)||ts.isPropertyAssignment(node)||ts.isShorthandPropertyAssignment(node)||ts.isBindingElement(node))&&node.name&&ts.isIdentifier(node.name)&&node.name.text==='configFamily')
+      out.push({file:rel,line:line(node),rule:'LEGACY_ROUTING_KEY',detail:'configFamily'});
     if(presentation&&(ts.isPropertySignature(node)||ts.isPropertyAssignment(node))&&node.name&&ts.isIdentifier(node.name)) flagKey(node.name,node.name.text);
     if(presentation&&ts.isStringLiteral(node)&&/assessment\/keys\.json$/.test(node.text)) flagKey(node,'ASSESSMENT_KEY_PACK_PATH');
     if(ts.isElementAccessExpression(node)&&node.argumentExpression&&(ts.isStringLiteral(node.argumentExpression)||ts.isNoSubstitutionTemplateLiteral(node.argumentExpression)))

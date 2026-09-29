@@ -6,6 +6,8 @@ import {fileURLToPath} from 'node:url';
 import {ContentClient} from '../src/app/content-client.ts';
 import {ReferencePracticeSession} from '../src/features/practice/session.ts';
 import {buildPracticeUiModel} from '../src/features/practice/ui-model.ts';
+// P1.1 (D8): `configFamily` (a routing key guessed at runtime) was replaced by the compiled ActivityExecutionPlan;
+// the same invariant — which config source executes the activity — is asserted on plan.configSource.
 
 const root=path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const active=JSON.parse(fs.readFileSync(path.join(root,'public/content/manifest.json'),'utf8'));
@@ -27,7 +29,7 @@ const now=()=> '2026-09-15T00:00:00.000Z';
 
 test('advanced ionic trainer loads in browser model and derives the net ionic answer from chemistry data',async()=>{
   const model=await client().loadPractice('practice.trainer.9.05.planned');
-  assert.equal(model.configFamily,'beta2-advanced');
+  assert.equal(model.executionPlan.configSource,'beta2-advanced');
   const ui=buildPracticeUiModel(model);
   assert.equal(ui.kind,'trainer');
   assert.match(ui.prompt,/AgNO3|AgNO₃/);
@@ -38,7 +40,7 @@ test('advanced ionic trainer loads in browser model and derives the net ionic an
 
 test('advanced hydrolysis experiment exposes bounded salt/medium controls and evidence',async()=>{
   const model=await client().loadPractice('practice.experiment.9.14');
-  assert.equal(model.configFamily,'beta2-advanced');
+  assert.equal(model.executionPlan.configSource,'beta2-advanced');
   const ui=buildPracticeUiModel(model);
   assert.equal(ui.kind,'experiment');
   assert.deepEqual(ui.controls.map(x=>x.action),['selectSalt','addIndicator','recordMedium']);
@@ -51,7 +53,7 @@ test('advanced hydrolysis experiment exposes bounded salt/medium controls and ev
 
 test('advanced electrolysis experiment exposes electrode observation controls and bounded model evidence',async()=>{
   const model=await client().loadPractice('practice.experiment.9.10');
-  assert.equal(model.configFamily,'beta2-advanced');
+  assert.equal(model.executionPlan.configSource,'beta2-advanced');
   const ui=buildPracticeUiModel(model);
   assert.equal(ui.kind,'experiment');
   assert.deepEqual(ui.controls.map(x=>x.action),['connectCurrent','observeCathode','observeAnode']);
@@ -64,7 +66,7 @@ test('advanced electrolysis experiment exposes electrode observation controls an
 
 test('advanced manganese simulation exposes medium control and reaches the target model',async()=>{
   const model=await client().loadPractice('practice.simulation.9.23.planned');
-  assert.equal(model.configFamily,'beta2-advanced');
+  assert.equal(model.executionPlan.configSource,'beta2-advanced');
   const ui=buildPracticeUiModel(model);
   assert.equal(ui.kind,'simulation');
   assert.equal(ui.mode,'generic');

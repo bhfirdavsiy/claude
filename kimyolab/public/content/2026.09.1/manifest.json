@@ -6,7 +6,7 @@
   "assessmentVersion": "0.0.0",
   "scoringVersion": "0.0.0",
   "createdAt": "2026-09-22T00:00:00.000Z",
-  "checksum": "4b864d915499f7615f71bea8cd298be92249680084f38ce942804b220a6be754",
+  "checksum": "518a40f790485c4e6fd9355051941f8a8e8bc623406f48a9a97ac266704e2a9a",
   "compatibility": {
     "minAppVersion": "20.1.0"
   },
@@ -152,6 +152,11 @@
       "path": "concepts.json",
       "checksum": "693491c8a4ce9481caaaf1da4eb5c10f2b522fb8c4a997918c364a441ddafa39",
       "size": 148051
+    },
+    {
+      "path": "execution-plans.json",
+      "checksum": "b7a2341d6cc6097ef283d06de5f2cb488bd98445342d12c8163d68ee42459060",
+      "size": 33976
     },
     {
       "path": "external-lab-bindings.json",

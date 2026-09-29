@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-09-29T16:15:55.098Z",
+  "total": 146,
+  "ready": 118,
+  "pending": 27,
+  "disabled": 1,
+  "errors": [
+    {
+      "code": "ROUTE_NONE",
+      "activityId": "practice.simulation.10.4",
+      "detail": "no config source declares this activity"
+    }
+  ],
+  "byRuntime": {
+    "generic": 99,
+    "reference-slice": 6,
+    "beta2-advanced": 4,
+    "beta2-organic": 17,
+    "beta3-advanced": 19
+  },
+  "fatal": 0
+}

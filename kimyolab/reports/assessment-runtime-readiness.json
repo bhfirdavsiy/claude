@@ -1,0 +1,21 @@
+{
+  "generatedAt": "2026-09-29T16:15:55.098Z",
+  "totalLearningUnits": 122,
+  "unitsWithObjectiveAssessment": 0,
+  "approvedItems": 0,
+  "pendingItems": 5,
+  "itemsWithConceptMapping": 5,
+  "itemsWithOutcomeMapping": 0,
+  "itemsRuntimeReady": 0,
+  "itemsBlocked": 5,
+  "blockedReasons": {
+    "REVIEW_PENDING": 5
+  },
+  "bankVersion": "1.0.0-rc.1",
+  "itemsByLearningUnit": {
+    "lu.9.15": {
+      "total": 5,
+      "runtimeReady": 0
+    }
+  }
+}

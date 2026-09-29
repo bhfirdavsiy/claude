@@ -17,11 +17,11 @@ export function buildPracticeUiModel(model:StudentPracticePageModel):PracticeUiM
   const common={title:model.title,goal:model.goal,backHref:`/learn/${model.learningUnit.id}/practice`};
   const experimentMeta={equipment:model.legacyContent?.equipment??'',materials:model.legacyContent?.materials??'',safety:model.legacyContent?.safety??''};
   if(model.type==='experiment'){
-    if(model.configFamily==='beta2-organic'){
+    if(model.executionPlan.runtime==='beta2-organic'){
       const actions=Array.isArray(c.requiredActions)?c.requiredActions:[];
       return {...common,...experimentMeta,kind:'experiment',controls:actions.map((action:string)=>({action,label:ACTION_LABELS[action]??String(action).replace(/([A-Z])/g,' $1').trim(),requiresEquation:false}))};
     }
-    if(model.configFamily==='beta2-advanced'){
+    if(model.executionPlan.runtime==='beta2-advanced'){
       const actions=c.capability==='hydrolysis-experiment'
         ? ['selectSalt','addIndicator','recordMedium']
         : c.capability==='electrolysis-experiment'
@@ -29,21 +29,21 @@ export function buildPracticeUiModel(model:StudentPracticePageModel):PracticeUiM
           : [];
       return {...common,...experimentMeta,kind:'experiment',controls:actions.map(action=>({action,label:ACTION_LABELS[action]??action.replace(/([A-Z])/g,' $1').trim(),requiresEquation:false}))};
     }
-    if(model.configFamily==='beta3-advanced'){
+    if(model.executionPlan.runtime==='beta3-advanced'){
       const actions=Array.isArray(c.requiredActions)?c.requiredActions:[];
       return {...common,...experimentMeta,kind:'experiment',controls:actions.map((action:string)=>({action,label:ACTION_LABELS[action]??action.replace(/([A-Z])/g,' $1').trim(),requiresEquation:false}))};
     }
-    return {...common,...experimentMeta,kind:'experiment',controls:(c.scenario?.steps??[]).map((s:any)=>({action:String(s.actionType),label:model.configFamily!=='reference'?String(s.label??s.actionType):(ACTION_LABELS[String(s.actionType)]??String(s.actionType)),requiresEquation:model.configFamily==='reference'&&s.actionType==='record'}))};
+    return {...common,...experimentMeta,kind:'experiment',controls:(c.scenario?.steps??[]).map((s:any)=>({action:String(s.actionType),label:model.executionPlan.runtime!=='reference-slice'?String(s.label??s.actionType):(ACTION_LABELS[String(s.actionType)]??String(s.actionType)),requiresEquation:model.executionPlan.runtime==='reference-slice'&&s.actionType==='record'}))};
   }
   if(model.type==='simulation'){
-    if(model.configFamily!=='reference'){
-      const fields=model.configFamily==='beta2-organic'?[String(c.field??c.property??'value')]:model.configFamily==='beta2-advanced'&&c.capability==='manganese-redox-simulation'?['medium']:model.configFamily==='beta3-advanced'?[String(c.field??'value')]:(c.controls??[]);
+    if(model.executionPlan.runtime!=='reference-slice'){
+      const fields=model.executionPlan.runtime==='beta2-organic'?[String(c.field??c.property??'value')]:model.executionPlan.runtime==='beta2-advanced'&&model.executionPlan.capability==='manganese-redox-simulation'?['medium']:model.executionPlan.runtime==='beta3-advanced'?[String(c.field??'value')]:(c.controls??[]);
       return {...common,kind:'simulation',mode:'generic',controls:fields.map((field:string)=>{const value=c.initialState?.[field]??c.expected;const booleanTask=c.task==='nuclear-conservation'||c.task==='equal-rates';const numberTask=typeof value==='number'||c.task==='reaction-rate';return {field:String(field),label:String(field).replaceAll('-',' '),valueType:booleanTask?'boolean':numberTask?'number':typeof value==='boolean'?'boolean':'text'};})};
     }
     return {...common,kind:'simulation',mode:'atom',particles:['protons','neutrons','electrons'],targetLabel:`${c.target?.element??''}-${c.target?.protons+c.target?.neutrons||''}`};
   }
   if(model.type==='trainer'){
-    if(model.configFamily!=='reference') return {...common,kind:'trainer',expectedInput:'text',prompt:String(c.prompt??model.goal),hints:(c.hints??[]).map((h:string)=>String(h))};
+    if(model.executionPlan.runtime!=='reference-slice') return {...common,kind:'trainer',expectedInput:'text',prompt:String(c.prompt??model.goal),hints:(c.hints??[]).map((h:string)=>String(h))};
     return {...common,kind:'trainer',expectedInput:'formula',prompt:`${c.elementA}(${c.valencyA}) va ${c.elementB}(${c.valencyB}) uchun formulani yozing`,hints:(c.hints??[]).map((_:string,i:number)=>`${i+1}-ishora`)};
   }
   if(model.type==='calculation'){

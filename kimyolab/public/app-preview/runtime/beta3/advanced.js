@@ -38,6 +38,13 @@ function meta(a                 ,c                    ,o        ){return {concep
 function norm(v        ){return String(v).normalize('NFKC').trim().toLowerCase().replace(/\s+/g,' ')}
 function normEq(v        ){return String(v).normalize('NFKC').replace(/->|=>/g,'→').replace(/\s+/g,'').replace(/⇌/g,'→')}
 function lastField(actions      ,field       ){return ([...actions].reverse().find(x=>x.field===field)       )?.value}
+/** Tasks this runtime can execute, per engine (the capability surface used by ActivityExecutionPlan, P1.1 D8). */
+export const BETA3_ADVANCED_TASKS                                             =Object.freeze({
+  simulation:new Set(['electron-configuration','bounded-choice','nuclear-conservation','hydrolysis','reaction-rate','kinetics-factor','equal-rates','equilibrium-shift','medium-redox']),
+  calculation:new Set(['gas-total-moles','ideal-gas-pressure','molar-normal','faraday-mass']),
+  trainer:new Set(['ionic-equation','redox-balance']),
+  experiment:new Set(['electrolysis']),
+});
 function simulationExpected(c                    ,o        )        {
   switch(c.task){
     case 'electron-configuration':return electronConfiguration(c.atomicNumber);
