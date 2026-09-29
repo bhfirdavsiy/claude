@@ -3,7 +3,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
-import {startServer,rawRequest,cloneDist,repoRoot} from '../helpers/dist.mjs';
+import {startServer,rawRequest,cloneDist,buildDist,repoRoot} from '../helpers/dist.mjs';
 
 let server, activeVersion;
 test.before(async()=>{
@@ -65,6 +65,10 @@ test('only GET/HEAD are accepted for static files',async()=>{
 });
 
 test('the production build output contains no repository-internal files',()=>{
-  const report=JSON.parse(fs.readFileSync(path.join(repoRoot,'reports/production-build.json'),'utf8'));
-  assert.deepEqual(report.forbiddenFiles??[],[]);
+  const files=[];
+  const walk=(dir)=>{for(const e of fs.readdirSync(dir,{withFileTypes:true})){const full=path.join(dir,e.name);if(e.isDirectory())walk(full);else files.push(path.relative(dist,full).split(path.sep).join('/'));}};
+  const dist=buildDist(); walk(dist);
+  const forbidden=files.filter(f=>/(^|\/)\./.test(f)||/\.(ts|mjs|map|md|xlsx|env|sh|bat)$/.test(f)||/^(src|scripts|tests|docs|reports|review-packets|content-src|schemas|config|source|server|node_modules)\//.test(f)||/^package(-lock)?\.json$/.test(f));
+  assert.deepEqual(forbidden,[]);
+  assert.ok(files.includes('index.html')&&files.includes('content/manifest.json'));
 });

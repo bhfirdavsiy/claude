@@ -2,26 +2,16 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
-import http from 'node:http';
-import {spawn} from 'node:child_process';
-import {once} from 'node:events';
 import {fileURLToPath} from 'node:url';
+import {spawnServer,rawRequest} from './helpers/dist.mjs';
+// Servers are started against a hermetically built dist (the only public surface).
+let current;
+async function startServer(){current=await spawnServer();return current;}
+function request(url){return rawRequest(current.url,url);}
+async function stop(server){await server.stop();}
 
 const root=path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 
-async function startServer(){
-  const child=spawn(process.execPath,['server.mjs'],{cwd:root,stdio:['ignore','pipe','pipe']});
-  let output=''; child.stdout.on('data',c=>output+=c); child.stderr.on('data',c=>output+=c);
-  const deadline=Date.now()+5000;
-  while(!output.includes('http://127.0.0.1:4173')){
-    if(child.exitCode!==null) throw new Error(`server exited: ${output}`);
-    if(Date.now()>deadline){child.kill('SIGTERM');throw new Error(`timeout: ${output}`);}
-    await new Promise(r=>setTimeout(r,25));
-  }
-  return child;
-}
-function request(url){return new Promise((resolve,reject)=>{const req=http.request({host:'127.0.0.1',port:4173,path:url},res=>{let body='';res.setEncoding('utf8');res.on('data',c=>body+=c);res.on('end',()=>resolve({status:res.statusCode,body,headers:res.headers}));});req.on('error',reject);req.end();});}
-async function stop(child){if(child.exitCode!==null)return;child.kill('SIGTERM');await Promise.race([once(child,'exit'),new Promise(r=>setTimeout(r,1000))]);if(child.exitCode===null)child.kill('SIGKILL');}
 
 test('student app shell is served for canonical /learn deep links and contains progressive hero content',async()=>{
   let child; try{
