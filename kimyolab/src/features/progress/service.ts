@@ -2,7 +2,7 @@ import {IndexedDbProgressStore} from '../../runtime/progress/indexeddb-store.ts'
 import {createProgress,reduceProgress} from '../../runtime/progress/reducer.ts';
 import type {LearningUnitProgress} from '../../runtime/progress/types.ts';
 import type {StudentPracticePageModel} from '../practice/model.ts';
-import {bindEvidenceToAttempt,type Attempt,type PersistedEvidence} from '../../runtime/evidence/types.ts';
+import {bindEvidenceToAttempt,bindDraftsToAttempt,draftSignature,validateEvidence,type Attempt,type PersistedEvidence} from '../../runtime/evidence/types.ts';
 import {computeConceptMastery,type ConceptMastery,type MasteryContext,type MasteryVersionPolicy} from '../../domain/mastery/mastery.ts';
 import {newUuid} from '../../runtime/shared/ids.ts';
 
@@ -32,6 +32,18 @@ export interface PracticeRecordResult {
   mastery:ConceptMastery[];
 }
 
+/**
+ * One practice page session = one learner Attempt. The engine re-runs over the whole accumulated input
+ * on every UI command, so the same evidence is emitted again and again; only drafts that are new or
+ * changed (ignoring their run timestamp) are appended to the session's attempt.
+ */
+export interface PracticeAttemptSession {
+  readonly activityId:string;
+  readonly startedAt:string;
+  attempt?:Attempt;
+  readonly recorded:Map<string,string>;
+}
+
 function truthyState(value:string|undefined){
   if(!value) return false;
   if(value==='complete') return true;
@@ -58,32 +70,50 @@ export class BrowserProgressService {
   /** Applies the active pack's declared evidence compatibility (see content manifest `evidenceCompatibility`). */
   setVersionPolicy(policy:MasteryVersionPolicy|undefined){this.versionPolicy=policy;}
 
-  async recordPracticeResult(page:StudentPracticePageModel,result:any,startedAt?:string):Promise<LearningUnitProgress>{
-    return (await this.recordPracticeAttempt(page,result,startedAt)).progress;
+  /** Starts the attempt boundary for one opened practice page (see PracticeAttemptSession). */
+  beginPracticeSession(page:StudentPracticePageModel):PracticeAttemptSession{
+    return {activityId:page.id,startedAt:this.now(),recorded:new Map()};
   }
 
-  async recordPracticeAttempt(page:StudentPracticePageModel,result:any,startedAt?:string):Promise<PracticeRecordResult>{
+  async recordPracticeResult(page:StudentPracticePageModel,result:any,session?:PracticeAttemptSession):Promise<LearningUnitProgress>{
+    return (await this.recordPracticeAttempt(page,result,session)).progress;
+  }
+
+  /**
+   * Without a session every call is one complete, independent attempt (e.g. a submitted run).
+   * With a session, calls are UI commands of the same attempt and evidence is de-duplicated.
+   */
+  async recordPracticeAttempt(page:StudentPracticePageModel,result:any,session?:PracticeAttemptSession):Promise<PracticeRecordResult>{
+    if(session&&session.activityId!==page.id) throw new Error('PRACTICE_SESSION_ACTIVITY_MISMATCH');
     const at=this.now();
     let progress=await this.store.loadProgress(page.learningUnit.id)??createProgress(page.learningUnit.id,page.contentVersion,page.schemaVersion,at);
     progress=reduceProgress(progress,{type:'OPEN',at});
     if(typeof result?.serializedState==='string') progress=reduceProgress(progress,{type:'SAVE_ACTIVITY_STATE',activityId:page.id,serializedState:result.serializedState,at});
-    const drafts:unknown[]=Array.isArray(result?.evidence)?result.evidence:[];
-    let attempt:Attempt|undefined;
+    const allDrafts:unknown[]=Array.isArray(result?.evidence)?result.evidence:[];
+    const drafts=session?allDrafts.filter(raw=>{const d=validateEvidence(raw);return session.recorded.get(d.id)!==draftSignature(d);}):allDrafts;
+    let attempt:Attempt|undefined=session?.attempt;
     let evidence:PersistedEvidence[]=[];
     let mastery:ConceptMastery[]=[];
     if(drafts.length){
-      const bound=bindEvidenceToAttempt({
-        learningUnitId:page.learningUnit.id,
-        activityId:page.id,
-        activityVersion:page.activityVersion??'0',
-        contentVersion:page.contentVersion,
-        scoringVersion:page.scoringVersion,
-        ...(page.curriculumVersion?{curriculumVersion:page.curriculumVersion}:{}),
-        startedAt:startedAt??at,
-        completedAt:at,
-      },drafts,this.newId);
-      await this.store.recordAttempt(bound.attempt,bound.evidence);
-      attempt=bound.attempt; evidence=bound.evidence;
+      if(attempt){
+        evidence=bindDraftsToAttempt(attempt,drafts,this.newId);
+        await this.store.appendAttemptEvidence(attempt.id,evidence);
+      }else{
+        const bound=bindEvidenceToAttempt({
+          learningUnitId:page.learningUnit.id,
+          activityId:page.id,
+          activityVersion:page.activityVersion??'0',
+          contentVersion:page.contentVersion,
+          scoringVersion:page.scoringVersion,
+          ...(page.curriculumVersion?{curriculumVersion:page.curriculumVersion}:{}),
+          startedAt:session?.startedAt??at,
+          completedAt:at,
+        },drafts,this.newId);
+        await this.store.recordAttempt(bound.attempt,bound.evidence);
+        attempt=bound.attempt; evidence=bound.evidence;
+        if(session) session.attempt=bound.attempt;
+      }
+      if(session) for(const raw of drafts){const d=validateEvidence(raw);session.recorded.set(d.id,draftSignature(d));}
       const context:MasteryContext={contentVersion:page.contentVersion,scoringVersion:page.scoringVersion,...(page.curriculumVersion?{curriculumVersion:page.curriculumVersion}:{})};
       mastery=await this.recomputeMastery([...new Set(evidence.map(e=>e.conceptId))],context);
     }

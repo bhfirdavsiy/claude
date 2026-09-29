@@ -188,7 +188,13 @@ export interface AttemptInput {
  */
 export function bindEvidenceToAttempt(input: AttemptInput, drafts: unknown[], newId: () => string): {attempt: Attempt; evidence: PersistedEvidence[]} {
   const attempt = validateAttempt({...input, id: newId()});
-  const evidence = drafts.map((raw) => {
+  return {attempt, evidence: bindDraftsToAttempt(attempt, drafts, newId)};
+}
+
+/** Binds further engine drafts to an existing Attempt (fresh UUID per record, same version checks). */
+export function bindDraftsToAttempt(attempt: Attempt, drafts: unknown[], newId: () => string): PersistedEvidence[] {
+  const input = attempt;
+  return drafts.map((raw) => {
     const draft = validateEvidence(raw);
     if (draft.contentVersion !== input.contentVersion) throw new Error(`EVIDENCE_VERSION_MISMATCH: contentVersion ${draft.contentVersion} != ${input.contentVersion}`);
     if (draft.scoringVersion !== input.scoringVersion) throw new Error(`EVIDENCE_VERSION_MISMATCH: scoringVersion ${draft.scoringVersion} != ${input.scoringVersion}`);
@@ -203,5 +209,11 @@ export function bindEvidenceToAttempt(input: AttemptInput, drafts: unknown[], ne
     };
     return validatePersistedEvidence(record);
   });
-  return {attempt, evidence};
+}
+
+/** Identity of an engine draft for de-duplication inside one attempt: everything except its run timestamp. */
+export function draftSignature(draft: Evidence): string {
+  const {createdAt: _createdAt, ...rest} = draft as Evidence & Record<string, unknown>;
+  const stable = (v: unknown): unknown => Array.isArray(v) ? v.map(stable) : v && typeof v === 'object' ? Object.fromEntries(Object.keys(v as object).sort().map(k => [k, stable((v as Record<string, unknown>)[k])])) : v;
+  return JSON.stringify(stable(rest));
 }

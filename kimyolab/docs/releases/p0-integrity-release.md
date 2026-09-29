@@ -128,3 +128,8 @@ Topilgan va tuzatilgan blocker’lar (har biri uchun tuzatishsiz yiqiladigan tes
    tekshiradi, bypass flag’lari yo‘q (`tests/integration/release-freeze.test.mjs`, soxta PASS report bilan ham).
 3. **Vakuum test.** “Faqat faol/oldingi pack public” testi mavjud bo‘lmagan versiyani so‘ragani uchun har doim
    o‘tardi. Endi `dist` ichiga pointer’da yo‘q pack qo‘yiladi va 404 kutiladi; `previousVersion` 200.
+4. **Evidence inflyatsiyasi (P0 regressiyasi).** Engine har UI buyrug‘ida butun to‘plangan inputni qayta
+   ishlatadi va oldingi dalillarni qayta chiqaradi. P0’gacha ular ID bo‘yicha overwrite bo‘lardi; append-only’dan
+   keyin 9 buyruqli tajriba seansi 9 Attempt va 45 evidence (8 ta noyob) bo‘lib saqlanar edi. Endi bitta ochilgan
+   practice sahifasi = bitta Attempt (`beginPracticeSession`), faqat yangi yoki o‘zgargan dalillar (vaqt tamg‘asidan
+   tashqari) shu attempt’ga qo‘shiladi; o‘zgargan natija tarix sifatida saqlanadi (`tests/p0-attempt-sessions.test.mjs`).

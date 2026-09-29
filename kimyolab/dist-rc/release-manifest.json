@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-09-29T13:37:20.968Z",
+  "createdAt": "2026-09-29T13:41:40.844Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -11,8 +11,8 @@
     {
       "path": "app-preview/app/bootstrap.js",
       "sourcePath": "public/app-preview/app/bootstrap.js",
-      "checksum": "1553cd45102118c89b2dd7f80217f1fa9f8fda4172e02b6f13ff5e0120843a1a",
-      "size": 6499
+      "checksum": "4193d9cb59ce04e99fa02d69c3adaa6393bf1423a64ae199dcbbe1c36b11c41c",
+      "size": 6578
     },
     {
       "path": "app-preview/app/content-client.js",
@@ -335,8 +335,8 @@
     {
       "path": "app-preview/features/progress/service.js",
       "sourcePath": "public/app-preview/features/progress/service.js",
-      "checksum": "21188220beb86945a8b4822e688fb5fbabbb325a55d772d5e4de3529cddf11d1",
-      "size": 7355
+      "checksum": "07864e1e0d2db6916df8b6c60b33cdff2118ba0ad098375e456dee7a43333eef",
+      "size": 8989
     },
     {
       "path": "app-preview/features/search/model.js",
@@ -503,8 +503,8 @@
     {
       "path": "app-preview/runtime/evidence/types.js",
       "sourcePath": "public/app-preview/runtime/evidence/types.js",
-      "checksum": "24629af56d54b5617877c5bc648af551d3f437c6cb2c56c7be752271ae55a1d0",
-      "size": 8213
+      "checksum": "c3bddab8c7e65adf8216fb36592a9bf1045cca65408e37094252456d63420b1d",
+      "size": 9016
     },
     {
       "path": "app-preview/runtime/governance/approvals.js",
@@ -551,8 +551,8 @@
     {
       "path": "app-preview/runtime/progress/indexeddb-store.js",
       "sourcePath": "public/app-preview/runtime/progress/indexeddb-store.js",
-      "checksum": "847426e426098e8f10a7c2dd4d8edbba0b94a4d410e029b7d43317dd69f364bb",
-      "size": 18721
+      "checksum": "d424bdae781172e527c1f545f8f3c96106f0b774f5ad2f3ed76e2adf64360e13",
+      "size": 19590
     },
     {
       "path": "app-preview/runtime/progress/migrations.js",

@@ -351,6 +351,18 @@ export class IndexedDbProgressStore {
     });
   }
 
+  /** Appends evidence to an attempt that already exists (same session). Never overwrites. */
+  async appendAttemptEvidence(attemptId       ,evidence                    )              {
+    const validEvidence=evidence.map(validatePersistedEvidence);
+    for(const e of validEvidence) if(e.attemptId!==attemptId) throw coded('EVIDENCE_ATTEMPT_MISMATCH');
+    await this.run(['attempts','evidence'],'readwrite','EVIDENCE_SAVE_FAILED',async tx=>{
+      const attempt=await this.request                   (tx.objectStore('attempts').get(attemptId));
+      if(!attempt) throw coded('EVIDENCE_ATTEMPT_UNKNOWN');
+      try{for(const e of validEvidence) await this.request(tx.objectStore('evidence').add(e));}
+      catch(error){if(error&&typeof error==='object'&&(error       ).name==='ConstraintError') throw coded('EVIDENCE_ID_COLLISION',error); throw error;}
+    });
+  }
+
   /** Appends one evidence record. Uses `add`, so an existing id is rejected instead of overwritten. */
   async saveEvidence(evidence                  )              {
     const valid=validatePersistedEvidence(evidence);

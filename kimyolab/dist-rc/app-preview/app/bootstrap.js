@@ -56,7 +56,7 @@ async function renderCurrent(){
   }
   if(route.name==='practice'){
     renderLoading(main);
-    try{const page=await client.loadPractice(route.practiceActivityId);progressService.setVersionPolicy(await client.getEvidenceCompatibility());renderPractice(main,page,new ReferencePracticeSession(page),(result)=>progressService.recordPracticeResult(page,result).then(()=>undefined));}
+    try{const page=await client.loadPractice(route.practiceActivityId);progressService.setVersionPolicy(await client.getEvidenceCompatibility());const attemptSession=progressService.beginPracticeSession(page);renderPractice(main,page,new ReferencePracticeSession(page),(result)=>progressService.recordPracticeResult(page,result,attemptSession).then(()=>undefined));}
     catch(error){renderError(main,contentErrorMessage(error,'Faoliyatni yuklab bo‘lmadi.'));}
     return;
   }

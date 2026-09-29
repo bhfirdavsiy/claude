@@ -29,7 +29,7 @@ export const GATES:Gate[]=[
 /** Focused P0 suites that back individual acceptance fields (they also run inside `unit`). */
 const FOCUSED:Gate[]=[
   {id:'suite:contentIntegrity',run:['node','--test','tests/p0-content-integrity.test.mjs']},
-  {id:'suite:evidence',run:['node','--test','--test-concurrency=1','tests/p0-evidence-immutability.test.mjs','tests/p0-version-safe-mastery.test.mjs']},
+  {id:'suite:evidence',run:['node','--test','--test-concurrency=1','tests/p0-evidence-immutability.test.mjs','tests/p0-attempt-sessions.test.mjs','tests/p0-version-safe-mastery.test.mjs']},
   {id:'suite:migration',run:['node','--test','--test-concurrency=1','tests/p0-progress-migration.test.mjs']},
   {id:'suite:serverPaths',run:['node','--test','tests/p0-server-paths.test.mjs']},
 ];

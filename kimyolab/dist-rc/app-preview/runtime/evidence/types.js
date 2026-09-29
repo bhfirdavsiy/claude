@@ -188,7 +188,13 @@ export function deriveCorrectness(evidence          )                      {
  */
 export function bindEvidenceToAttempt(input              , drafts           , newId              )                                                    {
   const attempt = validateAttempt({...input, id: newId()});
-  const evidence = drafts.map((raw) => {
+  return {attempt, evidence: bindDraftsToAttempt(attempt, drafts, newId)};
+}
+
+/** Binds further engine drafts to an existing Attempt (fresh UUID per record, same version checks). */
+export function bindDraftsToAttempt(attempt         , drafts           , newId              )                      {
+  const input = attempt;
+  return drafts.map((raw) => {
     const draft = validateEvidence(raw);
     if (draft.contentVersion !== input.contentVersion) throw new Error(`EVIDENCE_VERSION_MISMATCH: contentVersion ${draft.contentVersion} != ${input.contentVersion}`);
     if (draft.scoringVersion !== input.scoringVersion) throw new Error(`EVIDENCE_VERSION_MISMATCH: scoringVersion ${draft.scoringVersion} != ${input.scoringVersion}`);
@@ -203,5 +209,11 @@ export function bindEvidenceToAttempt(input              , drafts           , ne
     };
     return validatePersistedEvidence(record);
   });
-  return {attempt, evidence};
+}
+
+/** Identity of an engine draft for de-duplication inside one attempt: everything except its run timestamp. */
+export function draftSignature(draft          )         {
+  const {createdAt: _createdAt, ...rest} = draft                                      ;
+  const stable = (v         )          => Array.isArray(v) ? v.map(stable) : v && typeof v === 'object' ? Object.fromEntries(Object.keys(v          ).sort().map(k => [k, stable((v                           )[k])])) : v;
+  return JSON.stringify(stable(rest));
 }
