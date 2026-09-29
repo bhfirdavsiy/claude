@@ -1,0 +1,65 @@
+name: KimyoLab release freeze
+
+# P0.15.6: creates and publishes the Integrity Release tag from a clean machine.
+# Runs `npm run release:freeze` (which itself re-runs the full P0 acceptance) on the requested
+# commit, which must already be on main, then pushes the annotated tag it created.
+on:
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: 'Commit on main to freeze (merge commit SHA)'
+        required: true
+      tag:
+        description: 'Release tag'
+        required: true
+        default: 'kimyolab-p0-integrity-20.1.0'
+
+permissions:
+  contents: write
+
+jobs:
+  freeze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Check out the requested commit as local main (must be on origin/main)
+        env:
+          COMMIT: ${{ inputs.commit }}
+        run: |
+          set -euo pipefail
+          [[ "$COMMIT" =~ ^[0-9a-f]{40}$ ]] || { echo "commit must be a full SHA"; exit 1; }
+          git merge-base --is-ancestor "$COMMIT" origin/main || { echo "commit is not on main"; exit 1; }
+          git checkout -q -B main "$COMMIT"
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: kimyolab/.nvmrc
+          cache: npm
+          cache-dependency-path: kimyolab/package-lock.json
+      - name: Install
+        working-directory: kimyolab
+        run: npm ci && npx playwright install --with-deps chromium
+      - name: Freeze (re-runs P0 acceptance, creates annotated tag)
+        working-directory: kimyolab
+        env:
+          TAG: ${{ inputs.tag }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          npm run release:freeze -- --tag "$TAG"
+      - name: Publish tag
+        env:
+          TAG: ${{ inputs.tag }}
+        run: |
+          git cat-file -t "refs/tags/$TAG" | grep -qx tag
+          git push origin "refs/tags/$TAG"
+      - name: Upload freeze manifest
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p0-release-freeze
+          path: |
+            kimyolab/reports/p0-acceptance.json
+            kimyolab/reports/p0-release-freeze.json
