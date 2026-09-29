@@ -27,6 +27,10 @@ export interface AnswerEvidence extends EvidenceBase {
   type: 'answer';
   questionId: string;
   correct: boolean;
+  /** The learner's response (e.g. selected option id) — audit trail for objective assessment items. */
+  response?: string;
+  /** Version of the assessed item, when it differs in lifecycle from the activity/bank version. */
+  itemVersion?: string;
 }
 export interface CalculationEvidence extends EvidenceBase {
   type: 'calculation';
@@ -86,6 +90,8 @@ export function validateEvidence(input: unknown): Evidence {
       break;
     case 'answer':
       if (!text(input.questionId) || typeof input.correct !== 'boolean') invalid('answer fields required');
+      if (input.response !== undefined && !text(input.response)) invalid('answer response must be text');
+      if (input.itemVersion !== undefined && !text(input.itemVersion)) invalid('answer itemVersion must be text');
       break;
     case 'calculation':
       if (!text(input.stepId) || typeof input.value !== 'number' || !Number.isFinite(input.value) || !text(input.unit)) invalid('calculation fields required');
@@ -132,7 +138,11 @@ export interface Attempt {
    * in_progress → completed | abandoned; terminal states are never changed again.
    */
   status?: AttemptStatus;
+  /** P1.1: what kind of learner activity the attempt is. Absent = practice (all pre-P1.1 records). */
+  attemptType?: AttemptType;
 }
+
+export type AttemptType = 'practice' | 'assessment';
 
 export type AttemptStatus = 'in_progress' | 'completed' | 'abandoned';
 
@@ -155,6 +165,7 @@ export function validateAttempt(input: unknown): Attempt {
   if (inProgress ? input.completedAt !== undefined : !text(input.completedAt)) throw new Error(inProgress ? 'ATTEMPT_INVALID: in_progress attempt cannot have completedAt' : 'ATTEMPT_INVALID: completedAt required');
   if (!Number.isFinite(Date.parse(String(input.startedAt))) || (!inProgress && !Number.isFinite(Date.parse(String(input.completedAt))))) throw new Error('ATTEMPT_INVALID: timestamps must be ISO dates');
   if (input.userId !== undefined && !text(input.userId)) throw new Error('ATTEMPT_INVALID: userId must be text');
+  if (input.attemptType !== undefined && !['practice','assessment'].includes(String(input.attemptType))) throw new Error('ATTEMPT_INVALID: unknown attemptType');
   return input as unknown as Attempt;
 }
 
@@ -192,6 +203,7 @@ export interface AttemptInput {
   startedAt: string;
   completedAt?: string;
   status?: AttemptStatus;
+  attemptType?: AttemptType;
 }
 
 /**

@@ -8,6 +8,8 @@ import {ReferencePracticeSession} from '../src/features/practice/session.ts';
 import {buildPracticeUiModel} from '../src/features/practice/ui-model.ts';
 import {electronConfiguration} from '../src/domain/chemistry/electron-configuration.ts';
 import {faradayMass} from '../src/domain/chemistry/faraday-model.ts';
+// P1.1 (D8): `configFamily` (a routing key guessed at runtime) was replaced by the compiled ActivityExecutionPlan;
+// the same invariant — which config source executes the activity — is asserted on plan.configSource.
 
 const root=path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const active=JSON.parse(fs.readFileSync(path.join(root,'public/content/manifest.json'),'utf8'));
@@ -33,11 +35,11 @@ test('all 22 Beta3 configs are loadable through student ContentClient with expli
   assert.equal(Object.keys(safe).length+Object.keys(advanced).length,22);
   for(const id of Object.keys(safe)){
     const model=await client().loadPractice(id);
-    assert.equal(model.configFamily,'beta3',id);
+    assert.equal(model.executionPlan.configSource,'beta3-safe',id);
   }
   for(const id of Object.keys(advanced)){
     const model=await client().loadPractice(id);
-    assert.equal(model.configFamily,'beta3-advanced',id);
+    assert.equal(model.executionPlan.configSource,'beta3-advanced',id);
   }
 });
 

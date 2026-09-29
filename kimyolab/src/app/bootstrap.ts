@@ -5,6 +5,7 @@ import { renderError, renderLearningGuide, renderLearningPracticeStage, renderLe
 import {renderPractice} from '../features/practice/render.ts';
 import {ReferencePracticeSession} from '../features/practice/session.ts';
 import {BrowserProgressService,type PracticeAttemptSession} from '../features/progress/service.ts';
+import type {AssessmentSessionState} from '../runtime/learning-orchestrator/types.ts';
 import {buildProgressViewModel} from '../features/progress/model.ts';
 import {renderProgress} from '../features/progress/render.ts';
 import {renderSearch} from '../features/search/render.ts';
@@ -18,7 +19,8 @@ const mainElement=document.getElementById('app-main');
 if(!(mainElement instanceof HTMLElement)) throw new Error('APP_MAIN_MISSING');
 const main:HTMLElement=mainElement;
 const client=new ContentClient({baseUrl:'/content'});
-const progressService=new BrowserProgressService((globalThis as any).indexedDB);
+// The canonical evaluator reads prompts+keys through this source only at submission time (P1.1 C2/C3).
+const progressService=new BrowserProgressService((globalThis as any).indexedDB,undefined,{assessmentContent:{loadAssessmentForEvaluation:(learningUnitId)=>client.loadAssessmentForEvaluation(learningUnitId)}});
 const standalone=(globalThis as any).__KIMYOLAB_STANDALONE__===true;
 
 function currentLocation(){
@@ -42,10 +44,12 @@ function navigateInternal(href:string){
 }
 
 let activePractice:PracticeAttemptSession|undefined;
+let activeAssessment:AssessmentSessionState|undefined;
 
 async function renderCurrent(){
   // Leaving a practice page ends its session: an unfinished attempt is closed as abandoned (never a success).
   if(activePractice){const previous=activePractice;activePractice=undefined;void progressService.leavePracticeSession(previous).catch(()=>undefined);}
+  if(activeAssessment){progressService.leaveAssessment(activeAssessment);activeAssessment=undefined;}
   const active=currentLocation();
   const route=parseAppRoute(active.pathname);
   if(route.name==='home'){renderHome(main);return;}
@@ -72,9 +76,20 @@ async function renderCurrent(){
     try{
       const learningUnitId=route.learningUnitId;
       const [hub,versions]=await Promise.all([client.loadLearningHub(learningUnitId),client.getRuntimeVersions()]);
-      const cycle=await progressService.getCycleSnapshot(learningUnitId).catch(()=>({guideComplete:false,practiceComplete:false,reinforcementComplete:false,status:'not_started' as const}));
+      const cycle=await progressService.getCycleSnapshot(learningUnitId).catch(()=>({guideComplete:false,practiceComplete:false,reinforcementComplete:false,assessmentComplete:false,status:'not_started' as const}));
       if(route.name==='learning-practice') renderLearningPracticeStage(main,hub,cycle);
-      else if(route.name==='learning-quiz') renderLearningQuiz(main,hub,cycle,async payload=>{await progressService.recordReinforcement(learningUnitId,versions,payload);});
+      else if(route.name==='learning-quiz'){
+        // Objective items → canonical assessment (responses only). No items → reflection (never an assessment).
+        let session=hub.assessment.items.length?progressService.beginAssessment(learningUnitId,versions,hub.concepts.map(c=>c.id)):undefined;
+        activeAssessment=session;
+        renderLearningQuiz(main,hub,cycle,async payload=>{await progressService.recordReinforcement(learningUnitId,versions,payload);},async responses=>{
+          if(!session) throw new Error('ASSESSMENT_NOT_AVAILABLE');
+          if(session.status!=='open'){session=progressService.retryAssessment(session);activeAssessment=session;}   // retry = new attempt
+          const result=await progressService.submitAssessment(session,responses);
+          session=result.session;
+          return result;
+        });
+      }
       else renderLearningGuide(main,hub,cycle,async()=>{try{await progressService.markGuideComplete(learningUnitId,versions);}catch{}navigateInternal(`/learn/${learningUnitId}/practice`);});
     }
     catch(error){const message=contentErrorMessage(error,'');if(message)renderError(main,message);else renderError(main);}

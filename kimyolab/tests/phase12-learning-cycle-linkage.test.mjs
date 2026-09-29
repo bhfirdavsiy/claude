@@ -1,4 +1,6 @@
 import test from 'node:test';
+import {createRequire} from 'node:module';
+const ts=createRequire(import.meta.url)('typescript');
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -25,7 +27,15 @@ test('learning cycle UI exposes the three linked stages and no student-facing as
   assert.match(render,/\/guide/);
   assert.match(render,/\/practice/);
   assert.match(render,/\/quiz/);
-  assert.doesNotMatch(render,/assessment/i);
+  // P1.1: the invariant is "no assessment jargon in text the learner sees". The previous check matched the
+  // whole source, so a code identifier (model.assessment, onAssessment) would fail it although no learner
+  // ever sees it. It now inspects every string/template literal — i.e. all text the render can show.
+  const sf=ts.createSourceFile('render.ts',render,ts.ScriptTarget.Latest,true);
+  const texts=[];
+  const visit=(n)=>{if(ts.isStringLiteral(n)||ts.isNoSubstitutionTemplateLiteral(n))texts.push(n.text);else if(ts.isTemplateExpression(n)){texts.push(n.head.text);for(const sp of n.templateSpans)texts.push(sp.literal.text);}ts.forEachChild(n,visit);};
+  visit(sf);
+  assert.ok(texts.length>50,'literal extraction works');
+  assert.deepEqual(texts.filter(t=>/assessment/i.test(t)),[]);
 });
 
 test('guide and reinforcement completion persist independently while reinforcement does not auto-award mastery',async()=>{

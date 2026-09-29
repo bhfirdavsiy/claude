@@ -8,14 +8,14 @@ import {PracticeRouter,                          } from '../practice-router/rout
                                                                              
                                                                                                                                                                                                                                                                                                                                                                                                                        
                                                               
-const capabilities=new Set                   (['organic-structure-model','organic-valence-model','organic-isomerism','organic-reaction-template','organic-nomenclature','homologous-series','cyclic-structure-model','organic-polymerization','organic-addition','aromatic-structure','organic-qualitative-reaction','saponification','carbohydrate-reaction-model']);
+export const BETA2_ORGANIC_CAPABILITIES                    =new Set                   (['organic-structure-model','organic-valence-model','organic-isomerism','organic-reaction-template','organic-nomenclature','homologous-series','cyclic-structure-model','organic-polymerization','organic-addition','aromatic-structure','organic-qualitative-reaction','saponification','carbohydrate-reaction-model']);
 const tasks=new Set                       (['molecule-property','isomer-count','homolog-formula','reaction-type','reaction-product','experiment-reaction']);
 function obj(v        )                            {return !!v&&typeof v==='object'&&!Array.isArray(v)}
 function text(v        )            {return typeof v==='string'&&v.length>0}
 export function loadBeta2OrganicRegistry(raw        )                     {
  if(!obj(raw))throw new Error('BETA2_ORGANIC_INVALID:root');const out                     ={};
  for(const [id,v] of Object.entries(raw)){
-  if(!obj(v)||!capabilities.has(v.capability                     )||!['simulation','trainer','experiment'].includes(String(v.type))||!text(v.version)||!text(v.conceptId)||!tasks.has(v.task       ))throw new Error(`BETA2_ORGANIC_INVALID:${id}`);
+  if(!obj(v)||!BETA2_ORGANIC_CAPABILITIES.has(v.capability                     )||!['simulation','trainer','experiment'].includes(String(v.type))||!text(v.version)||!text(v.conceptId)||!tasks.has(v.task       ))throw new Error(`BETA2_ORGANIC_INVALID:${id}`);
   const c=v                            ;
   if(c.task==='molecule-property'&&(!text(c.moleculeId)||!text(c.property)))throw new Error(`BETA2_ORGANIC_INVALID:${id}:molecule-property`);
   if(c.task==='isomer-count'&&!text(c.formula))throw new Error(`BETA2_ORGANIC_INVALID:${id}:isomer-count`);

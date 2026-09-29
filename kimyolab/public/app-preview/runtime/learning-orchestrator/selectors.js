@@ -38,14 +38,22 @@ export function isAssessmentComplete(progress                               )   
   return isStateComplete(readActivityState(progress,CYCLE_STATE_KEYS.assessment));
 }
 
+/**
+ * Stage 3 of the learning cycle ("Mustahkamlash") is satisfied by a reflection OR by an evaluated objective
+ * assessment. The two remain different facts (different events, different evidence); only the stage is shared.
+ */
+export function isConsolidationStageComplete(progress                               )        {
+  return isReinforcementComplete(progress)||isAssessmentComplete(progress);
+}
+
 export function isLearningUnitComplete(progress                               )        {
-  return isTheoryComplete(progress)&&isPracticeComplete(progress)&&isReinforcementComplete(progress);
+  return isTheoryComplete(progress)&&isPracticeComplete(progress)&&isConsolidationStageComplete(progress);
 }
 
 export function activeStage(progress                               )              {
   if(!isTheoryComplete(progress)) return 'theory';
   if(!isPracticeComplete(progress)) return 'practice';
-  if(!isReinforcementComplete(progress)) return 'reinforcement';
+  if(!isConsolidationStageComplete(progress)) return 'reinforcement';
   return 'complete';
 }
 
@@ -62,7 +70,12 @@ export function practiceActivityIds(progress                               )    
  * assessment. Pre-P1.0 records stored reflection as `assessment_complete` without an evaluated
  * assessment — those are shown as what they really were.
  */
-export function displayStatus(progress                     )              {
+/** C1 (user-visible mastery) is deferred to P1.2: mastery-derived statuses are not shown to learners yet. */
+export const USER_VISIBLE_MASTERY=false;
+
+export function displayStatus(progress                     ,options                          ={})              {
+  const masteryVisible=options.masteryVisible??USER_VISIBLE_MASTERY;
+  if(!masteryVisible&&(progress.status==='mastered'||progress.status==='needs_review')) return 'assessment_complete';
   const reinforced=isReinforcementComplete(progress);
   if(progress.status==='assessment_complete'&&!isAssessmentComplete(progress)) return reinforced?'reinforcement_complete':'practice_complete';
   if(ACHIEVEMENT_RANK[progress.status]<ACHIEVEMENT_RANK.assessment_complete&&reinforced) return 'reinforcement_complete';

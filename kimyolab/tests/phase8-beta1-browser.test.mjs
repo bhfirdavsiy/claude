@@ -6,6 +6,8 @@ import {fileURLToPath} from 'node:url';
 import {ContentClient} from '../src/app/content-client.ts';
 import {ReferencePracticeSession} from '../src/features/practice/session.ts';
 import {buildPracticeUiModel} from '../src/features/practice/ui-model.ts';
+// P1.1 (D8): `configFamily` (a routing key guessed at runtime) was replaced by the compiled ActivityExecutionPlan;
+// the same invariant — which config source executes the activity — is asserted on plan.configSource.
 
 const root=path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const active=JSON.parse(fs.readFileSync(path.join(root,'public/content/manifest.json'),'utf8'));
@@ -29,7 +31,7 @@ test('student ContentClient and practice session support Beta1 generic activity 
 
 test('Beta1 generic experiment exposes authored procedural labels and runs in browser session',async()=>{
   const model=await new ContentClient({fetchImpl,baseUrl:'/content'}).loadPractice('practice.experiment.7.6');
-  assert.equal(model.configFamily,'beta1');
+  assert.equal(model.executionPlan.configSource,'beta1');
   const ui=buildPracticeUiModel(model);
   assert.equal(ui.kind,'experiment');
   assert.match(ui.controls[0].label,/100 ml suvni stakanga quying/);

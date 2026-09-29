@@ -97,7 +97,7 @@ export class LearningRunner                  {
     const completed=await orchestrator.completePractice(step.session);
 
     const assessmentDrafts=await o.assessmentRunner(unit,context);
-    const assessed=await orchestrator.submitAssessment({learningUnitId,versions,assessmentVersion:o.assessmentVersion,drafts:assessmentDrafts,conceptIds:unit.conceptIds});
+    const assessed=await orchestrator.submitAssessmentEvidence({learningUnitId,versions,assessmentVersion:o.assessmentVersion,drafts:assessmentDrafts,conceptIds:unit.conceptIds});
 
     return {ok:true,value:{
       unit,theory,practice,

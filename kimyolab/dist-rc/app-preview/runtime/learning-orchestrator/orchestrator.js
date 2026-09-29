@@ -9,11 +9,13 @@ import {createProgress,reduceProgress,                  } from '../progress/redu
 import {bindDraftsToAttempt,draftSignature,validateAttempt,validateEvidence,                                   } from '../evidence/types.js';
 import {computeConceptMastery,                                                                 } from '../../domain/mastery/mastery.js';
 import {scoreAssessment,                     } from '../../domain/assessment/scoring.js';
+import {evaluateAssessment,evaluationToEvidenceDrafts,                                                 } from '../../domain/assessment/evaluator.js';
+import {assessmentIdFor} from '../../domain/assessment/model.js';
 import {newUuid} from '../shared/ids.js';
                                                                 
                                                 
-                                                                                                                                                                  
-import {aggregateMasteryStatus,buildSnapshot,sessionView,                  } from './state.js';
+                                                                                                                                                                                                                 
+import {aggregateMasteryStatus,assessmentView,buildSnapshot,sessionView,                                               } from './state.js';
 import {isPracticeResultComplete} from './selectors.js';
 
                                      
@@ -58,6 +60,8 @@ export class LearningOrchestrator {
           versionPolicy                      ;
                    sessions=new Map                      ();
                    liveness                     ;
+                   assessmentContent                         ;
+                   assessments=new Map                                ();
 
   constructor(store                  ,options                    ={}){
     this.store=store;
@@ -66,6 +70,7 @@ export class LearningOrchestrator {
     this.versionPolicy=options.versionPolicy;
     this.transferRequired=options.transferRequired;
     this.liveness=options.liveness;
+    this.assessmentContent=options.assessmentContent;
   }
 
   setVersionPolicy(policy                               ){this.versionPolicy=policy;}
@@ -83,7 +88,10 @@ export class LearningOrchestrator {
       case 'LEAVE_PRACTICE': return this.leavePractice(intent.session);
       case 'RETRY_PRACTICE': return this.retryPractice(intent.session);
       case 'SUBMIT_REINFORCEMENT': return this.submitReinforcement(intent.learningUnitId,intent.versions,intent.payload);
-      case 'SUBMIT_ASSESSMENT': return this.submitAssessment(intent);
+      case 'BEGIN_ASSESSMENT': return this.beginAssessment(intent);
+      case 'SUBMIT_ASSESSMENT': return this.submitAssessment(intent.session,intent.responses);
+      case 'RETRY_ASSESSMENT': return this.retryAssessment(intent.session);
+      case 'SUBMIT_ASSESSMENT_EVIDENCE': return this.submitAssessmentEvidence(intent);
       case 'RECOMPUTE_MASTERY': return this.recomputeMastery(intent.conceptIds,intent.versions);
     }
   }
@@ -285,34 +293,98 @@ export class LearningOrchestrator {
   // ---------------------------------------------------------------- assessment (boundary only in P1.0)
 
   /**
-   * SUBMIT_ASSESSMENT: objective assessment evidence → ASSESSMENT_SUBMITTED → scoring →
-   * ASSESSMENT_EVALUATED → unit mastery → MASTERY_UPDATED. Not wired to the UI yet (C2).
-   * Fails closed without at least one objective (`concept-assessment`) item: reflection, practice or
-   * transfer evidence alone never makes a unit `assessment_complete`.
+   * BEGIN_ASSESSMENT: one opened objective assessment = one assessment attempt. Identity, startedAt and
+   * versions are fixed here; nothing is persisted until the learner submits (responses are the evidence).
    */
-  async submitAssessment(input                                                                                                              )                              {
+  beginAssessment(input                                                                    )                       {
+    const record                        ={
+      id:this.newId(),learningUnitId:input.learningUnitId,versions:input.versions,conceptIds:unique(input.conceptIds),
+      startedAt:this.now(),status:'open',
+    };
+    this.assessments.set(record.id,record);
+    return assessmentView(record);
+  }
+
+          assessmentSession(view                       )                        {
+    const record=this.assessments.get(view.id);
+    if(!record) throw new Error('ASSESSMENT_SESSION_UNKNOWN');
+    return record;
+  }
+
+  /**
+   * SUBMIT_ASSESSMENT (canonical, C2): responses → AssessmentEvaluator (with the answer key, which only this
+   * path reads) → objective evidence drafts → immutable attempt + evidence → ASSESSMENT_SUBMITTED /
+   * ASSESSMENT_EVALUATED → recomputeMastery → MASTERY_UPDATED. The UI sends responses only.
+   */
+  async submitAssessment(view                       ,responses                     )                                                                                               {
+    const record=this.assessmentSession(view);
+    if(record.status!=='open') throw new Error('ASSESSMENT_ALREADY_SUBMITTED');
+    if(!this.assessmentContent) throw new Error('ASSESSMENT_CONTENT_SOURCE_MISSING');
+    const content=await this.assessmentContent.loadAssessmentForEvaluation(record.learningUnitId);
+    const submittedAt=this.now();
+    const assessmentId=assessmentIdFor(record.learningUnitId);
+    const evaluation=evaluateAssessment({prompts:content.prompts,keys:content.keys,submission:{assessmentId,learningUnitId:record.learningUnitId,assessmentVersion:content.version,responses}});
+    const drafts=evaluationToEvidenceDrafts(evaluation,{contentVersion:record.versions.contentVersion,scoringVersion:record.versions.scoringVersion,createdAt:submittedAt});
+    const attempt=validateAttempt({
+      id:this.newId(),learningUnitId:record.learningUnitId,activityId:assessmentId,activityVersion:content.version,
+      contentVersion:record.versions.contentVersion,scoringVersion:record.versions.scoringVersion,
+      ...(record.versions.curriculumVersion?{curriculumVersion:record.versions.curriculumVersion}:{}),
+      startedAt:record.startedAt,completedAt:submittedAt,status:'completed',attemptType:'assessment',
+    });
+    record.status='submitted';
+    const conceptIds=unique([...record.conceptIds,...content.prompts.flatMap(p=>p.conceptIds)]);
+    const result=await this.recordEvaluatedAssessment({attempt,drafts,objectiveItems:evaluation.objectiveItems,assessmentVersion:content.version,versions:record.versions,conceptIds:record.conceptIds.length?record.conceptIds:conceptIds});
+    return {...result,evaluation,session:assessmentView(record)};
+  }
+
+  /** RETRY_ASSESSMENT: a new assessment attempt. The submitted one is never changed. */
+  retryAssessment(view                       )                       {
+    const record=this.assessmentSession(view);
+    this.assessments.delete(record.id);
+    return this.beginAssessment({learningUnitId:record.learningUnitId,versions:record.versions,conceptIds:record.conceptIds});
+  }
+
+  /** LEAVE_ASSESSMENT: an unsubmitted assessment leaves no attempt (no responses = no evidence). */
+  leaveAssessment(view                       ){
+    const record=this.assessments.get(view.id);
+    if(record&&record.status==='open') record.status='abandoned';
+    this.assessments.delete(view.id);
+  }
+
+  /**
+   * Headless adapter (LearningRunner): an assessment whose items were already evaluated by an engine arrives as
+   * objective evidence drafts. Fails closed without at least one `concept-assessment` item: reflection,
+   * practice or transfer evidence alone never makes a unit `assessment_complete`.
+   */
+  async submitAssessmentEvidence(input                                                                                                              )                              {
     const drafts=input.drafts.map(validateEvidence);
     const objectiveItems=drafts.filter(d=>d.evidenceClass==='concept-assessment').length;
     if(objectiveItems<1) throw new Error('ASSESSMENT_NO_OBJECTIVE_ITEMS');
     const startedAt=this.now();
     const attempt=validateAttempt({
-      id:this.newId(),learningUnitId:input.learningUnitId,activityId:`assessment.${input.learningUnitId}`,activityVersion:input.assessmentVersion,
+      id:this.newId(),learningUnitId:input.learningUnitId,activityId:assessmentIdFor(input.learningUnitId),activityVersion:input.assessmentVersion,
       contentVersion:input.versions.contentVersion,scoringVersion:input.versions.scoringVersion,
       ...(input.versions.curriculumVersion?{curriculumVersion:input.versions.curriculumVersion}:{}),
-      startedAt,completedAt:this.now(),status:'completed',
+      startedAt,completedAt:this.now(),status:'completed',attemptType:'assessment',
     });
-    const evidence=bindDraftsToAttempt(attempt,drafts,this.newId);
+    return this.recordEvaluatedAssessment({attempt,drafts,objectiveItems,assessmentVersion:input.assessmentVersion,versions:input.versions,conceptIds:input.conceptIds});
+  }
+
+  /** The single persistence path of an evaluated assessment (both entry points above end here). */
+          async recordEvaluatedAssessment(input                                                                                                                              )                              {
+    const {attempt}=input;
+    const evidence=bindDraftsToAttempt(attempt,input.drafts,this.newId);
     await this.store.recordAttempt(attempt,evidence);
-    await this.transition(input.learningUnitId,input.versions,at=>[{type:'ASSESSMENT_SUBMITTED',attemptId:attempt.id,at}]);
+    await this.transition(attempt.learningUnitId,input.versions,at=>[{type:'ASSESSMENT_SUBMITTED',attemptId:attempt.id,at}]);
     const assessment=scoreAssessment({
-      id:`assessment.${input.learningUnitId}.${attempt.id}`,learningUnitId:input.learningUnitId,evidence,
+      id:`assessment.${attempt.learningUnitId}.${attempt.id}`,learningUnitId:attempt.learningUnitId,evidence,
       assessmentVersion:input.assessmentVersion,scoringVersion:input.versions.scoringVersion,createdAt:this.now(),
     });
     await this.store.saveAssessment(assessment);
-    await this.transition(input.learningUnitId,input.versions,at=>[{type:'ASSESSMENT_EVALUATED',attemptId:attempt.id,objectiveItems,score:assessment.score,at}]);
+    await this.transition(attempt.learningUnitId,input.versions,at=>[{type:'ASSESSMENT_EVALUATED',attemptId:attempt.id,objectiveItems:input.objectiveItems,score:assessment.score,at}]);
     const mastery=await this.recomputeMastery(unique([...input.conceptIds,...evidence.map(e=>e.conceptId)]),input.versions);
     const unitMastery=mastery.filter(m=>input.conceptIds.includes(m.conceptId));
-    const progress=await this.transition(input.learningUnitId,input.versions,at=>[{type:'MASTERY_UPDATED',masteryStatus:aggregateMasteryStatus(unitMastery),at}]);
+    const progress=await this.transition(attempt.learningUnitId,input.versions,at=>[{type:'MASTERY_UPDATED',masteryStatus:aggregateMasteryStatus(unitMastery),at}]);
     return {attempt,evidence,assessment,mastery:unitMastery,progress};
   }
 

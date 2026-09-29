@@ -12,7 +12,7 @@ function practiceCard(practice:StudentPracticeModel,learningUnitId:string,primar
 }
 
 function stageStateClass(stage:LearningCycleStage,status:CycleSnapshot,current:LearningCycleStage){
-  const done=stage==='guide'?status.guideComplete:stage==='practice'?status.practiceComplete:status.reinforcementComplete;
+  const done=stage==='guide'?status.guideComplete:stage==='practice'?status.practiceComplete:(status.reinforcementComplete||status.assessmentComplete);
   return `kl-cycle-step${stage===current?' is-current':''}${done?' is-done':''}`;
 }
 
@@ -72,20 +72,38 @@ export function renderLearningPracticeStage(root:HTMLElement,model:LearningHubMo
   layout.append(main,side); root.append(layout);
 }
 
-export function renderLearningQuiz(root:HTMLElement,model:LearningHubModel,status:CycleSnapshot,onSubmit?:(payload:Record<string,unknown>)=>Promise<void>){
+/** What the UI learns back from the canonical evaluator: per-item correctness, never the key itself. */
+export interface AssessmentFeedback { objectiveItems:number; correctItems:number; items:Array<{itemId:string;correct:boolean}> }
+
+/**
+ * Stage 3. With runtime-ready objective items the learner answers an assessment: the UI only collects
+ * responses and hands them to `onAssessment` (→ LearningOrchestrator.submitAssessment → evaluator).
+ * Without items it is a reflection (`onSubmit` → REINFORCEMENT_COMPLETED), which is never an assessment.
+ */
+export function renderLearningQuiz(root:HTMLElement,model:LearningHubModel,status:CycleSnapshot,onSubmit?:(payload:Record<string,unknown>)=>Promise<void>,onAssessment?:(responses:Array<{itemId:string;selectedOptionId:string}>)=>Promise<AssessmentFeedback>){
   clear(root); root.append(cycleHeader(model,status,'quiz'));
   const layout=el('div',{className:'kl-shell kl-learning-grid'}); const main=el('div',{className:'kl-learning-main'});
   const card=el('section',{className:'kl-card'}); card.append(el('p',{className:'kl-kicker',text:'3-bosqich · Mustahkamlash'}),el('h2',{text:'Nazariya va tajribani bir-biriga bog‘lang'}),el('p',{className:'kl-section-copy',text:'Bu bosqich mavzuni qayta aytish emas: nazariy tushuncha, amaliy kuzatuv va ilmiy xulosani bir zanjirga keltiring.'}));
   const form=el('form',{className:'kl-reinforcement-form'});
   const feedback=el('div',{className:'kl-feedback',attrs:{role:'status','aria-live':'polite'}});
-  if(model.reinforcementQuiz.items.length){
+  if(model.assessment.items.length){
     card.append(el('p',{className:'kl-muted',text:'Savollar nazariya va amaliyotdagi asosiy tushunchalarni tekshiradi.'}));
-    for(const [index,item] of model.reinforcementQuiz.items.entries()){
-      const fieldset=el('fieldset',{className:'kl-quiz-question'}); fieldset.append(el('legend',{text:`${index+1}. ${item.prompt}`}));
+    for(const [index,item] of model.assessment.items.entries()){
+      const fieldset=el('fieldset',{className:'kl-quiz-question',attrs:{'data-item-id':item.id}}); fieldset.append(el('legend',{text:`${index+1}. ${item.stem}`}));
       for(const option of item.options){const label=el('label',{className:'kl-check'});const input=el('input',{attrs:{type:'radio',name:item.id,value:option.id,required:''}});label.append(input,document.createTextNode(` ${option.text}`));fieldset.append(label);} form.append(fieldset);
     }
     const actions=el('div',{className:'kl-cycle-actions'});actions.append(link('← Amaliyotga qaytish',`/learn/${model.id}/practice`,'kl-button kl-button--secondary'));const submit=el('button',{className:'kl-button kl-button--primary',text:'Javoblarni tekshirish',attrs:{type:'submit'}});actions.append(submit);form.append(actions,feedback);
-    form.addEventListener('submit',e=>{e.preventDefault();if(!onSubmit)return;const data=new FormData(form as HTMLFormElement);const answers:Record<string,string>={};let correct=0;for(const item of model.reinforcementQuiz.items){const answer=String(data.get(item.id)??'');answers[item.id]=answer;if(answer===item.correctOptionId)correct++;}const score=model.reinforcementQuiz.items.length?Math.round(correct/model.reinforcementQuiz.items.length*100):0;submit.setAttribute('disabled','');void onSubmit({mode:'objective_quiz',quizVersion:model.reinforcementQuiz.version,quizScore:score,quizAnswers:answers,questionCount:model.reinforcementQuiz.items.length}).then(()=>{feedback.textContent=`Natija: ${correct}/${model.reinforcementQuiz.items.length} (${score}%). Mustahkamlash saqlandi.`;submit.removeAttribute('disabled');}).catch(()=>{feedback.textContent='Natijani saqlab bo‘lmadi. Qayta urinib ko‘ring.';submit.removeAttribute('disabled');});});
+    form.addEventListener('submit',e=>{
+      e.preventDefault(); if(!onAssessment) return;
+      const data=new FormData(form as HTMLFormElement);
+      const responses=model.assessment.items.map(item=>({itemId:item.id,selectedOptionId:String(data.get(item.id)??'')}));
+      submit.setAttribute('disabled','');
+      void onAssessment(responses).then(result=>{
+        for(const item of result.items){const fs=form.querySelector(`[data-item-id="${CSS.escape(item.itemId)}"]`);fs?.setAttribute('data-result',item.correct?'correct':'incorrect');}
+        feedback.textContent=`Natija: ${result.correctItems}/${result.objectiveItems}. Javoblaringiz saqlandi.`;
+        submit.removeAttribute('disabled');
+      }).catch(()=>{feedback.textContent='Natijani saqlab bo‘lmadi. Qayta urinib ko‘ring.';submit.removeAttribute('disabled');});
+    });
   }else{
     const prompts=[
       {name:'conceptReflection',title:'1. Asosiy tushunchalarni izohlang',help:`${model.concepts.map(x=>x.name).join(', ')} tushunchalaridan kamida bittasini o‘z so‘zingiz bilan tushuntiring.`},
@@ -103,7 +121,7 @@ export function renderLearningQuiz(root:HTMLElement,model:LearningHubModel,statu
   layout.append(main,side);root.append(layout);
 }
 
-export function renderLearningHub(root:HTMLElement,model:LearningHubModel){renderLearningGuide(root,model,{guideComplete:false,practiceComplete:false,reinforcementComplete:false,status:'not_started'});}
+export function renderLearningHub(root:HTMLElement,model:LearningHubModel){renderLearningGuide(root,model,{guideComplete:false,practiceComplete:false,reinforcementComplete:false,assessmentComplete:false,status:'not_started'});}
 export function renderLoading(root:HTMLElement){clear(root);const box=el('div',{className:'kl-shell kl-state'});box.append(el('p',{text:'Mavzu yuklanmoqda…',attrs:{role:'status','aria-live':'polite'}}));root.append(box);}
 export function renderError(root:HTMLElement,message='Mavzuni yuklab bo‘lmadi.'){clear(root);const box=el('div',{className:'kl-shell kl-state'});box.append(el('h1',{text:'Xatolik yuz berdi'}),el('p',{text:message}),link('Bosh sahifaga qaytish','/','kl-button kl-button--secondary'));root.append(box);}
 export function renderNotFound(root:HTMLElement){clear(root);const box=el('div',{className:'kl-shell kl-state'});box.append(el('h1',{text:'Sahifa topilmadi'}),el('p',{text:'Manzilni tekshiring yoki bosh sahifaga qayting.'}),link('Bosh sahifa','/','kl-button kl-button--primary'));root.append(box);}

@@ -3,6 +3,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { sha256File, sha256Buffer } from '../src/domain/content/checksum.ts';
 import { createActivationPointer } from '../src/runtime/compatibility/release-pointer.ts';
+import { CONFIG_SOURCE_NAMES, EXECUTION_PLAN_PACK_PATH, compileExecutionPlans } from '../src/runtime/practice-router/execution-plan.ts';
+import { ASSESSMENT_KEY_PACK_PATH, ASSESSMENT_PROMPT_PACK_PATH, splitAssessmentBank } from '../src/domain/assessment/model.ts';
 import { readReleasePointer, writeReleasePointerAtomic } from './release-pointer-io.ts';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -47,16 +49,38 @@ for (const grade of grades) {
   writeJson(path.join(packRoot, `learning-units/grade-${grade}.json`), units.filter((x:any) => x.grade === grade));
 }
 
-for (const name of ['concepts.json','theory-activities.json','practice-activities.json','mapping-links.json','external-lab-bindings.json','learning-cycle.json','assessment-items.json']) {
+for (const name of ['concepts.json','theory-activities.json','practice-activities.json','mapping-links.json','external-lab-bindings.json','learning-cycle.json']) {
   copy(path.join(source, name), path.join(packRoot, name));
 }
 copy(path.join(source, 'aliases.yaml'), path.join(packRoot, 'aliases.yaml'));
+
+// P1.1 (C3): the authored bank (content-src/assessment-items.json) is never shipped as-is. The pack
+// carries a learner-facing prompt layer and a separate answer-key layer that a deployment can withhold.
+const assessment = splitAssessmentBank(JSON.parse(fs.readFileSync(path.join(source, 'assessment-items.json'), 'utf8')));
+writeJson(path.join(packRoot, ASSESSMENT_PROMPT_PACK_PATH), assessment.prompts);
+writeJson(path.join(packRoot, ASSESSMENT_KEY_PACK_PATH), assessment.keys);
 
 
 const activityConfigsSource = path.join(source, 'activity-configs');
 const activityConfigsTarget = path.join(packRoot, 'activity-configs');
 if (fs.existsSync(activityConfigsSource)) {
   fs.cpSync(activityConfigsSource, activityConfigsTarget, { recursive: true });
+}
+
+// P1.1 (D8): every activity is compiled to exactly one canonical ActivityExecutionPlan. The runtime only
+// reads plans; a released activity without a route, or with conflicting routes, fails the build.
+{
+  const activities = JSON.parse(fs.readFileSync(path.join(source, 'practice-activities.json'), 'utf8'));
+  const configs = Object.fromEntries(CONFIG_SOURCE_NAMES.map((name) => {
+    const file = path.join(activityConfigsSource, `${name}.json`);
+    return [name, fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : {}];
+  }));
+  const compiled = compileExecutionPlans(activities, configs);
+  if (compiled.fatal.length) {
+    for (const e of compiled.fatal) console.error(`ROUTING_${e.code}:${e.activityId}:${e.detail}`);
+    throw new Error(`EXECUTION_PLAN_COMPILE_FAILED: ${compiled.fatal.length} activity route error(s)`);
+  }
+  writeJson(path.join(packRoot, EXECUTION_PLAN_PACK_PATH), compiled.pack);
 }
 
 const chemistrySource = path.join(source, 'chemistry');

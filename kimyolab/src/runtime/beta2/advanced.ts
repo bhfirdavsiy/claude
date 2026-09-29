@@ -16,14 +16,14 @@ export interface ManganeseConfig extends Base {capability:'manganese-redox-simul
 export type Beta2AdvancedConfig=IonicTrainerConfig|HydrolysisConfig|ElectrolysisConfig|ManganeseConfig;
 export type Beta2AdvancedRegistry=Record<string,Beta2AdvancedConfig>;
 
-const capabilities=new Set<Capability>(['ionic-equation-trainer','hydrolysis-experiment','electrolysis-experiment','manganese-redox-simulation']);
+export const BETA2_ADVANCED_CAPABILITIES:ReadonlySet<string>=new Set<Capability>(['ionic-equation-trainer','hydrolysis-experiment','electrolysis-experiment','manganese-redox-simulation']);
 function obj(v:unknown):v is Record<string,unknown>{return !!v&&typeof v==='object'&&!Array.isArray(v)}
 function text(v:unknown):v is string{return typeof v==='string'&&v.length>0}
 export function loadBeta2AdvancedRegistry(raw:unknown):Beta2AdvancedRegistry{
   if(!obj(raw)) throw new Error('BETA2_ADVANCED_INVALID:root');
   const out:Beta2AdvancedRegistry={};
   for(const [id,value] of Object.entries(raw)){
-    if(!obj(value)||!capabilities.has(value.capability as Capability)||!text(value.type)||!text(value.version)||!text(value.conceptId)) throw new Error(`BETA2_ADVANCED_INVALID:${id}`);
+    if(!obj(value)||!BETA2_ADVANCED_CAPABILITIES.has(value.capability as Capability)||!text(value.type)||!text(value.version)||!text(value.conceptId)) throw new Error(`BETA2_ADVANCED_INVALID:${id}`);
     const c=value as unknown as Beta2AdvancedConfig;
     if(c.capability==='ionic-equation-trainer'&&(!text(c.reactionId)||!text(c.prompt))) throw new Error(`BETA2_ADVANCED_INVALID:${id}:ionic`);
     if(c.capability==='hydrolysis-experiment'&&(!text(c.salt)||!['acidic','basic','neutral'].includes(c.expectedMedium))) throw new Error(`BETA2_ADVANCED_INVALID:${id}:hydrolysis`);

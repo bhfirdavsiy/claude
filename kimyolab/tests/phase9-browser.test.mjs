@@ -6,6 +6,8 @@ import {fileURLToPath} from 'node:url';
 import {ContentClient} from '../src/app/content-client.ts';
 import {ReferencePracticeSession} from '../src/features/practice/session.ts';
 import {buildPracticeUiModel} from '../src/features/practice/ui-model.ts';
+// P1.1 (D8): `configFamily` (a routing key guessed at runtime) was replaced by the compiled ActivityExecutionPlan;
+// the same invariant — which config source executes the activity — is asserted on plan.configSource.
 
 const root=path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const active=JSON.parse(fs.readFileSync(path.join(root,'public/content/manifest.json'),'utf8'));
@@ -17,7 +19,7 @@ const fetchImpl=async(url)=>{const u=String(url);if(u==='/content/manifest.json'
 
 test('student ContentClient loads audited Beta2 safe practice configs',async()=>{
   const model=await new ContentClient({fetchImpl,baseUrl:'/content'}).loadPractice('practice.simulation.9.02.planned');
-  assert.equal(model.configFamily,'beta2');
+  assert.equal(model.executionPlan.configSource,'beta2-safe');
   const ui=buildPracticeUiModel(model);
   assert.equal(ui.kind,'simulation');
   assert.equal(ui.mode,'generic');

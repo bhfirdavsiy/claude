@@ -3,6 +3,7 @@ import type {Attempt,PersistedEvidence} from '../evidence/types.ts';
 import type {ConceptMastery,MasteryVersionPolicy} from '../../domain/mastery/mastery.ts';
 import type {AssessmentResult} from '../../domain/assessment/scoring.ts';
 import type {PracticeType} from '../../domain/content/types.ts';
+import type {AssessmentKey,AssessmentPrompt} from '../../domain/assessment/model.ts';
 
 export type LearningStage='theory'|'practice'|'reinforcement'|'complete';
 
@@ -80,4 +81,20 @@ export interface OrchestratorOptions {
   versionPolicy?:MasteryVersionPolicy;
   transferRequired?:(conceptId:string)=>boolean;
   liveness?:SessionLivenessPort;
+  /** Where the canonical evaluator gets presented prompts and their keys (content pack or, later, a server). */
+  assessmentContent?:AssessmentContentSource;
+}
+
+export interface AssessmentContentSource {
+  loadAssessmentForEvaluation(learningUnitId:string):Promise<{version:string;prompts:AssessmentPrompt[];keys:AssessmentKey[]}>;
+}
+
+export type AssessmentSessionStatus='open'|'submitted'|'abandoned';
+
+/** Read-only view of one opened objective assessment (= one assessment attempt once submitted). */
+export interface AssessmentSessionState {
+  readonly id:string;
+  readonly learningUnitId:string;
+  readonly startedAt:string;
+  readonly status:AssessmentSessionStatus;
 }

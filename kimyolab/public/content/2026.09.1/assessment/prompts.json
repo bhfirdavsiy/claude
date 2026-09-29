@@ -1,0 +1,177 @@
+{
+  "schema": "kimyolab.assessment-prompts.v1",
+  "version": "1.0.0-rc.1",
+  "items": [
+    {
+      "id": "q.9.15.01",
+      "learningUnitId": "lu.9.15",
+      "type": "single_select",
+      "stem": "Elektroliz jarayonida katodda qaysi jarayon sodir bo‘ladi?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Qaytarilish"
+        },
+        {
+          "id": "B",
+          "text": "Oksidlanish"
+        },
+        {
+          "id": "C",
+          "text": "Bug‘lanish"
+        },
+        {
+          "id": "D",
+          "text": "Neytrallanish"
+        }
+      ],
+      "conceptIds": [
+        "concept.c184",
+        "concept.c186"
+      ],
+      "outcomeIds": [],
+      "version": "1.0.0-rc.1",
+      "review": {
+        "chemistry": "pending",
+        "didactic": "pending"
+      }
+    },
+    {
+      "id": "q.9.15.02",
+      "learningUnitId": "lu.9.15",
+      "type": "single_select",
+      "stem": "Elektrolitik yacheykada anodda qaysi jarayon sodir bo‘ladi?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Qaytarilish"
+        },
+        {
+          "id": "B",
+          "text": "Oksidlanish"
+        },
+        {
+          "id": "C",
+          "text": "Kristallanish"
+        },
+        {
+          "id": "D",
+          "text": "Eritish"
+        }
+      ],
+      "conceptIds": [
+        "concept.c185",
+        "concept.c187"
+      ],
+      "outcomeIds": [],
+      "version": "1.0.0-rc.1",
+      "review": {
+        "chemistry": "pending",
+        "didactic": "pending"
+      }
+    },
+    {
+      "id": "q.9.15.03",
+      "learningUnitId": "lu.9.15",
+      "type": "single_select",
+      "stem": "Musbat zaryadlangan ionlar elektr maydonida qaysi elektrod tomon harakatlanadi?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Katod tomon"
+        },
+        {
+          "id": "B",
+          "text": "Anod tomon"
+        },
+        {
+          "id": "C",
+          "text": "Harakatlanmaydi"
+        },
+        {
+          "id": "D",
+          "text": "Faqat eritma yuzasiga"
+        }
+      ],
+      "conceptIds": [
+        "concept.c184",
+        "concept.c186"
+      ],
+      "outcomeIds": [],
+      "version": "1.0.0-rc.1",
+      "review": {
+        "chemistry": "pending",
+        "didactic": "pending"
+      }
+    },
+    {
+      "id": "q.9.15.04",
+      "learningUnitId": "lu.9.15",
+      "type": "single_select",
+      "stem": "CuCl₂ eritmasida Cu²⁺ ionlari katodda nima qiladi?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Elektron qabul qilib misga aylanadi"
+        },
+        {
+          "id": "B",
+          "text": "Elektron berib xlor hosil qiladi"
+        },
+        {
+          "id": "C",
+          "text": "Suvga aylanadi"
+        },
+        {
+          "id": "D",
+          "text": "Hech qanday o‘zgarishsiz anodga o‘tadi"
+        }
+      ],
+      "conceptIds": [
+        "concept.c184",
+        "concept.c186",
+        "concept.c188"
+      ],
+      "outcomeIds": [],
+      "version": "1.0.0-rc.1",
+      "review": {
+        "chemistry": "pending",
+        "didactic": "pending"
+      }
+    },
+    {
+      "id": "q.9.15.05",
+      "learningUnitId": "lu.9.15",
+      "type": "single_select",
+      "stem": "Elektrolizda energiya aylanishining asosiy yo‘nalishi qaysi?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Elektr energiyasidan kimyoviy o‘zgarishga"
+        },
+        {
+          "id": "B",
+          "text": "Kimyoviy energiyadan elektr energiyasiga"
+        },
+        {
+          "id": "C",
+          "text": "Yorug‘lik energiyasidan mexanik energiyaga"
+        },
+        {
+          "id": "D",
+          "text": "Faqat issiqlik energiyasidan tovush energiyasiga"
+        }
+      ],
+      "conceptIds": [
+        "concept.c187",
+        "concept.c188"
+      ],
+      "outcomeIds": [],
+      "version": "1.0.0-rc.1",
+      "review": {
+        "chemistry": "pending",
+        "didactic": "pending"
+      }
+    }
+  ]
+}

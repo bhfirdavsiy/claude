@@ -27,6 +27,10 @@
                  
                      
                    
+                                                                                                       
+                    
+                                                                                                   
+                       
  
                                                            
                       
@@ -86,6 +90,8 @@ export function validateEvidence(input         )           {
       break;
     case 'answer':
       if (!text(input.questionId) || typeof input.correct !== 'boolean') invalid('answer fields required');
+      if (input.response !== undefined && !text(input.response)) invalid('answer response must be text');
+      if (input.itemVersion !== undefined && !text(input.itemVersion)) invalid('answer itemVersion must be text');
       break;
     case 'calculation':
       if (!text(input.stepId) || typeof input.value !== 'number' || !Number.isFinite(input.value) || !text(input.unit)) invalid('calculation fields required');
@@ -132,7 +138,11 @@ export function validateEvidence(input         )           {
                                                                                   
      
                          
+                                                                                                      
+                            
  
+
+                                                    
 
                                                                       
 
@@ -155,6 +165,7 @@ export function validateAttempt(input         )          {
   if (inProgress ? input.completedAt !== undefined : !text(input.completedAt)) throw new Error(inProgress ? 'ATTEMPT_INVALID: in_progress attempt cannot have completedAt' : 'ATTEMPT_INVALID: completedAt required');
   if (!Number.isFinite(Date.parse(String(input.startedAt))) || (!inProgress && !Number.isFinite(Date.parse(String(input.completedAt))))) throw new Error('ATTEMPT_INVALID: timestamps must be ISO dates');
   if (input.userId !== undefined && !text(input.userId)) throw new Error('ATTEMPT_INVALID: userId must be text');
+  if (input.attemptType !== undefined && !['practice','assessment'].includes(String(input.attemptType))) throw new Error('ATTEMPT_INVALID: unknown attemptType');
   return input                      ;
 }
 
@@ -192,6 +203,7 @@ export function deriveCorrectness(evidence          )                      {
                     
                        
                          
+                            
  
 
 /**

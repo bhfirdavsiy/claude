@@ -8,6 +8,8 @@ import {validateExternalLabBindings,bindingsForLearningUnit} from '../integratio
 
 import { sha256Hex, utf8 } from '../domain/content/sha256.js';
                                                                          
+import { EXECUTION_PLAN_PACK_PATH, resolveExecutionPlan } from '../runtime/practice-router/execution-plan.js';
+import { ASSESSMENT_KEY_PACK_PATH, ASSESSMENT_PROMPT_PACK_PATH, isApproved, validateKeyPack, validatePromptPack,                                           } from '../domain/assessment/model.js';
 
                                                                                                                                                        
 
@@ -37,7 +39,8 @@ export class ContentClient {
                    baseUrl       ;
           activeVersion        ;
           files=new Map                     ();
-          cache=new Map                     ();
+  /** True private (#): verified pack files — including the key pack after an evaluation — are unreachable from outside. */
+  #cache=new Map                     ();
           versionPromise                 ;
   constructor(options                     ={}){
     const globalFetch=(globalThis       ).fetch                       ;
@@ -65,7 +68,7 @@ export class ContentClient {
   /** Pack data file: raw bytes are hashed and compared with manifest.files[path] before parsing (fail-closed). */
           packJson(version       ,rel       )             {
     const url=`${this.baseUrl}/${version}/${rel}`;
-    const cached=this.cache.get(url);
+    const cached=this.#cache.get(url);
     if(cached) return cached;
     const pending=(async()=>{
       const entry=this.files.get(rel);
@@ -81,8 +84,8 @@ export class ContentClient {
       try{ return JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(bytes)); }
       catch{ throw new ContentLoadError('CONTENT_JSON_INVALID',{resource:url}); }
     })();
-    pending.catch(()=>this.cache.delete(url));
-    this.cache.set(url,pending);
+    pending.catch(()=>this.#cache.delete(url));
+    this.#cache.set(url,pending);
     return pending;
   }
 
@@ -117,16 +120,16 @@ export class ContentClient {
     const grade=Number(match[1]);
     const version=await this.version();
     const prefix=`${this.baseUrl}/${version}`;
-    const [units,theories,practices,mappings,concepts,externalRaw,assessmentBank]=await Promise.all([
+    const [units,theories,practices,mappings,concepts,externalRaw,assessmentPrompts]=await Promise.all([
       this.packJson(version,`learning-units/grade-${grade}.json`),
       this.packJson(version,`theory-activities.json`),
       this.packJson(version,`practice-activities.json`),
       this.packJson(version,`mapping-links.json`),
       this.packJson(version,`concepts.json`),
       this.packJson(version,`external-lab-bindings.json`),
-      this.packJson(version,`assessment-items.json`),
+      this.packJson(version,ASSESSMENT_PROMPT_PACK_PATH),
     ]);
-    try{return buildLearningHubModel(learningUnitId,{units,theories,practices,mappings,concepts,externalLabs:bindingsForLearningUnit(validateExternalLabBindings(externalRaw),learningUnitId),assessmentBank});}
+    try{return buildLearningHubModel(learningUnitId,{units,theories,practices,mappings,concepts,externalLabs:bindingsForLearningUnit(validateExternalLabBindings(externalRaw),learningUnitId),assessmentPrompts});}
     catch(error){
       const code=error instanceof Error?error.message.split(':')[0]:'CONTENT_MODEL_ERROR';
       throw new ContentLoadError(code,{resource:learningUnitId});
@@ -137,18 +140,13 @@ export class ContentClient {
     if(!/^practice\.(?:experiment|simulation|trainer|calculation|case)\.[A-Za-z0-9.-]+$/.test(practiceActivityId)) throw new ContentLoadError('PRACTICE_ACTIVITY_ID_INVALID');
     const version=await this.version();
     const prefix=`${this.baseUrl}/${version}`;
-    const [packManifest,practices,mappings,referenceConfigs,guidedConfigs,beta1Configs,beta2Configs,beta2AdvancedConfigs,beta2OrganicConfigs,beta3Configs,beta3AdvancedConfigs,reactions,solutionRules,hydrolysis,electrolysis,manganeseRedox,organic,kinetics,equilibrium]=await Promise.all([
+    // P1.1 (D8): routing is read from the compiled execution plan — never guessed from which config file
+    // happens to contain the activity. Only the plan's own config source is loaded.
+    const [packManifest,practices,mappings,planPack,reactions,solutionRules,hydrolysis,electrolysis,manganeseRedox,organic,kinetics,equilibrium]=await Promise.all([
       Promise.resolve(this.manifestCache),
       this.packJson(version,`practice-activities.json`),
       this.packJson(version,`mapping-links.json`),
-      this.packJson(version,`activity-configs/reference-slices.json`),
-      this.packJson(version,`activity-configs/guided-labs.json`),
-      this.packJson(version,`activity-configs/beta1.json`),
-      this.packJson(version,`activity-configs/beta2-safe.json`),
-      this.packJson(version,`activity-configs/beta2-advanced.json`),
-      this.packJson(version,`activity-configs/beta2-organic.json`),
-      this.packJson(version,`activity-configs/beta3-safe.json`),
-      this.packJson(version,`activity-configs/beta3-advanced.json`),
+      this.packJson(version,EXECUTION_PLAN_PACK_PATH),
       this.packJson(version,`chemistry/reactions.json`),
       this.packJson(version,`chemistry/solubility.json`),
       this.packJson(version,`chemistry/hydrolysis.json`),
@@ -160,9 +158,12 @@ export class ContentClient {
     ]);
     const activity=practices.find((x    )=>x.id===practiceActivityId);
     if(!activity) throw new ContentLoadError('PRACTICE_ACTIVITY_NOT_FOUND',{resource:practiceActivityId});
-    const referenceConfig=referenceConfigs?.[practiceActivityId]??guidedConfigs?.[practiceActivityId]??beta1Configs?.[practiceActivityId]??beta2Configs?.[practiceActivityId]??beta2AdvancedConfigs?.[practiceActivityId]??beta2OrganicConfigs?.[practiceActivityId]??beta3Configs?.[practiceActivityId]??beta3AdvancedConfigs?.[practiceActivityId];
-    const configFamily=referenceConfigs?.[practiceActivityId]?'reference':guidedConfigs?.[practiceActivityId]?'guided':beta1Configs?.[practiceActivityId]?'beta1':beta2Configs?.[practiceActivityId]?'beta2':beta2AdvancedConfigs?.[practiceActivityId]?'beta2-advanced':beta2OrganicConfigs?.[practiceActivityId]?'beta2-organic':beta3Configs?.[practiceActivityId]?'beta3':beta3AdvancedConfigs?.[practiceActivityId]?'beta3-advanced':undefined;
-    if(!referenceConfig||!configFamily) throw new ContentLoadError('PRACTICE_CONFIG_NOT_FOUND',{resource:practiceActivityId});
+    let executionPlan;
+    try{executionPlan=resolveExecutionPlan(planPack,practiceActivityId);}
+    catch(error){throw new ContentLoadError(error instanceof Error&&error.message==='EXECUTION_PLAN_NOT_FOUND'?'PRACTICE_CONFIG_NOT_FOUND':'EXECUTION_PLAN_INVALID',{resource:practiceActivityId});}
+    const configs=await this.packJson(version,`activity-configs/${executionPlan.configSource}.json`);
+    const referenceConfig=configs?.[practiceActivityId];
+    if(!referenceConfig) throw new ContentLoadError('PRACTICE_CONFIG_NOT_FOUND',{resource:practiceActivityId});
     const mapping=mappings.find((x    )=>x.practiceActivityId===practiceActivityId&&x.role==='primary')
       ??mappings.find((x    )=>x.practiceActivityId===practiceActivityId);
     if(!mapping) throw new ContentLoadError('PRACTICE_MAPPING_NOT_FOUND',{resource:practiceActivityId});
@@ -172,7 +173,7 @@ export class ContentClient {
     const unit=units.find((x    )=>x.id===mapping.learningUnitId);
     if(!unit) throw new ContentLoadError('LEARNING_UNIT_NOT_FOUND',{resource:mapping.learningUnitId});
     return buildPracticePageModel({
-      activity,mapping,unit,configFamily,referenceConfig,contentVersion:version,
+      activity,mapping,unit,executionPlan,referenceConfig,contentVersion:version,
       schemaVersion:String(packManifest.schemaVersion??'0'),
       scoringVersion:String(packManifest.scoringVersion??'0'),
       ...(packManifest.curriculumVersion?{curriculumVersion:String(packManifest.curriculumVersion)}:{}),
@@ -233,10 +234,26 @@ export class ContentClient {
     return {native,external};
   }
 
+  /**
+   * AssessmentContentSource for the canonical evaluator (P1.1). The prompt layer is what was presented;
+   * the key layer is fetched only here — at evaluation time, after the learner submitted — never on page
+   * load and never into a view model. A server deployment replaces this with server-side evaluation.
+   */
+  async loadAssessmentForEvaluation(learningUnitId       )                                                                          {
+    const version=await this.version();
+    const prompts=validatePromptPack(await this.packJson(version,ASSESSMENT_PROMPT_PACK_PATH));
+    const presented=prompts.items.filter(x=>x.learningUnitId===learningUnitId&&isApproved(x));
+    const keys=validateKeyPack(await this.packJson(version,ASSESSMENT_KEY_PACK_PATH));
+    if(keys.version!==prompts.version) throw new ContentLoadError('ASSESSMENT_KEY_VERSION_MISMATCH',{resource:ASSESSMENT_KEY_PACK_PATH});
+    const wanted=new Set(presented.map(x=>x.id));
+    return {version:prompts.version,prompts:presented,keys:keys.keys.filter(k=>wanted.has(k.itemId))};
+  }
+
   async getRuntimeVersions(){
     const contentVersion=await this.version();
     const manifest=this.manifestCache;
-    return {contentVersion,assessmentVersion:String(manifest.assessmentVersion??'0.0.0'),schemaVersion:String(manifest.schemaVersion??'0.0.0'),scoringVersion:String(manifest.scoringVersion??'0.0.0')};
+    // curriculumVersion is part of the mastery context: stage 3 evidence must carry the same context as practice evidence.
+    return {contentVersion,assessmentVersion:String(manifest.assessmentVersion??'0.0.0'),schemaVersion:String(manifest.schemaVersion??'0.0.0'),scoringVersion:String(manifest.scoringVersion??'0.0.0'),...(manifest.curriculumVersion?{curriculumVersion:String(manifest.curriculumVersion)}:{})};
   }
 
   /** Evidence compatibility declared by the active pack; versions not listed are incompatible. */

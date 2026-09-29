@@ -1,14 +1,5 @@
 import type {PracticeActivity} from '../../domain/content/types.ts';
-
-export type StudentPracticeConfigFamily=
-  | 'reference'
-  | 'guided'
-  | 'beta1'
-  | 'beta2'
-  | 'beta2-advanced'
-  | 'beta2-organic'
-  | 'beta3'
-  | 'beta3-advanced';
+import type {ActivityExecutionPlan} from '../../runtime/practice-router/execution-plan.ts';
 
 export interface StudentPracticePageModel {
   id:string;
@@ -18,7 +9,8 @@ export interface StudentPracticePageModel {
   accessibility:string[];
   /** conceptIds: the unit's concepts — the canonical mastery scope for this unit. */
   learningUnit:{id:string;grade:number;title:string;conceptIds?:string[]};
-  configFamily:StudentPracticeConfigFamily;
+  /** The ONE canonical route of this activity (compiled into the content pack, P1.1 D8). */
+  executionPlan:ActivityExecutionPlan;
   referenceConfig:Record<string,any>;
   activityVersion:string;
   contentVersion:string;
@@ -42,7 +34,7 @@ export function buildPracticePageModel(input:{
   activity:PracticeActivity;
   mapping:{learningUnitId:string};
   unit:{id:string;grade:number;title:string;conceptIds?:string[]};
-  configFamily:StudentPracticeConfigFamily;
+  executionPlan:ActivityExecutionPlan;
   referenceConfig:Record<string,any>;
   contentVersion:string;
   schemaVersion:string;
@@ -64,7 +56,11 @@ export function buildPracticePageModel(input:{
     goal:input.activity.goal,
     accessibility:[...input.activity.accessibilityProfile],
     learningUnit:{id:input.unit.id,grade:input.unit.grade,title:input.unit.title,...(Array.isArray(input.unit.conceptIds)?{conceptIds:[...input.unit.conceptIds]}:{})},
-    configFamily:input.configFamily,
+    executionPlan:(()=>{
+      const plan=input.executionPlan;
+      if(plan.activityId!==input.activity.id||plan.engine!==input.activity.type) throw new Error('EXECUTION_PLAN_ACTIVITY_MISMATCH');
+      return {...plan};
+    })(),
     referenceConfig:structuredClone(input.referenceConfig),
     activityVersion:String(input.activity.version??'0'),
     contentVersion:input.contentVersion,

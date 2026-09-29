@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-09-29T16:01:02.019Z",
+  "createdAt": "2026-09-29T16:59:50.231Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -11,20 +11,32 @@
     {
       "path": "app-preview/app/bootstrap.js",
       "sourcePath": "public/app-preview/app/bootstrap.js",
-      "checksum": "abd8c0c43fce2910bdb2b688e746ef74ed7be1d6b2f0ff02643dfe68cf8fa551",
-      "size": 7382
+      "checksum": "a06d6d1a4df85820432dd75f59f67f8dbd02afa64c122256f3658e2fd85a9fa5",
+      "size": 8571
     },
     {
       "path": "app-preview/app/content-client.js",
       "sourcePath": "public/app-preview/app/content-client.js",
-      "checksum": "e876edcf1c3a69426adf833c432320bc846999fcb4feb7efafc9f3cca525e63f",
-      "size": 17617
+      "checksum": "9abc8ee9143bf27f9130bcecbcc198463693ea3784ce8b06e45667c8800b5b93",
+      "size": 18600
     },
     {
       "path": "app-preview/app/routes.js",
       "sourcePath": "public/app-preview/app/routes.js",
       "checksum": "9262b641e3260cad20e6fa5d19777826915be9a44a5e0804ce01dd8c2abae617",
       "size": 2000
+    },
+    {
+      "path": "app-preview/domain/assessment/evaluator.js",
+      "sourcePath": "public/app-preview/domain/assessment/evaluator.js",
+      "checksum": "89c6e9138c588e4fc2ea451c0e1588d4c51d29a8fdab29df0ac6f84e4937fbfb",
+      "size": 4441
+    },
+    {
+      "path": "app-preview/domain/assessment/model.js",
+      "sourcePath": "public/app-preview/domain/assessment/model.js",
+      "checksum": "6eb077afec3af386e851d5eef98c0f21d11199d42d4127f13c4bede6d91f767f",
+      "size": 6991
     },
     {
       "path": "app-preview/domain/assessment/scoring.js",
@@ -287,20 +299,20 @@
     {
       "path": "app-preview/features/learning-hub/model.js",
       "sourcePath": "public/app-preview/features/learning-hub/model.js",
-      "checksum": "29805ab4f8054c688fe364529345d329c8ea858a17ede812091ff925063eb8cb",
-      "size": 4150
+      "checksum": "e3c8a20d357eb54c46fc1b0c91747c08d447a46b03c5ecfad204e68e8d4ae203",
+      "size": 4293
     },
     {
       "path": "app-preview/features/learning-hub/render.js",
       "sourcePath": "public/app-preview/features/learning-hub/render.js",
-      "checksum": "9eb0ba96a305df83df6c4c49eb861944223d1f9a5c60268f6161b229a0548bb3",
-      "size": 14286
+      "checksum": "41f34e7a544e373e217d0faf5805bdaac8bc7849b8dbc31d11a79b7d1c2a2b40",
+      "size": 14910
     },
     {
       "path": "app-preview/features/practice/model.js",
       "sourcePath": "public/app-preview/features/practice/model.js",
-      "checksum": "e9c0f000b061d787953e1e20acd733fe368a31f541ba7e1c0a9aa194a44dcfbe",
-      "size": 3139
+      "checksum": "96779da17b04f48592b9d63dc7b51d919e4392522dbea7eb58f5953bf3eb937d",
+      "size": 3338
     },
     {
       "path": "app-preview/features/practice/render.js",
@@ -311,14 +323,14 @@
     {
       "path": "app-preview/features/practice/session.js",
       "sourcePath": "public/app-preview/features/practice/session.js",
-      "checksum": "4ff3ef8acca7f41ec6fac5fc7821a53d06ffd70136a6e7881f0755296e31f6c1",
-      "size": 6982
+      "checksum": "ba00a95f5a3edf89e330da45e058bc408564195cfddf66e2d459cd0bc170d323",
+      "size": 7471
     },
     {
       "path": "app-preview/features/practice/ui-model.js",
       "sourcePath": "public/app-preview/features/practice/ui-model.js",
-      "checksum": "39005713ae0ff466be2ab7cfc1769b700ba29b8c080fb15417772aadef048451",
-      "size": 5084
+      "checksum": "2ab75720e2f730e712978a000ad092e85b7008f6ad5827e286754ea730a2449f",
+      "size": 5216
     },
     {
       "path": "app-preview/features/progress/liveness.js",
@@ -341,8 +353,8 @@
     {
       "path": "app-preview/features/progress/service.js",
       "sourcePath": "public/app-preview/features/progress/service.js",
-      "checksum": "ae0bffc9b28d4a8d9dc6ce34a39437f151ed33c52c19bef08db8b5950d524c97",
-      "size": 7032
+      "checksum": "4dde4c385177711a1f0784c5ff8e810e8005def0ba5a1a4d4e813a170c317810",
+      "size": 9029
     },
     {
       "path": "app-preview/features/search/model.js",
@@ -443,8 +455,8 @@
     {
       "path": "app-preview/runtime/beta2/advanced.js",
       "sourcePath": "public/app-preview/runtime/beta2/advanced.js",
-      "checksum": "a899386ddaeec90f20318cc49964204950f0d709c53b5ff98f404fc42a6c0398",
-      "size": 8705
+      "checksum": "f2b25b674754a24211180c7bc2bc972a68c8d907c5370c3249ec6b31ab748ec2",
+      "size": 8762
     },
     {
       "path": "app-preview/runtime/beta2/capability.js",
@@ -461,8 +473,8 @@
     {
       "path": "app-preview/runtime/beta2/organic.js",
       "sourcePath": "public/app-preview/runtime/beta2/organic.js",
-      "checksum": "9fca3244f5bc725d43c8d6e96851de27b81ca380a19afbf60d22ef155521f0c3",
-      "size": 7171
+      "checksum": "073777621e32d9a733d950a21c12284119863bcb1ef00b5c279721f06875175e",
+      "size": 7226
     },
     {
       "path": "app-preview/runtime/beta2/readiness.js",
@@ -473,8 +485,8 @@
     {
       "path": "app-preview/runtime/beta3/advanced.js",
       "sourcePath": "public/app-preview/runtime/beta3/advanced.js",
-      "checksum": "d4604ca49929cec7fa585dc75c01ec7f436421f358e3b810d7d118f0d4a732ae",
-      "size": 9152
+      "checksum": "dcd7f18a5f9cc2401cc54591e3de1a024c1c9e1911af3ffc1714445fc9b43374",
+      "size": 9742
     },
     {
       "path": "app-preview/runtime/beta3/index.js",
@@ -509,8 +521,8 @@
     {
       "path": "app-preview/runtime/evidence/types.js",
       "sourcePath": "public/app-preview/runtime/evidence/types.js",
-      "checksum": "4efe8fa24dac1b830ebb8a6a8d9085b4c2433c1dc1fa02e5317ecad88fd39812",
-      "size": 9815
+      "checksum": "35c195eba27f52ba598706cc8722254189554014acd906aefcb4eb5d81e1faac",
+      "size": 10664
     },
     {
       "path": "app-preview/runtime/governance/approvals.js",
@@ -545,44 +557,50 @@
     {
       "path": "app-preview/runtime/learning-orchestrator/events.js",
       "sourcePath": "public/app-preview/runtime/learning-orchestrator/events.js",
-      "checksum": "9f531b50d5b2fe12bdaf9f0ae57ce8a0dc6aa8c0a8262a341b229615f3e43537",
-      "size": 1649
+      "checksum": "fbb6b2f8cde4553158ca7a0d3421b37939a90ff68ed7416f618c3983ccc3cebf",
+      "size": 2009
     },
     {
       "path": "app-preview/runtime/learning-orchestrator/orchestrator.js",
       "sourcePath": "public/app-preview/runtime/learning-orchestrator/orchestrator.js",
-      "checksum": "cbe95a2c4a5ae3446f9a9a9a24961fc6d8fbe007a32b44f64bfc04cd5e7eb198",
-      "size": 19322
+      "checksum": "3f67d9ab408c68745ff66ae87b07fa2f771b964529c7ff9d56701e00c8110447",
+      "size": 24317
     },
     {
       "path": "app-preview/runtime/learning-orchestrator/selectors.js",
       "sourcePath": "public/app-preview/runtime/learning-orchestrator/selectors.js",
-      "checksum": "a9f1841112a5ecf90513a7757758cf8348621443afb2e3c7644a76ba00de34a9",
-      "size": 4187
+      "checksum": "47b79bb98ac2faf19978f974a5d4c534f6c053974b56ff89449f228f0a46ee27",
+      "size": 4976
     },
     {
       "path": "app-preview/runtime/learning-orchestrator/state.js",
       "sourcePath": "public/app-preview/runtime/learning-orchestrator/state.js",
-      "checksum": "d84a0809db3f602d40c9e31ae421adda12ad97ee242baf15b79d4ab0b63e8c4c",
-      "size": 2396
+      "checksum": "e5c312c84c202f7f4852757a9edd5aade2971717b2e34f0b9ebb0a5492cf3b96",
+      "size": 2829
     },
     {
       "path": "app-preview/runtime/learning-orchestrator/types.js",
       "sourcePath": "public/app-preview/runtime/learning-orchestrator/types.js",
-      "checksum": "bb378f3a250801dd52b1dd522a8762c630dbc2805e16292f5f62a2297fedf940",
-      "size": 3586
+      "checksum": "6a1ada5a3a7de7e682a6f5c85f658aa314efa989b69ef69cfa38fc4d0924c3eb",
+      "size": 4347
     },
     {
       "path": "app-preview/runtime/learning-runner/runner.js",
       "sourcePath": "public/app-preview/runtime/learning-runner/runner.js",
-      "checksum": "428ccf524bb7d0bfc1ffc4e361af27e5bbbecd57945029716d1fcec43c75c073",
-      "size": 5852
+      "checksum": "1ee2ac155065cddc9a9360c3f29cb48b0ee9d7db16a50394a31560d8886187cb",
+      "size": 5860
+    },
+    {
+      "path": "app-preview/runtime/practice-router/execution-plan.js",
+      "sourcePath": "public/app-preview/runtime/practice-router/execution-plan.js",
+      "checksum": "a04ae15ace23179de41130d45787b7c75f3c12c668acf78c9408cac15ad0ee55",
+      "size": 9517
     },
     {
       "path": "app-preview/runtime/practice-router/router.js",
       "sourcePath": "public/app-preview/runtime/practice-router/router.js",
-      "checksum": "003f2c96f2b5028d3f9b8c495f35ec46e515bf031a7fb63557ad08c1d6a6533f",
-      "size": 1259
+      "checksum": "50e298049eadf67bdc109357f791690d1cbdc12fef81134167618d728fdf78f0",
+      "size": 1810
     },
     {
       "path": "app-preview/runtime/progress/concept-migration.js",
@@ -765,10 +783,16 @@
       "size": 32029
     },
     {
-      "path": "content/2026.09.1/assessment-items.json",
-      "sourcePath": "public/content/2026.09.1/assessment-items.json",
-      "checksum": "13cb5e64aa2f8e1f74840cc43080022f06b452b29d55f174e54739702d82d21a",
-      "size": 3866
+      "path": "content/2026.09.1/assessment/keys.json",
+      "sourcePath": "public/content/2026.09.1/assessment/keys.json",
+      "checksum": "ce14b4d7c41a651e8e8f84ff07d8d324f1905907550b0b6863fda4ea185bc4c7",
+      "size": 1523
+    },
+    {
+      "path": "content/2026.09.1/assessment/prompts.json",
+      "sourcePath": "public/content/2026.09.1/assessment/prompts.json",
+      "checksum": "841c79bd42e4a9d1dd3bfcbae1957f9aec4a1a058f8e92f333215de6e00bb1d2",
+      "size": 3988
     },
     {
       "path": "content/2026.09.1/chemistry/constants.json",
@@ -867,6 +891,12 @@
       "size": 148051
     },
     {
+      "path": "content/2026.09.1/execution-plans.json",
+      "sourcePath": "public/content/2026.09.1/execution-plans.json",
+      "checksum": "b7a2341d6cc6097ef283d06de5f2cb488bd98445342d12c8163d68ee42459060",
+      "size": 33976
+    },
+    {
       "path": "content/2026.09.1/external-lab-bindings.json",
       "sourcePath": "public/content/2026.09.1/external-lab-bindings.json",
       "checksum": "2b2bdf8ca78de14ebf48a6ccdf9439d3f9c26efeba28dc2b3cd6567aafab70da",
@@ -911,8 +941,8 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "2f203eb59050c30a0e92d65e5dfd3b2a5232c72a6d7783a291d84223e339c1cb",
-      "size": 6349
+      "checksum": "65339edbb1c10f95e1b1f3fd905a34dc785b08da321c188bfb7781dc1d15a60e",
+      "size": 6664
     },
     {
       "path": "content/2026.09.1/mapping-links.json",
@@ -935,7 +965,7 @@
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "920b77cf13d256aa7103b47060e5357f6698550c3dfb9fc8d5c2d807f735c3c1",
+      "checksum": "f0f895ccb4ecee512d498d3e7ec282fa01b46cbc548370941c3b05cf700b7945",
       "size": 158
     },
     {

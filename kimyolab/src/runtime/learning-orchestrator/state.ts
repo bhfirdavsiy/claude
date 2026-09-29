@@ -3,7 +3,7 @@ import type {LearningUnitProgress} from '../progress/types.ts';
 import type {ConceptMastery} from '../../domain/mastery/mastery.ts';
 import type {PracticeType} from '../../domain/content/types.ts';
 import type {Attempt} from '../evidence/types.ts';
-import type {LearningSnapshot,PracticeEnginePort,PracticeSessionState,PracticeSessionStatus,VersionContext} from './types.ts';
+import type {AssessmentSessionState,LearningSnapshot,PracticeEnginePort,PracticeSessionState,PracticeSessionStatus,VersionContext} from './types.ts';
 import {activeStage} from './selectors.ts';
 
 /** Internal (orchestrator-owned) session record. Never handed out; callers get PracticeSessionState views. */
@@ -53,4 +53,17 @@ export function aggregateMasteryStatus(mastery:ConceptMastery[]):'mastered'|'nee
   if(mastery.length&&mastery.every(m=>m.status==='mastered')) return 'mastered';
   if(mastery.some(m=>m.status==='needs_review')) return 'needs_review';
   return 'developing';
+}
+
+export interface AssessmentSessionRecord {
+  id:string;
+  learningUnitId:string;
+  versions:VersionContext;
+  conceptIds:string[];
+  startedAt:string;
+  status:'open'|'submitted'|'abandoned';
+}
+
+export function assessmentView(record:AssessmentSessionRecord):AssessmentSessionState{
+  return Object.freeze({id:record.id,learningUnitId:record.learningUnitId,startedAt:record.startedAt,status:record.status});
 }

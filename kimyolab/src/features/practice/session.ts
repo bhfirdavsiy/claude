@@ -15,6 +15,7 @@ import {loadBeta3AdvancedRegistry,createBeta3AdvancedRouter} from '../../runtime
 import {KineticsModel} from '../../domain/chemistry/kinetics-model.ts';
 import {EquilibriumModel} from '../../domain/chemistry/equilibrium-model.ts';
 import type {StudentPracticePageModel} from './model.ts';
+import type {ExecutionRuntime} from '../../runtime/practice-router/execution-plan.ts';
 
 export type PracticeCommand =
   | {kind:'experiment-action';action:any}
@@ -41,12 +42,16 @@ export class ReferencePracticeSession {
     this.model=model;
     const config=model.referenceConfig;
     const now=options.now??(()=>new Date().toISOString());
-    if(model.configFamily==='guided'||model.configFamily==='beta1'||model.configFamily==='beta2'||model.configFamily==='beta3'){
+    // P1.1 (D8): one canonical plan decides the runtime; there is no second routing key and no fallback.
+    const plan=model.executionPlan;
+    if(!plan||plan.activityId!==model.id||plan.engine!==model.type) throw new Error('EXECUTION_PLAN_ACTIVITY_MISMATCH');
+    const runtime:ExecutionRuntime=plan.runtime;
+    if(runtime==='generic'){
       const registry=loadBeta1ConfigRegistry({[model.id]:config});
       this.router=createBeta1GenericRouter({
         registry,contentVersion:model.contentVersion,scoringVersion:model.scoringVersion,now,
       });
-    } else if(model.configFamily==='beta2-advanced'){
+    } else if(runtime==='beta2-advanced'){
       if(!model.chemistry.hydrolysis||!model.chemistry.electrolysis||!model.chemistry.manganeseRedox) throw new Error('BETA2_ADVANCED_CHEMISTRY_DATA_MISSING');
       const registry=loadBeta2AdvancedRegistry({[model.id]:config});
       const ionicEngine=IonicEngine.from({reactions:model.chemistry.reactions as any,rules:model.chemistry.solutionRules as any});
@@ -57,14 +62,14 @@ export class ReferencePracticeSession {
         manganeseModel:ManganeseRedoxModel.from(model.chemistry.manganeseRedox),
         contentVersion:model.contentVersion,scoringVersion:model.scoringVersion,now,
       });
-    } else if(model.configFamily==='beta2-organic'){
+    } else if(runtime==='beta2-organic'){
       if(!model.chemistry.organic) throw new Error('BETA2_ORGANIC_CHEMISTRY_DATA_MISSING');
       const registry=loadBeta2OrganicRegistry({[model.id]:config});
       this.router=createBeta2OrganicRouter({
         registry,knowledge:OrganicKnowledgeBase.from(model.chemistry.organic),
         contentVersion:model.contentVersion,scoringVersion:model.scoringVersion,now,
       });
-    } else if(model.configFamily==='beta3-advanced'){
+    } else if(runtime==='beta3-advanced'){
       if(!model.chemistry.hydrolysis||!model.chemistry.electrolysis||!model.chemistry.manganeseRedox||!model.chemistry.kinetics||!model.chemistry.equilibrium) throw new Error('BETA3_ADVANCED_CHEMISTRY_DATA_MISSING');
       const registry=loadBeta3AdvancedRegistry({[model.id]:config});
       this.router=createBeta3AdvancedRouter({
@@ -77,7 +82,7 @@ export class ReferencePracticeSession {
         equilibriumModel:EquilibriumModel.from(model.chemistry.equilibrium),
         contentVersion:model.contentVersion,scoringVersion:model.scoringVersion,now,
       });
-    } else {
+    } else if(runtime==='reference-slice'){
       const registry=loadReferenceSliceRegistry({[model.id]:config});
       const reactionMatcher=ReactionMatcher.from(model.chemistry.reactions as any);
       const ionicEngine=IonicEngine.from({reactions:model.chemistry.reactions as any,rules:model.chemistry.solutionRules as any});
@@ -87,6 +92,9 @@ export class ReferencePracticeSession {
         scoringVersion:model.scoringVersion,
         now,
       });
+    } else {
+      // Fail closed: an unknown runtime is never mapped to a default interpreter.
+      throw new Error(`EXECUTION_RUNTIME_UNKNOWN:${String(runtime)}`);
     }
     this.activity={
       id:model.id,type:model.type,title:model.title,goal:model.goal,
@@ -113,7 +121,7 @@ export class ReferencePracticeSession {
   }
 
   async result():Promise<any>{
-    const result=await this.router.run(this.activity,this.context);
+    const result=await this.router.run(this.activity,this.context,this.model.executionPlan);
     if(!result.ok) throw new Error(result.error.code);
     return result.value;
   }

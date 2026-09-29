@@ -16,14 +16,14 @@ import {PracticeRouter,                          } from '../practice-router/rout
                                                                                                        
                                                                      
 
-const capabilities=new Set            (['ionic-equation-trainer','hydrolysis-experiment','electrolysis-experiment','manganese-redox-simulation']);
+export const BETA2_ADVANCED_CAPABILITIES                    =new Set            (['ionic-equation-trainer','hydrolysis-experiment','electrolysis-experiment','manganese-redox-simulation']);
 function obj(v        )                            {return !!v&&typeof v==='object'&&!Array.isArray(v)}
 function text(v        )            {return typeof v==='string'&&v.length>0}
 export function loadBeta2AdvancedRegistry(raw        )                      {
   if(!obj(raw)) throw new Error('BETA2_ADVANCED_INVALID:root');
   const out                      ={};
   for(const [id,value] of Object.entries(raw)){
-    if(!obj(value)||!capabilities.has(value.capability              )||!text(value.type)||!text(value.version)||!text(value.conceptId)) throw new Error(`BETA2_ADVANCED_INVALID:${id}`);
+    if(!obj(value)||!BETA2_ADVANCED_CAPABILITIES.has(value.capability              )||!text(value.type)||!text(value.version)||!text(value.conceptId)) throw new Error(`BETA2_ADVANCED_INVALID:${id}`);
     const c=value                                  ;
     if(c.capability==='ionic-equation-trainer'&&(!text(c.reactionId)||!text(c.prompt))) throw new Error(`BETA2_ADVANCED_INVALID:${id}:ionic`);
     if(c.capability==='hydrolysis-experiment'&&(!text(c.salt)||!['acidic','basic','neutral'].includes(c.expectedMedium))) throw new Error(`BETA2_ADVANCED_INVALID:${id}:hydrolysis`);

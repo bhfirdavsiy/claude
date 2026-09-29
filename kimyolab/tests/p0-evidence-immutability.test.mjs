@@ -9,7 +9,7 @@ import {LearningRunner} from '../src/runtime/learning-runner/runner.ts';
 import {PracticeRouter} from '../src/runtime/practice-router/router.ts';
 import {UUID_PATTERN} from '../src/runtime/shared/ids.ts';
 
-const page={id:'practice.trainer.7.01',type:'trainer',title:'T',goal:'G',accessibility:[],learningUnit:{id:'lu.7.01',grade:7,title:'U'},configFamily:'reference',referenceConfig:{},activityVersion:'2026.09.1',contentVersion:'2026.09.1',schemaVersion:'1.0.0',scoringVersion:'1.0.0',chemistry:{reactions:[],solutionRules:{version:'1',dissociation:[],insoluble:[]}}};
+const page={id:'practice.trainer.7.01',type:'trainer',title:'T',goal:'G',accessibility:[],learningUnit:{id:'lu.7.01',grade:7,title:'U'},executionPlan:{activityId:'practice.trainer.7.01',engine:'trainer',runtime:'reference-slice',capability:'slice.test',configSource:'reference-slices',configVersion:'1'},referenceConfig:{},activityVersion:'2026.09.1',contentVersion:'2026.09.1',schemaVersion:'1.0.0',scoringVersion:'1.0.0',chemistry:{reactions:[],solutionRules:{version:'1',dissociation:[],insoluble:[]}}};
 // Engines derive evidence ids from the activity — identical on every attempt.
 const draft=(correct)=>({id:`${page.id}.answer.1`,conceptId:'concept.c001',activityId:page.id,activityVersion:'2026.09.1',contentVersion:'2026.09.1',scoringVersion:'1.0.0',createdAt:'2026-09-29T10:00:00.000Z',score:correct?1:0,evidenceClass:'trainer-calculation',type:'answer',questionId:'q.1',correct});
 

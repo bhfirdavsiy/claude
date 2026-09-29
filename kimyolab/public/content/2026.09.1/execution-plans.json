@@ -1,0 +1,1165 @@
+{
+  "schema": "kimyolab.execution-plans.v1",
+  "plans": [
+    {
+      "activityId": "practice.calculation.11.05.planned",
+      "engine": "calculation",
+      "runtime": "generic",
+      "capability": "generic.calculation",
+      "configSource": "beta3-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.calculation.11.06.planned",
+      "engine": "calculation",
+      "runtime": "beta3-advanced",
+      "capability": "gas-total-moles",
+      "configSource": "beta3-advanced",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.calculation.11.07.planned",
+      "engine": "calculation",
+      "runtime": "generic",
+      "capability": "generic.calculation",
+      "configSource": "beta3-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.calculation.11.08.planned",
+      "engine": "calculation",
+      "runtime": "beta3-advanced",
+      "capability": "ideal-gas-pressure",
+      "configSource": "beta3-advanced",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.calculation.11.13.planned",
+      "engine": "calculation",
+      "runtime": "generic",
+      "capability": "generic.calculation",
+      "configSource": "beta3-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.calculation.11.14.planned",
+      "engine": "calculation",
+      "runtime": "beta3-advanced",
+      "capability": "molar-normal",
+      "configSource": "beta3-advanced",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.calculation.11.22.planned",
+      "engine": "calculation",
+      "runtime": "beta3-advanced",
+      "capability": "faraday-mass",
+      "configSource": "beta3-advanced",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.calculation.7.09.planned",
+      "engine": "calculation",
+      "runtime": "generic",
+      "capability": "generic.calculation",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.calculation.7.5",
+      "engine": "calculation",
+      "runtime": "reference-slice",
+      "capability": "slice.7.12.relative-mass",
+      "configSource": "reference-slices",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.calculation.8.17.planned",
+      "engine": "calculation",
+      "runtime": "generic",
+      "capability": "generic.calculation",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.case.10.11",
+      "engine": "case",
+      "runtime": "generic",
+      "capability": "generic.case",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.case.10.16.planned",
+      "engine": "case",
+      "runtime": "generic",
+      "capability": "generic.case",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.case.7.01.planned",
+      "engine": "case",
+      "runtime": "generic",
+      "capability": "generic.case",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.case.7.14",
+      "engine": "case",
+      "runtime": "reference-slice",
+      "capability": "slice.7.18.air-pollution",
+      "configSource": "reference-slices",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.case.8.21.planned",
+      "engine": "case",
+      "runtime": "generic",
+      "capability": "generic.case",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.case.9.11.planned",
+      "engine": "case",
+      "runtime": "generic",
+      "capability": "generic.case",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.case.9.14.planned",
+      "engine": "case",
+      "runtime": "generic",
+      "capability": "generic.case",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.case.9.17.planned",
+      "engine": "case",
+      "runtime": "generic",
+      "capability": "generic.case",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.case.9.25.steel-process",
+      "engine": "case",
+      "runtime": "generic",
+      "capability": "generic.case",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.case.9.26.planned",
+      "engine": "case",
+      "runtime": "generic",
+      "capability": "generic.case",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.10.1",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.10.10",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.10.2",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.10.22.carboxylic-acid",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.10.3",
+      "engine": "experiment",
+      "runtime": "beta2-organic",
+      "capability": "organic-reaction-template",
+      "configSource": "beta2-organic",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.10.5",
+      "engine": "experiment",
+      "runtime": "beta2-organic",
+      "capability": "organic-qualitative-reaction",
+      "configSource": "beta2-organic",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.10.6",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.10.7",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.10.8",
+      "engine": "experiment",
+      "runtime": "beta2-organic",
+      "capability": "saponification",
+      "configSource": "beta2-organic",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.10.9",
+      "engine": "experiment",
+      "runtime": "beta2-organic",
+      "capability": "carbohydrate-reaction-model",
+      "configSource": "beta2-organic",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.11.2",
+      "engine": "experiment",
+      "runtime": "beta3-advanced",
+      "capability": "electrolysis",
+      "configSource": "beta3-advanced",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.7.1",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.7.10",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.7.11",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.7.12",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.7.13",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.7.2",
+      "engine": "experiment",
+      "runtime": "reference-slice",
+      "capability": "slice.7.03.separation",
+      "configSource": "reference-slices",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.7.3",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.7.6",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.7.7",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.7.8",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.7.9",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.8.1",
+      "engine": "experiment",
+      "runtime": "reference-slice",
+      "capability": "slice.8.16.chloride-precipitation",
+      "configSource": "reference-slices",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.8.10",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.8.11",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.8.12",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.8.12.planned",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.8.13",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.8.14",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.8.15",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.8.2",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.8.3",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.8.4",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.8.5",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.8.6",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.8.8",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.8.9",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.9.1",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.9.10",
+      "engine": "experiment",
+      "runtime": "beta2-advanced",
+      "capability": "electrolysis-experiment",
+      "configSource": "beta2-advanced",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.9.11",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.9.12",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.9.13",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.9.14",
+      "engine": "experiment",
+      "runtime": "beta2-advanced",
+      "capability": "hydrolysis-experiment",
+      "configSource": "beta2-advanced",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.9.15",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.9.16",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.9.17",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.9.18",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.9.19",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.9.2",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.9.20",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.9.3",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.9.4",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.9.5",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.9.6",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.9.7",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.9.8",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.experiment.9.9",
+      "engine": "experiment",
+      "runtime": "generic",
+      "capability": "generic.experiment",
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.10.02.structure-theory",
+      "engine": "simulation",
+      "runtime": "beta2-organic",
+      "capability": "organic-structure-model",
+      "configSource": "beta2-organic",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.10.04.isomerism",
+      "engine": "simulation",
+      "runtime": "beta2-organic",
+      "capability": "organic-isomerism",
+      "configSource": "beta2-organic",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.10.08.homologous-series",
+      "engine": "simulation",
+      "runtime": "beta2-organic",
+      "capability": "homologous-series",
+      "configSource": "beta2-organic",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.10.10.planned",
+      "engine": "simulation",
+      "runtime": "beta2-organic",
+      "capability": "organic-reaction-template",
+      "configSource": "beta2-organic",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.10.11.planned",
+      "engine": "simulation",
+      "runtime": "beta2-organic",
+      "capability": "cyclic-structure-model",
+      "configSource": "beta2-organic",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.10.13.planned",
+      "engine": "simulation",
+      "runtime": "beta2-organic",
+      "capability": "organic-polymerization",
+      "configSource": "beta2-organic",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.10.14.planned",
+      "engine": "simulation",
+      "runtime": "beta2-organic",
+      "capability": "organic-addition",
+      "configSource": "beta2-organic",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.10.15.planned",
+      "engine": "simulation",
+      "runtime": "beta2-organic",
+      "capability": "aromatic-structure",
+      "configSource": "beta2-organic",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.10.17.monohydric-alcohols",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.10.19.phenols",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.10.20.planned",
+      "engine": "simulation",
+      "runtime": "beta2-organic",
+      "capability": "organic-structure-model",
+      "configSource": "beta2-organic",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.10.21.carbonyls",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.10.23.esters",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.11.01.planned",
+      "engine": "simulation",
+      "runtime": "beta3-advanced",
+      "capability": "electron-configuration",
+      "configSource": "beta3-advanced",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.11.02.planned",
+      "engine": "simulation",
+      "runtime": "beta3-advanced",
+      "capability": "bounded-choice",
+      "configSource": "beta3-advanced",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.11.03.planned",
+      "engine": "simulation",
+      "runtime": "beta3-advanced",
+      "capability": "nuclear-conservation",
+      "configSource": "beta3-advanced",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.11.04.planned",
+      "engine": "simulation",
+      "runtime": "beta3-advanced",
+      "capability": "bounded-choice",
+      "configSource": "beta3-advanced",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.11.09.planned",
+      "engine": "simulation",
+      "runtime": "beta3-advanced",
+      "capability": "bounded-choice",
+      "configSource": "beta3-advanced",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.11.11.planned",
+      "engine": "simulation",
+      "runtime": "beta3-advanced",
+      "capability": "hydrolysis",
+      "configSource": "beta3-advanced",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.11.12.planned",
+      "engine": "simulation",
+      "runtime": "beta3-advanced",
+      "capability": "bounded-choice",
+      "configSource": "beta3-advanced",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.11.15.planned",
+      "engine": "simulation",
+      "runtime": "beta3-advanced",
+      "capability": "reaction-rate",
+      "configSource": "beta3-advanced",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.11.16.planned",
+      "engine": "simulation",
+      "runtime": "beta3-advanced",
+      "capability": "kinetics-factor",
+      "configSource": "beta3-advanced",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.11.17.planned",
+      "engine": "simulation",
+      "runtime": "beta3-advanced",
+      "capability": "equal-rates",
+      "configSource": "beta3-advanced",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.11.18.planned",
+      "engine": "simulation",
+      "runtime": "beta3-advanced",
+      "capability": "equilibrium-shift",
+      "configSource": "beta3-advanced",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.11.20.planned",
+      "engine": "simulation",
+      "runtime": "beta3-advanced",
+      "capability": "medium-redox",
+      "configSource": "beta3-advanced",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.7.02.planned",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.7.06.planned",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.7.07.planned",
+      "engine": "simulation",
+      "runtime": "reference-slice",
+      "capability": "slice.7.07.atom-builder",
+      "configSource": "reference-slices",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.7.10.planned",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.7.13.planned",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.7.16.planned",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.7.17.planned",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.8.02.planned",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.8.03.planned",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.8.04.planned",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.8.05.planned",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.8.06.planned",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.8.09.planned",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.8.19.planned",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.8.20.planned",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.8.7",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.9.01.planned",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.9.02.planned",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.9.03.planned",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.9.04.planned",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.9.07.planned",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.9.08.planned",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.9.18.water-hardness",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.9.20.cu-ag-au",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.9.21.group12",
+      "engine": "simulation",
+      "runtime": "generic",
+      "capability": "generic.simulation",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.simulation.9.23.planned",
+      "engine": "simulation",
+      "runtime": "beta2-advanced",
+      "capability": "manganese-redox-simulation",
+      "configSource": "beta2-advanced",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.trainer.10.03.planned",
+      "engine": "trainer",
+      "runtime": "beta2-organic",
+      "capability": "organic-valence-model",
+      "configSource": "beta2-organic",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.trainer.10.05.planned",
+      "engine": "trainer",
+      "runtime": "generic",
+      "capability": "generic.trainer",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.trainer.10.06.planned",
+      "engine": "trainer",
+      "runtime": "beta2-organic",
+      "capability": "organic-reaction-template",
+      "configSource": "beta2-organic",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.trainer.10.07.planned",
+      "engine": "trainer",
+      "runtime": "beta2-organic",
+      "capability": "organic-nomenclature",
+      "configSource": "beta2-organic",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.trainer.10.09.planned",
+      "engine": "trainer",
+      "runtime": "beta2-organic",
+      "capability": "organic-isomerism",
+      "configSource": "beta2-organic",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.trainer.10.26.fibers",
+      "engine": "trainer",
+      "runtime": "generic",
+      "capability": "generic.trainer",
+      "configSource": "beta2-safe",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.trainer.11.10.planned",
+      "engine": "trainer",
+      "runtime": "beta3-advanced",
+      "capability": "ionic-equation",
+      "configSource": "beta3-advanced",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.trainer.11.19.planned",
+      "engine": "trainer",
+      "runtime": "beta3-advanced",
+      "capability": "redox-balance",
+      "configSource": "beta3-advanced",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.trainer.7.08.planned",
+      "engine": "trainer",
+      "runtime": "generic",
+      "capability": "generic.trainer",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.trainer.7.15.planned",
+      "engine": "trainer",
+      "runtime": "generic",
+      "capability": "generic.trainer",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.trainer.7.4",
+      "engine": "trainer",
+      "runtime": "reference-slice",
+      "capability": "slice.7.11.valency-formula",
+      "configSource": "reference-slices",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.trainer.8.01.planned",
+      "engine": "trainer",
+      "runtime": "generic",
+      "capability": "generic.trainer",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.trainer.8.07.planned",
+      "engine": "trainer",
+      "runtime": "generic",
+      "capability": "generic.trainer",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.trainer.8.08.planned",
+      "engine": "trainer",
+      "runtime": "generic",
+      "capability": "generic.trainer",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.trainer.8.13.planned",
+      "engine": "trainer",
+      "runtime": "generic",
+      "capability": "generic.trainer",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.trainer.8.14.planned",
+      "engine": "trainer",
+      "runtime": "generic",
+      "capability": "generic.trainer",
+      "configSource": "beta1",
+      "configVersion": "1.0.0"
+    },
+    {
+      "activityId": "practice.trainer.9.05.planned",
+      "engine": "trainer",
+      "runtime": "beta2-advanced",
+      "capability": "ionic-equation-trainer",
+      "configSource": "beta2-advanced",
+      "configVersion": "1.0.0"
+    }
+  ]
+}
