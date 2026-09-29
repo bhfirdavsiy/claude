@@ -27,22 +27,27 @@ test('assessment bank is packaged and part of PROD-002 didactic review surface',
   assert.match(signoff,/content-src\/assessment-items\.json/);
 });
 
+// P1.1 (C3): the hub model is now built from the prompt layer (assessment/prompts.json) and exposes an
+// `assessment` model without keys. The invariant is unchanged: only chemistry+didactic approved items
+// are shown, pending items stay hidden. Added: the view model can never carry a key.
 test('Learning Hub exposes only chemistry+didactic approved quiz items and keeps pending items hidden',async()=>{
   const {buildLearningHubModel}=await import('../src/features/learning-hub/model.ts');
+  const {splitAssessmentBank}=await import('../src/domain/assessment/model.ts');
   const units=JSON.parse(fs.readFileSync(path.join(root,'content-src/learning-units.json'),'utf8'));
   const theories=JSON.parse(fs.readFileSync(path.join(root,'content-src/theory-activities.json'),'utf8'));
   const practices=JSON.parse(fs.readFileSync(path.join(root,'content-src/practice-activities.json'),'utf8'));
   const mappings=JSON.parse(fs.readFileSync(path.join(root,'content-src/mapping-links.json'),'utf8'));
   const concepts=JSON.parse(fs.readFileSync(path.join(root,'content-src/concepts.json'),'utf8'));
   const bank=JSON.parse(fs.readFileSync(path.join(root,'content-src/assessment-items.json'),'utf8'));
-  const pending=buildLearningHubModel('lu.9.15',{units,theories,practices,mappings,concepts,assessmentBank:bank});
-  assert.equal(pending.reinforcementQuiz.items.length,0);
-  assert.equal(pending.reinforcementQuiz.pendingCount,5);
+  const pending=buildLearningHubModel('lu.9.15',{units,theories,practices,mappings,concepts,assessmentPrompts:splitAssessmentBank(bank).prompts});
+  assert.equal(pending.assessment.items.length,0);
+  assert.equal(pending.assessment.pendingCount,5);
   const approved=structuredClone(bank);approved.items[0].review={chemistry:'approved',didactic:'approved'};
-  const model=buildLearningHubModel('lu.9.15',{units,theories,practices,mappings,concepts,assessmentBank:approved});
-  assert.equal(model.reinforcementQuiz.items.length,1);
-  assert.equal(model.reinforcementQuiz.pendingCount,4);
-  assert.equal(model.reinforcementQuiz.items[0].id,'q.9.15.01');
+  const model=buildLearningHubModel('lu.9.15',{units,theories,practices,mappings,concepts,assessmentPrompts:splitAssessmentBank(approved).prompts});
+  assert.equal(model.assessment.items.length,1);
+  assert.equal(model.assessment.pendingCount,4);
+  assert.equal(model.assessment.items[0].id,'q.9.15.01');
+  assert.doesNotMatch(JSON.stringify(model),/correctOptionId|explanation|scoringRule/);
 });
 
 test('Phase 11/12 pipelines validate assessment bank before release finalization',()=>{

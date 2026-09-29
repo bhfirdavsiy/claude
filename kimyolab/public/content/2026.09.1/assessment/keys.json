@@ -1,0 +1,56 @@
+{
+  "schema": "kimyolab.assessment-keys.v1",
+  "version": "1.0.0-rc.1",
+  "keys": [
+    {
+      "itemId": "q.9.15.01",
+      "correctOptionId": "A",
+      "scoringRule": {
+        "kind": "exact-option",
+        "correctScore": 1,
+        "incorrectScore": 0
+      },
+      "explanation": "Katodda zarrachalar elektron qabul qiladi, ya’ni qaytarilish sodir bo‘ladi."
+    },
+    {
+      "itemId": "q.9.15.02",
+      "correctOptionId": "B",
+      "scoringRule": {
+        "kind": "exact-option",
+        "correctScore": 1,
+        "incorrectScore": 0
+      },
+      "explanation": "Anodda zarrachalar elektron beradi, ya’ni oksidlanish sodir bo‘ladi."
+    },
+    {
+      "itemId": "q.9.15.03",
+      "correctOptionId": "A",
+      "scoringRule": {
+        "kind": "exact-option",
+        "correctScore": 1,
+        "incorrectScore": 0
+      },
+      "explanation": "Kationlar manfiy elektrod — katod tomon harakatlanadi."
+    },
+    {
+      "itemId": "q.9.15.04",
+      "correctOptionId": "A",
+      "scoringRule": {
+        "kind": "exact-option",
+        "correctScore": 1,
+        "incorrectScore": 0
+      },
+      "explanation": "Cu²⁺ ionlari katodda elektron qabul qilib metall mis holatiga qaytariladi."
+    },
+    {
+      "itemId": "q.9.15.05",
+      "correctOptionId": "A",
+      "scoringRule": {
+        "kind": "exact-option",
+        "correctScore": 1,
+        "incorrectScore": 0
+      },
+      "explanation": "Elektroliz tashqi elektr energiyasi hisobiga boradigan kimyoviy jarayondir."
+    }
+  ]
+}

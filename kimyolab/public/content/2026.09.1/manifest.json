@@ -6,7 +6,7 @@
   "assessmentVersion": "0.0.0",
   "scoringVersion": "0.0.0",
   "createdAt": "2026-09-22T00:00:00.000Z",
-  "checksum": "de0e88f81159081e377ce92a0d96f6b082dbd3830867b2ce8d22d7ad9b8506df",
+  "checksum": "4b864d915499f7615f71bea8cd298be92249680084f38ce942804b220a6be754",
   "compatibility": {
     "minAppVersion": "20.1.0"
   },
@@ -64,9 +64,14 @@
       "size": 32029
     },
     {
-      "path": "assessment-items.json",
-      "checksum": "13cb5e64aa2f8e1f74840cc43080022f06b452b29d55f174e54739702d82d21a",
-      "size": 3866
+      "path": "assessment/keys.json",
+      "checksum": "ce14b4d7c41a651e8e8f84ff07d8d324f1905907550b0b6863fda4ea185bc4c7",
+      "size": 1523
+    },
+    {
+      "path": "assessment/prompts.json",
+      "checksum": "841c79bd42e4a9d1dd3bfcbae1957f9aec4a1a058f8e92f333215de6e00bb1d2",
+      "size": 3988
     },
     {
       "path": "chemistry/constants.json",

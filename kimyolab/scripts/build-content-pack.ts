@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { sha256File, sha256Buffer } from '../src/domain/content/checksum.ts';
 import { createActivationPointer } from '../src/runtime/compatibility/release-pointer.ts';
+import { ASSESSMENT_KEY_PACK_PATH, ASSESSMENT_PROMPT_PACK_PATH, splitAssessmentBank } from '../src/domain/assessment/model.ts';
 import { readReleasePointer, writeReleasePointerAtomic } from './release-pointer-io.ts';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -47,10 +48,16 @@ for (const grade of grades) {
   writeJson(path.join(packRoot, `learning-units/grade-${grade}.json`), units.filter((x:any) => x.grade === grade));
 }
 
-for (const name of ['concepts.json','theory-activities.json','practice-activities.json','mapping-links.json','external-lab-bindings.json','learning-cycle.json','assessment-items.json']) {
+for (const name of ['concepts.json','theory-activities.json','practice-activities.json','mapping-links.json','external-lab-bindings.json','learning-cycle.json']) {
   copy(path.join(source, name), path.join(packRoot, name));
 }
 copy(path.join(source, 'aliases.yaml'), path.join(packRoot, 'aliases.yaml'));
+
+// P1.1 (C3): the authored bank (content-src/assessment-items.json) is never shipped as-is. The pack
+// carries a learner-facing prompt layer and a separate answer-key layer that a deployment can withhold.
+const assessment = splitAssessmentBank(JSON.parse(fs.readFileSync(path.join(source, 'assessment-items.json'), 'utf8')));
+writeJson(path.join(packRoot, ASSESSMENT_PROMPT_PACK_PATH), assessment.prompts);
+writeJson(path.join(packRoot, ASSESSMENT_KEY_PACK_PATH), assessment.keys);
 
 
 const activityConfigsSource = path.join(source, 'activity-configs');

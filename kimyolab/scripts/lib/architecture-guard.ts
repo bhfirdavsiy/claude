@@ -21,6 +21,11 @@ const NO_PERSISTENCE_IMPORTS=[/^src\/features\/[^/]+\/render\.ts$/,/^src\/featur
 // Engines legitimately import evidence *draft* types from runtime/evidence; persistence and transitions are off limits.
 const FORBIDDEN_IMPORT_TARGETS=[/runtime\/progress\/indexeddb-store\.ts$/,/runtime\/progress\/reducer\.ts$/,/runtime\/progress\/migrations\.ts$/];
 
+/** Presentation layers (render/UI models/bootstrap) — they may see AssessmentPrompt, never AssessmentKey (P1.1 C3). */
+const PRESENTATION=[/^src\/features\//,/^src\/app\/bootstrap\.ts$/];
+/** Answer-key layer and evaluator: owned by the domain + orchestrator + content source only. */
+export const ASSESSMENT_KEY_NAMES=new Set(['AssessmentKey','AssessmentKeyPack','validateKeyPack','ASSESSMENT_KEY_PACK_PATH','evaluateAssessment','evaluationToEvidenceDrafts','correctOptionId']);
+
 export interface GuardViolation {file:string;line:number;rule:string;detail:string}
 
 const MASTERY_FUNCTION='computeConceptMastery';
@@ -38,6 +43,8 @@ export function checkSource(rel:string,source:string):GuardViolation[]{
   const line=(node:any)=>sf.getLineAndCharacterOfPosition(node.getStart(sf)).line+1;
   const privileged=AUTHORITY.test(rel)||PERSISTENCE.test(rel)||EVIDENCE_MODEL.test(rel);
   const noPersistenceImports=NO_PERSISTENCE_IMPORTS.some(r=>r.test(rel));
+  const presentation=PRESENTATION.some(r=>r.test(rel));
+  const flagKey=(node:any,name:string)=>{ if(presentation&&ASSESSMENT_KEY_NAMES.has(name)) out.push({file:rel,line:line(node),rule:'ASSESSMENT_KEY_IN_PRESENTATION',detail:name}); };
   /** local identifier → original exported name (for aliased imports). */
   const aliases=new Map<string,string>();
   const resolve=(p:string)=>path.posix.normalize(path.posix.join(path.posix.dirname(rel),p));
@@ -58,6 +65,7 @@ export function checkSource(rel:string,source:string):GuardViolation[]{
         for(const e of bindings.elements){
           const original=(e.propertyName??e.name).text;
           aliases.set(e.name.text,original);
+          flagKey(e,original);
           if(!typeOnly&&!e.isTypeOnly) flagBoundary(e,original);
         }
       }
@@ -73,7 +81,9 @@ export function checkSource(rel:string,source:string):GuardViolation[]{
       else for(const n of names) if(BOUNDARY_FUNCTIONS.has(n)||MUTATION_METHODS.has(n)) out.push({file:rel,line:line(node),rule:'REEXPORT_OF_BOUNDARY_MODULE',detail:n});
     }
     // ---- property access of a mutation method (call, read, bind — all the same)
-    if(ts.isPropertyAccessExpression(node)) flagMutation(node.name,node.name.text);
+    if(ts.isPropertyAccessExpression(node)){ flagMutation(node.name,node.name.text); flagKey(node.name,node.name.text); }
+    if(presentation&&(ts.isPropertySignature(node)||ts.isPropertyAssignment(node))&&node.name&&ts.isIdentifier(node.name)) flagKey(node.name,node.name.text);
+    if(presentation&&ts.isStringLiteral(node)&&/assessment\/keys\.json$/.test(node.text)) flagKey(node,'ASSESSMENT_KEY_PACK_PATH');
     if(ts.isElementAccessExpression(node)&&node.argumentExpression&&(ts.isStringLiteral(node.argumentExpression)||ts.isNoSubstitutionTemplateLiteral(node.argumentExpression)))
       flagMutation(node,node.argumentExpression.text);
     // ---- destructuring: const {updateProgress}=store / const {updateProgress:u}=store

@@ -1,5 +1,6 @@
 import type { Concept, LearningUnit, MappingLink, PracticeActivity, TheoryActivity } from '../../domain/content/types.ts';
 import type {ExternalLabBinding} from '../../integrations/external-labs/types.ts';
+import {assessmentIdFor,isApproved,toPromptView,validatePromptPack,type AssessmentPromptView} from '../../domain/assessment/model.ts';
 
 export interface LearningHubContentData {
   units:LearningUnit[];
@@ -8,7 +9,8 @@ export interface LearningHubContentData {
   mappings:MappingLink[];
   concepts:Concept[];
   externalLabs?:ExternalLabBinding[];
-  assessmentBank?:{version?:string;items?:any[]};
+  /** Prompt layer only (assessment/prompts.json). The answer-key layer never reaches a view model (C3). */
+  assessmentPrompts?:unknown;
 }
 
 export interface StudentPracticeModel {
@@ -19,12 +21,12 @@ export interface StudentPracticeModel {
   accessibility:string[];
 }
 
-export interface StudentQuizItem {
-  id:string;
-  prompt:string;
-  options:Array<{id:string;text:string}>;
-  correctOptionId:string;
-  explanation:string;
+/** Objective assessment as the learner sees it: prompts only — no key, no explanation, no scoring rule. */
+export interface StudentAssessmentModel {
+  assessmentId:string;
+  version:string;
+  items:AssessmentPromptView[];
+  pendingCount:number;
 }
 
 export interface LearningHubModel {
@@ -44,7 +46,7 @@ export interface LearningHubModel {
   primaryPractice:StudentPracticeModel;
   supportingPractices:StudentPracticeModel[];
   externalLabs:Array<{id:string;provider:string;title:string;description:string;mode:string;status:string}>;
-  reinforcementQuiz:{version:string;items:StudentQuizItem[];pendingCount:number};
+  assessment:StudentAssessmentModel;
 }
 
 function studentPractice(activity:PracticeActivity):StudentPracticeModel {
@@ -92,6 +94,11 @@ export function buildLearningHubModel(learningUnitId:string,data:LearningHubCont
     primaryPractice:studentPractice(practice),
     supportingPractices:supporting,
     externalLabs:(data.externalLabs??[]).map(x=>({id:x.id,provider:x.provider,title:x.title,description:x.description,mode:x.mode,status:x.status})),
-    reinforcementQuiz:(()=>{const all=(data.assessmentBank?.items??[]).filter((x:any)=>x.learningUnitId===learningUnitId);const approved=all.filter((x:any)=>x.review?.chemistry==='approved'&&x.review?.didactic==='approved');return {version:String(data.assessmentBank?.version??'0.0.0'),items:approved.map((x:any)=>({id:String(x.id),prompt:String(x.prompt),options:(x.options??[]).map((o:any)=>({id:String(o.id),text:String(o.text)})),correctOptionId:String(x.correctOptionId),explanation:String(x.explanation??'')})),pendingCount:all.length-approved.length};})(),
+    assessment:(()=>{
+      const pack=data.assessmentPrompts===undefined?undefined:validatePromptPack(data.assessmentPrompts);
+      const all=(pack?.items??[]).filter(x=>x.learningUnitId===learningUnitId);
+      const approved=all.filter(isApproved);
+      return {assessmentId:assessmentIdFor(learningUnitId),version:String(pack?.version??'0.0.0'),items:approved.map(toPromptView),pendingCount:all.length-approved.length};
+    })(),
   };
 }

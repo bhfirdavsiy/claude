@@ -72,3 +72,16 @@ test('guard bypass attempts are caught: alias, namespace, element access, destru
   // privileged modules are unaffected
   assert.deepEqual(checkSource('src/runtime/learning-orchestrator/orchestrator.ts',"import {reduceProgress as r} from '../progress/reducer.ts'; const {updateProgress}=this.store; r(p,e);"),[]);
 });
+
+// P1.1 (C3): the answer-key layer never reaches presentation code.
+test('presentation layers cannot touch the assessment key layer or the evaluator',()=>{
+  const r=(file,src)=>checkSource(file,src).filter(v=>v.rule==='ASSESSMENT_KEY_IN_PRESENTATION').map(v=>v.detail);
+  assert.deepEqual(r('src/features/learning-hub/render.ts',"if(answer===item.correctOptionId)correct++;"),['correctOptionId']);
+  assert.deepEqual(r('src/features/learning-hub/model.ts',"interface Q {correctOptionId:string}"),['correctOptionId']);
+  assert.deepEqual(r('src/app/bootstrap.ts',"import {evaluateAssessment as e} from '../domain/assessment/evaluator.ts';"),['evaluateAssessment']);
+  assert.deepEqual(r('src/features/x.ts',"fetch('/content/v/assessment/keys.json')"),['ASSESSMENT_KEY_PACK_PATH']);
+  assert.deepEqual(r('src/features/x.ts',"const m={correctOptionId:key};"),['correctOptionId']);
+  // the domain, the orchestrator and the content source may
+  assert.deepEqual(r('src/domain/assessment/evaluator.ts',"x.correctOptionId"),[]);
+  assert.deepEqual(r('src/app/content-client.ts',"import {validateKeyPack} from '../domain/assessment/model.ts';"),[]);
+});

@@ -103,6 +103,8 @@ export function referenceIssues(c:CanonicalContent):ContentIssue[]{
   (c.assessmentBank?.items??[]).forEach((x:any,i:number)=>{
     ref(units.has(x?.learningUnitId),'assessment-items.json',`$.items[${i}]/learningUnitId`,`learning unit ${x?.learningUnitId}`);
     (x?.conceptIds??[]).forEach((id:string,j:number)=>ref(concepts.has(id),'assessment-items.json',`$.items[${i}]/conceptIds/${j}`,`concept ${id}`));
+    const unit=c.learningUnits.find((u:any)=>u?.id===x?.learningUnitId);
+    (x?.outcomeIds??[]).forEach((id:string,j:number)=>{const m=/^(.+)#o([0-9]+)$/.exec(String(id));ref(Boolean(m&&m[1]===x?.learningUnitId&&unit&&Number(m[2])<=(unit.learningOutcomes??[]).length),'assessment-items.json',`$.items[${i}]/outcomeIds/${j}`,`learning outcome ${id}`);});
     const options=new Set((x?.options??[]).map((o:any)=>o?.id));
     ref(options.has(x?.correctOptionId),'assessment-items.json',`$.items[${i}]/correctOptionId`,`option ${x?.correctOptionId}`);
   });

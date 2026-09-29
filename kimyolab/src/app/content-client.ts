@@ -8,6 +8,7 @@ import type {LabCatalogModel} from '../features/labs/model.ts';
 
 import { sha256Hex, utf8 } from '../domain/content/sha256.ts';
 import type { MasteryVersionPolicy } from '../domain/mastery/mastery.ts';
+import { ASSESSMENT_KEY_PACK_PATH, ASSESSMENT_PROMPT_PACK_PATH, isApproved, validateKeyPack, validatePromptPack, type AssessmentKey, type AssessmentPrompt } from '../domain/assessment/model.ts';
 
 type FetchLike=(url:string)=>Promise<{ok:boolean;status:number;json:()=>Promise<any>;text?:()=>Promise<string>;arrayBuffer?:()=>Promise<ArrayBuffer>}>;
 
@@ -117,16 +118,16 @@ export class ContentClient {
     const grade=Number(match[1]);
     const version=await this.version();
     const prefix=`${this.baseUrl}/${version}`;
-    const [units,theories,practices,mappings,concepts,externalRaw,assessmentBank]=await Promise.all([
+    const [units,theories,practices,mappings,concepts,externalRaw,assessmentPrompts]=await Promise.all([
       this.packJson(version,`learning-units/grade-${grade}.json`),
       this.packJson(version,`theory-activities.json`),
       this.packJson(version,`practice-activities.json`),
       this.packJson(version,`mapping-links.json`),
       this.packJson(version,`concepts.json`),
       this.packJson(version,`external-lab-bindings.json`),
-      this.packJson(version,`assessment-items.json`),
+      this.packJson(version,ASSESSMENT_PROMPT_PACK_PATH),
     ]);
-    try{return buildLearningHubModel(learningUnitId,{units,theories,practices,mappings,concepts,externalLabs:bindingsForLearningUnit(validateExternalLabBindings(externalRaw),learningUnitId),assessmentBank});}
+    try{return buildLearningHubModel(learningUnitId,{units,theories,practices,mappings,concepts,externalLabs:bindingsForLearningUnit(validateExternalLabBindings(externalRaw),learningUnitId),assessmentPrompts});}
     catch(error){
       const code=error instanceof Error?error.message.split(':')[0]:'CONTENT_MODEL_ERROR';
       throw new ContentLoadError(code,{resource:learningUnitId});
@@ -231,6 +232,21 @@ export class ContentClient {
       return {kind:'external' as const,binding,grades:[...new Set(learningUnits.map((u:any)=>u.grade))],learningUnits};
     });
     return {native,external};
+  }
+
+  /**
+   * AssessmentContentSource for the canonical evaluator (P1.1). The prompt layer is what was presented;
+   * the key layer is fetched only here — at evaluation time, after the learner submitted — never on page
+   * load and never into a view model. A server deployment replaces this with server-side evaluation.
+   */
+  async loadAssessmentForEvaluation(learningUnitId:string):Promise<{version:string;prompts:AssessmentPrompt[];keys:AssessmentKey[]}>{
+    const version=await this.version();
+    const prompts=validatePromptPack(await this.packJson(version,ASSESSMENT_PROMPT_PACK_PATH));
+    const presented=prompts.items.filter(x=>x.learningUnitId===learningUnitId&&isApproved(x));
+    const keys=validateKeyPack(await this.packJson(version,ASSESSMENT_KEY_PACK_PATH));
+    if(keys.version!==prompts.version) throw new ContentLoadError('ASSESSMENT_KEY_VERSION_MISMATCH',{resource:ASSESSMENT_KEY_PACK_PATH});
+    const wanted=new Set(presented.map(x=>x.id));
+    return {version:prompts.version,prompts:presented,keys:keys.keys.filter(k=>wanted.has(k.itemId))};
   }
 
   async getRuntimeVersions(){
