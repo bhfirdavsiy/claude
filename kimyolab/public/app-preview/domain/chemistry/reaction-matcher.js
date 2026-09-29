@@ -1,0 +1,41 @@
+                                                                                                
+                                                               
+                                                                                                                                                 
+
+function formula(x              ){return typeof x==='string'?x:x.formula}
+function phasesCompatible(query                , refs                     )        {
+  const pool=[...refs];
+  for(const q of query){
+    const idx=pool.findIndex(r=>r.formula===formula(q) && (typeof q==='string'||!q.phase||!r.phase||q.phase===r.phase));
+    if(idx<0)return false; pool.splice(idx,1);
+  }
+  return pool.length===0;
+}
+function sameFormulas(query                , refs                     )        {
+  return [...query.map(formula)].sort().join('|')===[...refs.map(r=>r.formula)].sort().join('|');
+}
+function conditionMatch(q                             ,r                   )        {
+  if(!q)return true;
+  if(q.tags && !q.tags.every(t=>(r.tags||[]).includes(t))) return false;
+  if(q.medium && q.medium!==r.medium)return false;
+  if(q.solvent && q.solvent!==r.solvent)return false;
+  if(q.electricalCurrent!==undefined && q.electricalCurrent!==r.electricalCurrent)return false;
+  if(q.lightRequired!==undefined && q.lightRequired!==r.lightRequired)return false;
+  return true;
+}
+export class ReactionMatcher{
+  #records                 ;
+          constructor(records                 ){this.#records=records.map(r=>Object.freeze({...r}))}
+  static from(records                 ){
+    const ids=new Set        ();
+    for(const r of records){if(ids.has(r.id))throw new Error('REACTION_DUPLICATE_ID');ids.add(r.id);if(!r.reactants?.length||!r.products?.length||!r.sourceRefs?.length)throw new Error('REACTION_INVALID')}
+    return new ReactionMatcher(records);
+  }
+  match(query                                                           )                    {
+    let candidates=this.#records.filter(r=>sameFormulas(query.reactants,r.reactants)&&phasesCompatible(query.reactants,r.reactants));
+    if(query.conditions)candidates=candidates.filter(r=>conditionMatch(query.conditions,r.conditions));
+    if(!candidates.length)return {modeled:false,code:'REACTION_NOT_MODELED'};
+    if(candidates.length>1)return {modeled:false,code:'REACTION_CONDITION_REQUIRED'};
+    return {modeled:true,reaction:candidates[0]};
+  }
+}

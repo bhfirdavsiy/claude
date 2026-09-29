@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-09-29T10:49:25.710Z",
+  "status": "pass",
+  "viewport": "390x844",
+  "checks": {
+    "standaloneEntry": true,
+    "dynamicHome": true,
+    "noPageHorizontalOverflow": true,
+    "navAvailable": true,
+    "primaryCtaVisible": true,
+    "virtualLabCountVisible": true,
+    "exceptions": true
+  },
+  "state": {
+    "viewport": 390,
+    "pageScrollWidth": 390,
+    "navClientWidth": 358,
+    "navScrollWidth": 537
+  },
+  "screenshot": "reports/visual-regression/standalone-mobile-sinco.png",
+  "exceptionCount": 0
+}

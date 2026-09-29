@@ -1,0 +1,9 @@
+{
+  "status": "pending",
+  "reviewerId": "",
+  "reviewerRole": "Didactic Reviewer",
+  "reviewedVersion": "",
+  "reviewedHash": "",
+  "reviewedAt": "",
+  "notes": "Populate only after real didactic/content representation review. Use reports/stable-signoff-targets.json for the exact version/hash."
+}

@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-09-29T12:30:56.156Z",
+  "gate": {
+    "duplicateCanonicalIds": 0,
+    "unknownRefs": 0,
+    "forwardReverseMismatch": 0,
+    "schemaErrors": 0,
+    "orphanRequiredEntities": 0
+  },
+  "primaryMappings": 122,
+  "details": {
+    "duplicates": [],
+    "unknownRefs": [],
+    "schemaErrors": [],
+    "orphanRequiredEntities": [],
+    "forwardReverseMismatch": []
+  }
+}

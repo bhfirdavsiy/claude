@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "contentVersion",
+    "curriculumVersion",
+    "schemaVersion",
+    "chemistryRulesVersion",
+    "assessmentVersion",
+    "scoringVersion",
+    "createdAt",
+    "checksum",
+    "compatibility",
+    "grades",
+    "files"
+  ],
+  "properties": {
+    "contentVersion": {
+      "type": "string"
+    },
+    "curriculumVersion": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "type": "string"
+    },
+    "chemistryRulesVersion": {
+      "type": "string"
+    },
+    "assessmentVersion": {
+      "type": "string"
+    },
+    "scoringVersion": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string"
+    },
+    "checksum": {
+      "type": "string"
+    },
+    "compatibility": {
+      "type": "object"
+    },
+    "grades": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "files": {
+      "type": "array"
+    }
+  },
+  "additionalProperties": true
+}

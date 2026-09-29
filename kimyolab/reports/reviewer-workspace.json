@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-09-29T12:31:02.154Z",
+  "schema": "kimyolab.reviewer-workspace.v1",
+  "workspaceFingerprint": "e764c28a15d5c51310d8fabb922a5c46abed3f9a6002c4f047065e082ff5961e",
+  "status": "READY",
+  "globalGates": [
+    {
+      "id": "CHEM-033",
+      "version": "1.0.0-rc.1",
+      "hash": "d6d0f5bb34893cc81c1ef84c644caf5640e92c606361b57b20701b315a592195",
+      "readyForReview": true
+    },
+    {
+      "id": "PROD-002",
+      "version": "2026.09.1",
+      "hash": "b0bf3284366d72a8f3c33f821809087dcb5a190bbeb8e05e65b46a1034d199d6",
+      "readyForReview": true
+    },
+    {
+      "id": "VISUAL-001",
+      "version": "production-build:1656cf4f3a6338add96e81fcea306d0e60cf7175227b3d506a015ab74775e435",
+      "hash": "8ee4ab2bca2d7106b1c54e78268122dca93d2bc744f7cc280df629e6f121836f",
+      "readyForReview": false
+    }
+  ],
+  "betaRows": {
+    "beta1": 142,
+    "beta2": 175,
+    "beta3": 67,
+    "total": 384
+  },
+  "approveAllAvailable": false,
+  "sourceMutation": false,
+  "output": "review-packets/reviewer-workspace.html"
+}

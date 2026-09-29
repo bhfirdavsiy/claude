@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "records": [
+    {
+      "electrolyte":"CuCl2","phase":"aq","electrode":"inert",
+      "cathode":{"product":"Cu","observation":"Copper-colored deposit forms at the cathode."},
+      "anode":{"product":"Cl2","observation":"Gas is evolved at the anode; this virtual model does not instruct direct smelling."},
+      "sourceRefs":["src.legacy.9.10"],"reviewStatus":"pending"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "gateId": "CHEM-033",
+  "status": "pending",
+  "reviewerId": "",
+  "reviewerRole": "Chemistry Reviewer",
+  "reviewedVersion": "1.0.0-rc.1",
+  "reviewedHash": "d6d0f5bb34893cc81c1ef84c644caf5640e92c606361b57b20701b315a592195",
+  "reviewedAt": "",
+  "notes": "Review CHEM-033 evidence package before changing status to approved."
+}

@@ -1,0 +1,225 @@
+{
+  "practice.experiment.7.2": {
+    "sliceId": "slice.7.03.separation",
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c007",
+    "scenario": {
+      "id": "scenario.7.03.salt-purification",
+      "steps": [
+        {
+          "id": "apparatus",
+          "dependencies": [],
+          "mode": "required",
+          "actionType": "selectApparatus"
+        },
+        {
+          "id": "water",
+          "dependencies": [
+            "apparatus"
+          ],
+          "mode": "required",
+          "actionType": "addWater"
+        },
+        {
+          "id": "mixture",
+          "dependencies": [
+            "water"
+          ],
+          "mode": "required",
+          "actionType": "addMixture"
+        },
+        {
+          "id": "dissolve",
+          "dependencies": [
+            "mixture"
+          ],
+          "mode": "required",
+          "actionType": "mix"
+        },
+        {
+          "id": "filter",
+          "dependencies": [
+            "dissolve"
+          ],
+          "mode": "required",
+          "actionType": "filter"
+        },
+        {
+          "id": "evaporate",
+          "dependencies": [
+            "filter"
+          ],
+          "mode": "required",
+          "actionType": "evaporate"
+        },
+        {
+          "id": "observe",
+          "dependencies": [
+            "evaporate"
+          ],
+          "mode": "required",
+          "actionType": "observe"
+        }
+      ]
+    }
+  },
+  "practice.simulation.7.07.planned": {
+    "sliceId": "slice.7.07.atom-builder",
+    "type": "simulation",
+    "version": "1.0.0",
+    "conceptId": "concept.c019",
+    "target": {
+      "protons": 6,
+      "neutrons": 8,
+      "electrons": 6,
+      "element": "C",
+      "isotope": "C-14"
+    }
+  },
+  "practice.trainer.7.4": {
+    "sliceId": "slice.7.11.valency-formula",
+    "type": "trainer",
+    "version": "1.0.0",
+    "conceptId": "concept.c031",
+    "questionId": "q.aluminium-oxide",
+    "elementA": "Al",
+    "valencyA": 3,
+    "elementB": "O",
+    "valencyB": 2,
+    "expectedFormula": "Al2O3",
+    "hints": [
+      "trainer.hint.lcm",
+      "trainer.hint.indices",
+      "trainer.hint.partial-al2o3"
+    ]
+  },
+  "practice.calculation.7.5": {
+    "sliceId": "slice.7.12.relative-mass",
+    "type": "calculation",
+    "version": "1.0.0",
+    "conceptId": "concept.c034",
+    "formula": "H2SO4",
+    "atomicMasses": {
+      "H": 1,
+      "S": 32,
+      "O": 16
+    },
+    "steps": [
+      {
+        "id": "h-contribution",
+        "value": 2,
+        "unit": "relative-mass"
+      },
+      {
+        "id": "s-contribution",
+        "value": 32,
+        "unit": "relative-mass"
+      },
+      {
+        "id": "o-contribution",
+        "value": 64,
+        "unit": "relative-mass"
+      },
+      {
+        "id": "total",
+        "value": 98,
+        "unit": "relative-mass"
+      }
+    ]
+  },
+  "practice.case.7.14": {
+    "sliceId": "slice.7.18.air-pollution",
+    "type": "case",
+    "version": "1.0.0",
+    "conceptId": "concept.c052",
+    "allowedEvidenceIds": [
+      "traffic-no2",
+      "industry-so2",
+      "calm-weather"
+    ],
+    "minEvidenceSelections": 2,
+    "justificationThreshold": 0.7,
+    "rubric": {
+      "evidenceUse": 25,
+      "scientificAccuracy": 35,
+      "reasoning": 25,
+      "decisionQuality": 15
+    },
+    "decisionKeywords": [
+      "transport",
+      "emission"
+    ],
+    "scientificKeywords": [
+      "no2",
+      "traffic"
+    ],
+    "reasoningKeywords": [
+      "evidence",
+      "because",
+      "so",
+      "limits dispersion",
+      "supported"
+    ]
+  },
+  "practice.experiment.8.1": {
+    "sliceId": "slice.8.16.chloride-precipitation",
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c114",
+    "reactionId": "rxn.agno3-nacl",
+    "reactants": [
+      {
+        "formula": "AgNO3",
+        "phase": "aq"
+      },
+      {
+        "formula": "NaCl",
+        "phase": "aq"
+      }
+    ],
+    "scenario": {
+      "id": "scenario.8.16.chloride-precipitation",
+      "steps": [
+        {
+          "id": "apparatus",
+          "dependencies": [],
+          "mode": "required",
+          "actionType": "selectApparatus"
+        },
+        {
+          "id": "nacl",
+          "dependencies": [
+            "apparatus"
+          ],
+          "mode": "required",
+          "actionType": "addNaCl"
+        },
+        {
+          "id": "agno3",
+          "dependencies": [
+            "nacl"
+          ],
+          "mode": "required",
+          "actionType": "addAgNO3"
+        },
+        {
+          "id": "observe",
+          "dependencies": [
+            "agno3"
+          ],
+          "mode": "required",
+          "actionType": "observe"
+        },
+        {
+          "id": "record",
+          "dependencies": [
+            "observe"
+          ],
+          "mode": "required",
+          "actionType": "record"
+        }
+      ]
+    }
+  }
+}

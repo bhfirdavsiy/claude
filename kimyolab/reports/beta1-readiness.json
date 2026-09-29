@@ -1,0 +1,635 @@
+{
+  "generatedAt": "2026-09-29T12:31:11.373Z",
+  "totalLearningUnits": 47,
+  "technicalReady": 47,
+  "releaseReady": 0,
+  "technicalErrors": 0,
+  "pendingApprovals": 155,
+  "rows": [
+    {
+      "learningUnitId": "lu.7.01",
+      "legacyId": "7.01",
+      "practiceActivityId": "practice.case.7.01.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.02",
+      "legacyId": "7.02",
+      "practiceActivityId": "practice.simulation.7.02.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.03",
+      "legacyId": "7.03",
+      "practiceActivityId": "practice.experiment.7.2",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.04",
+      "legacyId": "7.04",
+      "practiceActivityId": "practice.experiment.7.6",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.05",
+      "legacyId": "7.05",
+      "practiceActivityId": "practice.experiment.7.3",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.06",
+      "legacyId": "7.06",
+      "practiceActivityId": "practice.simulation.7.06.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.07",
+      "legacyId": "7.07",
+      "practiceActivityId": "practice.simulation.7.07.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.08",
+      "legacyId": "7.08",
+      "practiceActivityId": "practice.trainer.7.08.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.09",
+      "legacyId": "7.09",
+      "practiceActivityId": "practice.calculation.7.09.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.10",
+      "legacyId": "7.10",
+      "practiceActivityId": "practice.simulation.7.10.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.11",
+      "legacyId": "7.11",
+      "practiceActivityId": "practice.trainer.7.4",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.12",
+      "legacyId": "7.12",
+      "practiceActivityId": "practice.calculation.7.5",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.13",
+      "legacyId": "7.13",
+      "practiceActivityId": "practice.simulation.7.13.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.14",
+      "legacyId": "7.14",
+      "practiceActivityId": "practice.calculation.7.5",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.15",
+      "legacyId": "7.15",
+      "practiceActivityId": "practice.trainer.7.15.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.16",
+      "legacyId": "7.16",
+      "practiceActivityId": "practice.simulation.7.16.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.17",
+      "legacyId": "7.17",
+      "practiceActivityId": "practice.simulation.7.17.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.18",
+      "legacyId": "7.18",
+      "practiceActivityId": "practice.case.7.14",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.19",
+      "legacyId": "7.19",
+      "practiceActivityId": "practice.experiment.7.7",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.20",
+      "legacyId": "7.20",
+      "practiceActivityId": "practice.experiment.7.8",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.21",
+      "legacyId": "7.21",
+      "practiceActivityId": "practice.experiment.7.2",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.22",
+      "legacyId": "7.22",
+      "practiceActivityId": "practice.experiment.7.13",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.23",
+      "legacyId": "7.23",
+      "practiceActivityId": "practice.case.7.14",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.8.01",
+      "legacyId": "8.01",
+      "practiceActivityId": "practice.trainer.8.01.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.8.02",
+      "legacyId": "8.02",
+      "practiceActivityId": "practice.simulation.8.02.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.8.03",
+      "legacyId": "8.03",
+      "practiceActivityId": "practice.simulation.8.03.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.8.04",
+      "legacyId": "8.04",
+      "practiceActivityId": "practice.simulation.8.04.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.8.05",
+      "legacyId": "8.05",
+      "practiceActivityId": "practice.simulation.8.05.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.8.06",
+      "legacyId": "8.06",
+      "practiceActivityId": "practice.simulation.8.06.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.8.07",
+      "legacyId": "8.07",
+      "practiceActivityId": "practice.trainer.8.07.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.8.08",
+      "legacyId": "8.08",
+      "practiceActivityId": "practice.trainer.8.08.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.8.09",
+      "legacyId": "8.09",
+      "practiceActivityId": "practice.simulation.8.09.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.8.10",
+      "legacyId": "8.10",
+      "practiceActivityId": "practice.simulation.8.7",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.8.11",
+      "legacyId": "8.11",
+      "practiceActivityId": "practice.simulation.8.7",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.8.12",
+      "legacyId": "8.12",
+      "practiceActivityId": "practice.experiment.8.12.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.8.13",
+      "legacyId": "8.13",
+      "practiceActivityId": "practice.trainer.8.13.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.8.14",
+      "legacyId": "8.14",
+      "practiceActivityId": "practice.trainer.8.14.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.8.15",
+      "legacyId": "8.15",
+      "practiceActivityId": "practice.experiment.8.12",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.8.16",
+      "legacyId": "8.16",
+      "practiceActivityId": "practice.experiment.8.1",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.8.17",
+      "legacyId": "8.17",
+      "practiceActivityId": "practice.calculation.8.17.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.8.18",
+      "legacyId": "8.18",
+      "practiceActivityId": "practice.experiment.8.2",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.8.19",
+      "legacyId": "8.19",
+      "practiceActivityId": "practice.simulation.8.19.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.8.20",
+      "legacyId": "8.20",
+      "practiceActivityId": "practice.simulation.8.20.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.8.21",
+      "legacyId": "8.21",
+      "practiceActivityId": "practice.case.8.21.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.8.22",
+      "legacyId": "8.22",
+      "practiceActivityId": "practice.experiment.8.3",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.8.23",
+      "legacyId": "8.23",
+      "practiceActivityId": "practice.experiment.8.4",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.8.24",
+      "legacyId": "8.24",
+      "practiceActivityId": "practice.experiment.8.5",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    }
+  ]
+}

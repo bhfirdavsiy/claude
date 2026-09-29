@@ -1,0 +1,179 @@
+{
+  "practice.simulation.10.02.structure-theory": {
+    "capability": "organic-structure-model",
+    "type": "simulation",
+    "version": "1.0.0",
+    "conceptId": "concept.c226",
+    "task": "molecule-property",
+    "moleculeId": "methane",
+    "property": "formula",
+    "field": "formula"
+  },
+  "practice.trainer.10.03.planned": {
+    "capability": "organic-valence-model",
+    "type": "trainer",
+    "version": "1.0.0",
+    "conceptId": "concept.c228",
+    "task": "molecule-property",
+    "moleculeId": "methane",
+    "property": "carbonValence"
+  },
+  "practice.simulation.10.04.isomerism": {
+    "capability": "organic-isomerism",
+    "type": "simulation",
+    "version": "1.0.0",
+    "conceptId": "concept.c231",
+    "task": "isomer-count",
+    "formula": "C4H10",
+    "field": "isomerCount"
+  },
+  "practice.trainer.10.06.planned": {
+    "capability": "organic-reaction-template",
+    "type": "trainer",
+    "version": "1.0.0",
+    "conceptId": "concept.c233",
+    "task": "reaction-type",
+    "reactionId": "ethene-bromine-addition"
+  },
+  "practice.trainer.10.07.planned": {
+    "capability": "organic-nomenclature",
+    "type": "trainer",
+    "version": "1.0.0",
+    "conceptId": "concept.c237",
+    "task": "molecule-property",
+    "moleculeId": "butane",
+    "property": "name"
+  },
+  "practice.simulation.10.08.homologous-series": {
+    "capability": "homologous-series",
+    "type": "simulation",
+    "version": "1.0.0",
+    "conceptId": "concept.c240",
+    "task": "homolog-formula",
+    "series": "alkane",
+    "carbonCount": 3,
+    "field": "formula"
+  },
+  "practice.trainer.10.09.planned": {
+    "capability": "organic-isomerism",
+    "type": "trainer",
+    "version": "1.0.0",
+    "conceptId": "concept.c242",
+    "task": "molecule-property",
+    "moleculeId": "2-methylpropane",
+    "property": "name"
+  },
+  "practice.simulation.10.10.planned": {
+    "capability": "organic-reaction-template",
+    "type": "simulation",
+    "version": "1.0.0",
+    "conceptId": "concept.c243",
+    "task": "reaction-product",
+    "reactionId": "methane-chlorination",
+    "productIndex": 0,
+    "field": "product"
+  },
+  "practice.simulation.10.11.planned": {
+    "capability": "cyclic-structure-model",
+    "type": "simulation",
+    "version": "1.0.0",
+    "conceptId": "concept.c245",
+    "task": "molecule-property",
+    "moleculeId": "cyclohexane",
+    "property": "ringSize",
+    "field": "ringSize"
+  },
+  "practice.experiment.10.3": {
+    "capability": "organic-reaction-template",
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c247",
+    "task": "experiment-reaction",
+    "reactionId": "ethene-bromine-addition",
+    "requiredActions": [
+      "generateEthene",
+      "addBromineWater",
+      "record"
+    ]
+  },
+  "practice.simulation.10.13.planned": {
+    "capability": "organic-polymerization",
+    "type": "simulation",
+    "version": "1.0.0",
+    "conceptId": "concept.c250",
+    "task": "reaction-product",
+    "reactionId": "butadiene-polymerization",
+    "productIndex": 0,
+    "field": "product"
+  },
+  "practice.simulation.10.14.planned": {
+    "capability": "organic-addition",
+    "type": "simulation",
+    "version": "1.0.0",
+    "conceptId": "concept.c252",
+    "task": "reaction-product",
+    "reactionId": "ethyne-bromine-addition",
+    "productIndex": 0,
+    "field": "product"
+  },
+  "practice.simulation.10.15.planned": {
+    "capability": "aromatic-structure",
+    "type": "simulation",
+    "version": "1.0.0",
+    "conceptId": "concept.c254",
+    "task": "molecule-property",
+    "moleculeId": "benzene",
+    "property": "aromatic",
+    "field": "aromatic"
+  },
+  "practice.experiment.10.5": {
+    "capability": "organic-qualitative-reaction",
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c261",
+    "task": "experiment-reaction",
+    "reactionId": "glycerol-cuoh2",
+    "requiredActions": [
+      "prepareCuOH2",
+      "addGlycerol",
+      "record"
+    ]
+  },
+  "practice.simulation.10.20.planned": {
+    "capability": "organic-structure-model",
+    "type": "simulation",
+    "version": "1.0.0",
+    "conceptId": "concept.c265",
+    "task": "molecule-property",
+    "moleculeId": "dimethyl-ether",
+    "property": "class",
+    "field": "class"
+  },
+  "practice.experiment.10.8": {
+    "capability": "saponification",
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c274",
+    "task": "experiment-reaction",
+    "reactionId": "fat-saponification",
+    "requiredActions": [
+      "mixFatAlkali",
+      "heat",
+      "observe"
+    ]
+  },
+  "practice.experiment.10.9": {
+    "capability": "carbohydrate-reaction-model",
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c277",
+    "task": "experiment-reaction",
+    "reactionId": "glucose-cuoh2-heating",
+    "requiredActions": [
+      "addCuSO4",
+      "addNaOH",
+      "heat",
+      "observe"
+    ]
+  }
+}

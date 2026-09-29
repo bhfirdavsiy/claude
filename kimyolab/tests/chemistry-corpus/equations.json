@@ -1,0 +1,2048 @@
+{
+  "version": "1.0.0",
+  "kind": "algorithm-regression",
+  "expertApproved": false,
+  "note": "Synthetic atom-balance regression cases. They test the balancer algorithm only and are not evidence that every represented reaction is chemically valid. Expert-approved chemistry corpus remains a release approval item.",
+  "cases": [
+    {
+      "id": "alg.01.li",
+      "equation": "Li + O2 -> Li2O",
+      "expectedCoefficients": [
+        4,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.01.na",
+      "equation": "Na + O2 -> Na2O",
+      "expectedCoefficients": [
+        4,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.01.k",
+      "equation": "K + O2 -> K2O",
+      "expectedCoefficients": [
+        4,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.01.mg",
+      "equation": "Mg + O2 -> Mg2O",
+      "expectedCoefficients": [
+        4,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.01.ca",
+      "equation": "Ca + O2 -> Ca2O",
+      "expectedCoefficients": [
+        4,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.01.al",
+      "equation": "Al + O2 -> Al2O",
+      "expectedCoefficients": [
+        4,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.01.fe",
+      "equation": "Fe + O2 -> Fe2O",
+      "expectedCoefficients": [
+        4,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.01.co",
+      "equation": "Co + O2 -> Co2O",
+      "expectedCoefficients": [
+        4,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.01.ni",
+      "equation": "Ni + O2 -> Ni2O",
+      "expectedCoefficients": [
+        4,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.01.cu",
+      "equation": "Cu + O2 -> Cu2O",
+      "expectedCoefficients": [
+        4,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.01.zn",
+      "equation": "Zn + O2 -> Zn2O",
+      "expectedCoefficients": [
+        4,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.01.ga",
+      "equation": "Ga + O2 -> Ga2O",
+      "expectedCoefficients": [
+        4,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.01.sr",
+      "equation": "Sr + O2 -> Sr2O",
+      "expectedCoefficients": [
+        4,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.01.ba",
+      "equation": "Ba + O2 -> Ba2O",
+      "expectedCoefficients": [
+        4,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.01.sn",
+      "equation": "Sn + O2 -> Sn2O",
+      "expectedCoefficients": [
+        4,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.01.pb",
+      "equation": "Pb + O2 -> Pb2O",
+      "expectedCoefficients": [
+        4,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.01.mn",
+      "equation": "Mn + O2 -> Mn2O",
+      "expectedCoefficients": [
+        4,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.01.cr",
+      "equation": "Cr + O2 -> Cr2O",
+      "expectedCoefficients": [
+        4,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.01.ti",
+      "equation": "Ti + O2 -> Ti2O",
+      "expectedCoefficients": [
+        4,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.01.cd",
+      "equation": "Cd + O2 -> Cd2O",
+      "expectedCoefficients": [
+        4,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.02.li",
+      "equation": "Li + O2 -> LiO",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.02.na",
+      "equation": "Na + O2 -> NaO",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.02.k",
+      "equation": "K + O2 -> KO",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.02.mg",
+      "equation": "Mg + O2 -> MgO",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.02.ca",
+      "equation": "Ca + O2 -> CaO",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.02.al",
+      "equation": "Al + O2 -> AlO",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.02.fe",
+      "equation": "Fe + O2 -> FeO",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.02.co",
+      "equation": "Co + O2 -> CoO",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.02.ni",
+      "equation": "Ni + O2 -> NiO",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.02.cu",
+      "equation": "Cu + O2 -> CuO",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.02.zn",
+      "equation": "Zn + O2 -> ZnO",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.02.ga",
+      "equation": "Ga + O2 -> GaO",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.02.sr",
+      "equation": "Sr + O2 -> SrO",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.02.ba",
+      "equation": "Ba + O2 -> BaO",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.02.sn",
+      "equation": "Sn + O2 -> SnO",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.02.pb",
+      "equation": "Pb + O2 -> PbO",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.02.mn",
+      "equation": "Mn + O2 -> MnO",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.02.cr",
+      "equation": "Cr + O2 -> CrO",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.02.ti",
+      "equation": "Ti + O2 -> TiO",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.02.cd",
+      "equation": "Cd + O2 -> CdO",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.03.li",
+      "equation": "Li + O2 -> Li2O3",
+      "expectedCoefficients": [
+        4,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.03.na",
+      "equation": "Na + O2 -> Na2O3",
+      "expectedCoefficients": [
+        4,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.03.k",
+      "equation": "K + O2 -> K2O3",
+      "expectedCoefficients": [
+        4,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.03.mg",
+      "equation": "Mg + O2 -> Mg2O3",
+      "expectedCoefficients": [
+        4,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.03.ca",
+      "equation": "Ca + O2 -> Ca2O3",
+      "expectedCoefficients": [
+        4,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.03.al",
+      "equation": "Al + O2 -> Al2O3",
+      "expectedCoefficients": [
+        4,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.03.fe",
+      "equation": "Fe + O2 -> Fe2O3",
+      "expectedCoefficients": [
+        4,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.03.co",
+      "equation": "Co + O2 -> Co2O3",
+      "expectedCoefficients": [
+        4,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.03.ni",
+      "equation": "Ni + O2 -> Ni2O3",
+      "expectedCoefficients": [
+        4,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.03.cu",
+      "equation": "Cu + O2 -> Cu2O3",
+      "expectedCoefficients": [
+        4,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.03.zn",
+      "equation": "Zn + O2 -> Zn2O3",
+      "expectedCoefficients": [
+        4,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.03.ga",
+      "equation": "Ga + O2 -> Ga2O3",
+      "expectedCoefficients": [
+        4,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.03.sr",
+      "equation": "Sr + O2 -> Sr2O3",
+      "expectedCoefficients": [
+        4,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.03.ba",
+      "equation": "Ba + O2 -> Ba2O3",
+      "expectedCoefficients": [
+        4,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.03.sn",
+      "equation": "Sn + O2 -> Sn2O3",
+      "expectedCoefficients": [
+        4,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.03.pb",
+      "equation": "Pb + O2 -> Pb2O3",
+      "expectedCoefficients": [
+        4,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.03.mn",
+      "equation": "Mn + O2 -> Mn2O3",
+      "expectedCoefficients": [
+        4,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.03.cr",
+      "equation": "Cr + O2 -> Cr2O3",
+      "expectedCoefficients": [
+        4,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.03.ti",
+      "equation": "Ti + O2 -> Ti2O3",
+      "expectedCoefficients": [
+        4,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.03.cd",
+      "equation": "Cd + O2 -> Cd2O3",
+      "expectedCoefficients": [
+        4,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.04.li",
+      "equation": "Li + Cl2 -> LiCl",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.04.na",
+      "equation": "Na + Cl2 -> NaCl",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.04.k",
+      "equation": "K + Cl2 -> KCl",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.04.mg",
+      "equation": "Mg + Cl2 -> MgCl",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.04.ca",
+      "equation": "Ca + Cl2 -> CaCl",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.04.al",
+      "equation": "Al + Cl2 -> AlCl",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.04.fe",
+      "equation": "Fe + Cl2 -> FeCl",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.04.co",
+      "equation": "Co + Cl2 -> CoCl",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.04.ni",
+      "equation": "Ni + Cl2 -> NiCl",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.04.cu",
+      "equation": "Cu + Cl2 -> CuCl",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.04.zn",
+      "equation": "Zn + Cl2 -> ZnCl",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.04.ga",
+      "equation": "Ga + Cl2 -> GaCl",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.04.sr",
+      "equation": "Sr + Cl2 -> SrCl",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.04.ba",
+      "equation": "Ba + Cl2 -> BaCl",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.04.sn",
+      "equation": "Sn + Cl2 -> SnCl",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.04.pb",
+      "equation": "Pb + Cl2 -> PbCl",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.04.mn",
+      "equation": "Mn + Cl2 -> MnCl",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.04.cr",
+      "equation": "Cr + Cl2 -> CrCl",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.04.ti",
+      "equation": "Ti + Cl2 -> TiCl",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.04.cd",
+      "equation": "Cd + Cl2 -> CdCl",
+      "expectedCoefficients": [
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.05.li",
+      "equation": "Li + Cl2 -> LiCl2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.05.na",
+      "equation": "Na + Cl2 -> NaCl2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.05.k",
+      "equation": "K + Cl2 -> KCl2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.05.mg",
+      "equation": "Mg + Cl2 -> MgCl2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.05.ca",
+      "equation": "Ca + Cl2 -> CaCl2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.05.al",
+      "equation": "Al + Cl2 -> AlCl2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.05.fe",
+      "equation": "Fe + Cl2 -> FeCl2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.05.co",
+      "equation": "Co + Cl2 -> CoCl2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.05.ni",
+      "equation": "Ni + Cl2 -> NiCl2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.05.cu",
+      "equation": "Cu + Cl2 -> CuCl2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.05.zn",
+      "equation": "Zn + Cl2 -> ZnCl2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.05.ga",
+      "equation": "Ga + Cl2 -> GaCl2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.05.sr",
+      "equation": "Sr + Cl2 -> SrCl2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.05.ba",
+      "equation": "Ba + Cl2 -> BaCl2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.05.sn",
+      "equation": "Sn + Cl2 -> SnCl2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.05.pb",
+      "equation": "Pb + Cl2 -> PbCl2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.05.mn",
+      "equation": "Mn + Cl2 -> MnCl2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.05.cr",
+      "equation": "Cr + Cl2 -> CrCl2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.05.ti",
+      "equation": "Ti + Cl2 -> TiCl2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.05.cd",
+      "equation": "Cd + Cl2 -> CdCl2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.06.li",
+      "equation": "Li + Cl2 -> LiCl3",
+      "expectedCoefficients": [
+        2,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.06.na",
+      "equation": "Na + Cl2 -> NaCl3",
+      "expectedCoefficients": [
+        2,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.06.k",
+      "equation": "K + Cl2 -> KCl3",
+      "expectedCoefficients": [
+        2,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.06.mg",
+      "equation": "Mg + Cl2 -> MgCl3",
+      "expectedCoefficients": [
+        2,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.06.ca",
+      "equation": "Ca + Cl2 -> CaCl3",
+      "expectedCoefficients": [
+        2,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.06.al",
+      "equation": "Al + Cl2 -> AlCl3",
+      "expectedCoefficients": [
+        2,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.06.fe",
+      "equation": "Fe + Cl2 -> FeCl3",
+      "expectedCoefficients": [
+        2,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.06.co",
+      "equation": "Co + Cl2 -> CoCl3",
+      "expectedCoefficients": [
+        2,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.06.ni",
+      "equation": "Ni + Cl2 -> NiCl3",
+      "expectedCoefficients": [
+        2,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.06.cu",
+      "equation": "Cu + Cl2 -> CuCl3",
+      "expectedCoefficients": [
+        2,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.06.zn",
+      "equation": "Zn + Cl2 -> ZnCl3",
+      "expectedCoefficients": [
+        2,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.06.ga",
+      "equation": "Ga + Cl2 -> GaCl3",
+      "expectedCoefficients": [
+        2,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.06.sr",
+      "equation": "Sr + Cl2 -> SrCl3",
+      "expectedCoefficients": [
+        2,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.06.ba",
+      "equation": "Ba + Cl2 -> BaCl3",
+      "expectedCoefficients": [
+        2,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.06.sn",
+      "equation": "Sn + Cl2 -> SnCl3",
+      "expectedCoefficients": [
+        2,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.06.pb",
+      "equation": "Pb + Cl2 -> PbCl3",
+      "expectedCoefficients": [
+        2,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.06.mn",
+      "equation": "Mn + Cl2 -> MnCl3",
+      "expectedCoefficients": [
+        2,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.06.cr",
+      "equation": "Cr + Cl2 -> CrCl3",
+      "expectedCoefficients": [
+        2,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.06.ti",
+      "equation": "Ti + Cl2 -> TiCl3",
+      "expectedCoefficients": [
+        2,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.06.cd",
+      "equation": "Cd + Cl2 -> CdCl3",
+      "expectedCoefficients": [
+        2,
+        3,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.07.li",
+      "equation": "Li2CO3 -> Li2O + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.07.na",
+      "equation": "Na2CO3 -> Na2O + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.07.k",
+      "equation": "K2CO3 -> K2O + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.07.mg",
+      "equation": "Mg2CO3 -> Mg2O + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.07.ca",
+      "equation": "Ca2CO3 -> Ca2O + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.07.al",
+      "equation": "Al2CO3 -> Al2O + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.07.fe",
+      "equation": "Fe2CO3 -> Fe2O + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.07.co",
+      "equation": "Co2CO3 -> Co2O + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.07.ni",
+      "equation": "Ni2CO3 -> Ni2O + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.07.cu",
+      "equation": "Cu2CO3 -> Cu2O + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.07.zn",
+      "equation": "Zn2CO3 -> Zn2O + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.07.ga",
+      "equation": "Ga2CO3 -> Ga2O + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.07.sr",
+      "equation": "Sr2CO3 -> Sr2O + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.07.ba",
+      "equation": "Ba2CO3 -> Ba2O + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.07.sn",
+      "equation": "Sn2CO3 -> Sn2O + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.07.pb",
+      "equation": "Pb2CO3 -> Pb2O + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.07.mn",
+      "equation": "Mn2CO3 -> Mn2O + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.07.cr",
+      "equation": "Cr2CO3 -> Cr2O + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.07.ti",
+      "equation": "Ti2CO3 -> Ti2O + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.07.cd",
+      "equation": "Cd2CO3 -> Cd2O + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.08.li",
+      "equation": "LiCO3 -> LiO + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.08.na",
+      "equation": "NaCO3 -> NaO + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.08.k",
+      "equation": "KCO3 -> KO + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.08.mg",
+      "equation": "MgCO3 -> MgO + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.08.ca",
+      "equation": "CaCO3 -> CaO + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.08.al",
+      "equation": "AlCO3 -> AlO + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.08.fe",
+      "equation": "FeCO3 -> FeO + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.08.co",
+      "equation": "CoCO3 -> CoO + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.08.ni",
+      "equation": "NiCO3 -> NiO + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.08.cu",
+      "equation": "CuCO3 -> CuO + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.08.zn",
+      "equation": "ZnCO3 -> ZnO + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.08.ga",
+      "equation": "GaCO3 -> GaO + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.08.sr",
+      "equation": "SrCO3 -> SrO + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.08.ba",
+      "equation": "BaCO3 -> BaO + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.08.sn",
+      "equation": "SnCO3 -> SnO + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.08.pb",
+      "equation": "PbCO3 -> PbO + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.08.mn",
+      "equation": "MnCO3 -> MnO + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.08.cr",
+      "equation": "CrCO3 -> CrO + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.08.ti",
+      "equation": "TiCO3 -> TiO + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.08.cd",
+      "equation": "CdCO3 -> CdO + CO2",
+      "expectedCoefficients": [
+        1,
+        1,
+        1
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.09.li",
+      "equation": "Li(OH)2 + HCl -> LiCl2 + H2O",
+      "expectedCoefficients": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.09.na",
+      "equation": "Na(OH)2 + HCl -> NaCl2 + H2O",
+      "expectedCoefficients": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.09.k",
+      "equation": "K(OH)2 + HCl -> KCl2 + H2O",
+      "expectedCoefficients": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.09.mg",
+      "equation": "Mg(OH)2 + HCl -> MgCl2 + H2O",
+      "expectedCoefficients": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.09.ca",
+      "equation": "Ca(OH)2 + HCl -> CaCl2 + H2O",
+      "expectedCoefficients": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.09.al",
+      "equation": "Al(OH)2 + HCl -> AlCl2 + H2O",
+      "expectedCoefficients": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.09.fe",
+      "equation": "Fe(OH)2 + HCl -> FeCl2 + H2O",
+      "expectedCoefficients": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.09.co",
+      "equation": "Co(OH)2 + HCl -> CoCl2 + H2O",
+      "expectedCoefficients": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.09.ni",
+      "equation": "Ni(OH)2 + HCl -> NiCl2 + H2O",
+      "expectedCoefficients": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.09.cu",
+      "equation": "Cu(OH)2 + HCl -> CuCl2 + H2O",
+      "expectedCoefficients": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.09.zn",
+      "equation": "Zn(OH)2 + HCl -> ZnCl2 + H2O",
+      "expectedCoefficients": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.09.ga",
+      "equation": "Ga(OH)2 + HCl -> GaCl2 + H2O",
+      "expectedCoefficients": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.09.sr",
+      "equation": "Sr(OH)2 + HCl -> SrCl2 + H2O",
+      "expectedCoefficients": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.09.ba",
+      "equation": "Ba(OH)2 + HCl -> BaCl2 + H2O",
+      "expectedCoefficients": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.09.sn",
+      "equation": "Sn(OH)2 + HCl -> SnCl2 + H2O",
+      "expectedCoefficients": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.09.pb",
+      "equation": "Pb(OH)2 + HCl -> PbCl2 + H2O",
+      "expectedCoefficients": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.09.mn",
+      "equation": "Mn(OH)2 + HCl -> MnCl2 + H2O",
+      "expectedCoefficients": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.09.cr",
+      "equation": "Cr(OH)2 + HCl -> CrCl2 + H2O",
+      "expectedCoefficients": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.09.ti",
+      "equation": "Ti(OH)2 + HCl -> TiCl2 + H2O",
+      "expectedCoefficients": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.09.cd",
+      "equation": "Cd(OH)2 + HCl -> CdCl2 + H2O",
+      "expectedCoefficients": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.10.li",
+      "equation": "Li2O3 + HCl -> LiCl3 + H2O",
+      "expectedCoefficients": [
+        1,
+        6,
+        2,
+        3
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.10.na",
+      "equation": "Na2O3 + HCl -> NaCl3 + H2O",
+      "expectedCoefficients": [
+        1,
+        6,
+        2,
+        3
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.10.k",
+      "equation": "K2O3 + HCl -> KCl3 + H2O",
+      "expectedCoefficients": [
+        1,
+        6,
+        2,
+        3
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.10.mg",
+      "equation": "Mg2O3 + HCl -> MgCl3 + H2O",
+      "expectedCoefficients": [
+        1,
+        6,
+        2,
+        3
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.10.ca",
+      "equation": "Ca2O3 + HCl -> CaCl3 + H2O",
+      "expectedCoefficients": [
+        1,
+        6,
+        2,
+        3
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.10.al",
+      "equation": "Al2O3 + HCl -> AlCl3 + H2O",
+      "expectedCoefficients": [
+        1,
+        6,
+        2,
+        3
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.10.fe",
+      "equation": "Fe2O3 + HCl -> FeCl3 + H2O",
+      "expectedCoefficients": [
+        1,
+        6,
+        2,
+        3
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.10.co",
+      "equation": "Co2O3 + HCl -> CoCl3 + H2O",
+      "expectedCoefficients": [
+        1,
+        6,
+        2,
+        3
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.10.ni",
+      "equation": "Ni2O3 + HCl -> NiCl3 + H2O",
+      "expectedCoefficients": [
+        1,
+        6,
+        2,
+        3
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.10.cu",
+      "equation": "Cu2O3 + HCl -> CuCl3 + H2O",
+      "expectedCoefficients": [
+        1,
+        6,
+        2,
+        3
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.10.zn",
+      "equation": "Zn2O3 + HCl -> ZnCl3 + H2O",
+      "expectedCoefficients": [
+        1,
+        6,
+        2,
+        3
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.10.ga",
+      "equation": "Ga2O3 + HCl -> GaCl3 + H2O",
+      "expectedCoefficients": [
+        1,
+        6,
+        2,
+        3
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.10.sr",
+      "equation": "Sr2O3 + HCl -> SrCl3 + H2O",
+      "expectedCoefficients": [
+        1,
+        6,
+        2,
+        3
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.10.ba",
+      "equation": "Ba2O3 + HCl -> BaCl3 + H2O",
+      "expectedCoefficients": [
+        1,
+        6,
+        2,
+        3
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.10.sn",
+      "equation": "Sn2O3 + HCl -> SnCl3 + H2O",
+      "expectedCoefficients": [
+        1,
+        6,
+        2,
+        3
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.10.pb",
+      "equation": "Pb2O3 + HCl -> PbCl3 + H2O",
+      "expectedCoefficients": [
+        1,
+        6,
+        2,
+        3
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.10.mn",
+      "equation": "Mn2O3 + HCl -> MnCl3 + H2O",
+      "expectedCoefficients": [
+        1,
+        6,
+        2,
+        3
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.10.cr",
+      "equation": "Cr2O3 + HCl -> CrCl3 + H2O",
+      "expectedCoefficients": [
+        1,
+        6,
+        2,
+        3
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.10.ti",
+      "equation": "Ti2O3 + HCl -> TiCl3 + H2O",
+      "expectedCoefficients": [
+        1,
+        6,
+        2,
+        3
+      ],
+      "validationStatus": "algorithm-regression-only"
+    },
+    {
+      "id": "alg.10.cd",
+      "equation": "Cd2O3 + HCl -> CdCl3 + H2O",
+      "expectedCoefficients": [
+        1,
+        6,
+        2,
+        3
+      ],
+      "validationStatus": "algorithm-regression-only"
+    }
+  ]
+}

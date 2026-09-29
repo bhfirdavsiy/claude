@@ -1,0 +1,30 @@
+{
+  "phase": 10,
+  "name": "Beta3 Grade 11",
+  "technicalGate": "green",
+  "releaseGate": "yellow",
+  "curriculum": {
+    "beta1": {"total": 47, "technicalReady": 47},
+    "beta2": {"total": 53, "technicalReady": 53},
+    "beta3": {"total": 22, "technicalReady": 22},
+    "total": {"learningUnits": 122, "technicalReady": 122}
+  },
+  "verification": {
+    "phase8Verify": {"exitCode": 0},
+    "beta2Tests": {"pass": 41, "fail": 0},
+    "beta3Tests": {"pass": 24, "fail": 0},
+    "fullRegression": {"pass": 238, "fail": 0},
+    "beta3TechnicalErrors": 0,
+    "beta3PendingApprovals": 67,
+    "releaseTechnicalReady": true,
+    "releaseReady": false
+  },
+  "releaseBlockers": [
+    "CHEMISTRY_EXPERT_APPROVAL_PENDING",
+    "BETA1_APPROVALS_PENDING",
+    "BETA2_APPROVALS_PENDING",
+    "BETA3_APPROVALS_PENDING",
+    "LICENSING_PENDING",
+    "BROWSER_GATES_PENDING"
+  ]
+}

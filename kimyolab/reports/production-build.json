@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-09-29T10:48:59.088Z",
+  "builder": "dependency-free production pack",
+  "entry": "index.html",
+  "fileCount": 146,
+  "sha256": "1656cf4f3a6338add96e81fcea306d0e60cf7175227b3d506a015ab74775e435",
+  "deployFileCount": 145,
+  "deploySurfaceSha256": "c19ba7710e9430d82ea8b9eeac215560cea5311da9d3a07c417ae071285061a4",
+  "requiredFiles": [
+    "app.html",
+    "index.html",
+    "app-preview/app/bootstrap.js",
+    "content/manifest.json"
+  ],
+  "valid": true
+}

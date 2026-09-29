@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "conceptIds",
+    "explanationBlocks",
+    "representationModes",
+    "misconceptionCheckIds",
+    "lifecycleStatus",
+    "approvals",
+    "version",
+    "legacyIds"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "conceptIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "explanationBlocks": {
+      "type": "array"
+    },
+    "representationModes": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "macro",
+          "micro",
+          "symbolic"
+        ]
+      }
+    },
+    "interactionType": {
+      "type": "string"
+    },
+    "interactionConfig": {
+      "type": "object"
+    },
+    "misconceptionCheckIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "lifecycleStatus": {
+      "enum": [
+        "draft",
+        "planned",
+        "in_progress",
+        "implemented",
+        "ready",
+        "deprecated"
+      ]
+    },
+    "approvals": {
+      "type": "object"
+    },
+    "version": {
+      "type": "string"
+    },
+    "legacyIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

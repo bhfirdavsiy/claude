@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "records": [
+    {"salt":"AlCl3","medium":"acidic","explanation":"Aluminium(III) salt solution is modeled as acidic in the curriculum-bounded hydrolysis set.","sourceRefs":["src.curriculum.9.06"],"reviewStatus":"pending"},
+    {"salt":"Na2CO3","medium":"basic","explanation":"Carbonate hydrolysis is modeled as producing a basic solution in the curriculum-bounded set.","sourceRefs":["src.curriculum.9.06"],"reviewStatus":"pending"},
+    {"salt":"NaCl","medium":"neutral","explanation":"A salt of a strong acid and strong base is modeled as approximately neutral in this school-level set.","sourceRefs":["src.curriculum.9.06"],"reviewStatus":"pending"},
+    {"salt":"NH4Cl","medium":"acidic","explanation":"Ammonium salt hydrolysis is modeled as acidic in this school-level set.","sourceRefs":["src.curriculum.9.06"],"reviewStatus":"pending"}
+  ]
+}

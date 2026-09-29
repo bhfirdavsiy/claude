@@ -1,0 +1,74 @@
+[
+  {
+    "Tushuncha": "Lab",
+    "Ta’rif": "Kimyoviy/fizik jarayonni tajriba ketma-ketligida bajarish",
+    "Qachon qo‘llanadi": "Makrohodisa, reagent va jihoz mavjud bo‘lsa",
+    "Misol": "Zn(OH)2 olish",
+    "TT talabi": "action → observation → reason → equation",
+    "Izoh": "Virtual laboratoriya state-machine bilan ishlashi kerak"
+  },
+  {
+    "Tushuncha": "Simulyatsiya",
+    "Ta’rif": "Ko‘rinmaydigan yoki xavfli jarayonni interaktiv modelda ko‘rsatish",
+    "Qachon qo‘llanadi": "Atom, ion, bog‘lanish, trend, muvozanat, sanoat jarayoni",
+    "Misol": "Elektron qavatlar",
+    "TT talabi": "interactionConfig bilan maxsus renderer",
+    "Izoh": "Generic vizual maxsus activity o‘rnini bosmasin"
+  },
+  {
+    "Tushuncha": "Trenajyor",
+    "Ta’rif": "Qoidani ko‘p misolda faol mashq qilish",
+    "Qachon qo‘llanadi": "Formula, valentlik, tenglama, nomenklatura, ionli tenglama",
+    "Misol": "Tenglama balanslash",
+    "TT talabi": "savol → javob → feedback → explanation",
+    "Izoh": "Hardcode javoblar taqiqlanadi"
+  },
+  {
+    "Tushuncha": "Hisoblash",
+    "Ta’rif": "Sonli bog‘lanish va masalalarni yechish",
+    "Qachon qo‘llanadi": "Mol, massa, hajm, konsentratsiya, Faradey qonuni",
+    "Misol": "m–n–M",
+    "TT talabi": "birliklar bilan bosqichli yechim",
+    "Izoh": "Natija va yechim bosqichlari tekshiriladi"
+  },
+  {
+    "Tushuncha": "Case",
+    "Ta’rif": "Bilimni real hayotiy/problemali vaziyatda qo‘llash",
+    "Qachon qo‘llanadi": "Ekologiya, ishlab chiqarish, resurslar, materiallar",
+    "Misol": "Korroziyani kamaytirish",
+    "TT talabi": "muammo → dalil → tanlov → asoslash",
+    "Izoh": "Transfer/evaluate darajasini tekshiradi"
+  },
+  {
+    "Tushuncha": "Mavjud",
+    "Ta’rif": "Mos amaliy faoliyat katalogda mavjud",
+    "Qachon qo‘llanadi": "To‘g‘ridan-to‘g‘ri mapping bo‘lsa",
+    "Misol": "8.16 ↔ 8.1/8.8/8.9/8.10/8.11",
+    "TT talabi": null,
+    "Izoh": null
+  },
+  {
+    "Tushuncha": "Qisman mavjud",
+    "Ta’rif": "Mavjud activity mavzuning faqat bir qismini qoplaydi",
+    "Qachon qo‘llanadi": "Qo‘shimcha activity kerak bo‘lsa",
+    "Misol": "9.18 ↔ 9.2 + suv qattiqligi modeli",
+    "TT talabi": null,
+    "Izoh": null
+  },
+  {
+    "Tushuncha": "Yangi kerak",
+    "Ta’rif": "Mos activity katalogda yo‘q",
+    "Qachon qo‘llanadi": "Yangi activity ishlab chiqish zarur",
+    "Misol": "11.19 redoks yarim reaksiya trenajyori",
+    "TT talabi": null,
+    "Izoh": null
+  },
+  {
+    "Tushuncha": "Many-to-many",
+    "Ta’rif": "Bir nazariya ko‘p amaliyotga, bir amaliyot ko‘p nazariyaga ulanadi",
+    "Qachon qo‘llanadi": "Integratsion mavzularda",
+    "Misol": "9.05 ↔ bir nechta ion almashinish tajribalari",
+    "TT talabi": "conceptIds[] + practiceLinks[]",
+    "Izoh": "1:1 mapping majburiy emas"
+  }
+]

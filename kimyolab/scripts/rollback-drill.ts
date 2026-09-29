@@ -1,0 +1,15 @@
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import {promoteRelease,rollbackRelease,readCurrentRelease} from './release-registry.ts';
+const temp=fs.mkdtempSync(path.join(os.tmpdir(),'kimyolab-full-rollback-drill-'));
+const mk=(id:string,mark:string)=>{const d=path.join(temp,'bundles',id);fs.mkdirSync(d,{recursive:true});fs.writeFileSync(path.join(d,'index.html'),mark);fs.writeFileSync(path.join(d,'release-manifest.json'),JSON.stringify({releaseId:id,files:[]},null,2));return d;};
+const r1=mk('drill-1','one'); const r2=mk('drill-2','two');
+promoteRelease(path.join(temp,'registry'),'drill-1',r1); promoteRelease(path.join(temp,'registry'),'drill-2',r2); rollbackRelease(path.join(temp,'registry'));
+const current=readCurrentRelease(path.join(temp,'registry'));
+const result={valid:current.activeRelease==='drill-1'&&current.previousRelease==='drill-2',activeRelease:current.activeRelease,previousRelease:current.previousRelease};
+const projectRoot=path.resolve(path.dirname(new URL(import.meta.url).pathname),'..');
+fs.mkdirSync(path.join(projectRoot,'reports'),{recursive:true});
+fs.writeFileSync(path.join(projectRoot,'reports/release-rollback-drill.json'),`${JSON.stringify(result,null,2)}\n`,'utf8');
+console.log(JSON.stringify(result));
+if(!result.valid) process.exitCode=1;

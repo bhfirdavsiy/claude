@@ -1,0 +1,222 @@
+[
+  {
+    "learningUnitId": "lu.11.01",
+    "legacyId": "11.01",
+    "grade": 11,
+    "primaryPracticeId": "practice.simulation.11.01.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "atomic-orbital-model"
+    ]
+  },
+  {
+    "learningUnitId": "lu.11.02",
+    "legacyId": "11.02",
+    "grade": 11,
+    "primaryPracticeId": "practice.simulation.11.02.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "periodic-trend-model"
+    ]
+  },
+  {
+    "learningUnitId": "lu.11.03",
+    "legacyId": "11.03",
+    "grade": 11,
+    "primaryPracticeId": "practice.simulation.11.03.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "nuclear-equation"
+    ]
+  },
+  {
+    "learningUnitId": "lu.11.04",
+    "legacyId": "11.04",
+    "grade": 11,
+    "primaryPracticeId": "practice.simulation.11.04.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "bonding-crystal-model"
+    ]
+  },
+  {
+    "learningUnitId": "lu.11.05",
+    "legacyId": "11.05",
+    "grade": 11,
+    "primaryPracticeId": "practice.calculation.11.05.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "stoichiometry-quantity"
+    ]
+  },
+  {
+    "learningUnitId": "lu.11.06",
+    "legacyId": "11.06",
+    "grade": 11,
+    "primaryPracticeId": "practice.calculation.11.06.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "gas-mixture-avogadro"
+    ]
+  },
+  {
+    "learningUnitId": "lu.11.07",
+    "legacyId": "11.07",
+    "grade": 11,
+    "primaryPracticeId": "practice.calculation.11.07.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "equivalent-calculation"
+    ]
+  },
+  {
+    "learningUnitId": "lu.11.08",
+    "legacyId": "11.08",
+    "grade": 11,
+    "primaryPracticeId": "practice.calculation.11.08.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "ideal-gas-law"
+    ]
+  },
+  {
+    "learningUnitId": "lu.11.09",
+    "legacyId": "11.09",
+    "grade": 11,
+    "primaryPracticeId": "practice.simulation.11.09.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "electrolyte-strength"
+    ]
+  },
+  {
+    "learningUnitId": "lu.11.10",
+    "legacyId": "11.10",
+    "grade": 11,
+    "primaryPracticeId": "practice.trainer.11.10.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "ionic-equation"
+    ]
+  },
+  {
+    "learningUnitId": "lu.11.11",
+    "legacyId": "11.11",
+    "grade": 11,
+    "primaryPracticeId": "practice.simulation.11.11.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "hydrolysis"
+    ]
+  },
+  {
+    "learningUnitId": "lu.11.12",
+    "legacyId": "11.12",
+    "grade": 11,
+    "primaryPracticeId": "practice.simulation.11.12.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "solubility-curve"
+    ]
+  },
+  {
+    "learningUnitId": "lu.11.13",
+    "legacyId": "11.13",
+    "grade": 11,
+    "primaryPracticeId": "practice.calculation.11.13.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "percent-concentration"
+    ]
+  },
+  {
+    "learningUnitId": "lu.11.14",
+    "legacyId": "11.14",
+    "grade": 11,
+    "primaryPracticeId": "practice.calculation.11.14.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "molar-normal-concentration"
+    ]
+  },
+  {
+    "learningUnitId": "lu.11.15",
+    "legacyId": "11.15",
+    "grade": 11,
+    "primaryPracticeId": "practice.simulation.11.15.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "reaction-rate"
+    ]
+  },
+  {
+    "learningUnitId": "lu.11.16",
+    "legacyId": "11.16",
+    "grade": 11,
+    "primaryPracticeId": "practice.simulation.11.16.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "kinetics-factors"
+    ]
+  },
+  {
+    "learningUnitId": "lu.11.17",
+    "legacyId": "11.17",
+    "grade": 11,
+    "primaryPracticeId": "practice.simulation.11.17.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "dynamic-equilibrium"
+    ]
+  },
+  {
+    "learningUnitId": "lu.11.18",
+    "legacyId": "11.18",
+    "grade": 11,
+    "primaryPracticeId": "practice.simulation.11.18.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "le-chatelier"
+    ]
+  },
+  {
+    "learningUnitId": "lu.11.19",
+    "legacyId": "11.19",
+    "grade": 11,
+    "primaryPracticeId": "practice.trainer.11.19.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "redox-half-reaction"
+    ]
+  },
+  {
+    "learningUnitId": "lu.11.20",
+    "legacyId": "11.20",
+    "grade": 11,
+    "primaryPracticeId": "practice.simulation.11.20.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "medium-redox"
+    ]
+  },
+  {
+    "learningUnitId": "lu.11.21",
+    "legacyId": "11.21",
+    "grade": 11,
+    "primaryPracticeId": "practice.experiment.11.2",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "electrolysis"
+    ]
+  },
+  {
+    "learningUnitId": "lu.11.22",
+    "legacyId": "11.22",
+    "grade": 11,
+    "primaryPracticeId": "practice.calculation.11.22.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "faraday-law"
+    ]
+  }
+]

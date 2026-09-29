@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-09-20T14:24:27.436Z",
+  "technicalReady": true,
+  "releaseReady": false,
+  "blockers": [
+    "CHEMISTRY_EXPERT_APPROVAL_PENDING",
+    "BETA1_APPROVALS_PENDING",
+    "BETA2_APPROVALS_PENDING",
+    "BETA3_APPROVALS_PENDING",
+    "BROWSER_GATES_PENDING"
+  ],
+  "licensingSource": "reports/release-licensing.json",
+  "browser": {
+    "viteBuild": {
+      "status": "blocked",
+      "reason": "VITE_BINARY_UNAVAILABLE_IN_EXECUTION_ENVIRONMENT"
+    },
+    "e2e": {
+      "status": "blocked",
+      "reason": "MANAGED_CHROMIUM_URL_BLOCKLIST"
+    },
+    "visual": {
+      "status": "blocked",
+      "reason": "MANAGED_CHROMIUM_URL_BLOCKLIST"
+    },
+    "accessibility": {
+      "status": "blocked",
+      "reason": "MANAGED_CHROMIUM_URL_BLOCKLIST"
+    },
+    "webVitals": {
+      "status": "pending",
+      "reason": "REAL_BROWSER_REQUIRED"
+    }
+  }
+}

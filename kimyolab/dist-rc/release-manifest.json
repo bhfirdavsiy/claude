@@ -1,0 +1,876 @@
+{
+  "releaseId": "rc-2026.09",
+  "createdAt": "2026-09-29T10:48:57.944Z",
+  "files": [
+    {
+      "path": "app-preview/app/app-version.js",
+      "sourcePath": "public/app-preview/app/app-version.js",
+      "checksum": "f23ac756c592049761c23498c98738f766285248d89507b567fa2ce5f0b2cc3e",
+      "size": 118
+    },
+    {
+      "path": "app-preview/app/bootstrap.js",
+      "sourcePath": "public/app-preview/app/bootstrap.js",
+      "checksum": "a028ef70ce5e0e188c2bd442add1d28acf762f25c1bd21af9e7287f1c7f14d9c",
+      "size": 5999
+    },
+    {
+      "path": "app-preview/app/content-client.js",
+      "sourcePath": "public/app-preview/app/content-client.js",
+      "checksum": "87428e4e318192e91d6a3541e7860a55c2f8e4a7585ff7f6c2a876f96ea72084",
+      "size": 13739
+    },
+    {
+      "path": "app-preview/app/routes.js",
+      "sourcePath": "public/app-preview/app/routes.js",
+      "checksum": "9262b641e3260cad20e6fa5d19777826915be9a44a5e0804ce01dd8c2abae617",
+      "size": 2000
+    },
+    {
+      "path": "app-preview/domain/assessment/scoring.js",
+      "sourcePath": "public/app-preview/domain/assessment/scoring.js",
+      "checksum": "13e1b288f2871f40da56ccf45988f32195bc76c357586aedd925d87991d7f7ef",
+      "size": 1837
+    },
+    {
+      "path": "app-preview/domain/chemistry/electrolysis-model.js",
+      "sourcePath": "public/app-preview/domain/chemistry/electrolysis-model.js",
+      "checksum": "4122bd8ad885c4564a18b677787d19b2e93730ab73c9fd5764612e5e6d80939d",
+      "size": 1579
+    },
+    {
+      "path": "app-preview/domain/chemistry/electron-configuration.js",
+      "sourcePath": "public/app-preview/domain/chemistry/electron-configuration.js",
+      "checksum": "86d63807c72fd19441215997a24dc2ce01324c08a521e4b9d4de52e73286f79f",
+      "size": 606
+    },
+    {
+      "path": "app-preview/domain/chemistry/equation-balancer.js",
+      "sourcePath": "public/app-preview/domain/chemistry/equation-balancer.js",
+      "checksum": "037df2c9db5a2e0be55141c56e79dfb5d55e61d347849d5cd134825736b6b310",
+      "size": 3718
+    },
+    {
+      "path": "app-preview/domain/chemistry/equilibrium-model.js",
+      "sourcePath": "public/app-preview/domain/chemistry/equilibrium-model.js",
+      "checksum": "48e8a34b65065216136c0fc912bd23ed57a6bd07609ed863b403b25c3ccb5ef3",
+      "size": 1080
+    },
+    {
+      "path": "app-preview/domain/chemistry/faraday-model.js",
+      "sourcePath": "public/app-preview/domain/chemistry/faraday-model.js",
+      "checksum": "2a6a285809a165c9275ca27e25fb2bec8af614fd768dd14402abaec446cd720f",
+      "size": 409
+    },
+    {
+      "path": "app-preview/domain/chemistry/formula-parser.js",
+      "sourcePath": "public/app-preview/domain/chemistry/formula-parser.js",
+      "checksum": "9b35d43351bd1610fc568da96b8d3a91023927a56e20c73d40bfce3d143a67de",
+      "size": 5273
+    },
+    {
+      "path": "app-preview/domain/chemistry/gas-laws.js",
+      "sourcePath": "public/app-preview/domain/chemistry/gas-laws.js",
+      "checksum": "8156a624dcc56a36dbe85e6d863a87da6340ff25afff4d666d893a73c53f16f9",
+      "size": 519
+    },
+    {
+      "path": "app-preview/domain/chemistry/hydrolysis-model.js",
+      "sourcePath": "public/app-preview/domain/chemistry/hydrolysis-model.js",
+      "checksum": "542e57aa5079344453d55b55287f042fde5c2b9c4df1d78d4dfa78bb59bb7e52",
+      "size": 1234
+    },
+    {
+      "path": "app-preview/domain/chemistry/ionic-engine.js",
+      "sourcePath": "public/app-preview/domain/chemistry/ionic-engine.js",
+      "checksum": "2b977e10bdbbee1ad37189823b8fda19d67169e59e79a0d5b6dbd81a97c6e87a",
+      "size": 2822
+    },
+    {
+      "path": "app-preview/domain/chemistry/kinetics-model.js",
+      "sourcePath": "public/app-preview/domain/chemistry/kinetics-model.js",
+      "checksum": "caf18f6a4444c7c76def59811883ed90b5f18f9b8d426952525fcfd6cba40a00",
+      "size": 1343
+    },
+    {
+      "path": "app-preview/domain/chemistry/manganese-redox-model.js",
+      "sourcePath": "public/app-preview/domain/chemistry/manganese-redox-model.js",
+      "checksum": "c7ad39f649b12b00cc79cffff98f1ed116a6c2f322c0ec93092fe901126dd8d8",
+      "size": 1034
+    },
+    {
+      "path": "app-preview/domain/chemistry/nuclear-equation.js",
+      "sourcePath": "public/app-preview/domain/chemistry/nuclear-equation.js",
+      "checksum": "890e10aa846df21037ca1639cb27f270d9919b8ca56c2141c7f185ac12adef08",
+      "size": 421
+    },
+    {
+      "path": "app-preview/domain/chemistry/organic-knowledge.js",
+      "sourcePath": "public/app-preview/domain/chemistry/organic-knowledge.js",
+      "checksum": "4651ac86d2c71cf58ff24529bc942ec948d3df9708eaa87f44d5f0f8407c004b",
+      "size": 4092
+    },
+    {
+      "path": "app-preview/domain/chemistry/quantity.js",
+      "sourcePath": "public/app-preview/domain/chemistry/quantity.js",
+      "checksum": "3d20d2f205302538507275c45124c8765b672baf526d29554dc44dc5875e6d32",
+      "size": 2171
+    },
+    {
+      "path": "app-preview/domain/chemistry/rational.js",
+      "sourcePath": "public/app-preview/domain/chemistry/rational.js",
+      "checksum": "8829942f71b187a81d200d8bc0edb609ba754b300dbbf37775fdf158cd480ecf",
+      "size": 949
+    },
+    {
+      "path": "app-preview/domain/chemistry/reaction-matcher.js",
+      "sourcePath": "public/app-preview/domain/chemistry/reaction-matcher.js",
+      "checksum": "05976b1285e7db7104c3c8cd5d73a0267fb68a433608254d1c17d3e6b88524ed",
+      "size": 2416
+    },
+    {
+      "path": "app-preview/domain/chemistry/redox-balancer.js",
+      "sourcePath": "public/app-preview/domain/chemistry/redox-balancer.js",
+      "checksum": "b56a9c9ca95178c60ffe889ab0626c3b061e42b7abab4e64aff8b994f25b0cc9",
+      "size": 2852
+    },
+    {
+      "path": "app-preview/domain/chemistry/species-registry.js",
+      "sourcePath": "public/app-preview/domain/chemistry/species-registry.js",
+      "checksum": "70b8b15ce45c28ec175e41f6b10a0b55fa979678ef0a02fe92764f57c54f7811",
+      "size": 1397
+    },
+    {
+      "path": "app-preview/domain/chemistry/stoichiometry.js",
+      "sourcePath": "public/app-preview/domain/chemistry/stoichiometry.js",
+      "checksum": "fe84bbe62e047528a6727d79106e38150a7b75a804594e897ff0d77358bb33eb",
+      "size": 858
+    },
+    {
+      "path": "app-preview/domain/chemistry/types.js",
+      "sourcePath": "public/app-preview/domain/chemistry/types.js",
+      "checksum": "884313d55e7ed6ea5694dc83e637772c9758aa5095a72ac30338b6606c42ee15",
+      "size": 2173
+    },
+    {
+      "path": "app-preview/domain/content/checksum.js",
+      "sourcePath": "public/app-preview/domain/content/checksum.js",
+      "checksum": "396f1846c8225c36526ac96b302747d04dac7ba1a6f38cb971af588079ad4cc4",
+      "size": 290
+    },
+    {
+      "path": "app-preview/domain/content/ids.js",
+      "sourcePath": "public/app-preview/domain/content/ids.js",
+      "checksum": "7568bca9aa8069d06ee2286b5dbfc1ee58823504d40b989c5497dd6f6424ea57",
+      "size": 1189
+    },
+    {
+      "path": "app-preview/domain/content/schema-validator.js",
+      "sourcePath": "public/app-preview/domain/content/schema-validator.js",
+      "checksum": "2b990f168df023a15b2cd61b740d08816995ec750772895a48a18710cc472239",
+      "size": 1422
+    },
+    {
+      "path": "app-preview/domain/content/types.js",
+      "sourcePath": "public/app-preview/domain/content/types.js",
+      "checksum": "712ba4d9f1b955f4cf42ee5722c5406f8066c0965f95b78c9b9b8eb50a94ed62",
+      "size": 3174
+    },
+    {
+      "path": "app-preview/domain/content/validate.js",
+      "sourcePath": "public/app-preview/domain/content/validate.js",
+      "checksum": "998925bbbbd956b50cd3eab57916109cc5e28a984e78b34a88d9c05331d4ce66",
+      "size": 7497
+    },
+    {
+      "path": "app-preview/domain/content/xlsx-reader.js",
+      "sourcePath": "public/app-preview/domain/content/xlsx-reader.js",
+      "checksum": "0844e78b9bb5f1ac7850240f24106c3e25cb134e3f26c4d7f3abb8748f8dc8ad",
+      "size": 4416
+    },
+    {
+      "path": "app-preview/domain/mastery/mastery.js",
+      "sourcePath": "public/app-preview/domain/mastery/mastery.js",
+      "checksum": "08dfb93a842369f9a7d3b7b1ae74dc3c6780de9af2b612e080ce85e1f2385791",
+      "size": 2293
+    },
+    {
+      "path": "app-preview/engines/calculation/engine.js",
+      "sourcePath": "public/app-preview/engines/calculation/engine.js",
+      "checksum": "04e6b66b2bc5d1fc5dcb2c4331fc1a4de76da6ec31c399849aec8937dd56e34a",
+      "size": 3745
+    },
+    {
+      "path": "app-preview/engines/case/engine.js",
+      "sourcePath": "public/app-preview/engines/case/engine.js",
+      "checksum": "8cf5ea70f76d028fbd6d909f5d66691f0e134f0dddaa6616d0ac42d6a8b72deb",
+      "size": 4808
+    },
+    {
+      "path": "app-preview/engines/experiment/engine.js",
+      "sourcePath": "public/app-preview/engines/experiment/engine.js",
+      "checksum": "28a3690292e6889a0c5ec17da60d895be20dcb359346e988b6b55f8b3e7280cf",
+      "size": 2896
+    },
+    {
+      "path": "app-preview/engines/experiment/types.js",
+      "sourcePath": "public/app-preview/engines/experiment/types.js",
+      "checksum": "9916623aaeb89ba8db3c38a1989914de48d520490eb682b28ea60fb14f99801d",
+      "size": 1018
+    },
+    {
+      "path": "app-preview/engines/index.js",
+      "sourcePath": "public/app-preview/engines/index.js",
+      "checksum": "7efd640ce667649a04d53ede7bd02cbd5aaa466f158280ea7a1ff26e52c5e017",
+      "size": 371
+    },
+    {
+      "path": "app-preview/engines/shared/types.js",
+      "sourcePath": "public/app-preview/engines/shared/types.js",
+      "checksum": "f60b01936934db801dd2800acb40ef380564352c8cbd26023930ca8065918866",
+      "size": 776
+    },
+    {
+      "path": "app-preview/engines/simulation/engine.js",
+      "sourcePath": "public/app-preview/engines/simulation/engine.js",
+      "checksum": "5ebf11754f21370e16ba24454d281eedd6a4048dfacb6d8ab34b5c2ae1328127",
+      "size": 2147
+    },
+    {
+      "path": "app-preview/engines/trainer/engine.js",
+      "sourcePath": "public/app-preview/engines/trainer/engine.js",
+      "checksum": "714e25baa5bbf131229329eedea86d820e8928a203b24cd95b720d3f0ce798f2",
+      "size": 4139
+    },
+    {
+      "path": "app-preview/features/curriculum/render.js",
+      "sourcePath": "public/app-preview/features/curriculum/render.js",
+      "checksum": "2cd8f83bbf8686039d29dcad6b9d782b074fb68e2661a57fdd168b6342ea9bbb",
+      "size": 2338
+    },
+    {
+      "path": "app-preview/features/home/copy.js",
+      "sourcePath": "public/app-preview/features/home/copy.js",
+      "checksum": "c59a926e75a2e217710303d3ad0c1647f763b35e3aeee48cc4f304be9c1a5bea",
+      "size": 387
+    },
+    {
+      "path": "app-preview/features/home/render.js",
+      "sourcePath": "public/app-preview/features/home/render.js",
+      "checksum": "6e9ff2f21bef17b3e923bc2fa01fe9831f8ea7f2944027740772be310af8697d",
+      "size": 4595
+    },
+    {
+      "path": "app-preview/features/labs/external-render.js",
+      "sourcePath": "public/app-preview/features/labs/external-render.js",
+      "checksum": "a080d083ef43f1e34c0d95fee402deacf586274f183ae3be18ade9b8e0e334db",
+      "size": 5488
+    },
+    {
+      "path": "app-preview/features/labs/model.js",
+      "sourcePath": "public/app-preview/features/labs/model.js",
+      "checksum": "51c30a8ffc7ab1f807c216f22c8dc2bfd7a9bfda9096d4611be5838a10e032fb",
+      "size": 703
+    },
+    {
+      "path": "app-preview/features/labs/render.js",
+      "sourcePath": "public/app-preview/features/labs/render.js",
+      "checksum": "e76c83a6bc1ed9a2ef5bf38922c69f474b121f269d6a433c327bf8072bcc3359",
+      "size": 5079
+    },
+    {
+      "path": "app-preview/features/learning-hub/model.js",
+      "sourcePath": "public/app-preview/features/learning-hub/model.js",
+      "checksum": "29805ab4f8054c688fe364529345d329c8ea858a17ede812091ff925063eb8cb",
+      "size": 4150
+    },
+    {
+      "path": "app-preview/features/learning-hub/render.js",
+      "sourcePath": "public/app-preview/features/learning-hub/render.js",
+      "checksum": "9eb0ba96a305df83df6c4c49eb861944223d1f9a5c60268f6161b229a0548bb3",
+      "size": 14286
+    },
+    {
+      "path": "app-preview/features/practice/model.js",
+      "sourcePath": "public/app-preview/features/practice/model.js",
+      "checksum": "dcda7d0b1a1955c774c3ff7e6c351efc10c85ee0df84cf4721e24b96c49b926c",
+      "size": 2702
+    },
+    {
+      "path": "app-preview/features/practice/render.js",
+      "sourcePath": "public/app-preview/features/practice/render.js",
+      "checksum": "01213b5b73cd27798c8b60d2eb7f62311a5f8c3b1b8a5fea13f96dbf28bbd15a",
+      "size": 11014
+    },
+    {
+      "path": "app-preview/features/practice/session.js",
+      "sourcePath": "public/app-preview/features/practice/session.js",
+      "checksum": "4ff3ef8acca7f41ec6fac5fc7821a53d06ffd70136a6e7881f0755296e31f6c1",
+      "size": 6982
+    },
+    {
+      "path": "app-preview/features/practice/ui-model.js",
+      "sourcePath": "public/app-preview/features/practice/ui-model.js",
+      "checksum": "39005713ae0ff466be2ab7cfc1769b700ba29b8c080fb15417772aadef048451",
+      "size": 5084
+    },
+    {
+      "path": "app-preview/features/progress/model.js",
+      "sourcePath": "public/app-preview/features/progress/model.js",
+      "checksum": "300b71f75f89122ec31dd07dffaa3e3a74e86d0ac688aec3af635bba64b42dd7",
+      "size": 1877
+    },
+    {
+      "path": "app-preview/features/progress/render.js",
+      "sourcePath": "public/app-preview/features/progress/render.js",
+      "checksum": "aba990516d98f0ba4314cafe7e373ef68f0fba540537695539ad9bfb20dcf843",
+      "size": 1345
+    },
+    {
+      "path": "app-preview/features/progress/service.js",
+      "sourcePath": "public/app-preview/features/progress/service.js",
+      "checksum": "b7189487f011845c7c2451264b627f72a188c1c6682c654b9bdaed05836eba7d",
+      "size": 4303
+    },
+    {
+      "path": "app-preview/features/search/model.js",
+      "sourcePath": "public/app-preview/features/search/model.js",
+      "checksum": "bca8013ff041fe2856ec23e5a279b3f2ab211fd5e4b56ba16674f467b7cc36ef",
+      "size": 1107
+    },
+    {
+      "path": "app-preview/features/search/render.js",
+      "sourcePath": "public/app-preview/features/search/render.js",
+      "checksum": "4d81d45ba95e2ccafec587f77e1dbce9d123bc91b134ee6a0daa48b6fd6d4e45",
+      "size": 1755
+    },
+    {
+      "path": "app-preview/features/worksheet/model.js",
+      "sourcePath": "public/app-preview/features/worksheet/model.js",
+      "checksum": "da4405c1b63897a531e3258198ea23e9428c02fcba9e840494a6c4b6a7aaa83d",
+      "size": 1523
+    },
+    {
+      "path": "app-preview/features/worksheet/render.js",
+      "sourcePath": "public/app-preview/features/worksheet/render.js",
+      "checksum": "a3745567a44108c4e4f5581c6bf4fe5bd20a662b96b965a8b7243cf51597f27a",
+      "size": 1435
+    },
+    {
+      "path": "app-preview/integrations/external-labs/external-link-provider.js",
+      "sourcePath": "public/app-preview/integrations/external-labs/external-link-provider.js",
+      "checksum": "c41f1384f82201ccc3ddeec6c9d92649fb04c44b5cdc80333d4cf97a3534707a",
+      "size": 1227
+    },
+    {
+      "path": "app-preview/integrations/external-labs/nobook/nobook-provider.js",
+      "sourcePath": "public/app-preview/integrations/external-labs/nobook/nobook-provider.js",
+      "checksum": "cfb243a102ef902f60fa8892b14fb8c61e9a3f966beaae430205db09e0a43c7e",
+      "size": 4811
+    },
+    {
+      "path": "app-preview/integrations/external-labs/nobook/sdk-adapter.js",
+      "sourcePath": "public/app-preview/integrations/external-labs/nobook/sdk-adapter.js",
+      "checksum": "7d05ea9b60a1ec84244281566e779d8fc00320f66724b289fdb38a0155217e64",
+      "size": 200
+    },
+    {
+      "path": "app-preview/integrations/external-labs/providers.js",
+      "sourcePath": "public/app-preview/integrations/external-labs/providers.js",
+      "checksum": "eb0a72b090145754839a373af131c2997e5976aeebd86f1f80bdf9e8f2c080cf",
+      "size": 629
+    },
+    {
+      "path": "app-preview/integrations/external-labs/registry.js",
+      "sourcePath": "public/app-preview/integrations/external-labs/registry.js",
+      "checksum": "34f3e48ebfa487303bd1f1a80ae30fcebeb418281265f6b3b6a0b47a8e6821f7",
+      "size": 2248
+    },
+    {
+      "path": "app-preview/integrations/external-labs/types.js",
+      "sourcePath": "public/app-preview/integrations/external-labs/types.js",
+      "checksum": "fb738bccb860270cf96c7f9a04b09e22e23b94d0ba9f88ab85c32b89ef26cbad",
+      "size": 1732
+    },
+    {
+      "path": "app-preview/runtime/beta1/config.js",
+      "sourcePath": "public/app-preview/runtime/beta1/config.js",
+      "checksum": "0eea95f84c2325d2c8ad5c078683d6ec2ab1977d839120899eb5fd670fbfe3f1",
+      "size": 4053
+    },
+    {
+      "path": "app-preview/runtime/beta1/index.js",
+      "sourcePath": "public/app-preview/runtime/beta1/index.js",
+      "checksum": "ddda9ceb58b4f6853326bea93f05113b97b51672f6e345f9a99cdc3e4d364942",
+      "size": 1632
+    },
+    {
+      "path": "app-preview/runtime/beta1/readiness.js",
+      "sourcePath": "public/app-preview/runtime/beta1/readiness.js",
+      "checksum": "777ee3d5d2aa5d4b89e132c53b79d37ef1ef23b3f84e4849292236e62111814f",
+      "size": 3558
+    },
+    {
+      "path": "app-preview/runtime/beta1/router.js",
+      "sourcePath": "public/app-preview/runtime/beta1/router.js",
+      "checksum": "497f0f6eb073712c98a69708f763591334cd5bf7d561ffa5063e3a7e546eaa94",
+      "size": 10371
+    },
+    {
+      "path": "app-preview/runtime/beta2/advanced.js",
+      "sourcePath": "public/app-preview/runtime/beta2/advanced.js",
+      "checksum": "319c598c053927063af5c1343c33da091264dc0bb25f7330142c361040ffaea7",
+      "size": 8696
+    },
+    {
+      "path": "app-preview/runtime/beta2/capability.js",
+      "sourcePath": "public/app-preview/runtime/beta2/capability.js",
+      "checksum": "1202a99e9709c880860326b1147e3d625c80ee26dff4bd84a9dc425793654b03",
+      "size": 2421
+    },
+    {
+      "path": "app-preview/runtime/beta2/index.js",
+      "sourcePath": "public/app-preview/runtime/beta2/index.js",
+      "checksum": "81f9b8c4e5f14c19a86d9f8a0c4bfbbfab9fac180cf7eff137fc9d8363c0b716",
+      "size": 3300
+    },
+    {
+      "path": "app-preview/runtime/beta2/organic.js",
+      "sourcePath": "public/app-preview/runtime/beta2/organic.js",
+      "checksum": "9fca3244f5bc725d43c8d6e96851de27b81ca380a19afbf60d22ef155521f0c3",
+      "size": 7171
+    },
+    {
+      "path": "app-preview/runtime/beta2/readiness.js",
+      "sourcePath": "public/app-preview/runtime/beta2/readiness.js",
+      "checksum": "0f874d5cb6e254a48c0d6843e15bd93e07791f5cde828ae7e6f8277b725b8b44",
+      "size": 4450
+    },
+    {
+      "path": "app-preview/runtime/beta3/advanced.js",
+      "sourcePath": "public/app-preview/runtime/beta3/advanced.js",
+      "checksum": "d4604ca49929cec7fa585dc75c01ec7f436421f358e3b810d7d118f0d4a732ae",
+      "size": 9152
+    },
+    {
+      "path": "app-preview/runtime/beta3/index.js",
+      "sourcePath": "public/app-preview/runtime/beta3/index.js",
+      "checksum": "cc4af6d3d19ddb8455c2cecdfe50636d853581152623181127be7d1871d536bc",
+      "size": 2361
+    },
+    {
+      "path": "app-preview/runtime/beta3/readiness.js",
+      "sourcePath": "public/app-preview/runtime/beta3/readiness.js",
+      "checksum": "5d505d03c87163f9e6f7481c31840bedb0c6e33f25ba1aa4ce413001548c6199",
+      "size": 3617
+    },
+    {
+      "path": "app-preview/runtime/capabilities/simulation-mode.js",
+      "sourcePath": "public/app-preview/runtime/capabilities/simulation-mode.js",
+      "checksum": "43ed39a52dba05ffb74d6f09d6dba13ea5c9c8fc528e11d1bcfde08e13eb22ca",
+      "size": 635
+    },
+    {
+      "path": "app-preview/runtime/compatibility/content-pack.js",
+      "sourcePath": "public/app-preview/runtime/compatibility/content-pack.js",
+      "checksum": "2adf224a829a07ab1bf5e644cf92df236537ace13228c08297bf3e3f35a72691",
+      "size": 2291
+    },
+    {
+      "path": "app-preview/runtime/compatibility/release-pointer.js",
+      "sourcePath": "public/app-preview/runtime/compatibility/release-pointer.js",
+      "checksum": "44039977906c349f98514d4f3368274bfaf98c5a1646336ed10dc552782d8b11",
+      "size": 1052
+    },
+    {
+      "path": "app-preview/runtime/evidence/types.js",
+      "sourcePath": "public/app-preview/runtime/evidence/types.js",
+      "checksum": "e12fe27bd2a82492d9b0ec5fd09b24c5cd1ef83750aadccac6e2bdd18b2de798",
+      "size": 3539
+    },
+    {
+      "path": "app-preview/runtime/governance/approvals.js",
+      "sourcePath": "public/app-preview/runtime/governance/approvals.js",
+      "checksum": "7263f9437977d6bc5dfabb22c83a18b27a3f58ed5c9f50c3e5458046b02faefb",
+      "size": 1653
+    },
+    {
+      "path": "app-preview/runtime/governance/licensing.js",
+      "sourcePath": "public/app-preview/runtime/governance/licensing.js",
+      "checksum": "a3ce5219fe7fa26e7c298e5a06457875f95e904a1f5e16e4396a1a3b49820e80",
+      "size": 1182
+    },
+    {
+      "path": "app-preview/runtime/governance/release-gate.js",
+      "sourcePath": "public/app-preview/runtime/governance/release-gate.js",
+      "checksum": "9ad2249993b72962ec1214998ea67a6b04b736f47578d68fe5c55e5d267de82d",
+      "size": 2883
+    },
+    {
+      "path": "app-preview/runtime/governance/telemetry.js",
+      "sourcePath": "public/app-preview/runtime/governance/telemetry.js",
+      "checksum": "94201ec988c8abb0615522a10970b3c0eb7f9875b4efde26408e04a28f62e19b",
+      "size": 793
+    },
+    {
+      "path": "app-preview/runtime/learning-runner/runner.js",
+      "sourcePath": "public/app-preview/runtime/learning-runner/runner.js",
+      "checksum": "b08bc54ce3ed36148a899afb6f084ca6407dbd925858731f5bdb8b6b563ac9b8",
+      "size": 5850
+    },
+    {
+      "path": "app-preview/runtime/practice-router/router.js",
+      "sourcePath": "public/app-preview/runtime/practice-router/router.js",
+      "checksum": "003f2c96f2b5028d3f9b8c495f35ec46e515bf031a7fb63557ad08c1d6a6533f",
+      "size": 1259
+    },
+    {
+      "path": "app-preview/runtime/progress/concept-migration.js",
+      "sourcePath": "public/app-preview/runtime/progress/concept-migration.js",
+      "checksum": "1292f171134d5d73616f93cac94205173dc0c646de123d5282917529e09f0d3c",
+      "size": 1671
+    },
+    {
+      "path": "app-preview/runtime/progress/indexeddb-store.js",
+      "sourcePath": "public/app-preview/runtime/progress/indexeddb-store.js",
+      "checksum": "b7e9e417ef8d46e2de4b131b75295168e609fc2011cec5c556c1ab93f4250d2a",
+      "size": 5283
+    },
+    {
+      "path": "app-preview/runtime/progress/recovery.js",
+      "sourcePath": "public/app-preview/runtime/progress/recovery.js",
+      "checksum": "0ddaca0e065e8c646a71e58703c905f73df62fce62a6c74c88885c4984e60898",
+      "size": 832
+    },
+    {
+      "path": "app-preview/runtime/progress/reducer.js",
+      "sourcePath": "public/app-preview/runtime/progress/reducer.js",
+      "checksum": "9873e571454a93472c822ac4b06f17cbf1ff0bab074b609913825845b19db7b2",
+      "size": 2897
+    },
+    {
+      "path": "app-preview/runtime/progress/types.js",
+      "sourcePath": "public/app-preview/runtime/progress/types.js",
+      "checksum": "13c3915330f8037900021e4c05526f80d95e7a56f8e1c0161ab814ed8553f949",
+      "size": 380
+    },
+    {
+      "path": "app-preview/runtime/reference-slices/calculation-adapter.js",
+      "sourcePath": "public/app-preview/runtime/reference-slices/calculation-adapter.js",
+      "checksum": "47c5e3ab254213c5caf9911f4f2e464fcf86c06fb57efe185b9caf1e8eddb83c",
+      "size": 1856
+    },
+    {
+      "path": "app-preview/runtime/reference-slices/case-adapter.js",
+      "sourcePath": "public/app-preview/runtime/reference-slices/case-adapter.js",
+      "checksum": "3a82465b1c5fc8d0f7de013bdd6876eda262be2b2e47d9336ab71e591028813a",
+      "size": 2136
+    },
+    {
+      "path": "app-preview/runtime/reference-slices/config.js",
+      "sourcePath": "public/app-preview/runtime/reference-slices/config.js",
+      "checksum": "81fc3a9a1bb6eb81f6394ca03a09b569ccdfacc0f4a4a01a8942b192fe11cd59",
+      "size": 1500
+    },
+    {
+      "path": "app-preview/runtime/reference-slices/experiment-adapter.js",
+      "sourcePath": "public/app-preview/runtime/reference-slices/experiment-adapter.js",
+      "checksum": "9b2b28f269c2c4b7b4f7e0736f6280aadd5166626d7e6d60056cfbbfb2329ac6",
+      "size": 5469
+    },
+    {
+      "path": "app-preview/runtime/reference-slices/index.js",
+      "sourcePath": "public/app-preview/runtime/reference-slices/index.js",
+      "checksum": "541cb1df14862d55e9afbf9f589a81f91e5429c6af789d0f7f0b606a3cc99701",
+      "size": 1798
+    },
+    {
+      "path": "app-preview/runtime/reference-slices/repository.js",
+      "sourcePath": "public/app-preview/runtime/reference-slices/repository.js",
+      "checksum": "dcdd2997696d134b0c1803b488a9a57d8eec574e056237c4d423e91441728d72",
+      "size": 1152
+    },
+    {
+      "path": "app-preview/runtime/reference-slices/simulation-adapter.js",
+      "sourcePath": "public/app-preview/runtime/reference-slices/simulation-adapter.js",
+      "checksum": "57e4b9681ab70dc8d24fd6336a7aca6b7ba0f50e6618fbbbc766e4051d787b34",
+      "size": 3490
+    },
+    {
+      "path": "app-preview/runtime/reference-slices/trainer-adapter.js",
+      "sourcePath": "public/app-preview/runtime/reference-slices/trainer-adapter.js",
+      "checksum": "97b3afb78a8f124d0d1120e9fb7231c4e12d6d4094ff3bbc537d5ff4044f1b3d",
+      "size": 2431
+    },
+    {
+      "path": "app-preview/runtime/remediation/router.js",
+      "sourcePath": "public/app-preview/runtime/remediation/router.js",
+      "checksum": "45e249de373ae5c3b52a877781d9f94da9bcd8feefad0d0df41ceda24e479e1a",
+      "size": 888
+    },
+    {
+      "path": "app-preview/ui/components/dom.js",
+      "sourcePath": "public/app-preview/ui/components/dom.js",
+      "checksum": "73bf57f5ac6e95824abd6a5f2d0af28bfe0d3561e78fd27cf79b7590b1a5dffb",
+      "size": 653
+    },
+    {
+      "path": "app-preview/ui/tokens/kimyolab.css",
+      "sourcePath": "public/app-preview/ui/tokens/kimyolab.css",
+      "checksum": "ae947931b06d25781c888c44ef596f24a6ef301dfb266b45b7df395f9cce58e6",
+      "size": 23523
+    },
+    {
+      "path": "assets/home/results.png",
+      "sourcePath": "public/assets/home/results.png",
+      "checksum": "8965f74355e4bdf3ea6975c9f103cefb2823b3524b95c6e1abd6144a09aeb086",
+      "size": 706052
+    },
+    {
+      "path": "assets/home/topic-studio.png",
+      "sourcePath": "public/assets/home/topic-studio.png",
+      "checksum": "a420c691ea53f4ab102e39b820c5467d922d46010544eafe852162006276c92f",
+      "size": 977700
+    },
+    {
+      "path": "assets/home/virtual-lab.png",
+      "sourcePath": "public/assets/home/virtual-lab.png",
+      "checksum": "bd0046dee59bd67ab9690d455d6fa98d167abdc2c028e4a3c528f984b6a8efd0",
+      "size": 677259
+    },
+    {
+      "path": "content/2026.09.1/activity-configs/beta1.json",
+      "sourcePath": "public/content/2026.09.1/activity-configs/beta1.json",
+      "checksum": "44300543ee18f775537d5e203a765dc7a54a3fb59ebc7d8d936360f7672e1ff5",
+      "size": 23450
+    },
+    {
+      "path": "content/2026.09.1/activity-configs/beta2-advanced.json",
+      "sourcePath": "public/content/2026.09.1/activity-configs/beta2-advanced.json",
+      "checksum": "cebab6ffa2241202aa13845ca295b1f29f6409a83f468b284ad2106c8c9c4bba",
+      "size": 938
+    },
+    {
+      "path": "content/2026.09.1/activity-configs/beta2-organic.json",
+      "sourcePath": "public/content/2026.09.1/activity-configs/beta2-organic.json",
+      "checksum": "0e2c55f55cd3cd4a10fc992a75b30e31dfc15980789904a306c0bd068cdbaf46",
+      "size": 4907
+    },
+    {
+      "path": "content/2026.09.1/activity-configs/beta2-safe.json",
+      "sourcePath": "public/content/2026.09.1/activity-configs/beta2-safe.json",
+      "checksum": "0a57998ff94cfde0f8dae9a3204e2cd8b75675174a17eeee19e52822d4c5a280",
+      "size": 18942
+    },
+    {
+      "path": "content/2026.09.1/activity-configs/beta3-advanced.json",
+      "sourcePath": "public/content/2026.09.1/activity-configs/beta3-advanced.json",
+      "checksum": "09f75d421586cbc067bf15b455be6ab9a8fc9fa2755e2bdbde25d9705efbc7a8",
+      "size": 5932
+    },
+    {
+      "path": "content/2026.09.1/activity-configs/beta3-safe.json",
+      "sourcePath": "public/content/2026.09.1/activity-configs/beta3-safe.json",
+      "checksum": "1569a400f5deab726858a35f0e60f45637e0ad49d4c24c20f9c3da74c306c3ce",
+      "size": 935
+    },
+    {
+      "path": "content/2026.09.1/activity-configs/guided-labs.json",
+      "sourcePath": "public/content/2026.09.1/activity-configs/guided-labs.json",
+      "checksum": "f48f98e2ed9e75b0040fe48e0f774d95e14a76f46e1d236e3b9fe78c99f2d919",
+      "size": 63978
+    },
+    {
+      "path": "content/2026.09.1/activity-configs/reference-slices.json",
+      "sourcePath": "public/content/2026.09.1/activity-configs/reference-slices.json",
+      "checksum": "ee72446662c00373e04fe9959f02612620eb6964ff0ca00ad55f77429bb516f0",
+      "size": 4877
+    },
+    {
+      "path": "content/2026.09.1/aliases.yaml",
+      "sourcePath": "public/content/2026.09.1/aliases.yaml",
+      "checksum": "7db3ed84e10c586d4f269dd951eaac13a89519e18df8e09f695e5a002daabd37",
+      "size": 32029
+    },
+    {
+      "path": "content/2026.09.1/assessment-items.json",
+      "sourcePath": "public/content/2026.09.1/assessment-items.json",
+      "checksum": "13cb5e64aa2f8e1f74840cc43080022f06b452b29d55f174e54739702d82d21a",
+      "size": 3866
+    },
+    {
+      "path": "content/2026.09.1/chemistry/constants.json",
+      "sourcePath": "public/content/2026.09.1/chemistry/constants.json",
+      "checksum": "8e89098b4771da61472261b89bcdbdb5a9cf69e174ce92f63ef52a1a5552aeb4",
+      "size": 350
+    },
+    {
+      "path": "content/2026.09.1/chemistry/electrolysis.json",
+      "sourcePath": "public/content/2026.09.1/chemistry/electrolysis.json",
+      "checksum": "104f9379a1a5c81880022dc67fe505525ac94edda799bf071b7c5237a7bb4b97",
+      "size": 410
+    },
+    {
+      "path": "content/2026.09.1/chemistry/equilibrium.json",
+      "sourcePath": "public/content/2026.09.1/chemistry/equilibrium.json",
+      "checksum": "e384aa8ebfdee97464542e3a8cbdbb57e39b2631764d38a44e82406c39eb4167",
+      "size": 598
+    },
+    {
+      "path": "content/2026.09.1/chemistry/guided-step-coverage-targets.json",
+      "sourcePath": "public/content/2026.09.1/chemistry/guided-step-coverage-targets.json",
+      "checksum": "4edbf557822031908a33516578288126e563506c326f2afff5e2f365f25b1836",
+      "size": 1115
+    },
+    {
+      "path": "content/2026.09.1/chemistry/guided-step-model-map.json",
+      "sourcePath": "public/content/2026.09.1/chemistry/guided-step-model-map.json",
+      "checksum": "ecfe94d726adeb4ad018717dba5318c0ca2401bd710d892edbe3b91a7d13279e",
+      "size": 1818
+    },
+    {
+      "path": "content/2026.09.1/chemistry/guided-step-reaction-map.json",
+      "sourcePath": "public/content/2026.09.1/chemistry/guided-step-reaction-map.json",
+      "checksum": "cd96ebff6e726d8fddab353693b58cb80d5d9d982290a602dc83813343070a3a",
+      "size": 906
+    },
+    {
+      "path": "content/2026.09.1/chemistry/hydrolysis.json",
+      "sourcePath": "public/content/2026.09.1/chemistry/hydrolysis.json",
+      "checksum": "e510f85c76b6f64659d55260204800c9a9f52627db1abf0393b37680c4f1f76b",
+      "size": 875
+    },
+    {
+      "path": "content/2026.09.1/chemistry/kinetics.json",
+      "sourcePath": "public/content/2026.09.1/chemistry/kinetics.json",
+      "checksum": "bf8aa16f0d066939f8a595ddb6b7c77a140cd7c4e83b281e385e470f8fd7e3f1",
+      "size": 513
+    },
+    {
+      "path": "content/2026.09.1/chemistry/manganese-redox.json",
+      "sourcePath": "public/content/2026.09.1/chemistry/manganese-redox.json",
+      "checksum": "453e8e0be62803e02aedac0711265e6b7de43a4b82e4ff9a356193e0b1cf0329",
+      "size": 623
+    },
+    {
+      "path": "content/2026.09.1/chemistry/organic.json",
+      "sourcePath": "public/content/2026.09.1/chemistry/organic.json",
+      "checksum": "5e60fcd9eec50bd91e5a32c71819e6281ba46df4998a2644cafbc02e8f1b0368",
+      "size": 7117
+    },
+    {
+      "path": "content/2026.09.1/chemistry/qualitative-tests.json",
+      "sourcePath": "public/content/2026.09.1/chemistry/qualitative-tests.json",
+      "checksum": "28714102ee260be208da80dec466c25b849e2582530e6a1d167b6867fe0a01f4",
+      "size": 672
+    },
+    {
+      "path": "content/2026.09.1/chemistry/reactions.json",
+      "sourcePath": "public/content/2026.09.1/chemistry/reactions.json",
+      "checksum": "ff40a908873b01693e6548c40572d7d882c139c9188dc5b9b2870e156d56e9b8",
+      "size": 22111
+    },
+    {
+      "path": "content/2026.09.1/chemistry/school-lab-models.json",
+      "sourcePath": "public/content/2026.09.1/chemistry/school-lab-models.json",
+      "checksum": "3110e9349af6f8a99f5b811b54c26498bca9c9a2f449d88e647c0d3a6cdcc55a",
+      "size": 18113
+    },
+    {
+      "path": "content/2026.09.1/chemistry/solubility.json",
+      "sourcePath": "public/content/2026.09.1/chemistry/solubility.json",
+      "checksum": "e678752ba9cd6f1f1252286857de92a7aa00d623eeef824d4c1984a3f7daeaad",
+      "size": 2928
+    },
+    {
+      "path": "content/2026.09.1/chemistry/species.json",
+      "sourcePath": "public/content/2026.09.1/chemistry/species.json",
+      "checksum": "4bcbaf0a565d9d37035f687061e9d49f9bea0d361c3c82af0dc85f5bb4a0823c",
+      "size": 33000
+    },
+    {
+      "path": "content/2026.09.1/concepts.json",
+      "sourcePath": "public/content/2026.09.1/concepts.json",
+      "checksum": "693491c8a4ce9481caaaf1da4eb5c10f2b522fb8c4a997918c364a441ddafa39",
+      "size": 148051
+    },
+    {
+      "path": "content/2026.09.1/external-lab-bindings.json",
+      "sourcePath": "public/content/2026.09.1/external-lab-bindings.json",
+      "checksum": "2b2bdf8ca78de14ebf48a6ccdf9439d3f9c26efeba28dc2b3cd6567aafab70da",
+      "size": 5291
+    },
+    {
+      "path": "content/2026.09.1/learning-cycle.json",
+      "sourcePath": "public/content/2026.09.1/learning-cycle.json",
+      "checksum": "0b529a02a10041eec0fa2a752df30151d8f021427a328a35c8804860f81b1f25",
+      "size": 1397
+    },
+    {
+      "path": "content/2026.09.1/learning-units/grade-10.json",
+      "sourcePath": "public/content/2026.09.1/learning-units/grade-10.json",
+      "checksum": "0556079fcdabca7f0e5e5b6b7ab2935faf26c42b731e45176b0208d25f256a84",
+      "size": 16951
+    },
+    {
+      "path": "content/2026.09.1/learning-units/grade-11.json",
+      "sourcePath": "public/content/2026.09.1/learning-units/grade-11.json",
+      "checksum": "885db2aacf58ec1fb87d24785e5cf9f5f78ea30edf0f2e803a90a50f0a853b67",
+      "size": 13638
+    },
+    {
+      "path": "content/2026.09.1/learning-units/grade-7.json",
+      "sourcePath": "public/content/2026.09.1/learning-units/grade-7.json",
+      "checksum": "896255d88adc3d8df0e7cff4dd6e6b262b2e82d61628ad6065329292e3bf239d",
+      "size": 14621
+    },
+    {
+      "path": "content/2026.09.1/learning-units/grade-8.json",
+      "sourcePath": "public/content/2026.09.1/learning-units/grade-8.json",
+      "checksum": "114bb43f37a92a0e5b525f564a973157f9a7b45192564b7982600a7ecc51d5ba",
+      "size": 15544
+    },
+    {
+      "path": "content/2026.09.1/learning-units/grade-9.json",
+      "sourcePath": "public/content/2026.09.1/learning-units/grade-9.json",
+      "checksum": "a3f6707da4a0216f086886e97f54c32343e6a9776fa669ffdd39241d763382db",
+      "size": 16898
+    },
+    {
+      "path": "content/2026.09.1/manifest.json",
+      "sourcePath": "public/content/2026.09.1/manifest.json",
+      "checksum": "2f203eb59050c30a0e92d65e5dfd3b2a5232c72a6d7783a291d84223e339c1cb",
+      "size": 6349
+    },
+    {
+      "path": "content/2026.09.1/mapping-links.json",
+      "sourcePath": "public/content/2026.09.1/mapping-links.json",
+      "checksum": "957a316cd7d46b13aceb1bcb286b77aa85ffffb96a23ff7ffa46780874ec8699",
+      "size": 72213
+    },
+    {
+      "path": "content/2026.09.1/practice-activities.json",
+      "sourcePath": "public/content/2026.09.1/practice-activities.json",
+      "checksum": "4d0ca029e92247262c980aadd52ab531274b7826006ad5782d52534f152cf003",
+      "size": 310909
+    },
+    {
+      "path": "content/2026.09.1/theory-activities.json",
+      "sourcePath": "public/content/2026.09.1/theory-activities.json",
+      "checksum": "ed96e578f9414524c812c2cb64773124821f2c8e621cd5ad9daacfd8cd91f398",
+      "size": 193632
+    },
+    {
+      "path": "content/manifest.json",
+      "sourcePath": "public/content/manifest.json",
+      "checksum": "920b77cf13d256aa7103b47060e5357f6698550c3dfb9fc8d5c2d807f735c3c1",
+      "size": 158
+    },
+    {
+      "path": "index.html",
+      "sourcePath": "index.html",
+      "checksum": "753ddb29bc609d95a310cea703c6ebc8d3631bf861b80b48144ff8ef61c6362e",
+      "size": 1775
+    }
+  ]
+}

@@ -1,0 +1,4036 @@
+{
+  "schema": "kimyolab.beta-approval-register.v1",
+  "generatedAt": "2026-09-29T10:19:50.398Z",
+  "beta": "BETA2",
+  "grades": [
+    9,
+    10
+  ],
+  "records": [
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.27"
+      ],
+      "legacyIds": [
+        "10.27"
+      ],
+      "titles": [
+        "Organik sanoat, chiqindilar va qayta ishlash"
+      ],
+      "practiceActivityId": "practice.case.10.11",
+      "practiceTitle": "Qog‘ozni qayta ishlash",
+      "practiceType": "case",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "7d53a953213094f8ce1d35f8edd7b2106ff3e0dd51545b4e184114e66e145258",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.27"
+      ],
+      "legacyIds": [
+        "10.27"
+      ],
+      "titles": [
+        "Organik sanoat, chiqindilar va qayta ishlash"
+      ],
+      "practiceActivityId": "practice.case.10.11",
+      "practiceTitle": "Qog‘ozni qayta ishlash",
+      "practiceType": "case",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "7d53a953213094f8ce1d35f8edd7b2106ff3e0dd51545b4e184114e66e145258",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.27"
+      ],
+      "legacyIds": [
+        "10.27"
+      ],
+      "titles": [
+        "Organik sanoat, chiqindilar va qayta ishlash"
+      ],
+      "practiceActivityId": "practice.case.10.11",
+      "practiceTitle": "Qog‘ozni qayta ishlash",
+      "practiceType": "case",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "7d53a953213094f8ce1d35f8edd7b2106ff3e0dd51545b4e184114e66e145258",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.16"
+      ],
+      "legacyIds": [
+        "10.16"
+      ],
+      "titles": [
+        "Tabiiy gaz, neftni qayta ishlash va toshko‘mir"
+      ],
+      "practiceActivityId": "practice.case.10.16.planned",
+      "practiceTitle": "Neft fraksiyalash va gaz/ko‘mir qayta ishlash texnologik simulyatsiyasi",
+      "practiceType": "case",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "371efcb3fd680fad02eb59cf624b891ef71d21a318fb2c3a68cb236e7aec6a0e",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.16"
+      ],
+      "legacyIds": [
+        "10.16"
+      ],
+      "titles": [
+        "Tabiiy gaz, neftni qayta ishlash va toshko‘mir"
+      ],
+      "practiceActivityId": "practice.case.10.16.planned",
+      "practiceTitle": "Neft fraksiyalash va gaz/ko‘mir qayta ishlash texnologik simulyatsiyasi",
+      "practiceType": "case",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "371efcb3fd680fad02eb59cf624b891ef71d21a318fb2c3a68cb236e7aec6a0e",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.16"
+      ],
+      "legacyIds": [
+        "10.16"
+      ],
+      "titles": [
+        "Tabiiy gaz, neftni qayta ishlash va toshko‘mir"
+      ],
+      "practiceActivityId": "practice.case.10.16.planned",
+      "practiceTitle": "Neft fraksiyalash va gaz/ko‘mir qayta ishlash texnologik simulyatsiyasi",
+      "practiceType": "case",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "371efcb3fd680fad02eb59cf624b891ef71d21a318fb2c3a68cb236e7aec6a0e",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.11"
+      ],
+      "legacyIds": [
+        "9.11"
+      ],
+      "titles": [
+        "Metallarning tarqalishi, olinishi va ishlatilishi"
+      ],
+      "practiceActivityId": "practice.case.9.11.planned",
+      "practiceTitle": "Ruda→metall olish usuli tanlash case’i",
+      "practiceType": "case",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "ac9c4449e923df4141ec91696e66b67cdd2534fc92096d140249e1191e828f1d",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.11"
+      ],
+      "legacyIds": [
+        "9.11"
+      ],
+      "titles": [
+        "Metallarning tarqalishi, olinishi va ishlatilishi"
+      ],
+      "practiceActivityId": "practice.case.9.11.planned",
+      "practiceTitle": "Ruda→metall olish usuli tanlash case’i",
+      "practiceType": "case",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "ac9c4449e923df4141ec91696e66b67cdd2534fc92096d140249e1191e828f1d",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.11"
+      ],
+      "legacyIds": [
+        "9.11"
+      ],
+      "titles": [
+        "Metallarning tarqalishi, olinishi va ishlatilishi"
+      ],
+      "practiceActivityId": "practice.case.9.11.planned",
+      "practiceTitle": "Ruda→metall olish usuli tanlash case’i",
+      "practiceType": "case",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "ac9c4449e923df4141ec91696e66b67cdd2534fc92096d140249e1191e828f1d",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.14"
+      ],
+      "legacyIds": [
+        "9.14"
+      ],
+      "titles": [
+        "Metallar korroziyasi"
+      ],
+      "practiceActivityId": "practice.case.9.14.planned",
+      "practiceTitle": "Korroziya sharoitlari va himoya usullari virtual tajribasi",
+      "practiceType": "case",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "cfdb7a985c89099bf909bdb0b93ad9bba61dad76b48ef11f609cdb73bf2b4dd6",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.14"
+      ],
+      "legacyIds": [
+        "9.14"
+      ],
+      "titles": [
+        "Metallar korroziyasi"
+      ],
+      "practiceActivityId": "practice.case.9.14.planned",
+      "practiceTitle": "Korroziya sharoitlari va himoya usullari virtual tajribasi",
+      "practiceType": "case",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "cfdb7a985c89099bf909bdb0b93ad9bba61dad76b48ef11f609cdb73bf2b4dd6",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.14"
+      ],
+      "legacyIds": [
+        "9.14"
+      ],
+      "titles": [
+        "Metallar korroziyasi"
+      ],
+      "practiceActivityId": "practice.case.9.14.planned",
+      "practiceTitle": "Korroziya sharoitlari va himoya usullari virtual tajribasi",
+      "practiceType": "case",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "cfdb7a985c89099bf909bdb0b93ad9bba61dad76b48ef11f609cdb73bf2b4dd6",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.17"
+      ],
+      "legacyIds": [
+        "9.17"
+      ],
+      "titles": [
+        "Soda ishlab chiqarish"
+      ],
+      "practiceActivityId": "practice.case.9.17.planned",
+      "practiceTitle": "Solvay jarayoni texnologik zanjiri",
+      "practiceType": "case",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "6a7303b66f1df52f34edfd4299b4fde44d4d152c8bb1b696380247b83f3aaf38",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.17"
+      ],
+      "legacyIds": [
+        "9.17"
+      ],
+      "titles": [
+        "Soda ishlab chiqarish"
+      ],
+      "practiceActivityId": "practice.case.9.17.planned",
+      "practiceTitle": "Solvay jarayoni texnologik zanjiri",
+      "practiceType": "case",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "6a7303b66f1df52f34edfd4299b4fde44d4d152c8bb1b696380247b83f3aaf38",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.17"
+      ],
+      "legacyIds": [
+        "9.17"
+      ],
+      "titles": [
+        "Soda ishlab chiqarish"
+      ],
+      "practiceActivityId": "practice.case.9.17.planned",
+      "practiceTitle": "Solvay jarayoni texnologik zanjiri",
+      "practiceType": "case",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "6a7303b66f1df52f34edfd4299b4fde44d4d152c8bb1b696380247b83f3aaf38",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.25"
+      ],
+      "legacyIds": [
+        "9.25"
+      ],
+      "titles": [
+        "Cho‘yan va po‘lat ishlab chiqarish"
+      ],
+      "practiceActivityId": "practice.case.9.25.steel-process",
+      "practiceTitle": "Cho‘yan va po‘lat ishlab chiqarish texnologik case’i",
+      "practiceType": "case",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "fb609dd175ea5b40ca2f319d10b7ade680dbeb1d53bf35c6848501337e59bf2d",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.25"
+      ],
+      "legacyIds": [
+        "9.25"
+      ],
+      "titles": [
+        "Cho‘yan va po‘lat ishlab chiqarish"
+      ],
+      "practiceActivityId": "practice.case.9.25.steel-process",
+      "practiceTitle": "Cho‘yan va po‘lat ishlab chiqarish texnologik case’i",
+      "practiceType": "case",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "fb609dd175ea5b40ca2f319d10b7ade680dbeb1d53bf35c6848501337e59bf2d",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.25"
+      ],
+      "legacyIds": [
+        "9.25"
+      ],
+      "titles": [
+        "Cho‘yan va po‘lat ishlab chiqarish"
+      ],
+      "practiceActivityId": "practice.case.9.25.steel-process",
+      "practiceTitle": "Cho‘yan va po‘lat ishlab chiqarish texnologik case’i",
+      "practiceType": "case",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "fb609dd175ea5b40ca2f319d10b7ade680dbeb1d53bf35c6848501337e59bf2d",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.26"
+      ],
+      "legacyIds": [
+        "9.26"
+      ],
+      "titles": [
+        "Kimyoviy ishlab chiqarish va atmosfera-gidrosferani muhofaza qilish"
+      ],
+      "practiceActivityId": "practice.case.9.26.planned",
+      "practiceTitle": "Kimyoviy ishlab chiqarishda ifloslanish manbai–tozalash yechimi case’i",
+      "practiceType": "case",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "a1843d7307c4d50c8f5b8aa9d98b61c8d27245fead1dbf043b641fd24ed2a55d",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.26"
+      ],
+      "legacyIds": [
+        "9.26"
+      ],
+      "titles": [
+        "Kimyoviy ishlab chiqarish va atmosfera-gidrosferani muhofaza qilish"
+      ],
+      "practiceActivityId": "practice.case.9.26.planned",
+      "practiceTitle": "Kimyoviy ishlab chiqarishda ifloslanish manbai–tozalash yechimi case’i",
+      "practiceType": "case",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "a1843d7307c4d50c8f5b8aa9d98b61c8d27245fead1dbf043b641fd24ed2a55d",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.26"
+      ],
+      "legacyIds": [
+        "9.26"
+      ],
+      "titles": [
+        "Kimyoviy ishlab chiqarish va atmosfera-gidrosferani muhofaza qilish"
+      ],
+      "practiceActivityId": "practice.case.9.26.planned",
+      "practiceTitle": "Kimyoviy ishlab chiqarishda ifloslanish manbai–tozalash yechimi case’i",
+      "practiceType": "case",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "a1843d7307c4d50c8f5b8aa9d98b61c8d27245fead1dbf043b641fd24ed2a55d",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.01"
+      ],
+      "legacyIds": [
+        "10.01"
+      ],
+      "titles": [
+        "Organik kimyo tarixi va organik birikmalarning o‘ziga xos xususiyatlari"
+      ],
+      "practiceActivityId": "practice.experiment.10.1",
+      "practiceTitle": "Organik birikmalar namunalari bilan tanishish va qiyoslash",
+      "practiceType": "experiment",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "225e69e974202dc911982020aed5af6ad765814d9aa1d2fa5967d682d8238b37",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.01"
+      ],
+      "legacyIds": [
+        "10.01"
+      ],
+      "titles": [
+        "Organik kimyo tarixi va organik birikmalarning o‘ziga xos xususiyatlari"
+      ],
+      "practiceActivityId": "practice.experiment.10.1",
+      "practiceTitle": "Organik birikmalar namunalari bilan tanishish va qiyoslash",
+      "practiceType": "experiment",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "225e69e974202dc911982020aed5af6ad765814d9aa1d2fa5967d682d8238b37",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.01"
+      ],
+      "legacyIds": [
+        "10.01"
+      ],
+      "titles": [
+        "Organik kimyo tarixi va organik birikmalarning o‘ziga xos xususiyatlari"
+      ],
+      "practiceActivityId": "practice.experiment.10.1",
+      "practiceTitle": "Organik birikmalar namunalari bilan tanishish va qiyoslash",
+      "practiceType": "experiment",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "225e69e974202dc911982020aed5af6ad765814d9aa1d2fa5967d682d8238b37",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.01"
+      ],
+      "legacyIds": [
+        "10.01"
+      ],
+      "titles": [
+        "Organik kimyo tarixi va organik birikmalarning o‘ziga xos xususiyatlari"
+      ],
+      "practiceActivityId": "practice.experiment.10.1",
+      "practiceTitle": "Organik birikmalar namunalari bilan tanishish va qiyoslash",
+      "practiceType": "experiment",
+      "approvalType": "chemistry",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "chemistry",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "225e69e974202dc911982020aed5af6ad765814d9aa1d2fa5967d682d8238b37",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.22"
+      ],
+      "legacyIds": [
+        "10.22"
+      ],
+      "titles": [
+        "Karbon kislotalar"
+      ],
+      "practiceActivityId": "practice.experiment.10.22.carboxylic-acid",
+      "practiceTitle": "Karbon kislotalarning xossalari — virtual tajriba",
+      "practiceType": "experiment",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "df19f1e11737cdc2737f8e26d3c1c57659a0bfef6fa3b131dd4a28b454dab249",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.22"
+      ],
+      "legacyIds": [
+        "10.22"
+      ],
+      "titles": [
+        "Karbon kislotalar"
+      ],
+      "practiceActivityId": "practice.experiment.10.22.carboxylic-acid",
+      "practiceTitle": "Karbon kislotalarning xossalari — virtual tajriba",
+      "practiceType": "experiment",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "df19f1e11737cdc2737f8e26d3c1c57659a0bfef6fa3b131dd4a28b454dab249",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.22"
+      ],
+      "legacyIds": [
+        "10.22"
+      ],
+      "titles": [
+        "Karbon kislotalar"
+      ],
+      "practiceActivityId": "practice.experiment.10.22.carboxylic-acid",
+      "practiceTitle": "Karbon kislotalarning xossalari — virtual tajriba",
+      "practiceType": "experiment",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "df19f1e11737cdc2737f8e26d3c1c57659a0bfef6fa3b131dd4a28b454dab249",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.22"
+      ],
+      "legacyIds": [
+        "10.22"
+      ],
+      "titles": [
+        "Karbon kislotalar"
+      ],
+      "practiceActivityId": "practice.experiment.10.22.carboxylic-acid",
+      "practiceTitle": "Karbon kislotalarning xossalari — virtual tajriba",
+      "practiceType": "experiment",
+      "approvalType": "chemistry",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "chemistry",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "df19f1e11737cdc2737f8e26d3c1c57659a0bfef6fa3b131dd4a28b454dab249",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.12"
+      ],
+      "legacyIds": [
+        "10.12"
+      ],
+      "titles": [
+        "Alkenlar"
+      ],
+      "practiceActivityId": "practice.experiment.10.3",
+      "practiceTitle": "Etilenning olinishi va xossalarini o‘rganish",
+      "practiceType": "experiment",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "6307b600fd141c296aadc2afbb97f07246c33a6f96d74ed60dcbfc3f20452f10",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.12"
+      ],
+      "legacyIds": [
+        "10.12"
+      ],
+      "titles": [
+        "Alkenlar"
+      ],
+      "practiceActivityId": "practice.experiment.10.3",
+      "practiceTitle": "Etilenning olinishi va xossalarini o‘rganish",
+      "practiceType": "experiment",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "6307b600fd141c296aadc2afbb97f07246c33a6f96d74ed60dcbfc3f20452f10",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.12"
+      ],
+      "legacyIds": [
+        "10.12"
+      ],
+      "titles": [
+        "Alkenlar"
+      ],
+      "practiceActivityId": "practice.experiment.10.3",
+      "practiceTitle": "Etilenning olinishi va xossalarini o‘rganish",
+      "practiceType": "experiment",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "6307b600fd141c296aadc2afbb97f07246c33a6f96d74ed60dcbfc3f20452f10",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.12"
+      ],
+      "legacyIds": [
+        "10.12"
+      ],
+      "titles": [
+        "Alkenlar"
+      ],
+      "practiceActivityId": "practice.experiment.10.3",
+      "practiceTitle": "Etilenning olinishi va xossalarini o‘rganish",
+      "practiceType": "experiment",
+      "approvalType": "chemistry",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "chemistry",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "6307b600fd141c296aadc2afbb97f07246c33a6f96d74ed60dcbfc3f20452f10",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.18"
+      ],
+      "legacyIds": [
+        "10.18"
+      ],
+      "titles": [
+        "Ko‘p atomli spirtlar: etilenglikol va glitserin"
+      ],
+      "practiceActivityId": "practice.experiment.10.5",
+      "practiceTitle": "Ko‘p atomli spirtlarga oid tajribalar",
+      "practiceType": "experiment",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "4a3731c66d5e9ea96629806301733a08570ae076b9aaa8e0be4f529d6578694a",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.18"
+      ],
+      "legacyIds": [
+        "10.18"
+      ],
+      "titles": [
+        "Ko‘p atomli spirtlar: etilenglikol va glitserin"
+      ],
+      "practiceActivityId": "practice.experiment.10.5",
+      "practiceTitle": "Ko‘p atomli spirtlarga oid tajribalar",
+      "practiceType": "experiment",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "4a3731c66d5e9ea96629806301733a08570ae076b9aaa8e0be4f529d6578694a",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.18"
+      ],
+      "legacyIds": [
+        "10.18"
+      ],
+      "titles": [
+        "Ko‘p atomli spirtlar: etilenglikol va glitserin"
+      ],
+      "practiceActivityId": "practice.experiment.10.5",
+      "practiceTitle": "Ko‘p atomli spirtlarga oid tajribalar",
+      "practiceType": "experiment",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "4a3731c66d5e9ea96629806301733a08570ae076b9aaa8e0be4f529d6578694a",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.18"
+      ],
+      "legacyIds": [
+        "10.18"
+      ],
+      "titles": [
+        "Ko‘p atomli spirtlar: etilenglikol va glitserin"
+      ],
+      "practiceActivityId": "practice.experiment.10.5",
+      "practiceTitle": "Ko‘p atomli spirtlarga oid tajribalar",
+      "practiceType": "experiment",
+      "approvalType": "chemistry",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "chemistry",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "4a3731c66d5e9ea96629806301733a08570ae076b9aaa8e0be4f529d6578694a",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.24"
+      ],
+      "legacyIds": [
+        "10.24"
+      ],
+      "titles": [
+        "Yog‘lar"
+      ],
+      "practiceActivityId": "practice.experiment.10.8",
+      "practiceTitle": "Yog‘lardan sovun olish",
+      "practiceType": "experiment",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "4cbdb609cc228252b8b9cc6071731dcc1a30a73bb9fb97b0303f7a1386424f5a",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.24"
+      ],
+      "legacyIds": [
+        "10.24"
+      ],
+      "titles": [
+        "Yog‘lar"
+      ],
+      "practiceActivityId": "practice.experiment.10.8",
+      "practiceTitle": "Yog‘lardan sovun olish",
+      "practiceType": "experiment",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "4cbdb609cc228252b8b9cc6071731dcc1a30a73bb9fb97b0303f7a1386424f5a",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.24"
+      ],
+      "legacyIds": [
+        "10.24"
+      ],
+      "titles": [
+        "Yog‘lar"
+      ],
+      "practiceActivityId": "practice.experiment.10.8",
+      "practiceTitle": "Yog‘lardan sovun olish",
+      "practiceType": "experiment",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "4cbdb609cc228252b8b9cc6071731dcc1a30a73bb9fb97b0303f7a1386424f5a",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.24"
+      ],
+      "legacyIds": [
+        "10.24"
+      ],
+      "titles": [
+        "Yog‘lar"
+      ],
+      "practiceActivityId": "practice.experiment.10.8",
+      "practiceTitle": "Yog‘lardan sovun olish",
+      "practiceType": "experiment",
+      "approvalType": "chemistry",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "chemistry",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "4cbdb609cc228252b8b9cc6071731dcc1a30a73bb9fb97b0303f7a1386424f5a",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.25"
+      ],
+      "legacyIds": [
+        "10.25"
+      ],
+      "titles": [
+        "Uglevodlar: mono-, di- va polisaxaridlar"
+      ],
+      "practiceActivityId": "practice.experiment.10.9",
+      "practiceTitle": "Uglevodlarga oid tajribalar",
+      "practiceType": "experiment",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "1c6a0ff643432a227fb8f881f030a25c70ad2a437317417cbe25561914895d9c",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.25"
+      ],
+      "legacyIds": [
+        "10.25"
+      ],
+      "titles": [
+        "Uglevodlar: mono-, di- va polisaxaridlar"
+      ],
+      "practiceActivityId": "practice.experiment.10.9",
+      "practiceTitle": "Uglevodlarga oid tajribalar",
+      "practiceType": "experiment",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "1c6a0ff643432a227fb8f881f030a25c70ad2a437317417cbe25561914895d9c",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.25"
+      ],
+      "legacyIds": [
+        "10.25"
+      ],
+      "titles": [
+        "Uglevodlar: mono-, di- va polisaxaridlar"
+      ],
+      "practiceActivityId": "practice.experiment.10.9",
+      "practiceTitle": "Uglevodlarga oid tajribalar",
+      "practiceType": "experiment",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "1c6a0ff643432a227fb8f881f030a25c70ad2a437317417cbe25561914895d9c",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.25"
+      ],
+      "legacyIds": [
+        "10.25"
+      ],
+      "titles": [
+        "Uglevodlar: mono-, di- va polisaxaridlar"
+      ],
+      "practiceActivityId": "practice.experiment.10.9",
+      "practiceTitle": "Uglevodlarga oid tajribalar",
+      "practiceType": "experiment",
+      "approvalType": "chemistry",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "chemistry",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "1c6a0ff643432a227fb8f881f030a25c70ad2a437317417cbe25561914895d9c",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.09"
+      ],
+      "legacyIds": [
+        "9.09"
+      ],
+      "titles": [
+        "Uglerodning eng muhim birikmalari"
+      ],
+      "practiceActivityId": "practice.experiment.9.1",
+      "practiceTitle": "Uglerod(IV)-oksid hosil qilish va uning xossalari bilan tanishish",
+      "practiceType": "experiment",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "d687d05e19fafef5d6784255495db94a839bf6224fc4b82b23e3c9c0b8f3e460",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.09"
+      ],
+      "legacyIds": [
+        "9.09"
+      ],
+      "titles": [
+        "Uglerodning eng muhim birikmalari"
+      ],
+      "practiceActivityId": "practice.experiment.9.1",
+      "practiceTitle": "Uglerod(IV)-oksid hosil qilish va uning xossalari bilan tanishish",
+      "practiceType": "experiment",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "d687d05e19fafef5d6784255495db94a839bf6224fc4b82b23e3c9c0b8f3e460",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.09"
+      ],
+      "legacyIds": [
+        "9.09"
+      ],
+      "titles": [
+        "Uglerodning eng muhim birikmalari"
+      ],
+      "practiceActivityId": "practice.experiment.9.1",
+      "practiceTitle": "Uglerod(IV)-oksid hosil qilish va uning xossalari bilan tanishish",
+      "practiceType": "experiment",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "d687d05e19fafef5d6784255495db94a839bf6224fc4b82b23e3c9c0b8f3e460",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.09"
+      ],
+      "legacyIds": [
+        "9.09"
+      ],
+      "titles": [
+        "Uglerodning eng muhim birikmalari"
+      ],
+      "practiceActivityId": "practice.experiment.9.1",
+      "practiceTitle": "Uglerod(IV)-oksid hosil qilish va uning xossalari bilan tanishish",
+      "practiceType": "experiment",
+      "approvalType": "chemistry",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "chemistry",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "d687d05e19fafef5d6784255495db94a839bf6224fc4b82b23e3c9c0b8f3e460",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.15"
+      ],
+      "legacyIds": [
+        "9.15"
+      ],
+      "titles": [
+        "Elektroliz va uning amaliy ahamiyati"
+      ],
+      "practiceActivityId": "practice.experiment.9.10",
+      "practiceTitle": "Mis(II)-xlorid va kaliy yodid eritmalarining elektrolizi",
+      "practiceType": "experiment",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "5dcba4ca511191ead99e54b5d32c24d83813218e7720944bee3932db5e98611e",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.15"
+      ],
+      "legacyIds": [
+        "9.15"
+      ],
+      "titles": [
+        "Elektroliz va uning amaliy ahamiyati"
+      ],
+      "practiceActivityId": "practice.experiment.9.10",
+      "practiceTitle": "Mis(II)-xlorid va kaliy yodid eritmalarining elektrolizi",
+      "practiceType": "experiment",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "5dcba4ca511191ead99e54b5d32c24d83813218e7720944bee3932db5e98611e",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.15"
+      ],
+      "legacyIds": [
+        "9.15"
+      ],
+      "titles": [
+        "Elektroliz va uning amaliy ahamiyati"
+      ],
+      "practiceActivityId": "practice.experiment.9.10",
+      "practiceTitle": "Mis(II)-xlorid va kaliy yodid eritmalarining elektrolizi",
+      "practiceType": "experiment",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "5dcba4ca511191ead99e54b5d32c24d83813218e7720944bee3932db5e98611e",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.15"
+      ],
+      "legacyIds": [
+        "9.15"
+      ],
+      "titles": [
+        "Elektroliz va uning amaliy ahamiyati"
+      ],
+      "practiceActivityId": "practice.experiment.9.10",
+      "practiceTitle": "Mis(II)-xlorid va kaliy yodid eritmalarining elektrolizi",
+      "practiceType": "experiment",
+      "approvalType": "chemistry",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "chemistry",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "5dcba4ca511191ead99e54b5d32c24d83813218e7720944bee3932db5e98611e",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.19"
+      ],
+      "legacyIds": [
+        "9.19"
+      ],
+      "titles": [
+        "Alyuminiy va uning birikmalari"
+      ],
+      "practiceActivityId": "practice.experiment.9.11",
+      "practiceTitle": "Alyuminiyning kislota va ishqor eritmalari bilan o‘zaro ta’siri",
+      "practiceType": "experiment",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "1ac2aa3e283e27eebb0249d9897fbde5ba378a6599bcf62c1082803d12c8815e",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.19"
+      ],
+      "legacyIds": [
+        "9.19"
+      ],
+      "titles": [
+        "Alyuminiy va uning birikmalari"
+      ],
+      "practiceActivityId": "practice.experiment.9.11",
+      "practiceTitle": "Alyuminiyning kislota va ishqor eritmalari bilan o‘zaro ta’siri",
+      "practiceType": "experiment",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "1ac2aa3e283e27eebb0249d9897fbde5ba378a6599bcf62c1082803d12c8815e",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.19"
+      ],
+      "legacyIds": [
+        "9.19"
+      ],
+      "titles": [
+        "Alyuminiy va uning birikmalari"
+      ],
+      "practiceActivityId": "practice.experiment.9.11",
+      "practiceTitle": "Alyuminiyning kislota va ishqor eritmalari bilan o‘zaro ta’siri",
+      "practiceType": "experiment",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "1ac2aa3e283e27eebb0249d9897fbde5ba378a6599bcf62c1082803d12c8815e",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.19"
+      ],
+      "legacyIds": [
+        "9.19"
+      ],
+      "titles": [
+        "Alyuminiy va uning birikmalari"
+      ],
+      "practiceActivityId": "practice.experiment.9.11",
+      "practiceTitle": "Alyuminiyning kislota va ishqor eritmalari bilan o‘zaro ta’siri",
+      "practiceType": "experiment",
+      "approvalType": "chemistry",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "chemistry",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "1ac2aa3e283e27eebb0249d9897fbde5ba378a6599bcf62c1082803d12c8815e",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.06"
+      ],
+      "legacyIds": [
+        "9.06"
+      ],
+      "titles": [
+        "Tuzlarning gidrolizi"
+      ],
+      "practiceActivityId": "practice.experiment.9.14",
+      "practiceTitle": "Alyuminiy tuzlari eritmalarining indikatorlarga ta’siri",
+      "practiceType": "experiment",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "421b25d9b5ea096e4e13be72be633cb3f5286bda6193f124acde36f091f1bc6d",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.06"
+      ],
+      "legacyIds": [
+        "9.06"
+      ],
+      "titles": [
+        "Tuzlarning gidrolizi"
+      ],
+      "practiceActivityId": "practice.experiment.9.14",
+      "practiceTitle": "Alyuminiy tuzlari eritmalarining indikatorlarga ta’siri",
+      "practiceType": "experiment",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "421b25d9b5ea096e4e13be72be633cb3f5286bda6193f124acde36f091f1bc6d",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.06"
+      ],
+      "legacyIds": [
+        "9.06"
+      ],
+      "titles": [
+        "Tuzlarning gidrolizi"
+      ],
+      "practiceActivityId": "practice.experiment.9.14",
+      "practiceTitle": "Alyuminiy tuzlari eritmalarining indikatorlarga ta’siri",
+      "practiceType": "experiment",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "421b25d9b5ea096e4e13be72be633cb3f5286bda6193f124acde36f091f1bc6d",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.06"
+      ],
+      "legacyIds": [
+        "9.06"
+      ],
+      "titles": [
+        "Tuzlarning gidrolizi"
+      ],
+      "practiceActivityId": "practice.experiment.9.14",
+      "practiceTitle": "Alyuminiy tuzlari eritmalarining indikatorlarga ta’siri",
+      "practiceType": "experiment",
+      "approvalType": "chemistry",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "chemistry",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "421b25d9b5ea096e4e13be72be633cb3f5286bda6193f124acde36f091f1bc6d",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.22"
+      ],
+      "legacyIds": [
+        "9.22"
+      ],
+      "titles": [
+        "Xrom va uning II, III, VI valentli birikmalari"
+      ],
+      "practiceActivityId": "practice.experiment.9.17",
+      "practiceTitle": "Xrom(II), xrom(III) va xrom(VI) birikmalari bilan tajribalar",
+      "practiceType": "experiment",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "a374e4a1189355a91998ad67d1f050de7d28664e690def5fcf1ee78673ca0c53",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.22"
+      ],
+      "legacyIds": [
+        "9.22"
+      ],
+      "titles": [
+        "Xrom va uning II, III, VI valentli birikmalari"
+      ],
+      "practiceActivityId": "practice.experiment.9.17",
+      "practiceTitle": "Xrom(II), xrom(III) va xrom(VI) birikmalari bilan tajribalar",
+      "practiceType": "experiment",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "a374e4a1189355a91998ad67d1f050de7d28664e690def5fcf1ee78673ca0c53",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.22"
+      ],
+      "legacyIds": [
+        "9.22"
+      ],
+      "titles": [
+        "Xrom va uning II, III, VI valentli birikmalari"
+      ],
+      "practiceActivityId": "practice.experiment.9.17",
+      "practiceTitle": "Xrom(II), xrom(III) va xrom(VI) birikmalari bilan tajribalar",
+      "practiceType": "experiment",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "a374e4a1189355a91998ad67d1f050de7d28664e690def5fcf1ee78673ca0c53",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.22"
+      ],
+      "legacyIds": [
+        "9.22"
+      ],
+      "titles": [
+        "Xrom va uning II, III, VI valentli birikmalari"
+      ],
+      "practiceActivityId": "practice.experiment.9.17",
+      "practiceTitle": "Xrom(II), xrom(III) va xrom(VI) birikmalari bilan tajribalar",
+      "practiceType": "experiment",
+      "approvalType": "chemistry",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "chemistry",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "a374e4a1189355a91998ad67d1f050de7d28664e690def5fcf1ee78673ca0c53",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.24"
+      ],
+      "legacyIds": [
+        "9.24"
+      ],
+      "titles": [
+        "Temir va eng muhim birikmalari"
+      ],
+      "practiceActivityId": "practice.experiment.9.18",
+      "practiceTitle": "Temir(II) va temir(III)-gidroksidlarni olish",
+      "practiceType": "experiment",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "201452995ba96474295089fab9e1029200a9248d96221a95a7017ae9e6a13515",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.24"
+      ],
+      "legacyIds": [
+        "9.24"
+      ],
+      "titles": [
+        "Temir va eng muhim birikmalari"
+      ],
+      "practiceActivityId": "practice.experiment.9.18",
+      "practiceTitle": "Temir(II) va temir(III)-gidroksidlarni olish",
+      "practiceType": "experiment",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "201452995ba96474295089fab9e1029200a9248d96221a95a7017ae9e6a13515",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.24"
+      ],
+      "legacyIds": [
+        "9.24"
+      ],
+      "titles": [
+        "Temir va eng muhim birikmalari"
+      ],
+      "practiceActivityId": "practice.experiment.9.18",
+      "practiceTitle": "Temir(II) va temir(III)-gidroksidlarni olish",
+      "practiceType": "experiment",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "201452995ba96474295089fab9e1029200a9248d96221a95a7017ae9e6a13515",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.24"
+      ],
+      "legacyIds": [
+        "9.24"
+      ],
+      "titles": [
+        "Temir va eng muhim birikmalari"
+      ],
+      "practiceActivityId": "practice.experiment.9.18",
+      "practiceTitle": "Temir(II) va temir(III)-gidroksidlarni olish",
+      "practiceType": "experiment",
+      "approvalType": "chemistry",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "chemistry",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "201452995ba96474295089fab9e1029200a9248d96221a95a7017ae9e6a13515",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.16"
+      ],
+      "legacyIds": [
+        "9.16"
+      ],
+      "titles": [
+        "Ishqoriy metallar, natriy va kaliy birikmalari"
+      ],
+      "practiceActivityId": "practice.experiment.9.2",
+      "practiceTitle": "“Ishqoriy metallar” va “Kalsiy” mavzulari bo‘yicha tajribaviy masalalar",
+      "practiceType": "experiment",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "c2fa05a0bd37c549fc52d1c61c00f0b09a5e4a1ce412f42f8ee5e2514ad3c11d",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.16"
+      ],
+      "legacyIds": [
+        "9.16"
+      ],
+      "titles": [
+        "Ishqoriy metallar, natriy va kaliy birikmalari"
+      ],
+      "practiceActivityId": "practice.experiment.9.2",
+      "practiceTitle": "“Ishqoriy metallar” va “Kalsiy” mavzulari bo‘yicha tajribaviy masalalar",
+      "practiceType": "experiment",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "c2fa05a0bd37c549fc52d1c61c00f0b09a5e4a1ce412f42f8ee5e2514ad3c11d",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.16"
+      ],
+      "legacyIds": [
+        "9.16"
+      ],
+      "titles": [
+        "Ishqoriy metallar, natriy va kaliy birikmalari"
+      ],
+      "practiceActivityId": "practice.experiment.9.2",
+      "practiceTitle": "“Ishqoriy metallar” va “Kalsiy” mavzulari bo‘yicha tajribaviy masalalar",
+      "practiceType": "experiment",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "c2fa05a0bd37c549fc52d1c61c00f0b09a5e4a1ce412f42f8ee5e2514ad3c11d",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.16"
+      ],
+      "legacyIds": [
+        "9.16"
+      ],
+      "titles": [
+        "Ishqoriy metallar, natriy va kaliy birikmalari"
+      ],
+      "practiceActivityId": "practice.experiment.9.2",
+      "practiceTitle": "“Ishqoriy metallar” va “Kalsiy” mavzulari bo‘yicha tajribaviy masalalar",
+      "practiceType": "experiment",
+      "approvalType": "chemistry",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "chemistry",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "c2fa05a0bd37c549fc52d1c61c00f0b09a5e4a1ce412f42f8ee5e2514ad3c11d",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.13"
+      ],
+      "legacyIds": [
+        "9.13"
+      ],
+      "titles": [
+        "Metallarning fizik va kimyoviy xossalari"
+      ],
+      "practiceActivityId": "practice.experiment.9.3",
+      "practiceTitle": "“Metallar” mavzusi bo‘yicha tajribaviy masalalar",
+      "practiceType": "experiment",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "54fadb755cb802e520b55a4258c52b2753cd8a65978c2038e4ed61c347a338df",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.13"
+      ],
+      "legacyIds": [
+        "9.13"
+      ],
+      "titles": [
+        "Metallarning fizik va kimyoviy xossalari"
+      ],
+      "practiceActivityId": "practice.experiment.9.3",
+      "practiceTitle": "“Metallar” mavzusi bo‘yicha tajribaviy masalalar",
+      "practiceType": "experiment",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "54fadb755cb802e520b55a4258c52b2753cd8a65978c2038e4ed61c347a338df",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.13"
+      ],
+      "legacyIds": [
+        "9.13"
+      ],
+      "titles": [
+        "Metallarning fizik va kimyoviy xossalari"
+      ],
+      "practiceActivityId": "practice.experiment.9.3",
+      "practiceTitle": "“Metallar” mavzusi bo‘yicha tajribaviy masalalar",
+      "practiceType": "experiment",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "54fadb755cb802e520b55a4258c52b2753cd8a65978c2038e4ed61c347a338df",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.13"
+      ],
+      "legacyIds": [
+        "9.13"
+      ],
+      "titles": [
+        "Metallarning fizik va kimyoviy xossalari"
+      ],
+      "practiceActivityId": "practice.experiment.9.3",
+      "practiceTitle": "“Metallar” mavzusi bo‘yicha tajribaviy masalalar",
+      "practiceType": "experiment",
+      "approvalType": "chemistry",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "chemistry",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "54fadb755cb802e520b55a4258c52b2753cd8a65978c2038e4ed61c347a338df",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.10"
+      ],
+      "legacyIds": [
+        "9.10"
+      ],
+      "titles": [
+        "Kremniy va silikat sanoati"
+      ],
+      "practiceActivityId": "practice.experiment.9.5",
+      "practiceTitle": "Tabiiy silikatlar namunalari bilan tanishish",
+      "practiceType": "experiment",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "03dbcdb7dbd4db4e953a6bf00197c08cba25039aa432ec3c8e2b77ecd1a66ce0",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.10"
+      ],
+      "legacyIds": [
+        "9.10"
+      ],
+      "titles": [
+        "Kremniy va silikat sanoati"
+      ],
+      "practiceActivityId": "practice.experiment.9.5",
+      "practiceTitle": "Tabiiy silikatlar namunalari bilan tanishish",
+      "practiceType": "experiment",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "03dbcdb7dbd4db4e953a6bf00197c08cba25039aa432ec3c8e2b77ecd1a66ce0",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.10"
+      ],
+      "legacyIds": [
+        "9.10"
+      ],
+      "titles": [
+        "Kremniy va silikat sanoati"
+      ],
+      "practiceActivityId": "practice.experiment.9.5",
+      "practiceTitle": "Tabiiy silikatlar namunalari bilan tanishish",
+      "practiceType": "experiment",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "03dbcdb7dbd4db4e953a6bf00197c08cba25039aa432ec3c8e2b77ecd1a66ce0",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.10"
+      ],
+      "legacyIds": [
+        "9.10"
+      ],
+      "titles": [
+        "Kremniy va silikat sanoati"
+      ],
+      "practiceActivityId": "practice.experiment.9.5",
+      "practiceTitle": "Tabiiy silikatlar namunalari bilan tanishish",
+      "practiceType": "experiment",
+      "approvalType": "chemistry",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "chemistry",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "03dbcdb7dbd4db4e953a6bf00197c08cba25039aa432ec3c8e2b77ecd1a66ce0",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.12"
+      ],
+      "legacyIds": [
+        "9.12"
+      ],
+      "titles": [
+        "Qotishmalar"
+      ],
+      "practiceActivityId": "practice.experiment.9.8",
+      "practiceTitle": "Qotishmalar namunalari bilan tanishish",
+      "practiceType": "experiment",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "97f6bb8f3cee702e306c60d5a5eb85886f66ea272c3c85bc06dc0315eb4a2925",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.12"
+      ],
+      "legacyIds": [
+        "9.12"
+      ],
+      "titles": [
+        "Qotishmalar"
+      ],
+      "practiceActivityId": "practice.experiment.9.8",
+      "practiceTitle": "Qotishmalar namunalari bilan tanishish",
+      "practiceType": "experiment",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "97f6bb8f3cee702e306c60d5a5eb85886f66ea272c3c85bc06dc0315eb4a2925",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.12"
+      ],
+      "legacyIds": [
+        "9.12"
+      ],
+      "titles": [
+        "Qotishmalar"
+      ],
+      "practiceActivityId": "practice.experiment.9.8",
+      "practiceTitle": "Qotishmalar namunalari bilan tanishish",
+      "practiceType": "experiment",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "97f6bb8f3cee702e306c60d5a5eb85886f66ea272c3c85bc06dc0315eb4a2925",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.12"
+      ],
+      "legacyIds": [
+        "9.12"
+      ],
+      "titles": [
+        "Qotishmalar"
+      ],
+      "practiceActivityId": "practice.experiment.9.8",
+      "practiceTitle": "Qotishmalar namunalari bilan tanishish",
+      "practiceType": "experiment",
+      "approvalType": "chemistry",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "chemistry",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "97f6bb8f3cee702e306c60d5a5eb85886f66ea272c3c85bc06dc0315eb4a2925",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.02"
+      ],
+      "legacyIds": [
+        "10.02"
+      ],
+      "titles": [
+        "Organik birikmalar tuzilish nazariyasi"
+      ],
+      "practiceActivityId": "practice.simulation.10.02.structure-theory",
+      "practiceTitle": "Organik tuzilish nazariyasi molekula modeli",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "2b286394732f0f3823bb007c2a969e8dbfa5a176118c313a373e0aa47e49af57",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.02"
+      ],
+      "legacyIds": [
+        "10.02"
+      ],
+      "titles": [
+        "Organik birikmalar tuzilish nazariyasi"
+      ],
+      "practiceActivityId": "practice.simulation.10.02.structure-theory",
+      "practiceTitle": "Organik tuzilish nazariyasi molekula modeli",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "2b286394732f0f3823bb007c2a969e8dbfa5a176118c313a373e0aa47e49af57",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.02"
+      ],
+      "legacyIds": [
+        "10.02"
+      ],
+      "titles": [
+        "Organik birikmalar tuzilish nazariyasi"
+      ],
+      "practiceActivityId": "practice.simulation.10.02.structure-theory",
+      "practiceTitle": "Organik tuzilish nazariyasi molekula modeli",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "2b286394732f0f3823bb007c2a969e8dbfa5a176118c313a373e0aa47e49af57",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.04"
+      ],
+      "legacyIds": [
+        "10.04"
+      ],
+      "titles": [
+        "Izomeriya va uning turlari"
+      ],
+      "practiceActivityId": "practice.simulation.10.04.isomerism",
+      "practiceTitle": "Izomeriya: bir formula — turli tuzilish modeli",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "52a924dd1e44440b788cf9aaeef063055c22de5cf6eececb5f0e472c68f7c374",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.04"
+      ],
+      "legacyIds": [
+        "10.04"
+      ],
+      "titles": [
+        "Izomeriya va uning turlari"
+      ],
+      "practiceActivityId": "practice.simulation.10.04.isomerism",
+      "practiceTitle": "Izomeriya: bir formula — turli tuzilish modeli",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "52a924dd1e44440b788cf9aaeef063055c22de5cf6eececb5f0e472c68f7c374",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.04"
+      ],
+      "legacyIds": [
+        "10.04"
+      ],
+      "titles": [
+        "Izomeriya va uning turlari"
+      ],
+      "practiceActivityId": "practice.simulation.10.04.isomerism",
+      "practiceTitle": "Izomeriya: bir formula — turli tuzilish modeli",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "52a924dd1e44440b788cf9aaeef063055c22de5cf6eececb5f0e472c68f7c374",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.08"
+      ],
+      "legacyIds": [
+        "10.08"
+      ],
+      "titles": [
+        "Alkanlar va gomologik qator"
+      ],
+      "practiceActivityId": "practice.simulation.10.08.homologous-series",
+      "practiceTitle": "Alkanlar gomologik qatori modeli",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "165ccbc0130899021e4de2b1bb914449ef1c5dae7ad1cc0369b4d54d5e58f2b6",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.08"
+      ],
+      "legacyIds": [
+        "10.08"
+      ],
+      "titles": [
+        "Alkanlar va gomologik qator"
+      ],
+      "practiceActivityId": "practice.simulation.10.08.homologous-series",
+      "practiceTitle": "Alkanlar gomologik qatori modeli",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "165ccbc0130899021e4de2b1bb914449ef1c5dae7ad1cc0369b4d54d5e58f2b6",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.08"
+      ],
+      "legacyIds": [
+        "10.08"
+      ],
+      "titles": [
+        "Alkanlar va gomologik qator"
+      ],
+      "practiceActivityId": "practice.simulation.10.08.homologous-series",
+      "practiceTitle": "Alkanlar gomologik qatori modeli",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "165ccbc0130899021e4de2b1bb914449ef1c5dae7ad1cc0369b4d54d5e58f2b6",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.10"
+      ],
+      "legacyIds": [
+        "10.10"
+      ],
+      "titles": [
+        "Alkanlarning olinishi, xossalari va ishlatilishi"
+      ],
+      "practiceActivityId": "practice.simulation.10.10.planned",
+      "practiceTitle": "Alkan reaksiyalari xaritasi va sharoit tanlash",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "3e258735806144a31c749761be450520cae519f9a2ec0eb56efd85b0fd56bc40",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.10"
+      ],
+      "legacyIds": [
+        "10.10"
+      ],
+      "titles": [
+        "Alkanlarning olinishi, xossalari va ishlatilishi"
+      ],
+      "practiceActivityId": "practice.simulation.10.10.planned",
+      "practiceTitle": "Alkan reaksiyalari xaritasi va sharoit tanlash",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "3e258735806144a31c749761be450520cae519f9a2ec0eb56efd85b0fd56bc40",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.10"
+      ],
+      "legacyIds": [
+        "10.10"
+      ],
+      "titles": [
+        "Alkanlarning olinishi, xossalari va ishlatilishi"
+      ],
+      "practiceActivityId": "practice.simulation.10.10.planned",
+      "practiceTitle": "Alkan reaksiyalari xaritasi va sharoit tanlash",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "3e258735806144a31c749761be450520cae519f9a2ec0eb56efd85b0fd56bc40",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.11"
+      ],
+      "legacyIds": [
+        "10.11"
+      ],
+      "titles": [
+        "Sikloalkanlar"
+      ],
+      "practiceActivityId": "practice.simulation.10.11.planned",
+      "practiceTitle": "3D sikloalkan halqa modeli",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "642215c9dca8e8ee660d07375176cd8174b38cdde5dfab026800db495d47c7ff",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.11"
+      ],
+      "legacyIds": [
+        "10.11"
+      ],
+      "titles": [
+        "Sikloalkanlar"
+      ],
+      "practiceActivityId": "practice.simulation.10.11.planned",
+      "practiceTitle": "3D sikloalkan halqa modeli",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "642215c9dca8e8ee660d07375176cd8174b38cdde5dfab026800db495d47c7ff",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.11"
+      ],
+      "legacyIds": [
+        "10.11"
+      ],
+      "titles": [
+        "Sikloalkanlar"
+      ],
+      "practiceActivityId": "practice.simulation.10.11.planned",
+      "practiceTitle": "3D sikloalkan halqa modeli",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "642215c9dca8e8ee660d07375176cd8174b38cdde5dfab026800db495d47c7ff",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.13"
+      ],
+      "legacyIds": [
+        "10.13"
+      ],
+      "titles": [
+        "Alkadiyenlar, kauchuk va rezina"
+      ],
+      "practiceActivityId": "practice.simulation.10.13.planned",
+      "practiceTitle": "Diyen polimerlanishi: kauchuk→rezina zanjiri",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "e4fd84827cb9879adc5c049898ca75d3a5af0fc6e666c0abbc0ebf19fa586875",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.13"
+      ],
+      "legacyIds": [
+        "10.13"
+      ],
+      "titles": [
+        "Alkadiyenlar, kauchuk va rezina"
+      ],
+      "practiceActivityId": "practice.simulation.10.13.planned",
+      "practiceTitle": "Diyen polimerlanishi: kauchuk→rezina zanjiri",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "e4fd84827cb9879adc5c049898ca75d3a5af0fc6e666c0abbc0ebf19fa586875",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.13"
+      ],
+      "legacyIds": [
+        "10.13"
+      ],
+      "titles": [
+        "Alkadiyenlar, kauchuk va rezina"
+      ],
+      "practiceActivityId": "practice.simulation.10.13.planned",
+      "practiceTitle": "Diyen polimerlanishi: kauchuk→rezina zanjiri",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "e4fd84827cb9879adc5c049898ca75d3a5af0fc6e666c0abbc0ebf19fa586875",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.14"
+      ],
+      "legacyIds": [
+        "10.14"
+      ],
+      "titles": [
+        "Alkinlar"
+      ],
+      "practiceActivityId": "practice.simulation.10.14.planned",
+      "practiceTitle": "Alkin uchbog‘iga bosqichli qo‘shilish simulyatsiyasi",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "8d49f16d1858f3baaa046b51eb612c3ee382622354d2a8f10f35ade302c253ea",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.14"
+      ],
+      "legacyIds": [
+        "10.14"
+      ],
+      "titles": [
+        "Alkinlar"
+      ],
+      "practiceActivityId": "practice.simulation.10.14.planned",
+      "practiceTitle": "Alkin uchbog‘iga bosqichli qo‘shilish simulyatsiyasi",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "8d49f16d1858f3baaa046b51eb612c3ee382622354d2a8f10f35ade302c253ea",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.14"
+      ],
+      "legacyIds": [
+        "10.14"
+      ],
+      "titles": [
+        "Alkinlar"
+      ],
+      "practiceActivityId": "practice.simulation.10.14.planned",
+      "practiceTitle": "Alkin uchbog‘iga bosqichli qo‘shilish simulyatsiyasi",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "8d49f16d1858f3baaa046b51eb612c3ee382622354d2a8f10f35ade302c253ea",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.15"
+      ],
+      "legacyIds": [
+        "10.15"
+      ],
+      "titles": [
+        "Aromatik uglevodorodlar va stirol"
+      ],
+      "practiceActivityId": "practice.simulation.10.15.planned",
+      "practiceTitle": "Benzol/stiren/polistirol 3D model va qo‘llanish case’i",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "471938270c123641b977c7425b3e2d9f095ff8af6c6f1b1b6d810a5f377592bc",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.15"
+      ],
+      "legacyIds": [
+        "10.15"
+      ],
+      "titles": [
+        "Aromatik uglevodorodlar va stirol"
+      ],
+      "practiceActivityId": "practice.simulation.10.15.planned",
+      "practiceTitle": "Benzol/stiren/polistirol 3D model va qo‘llanish case’i",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "471938270c123641b977c7425b3e2d9f095ff8af6c6f1b1b6d810a5f377592bc",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.15"
+      ],
+      "legacyIds": [
+        "10.15"
+      ],
+      "titles": [
+        "Aromatik uglevodorodlar va stirol"
+      ],
+      "practiceActivityId": "practice.simulation.10.15.planned",
+      "practiceTitle": "Benzol/stiren/polistirol 3D model va qo‘llanish case’i",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "471938270c123641b977c7425b3e2d9f095ff8af6c6f1b1b6d810a5f377592bc",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.17"
+      ],
+      "legacyIds": [
+        "10.17"
+      ],
+      "titles": [
+        "Bir atomli spirtlar"
+      ],
+      "practiceActivityId": "practice.simulation.10.17.monohydric-alcohols",
+      "practiceTitle": "Bir atomli spirtlar: tuzilish–xossa modeli",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "861e766102f54f46c3672b0ca658ec3a13d482ba3dffb67ce3896c3de5775cfe",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.17"
+      ],
+      "legacyIds": [
+        "10.17"
+      ],
+      "titles": [
+        "Bir atomli spirtlar"
+      ],
+      "practiceActivityId": "practice.simulation.10.17.monohydric-alcohols",
+      "practiceTitle": "Bir atomli spirtlar: tuzilish–xossa modeli",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "861e766102f54f46c3672b0ca658ec3a13d482ba3dffb67ce3896c3de5775cfe",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.17"
+      ],
+      "legacyIds": [
+        "10.17"
+      ],
+      "titles": [
+        "Bir atomli spirtlar"
+      ],
+      "practiceActivityId": "practice.simulation.10.17.monohydric-alcohols",
+      "practiceTitle": "Bir atomli spirtlar: tuzilish–xossa modeli",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "861e766102f54f46c3672b0ca658ec3a13d482ba3dffb67ce3896c3de5775cfe",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.19"
+      ],
+      "legacyIds": [
+        "10.19"
+      ],
+      "titles": [
+        "Fenollar va aromatik spirtlar"
+      ],
+      "practiceActivityId": "practice.simulation.10.19.phenols",
+      "practiceTitle": "Fenol va aromatik spirtlarni taqqoslash modeli",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "78facce3ae0d131d2d2a631cd22a5442a190b7100e7fdb4e914a726abd39a9d1",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.19"
+      ],
+      "legacyIds": [
+        "10.19"
+      ],
+      "titles": [
+        "Fenollar va aromatik spirtlar"
+      ],
+      "practiceActivityId": "practice.simulation.10.19.phenols",
+      "practiceTitle": "Fenol va aromatik spirtlarni taqqoslash modeli",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "78facce3ae0d131d2d2a631cd22a5442a190b7100e7fdb4e914a726abd39a9d1",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.19"
+      ],
+      "legacyIds": [
+        "10.19"
+      ],
+      "titles": [
+        "Fenollar va aromatik spirtlar"
+      ],
+      "practiceActivityId": "practice.simulation.10.19.phenols",
+      "practiceTitle": "Fenol va aromatik spirtlarni taqqoslash modeli",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "78facce3ae0d131d2d2a631cd22a5442a190b7100e7fdb4e914a726abd39a9d1",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.20"
+      ],
+      "legacyIds": [
+        "10.20"
+      ],
+      "titles": [
+        "Oddiy efirlar"
+      ],
+      "practiceActivityId": "practice.simulation.10.20.planned",
+      "practiceTitle": "Oddiy efir molekula konstruktori",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "d60237bfa7687a32edbee6d64bd21039e07501d6c5060df2863d225d6a5b5bd4",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.20"
+      ],
+      "legacyIds": [
+        "10.20"
+      ],
+      "titles": [
+        "Oddiy efirlar"
+      ],
+      "practiceActivityId": "practice.simulation.10.20.planned",
+      "practiceTitle": "Oddiy efir molekula konstruktori",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "d60237bfa7687a32edbee6d64bd21039e07501d6c5060df2863d225d6a5b5bd4",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.20"
+      ],
+      "legacyIds": [
+        "10.20"
+      ],
+      "titles": [
+        "Oddiy efirlar"
+      ],
+      "practiceActivityId": "practice.simulation.10.20.planned",
+      "practiceTitle": "Oddiy efir molekula konstruktori",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "d60237bfa7687a32edbee6d64bd21039e07501d6c5060df2863d225d6a5b5bd4",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.21"
+      ],
+      "legacyIds": [
+        "10.21"
+      ],
+      "titles": [
+        "Aldegidlar va ketonlar"
+      ],
+      "practiceActivityId": "practice.simulation.10.21.carbonyls",
+      "practiceTitle": "Aldegid va ketonlarni farqlash modeli",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "786abeadd8b7c6ab3f7d8a1cdc3a07eb0aa1ce6b9c2d47c2499d254da6534872",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.21"
+      ],
+      "legacyIds": [
+        "10.21"
+      ],
+      "titles": [
+        "Aldegidlar va ketonlar"
+      ],
+      "practiceActivityId": "practice.simulation.10.21.carbonyls",
+      "practiceTitle": "Aldegid va ketonlarni farqlash modeli",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "786abeadd8b7c6ab3f7d8a1cdc3a07eb0aa1ce6b9c2d47c2499d254da6534872",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.21"
+      ],
+      "legacyIds": [
+        "10.21"
+      ],
+      "titles": [
+        "Aldegidlar va ketonlar"
+      ],
+      "practiceActivityId": "practice.simulation.10.21.carbonyls",
+      "practiceTitle": "Aldegid va ketonlarni farqlash modeli",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "786abeadd8b7c6ab3f7d8a1cdc3a07eb0aa1ce6b9c2d47c2499d254da6534872",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.23"
+      ],
+      "legacyIds": [
+        "10.23"
+      ],
+      "titles": [
+        "Murakkab efirlar"
+      ],
+      "practiceActivityId": "practice.simulation.10.23.esters",
+      "practiceTitle": "Murakkab efirlar: hosil bo‘lish va tuzilish modeli",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "e8f7e6bc5d1689bd00979189d6c13f8293f56cb7a8e53f292dfe16bb26eb4de0",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.23"
+      ],
+      "legacyIds": [
+        "10.23"
+      ],
+      "titles": [
+        "Murakkab efirlar"
+      ],
+      "practiceActivityId": "practice.simulation.10.23.esters",
+      "practiceTitle": "Murakkab efirlar: hosil bo‘lish va tuzilish modeli",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "e8f7e6bc5d1689bd00979189d6c13f8293f56cb7a8e53f292dfe16bb26eb4de0",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.23"
+      ],
+      "legacyIds": [
+        "10.23"
+      ],
+      "titles": [
+        "Murakkab efirlar"
+      ],
+      "practiceActivityId": "practice.simulation.10.23.esters",
+      "practiceTitle": "Murakkab efirlar: hosil bo‘lish va tuzilish modeli",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "e8f7e6bc5d1689bd00979189d6c13f8293f56cb7a8e53f292dfe16bb26eb4de0",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.01"
+      ],
+      "legacyIds": [
+        "9.01"
+      ],
+      "titles": [
+        "Davriy sistema, davriy qonun va bog‘lanish turlarini takrorlash"
+      ],
+      "practiceActivityId": "practice.simulation.9.01.planned",
+      "practiceTitle": "Davriy jadval–elektron tuzilish–bog‘lanish takrorlash paneli",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "e143df951a7f6c8074bd57d3d07c65f60cba5e76ef8109f43a1164391dd48573",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.01"
+      ],
+      "legacyIds": [
+        "9.01"
+      ],
+      "titles": [
+        "Davriy sistema, davriy qonun va bog‘lanish turlarini takrorlash"
+      ],
+      "practiceActivityId": "practice.simulation.9.01.planned",
+      "practiceTitle": "Davriy jadval–elektron tuzilish–bog‘lanish takrorlash paneli",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "e143df951a7f6c8074bd57d3d07c65f60cba5e76ef8109f43a1164391dd48573",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.01"
+      ],
+      "legacyIds": [
+        "9.01"
+      ],
+      "titles": [
+        "Davriy sistema, davriy qonun va bog‘lanish turlarini takrorlash"
+      ],
+      "practiceActivityId": "practice.simulation.9.01.planned",
+      "practiceTitle": "Davriy jadval–elektron tuzilish–bog‘lanish takrorlash paneli",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "e143df951a7f6c8074bd57d3d07c65f60cba5e76ef8109f43a1164391dd48573",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.02"
+      ],
+      "legacyIds": [
+        "9.02"
+      ],
+      "titles": [
+        "Elektrolitlar va noelektrolitlar"
+      ],
+      "practiceActivityId": "practice.simulation.9.02.planned",
+      "practiceTitle": "Elektrolit/noelektrolit o‘tkazuvchanlik virtual tajribasi",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "83d68d0cffa91ab1a8dd1f0719d60277399a9228fb5bbcda1744a58920b338f0",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.02"
+      ],
+      "legacyIds": [
+        "9.02"
+      ],
+      "titles": [
+        "Elektrolitlar va noelektrolitlar"
+      ],
+      "practiceActivityId": "practice.simulation.9.02.planned",
+      "practiceTitle": "Elektrolit/noelektrolit o‘tkazuvchanlik virtual tajribasi",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "83d68d0cffa91ab1a8dd1f0719d60277399a9228fb5bbcda1744a58920b338f0",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.02"
+      ],
+      "legacyIds": [
+        "9.02"
+      ],
+      "titles": [
+        "Elektrolitlar va noelektrolitlar"
+      ],
+      "practiceActivityId": "practice.simulation.9.02.planned",
+      "practiceTitle": "Elektrolit/noelektrolit o‘tkazuvchanlik virtual tajribasi",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "83d68d0cffa91ab1a8dd1f0719d60277399a9228fb5bbcda1744a58920b338f0",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.03"
+      ],
+      "legacyIds": [
+        "9.03"
+      ],
+      "titles": [
+        "Kislota, ishqor va tuzlarning dissotsiatsiyalanishi"
+      ],
+      "practiceActivityId": "practice.simulation.9.03.planned",
+      "practiceTitle": "Dissotsiatsiya animatsiyasi va ion yozuv trenajyori",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "6313464d420b016cad0a64ca0fcf5c9494865c0f3e3c21d44bb24ffede20b552",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.03"
+      ],
+      "legacyIds": [
+        "9.03"
+      ],
+      "titles": [
+        "Kislota, ishqor va tuzlarning dissotsiatsiyalanishi"
+      ],
+      "practiceActivityId": "practice.simulation.9.03.planned",
+      "practiceTitle": "Dissotsiatsiya animatsiyasi va ion yozuv trenajyori",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "6313464d420b016cad0a64ca0fcf5c9494865c0f3e3c21d44bb24ffede20b552",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.03"
+      ],
+      "legacyIds": [
+        "9.03"
+      ],
+      "titles": [
+        "Kislota, ishqor va tuzlarning dissotsiatsiyalanishi"
+      ],
+      "practiceActivityId": "practice.simulation.9.03.planned",
+      "practiceTitle": "Dissotsiatsiya animatsiyasi va ion yozuv trenajyori",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "6313464d420b016cad0a64ca0fcf5c9494865c0f3e3c21d44bb24ffede20b552",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.04"
+      ],
+      "legacyIds": [
+        "9.04"
+      ],
+      "titles": [
+        "Kuchli va kuchsiz elektrolitlar. Dissotsiatsiyalanish darajasi"
+      ],
+      "practiceActivityId": "practice.simulation.9.04.planned",
+      "practiceTitle": "Dissotsiatsiyalanish darajasi slayderi va α hisoblash",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "f6f6d07a00d8c50b853129d322fb285e17d624760f9b8c914d3930c18351a4b8",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.04"
+      ],
+      "legacyIds": [
+        "9.04"
+      ],
+      "titles": [
+        "Kuchli va kuchsiz elektrolitlar. Dissotsiatsiyalanish darajasi"
+      ],
+      "practiceActivityId": "practice.simulation.9.04.planned",
+      "practiceTitle": "Dissotsiatsiyalanish darajasi slayderi va α hisoblash",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "f6f6d07a00d8c50b853129d322fb285e17d624760f9b8c914d3930c18351a4b8",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.04"
+      ],
+      "legacyIds": [
+        "9.04"
+      ],
+      "titles": [
+        "Kuchli va kuchsiz elektrolitlar. Dissotsiatsiyalanish darajasi"
+      ],
+      "practiceActivityId": "practice.simulation.9.04.planned",
+      "practiceTitle": "Dissotsiatsiyalanish darajasi slayderi va α hisoblash",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "f6f6d07a00d8c50b853129d322fb285e17d624760f9b8c914d3930c18351a4b8",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.07"
+      ],
+      "legacyIds": [
+        "9.07"
+      ],
+      "titles": [
+        "Uglerod guruhidagi elementlarning umumiy tavsifi"
+      ],
+      "practiceActivityId": "practice.simulation.9.07.planned",
+      "practiceTitle": "Uglerod guruhi trendi va materiallar case’i",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "c7774612d303986c05c43fe1b81f94d0ab77025caef04ec298709379f869aace",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.07"
+      ],
+      "legacyIds": [
+        "9.07"
+      ],
+      "titles": [
+        "Uglerod guruhidagi elementlarning umumiy tavsifi"
+      ],
+      "practiceActivityId": "practice.simulation.9.07.planned",
+      "practiceTitle": "Uglerod guruhi trendi va materiallar case’i",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "c7774612d303986c05c43fe1b81f94d0ab77025caef04ec298709379f869aace",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.07"
+      ],
+      "legacyIds": [
+        "9.07"
+      ],
+      "titles": [
+        "Uglerod guruhidagi elementlarning umumiy tavsifi"
+      ],
+      "practiceActivityId": "practice.simulation.9.07.planned",
+      "practiceTitle": "Uglerod guruhi trendi va materiallar case’i",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "c7774612d303986c05c43fe1b81f94d0ab77025caef04ec298709379f869aace",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.08"
+      ],
+      "legacyIds": [
+        "9.08"
+      ],
+      "titles": [
+        "Uglerodning allotropiyasi va xossalari"
+      ],
+      "practiceActivityId": "practice.simulation.9.08.planned",
+      "practiceTitle": "Grafit–olmos–fulleren 3D tuzilma taqqoslash",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "326b38e974b6535ca6e734a413dd373aaa5d5b73f7e07ef3afb03c97f66bd86c",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.08"
+      ],
+      "legacyIds": [
+        "9.08"
+      ],
+      "titles": [
+        "Uglerodning allotropiyasi va xossalari"
+      ],
+      "practiceActivityId": "practice.simulation.9.08.planned",
+      "practiceTitle": "Grafit–olmos–fulleren 3D tuzilma taqqoslash",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "326b38e974b6535ca6e734a413dd373aaa5d5b73f7e07ef3afb03c97f66bd86c",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.08"
+      ],
+      "legacyIds": [
+        "9.08"
+      ],
+      "titles": [
+        "Uglerodning allotropiyasi va xossalari"
+      ],
+      "practiceActivityId": "practice.simulation.9.08.planned",
+      "practiceTitle": "Grafit–olmos–fulleren 3D tuzilma taqqoslash",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "326b38e974b6535ca6e734a413dd373aaa5d5b73f7e07ef3afb03c97f66bd86c",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.18"
+      ],
+      "legacyIds": [
+        "9.18"
+      ],
+      "titles": [
+        "Kalsiy, magniy va suvning qattiqligi"
+      ],
+      "practiceActivityId": "practice.simulation.9.18.water-hardness",
+      "practiceTitle": "Suv qattiqligi va uni yumshatish modeli",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "3178a5cd9acacda77c725782b17c431805ece258b7ca06091c8ee0e518ad61bd",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.18"
+      ],
+      "legacyIds": [
+        "9.18"
+      ],
+      "titles": [
+        "Kalsiy, magniy va suvning qattiqligi"
+      ],
+      "practiceActivityId": "practice.simulation.9.18.water-hardness",
+      "practiceTitle": "Suv qattiqligi va uni yumshatish modeli",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "3178a5cd9acacda77c725782b17c431805ece258b7ca06091c8ee0e518ad61bd",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.18"
+      ],
+      "legacyIds": [
+        "9.18"
+      ],
+      "titles": [
+        "Kalsiy, magniy va suvning qattiqligi"
+      ],
+      "practiceActivityId": "practice.simulation.9.18.water-hardness",
+      "practiceTitle": "Suv qattiqligi va uni yumshatish modeli",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "3178a5cd9acacda77c725782b17c431805ece258b7ca06091c8ee0e518ad61bd",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.20"
+      ],
+      "legacyIds": [
+        "9.20"
+      ],
+      "titles": [
+        "Mis, kumush va oltin"
+      ],
+      "practiceActivityId": "practice.simulation.9.20.cu-ag-au",
+      "practiceTitle": "Mis, kumush va oltin: xossa–qo‘llanish taqqoslash modeli",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "0285ce9ad24117cd87fc08acf2ffda14b26061366229c5703d60755566e8738a",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.20"
+      ],
+      "legacyIds": [
+        "9.20"
+      ],
+      "titles": [
+        "Mis, kumush va oltin"
+      ],
+      "practiceActivityId": "practice.simulation.9.20.cu-ag-au",
+      "practiceTitle": "Mis, kumush va oltin: xossa–qo‘llanish taqqoslash modeli",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "0285ce9ad24117cd87fc08acf2ffda14b26061366229c5703d60755566e8738a",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.20"
+      ],
+      "legacyIds": [
+        "9.20"
+      ],
+      "titles": [
+        "Mis, kumush va oltin"
+      ],
+      "practiceActivityId": "practice.simulation.9.20.cu-ag-au",
+      "practiceTitle": "Mis, kumush va oltin: xossa–qo‘llanish taqqoslash modeli",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "0285ce9ad24117cd87fc08acf2ffda14b26061366229c5703d60755566e8738a",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.21"
+      ],
+      "legacyIds": [
+        "9.21"
+      ],
+      "titles": [
+        "II guruh yonaki guruhcha elementlari"
+      ],
+      "practiceActivityId": "practice.simulation.9.21.group12",
+      "practiceTitle": "II guruh yonaki guruhcha elementlari trend modeli",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "cea1f41a5ae333918d1a14533125cd759fabcf313f717ca1bdc14f43bc3fec12",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.21"
+      ],
+      "legacyIds": [
+        "9.21"
+      ],
+      "titles": [
+        "II guruh yonaki guruhcha elementlari"
+      ],
+      "practiceActivityId": "practice.simulation.9.21.group12",
+      "practiceTitle": "II guruh yonaki guruhcha elementlari trend modeli",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "cea1f41a5ae333918d1a14533125cd759fabcf313f717ca1bdc14f43bc3fec12",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.21"
+      ],
+      "legacyIds": [
+        "9.21"
+      ],
+      "titles": [
+        "II guruh yonaki guruhcha elementlari"
+      ],
+      "practiceActivityId": "practice.simulation.9.21.group12",
+      "practiceTitle": "II guruh yonaki guruhcha elementlari trend modeli",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "cea1f41a5ae333918d1a14533125cd759fabcf313f717ca1bdc14f43bc3fec12",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.23"
+      ],
+      "legacyIds": [
+        "9.23"
+      ],
+      "titles": [
+        "Marganes"
+      ],
+      "practiceActivityId": "practice.simulation.9.23.planned",
+      "practiceTitle": "Mn oksidlanish darajalari va muhitga bog‘liq rangli redoks simulyatsiyasi",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "7e587366957a9430aeb387c49b1b00e0e049ea58c31a661dfea3ba9698ebbd56",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.23"
+      ],
+      "legacyIds": [
+        "9.23"
+      ],
+      "titles": [
+        "Marganes"
+      ],
+      "practiceActivityId": "practice.simulation.9.23.planned",
+      "practiceTitle": "Mn oksidlanish darajalari va muhitga bog‘liq rangli redoks simulyatsiyasi",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "7e587366957a9430aeb387c49b1b00e0e049ea58c31a661dfea3ba9698ebbd56",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.23"
+      ],
+      "legacyIds": [
+        "9.23"
+      ],
+      "titles": [
+        "Marganes"
+      ],
+      "practiceActivityId": "practice.simulation.9.23.planned",
+      "practiceTitle": "Mn oksidlanish darajalari va muhitga bog‘liq rangli redoks simulyatsiyasi",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "7e587366957a9430aeb387c49b1b00e0e049ea58c31a661dfea3ba9698ebbd56",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.03"
+      ],
+      "legacyIds": [
+        "10.03"
+      ],
+      "titles": [
+        "Uglerodning valentligi va oksidlanish darajasi"
+      ],
+      "practiceActivityId": "practice.trainer.10.03.planned",
+      "practiceTitle": "Uglerod valentligi/bog‘lar konstruktori",
+      "practiceType": "trainer",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "11b6e308199663472bc4197a9d73000174079c4a8daac10cf0da2efb725be629",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.03"
+      ],
+      "legacyIds": [
+        "10.03"
+      ],
+      "titles": [
+        "Uglerodning valentligi va oksidlanish darajasi"
+      ],
+      "practiceActivityId": "practice.trainer.10.03.planned",
+      "practiceTitle": "Uglerod valentligi/bog‘lar konstruktori",
+      "practiceType": "trainer",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "11b6e308199663472bc4197a9d73000174079c4a8daac10cf0da2efb725be629",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.03"
+      ],
+      "legacyIds": [
+        "10.03"
+      ],
+      "titles": [
+        "Uglerodning valentligi va oksidlanish darajasi"
+      ],
+      "practiceActivityId": "practice.trainer.10.03.planned",
+      "practiceTitle": "Uglerod valentligi/bog‘lar konstruktori",
+      "practiceType": "trainer",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "11b6e308199663472bc4197a9d73000174079c4a8daac10cf0da2efb725be629",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.05"
+      ],
+      "legacyIds": [
+        "10.05"
+      ],
+      "titles": [
+        "Organik birikmalarning sinflanishi"
+      ],
+      "practiceActivityId": "practice.trainer.10.05.planned",
+      "practiceTitle": "Organik sinflarga tasniflash drag-drop",
+      "practiceType": "trainer",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "08eb8abc0b20d5d9d6d3b727705d3d84f016070d5bc8b5e40d9098fe6aa6e3ed",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.05"
+      ],
+      "legacyIds": [
+        "10.05"
+      ],
+      "titles": [
+        "Organik birikmalarning sinflanishi"
+      ],
+      "practiceActivityId": "practice.trainer.10.05.planned",
+      "practiceTitle": "Organik sinflarga tasniflash drag-drop",
+      "practiceType": "trainer",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "08eb8abc0b20d5d9d6d3b727705d3d84f016070d5bc8b5e40d9098fe6aa6e3ed",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.05"
+      ],
+      "legacyIds": [
+        "10.05"
+      ],
+      "titles": [
+        "Organik birikmalarning sinflanishi"
+      ],
+      "practiceActivityId": "practice.trainer.10.05.planned",
+      "practiceTitle": "Organik sinflarga tasniflash drag-drop",
+      "practiceType": "trainer",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "08eb8abc0b20d5d9d6d3b727705d3d84f016070d5bc8b5e40d9098fe6aa6e3ed",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.06"
+      ],
+      "legacyIds": [
+        "10.06"
+      ],
+      "titles": [
+        "Organik reaksiyalar turlari"
+      ],
+      "practiceActivityId": "practice.trainer.10.06.planned",
+      "practiceTitle": "Organik reaksiya turini aniqlash trenajyori",
+      "practiceType": "trainer",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "13dd43a7725b448de1a67c741851be79e8c5ec479bf1bfec746673de4354fed3",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.06"
+      ],
+      "legacyIds": [
+        "10.06"
+      ],
+      "titles": [
+        "Organik reaksiyalar turlari"
+      ],
+      "practiceActivityId": "practice.trainer.10.06.planned",
+      "practiceTitle": "Organik reaksiya turini aniqlash trenajyori",
+      "practiceType": "trainer",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "13dd43a7725b448de1a67c741851be79e8c5ec479bf1bfec746673de4354fed3",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.06"
+      ],
+      "legacyIds": [
+        "10.06"
+      ],
+      "titles": [
+        "Organik reaksiyalar turlari"
+      ],
+      "practiceActivityId": "practice.trainer.10.06.planned",
+      "practiceTitle": "Organik reaksiya turini aniqlash trenajyori",
+      "practiceType": "trainer",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "13dd43a7725b448de1a67c741851be79e8c5ec479bf1bfec746673de4354fed3",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.07"
+      ],
+      "legacyIds": [
+        "10.07"
+      ],
+      "titles": [
+        "Organik birikmalar nomenklaturasi"
+      ],
+      "practiceActivityId": "practice.trainer.10.07.planned",
+      "practiceTitle": "IUPAC nomlash: tuzilma↔nom konstruktori",
+      "practiceType": "trainer",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "19ab80488953fbdaa6ceffb8b114240a72aed2afd2bc437aff25551a100cf4cf",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.07"
+      ],
+      "legacyIds": [
+        "10.07"
+      ],
+      "titles": [
+        "Organik birikmalar nomenklaturasi"
+      ],
+      "practiceActivityId": "practice.trainer.10.07.planned",
+      "practiceTitle": "IUPAC nomlash: tuzilma↔nom konstruktori",
+      "practiceType": "trainer",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "19ab80488953fbdaa6ceffb8b114240a72aed2afd2bc437aff25551a100cf4cf",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.07"
+      ],
+      "legacyIds": [
+        "10.07"
+      ],
+      "titles": [
+        "Organik birikmalar nomenklaturasi"
+      ],
+      "practiceActivityId": "practice.trainer.10.07.planned",
+      "practiceTitle": "IUPAC nomlash: tuzilma↔nom konstruktori",
+      "practiceType": "trainer",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "19ab80488953fbdaa6ceffb8b114240a72aed2afd2bc437aff25551a100cf4cf",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.09"
+      ],
+      "legacyIds": [
+        "10.09"
+      ],
+      "titles": [
+        "Alkanlar izomeriyasi va nomlanishi"
+      ],
+      "practiceActivityId": "practice.trainer.10.09.planned",
+      "practiceTitle": "Alkan izomerlarini qurish va nomlash o‘yini",
+      "practiceType": "trainer",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "1bef6a635ad2b0fd0d868c919581c33f6345edb87cd35ce08404c3ed4688ed43",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.09"
+      ],
+      "legacyIds": [
+        "10.09"
+      ],
+      "titles": [
+        "Alkanlar izomeriyasi va nomlanishi"
+      ],
+      "practiceActivityId": "practice.trainer.10.09.planned",
+      "practiceTitle": "Alkan izomerlarini qurish va nomlash o‘yini",
+      "practiceType": "trainer",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "1bef6a635ad2b0fd0d868c919581c33f6345edb87cd35ce08404c3ed4688ed43",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.09"
+      ],
+      "legacyIds": [
+        "10.09"
+      ],
+      "titles": [
+        "Alkanlar izomeriyasi va nomlanishi"
+      ],
+      "practiceActivityId": "practice.trainer.10.09.planned",
+      "practiceTitle": "Alkan izomerlarini qurish va nomlash o‘yini",
+      "practiceType": "trainer",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "1bef6a635ad2b0fd0d868c919581c33f6345edb87cd35ce08404c3ed4688ed43",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.26"
+      ],
+      "legacyIds": [
+        "10.26"
+      ],
+      "titles": [
+        "Tabiiy va sun’iy tolalar"
+      ],
+      "practiceActivityId": "practice.trainer.10.26.fibers",
+      "practiceTitle": "Tabiiy va sun’iy tolalarni tasniflash trenajyori",
+      "practiceType": "trainer",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "8ebdcbfc634e2b74dd80702fb63131a8c064b5b54935a38768545fea44b693a9",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.26"
+      ],
+      "legacyIds": [
+        "10.26"
+      ],
+      "titles": [
+        "Tabiiy va sun’iy tolalar"
+      ],
+      "practiceActivityId": "practice.trainer.10.26.fibers",
+      "practiceTitle": "Tabiiy va sun’iy tolalarni tasniflash trenajyori",
+      "practiceType": "trainer",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "8ebdcbfc634e2b74dd80702fb63131a8c064b5b54935a38768545fea44b693a9",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.10.26"
+      ],
+      "legacyIds": [
+        "10.26"
+      ],
+      "titles": [
+        "Tabiiy va sun’iy tolalar"
+      ],
+      "practiceActivityId": "practice.trainer.10.26.fibers",
+      "practiceTitle": "Tabiiy va sun’iy tolalarni tasniflash trenajyori",
+      "practiceType": "trainer",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "8ebdcbfc634e2b74dd80702fb63131a8c064b5b54935a38768545fea44b693a9",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.05"
+      ],
+      "legacyIds": [
+        "9.05"
+      ],
+      "titles": [
+        "Ion almashinish reaksiyalari"
+      ],
+      "practiceActivityId": "practice.trainer.9.05.planned",
+      "practiceTitle": "Molekulyar→to‘liq ionli→qisqa ionli tenglama konstruktori",
+      "practiceType": "trainer",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "813ac0a6fbe17af53e51f4038bae15abdb84ac198ce0f8adeaeca883d407a31c",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.05"
+      ],
+      "legacyIds": [
+        "9.05"
+      ],
+      "titles": [
+        "Ion almashinish reaksiyalari"
+      ],
+      "practiceActivityId": "practice.trainer.9.05.planned",
+      "practiceTitle": "Molekulyar→to‘liq ionli→qisqa ionli tenglama konstruktori",
+      "practiceType": "trainer",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "813ac0a6fbe17af53e51f4038bae15abdb84ac198ce0f8adeaeca883d407a31c",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA2",
+      "learningUnitIds": [
+        "lu.9.05"
+      ],
+      "legacyIds": [
+        "9.05"
+      ],
+      "titles": [
+        "Ion almashinish reaksiyalari"
+      ],
+      "practiceActivityId": "practice.trainer.9.05.planned",
+      "practiceTitle": "Molekulyar→to‘liq ionli→qisqa ionli tenglama konstruktori",
+      "practiceType": "trainer",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "813ac0a6fbe17af53e51f4038bae15abdb84ac198ce0f8adeaeca883d407a31c",
+      "reviewedAt": "",
+      "notes": ""
+    }
+  ]
+}

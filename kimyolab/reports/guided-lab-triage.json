@@ -1,0 +1,244 @@
+{
+  "generatedAt": "2026-09-29T04:33:39.471Z",
+  "classification": "engineering-triage-not-expert-approval",
+  "summary": {
+    "total": 27,
+    "proceduralGuided": 8,
+    "reactionKbPartial": 11,
+    "domainModelRequired": 0,
+    "domainModelBaselined": 8,
+    "unclassified": 0,
+    "candidateReactionRefs": 23,
+    "missingReactionRefs": 0,
+    "reactionGroundedLabs": 10,
+    "reactionGroundedSteps": 19,
+    "chemistryGroundedLabs": 19,
+    "chemistryGroundedSteps": 47,
+    "modelGroundedSteps": 30
+  },
+  "rows": [
+    {
+      "id": "practice.experiment.10.10",
+      "title": "Organik birikmalarni xos reaksiyalar asosida aniqlash",
+      "status": "DOMAIN_MODEL_BASELINED",
+      "candidateReactionIds": [],
+      "missingReactionIds": []
+    },
+    {
+      "id": "practice.experiment.10.2",
+      "title": "Organik birikmalar tarkibini tahlil qilish",
+      "status": "DOMAIN_MODEL_BASELINED",
+      "candidateReactionIds": [],
+      "missingReactionIds": []
+    },
+    {
+      "id": "practice.experiment.10.6",
+      "title": "Spirtlar va aldegidlarga xos reaksiyalar",
+      "status": "DOMAIN_MODEL_BASELINED",
+      "candidateReactionIds": [],
+      "missingReactionIds": []
+    },
+    {
+      "id": "practice.experiment.10.7",
+      "title": "O‘simliklar tarkibidagi murakkab efirlar",
+      "status": "PROCEDURAL_GUIDED",
+      "candidateReactionIds": [],
+      "missingReactionIds": []
+    },
+    {
+      "id": "practice.experiment.7.1",
+      "title": "Laboratoriya shtativi, spirt lampa, gaz gorelkalari va elektr isitgich bilan ishlash",
+      "status": "PROCEDURAL_GUIDED",
+      "candidateReactionIds": [],
+      "missingReactionIds": []
+    },
+    {
+      "id": "practice.experiment.7.10",
+      "title": "Kislotalarning metallar bilan o‘zaro ta’siri",
+      "status": "REACTION_KB_PARTIAL",
+      "candidateReactionIds": [
+        "rxn.mg-h2so4",
+        "rxn.zn-hcl"
+      ],
+      "missingReactionIds": []
+    },
+    {
+      "id": "practice.experiment.7.11",
+      "title": "Suvning oksidlar bilan o‘zaro ta’siri",
+      "status": "REACTION_KB_PARTIAL",
+      "candidateReactionIds": [
+        "rxn.cao-water",
+        "rxn.co2-water"
+      ],
+      "missingReactionIds": []
+    },
+    {
+      "id": "practice.experiment.7.12",
+      "title": "Suvning fizik xossalarini o‘rganish",
+      "status": "PROCEDURAL_GUIDED",
+      "candidateReactionIds": [],
+      "missingReactionIds": []
+    },
+    {
+      "id": "practice.experiment.7.9",
+      "title": "Kislotalarning olinishi va xossalari",
+      "status": "REACTION_KB_PARTIAL",
+      "candidateReactionIds": [
+        "rxn.nacl-h2so4",
+        "rxn.cuo-hcl",
+        "rxn.naoh-hcl",
+        "rxn.caco3-hcl"
+      ],
+      "missingReactionIds": []
+    },
+    {
+      "id": "practice.experiment.8.10",
+      "title": "Galogenlarning birikmalar eritmalaridan bir-birini siqib chiqarishi",
+      "status": "REACTION_KB_PARTIAL",
+      "candidateReactionIds": [
+        "rxn.cl2-kbr",
+        "rxn.br2-ki"
+      ],
+      "missingReactionIds": []
+    },
+    {
+      "id": "practice.experiment.8.11",
+      "title": "Galogenlarning suvda va organik erituvchilarda erishi",
+      "status": "PROCEDURAL_GUIDED",
+      "candidateReactionIds": [],
+      "missingReactionIds": []
+    },
+    {
+      "id": "practice.experiment.8.13",
+      "title": "Turli eritmalarda sulfat ioni borligini aniqlash",
+      "status": "REACTION_KB_PARTIAL",
+      "candidateReactionIds": [
+        "rxn.bacl2-h2so4"
+      ],
+      "missingReactionIds": []
+    },
+    {
+      "id": "practice.experiment.8.14",
+      "title": "Ammoniy tuziga so‘ndirilgan ohak ta’sir ettirib ammiak olish",
+      "status": "REACTION_KB_PARTIAL",
+      "candidateReactionIds": [
+        "rxn.nh4cl-caoh2",
+        "rxn.nh3-hcl"
+      ],
+      "missingReactionIds": []
+    },
+    {
+      "id": "practice.experiment.8.15",
+      "title": "Mineral o‘g‘itlar namunalari bilan tanishish",
+      "status": "PROCEDURAL_GUIDED",
+      "candidateReactionIds": [],
+      "missingReactionIds": []
+    },
+    {
+      "id": "practice.experiment.8.6",
+      "title": "Rux gidroksidning olinishi, unga kislota va ishqor ta’siri",
+      "status": "REACTION_KB_PARTIAL",
+      "candidateReactionIds": [
+        "rxn.zncl2-naoh",
+        "rxn.znoh2-hcl"
+      ],
+      "missingReactionIds": []
+    },
+    {
+      "id": "practice.experiment.8.8",
+      "title": "Xlorid kislota, galogenidlar va yod uchun sifat reaksiyalari",
+      "status": "REACTION_KB_PARTIAL",
+      "candidateReactionIds": [
+        "rxn.agno3-nacl",
+        "rxn.agno3-nabr",
+        "rxn.agno3-nai"
+      ],
+      "missingReactionIds": []
+    },
+    {
+      "id": "practice.experiment.8.9",
+      "title": "Tuproq eritmasi tarkibida xloridlar borligini aniqlash",
+      "status": "REACTION_KB_PARTIAL",
+      "candidateReactionIds": [
+        "rxn.agno3-nacl"
+      ],
+      "missingReactionIds": []
+    },
+    {
+      "id": "practice.experiment.9.12",
+      "title": "Alyuminiy namunalari va qotishmalari bilan tanishish",
+      "status": "PROCEDURAL_GUIDED",
+      "candidateReactionIds": [],
+      "missingReactionIds": []
+    },
+    {
+      "id": "practice.experiment.9.13",
+      "title": "Alyuminiy gidroksidni olish va uning xossalari",
+      "status": "DOMAIN_MODEL_BASELINED",
+      "candidateReactionIds": [],
+      "missingReactionIds": []
+    },
+    {
+      "id": "practice.experiment.9.15",
+      "title": "Mis(II)-gidroksidni olish va xossalarini tekshirish",
+      "status": "DOMAIN_MODEL_BASELINED",
+      "candidateReactionIds": [],
+      "missingReactionIds": []
+    },
+    {
+      "id": "practice.experiment.9.16",
+      "title": "Rux gidroksidni olish va amfoter xossalarini tekshirish",
+      "status": "REACTION_KB_PARTIAL",
+      "candidateReactionIds": [
+        "rxn.zncl2-naoh",
+        "rxn.znoh2-hcl"
+      ],
+      "missingReactionIds": []
+    },
+    {
+      "id": "practice.experiment.9.19",
+      "title": "Temir(II) va temir(III) tuzlarini aniqlash",
+      "status": "DOMAIN_MODEL_BASELINED",
+      "candidateReactionIds": [],
+      "missingReactionIds": []
+    },
+    {
+      "id": "practice.experiment.9.20",
+      "title": "Cho‘yan va po‘lat namunalari bilan tanishish",
+      "status": "DOMAIN_MODEL_BASELINED",
+      "candidateReactionIds": [],
+      "missingReactionIds": []
+    },
+    {
+      "id": "practice.experiment.9.4",
+      "title": "Karbonatlar va gidrokarbonatlarning xossalari hamda o‘zaro aylanishi",
+      "status": "REACTION_KB_PARTIAL",
+      "candidateReactionIds": [
+        "rxn.caco3-hcl",
+        "rxn.co2-water"
+      ],
+      "missingReactionIds": []
+    },
+    {
+      "id": "practice.experiment.9.6",
+      "title": "Shisha turlari va shishadan yasalgan mahsulotlar bilan tanishish",
+      "status": "PROCEDURAL_GUIDED",
+      "candidateReactionIds": [],
+      "missingReactionIds": []
+    },
+    {
+      "id": "practice.experiment.9.7",
+      "title": "Metallar namunalari va issiqlik o‘tkazuvchanligini ko‘zdan kechirish",
+      "status": "PROCEDURAL_GUIDED",
+      "candidateReactionIds": [],
+      "missingReactionIds": []
+    },
+    {
+      "id": "practice.experiment.9.9",
+      "title": "Tuz eritmalari bilan metallarning o‘zaro ta’siri",
+      "status": "DOMAIN_MODEL_BASELINED",
+      "candidateReactionIds": [],
+      "missingReactionIds": []
+    }
+  ]
+}

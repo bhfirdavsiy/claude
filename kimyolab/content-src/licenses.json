@@ -1,0 +1,8 @@
+[
+  {"pathPrefix":"css/","owner":"Sinco/template authors","source":"legacy Sinco template bundle","license":"unknown","allowedUse":"pending","status":"pending"},
+  {"pathPrefix":"js/","owner":"Sinco/template authors","source":"legacy Sinco template bundle","license":"unknown","allowedUse":"pending","status":"pending"},
+  {"pathPrefix":"images/","owner":"Sinco/template authors and project sources","source":"legacy visual asset bundle","license":"unknown","allowedUse":"pending","status":"pending"},
+  {"pathPrefix":"fonts/","owner":"font authors","source":"legacy font bundle","license":"unknown","allowedUse":"pending","status":"pending"},
+  {"pathPrefix":"vendor/","owner":"third-party vendors","source":"legacy vendor bundle","license":"unknown","allowedUse":"pending","status":"pending"},
+  {"pathPrefix":"inc/","owner":"third-party/template authors","source":"legacy include bundle","license":"unknown","allowedUse":"pending","status":"pending"}
+]

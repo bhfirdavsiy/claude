@@ -1,0 +1,8 @@
+{
+  "version":"1.0.0",
+  "records":[
+    {"id":"temperature-increase","factor":"temperature","change":"increase","effect":"increase","sourceRefs":["src.curriculum.11.16"],"reviewStatus":"pending"},
+    {"id":"catalyst-add","factor":"catalyst","change":"add","effect":"increase","sourceRefs":["src.curriculum.11.16"],"reviewStatus":"pending"},
+    {"id":"concentration-increase","factor":"concentration","change":"increase","effect":"increase","sourceRefs":["src.curriculum.11.16"],"reviewStatus":"pending"}
+  ]
+}

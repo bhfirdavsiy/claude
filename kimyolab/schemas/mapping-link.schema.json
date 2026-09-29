@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "id",
+    "learningUnitId",
+    "practiceActivityId",
+    "conceptIds",
+    "role",
+    "required",
+    "coverageStatus"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "learningUnitId": {
+      "type": "string"
+    },
+    "theoryActivityId": {
+      "type": "string"
+    },
+    "practiceActivityId": {
+      "type": "string"
+    },
+    "conceptIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "role": {
+      "enum": [
+        "primary",
+        "supporting",
+        "remediation",
+        "extension"
+      ]
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "coverageStatus": {
+      "enum": [
+        "none",
+        "partial",
+        "full",
+        "not_applicable"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

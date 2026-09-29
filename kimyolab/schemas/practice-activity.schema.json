@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "title",
+    "goal",
+    "conceptIds",
+    "prerequisiteConceptIds",
+    "lifecycleStatus",
+    "approvals",
+    "accessibilityProfile",
+    "engineCompatibility",
+    "sourceRefs",
+    "legacyIds",
+    "version"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "experiment",
+        "simulation",
+        "trainer",
+        "calculation",
+        "case"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "goal": {
+      "type": "string"
+    },
+    "conceptIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prerequisiteConceptIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "lifecycleStatus": {
+      "enum": [
+        "draft",
+        "planned",
+        "in_progress",
+        "implemented",
+        "ready",
+        "deprecated"
+      ]
+    },
+    "approvals": {
+      "type": "object"
+    },
+    "accessibilityProfile": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "engineCompatibility": {
+      "type": "object"
+    },
+    "sourceRefs": {
+      "type": "array"
+    },
+    "legacyIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

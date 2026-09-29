@@ -1,0 +1,1609 @@
+{
+  "version": "1.0.0",
+  "kind": "chemistry-review-candidate",
+  "chemicallyReviewed": false,
+  "expertApproved": false,
+  "note": "Candidate school-chemistry corpus prepared for Chemistry Reviewer. Technical parse/balance checks do not constitute chemistry approval. Each case remains pending until reviewer metadata is recorded.",
+  "cases": [
+    {
+      "id": "review.001",
+      "equation": "CH4 + O2 -> CO2 + H2O",
+      "family": "combustion-alkane",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.002",
+      "equation": "C2H6 + O2 -> CO2 + H2O",
+      "family": "combustion-alkane",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.003",
+      "equation": "C3H8 + O2 -> CO2 + H2O",
+      "family": "combustion-alkane",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.004",
+      "equation": "C4H10 + O2 -> CO2 + H2O",
+      "family": "combustion-alkane",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.005",
+      "equation": "C5H12 + O2 -> CO2 + H2O",
+      "family": "combustion-alkane",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.006",
+      "equation": "C6H14 + O2 -> CO2 + H2O",
+      "family": "combustion-alkane",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.007",
+      "equation": "C7H16 + O2 -> CO2 + H2O",
+      "family": "combustion-alkane",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.008",
+      "equation": "C8H18 + O2 -> CO2 + H2O",
+      "family": "combustion-alkane",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.009",
+      "equation": "C9H20 + O2 -> CO2 + H2O",
+      "family": "combustion-alkane",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.010",
+      "equation": "C10H22 + O2 -> CO2 + H2O",
+      "family": "combustion-alkane",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.011",
+      "equation": "C11H24 + O2 -> CO2 + H2O",
+      "family": "combustion-alkane",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.012",
+      "equation": "C12H26 + O2 -> CO2 + H2O",
+      "family": "combustion-alkane",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.013",
+      "equation": "C13H28 + O2 -> CO2 + H2O",
+      "family": "combustion-alkane",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.014",
+      "equation": "C14H30 + O2 -> CO2 + H2O",
+      "family": "combustion-alkane",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.015",
+      "equation": "C15H32 + O2 -> CO2 + H2O",
+      "family": "combustion-alkane",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.016",
+      "equation": "C16H34 + O2 -> CO2 + H2O",
+      "family": "combustion-alkane",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.017",
+      "equation": "C17H36 + O2 -> CO2 + H2O",
+      "family": "combustion-alkane",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.018",
+      "equation": "C18H38 + O2 -> CO2 + H2O",
+      "family": "combustion-alkane",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.019",
+      "equation": "C19H40 + O2 -> CO2 + H2O",
+      "family": "combustion-alkane",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.020",
+      "equation": "C20H42 + O2 -> CO2 + H2O",
+      "family": "combustion-alkane",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.021",
+      "equation": "C2H4 + O2 -> CO2 + H2O",
+      "family": "combustion-alkene",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.022",
+      "equation": "C3H6 + O2 -> CO2 + H2O",
+      "family": "combustion-alkene",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.023",
+      "equation": "C4H8 + O2 -> CO2 + H2O",
+      "family": "combustion-alkene",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.024",
+      "equation": "C5H10 + O2 -> CO2 + H2O",
+      "family": "combustion-alkene",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.025",
+      "equation": "C6H12 + O2 -> CO2 + H2O",
+      "family": "combustion-alkene",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.026",
+      "equation": "C7H14 + O2 -> CO2 + H2O",
+      "family": "combustion-alkene",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.027",
+      "equation": "C8H16 + O2 -> CO2 + H2O",
+      "family": "combustion-alkene",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.028",
+      "equation": "C9H18 + O2 -> CO2 + H2O",
+      "family": "combustion-alkene",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.029",
+      "equation": "C10H20 + O2 -> CO2 + H2O",
+      "family": "combustion-alkene",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.030",
+      "equation": "C11H22 + O2 -> CO2 + H2O",
+      "family": "combustion-alkene",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.031",
+      "equation": "C12H24 + O2 -> CO2 + H2O",
+      "family": "combustion-alkene",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.032",
+      "equation": "C13H26 + O2 -> CO2 + H2O",
+      "family": "combustion-alkene",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.033",
+      "equation": "C14H28 + O2 -> CO2 + H2O",
+      "family": "combustion-alkene",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.034",
+      "equation": "C15H30 + O2 -> CO2 + H2O",
+      "family": "combustion-alkene",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.035",
+      "equation": "C16H32 + O2 -> CO2 + H2O",
+      "family": "combustion-alkene",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.036",
+      "equation": "C17H34 + O2 -> CO2 + H2O",
+      "family": "combustion-alkene",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.037",
+      "equation": "C18H36 + O2 -> CO2 + H2O",
+      "family": "combustion-alkene",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.038",
+      "equation": "C19H38 + O2 -> CO2 + H2O",
+      "family": "combustion-alkene",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.039",
+      "equation": "C20H40 + O2 -> CO2 + H2O",
+      "family": "combustion-alkene",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.040",
+      "equation": "C2H2 + O2 -> CO2 + H2O",
+      "family": "combustion-alkyne",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.041",
+      "equation": "C3H4 + O2 -> CO2 + H2O",
+      "family": "combustion-alkyne",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.042",
+      "equation": "C4H6 + O2 -> CO2 + H2O",
+      "family": "combustion-alkyne",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.043",
+      "equation": "C5H8 + O2 -> CO2 + H2O",
+      "family": "combustion-alkyne",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.044",
+      "equation": "C6H10 + O2 -> CO2 + H2O",
+      "family": "combustion-alkyne",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.045",
+      "equation": "C7H12 + O2 -> CO2 + H2O",
+      "family": "combustion-alkyne",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.046",
+      "equation": "C8H14 + O2 -> CO2 + H2O",
+      "family": "combustion-alkyne",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.047",
+      "equation": "C9H16 + O2 -> CO2 + H2O",
+      "family": "combustion-alkyne",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.048",
+      "equation": "C10H18 + O2 -> CO2 + H2O",
+      "family": "combustion-alkyne",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.049",
+      "equation": "C11H20 + O2 -> CO2 + H2O",
+      "family": "combustion-alkyne",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.050",
+      "equation": "C12H22 + O2 -> CO2 + H2O",
+      "family": "combustion-alkyne",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.051",
+      "equation": "C13H24 + O2 -> CO2 + H2O",
+      "family": "combustion-alkyne",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.052",
+      "equation": "C14H26 + O2 -> CO2 + H2O",
+      "family": "combustion-alkyne",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.053",
+      "equation": "C15H28 + O2 -> CO2 + H2O",
+      "family": "combustion-alkyne",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.054",
+      "equation": "C16H30 + O2 -> CO2 + H2O",
+      "family": "combustion-alkyne",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.055",
+      "equation": "C17H32 + O2 -> CO2 + H2O",
+      "family": "combustion-alkyne",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.056",
+      "equation": "C18H34 + O2 -> CO2 + H2O",
+      "family": "combustion-alkyne",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.057",
+      "equation": "C19H36 + O2 -> CO2 + H2O",
+      "family": "combustion-alkyne",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.058",
+      "equation": "C20H38 + O2 -> CO2 + H2O",
+      "family": "combustion-alkyne",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.059",
+      "equation": "CH4O + O2 -> CO2 + H2O",
+      "family": "combustion-alcohol",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.060",
+      "equation": "C2H6O + O2 -> CO2 + H2O",
+      "family": "combustion-alcohol",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.061",
+      "equation": "C3H8O + O2 -> CO2 + H2O",
+      "family": "combustion-alcohol",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.062",
+      "equation": "C4H10O + O2 -> CO2 + H2O",
+      "family": "combustion-alcohol",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.063",
+      "equation": "C5H12O + O2 -> CO2 + H2O",
+      "family": "combustion-alcohol",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.064",
+      "equation": "C6H14O + O2 -> CO2 + H2O",
+      "family": "combustion-alcohol",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.065",
+      "equation": "C7H16O + O2 -> CO2 + H2O",
+      "family": "combustion-alcohol",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.066",
+      "equation": "C8H18O + O2 -> CO2 + H2O",
+      "family": "combustion-alcohol",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.067",
+      "equation": "C9H20O + O2 -> CO2 + H2O",
+      "family": "combustion-alcohol",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.068",
+      "equation": "C10H22O + O2 -> CO2 + H2O",
+      "family": "combustion-alcohol",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.069",
+      "equation": "C11H24O + O2 -> CO2 + H2O",
+      "family": "combustion-alcohol",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.070",
+      "equation": "C12H26O + O2 -> CO2 + H2O",
+      "family": "combustion-alcohol",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.071",
+      "equation": "C13H28O + O2 -> CO2 + H2O",
+      "family": "combustion-alcohol",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.072",
+      "equation": "C14H30O + O2 -> CO2 + H2O",
+      "family": "combustion-alcohol",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.073",
+      "equation": "C15H32O + O2 -> CO2 + H2O",
+      "family": "combustion-alcohol",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.074",
+      "equation": "C16H34O + O2 -> CO2 + H2O",
+      "family": "combustion-alcohol",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.075",
+      "equation": "C17H36O + O2 -> CO2 + H2O",
+      "family": "combustion-alcohol",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.076",
+      "equation": "C18H38O + O2 -> CO2 + H2O",
+      "family": "combustion-alcohol",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.077",
+      "equation": "C19H40O + O2 -> CO2 + H2O",
+      "family": "combustion-alcohol",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.078",
+      "equation": "C20H42O + O2 -> CO2 + H2O",
+      "family": "combustion-alcohol",
+      "gradeBand": "9-11",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.079",
+      "equation": "HCl + NaOH -> NaCl + H2O",
+      "family": "acid-base-neutralization",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.080",
+      "equation": "HCl + KOH -> KCl + H2O",
+      "family": "acid-base-neutralization",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.081",
+      "equation": "HCl + Ca(OH)2 -> CaCl2 + H2O",
+      "family": "acid-base-neutralization",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.082",
+      "equation": "HCl + Ba(OH)2 -> BaCl2 + H2O",
+      "family": "acid-base-neutralization",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.083",
+      "equation": "HCl + Mg(OH)2 -> MgCl2 + H2O",
+      "family": "acid-base-neutralization",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.084",
+      "equation": "HCl + Al(OH)3 -> AlCl3 + H2O",
+      "family": "acid-base-neutralization",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.085",
+      "equation": "HNO3 + NaOH -> NaNO3 + H2O",
+      "family": "acid-base-neutralization",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.086",
+      "equation": "HNO3 + KOH -> KNO3 + H2O",
+      "family": "acid-base-neutralization",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.087",
+      "equation": "HNO3 + Ca(OH)2 -> Ca(NO3)2 + H2O",
+      "family": "acid-base-neutralization",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.088",
+      "equation": "HNO3 + Ba(OH)2 -> Ba(NO3)2 + H2O",
+      "family": "acid-base-neutralization",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.089",
+      "equation": "HNO3 + Mg(OH)2 -> Mg(NO3)2 + H2O",
+      "family": "acid-base-neutralization",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.090",
+      "equation": "HNO3 + Al(OH)3 -> Al(NO3)3 + H2O",
+      "family": "acid-base-neutralization",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.091",
+      "equation": "H2SO4 + NaOH -> Na2SO4 + H2O",
+      "family": "acid-base-neutralization",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.092",
+      "equation": "H2SO4 + KOH -> K2SO4 + H2O",
+      "family": "acid-base-neutralization",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.093",
+      "equation": "H2SO4 + Ca(OH)2 -> CaSO4 + H2O",
+      "family": "acid-base-neutralization",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.094",
+      "equation": "H2SO4 + Ba(OH)2 -> BaSO4 + H2O",
+      "family": "acid-base-neutralization",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.095",
+      "equation": "H2SO4 + Mg(OH)2 -> MgSO4 + H2O",
+      "family": "acid-base-neutralization",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.096",
+      "equation": "H2SO4 + Al(OH)3 -> Al2(SO4)3 + H2O",
+      "family": "acid-base-neutralization",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.097",
+      "equation": "H3PO4 + NaOH -> Na3PO4 + H2O",
+      "family": "acid-base-neutralization",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.098",
+      "equation": "H3PO4 + KOH -> K3PO4 + H2O",
+      "family": "acid-base-neutralization",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.099",
+      "equation": "H3PO4 + Ca(OH)2 -> Ca3(PO4)2 + H2O",
+      "family": "acid-base-neutralization",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.100",
+      "equation": "H3PO4 + Ba(OH)2 -> Ba3(PO4)2 + H2O",
+      "family": "acid-base-neutralization",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.101",
+      "equation": "H3PO4 + Mg(OH)2 -> Mg3(PO4)2 + H2O",
+      "family": "acid-base-neutralization",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.102",
+      "equation": "H3PO4 + Al(OH)3 -> AlPO4 + H2O",
+      "family": "acid-base-neutralization",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.103",
+      "equation": "Na2CO3 + HCl -> NaCl + CO2 + H2O",
+      "family": "carbonate-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.104",
+      "equation": "Na2CO3 + HNO3 -> NaNO3 + CO2 + H2O",
+      "family": "carbonate-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.105",
+      "equation": "K2CO3 + HCl -> KCl + CO2 + H2O",
+      "family": "carbonate-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.106",
+      "equation": "K2CO3 + HNO3 -> KNO3 + CO2 + H2O",
+      "family": "carbonate-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.107",
+      "equation": "CaCO3 + HCl -> CaCl2 + CO2 + H2O",
+      "family": "carbonate-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.108",
+      "equation": "CaCO3 + HNO3 -> Ca(NO3)2 + CO2 + H2O",
+      "family": "carbonate-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.109",
+      "equation": "MgCO3 + HCl -> MgCl2 + CO2 + H2O",
+      "family": "carbonate-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.110",
+      "equation": "MgCO3 + HNO3 -> Mg(NO3)2 + CO2 + H2O",
+      "family": "carbonate-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.111",
+      "equation": "BaCO3 + HCl -> BaCl2 + CO2 + H2O",
+      "family": "carbonate-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.112",
+      "equation": "BaCO3 + HNO3 -> Ba(NO3)2 + CO2 + H2O",
+      "family": "carbonate-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.113",
+      "equation": "ZnCO3 + HCl -> ZnCl2 + CO2 + H2O",
+      "family": "carbonate-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.114",
+      "equation": "ZnCO3 + HNO3 -> Zn(NO3)2 + CO2 + H2O",
+      "family": "carbonate-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.115",
+      "equation": "FeCO3 + HCl -> FeCl2 + CO2 + H2O",
+      "family": "carbonate-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.116",
+      "equation": "FeCO3 + HNO3 -> Fe(NO3)2 + CO2 + H2O",
+      "family": "carbonate-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.117",
+      "equation": "CuCO3 + HCl -> CuCl2 + CO2 + H2O",
+      "family": "carbonate-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.118",
+      "equation": "CuCO3 + HNO3 -> Cu(NO3)2 + CO2 + H2O",
+      "family": "carbonate-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.119",
+      "equation": "NaHCO3 + HCl -> NaCl + CO2 + H2O",
+      "family": "bicarbonate-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.120",
+      "equation": "NaHCO3 + HNO3 -> NaNO3 + CO2 + H2O",
+      "family": "bicarbonate-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.121",
+      "equation": "KHCO3 + HCl -> KCl + CO2 + H2O",
+      "family": "bicarbonate-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.122",
+      "equation": "KHCO3 + HNO3 -> KNO3 + CO2 + H2O",
+      "family": "bicarbonate-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.123",
+      "equation": "Ca(HCO3)2 + HCl -> CaCl2 + CO2 + H2O",
+      "family": "bicarbonate-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.124",
+      "equation": "Ca(HCO3)2 + HNO3 -> Ca(NO3)2 + CO2 + H2O",
+      "family": "bicarbonate-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.125",
+      "equation": "Mg(HCO3)2 + HCl -> MgCl2 + CO2 + H2O",
+      "family": "bicarbonate-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.126",
+      "equation": "Mg(HCO3)2 + HNO3 -> Mg(NO3)2 + CO2 + H2O",
+      "family": "bicarbonate-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.127",
+      "equation": "Mg + HCl -> MgCl2 + H2",
+      "family": "metal-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.128",
+      "equation": "Mg + H2SO4 -> MgSO4 + H2",
+      "family": "metal-acid-dilute",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.129",
+      "equation": "Zn + HCl -> ZnCl2 + H2",
+      "family": "metal-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.130",
+      "equation": "Zn + H2SO4 -> ZnSO4 + H2",
+      "family": "metal-acid-dilute",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.131",
+      "equation": "Fe + HCl -> FeCl2 + H2",
+      "family": "metal-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.132",
+      "equation": "Fe + H2SO4 -> FeSO4 + H2",
+      "family": "metal-acid-dilute",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.133",
+      "equation": "Al + HCl -> AlCl3 + H2",
+      "family": "metal-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.134",
+      "equation": "Al + H2SO4 -> Al2(SO4)3 + H2",
+      "family": "metal-acid-dilute",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.135",
+      "equation": "Ca + HCl -> CaCl2 + H2",
+      "family": "metal-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.136",
+      "equation": "Ca + H2SO4 -> CaSO4 + H2",
+      "family": "metal-acid-dilute",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.137",
+      "equation": "Ni + HCl -> NiCl2 + H2",
+      "family": "metal-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.138",
+      "equation": "Ni + H2SO4 -> NiSO4 + H2",
+      "family": "metal-acid-dilute",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.139",
+      "equation": "Sn + HCl -> SnCl2 + H2",
+      "family": "metal-acid",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.140",
+      "equation": "Sn + H2SO4 -> SnSO4 + H2",
+      "family": "metal-acid-dilute",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.141",
+      "equation": "AgNO3 + NaCl -> AgCl + NaNO3",
+      "family": "precipitation-halide",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.142",
+      "equation": "AgNO3 + KCl -> AgCl + KNO3",
+      "family": "precipitation-halide",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.143",
+      "equation": "AgNO3 + CaCl2 -> AgCl + Ca(NO3)2",
+      "family": "precipitation-halide",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.144",
+      "equation": "AgNO3 + MgCl2 -> AgCl + Mg(NO3)2",
+      "family": "precipitation-halide",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.145",
+      "equation": "AgNO3 + HCl -> AgCl + HNO3",
+      "family": "precipitation-halide",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.146",
+      "equation": "AgNO3 + NaBr -> AgBr + NaNO3",
+      "family": "precipitation-halide",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.147",
+      "equation": "AgNO3 + KBr -> AgBr + KNO3",
+      "family": "precipitation-halide",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.148",
+      "equation": "AgNO3 + CaBr2 -> AgBr + Ca(NO3)2",
+      "family": "precipitation-halide",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.149",
+      "equation": "AgNO3 + MgBr2 -> AgBr + Mg(NO3)2",
+      "family": "precipitation-halide",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.150",
+      "equation": "AgNO3 + HBr -> AgBr + HNO3",
+      "family": "precipitation-halide",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.151",
+      "equation": "AgNO3 + NaI -> AgI + NaNO3",
+      "family": "precipitation-halide",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.152",
+      "equation": "AgNO3 + KI -> AgI + KNO3",
+      "family": "precipitation-halide",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.153",
+      "equation": "AgNO3 + CaI2 -> AgI + Ca(NO3)2",
+      "family": "precipitation-halide",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.154",
+      "equation": "AgNO3 + MgI2 -> AgI + Mg(NO3)2",
+      "family": "precipitation-halide",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.155",
+      "equation": "AgNO3 + HI -> AgI + HNO3",
+      "family": "precipitation-halide",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.156",
+      "equation": "BaCl2 + Na2SO4 -> BaSO4 + NaCl",
+      "family": "precipitation-sulfate",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.157",
+      "equation": "BaCl2 + K2SO4 -> BaSO4 + KCl",
+      "family": "precipitation-sulfate",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.158",
+      "equation": "BaCl2 + MgSO4 -> BaSO4 + MgCl2",
+      "family": "precipitation-sulfate",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.159",
+      "equation": "BaCl2 + H2SO4 -> BaSO4 + HCl",
+      "family": "precipitation-sulfate",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.160",
+      "equation": "BaCl2 + CuSO4 -> BaSO4 + CuCl2",
+      "family": "precipitation-sulfate",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.161",
+      "equation": "Pb(NO3)2 + NaCl -> PbCl2 + NaNO3",
+      "family": "precipitation-lead-chloride",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.162",
+      "equation": "Pb(NO3)2 + KCl -> PbCl2 + KNO3",
+      "family": "precipitation-lead-chloride",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.163",
+      "equation": "Pb(NO3)2 + CaCl2 -> PbCl2 + Ca(NO3)2",
+      "family": "precipitation-lead-chloride",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.164",
+      "equation": "Pb(NO3)2 + MgCl2 -> PbCl2 + Mg(NO3)2",
+      "family": "precipitation-lead-chloride",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.165",
+      "equation": "Pb(NO3)2 + HCl -> PbCl2 + HNO3",
+      "family": "precipitation-lead-chloride",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.166",
+      "equation": "CaCl2 + Na2CO3 -> CaCO3 + NaCl",
+      "family": "precipitation-carbonate",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.167",
+      "equation": "CaCl2 + K2CO3 -> CaCO3 + KCl",
+      "family": "precipitation-carbonate",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.168",
+      "equation": "MgCl2 + Na2CO3 -> MgCO3 + NaCl",
+      "family": "precipitation-carbonate",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.169",
+      "equation": "MgCl2 + K2CO3 -> MgCO3 + KCl",
+      "family": "precipitation-carbonate",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.170",
+      "equation": "CuSO4 + NaOH -> Cu(OH)2 + Na2SO4",
+      "family": "precipitation-hydroxide",
+      "gradeBand": "8-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.171",
+      "equation": "H2O2 -> H2O + O2",
+      "family": "decomposition",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.172",
+      "equation": "KClO3 -> KCl + O2",
+      "family": "decomposition",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.173",
+      "equation": "KMnO4 -> K2MnO4 + MnO2 + O2",
+      "family": "decomposition",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.174",
+      "equation": "CaCO3 -> CaO + CO2",
+      "family": "decomposition",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.175",
+      "equation": "MgCO3 -> MgO + CO2",
+      "family": "decomposition",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.176",
+      "equation": "ZnCO3 -> ZnO + CO2",
+      "family": "decomposition",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.177",
+      "equation": "CuCO3 -> CuO + CO2",
+      "family": "decomposition",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.178",
+      "equation": "Fe(OH)3 -> Fe2O3 + H2O",
+      "family": "decomposition",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.179",
+      "equation": "Cu(OH)2 -> CuO + H2O",
+      "family": "decomposition",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.180",
+      "equation": "Al(OH)3 -> Al2O3 + H2O",
+      "family": "decomposition",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.181",
+      "equation": "NaHCO3 -> Na2CO3 + CO2 + H2O",
+      "family": "decomposition",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.182",
+      "equation": "KHCO3 -> K2CO3 + CO2 + H2O",
+      "family": "decomposition",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.183",
+      "equation": "NH4NO3 -> N2O + H2O",
+      "family": "decomposition",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.184",
+      "equation": "(NH4)2CO3 -> NH3 + CO2 + H2O",
+      "family": "decomposition",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.185",
+      "equation": "H2CO3 -> CO2 + H2O",
+      "family": "decomposition",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.186",
+      "equation": "H2 + O2 -> H2O",
+      "family": "synthesis",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.187",
+      "equation": "N2 + H2 -> NH3",
+      "family": "synthesis",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.188",
+      "equation": "Na + Cl2 -> NaCl",
+      "family": "synthesis",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.189",
+      "equation": "Mg + O2 -> MgO",
+      "family": "synthesis",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.190",
+      "equation": "Al + O2 -> Al2O3",
+      "family": "synthesis",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.191",
+      "equation": "Ca + O2 -> CaO",
+      "family": "synthesis",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.192",
+      "equation": "C + O2 -> CO2",
+      "family": "synthesis",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.193",
+      "equation": "S + O2 -> SO2",
+      "family": "synthesis",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.194",
+      "equation": "P4 + O2 -> P2O5",
+      "family": "synthesis",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.195",
+      "equation": "CaO + H2O -> Ca(OH)2",
+      "family": "synthesis",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.196",
+      "equation": "Na2O + H2O -> NaOH",
+      "family": "synthesis",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.197",
+      "equation": "K2O + H2O -> KOH",
+      "family": "synthesis",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.198",
+      "equation": "CO2 + H2O -> H2CO3",
+      "family": "synthesis",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.199",
+      "equation": "SO3 + H2O -> H2SO4",
+      "family": "synthesis",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    },
+    {
+      "id": "review.200",
+      "equation": "N2O5 + H2O -> HNO3",
+      "family": "synthesis",
+      "gradeBand": "7-10",
+      "reviewStatus": "pending",
+      "sourceStatus": "candidate-needs-expert-source"
+    }
+  ]
+}

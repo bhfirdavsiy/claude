@@ -1,0 +1,50 @@
+{
+  "schema": "kimyolab.learning-cycle.v1",
+  "version": "1.0.0-rc.1",
+  "stages": [
+    {
+      "id": "guide",
+      "order": 1,
+      "label": "Nazariya",
+      "routeSuffix": "guide",
+      "completion": "explicit_complete"
+    },
+    {
+      "id": "practice",
+      "order": 2,
+      "label": "Amaliyot",
+      "routeSuffix": "practice",
+      "completion": "engine_or_activity_complete"
+    },
+    {
+      "id": "reinforcement",
+      "order": 3,
+      "label": "Mustahkamlash",
+      "routeSuffix": "quiz",
+      "completion": "reflection_complete"
+    }
+  ],
+  "navigation": {
+    "canonicalEntry": "guide",
+    "allowBackNavigation": true,
+    "allowPreviewNextStage": true,
+    "primarySequence": ["guide", "practice", "reinforcement"]
+  },
+  "progressPolicy": {
+    "persistGuideCompletion": true,
+    "persistPracticeCompletion": true,
+    "persistReinforcementCompletion": true,
+    "resumeToNextLogicalStage": true
+  },
+  "masteryPolicy": {
+    "reinforcementCompletionAwardsMastery": false,
+    "practiceCompletionAwardsMastery": false,
+    "masteryRequiresValidatedEvidence": true
+  },
+  "objectiveQuestionBank": {
+    "status": "planned",
+    "studentReleaseEligible": false,
+    "requiresDidacticApproval": true,
+    "note": "Current reinforcement is reflective and does not automatically award mastery. Objective quiz items require a separately validated assessment bank."
+  }
+}

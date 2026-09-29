@@ -1,0 +1,39 @@
+{
+  "generatedAt": "2026-09-29T12:31:00.079Z",
+  "phase": 11,
+  "name": "Release Candidate machine-readable preflight",
+  "technicalPreflight": "GREEN",
+  "stableReleaseGate": "PENDING",
+  "specRequirementCount": 150,
+  "traceabilityRowCount": 156,
+  "counts": {
+    "PASS": 146,
+    "PARTIAL": 0,
+    "NOT_IMPLEMENTED": 0,
+    "REVIEW_PENDING": 2,
+    "EXTERNAL_PENDING": 8
+  },
+  "missing": [],
+  "duplicates": [],
+  "unknownStatus": [],
+  "incompleteMetadata": [],
+  "pendingWithoutNote": [],
+  "internalBlockers": [],
+  "reviewPending": [
+    "CHEM-033",
+    "PROD-002"
+  ],
+  "externalPending": [
+    "A11Y-001",
+    "A11Y-002",
+    "A11Y-003",
+    "OPS-010",
+    "PERF-002",
+    "PERF-003",
+    "STACK-001",
+    "TEST-005"
+  ],
+  "structuralIssues": [],
+  "internalReady": true,
+  "stableReady": false
+}

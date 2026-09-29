@@ -1,0 +1,42 @@
+{
+  "phase": 11,
+  "name": "Release Candidate preflight",
+  "status": "TECHNICAL_GREEN_EXTERNAL_GATES_CARRIED_TO_PHASE12",
+  "curriculumTechnicalReady": "122/122",
+  "technicalPreflight": "GREEN",
+  "rcTests": "19/19",
+  "fullRegression": "263/263",
+  "traceability": {
+    "rows": 156,
+    "pass": 146,
+    "partial": 0,
+    "notImplemented": 0,
+    "reviewPending": 2,
+    "externalPending": 8,
+    "internalBlockers": 0
+  },
+  "releaseBundleFiles": 123,
+  "completed": [
+    "minimal-release-bundle",
+    "release-bundle-integrity",
+    "release-specific-licensing",
+    "full-app-content-rollback-drill",
+    "quota-recovery",
+    "selective-corruption-recovery",
+    "concept-split-merge-migration",
+    "stale-approval-invalidation",
+    "requirement-traceability",
+    "rc-machine-readable-preflight",
+    "stable-signoff-target-hashes",
+    "fail-closed-external-approval-records",
+    "stable-preflight-engine",
+    "release-gate-licensing-drift-fix"
+  ],
+  "inProgress": [],
+  "externalPending": [
+    "chemistry-expert-approval",
+    "didactic-content-representation-review",
+    "beta-human-approvals",
+    "real-browser-build-e2e-visual-accessibility-web-vitals"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "gradeRange",
+    "prerequisiteIds",
+    "relatedConceptIds",
+    "representations",
+    "misconceptionIds",
+    "synonyms",
+    "sourceRefs"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "gradeRange": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "prerequisiteIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "relatedConceptIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "representations": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "macro",
+          "micro",
+          "symbolic"
+        ]
+      }
+    },
+    "misconceptionIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "synonyms": {
+      "type": "object"
+    },
+    "sourceRefs": {
+      "type": "array"
+    }
+  },
+  "additionalProperties": true
+}

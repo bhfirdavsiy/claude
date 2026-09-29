@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "id",
+    "grade",
+    "title",
+    "learningOutcomes",
+    "conceptIds",
+    "prerequisiteConceptIds",
+    "lessonTemplates",
+    "curriculumVersion",
+    "sourceRefs",
+    "legacyIds"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "grade": {
+      "enum": [
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "chapter": {
+      "type": "string"
+    },
+    "learningOutcomes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "conceptIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prerequisiteConceptIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "lessonTemplates": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "curriculumVersion": {
+      "type": "string"
+    },
+    "sourceRefs": {
+      "type": "array"
+    },
+    "legacyIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

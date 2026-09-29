@@ -1,0 +1,7 @@
+{
+  "version":"1.0.0",
+  "records":[
+    {"reactionId":"haber","perturbation":"pressure-increase","shift":"products","explanation":"For N2 + 3H2 ⇌ 2NH3, increasing pressure favors the side with fewer gas moles in this bounded school model.","sourceRefs":["src.curriculum.11.18"],"reviewStatus":"pending"},
+    {"reactionId":"haber","perturbation":"temperature-increase","shift":"reactants","explanation":"The forward Haber reaction is modeled as exothermic; heating favors the reverse direction in this bounded school model.","sourceRefs":["src.curriculum.11.18"],"reviewStatus":"pending"}
+  ]
+}

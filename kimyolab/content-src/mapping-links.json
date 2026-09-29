@@ -1,0 +1,2948 @@
+[
+  {
+    "id": "mapping.7.01.primary",
+    "learningUnitId": "lu.7.01",
+    "theoryActivityId": "theory.7.01",
+    "practiceActivityId": "practice.case.7.01.planned",
+    "conceptIds": [
+      "concept.c001",
+      "concept.c002",
+      "concept.c003"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.01.supporting.01",
+    "learningUnitId": "lu.7.01",
+    "theoryActivityId": "theory.7.01",
+    "practiceActivityId": "practice.experiment.7.1",
+    "conceptIds": [
+      "concept.c001",
+      "concept.c002",
+      "concept.c003"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.7.02.primary",
+    "learningUnitId": "lu.7.02",
+    "theoryActivityId": "theory.7.02",
+    "practiceActivityId": "practice.simulation.7.02.planned",
+    "conceptIds": [
+      "concept.c004",
+      "concept.c005",
+      "concept.c006"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.02.supporting.01",
+    "learningUnitId": "lu.7.02",
+    "theoryActivityId": "theory.7.02",
+    "practiceActivityId": "practice.experiment.7.3",
+    "conceptIds": [
+      "concept.c004",
+      "concept.c005",
+      "concept.c006"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.7.02.supporting.02",
+    "learningUnitId": "lu.7.02",
+    "theoryActivityId": "theory.7.02",
+    "practiceActivityId": "practice.experiment.7.12",
+    "conceptIds": [
+      "concept.c004",
+      "concept.c005",
+      "concept.c006"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.7.03.primary",
+    "learningUnitId": "lu.7.03",
+    "theoryActivityId": "theory.7.03",
+    "practiceActivityId": "practice.experiment.7.2",
+    "conceptIds": [
+      "concept.c007",
+      "concept.c008"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.04.primary",
+    "learningUnitId": "lu.7.04",
+    "theoryActivityId": "theory.7.04",
+    "practiceActivityId": "practice.experiment.7.6",
+    "conceptIds": [
+      "concept.c009",
+      "concept.c010",
+      "concept.c011",
+      "concept.c012",
+      "concept.c013"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.04.supporting.01",
+    "learningUnitId": "lu.7.04",
+    "theoryActivityId": "theory.7.04",
+    "practiceActivityId": "practice.experiment.7.12",
+    "conceptIds": [
+      "concept.c009",
+      "concept.c010",
+      "concept.c011",
+      "concept.c012",
+      "concept.c013"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.05.primary",
+    "learningUnitId": "lu.7.05",
+    "theoryActivityId": "theory.7.05",
+    "practiceActivityId": "practice.experiment.7.3",
+    "conceptIds": [
+      "concept.c014",
+      "concept.c015",
+      "concept.c016"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.05.supporting.01",
+    "learningUnitId": "lu.7.05",
+    "theoryActivityId": "theory.7.05",
+    "practiceActivityId": "practice.experiment.7.6",
+    "conceptIds": [
+      "concept.c014",
+      "concept.c015",
+      "concept.c016"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.05.supporting.02",
+    "learningUnitId": "lu.7.05",
+    "theoryActivityId": "theory.7.05",
+    "practiceActivityId": "practice.experiment.7.7",
+    "conceptIds": [
+      "concept.c014",
+      "concept.c015",
+      "concept.c016"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.06.primary",
+    "learningUnitId": "lu.7.06",
+    "theoryActivityId": "theory.7.06",
+    "practiceActivityId": "practice.simulation.7.06.planned",
+    "conceptIds": [
+      "concept.c017",
+      "concept.c018"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.07.primary",
+    "learningUnitId": "lu.7.07",
+    "theoryActivityId": "theory.7.07",
+    "practiceActivityId": "practice.simulation.7.07.planned",
+    "conceptIds": [
+      "concept.c019",
+      "concept.c020",
+      "concept.c021",
+      "concept.c022",
+      "concept.c023"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.08.primary",
+    "learningUnitId": "lu.7.08",
+    "theoryActivityId": "theory.7.08",
+    "practiceActivityId": "practice.trainer.7.08.planned",
+    "conceptIds": [
+      "concept.c024",
+      "concept.c025",
+      "concept.c026"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.09.primary",
+    "learningUnitId": "lu.7.09",
+    "theoryActivityId": "theory.7.09",
+    "practiceActivityId": "practice.calculation.7.09.planned",
+    "conceptIds": [
+      "concept.c027",
+      "concept.c028"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.10.primary",
+    "learningUnitId": "lu.7.10",
+    "theoryActivityId": "theory.7.10",
+    "practiceActivityId": "practice.simulation.7.10.planned",
+    "conceptIds": [
+      "concept.c029",
+      "concept.c030"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.11.primary",
+    "learningUnitId": "lu.7.11",
+    "theoryActivityId": "theory.7.11",
+    "practiceActivityId": "practice.trainer.7.4",
+    "conceptIds": [
+      "concept.c031",
+      "concept.c032",
+      "concept.c033"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.12.primary",
+    "learningUnitId": "lu.7.12",
+    "theoryActivityId": "theory.7.12",
+    "practiceActivityId": "practice.calculation.7.5",
+    "conceptIds": [
+      "concept.c034",
+      "concept.c035",
+      "concept.c036"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.13.primary",
+    "learningUnitId": "lu.7.13",
+    "theoryActivityId": "theory.7.13",
+    "practiceActivityId": "practice.simulation.7.13.planned",
+    "conceptIds": [
+      "concept.c037"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.13.supporting.01",
+    "learningUnitId": "lu.7.13",
+    "theoryActivityId": "theory.7.13",
+    "practiceActivityId": "practice.experiment.7.3",
+    "conceptIds": [
+      "concept.c037"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.7.14.primary",
+    "learningUnitId": "lu.7.14",
+    "theoryActivityId": "theory.7.14",
+    "practiceActivityId": "practice.calculation.7.5",
+    "conceptIds": [
+      "concept.c038",
+      "concept.c039",
+      "concept.c040"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.15.primary",
+    "learningUnitId": "lu.7.15",
+    "theoryActivityId": "theory.7.15",
+    "practiceActivityId": "practice.trainer.7.15.planned",
+    "conceptIds": [
+      "concept.c041",
+      "concept.c042",
+      "concept.c043"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.15.supporting.01",
+    "learningUnitId": "lu.7.15",
+    "theoryActivityId": "theory.7.15",
+    "practiceActivityId": "practice.experiment.7.7",
+    "conceptIds": [
+      "concept.c041",
+      "concept.c042",
+      "concept.c043"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.7.15.supporting.02",
+    "learningUnitId": "lu.7.15",
+    "theoryActivityId": "theory.7.15",
+    "practiceActivityId": "practice.experiment.7.8",
+    "conceptIds": [
+      "concept.c041",
+      "concept.c042",
+      "concept.c043"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.7.15.supporting.03",
+    "learningUnitId": "lu.7.15",
+    "theoryActivityId": "theory.7.15",
+    "practiceActivityId": "practice.experiment.7.9",
+    "conceptIds": [
+      "concept.c041",
+      "concept.c042",
+      "concept.c043"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.7.15.supporting.04",
+    "learningUnitId": "lu.7.15",
+    "theoryActivityId": "theory.7.15",
+    "practiceActivityId": "practice.experiment.7.10",
+    "conceptIds": [
+      "concept.c041",
+      "concept.c042",
+      "concept.c043"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.7.15.supporting.05",
+    "learningUnitId": "lu.7.15",
+    "theoryActivityId": "theory.7.15",
+    "practiceActivityId": "practice.experiment.7.11",
+    "conceptIds": [
+      "concept.c041",
+      "concept.c042",
+      "concept.c043"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.7.16.primary",
+    "learningUnitId": "lu.7.16",
+    "theoryActivityId": "theory.7.16",
+    "practiceActivityId": "practice.simulation.7.16.planned",
+    "conceptIds": [
+      "concept.c044",
+      "concept.c045",
+      "concept.c046",
+      "concept.c047",
+      "concept.c048"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.17.primary",
+    "learningUnitId": "lu.7.17",
+    "theoryActivityId": "theory.7.17",
+    "practiceActivityId": "practice.simulation.7.17.planned",
+    "conceptIds": [
+      "concept.c049",
+      "concept.c050",
+      "concept.c051"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.18.primary",
+    "learningUnitId": "lu.7.18",
+    "theoryActivityId": "theory.7.18",
+    "practiceActivityId": "practice.case.7.14",
+    "conceptIds": [
+      "concept.c052",
+      "concept.c053"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.19.primary",
+    "learningUnitId": "lu.7.19",
+    "theoryActivityId": "theory.7.19",
+    "practiceActivityId": "practice.experiment.7.7",
+    "conceptIds": [
+      "concept.c054",
+      "concept.c055",
+      "concept.c056",
+      "concept.c057",
+      "concept.c058"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.20.primary",
+    "learningUnitId": "lu.7.20",
+    "theoryActivityId": "theory.7.20",
+    "practiceActivityId": "practice.experiment.7.8",
+    "conceptIds": [
+      "concept.c059",
+      "concept.c060",
+      "concept.c061",
+      "concept.c062"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.20.supporting.01",
+    "learningUnitId": "lu.7.20",
+    "theoryActivityId": "theory.7.20",
+    "practiceActivityId": "practice.experiment.7.9",
+    "conceptIds": [
+      "concept.c059",
+      "concept.c060",
+      "concept.c061",
+      "concept.c062"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.7.20.supporting.02",
+    "learningUnitId": "lu.7.20",
+    "theoryActivityId": "theory.7.20",
+    "practiceActivityId": "practice.experiment.7.10",
+    "conceptIds": [
+      "concept.c059",
+      "concept.c060",
+      "concept.c061",
+      "concept.c062"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.7.21.primary",
+    "learningUnitId": "lu.7.21",
+    "theoryActivityId": "theory.7.21",
+    "practiceActivityId": "practice.experiment.7.2",
+    "conceptIds": [
+      "concept.c063",
+      "concept.c064",
+      "concept.c065",
+      "concept.c066",
+      "concept.c067"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.21.supporting.01",
+    "learningUnitId": "lu.7.21",
+    "theoryActivityId": "theory.7.21",
+    "practiceActivityId": "practice.experiment.7.6",
+    "conceptIds": [
+      "concept.c063",
+      "concept.c064",
+      "concept.c065",
+      "concept.c066",
+      "concept.c067"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.21.supporting.02",
+    "learningUnitId": "lu.7.21",
+    "theoryActivityId": "theory.7.21",
+    "practiceActivityId": "practice.experiment.7.11",
+    "conceptIds": [
+      "concept.c063",
+      "concept.c064",
+      "concept.c065",
+      "concept.c066",
+      "concept.c067"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.21.supporting.03",
+    "learningUnitId": "lu.7.21",
+    "theoryActivityId": "theory.7.21",
+    "practiceActivityId": "practice.experiment.7.12",
+    "conceptIds": [
+      "concept.c063",
+      "concept.c064",
+      "concept.c065",
+      "concept.c066",
+      "concept.c067"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.21.supporting.04",
+    "learningUnitId": "lu.7.21",
+    "theoryActivityId": "theory.7.21",
+    "practiceActivityId": "practice.case.7.14",
+    "conceptIds": [
+      "concept.c063",
+      "concept.c064",
+      "concept.c065",
+      "concept.c066",
+      "concept.c067"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.22.primary",
+    "learningUnitId": "lu.7.22",
+    "theoryActivityId": "theory.7.22",
+    "practiceActivityId": "practice.experiment.7.13",
+    "conceptIds": [
+      "concept.c068",
+      "concept.c069",
+      "concept.c070"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.7.23.primary",
+    "learningUnitId": "lu.7.23",
+    "theoryActivityId": "theory.7.23",
+    "practiceActivityId": "practice.case.7.14",
+    "conceptIds": [
+      "concept.c071",
+      "concept.c072",
+      "concept.c073",
+      "concept.c074"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.01.primary",
+    "learningUnitId": "lu.8.01",
+    "theoryActivityId": "theory.8.01",
+    "practiceActivityId": "practice.trainer.8.01.planned",
+    "conceptIds": [
+      "concept.c075",
+      "concept.c076",
+      "concept.c058",
+      "concept.c077",
+      "concept.c078",
+      "concept.c079"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.01.supporting.01",
+    "learningUnitId": "lu.8.01",
+    "theoryActivityId": "theory.8.01",
+    "practiceActivityId": "practice.experiment.8.6",
+    "conceptIds": [
+      "concept.c075",
+      "concept.c076",
+      "concept.c058",
+      "concept.c077",
+      "concept.c078",
+      "concept.c079"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.8.02.primary",
+    "learningUnitId": "lu.8.02",
+    "theoryActivityId": "theory.8.02",
+    "practiceActivityId": "practice.simulation.8.02.planned",
+    "conceptIds": [
+      "concept.c080",
+      "concept.c081",
+      "concept.c082"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.03.primary",
+    "learningUnitId": "lu.8.03",
+    "theoryActivityId": "theory.8.03",
+    "practiceActivityId": "practice.simulation.8.03.planned",
+    "conceptIds": [
+      "concept.c083",
+      "concept.c050",
+      "concept.c084",
+      "concept.c085"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.04.primary",
+    "learningUnitId": "lu.8.04",
+    "theoryActivityId": "theory.8.04",
+    "practiceActivityId": "practice.simulation.8.04.planned",
+    "conceptIds": [
+      "concept.c086",
+      "concept.c021",
+      "concept.c087",
+      "concept.c030"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.05.primary",
+    "learningUnitId": "lu.8.05",
+    "theoryActivityId": "theory.8.05",
+    "practiceActivityId": "practice.simulation.8.05.planned",
+    "conceptIds": [
+      "concept.c088",
+      "concept.c089",
+      "concept.c030"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.06.primary",
+    "learningUnitId": "lu.8.06",
+    "theoryActivityId": "theory.8.06",
+    "practiceActivityId": "practice.simulation.8.06.planned",
+    "conceptIds": [
+      "concept.c090",
+      "concept.c091",
+      "concept.c092"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.07.primary",
+    "learningUnitId": "lu.8.07",
+    "theoryActivityId": "theory.8.07",
+    "practiceActivityId": "practice.trainer.8.07.planned",
+    "conceptIds": [
+      "concept.c093",
+      "concept.c094"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.08.primary",
+    "learningUnitId": "lu.8.08",
+    "theoryActivityId": "theory.8.08",
+    "practiceActivityId": "practice.trainer.8.08.planned",
+    "conceptIds": [
+      "concept.c095",
+      "concept.c084",
+      "concept.c096",
+      "concept.c097"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.09.primary",
+    "learningUnitId": "lu.8.09",
+    "theoryActivityId": "theory.8.09",
+    "practiceActivityId": "practice.simulation.8.09.planned",
+    "conceptIds": [
+      "concept.c098",
+      "concept.c099"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.10.primary",
+    "learningUnitId": "lu.8.10",
+    "theoryActivityId": "theory.8.10",
+    "practiceActivityId": "practice.simulation.8.7",
+    "conceptIds": [
+      "concept.c100",
+      "concept.c101"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.11.primary",
+    "learningUnitId": "lu.8.11",
+    "theoryActivityId": "theory.8.11",
+    "practiceActivityId": "practice.simulation.8.7",
+    "conceptIds": [
+      "concept.c102",
+      "concept.c103"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.12.primary",
+    "learningUnitId": "lu.8.12",
+    "theoryActivityId": "theory.8.12",
+    "practiceActivityId": "practice.experiment.8.12.planned",
+    "conceptIds": [
+      "concept.c104",
+      "concept.c105",
+      "concept.c106"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.12.supporting.01",
+    "learningUnitId": "lu.8.12",
+    "theoryActivityId": "theory.8.12",
+    "practiceActivityId": "practice.simulation.8.7",
+    "conceptIds": [
+      "concept.c104",
+      "concept.c105",
+      "concept.c106"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.13.primary",
+    "learningUnitId": "lu.8.13",
+    "theoryActivityId": "theory.8.13",
+    "practiceActivityId": "practice.trainer.8.13.planned",
+    "conceptIds": [
+      "concept.c107",
+      "concept.c108"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.14.primary",
+    "learningUnitId": "lu.8.14",
+    "theoryActivityId": "theory.8.14",
+    "practiceActivityId": "practice.trainer.8.14.planned",
+    "conceptIds": [
+      "concept.c109",
+      "concept.c110",
+      "concept.c111"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.14.supporting.01",
+    "learningUnitId": "lu.8.14",
+    "theoryActivityId": "theory.8.14",
+    "practiceActivityId": "practice.experiment.8.1",
+    "conceptIds": [
+      "concept.c109",
+      "concept.c110",
+      "concept.c111"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.8.14.supporting.02",
+    "learningUnitId": "lu.8.14",
+    "theoryActivityId": "theory.8.14",
+    "practiceActivityId": "practice.experiment.8.10",
+    "conceptIds": [
+      "concept.c109",
+      "concept.c110",
+      "concept.c111"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.8.15.primary",
+    "learningUnitId": "lu.8.15",
+    "theoryActivityId": "theory.8.15",
+    "practiceActivityId": "practice.experiment.8.12",
+    "conceptIds": [
+      "concept.c112",
+      "concept.c113"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.16.primary",
+    "learningUnitId": "lu.8.16",
+    "theoryActivityId": "theory.8.16",
+    "practiceActivityId": "practice.experiment.8.1",
+    "conceptIds": [
+      "concept.c114",
+      "concept.c115",
+      "concept.c116",
+      "concept.c117"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.16.supporting.01",
+    "learningUnitId": "lu.8.16",
+    "theoryActivityId": "theory.8.16",
+    "practiceActivityId": "practice.experiment.8.8",
+    "conceptIds": [
+      "concept.c114",
+      "concept.c115",
+      "concept.c116",
+      "concept.c117"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.16.supporting.02",
+    "learningUnitId": "lu.8.16",
+    "theoryActivityId": "theory.8.16",
+    "practiceActivityId": "practice.experiment.8.9",
+    "conceptIds": [
+      "concept.c114",
+      "concept.c115",
+      "concept.c116",
+      "concept.c117"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.16.supporting.03",
+    "learningUnitId": "lu.8.16",
+    "theoryActivityId": "theory.8.16",
+    "practiceActivityId": "practice.experiment.8.10",
+    "conceptIds": [
+      "concept.c114",
+      "concept.c115",
+      "concept.c116",
+      "concept.c117"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.16.supporting.04",
+    "learningUnitId": "lu.8.16",
+    "theoryActivityId": "theory.8.16",
+    "practiceActivityId": "practice.experiment.8.11",
+    "conceptIds": [
+      "concept.c114",
+      "concept.c115",
+      "concept.c116",
+      "concept.c117"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.17.primary",
+    "learningUnitId": "lu.8.17",
+    "theoryActivityId": "theory.8.17",
+    "practiceActivityId": "practice.calculation.8.17.planned",
+    "conceptIds": [
+      "concept.c118",
+      "concept.c076",
+      "concept.c119"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.18.primary",
+    "learningUnitId": "lu.8.18",
+    "theoryActivityId": "theory.8.18",
+    "practiceActivityId": "practice.experiment.8.2",
+    "conceptIds": [
+      "concept.c120",
+      "concept.c121",
+      "concept.c122",
+      "concept.c123",
+      "concept.c124",
+      "concept.c125"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.18.supporting.01",
+    "learningUnitId": "lu.8.18",
+    "theoryActivityId": "theory.8.18",
+    "practiceActivityId": "practice.experiment.8.12",
+    "conceptIds": [
+      "concept.c120",
+      "concept.c121",
+      "concept.c122",
+      "concept.c123",
+      "concept.c124",
+      "concept.c125"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.18.supporting.02",
+    "learningUnitId": "lu.8.18",
+    "theoryActivityId": "theory.8.18",
+    "practiceActivityId": "practice.experiment.8.13",
+    "conceptIds": [
+      "concept.c120",
+      "concept.c121",
+      "concept.c122",
+      "concept.c123",
+      "concept.c124",
+      "concept.c125"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.19.primary",
+    "learningUnitId": "lu.8.19",
+    "theoryActivityId": "theory.8.19",
+    "practiceActivityId": "practice.simulation.8.19.planned",
+    "conceptIds": [
+      "concept.c126",
+      "concept.c127",
+      "concept.c128",
+      "concept.c129"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.20.primary",
+    "learningUnitId": "lu.8.20",
+    "theoryActivityId": "theory.8.20",
+    "practiceActivityId": "practice.simulation.8.20.planned",
+    "conceptIds": [
+      "concept.c130",
+      "concept.c131",
+      "concept.c132"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.21.primary",
+    "learningUnitId": "lu.8.21",
+    "theoryActivityId": "theory.8.21",
+    "practiceActivityId": "practice.case.8.21.planned",
+    "conceptIds": [
+      "concept.c133",
+      "concept.c134",
+      "concept.c135"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.21.supporting.01",
+    "learningUnitId": "lu.8.21",
+    "theoryActivityId": "theory.8.21",
+    "practiceActivityId": "practice.experiment.8.2",
+    "conceptIds": [
+      "concept.c133",
+      "concept.c134",
+      "concept.c135"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.8.22.primary",
+    "learningUnitId": "lu.8.22",
+    "theoryActivityId": "theory.8.22",
+    "practiceActivityId": "practice.experiment.8.3",
+    "conceptIds": [
+      "concept.c136",
+      "concept.c137",
+      "concept.c138",
+      "concept.c139"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.22.supporting.01",
+    "learningUnitId": "lu.8.22",
+    "theoryActivityId": "theory.8.22",
+    "practiceActivityId": "practice.experiment.8.4",
+    "conceptIds": [
+      "concept.c136",
+      "concept.c137",
+      "concept.c138",
+      "concept.c139"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.22.supporting.02",
+    "learningUnitId": "lu.8.22",
+    "theoryActivityId": "theory.8.22",
+    "practiceActivityId": "practice.experiment.8.14",
+    "conceptIds": [
+      "concept.c136",
+      "concept.c137",
+      "concept.c138",
+      "concept.c139"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.23.primary",
+    "learningUnitId": "lu.8.23",
+    "theoryActivityId": "theory.8.23",
+    "practiceActivityId": "practice.experiment.8.4",
+    "conceptIds": [
+      "concept.c140",
+      "concept.c141",
+      "concept.c142"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.24.primary",
+    "learningUnitId": "lu.8.24",
+    "theoryActivityId": "theory.8.24",
+    "practiceActivityId": "practice.experiment.8.5",
+    "conceptIds": [
+      "concept.c143",
+      "concept.c144",
+      "concept.c145"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.8.24.supporting.01",
+    "learningUnitId": "lu.8.24",
+    "theoryActivityId": "theory.8.24",
+    "practiceActivityId": "practice.experiment.8.15",
+    "conceptIds": [
+      "concept.c143",
+      "concept.c144",
+      "concept.c145"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.01.primary",
+    "learningUnitId": "lu.9.01",
+    "theoryActivityId": "theory.9.01",
+    "practiceActivityId": "practice.simulation.9.01.planned",
+    "conceptIds": [
+      "concept.c083",
+      "concept.c146",
+      "concept.c147"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.02.primary",
+    "learningUnitId": "lu.9.02",
+    "theoryActivityId": "theory.9.02",
+    "practiceActivityId": "practice.simulation.9.02.planned",
+    "conceptIds": [
+      "concept.c148",
+      "concept.c103"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.03.primary",
+    "learningUnitId": "lu.9.03",
+    "theoryActivityId": "theory.9.03",
+    "practiceActivityId": "practice.simulation.9.03.planned",
+    "conceptIds": [
+      "concept.c149",
+      "concept.c150"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.04.primary",
+    "learningUnitId": "lu.9.04",
+    "theoryActivityId": "theory.9.04",
+    "practiceActivityId": "practice.simulation.9.04.planned",
+    "conceptIds": [
+      "concept.c151",
+      "concept.c152"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.05.primary",
+    "learningUnitId": "lu.9.05",
+    "theoryActivityId": "theory.9.05",
+    "practiceActivityId": "practice.trainer.9.05.planned",
+    "conceptIds": [
+      "concept.c153",
+      "concept.c154",
+      "concept.c155"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.05.supporting.01",
+    "learningUnitId": "lu.9.05",
+    "theoryActivityId": "theory.9.05",
+    "practiceActivityId": "practice.experiment.9.4",
+    "conceptIds": [
+      "concept.c153",
+      "concept.c154",
+      "concept.c155"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.05.supporting.02",
+    "learningUnitId": "lu.9.05",
+    "theoryActivityId": "theory.9.05",
+    "practiceActivityId": "practice.experiment.9.9",
+    "conceptIds": [
+      "concept.c153",
+      "concept.c154",
+      "concept.c155"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.05.supporting.03",
+    "learningUnitId": "lu.9.05",
+    "theoryActivityId": "theory.9.05",
+    "practiceActivityId": "practice.experiment.9.13",
+    "conceptIds": [
+      "concept.c153",
+      "concept.c154",
+      "concept.c155"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.05.supporting.04",
+    "learningUnitId": "lu.9.05",
+    "theoryActivityId": "theory.9.05",
+    "practiceActivityId": "practice.experiment.9.15",
+    "conceptIds": [
+      "concept.c153",
+      "concept.c154",
+      "concept.c155"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.05.supporting.05",
+    "learningUnitId": "lu.9.05",
+    "theoryActivityId": "theory.9.05",
+    "practiceActivityId": "practice.experiment.9.16",
+    "conceptIds": [
+      "concept.c153",
+      "concept.c154",
+      "concept.c155"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.05.supporting.06",
+    "learningUnitId": "lu.9.05",
+    "theoryActivityId": "theory.9.05",
+    "practiceActivityId": "practice.experiment.9.18",
+    "conceptIds": [
+      "concept.c153",
+      "concept.c154",
+      "concept.c155"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.06.primary",
+    "learningUnitId": "lu.9.06",
+    "theoryActivityId": "theory.9.06",
+    "practiceActivityId": "practice.experiment.9.14",
+    "conceptIds": [
+      "concept.c156",
+      "concept.c157",
+      "concept.c061"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.07.primary",
+    "learningUnitId": "lu.9.07",
+    "theoryActivityId": "theory.9.07",
+    "practiceActivityId": "practice.simulation.9.07.planned",
+    "conceptIds": [
+      "concept.c158",
+      "concept.c159",
+      "concept.c160",
+      "concept.c161",
+      "concept.c162"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.07.supporting.01",
+    "learningUnitId": "lu.9.07",
+    "theoryActivityId": "theory.9.07",
+    "practiceActivityId": "practice.experiment.9.1",
+    "conceptIds": [
+      "concept.c158",
+      "concept.c159",
+      "concept.c160",
+      "concept.c161",
+      "concept.c162"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.9.07.supporting.02",
+    "learningUnitId": "lu.9.07",
+    "theoryActivityId": "theory.9.07",
+    "practiceActivityId": "practice.experiment.9.4",
+    "conceptIds": [
+      "concept.c158",
+      "concept.c159",
+      "concept.c160",
+      "concept.c161",
+      "concept.c162"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.9.07.supporting.03",
+    "learningUnitId": "lu.9.07",
+    "theoryActivityId": "theory.9.07",
+    "practiceActivityId": "practice.experiment.9.5",
+    "conceptIds": [
+      "concept.c158",
+      "concept.c159",
+      "concept.c160",
+      "concept.c161",
+      "concept.c162"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.9.07.supporting.04",
+    "learningUnitId": "lu.9.07",
+    "theoryActivityId": "theory.9.07",
+    "practiceActivityId": "practice.experiment.9.6",
+    "conceptIds": [
+      "concept.c158",
+      "concept.c159",
+      "concept.c160",
+      "concept.c161",
+      "concept.c162"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.9.08.primary",
+    "learningUnitId": "lu.9.08",
+    "theoryActivityId": "theory.9.08",
+    "practiceActivityId": "practice.simulation.9.08.planned",
+    "conceptIds": [
+      "concept.c163",
+      "concept.c164",
+      "concept.c165",
+      "concept.c166"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.09.primary",
+    "learningUnitId": "lu.9.09",
+    "theoryActivityId": "theory.9.09",
+    "practiceActivityId": "practice.experiment.9.1",
+    "conceptIds": [
+      "concept.c167",
+      "concept.c168",
+      "concept.c169",
+      "concept.c170"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.09.supporting.01",
+    "learningUnitId": "lu.9.09",
+    "theoryActivityId": "theory.9.09",
+    "practiceActivityId": "practice.experiment.9.4",
+    "conceptIds": [
+      "concept.c167",
+      "concept.c168",
+      "concept.c169",
+      "concept.c170"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.10.primary",
+    "learningUnitId": "lu.9.10",
+    "theoryActivityId": "theory.9.10",
+    "practiceActivityId": "practice.experiment.9.5",
+    "conceptIds": [
+      "concept.c159",
+      "concept.c171",
+      "concept.c172",
+      "concept.c173",
+      "concept.c174",
+      "concept.c175"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.10.supporting.01",
+    "learningUnitId": "lu.9.10",
+    "theoryActivityId": "theory.9.10",
+    "practiceActivityId": "practice.experiment.9.6",
+    "conceptIds": [
+      "concept.c159",
+      "concept.c171",
+      "concept.c172",
+      "concept.c173",
+      "concept.c174",
+      "concept.c175"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.11.primary",
+    "learningUnitId": "lu.9.11",
+    "theoryActivityId": "theory.9.11",
+    "practiceActivityId": "practice.case.9.11.planned",
+    "conceptIds": [
+      "concept.c176",
+      "concept.c177",
+      "concept.c178"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.11.supporting.01",
+    "learningUnitId": "lu.9.11",
+    "theoryActivityId": "theory.9.11",
+    "practiceActivityId": "practice.experiment.9.3",
+    "conceptIds": [
+      "concept.c176",
+      "concept.c177",
+      "concept.c178"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.9.12.primary",
+    "learningUnitId": "lu.9.12",
+    "theoryActivityId": "theory.9.12",
+    "practiceActivityId": "practice.experiment.9.8",
+    "conceptIds": [
+      "concept.c179",
+      "concept.c035",
+      "concept.c097"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.12.supporting.01",
+    "learningUnitId": "lu.9.12",
+    "theoryActivityId": "theory.9.12",
+    "practiceActivityId": "practice.experiment.9.12",
+    "conceptIds": [
+      "concept.c179",
+      "concept.c035",
+      "concept.c097"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.12.supporting.02",
+    "learningUnitId": "lu.9.12",
+    "theoryActivityId": "theory.9.12",
+    "practiceActivityId": "practice.experiment.9.20",
+    "conceptIds": [
+      "concept.c179",
+      "concept.c035",
+      "concept.c097"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.13.primary",
+    "learningUnitId": "lu.9.13",
+    "theoryActivityId": "theory.9.13",
+    "practiceActivityId": "practice.experiment.9.3",
+    "conceptIds": [
+      "concept.c180",
+      "concept.c181"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.13.supporting.01",
+    "learningUnitId": "lu.9.13",
+    "theoryActivityId": "theory.9.13",
+    "practiceActivityId": "practice.experiment.9.7",
+    "conceptIds": [
+      "concept.c180",
+      "concept.c181"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.13.supporting.02",
+    "learningUnitId": "lu.9.13",
+    "theoryActivityId": "theory.9.13",
+    "practiceActivityId": "practice.experiment.9.9",
+    "conceptIds": [
+      "concept.c180",
+      "concept.c181"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.14.primary",
+    "learningUnitId": "lu.9.14",
+    "theoryActivityId": "theory.9.14",
+    "practiceActivityId": "practice.case.9.14.planned",
+    "conceptIds": [
+      "concept.c182",
+      "concept.c183"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.15.primary",
+    "learningUnitId": "lu.9.15",
+    "theoryActivityId": "theory.9.15",
+    "practiceActivityId": "practice.experiment.9.10",
+    "conceptIds": [
+      "concept.c184",
+      "concept.c185",
+      "concept.c186",
+      "concept.c187",
+      "concept.c188"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.16.primary",
+    "learningUnitId": "lu.9.16",
+    "theoryActivityId": "theory.9.16",
+    "practiceActivityId": "practice.experiment.9.2",
+    "conceptIds": [
+      "concept.c189",
+      "concept.c190",
+      "concept.c116",
+      "concept.c191"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.17.primary",
+    "learningUnitId": "lu.9.17",
+    "theoryActivityId": "theory.9.17",
+    "practiceActivityId": "practice.case.9.17.planned",
+    "conceptIds": [
+      "concept.c192",
+      "concept.c193",
+      "concept.c042"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.17.supporting.01",
+    "learningUnitId": "lu.9.17",
+    "theoryActivityId": "theory.9.17",
+    "practiceActivityId": "practice.experiment.9.2",
+    "conceptIds": [
+      "concept.c192",
+      "concept.c193",
+      "concept.c042"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.9.18.primary",
+    "learningUnitId": "lu.9.18",
+    "theoryActivityId": "theory.9.18",
+    "practiceActivityId": "practice.simulation.9.18.water-hardness",
+    "conceptIds": [
+      "concept.c194",
+      "concept.c195",
+      "concept.c196",
+      "concept.c197",
+      "concept.c198"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.19.primary",
+    "learningUnitId": "lu.9.19",
+    "theoryActivityId": "theory.9.19",
+    "practiceActivityId": "practice.experiment.9.11",
+    "conceptIds": [
+      "concept.c199",
+      "concept.c200",
+      "concept.c201"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.19.supporting.01",
+    "learningUnitId": "lu.9.19",
+    "theoryActivityId": "theory.9.19",
+    "practiceActivityId": "practice.experiment.9.12",
+    "conceptIds": [
+      "concept.c199",
+      "concept.c200",
+      "concept.c201"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.19.supporting.02",
+    "learningUnitId": "lu.9.19",
+    "theoryActivityId": "theory.9.19",
+    "practiceActivityId": "practice.experiment.9.13",
+    "conceptIds": [
+      "concept.c199",
+      "concept.c200",
+      "concept.c201"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.19.supporting.03",
+    "learningUnitId": "lu.9.19",
+    "theoryActivityId": "theory.9.19",
+    "practiceActivityId": "practice.experiment.9.14",
+    "conceptIds": [
+      "concept.c199",
+      "concept.c200",
+      "concept.c201"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.20.primary",
+    "learningUnitId": "lu.9.20",
+    "theoryActivityId": "theory.9.20",
+    "practiceActivityId": "practice.simulation.9.20.cu-ag-au",
+    "conceptIds": [
+      "concept.c202",
+      "concept.c203",
+      "concept.c204",
+      "concept.c205",
+      "concept.c206"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.20.supporting.01",
+    "learningUnitId": "lu.9.20",
+    "theoryActivityId": "theory.9.20",
+    "practiceActivityId": "practice.experiment.9.9",
+    "conceptIds": [
+      "concept.c202",
+      "concept.c203",
+      "concept.c204",
+      "concept.c205",
+      "concept.c206"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.9.20.supporting.02",
+    "learningUnitId": "lu.9.20",
+    "theoryActivityId": "theory.9.20",
+    "practiceActivityId": "practice.experiment.9.15",
+    "conceptIds": [
+      "concept.c202",
+      "concept.c203",
+      "concept.c204",
+      "concept.c205",
+      "concept.c206"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.9.21.primary",
+    "learningUnitId": "lu.9.21",
+    "theoryActivityId": "theory.9.21",
+    "practiceActivityId": "practice.simulation.9.21.group12",
+    "conceptIds": [
+      "concept.c207",
+      "concept.c208",
+      "concept.c209"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.22.primary",
+    "learningUnitId": "lu.9.22",
+    "theoryActivityId": "theory.9.22",
+    "practiceActivityId": "practice.experiment.9.17",
+    "conceptIds": [
+      "concept.c210",
+      "concept.c211"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.23.primary",
+    "learningUnitId": "lu.9.23",
+    "theoryActivityId": "theory.9.23",
+    "practiceActivityId": "practice.simulation.9.23.planned",
+    "conceptIds": [
+      "concept.c212",
+      "concept.c213"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.24.primary",
+    "learningUnitId": "lu.9.24",
+    "theoryActivityId": "theory.9.24",
+    "practiceActivityId": "practice.experiment.9.18",
+    "conceptIds": [
+      "concept.c214",
+      "concept.c215",
+      "concept.c141",
+      "concept.c216"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.24.supporting.01",
+    "learningUnitId": "lu.9.24",
+    "theoryActivityId": "theory.9.24",
+    "practiceActivityId": "practice.experiment.9.19",
+    "conceptIds": [
+      "concept.c214",
+      "concept.c215",
+      "concept.c141",
+      "concept.c216"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.25.primary",
+    "learningUnitId": "lu.9.25",
+    "theoryActivityId": "theory.9.25",
+    "practiceActivityId": "practice.case.9.25.steel-process",
+    "conceptIds": [
+      "concept.c217",
+      "concept.c218",
+      "concept.c219"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.9.26.primary",
+    "learningUnitId": "lu.9.26",
+    "theoryActivityId": "theory.9.26",
+    "practiceActivityId": "practice.case.9.26.planned",
+    "conceptIds": [
+      "concept.c220",
+      "concept.c221",
+      "concept.c222",
+      "concept.c223"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.01.primary",
+    "learningUnitId": "lu.10.01",
+    "theoryActivityId": "theory.10.01",
+    "practiceActivityId": "practice.experiment.10.1",
+    "conceptIds": [
+      "concept.c224",
+      "concept.c225"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.01.supporting.01",
+    "learningUnitId": "lu.10.01",
+    "theoryActivityId": "theory.10.01",
+    "practiceActivityId": "practice.experiment.10.2",
+    "conceptIds": [
+      "concept.c224",
+      "concept.c225"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.02.primary",
+    "learningUnitId": "lu.10.02",
+    "theoryActivityId": "theory.10.02",
+    "practiceActivityId": "practice.simulation.10.02.structure-theory",
+    "conceptIds": [
+      "concept.c226",
+      "concept.c227"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.02.supporting.01",
+    "learningUnitId": "lu.10.02",
+    "theoryActivityId": "theory.10.02",
+    "practiceActivityId": "practice.experiment.10.2",
+    "conceptIds": [
+      "concept.c226",
+      "concept.c227"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.10.03.primary",
+    "learningUnitId": "lu.10.03",
+    "theoryActivityId": "theory.10.03",
+    "practiceActivityId": "practice.trainer.10.03.planned",
+    "conceptIds": [
+      "concept.c228",
+      "concept.c229",
+      "concept.c230"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.03.supporting.01",
+    "learningUnitId": "lu.10.03",
+    "theoryActivityId": "theory.10.03",
+    "practiceActivityId": "practice.simulation.10.4",
+    "conceptIds": [
+      "concept.c228",
+      "concept.c229",
+      "concept.c230"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.10.04.primary",
+    "learningUnitId": "lu.10.04",
+    "theoryActivityId": "theory.10.04",
+    "practiceActivityId": "practice.simulation.10.04.isomerism",
+    "conceptIds": [
+      "concept.c231"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.05.primary",
+    "learningUnitId": "lu.10.05",
+    "theoryActivityId": "theory.10.05",
+    "practiceActivityId": "practice.trainer.10.05.planned",
+    "conceptIds": [
+      "concept.c232"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.05.supporting.01",
+    "learningUnitId": "lu.10.05",
+    "theoryActivityId": "theory.10.05",
+    "practiceActivityId": "practice.experiment.10.1",
+    "conceptIds": [
+      "concept.c232"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.05.supporting.02",
+    "learningUnitId": "lu.10.05",
+    "theoryActivityId": "theory.10.05",
+    "practiceActivityId": "practice.experiment.10.10",
+    "conceptIds": [
+      "concept.c232"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.06.primary",
+    "learningUnitId": "lu.10.06",
+    "theoryActivityId": "theory.10.06",
+    "practiceActivityId": "practice.trainer.10.06.planned",
+    "conceptIds": [
+      "concept.c233",
+      "concept.c234",
+      "concept.c235",
+      "concept.c236"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.06.supporting.01",
+    "learningUnitId": "lu.10.06",
+    "theoryActivityId": "theory.10.06",
+    "practiceActivityId": "practice.experiment.10.3",
+    "conceptIds": [
+      "concept.c233",
+      "concept.c234",
+      "concept.c235",
+      "concept.c236"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.06.supporting.02",
+    "learningUnitId": "lu.10.06",
+    "theoryActivityId": "theory.10.06",
+    "practiceActivityId": "practice.experiment.10.5",
+    "conceptIds": [
+      "concept.c233",
+      "concept.c234",
+      "concept.c235",
+      "concept.c236"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.06.supporting.03",
+    "learningUnitId": "lu.10.06",
+    "theoryActivityId": "theory.10.06",
+    "practiceActivityId": "practice.experiment.10.6",
+    "conceptIds": [
+      "concept.c233",
+      "concept.c234",
+      "concept.c235",
+      "concept.c236"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.06.supporting.04",
+    "learningUnitId": "lu.10.06",
+    "theoryActivityId": "theory.10.06",
+    "practiceActivityId": "practice.experiment.10.7",
+    "conceptIds": [
+      "concept.c233",
+      "concept.c234",
+      "concept.c235",
+      "concept.c236"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.06.supporting.05",
+    "learningUnitId": "lu.10.06",
+    "theoryActivityId": "theory.10.06",
+    "practiceActivityId": "practice.experiment.10.8",
+    "conceptIds": [
+      "concept.c233",
+      "concept.c234",
+      "concept.c235",
+      "concept.c236"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.06.supporting.06",
+    "learningUnitId": "lu.10.06",
+    "theoryActivityId": "theory.10.06",
+    "practiceActivityId": "practice.experiment.10.9",
+    "conceptIds": [
+      "concept.c233",
+      "concept.c234",
+      "concept.c235",
+      "concept.c236"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.06.supporting.07",
+    "learningUnitId": "lu.10.06",
+    "theoryActivityId": "theory.10.06",
+    "practiceActivityId": "practice.experiment.10.10",
+    "conceptIds": [
+      "concept.c233",
+      "concept.c234",
+      "concept.c235",
+      "concept.c236"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.07.primary",
+    "learningUnitId": "lu.10.07",
+    "theoryActivityId": "theory.10.07",
+    "practiceActivityId": "practice.trainer.10.07.planned",
+    "conceptIds": [
+      "concept.c237",
+      "concept.c238",
+      "concept.c239"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.08.primary",
+    "learningUnitId": "lu.10.08",
+    "theoryActivityId": "theory.10.08",
+    "practiceActivityId": "practice.simulation.10.08.homologous-series",
+    "conceptIds": [
+      "concept.c240",
+      "concept.c241"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.09.primary",
+    "learningUnitId": "lu.10.09",
+    "theoryActivityId": "theory.10.09",
+    "practiceActivityId": "practice.trainer.10.09.planned",
+    "conceptIds": [
+      "concept.c242",
+      "concept.c239"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.09.supporting.01",
+    "learningUnitId": "lu.10.09",
+    "theoryActivityId": "theory.10.09",
+    "practiceActivityId": "practice.simulation.10.4",
+    "conceptIds": [
+      "concept.c242",
+      "concept.c239"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.10.10.primary",
+    "learningUnitId": "lu.10.10",
+    "theoryActivityId": "theory.10.10",
+    "practiceActivityId": "practice.simulation.10.10.planned",
+    "conceptIds": [
+      "concept.c243",
+      "concept.c236",
+      "concept.c244"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.10.supporting.01",
+    "learningUnitId": "lu.10.10",
+    "theoryActivityId": "theory.10.10",
+    "practiceActivityId": "practice.experiment.10.10",
+    "conceptIds": [
+      "concept.c243",
+      "concept.c236",
+      "concept.c244"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.10.11.primary",
+    "learningUnitId": "lu.10.11",
+    "theoryActivityId": "theory.10.11",
+    "practiceActivityId": "practice.simulation.10.11.planned",
+    "conceptIds": [
+      "concept.c245",
+      "concept.c246"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.12.primary",
+    "learningUnitId": "lu.10.12",
+    "theoryActivityId": "theory.10.12",
+    "practiceActivityId": "practice.experiment.10.3",
+    "conceptIds": [
+      "concept.c247",
+      "concept.c248",
+      "concept.c249"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.13.primary",
+    "learningUnitId": "lu.10.13",
+    "theoryActivityId": "theory.10.13",
+    "practiceActivityId": "practice.simulation.10.13.planned",
+    "conceptIds": [
+      "concept.c250",
+      "concept.c249",
+      "concept.c251"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.14.primary",
+    "learningUnitId": "lu.10.14",
+    "theoryActivityId": "theory.10.14",
+    "practiceActivityId": "practice.simulation.10.14.planned",
+    "conceptIds": [
+      "concept.c252",
+      "concept.c253",
+      "concept.c248"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.15.primary",
+    "learningUnitId": "lu.10.15",
+    "theoryActivityId": "theory.10.15",
+    "practiceActivityId": "practice.simulation.10.15.planned",
+    "conceptIds": [
+      "concept.c254",
+      "concept.c255",
+      "concept.c256"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.16.primary",
+    "learningUnitId": "lu.10.16",
+    "theoryActivityId": "theory.10.16",
+    "practiceActivityId": "practice.case.10.16.planned",
+    "conceptIds": [
+      "concept.c257",
+      "concept.c244",
+      "concept.c258"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.17.primary",
+    "learningUnitId": "lu.10.17",
+    "theoryActivityId": "theory.10.17",
+    "practiceActivityId": "practice.simulation.10.17.monohydric-alcohols",
+    "conceptIds": [
+      "concept.c259",
+      "concept.c260",
+      "concept.c057"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.18.primary",
+    "learningUnitId": "lu.10.18",
+    "theoryActivityId": "theory.10.18",
+    "practiceActivityId": "practice.experiment.10.5",
+    "conceptIds": [
+      "concept.c261",
+      "concept.c205"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.19.primary",
+    "learningUnitId": "lu.10.19",
+    "theoryActivityId": "theory.10.19",
+    "practiceActivityId": "practice.simulation.10.19.phenols",
+    "conceptIds": [
+      "concept.c262",
+      "concept.c263",
+      "concept.c264"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.20.primary",
+    "learningUnitId": "lu.10.20",
+    "theoryActivityId": "theory.10.20",
+    "practiceActivityId": "practice.simulation.10.20.planned",
+    "conceptIds": [
+      "concept.c265",
+      "concept.c266"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.21.primary",
+    "learningUnitId": "lu.10.21",
+    "theoryActivityId": "theory.10.21",
+    "practiceActivityId": "practice.simulation.10.21.carbonyls",
+    "conceptIds": [
+      "concept.c267",
+      "concept.c268",
+      "concept.c057"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.21.supporting.01",
+    "learningUnitId": "lu.10.21",
+    "theoryActivityId": "theory.10.21",
+    "practiceActivityId": "practice.experiment.10.10",
+    "conceptIds": [
+      "concept.c267",
+      "concept.c268",
+      "concept.c057"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.22.primary",
+    "learningUnitId": "lu.10.22",
+    "theoryActivityId": "theory.10.22",
+    "practiceActivityId": "practice.experiment.10.22.carboxylic-acid",
+    "conceptIds": [
+      "concept.c269",
+      "concept.c270",
+      "concept.c260"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.23.primary",
+    "learningUnitId": "lu.10.23",
+    "theoryActivityId": "theory.10.23",
+    "practiceActivityId": "practice.simulation.10.23.esters",
+    "conceptIds": [
+      "concept.c271",
+      "concept.c272",
+      "concept.c273"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.24.primary",
+    "learningUnitId": "lu.10.24",
+    "theoryActivityId": "theory.10.24",
+    "practiceActivityId": "practice.experiment.10.8",
+    "conceptIds": [
+      "concept.c274",
+      "concept.c275",
+      "concept.c276"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.25.primary",
+    "learningUnitId": "lu.10.25",
+    "theoryActivityId": "theory.10.25",
+    "practiceActivityId": "practice.experiment.10.9",
+    "conceptIds": [
+      "concept.c277",
+      "concept.c278",
+      "concept.c279",
+      "concept.c280"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.26.primary",
+    "learningUnitId": "lu.10.26",
+    "theoryActivityId": "theory.10.26",
+    "practiceActivityId": "practice.trainer.10.26.fibers",
+    "conceptIds": [
+      "concept.c281",
+      "concept.c282",
+      "concept.c097"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.10.27.primary",
+    "learningUnitId": "lu.10.27",
+    "theoryActivityId": "theory.10.27",
+    "practiceActivityId": "practice.case.10.11",
+    "conceptIds": [
+      "concept.c220",
+      "concept.c221",
+      "concept.c283"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.11.01.primary",
+    "learningUnitId": "lu.11.01",
+    "theoryActivityId": "theory.11.01",
+    "practiceActivityId": "practice.simulation.11.01.planned",
+    "conceptIds": [
+      "concept.c284",
+      "concept.c285",
+      "concept.c286",
+      "concept.c287"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.11.02.primary",
+    "learningUnitId": "lu.11.02",
+    "theoryActivityId": "theory.11.02",
+    "practiceActivityId": "practice.simulation.11.02.planned",
+    "conceptIds": [
+      "concept.c288",
+      "concept.c289"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.11.03.primary",
+    "learningUnitId": "lu.11.03",
+    "theoryActivityId": "theory.11.03",
+    "practiceActivityId": "practice.simulation.11.03.planned",
+    "conceptIds": [
+      "concept.c290",
+      "concept.c291",
+      "concept.c292",
+      "concept.c293"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.11.04.primary",
+    "learningUnitId": "lu.11.04",
+    "theoryActivityId": "theory.11.04",
+    "practiceActivityId": "practice.simulation.11.04.planned",
+    "conceptIds": [
+      "concept.c294",
+      "concept.c295",
+      "concept.c296"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.11.05.primary",
+    "learningUnitId": "lu.11.05",
+    "theoryActivityId": "theory.11.05",
+    "practiceActivityId": "practice.calculation.11.05.planned",
+    "conceptIds": [
+      "concept.c038",
+      "concept.c297",
+      "concept.c298"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.11.06.primary",
+    "learningUnitId": "lu.11.06",
+    "theoryActivityId": "theory.11.06",
+    "practiceActivityId": "practice.calculation.11.06.planned",
+    "conceptIds": [
+      "concept.c118",
+      "concept.c076",
+      "concept.c299"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.11.07.primary",
+    "learningUnitId": "lu.11.07",
+    "theoryActivityId": "theory.11.07",
+    "practiceActivityId": "practice.calculation.11.07.planned",
+    "conceptIds": [
+      "concept.c300"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.11.08.primary",
+    "learningUnitId": "lu.11.08",
+    "theoryActivityId": "theory.11.08",
+    "practiceActivityId": "practice.calculation.11.08.planned",
+    "conceptIds": [
+      "concept.c301",
+      "concept.c302"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.11.09.primary",
+    "learningUnitId": "lu.11.09",
+    "theoryActivityId": "theory.11.09",
+    "practiceActivityId": "practice.simulation.11.09.planned",
+    "conceptIds": [
+      "concept.c303",
+      "concept.c304"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.11.10.primary",
+    "learningUnitId": "lu.11.10",
+    "theoryActivityId": "theory.11.10",
+    "practiceActivityId": "practice.trainer.11.10.planned",
+    "conceptIds": [
+      "concept.c151",
+      "concept.c305"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.11.11.primary",
+    "learningUnitId": "lu.11.11",
+    "theoryActivityId": "theory.11.11",
+    "practiceActivityId": "practice.simulation.11.11.planned",
+    "conceptIds": [
+      "concept.c156",
+      "concept.c306",
+      "concept.c061"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.11.12.primary",
+    "learningUnitId": "lu.11.12",
+    "theoryActivityId": "theory.11.12",
+    "practiceActivityId": "practice.simulation.11.12.planned",
+    "conceptIds": [
+      "concept.c307",
+      "concept.c308",
+      "concept.c309",
+      "concept.c310"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.11.13.primary",
+    "learningUnitId": "lu.11.13",
+    "theoryActivityId": "theory.11.13",
+    "practiceActivityId": "practice.calculation.11.13.planned",
+    "conceptIds": [
+      "concept.c311",
+      "concept.c312",
+      "concept.c313"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.11.14.primary",
+    "learningUnitId": "lu.11.14",
+    "theoryActivityId": "theory.11.14",
+    "practiceActivityId": "practice.calculation.11.14.planned",
+    "conceptIds": [
+      "concept.c314",
+      "concept.c315",
+      "concept.c316"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.11.15.primary",
+    "learningUnitId": "lu.11.15",
+    "theoryActivityId": "theory.11.15",
+    "practiceActivityId": "practice.simulation.11.15.planned",
+    "conceptIds": [
+      "concept.c126",
+      "concept.c317"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.11.16.primary",
+    "learningUnitId": "lu.11.16",
+    "theoryActivityId": "theory.11.16",
+    "practiceActivityId": "practice.simulation.11.16.planned",
+    "conceptIds": [
+      "concept.c318",
+      "concept.c319"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.11.17.primary",
+    "learningUnitId": "lu.11.17",
+    "theoryActivityId": "theory.11.17",
+    "practiceActivityId": "practice.simulation.11.17.planned",
+    "conceptIds": [
+      "concept.c130",
+      "concept.c320"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.11.18.primary",
+    "learningUnitId": "lu.11.18",
+    "theoryActivityId": "theory.11.18",
+    "practiceActivityId": "practice.simulation.11.18.planned",
+    "conceptIds": [
+      "concept.c132",
+      "concept.c321",
+      "concept.c127",
+      "concept.c128"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.11.19.primary",
+    "learningUnitId": "lu.11.19",
+    "theoryActivityId": "theory.11.19",
+    "practiceActivityId": "practice.trainer.11.19.planned",
+    "conceptIds": [
+      "concept.c322",
+      "concept.c323"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.11.20.primary",
+    "learningUnitId": "lu.11.20",
+    "theoryActivityId": "theory.11.20",
+    "practiceActivityId": "practice.simulation.11.20.planned",
+    "conceptIds": [
+      "concept.c324",
+      "concept.c325",
+      "concept.c326"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.11.21.primary",
+    "learningUnitId": "lu.11.21",
+    "theoryActivityId": "theory.11.21",
+    "practiceActivityId": "practice.experiment.11.2",
+    "conceptIds": [
+      "concept.c327",
+      "concept.c328",
+      "concept.c186",
+      "concept.c187"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.11.22.primary",
+    "learningUnitId": "lu.11.22",
+    "theoryActivityId": "theory.11.22",
+    "practiceActivityId": "practice.calculation.11.22.planned",
+    "conceptIds": [
+      "concept.c329",
+      "concept.c330",
+      "concept.c331",
+      "concept.c297"
+    ],
+    "role": "primary",
+    "required": true,
+    "coverageStatus": "full"
+  },
+  {
+    "id": "mapping.11.22.supporting.01",
+    "learningUnitId": "lu.11.22",
+    "theoryActivityId": "theory.11.22",
+    "practiceActivityId": "practice.experiment.11.2",
+    "conceptIds": [
+      "concept.c329",
+      "concept.c330",
+      "concept.c331",
+      "concept.c297"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.9.18.supporting.01",
+    "learningUnitId": "lu.9.18",
+    "theoryActivityId": "theory.9.18",
+    "practiceActivityId": "practice.experiment.9.2",
+    "conceptIds": [
+      "concept.c194",
+      "concept.c195",
+      "concept.c196",
+      "concept.c197",
+      "concept.c198"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.9.20.supporting.03",
+    "learningUnitId": "lu.9.20",
+    "theoryActivityId": "theory.9.20",
+    "practiceActivityId": "practice.experiment.9.3",
+    "conceptIds": [
+      "concept.c202",
+      "concept.c203",
+      "concept.c204",
+      "concept.c205",
+      "concept.c206"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.9.21.supporting.01",
+    "learningUnitId": "lu.9.21",
+    "theoryActivityId": "theory.9.21",
+    "practiceActivityId": "practice.experiment.9.16",
+    "conceptIds": [
+      "concept.c207",
+      "concept.c208",
+      "concept.c209"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.9.25.supporting.01",
+    "learningUnitId": "lu.9.25",
+    "theoryActivityId": "theory.9.25",
+    "practiceActivityId": "practice.experiment.9.20",
+    "conceptIds": [
+      "concept.c217",
+      "concept.c218",
+      "concept.c219"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.10.17.supporting.01",
+    "learningUnitId": "lu.10.17",
+    "theoryActivityId": "theory.10.17",
+    "practiceActivityId": "practice.experiment.10.6",
+    "conceptIds": [
+      "concept.c259",
+      "concept.c260",
+      "concept.c057"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.10.19.supporting.01",
+    "learningUnitId": "lu.10.19",
+    "theoryActivityId": "theory.10.19",
+    "practiceActivityId": "practice.experiment.10.10",
+    "conceptIds": [
+      "concept.c262",
+      "concept.c263",
+      "concept.c264"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.10.21.supporting.02",
+    "learningUnitId": "lu.10.21",
+    "theoryActivityId": "theory.10.21",
+    "practiceActivityId": "practice.experiment.10.6",
+    "conceptIds": [
+      "concept.c267",
+      "concept.c268",
+      "concept.c057"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.10.22.supporting.01",
+    "learningUnitId": "lu.10.22",
+    "theoryActivityId": "theory.10.22",
+    "practiceActivityId": "practice.experiment.10.10",
+    "conceptIds": [
+      "concept.c269",
+      "concept.c270",
+      "concept.c260"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.10.23.supporting.01",
+    "learningUnitId": "lu.10.23",
+    "theoryActivityId": "theory.10.23",
+    "practiceActivityId": "practice.experiment.10.7",
+    "conceptIds": [
+      "concept.c271",
+      "concept.c272",
+      "concept.c273"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.10.26.supporting.01",
+    "learningUnitId": "lu.10.26",
+    "theoryActivityId": "theory.10.26",
+    "practiceActivityId": "practice.case.10.11",
+    "conceptIds": [
+      "concept.c281",
+      "concept.c282",
+      "concept.c097"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.10.02.supporting.02",
+    "learningUnitId": "lu.10.02",
+    "theoryActivityId": "theory.10.02",
+    "practiceActivityId": "practice.simulation.10.4",
+    "conceptIds": [
+      "concept.c226",
+      "concept.c227"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.10.04.supporting.01",
+    "learningUnitId": "lu.10.04",
+    "theoryActivityId": "theory.10.04",
+    "practiceActivityId": "practice.simulation.10.4",
+    "conceptIds": [
+      "concept.c231"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  },
+  {
+    "id": "mapping.10.08.supporting.01",
+    "learningUnitId": "lu.10.08",
+    "theoryActivityId": "theory.10.08",
+    "practiceActivityId": "practice.simulation.10.4",
+    "conceptIds": [
+      "concept.c240",
+      "concept.c241"
+    ],
+    "role": "supporting",
+    "required": false,
+    "coverageStatus": "partial"
+  }
+]

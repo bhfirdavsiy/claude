@@ -1,0 +1,8 @@
+import {clear,el,link} from '../../ui/components/dom.js';
+import {searchStudentContent,                     } from './model.js';
+export function renderSearch(root            ,index                   ,initial=''){
+  clear(root);const head=el('header',{className:'kl-unit-hero'});const hi=el('div',{className:'kl-shell'});hi.append(el('p',{className:'kl-kicker',text:'Topish'}),el('h1',{text:'Qidiruv'}),el('p',{className:'kl-unit-outcome',text:'Mavzu, tushuncha yoki amaliy faoliyatni qidiring.'}));head.append(hi);
+  const section=el('section',{className:'kl-shell kl-section'});const form=el('form',{className:'kl-search-form'});const label=el('label',{className:'kl-field'});label.append(el('span',{text:'Qidiruv so‘zi'}));const input=el('input',{attrs:{type:'search',name:'q',value:initial,placeholder:'Masalan: atom, valentlik, aralashma'}});label.append(input);form.append(label,el('button',{className:'kl-button kl-button--primary',text:'Qidirish',attrs:{type:'submit'}}));const results=el('div',{className:'kl-search-results',attrs:{'aria-live':'polite'}});
+  const draw=()=>{clear(results);const found=searchStudentContent(input.value,index);if(!found.length){results.append(el('p',{text:input.value?'Mos natija topilmadi.':'Qidiruv so‘zini kiriting.'}));return;}for(const item of found){const card=el('article',{className:'kl-card kl-search-card'});card.append(el('p',{className:'kl-kicker',text:item.kind==='topic'?(item.grade?`${item.grade}-sinf mavzusi`:'Mavzu'):'Amaliy faoliyat'}),el('h2',{text:item.title}),el('p',{text:item.description}),link('Ochish',item.href,'kl-text-link'));results.append(card);}};
+  form.addEventListener('submit',e=>{e.preventDefault();draw();});section.append(form,results);root.append(head,section);draw();
+}

@@ -1,0 +1,3031 @@
+[
+  {
+    "id": "7.1",
+    "grade": "7-sinf",
+    "title": "Laboratoriya shtativi, spirt lampa, gaz gorelkalari va elektr isitgich bilan ishlash",
+    "source": "7-sinf darsligi, 16–19-betlar",
+    "catalogType": "Amaliy mashg‘ulot",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "7.01"
+    ],
+    "linkedTheoryTitles": [
+      "Kimyo fani va uning vazifalari"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Laboratoriya idishlari bilan tanishing: probirka, kolba, stakan, voronka, pipetka, chinni hovoncha va dastacha, tigel, qoshiqcha yoki shpatel, bug‘latish kosachasi, Byuxner voronkasi vazifalarini farqlang.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "Laboratoriya shtativi, probirka, kolba, kimyoviy stakan, voronka, pipetka, chinni idishlar, spirt lampa, gaz gorelkasi, elektr isitgich, himoya ekrani.",
+    "materials": "",
+    "safety": "Ochiq alanga, issiq idishlar va kislotalar bilan ishlashda o‘qituvchi ko‘rsatmasiga qat’iy amal qilinadi.",
+    "steps": [
+      "Laboratoriya idishlari bilan tanishing: probirka, kolba, stakan, voronka, pipetka, chinni hovoncha va dastacha, tigel, qoshiqcha yoki shpatel, bug‘latish kosachasi, Byuxner voronkasi vazifalarini farqlang.",
+      "Laboratoriya shtativining taglik, sterjen, qisqich, halqa va tutqich qismlarini ko‘rib chiqing. Probirkani qisqich bilan ehtiyotkor mahkamlang; stakanni to‘rli taglikka, chinni idish yoki tigelni halqaga joylashtiring.",
+      "Spirt lampaning rezervuar, disk, pilik va qalpoqcha qismlarini tekshiring. Lampani yarmigacha spirt bilan to‘ldiring, pilikni joylashtiring va yoqing. Ish tugagach, alangani qalpoqcha bilan o‘chiring.",
+      "Probirkadagi moddani qizdirishda probirkani qiya tuting, og‘zini o‘zingizga va yoningizdagi kishilarga qaratmang. Avval probirkaning barcha qismini, keyin modda turgan joyni qizdiring.",
+      "Gaz gorelkasida gaz va havo oqimini sozlang, gugurtni yon tomondan yaqinlashtiring va alangani ishga moslang. Ish tugagach, gaz jo‘mragini yoping.",
+      "Elektr isitgichdan foydalanishda probirkani isitgichga joylashtiring va jarayonni himoya ekrani ortidan kuzating."
+    ],
+    "tasks": [
+      "Nima uchun probirkaning butun qismini avval qizdirish kerakligini izohlang.",
+      "Probirka og‘zini insonlarga qaratmaslik sababini tushuntiring.",
+      "Kislotani suyultirishda avval suv, so‘ng kislota qo‘shilishi kerakligini yodda tuting."
+    ],
+    "reagents": [
+      "Al",
+      "KI",
+      "etanol"
+    ],
+    "recommended": [
+      "Al",
+      "KI"
+    ],
+    "kind": "jarayon",
+    "goal": "Laboratoriya idishlari bilan tanishing: probirka, kolba, stakan, voronka, pipetka, chinni hovoncha va dastacha, tigel, qoshiqcha yoki shpatel, bug‘latish kosachasi, Byuxner voronkasi vazifalarini farqlang.",
+    "question": "Nima uchun probirkaning butun qismini avval qizdirish kerakligini izohlang.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "7.2",
+    "grade": "7-sinf",
+    "title": "Aralashmalar tarkibidan sof moddani ajratish: ifloslangan osh tuzini tozalash",
+    "source": "7-sinf darsligi, 24–25-betlar",
+    "catalogType": "Amaliy mashg‘ulot",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "7.03",
+      "7.21"
+    ],
+    "linkedTheoryTitles": [
+      "Sof modda va aralashmalar",
+      "Suv: tarkibi, aylanishi, xossalari, neytrallanish va tozalash"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "20 ml distillangan suvga ifloslangan osh tuzidan oz-ozdan soling va shisha tayoqcha bilan aralashtiring. Tuz erimay qolguncha davom eting.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "Shtativ, spirt lampa, voronka, shisha tayoqcha, stakanlar, buyum oynasi, probirka tutqichi, filtr qog‘ozi.",
+    "materials": "Ifloslangan osh tuzi, distillangan suv.",
+    "safety": "",
+    "steps": [
+      "20 ml distillangan suvga ifloslangan osh tuzidan oz-ozdan soling va shisha tayoqcha bilan aralashtiring. Tuz erimay qolguncha davom eting.",
+      "Kvadrat filtr qog‘ozini to‘rt buklang, chetini yoy shaklida qirqing, konus ko‘rinishida oching va voronkaga joylashtiring. Filtr qog‘ozining yuqori cheti voronka chetidan taxminan 0,5 sm past bo‘lsin.",
+      "Loyqa eritmani shisha tayoqcha orqali filtrlang. Voronkadan o‘tgan tiniq eritma filtrat hisoblanadi.",
+      "Filtratni chinni kosachaga quying va shtativda qizdirib bug‘lating. Sachrashning oldini olish uchun aralashtiring.",
+      "Tuz kristallari paydo bo‘la boshlaganda qizdirishni to‘xtating. Ajratilgan sof tuzni kuzating."
+    ],
+    "tasks": [
+      "Jarayonning har bir bosqichini rasm bilan ifodalang.",
+      "Eritish, filtrlash va bug‘latish bosqichlarining vazifasini izohlang."
+    ],
+    "reagents": [
+      "H2O",
+      "Zn",
+      "Al",
+      "NaCl",
+      "KI",
+      "etanol"
+    ],
+    "recommended": [
+      "H2O",
+      "Zn"
+    ],
+    "kind": "jarayon",
+    "goal": "20 ml distillangan suvga ifloslangan osh tuzidan oz-ozdan soling va shisha tayoqcha bilan aralashtiring. Tuz erimay qolguncha davom eting.",
+    "question": "Jarayonning har bir bosqichini rasm bilan ifodalang.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "7.3",
+    "grade": "7-sinf",
+    "title": "Kundalik hayotdagi kimyoviy jarayonlarni kuzatish va tavsiflash",
+    "source": "7-sinf darsligi, 31–32-betlar",
+    "catalogType": "Amaliy mashg‘ulot",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "7.02",
+      "7.05",
+      "7.13"
+    ],
+    "linkedTheoryTitles": [
+      "Modda va uning xossalari",
+      "Fizik va kimyoviy hodisalar",
+      "Oddiy va murakkab moddalar"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Siyoh dog‘ini tozalashning 1-usuli: dog‘ ustiga oq tish pastasini surting, eski tish cho‘tkasi bilan aylana harakatda ishqalang va issiq suv bilan yuving.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "Eski tish cho‘tkasi, mato namunasi, temir qoshiq, chinni kosacha, spirt lampa, to‘rtta stakan va to‘rtta mix.",
+    "materials": "Oq tish pastasi yoki spirt, ko‘mir bo‘lagi, suv, osh tuzi, mis plastinka, rux plastinka.",
+    "safety": "",
+    "steps": [
+      "Siyoh dog‘ini tozalashning 1-usuli: dog‘ ustiga oq tish pastasini surting, eski tish cho‘tkasi bilan aylana harakatda ishqalang va issiq suv bilan yuving.",
+      "Siyoh dog‘ini tozalashning 2-usuli: dog‘ni spirt bilan namlang, biroz kuting, ishqalang va kir sovuni yoki idish yuvish vositasi bilan yuving.",
+      "Ko‘mirning yonishini kuzatish: no‘xat kattaligidagi ko‘mir bo‘lagini qoshiqda qizdiring, cho‘g‘langan ko‘mirni chinni kosachaga tushiring va yonish jarayonini kuzating.",
+      "Temirning zanglashini taqqoslash uchun 4 ta stakan tayyorlang: 1-stakan — suv va mix; 2-stakan — suv, mix va osh tuzi; 3-stakan — suv, mix va mis plastinka; 4-stakan — suv, mix va rux plastinka. Vaqt o‘tishi bilan o‘zgarishlarni taqqoslang."
+    ],
+    "tasks": [
+      "Qaysi sharoitda zanglash tezroq sodir bo‘lganini izohlang.",
+      "Ko‘mir yonishida kuzatilgan belgilarni yozing.",
+      "Dog‘ni ketkazish usullarini taqqoslang."
+    ],
+    "reagents": [
+      "H2O",
+      "Zn",
+      "Fe",
+      "Al",
+      "Cu",
+      "C",
+      "NaCl",
+      "KI",
+      "etanol"
+    ],
+    "recommended": [
+      "H2O",
+      "Zn"
+    ],
+    "kind": "jarayon",
+    "goal": "Siyoh dog‘ini tozalashning 1-usuli: dog‘ ustiga oq tish pastasini surting, eski tish cho‘tkasi bilan aylana harakatda ishqalang va issiq suv bilan yuving.",
+    "question": "Qaysi sharoitda zanglash tezroq sodir bo‘lganini izohlang.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "7.4",
+    "grade": "7-sinf",
+    "title": "Birikmalardagi elementlarning valentliklarini aniqlash",
+    "source": "7-sinf darsligi, 63–64-betlar",
+    "catalogType": "Amaliy mashg‘ulot / trenajyor asosidagi topshiriq",
+    "mappingType": "Trenajyor",
+    "linkedTheoryIds": [
+      "7.11"
+    ],
+    "linkedTheoryTitles": [
+      "Kimyoviy formula va valentlik"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Berilgan modda formulasidagi element belgilarini aniqlang.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "Berilgan modda formulasidagi element belgilarini aniqlang.",
+      "Valentligi ma’lum elementning valentligini formula ustiga rim raqami bilan yozing.",
+      "Indekslar va valentliklar ko‘paytmasi tengligini qo‘llab noma’lum valentlikni hisoblang.",
+      "Ikki elementdan birikma formulasini tuzishda element belgilarini yonma-yon yozing, valentliklarning eng kichik umumiy karralisini toping va uni har bir valentlikka bo‘lib indekslarni aniqlang.",
+      "Indeks 1 bo‘lsa formulada yozilmasligini yodda tuting.",
+      "Plastilin va gugurt cho‘plari yordamida H2S, CaH2 kabi birikmalarning oddiy modellarini yasang."
+    ],
+    "tasks": [
+      "Au2O3, CuO va boshqa formulalarda valentliklarni aniqlang.",
+      "Berilgan juft elementlardan birikma formulasini tuzing."
+    ],
+    "reagents": [
+      "Al",
+      "KI",
+      "I2"
+    ],
+    "recommended": [
+      "Al",
+      "KI"
+    ],
+    "kind": "jarayon",
+    "goal": "Berilgan modda formulasidagi element belgilarini aniqlang.",
+    "question": "Au2O3, CuO va boshqa formulalarda valentliklarni aniqlang.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "7.5",
+    "grade": "7-sinf",
+    "title": "Kimyoviy formulalar asosida hisoblashga oid masalalar",
+    "source": "7-sinf darsligi, 65–66-betlar",
+    "catalogType": "Amaliy mashg‘ulot / hisoblash trenajyori",
+    "mappingType": "Hisoblash",
+    "linkedTheoryIds": [
+      "7.12",
+      "7.14"
+    ],
+    "linkedTheoryTitles": [
+      "Molekula va nisbiy molekulyar massa",
+      "Modda miqdori, Avogadro doimiysi va molyar massa"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Berilgan formuladan moddadagi elementlar sonini va sifat tarkibini aniqlang.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "Berilgan formuladan moddadagi elementlar sonini va sifat tarkibini aniqlang.",
+      "Nisbiy molekulyar massa va molyar massani hisoblang.",
+      "Modda massasi va molyar massa yordamida modda miqdorini toping.",
+      "Avogadro doimiysi yordamida zarrachalar sonini hisoblang.",
+      "Tajriba topshirig‘i sifatida bir qoshiq suv massasini o‘lchang va undagi molekulalar sonini hisoblang.",
+      "Bir dona qand kubigi massasini o‘lchang va saxaroza miqdorini mol hisobida aniqlang."
+    ],
+    "tasks": [
+      "CO2 misolida uglerod valentligini va ma’lum massa uchun molekulalar sonini hisoblang.",
+      "Hisoblash bosqichlarini birliklar bilan yozing."
+    ],
+    "reagents": [
+      "H2O",
+      "Al",
+      "KI",
+      "saxaroza"
+    ],
+    "recommended": [
+      "H2O",
+      "Al"
+    ],
+    "kind": "jarayon",
+    "goal": "Berilgan formuladan moddadagi elementlar sonini va sifat tarkibini aniqlang.",
+    "question": "CO2 misolida uglerod valentligini va ma’lum massa uchun molekulalar sonini hisoblang.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "7.6",
+    "grade": "7-sinf",
+    "title": "Suvning agregat holatlari o‘zgarishini kuzatish",
+    "source": "7-sinf darsligi, 27-bet",
+    "catalogType": "Qo‘shimcha tajriba",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "7.04",
+      "7.05",
+      "7.21"
+    ],
+    "linkedTheoryTitles": [
+      "Moddalarning agregat holatining o‘zgarishi",
+      "Fizik va kimyoviy hodisalar",
+      "Suv: tarkibi, aylanishi, xossalari, neytrallanish va tozalash"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "100 ml suvni stakanga quying, keyin boshqa shakldagi 50 ml stakanga o‘tkazing va suyuqlik shaklining idishga moslashishini kuzating.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "Stakanlar, chinni kosacha, spirt lampa, shtativ.",
+    "materials": "Suv va muz.",
+    "safety": "",
+    "steps": [
+      "100 ml suvni stakanga quying, keyin boshqa shakldagi 50 ml stakanga o‘tkazing va suyuqlik shaklining idishga moslashishini kuzating.",
+      "50 ml suvni chinni kosachada qizdiring va bug‘lanishni kuzating.",
+      "Stakanga 3–4 bo‘lak muz soling va 5 daqiqadan keyingi o‘zgarishni qayd qiling."
+    ],
+    "tasks": [
+      "Qattiq, suyuq va gaz holatlarni taqqoslang."
+    ],
+    "reagents": [
+      "H2O",
+      "etanol"
+    ],
+    "recommended": [
+      "H2O",
+      "etanol"
+    ],
+    "kind": "jarayon",
+    "goal": "100 ml suvni stakanga quying, keyin boshqa shakldagi 50 ml stakanga o‘tkazing va suyuqlik shaklining idishga moslashishini kuzating.",
+    "question": "Qattiq, suyuq va gaz holatlarni taqqoslang.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "7.7",
+    "grade": "7-sinf",
+    "title": "Alanga tuzilishi va moddalarning kislorodda yonishi",
+    "source": "7-sinf darsligi, 100–101-betlar",
+    "catalogType": "Amaliy mashg‘ulot",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "7.05",
+      "7.15",
+      "7.19"
+    ],
+    "linkedTheoryTitles": [
+      "Fizik va kimyoviy hodisalar",
+      "Kimyoviy reaksiya tenglamalarini tuzish",
+      "Kislorod: xossalari, yonish, ozon va oksidlar"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Spirt lampani yoqing va alangani to‘g‘ri o‘chiring. Alanganing pastki, o‘rta va yuqori qismlarini kuzating.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "Spirt lampa, gugurt, probirkalar, gaz o‘tkazgich nay, paxta, shisha banka yoki silindr, temir qoshiq, qum.",
+    "materials": "Vodorod peroksid yoki kaliy permanganat, suv, ko‘mir, oltingugurt, temir sim, ohakli suv.",
+    "safety": "Kislorodli idish tubiga temir sim tajribasida qum soling. Idish sinishining oldi olinadi.",
+    "steps": [
+      "Spirt lampani yoqing va alangani to‘g‘ri o‘chiring. Alanganing pastki, o‘rta va yuqori qismlarini kuzating.",
+      "Kislorod olish uchun probirkaning 1/3 qismiga kaliy permanganat soling, gaz o‘tkazgichli apparatni yig‘ing va probirkani ehtiyotkor qizdiring. Kislorodni suvni siqib chiqarish usulida yig‘ing.",
+      "Cho‘g‘langan ko‘mirni kislorodli idishga tushiring, yonishni kuzating, so‘ng ohakli suv solib chayqating.",
+      "Oltingugurtni temir qoshiqchada yondiring va kislorodli idishga tushiring. Kuzatuv va tenglamani qayd qiling.",
+      "Spiral shakldagi temir simni qizdiring va tubiga qum solingan kislorodli idishga tushiring. Uchqunlanish va hosil bo‘lgan mahsulotni kuzating."
+    ],
+    "tasks": [
+      "Nima uchun moddalar kislorodda havodagiga nisbatan faolroq yonishini izohlang.",
+      "Har bir reaksiya tenglamasini yozing."
+    ],
+    "reagents": [
+      "H2O",
+      "O2",
+      "H2",
+      "Ca(OH)2",
+      "Fe",
+      "Al",
+      "C",
+      "S",
+      "KI",
+      "etanol"
+    ],
+    "recommended": [
+      "H2O",
+      "O2"
+    ],
+    "kind": "yonish",
+    "goal": "Spirt lampani yoqing va alangani to‘g‘ri o‘chiring. Alanganing pastki, o‘rta va yuqori qismlarini kuzating.",
+    "question": "Nima uchun moddalar kislorodda havodagiga nisbatan faolroq yonishini izohlang.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "7.8",
+    "grade": "7-sinf",
+    "title": "Vodorodning olinishi va uning xossalarini sinash",
+    "source": "7-sinf darsligi, 115–116-betlar",
+    "catalogType": "Amaliy mashg‘ulot",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "7.15",
+      "7.20"
+    ],
+    "linkedTheoryTitles": [
+      "Kimyoviy reaksiya tenglamalarini tuzish",
+      "Vodorod, kislotalar va kislotali yomg‘ir"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Apparatga 2–3 bo‘lak metall soling, mahkam yoping va zichligini tekshiring.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "Kiryushkin yoki Kipp apparati, probirka, shtativ, gaz o‘tkazgich nay, shisha plastinka.",
+    "materials": "Rux, temir yoki alyuminiy; suyultirilgan xlorid yoki sulfat kislota; mis(II)-oksid; sovun eritmasi.",
+    "safety": "Vodorodning tozaligini katta hajmda emas, kichik porsiyada tekshiring.",
+    "steps": [
+      "Apparatga 2–3 bo‘lak metall soling, mahkam yoping va zichligini tekshiring.",
+      "2–3 ml suyultirilgan kislota qo‘shing. Gaz ajralishini kuzating.",
+      "Vodorodni suv yoki havoni siqib chiqarish usulida yig‘ing.",
+      "Gazning tozaligini kichik porsiyada tekshiring: sof vodorod sokin yonadi, havo bilan aralashma esa “paq” etib ovoz chiqaradi.",
+      "Yonayotgan cho‘pni vodorodli idishga kiriting va alangani kuzating.",
+      "Vodorodni yoqing, alanga ustida shisha plastinka tuting va hosil bo‘lgan suv tomchilarini kuzating.",
+      "Vodorod bilan sovun pufakchalarini hosil qilib, uning havodan yengil ekanini kuzating.",
+      "Vodorodni qizdirilgan CuO ustidan o‘tkazing. Qizil mis va suv hosil bo‘lishini kuzating."
+    ],
+    "tasks": [
+      "Metall va kislota reaksiyasi tenglamasini yozing.",
+      "Vodorodning yonish va CuO ni qaytarish reaksiyalarini yozing."
+    ],
+    "reagents": [
+      "H2O",
+      "H2",
+      "H2SO4",
+      "CuO",
+      "Zn",
+      "Fe",
+      "Al",
+      "Cu",
+      "KI",
+      "HCl"
+    ],
+    "recommended": [
+      "H2O",
+      "H2"
+    ],
+    "kind": "jarayon",
+    "goal": "Apparatga 2–3 bo‘lak metall soling, mahkam yoping va zichligini tekshiring.",
+    "question": "Metall va kislota reaksiyasi tenglamasini yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "7.9",
+    "grade": "7-sinf",
+    "title": "Kislotalarning olinishi va xossalari",
+    "source": "7-sinf darsligi, 122–123-betlar",
+    "catalogType": "Amaliy mashg‘ulot",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "7.15",
+      "7.20"
+    ],
+    "linkedTheoryTitles": [
+      "Kimyoviy reaksiya tenglamalarini tuzish",
+      "Vodorod, kislotalar va kislotali yomg‘ir"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "NaCl ga H2SO4 ta’sir ettirib va ehtiyotkor qizdirib HCl gazini oling. Gazni suvga yuttirib xlorid kislota hosil qiling.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "Probirkalar, shtativ, gaz o‘tkazgich nay, tomizgich.",
+    "materials": "NaCl, H2SO4, HCl eritmasi, indikatorlar, CuO, NaOH, fenolftalein, CaCO3 yoki bo‘r.",
+    "safety": "",
+    "steps": [
+      "NaCl ga H2SO4 ta’sir ettirib va ehtiyotkor qizdirib HCl gazini oling. Gazni suvga yuttirib xlorid kislota hosil qiling.",
+      "Suv va HCl eritmalariga indikator tomizib ranglarni taqqoslang.",
+      "CuO namunasi ustiga taxminan 1 ml HCl qo‘shing, qora rangli oksidning erishini kuzating va tenglamani yozing.",
+      "NaOH eritmasiga fenolftalein tomizing, so‘ng HCl ni tomchilab qo‘shing. Eritma rangsizlanishini kuzating va neytrallanish tenglamasini yozing.",
+      "HCl eritmasiga CaCO3 yoki bo‘r qo‘shing. CO2 ajralishini kuzating va tenglamani yozing."
+    ],
+    "tasks": [
+      "Kislotalarning indikatorlarga ta’sirini yozing.",
+      "Kislota bilan oksid, asos va tuz reaksiyalarini taqqoslang."
+    ],
+    "reagents": [
+      "H2O",
+      "CO2",
+      "HCl",
+      "H2SO4",
+      "NaOH",
+      "CuO",
+      "Zn",
+      "Fe",
+      "Al",
+      "NaCl",
+      "CaCO3",
+      "KI"
+    ],
+    "recommended": [
+      "H2O",
+      "CO2"
+    ],
+    "kind": "reaksiya",
+    "goal": "NaCl ga H2SO4 ta’sir ettirib va ehtiyotkor qizdirib HCl gazini oling. Gazni suvga yuttirib xlorid kislota hosil qiling.",
+    "question": "Kislotalarning indikatorlarga ta’sirini yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "7.10",
+    "grade": "7-sinf",
+    "title": "Kislotalarning metallar bilan o‘zaro ta’siri",
+    "source": "7-sinf darsligi, 124–125-betlar",
+    "catalogType": "Amaliy mashg‘ulot",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "7.15",
+      "7.20"
+    ],
+    "linkedTheoryTitles": [
+      "Kimyoviy reaksiya tenglamalarini tuzish",
+      "Vodorod, kislotalar va kislotali yomg‘ir"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Magniy ustiga suyultirilgan H2SO4 quying, ajralgan gazni yig‘ing va gugurt alangasi bilan tekshiring.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "Probirkalar, shtativ, gaz yig‘ish vositasi, gugurt.",
+    "materials": "Mg, Zn, Cu; suyultirilgan H2SO4 va HCl.",
+    "safety": "Vodorod miqdori probirka hajmining 1/3 qismidan oshmasin.",
+    "steps": [
+      "Magniy ustiga suyultirilgan H2SO4 quying, ajralgan gazni yig‘ing va gugurt alangasi bilan tekshiring.",
+      "Rux granulalari ustiga HCl quying. Reaksiyani kuzating, zarur bo‘lsa biroz qizdiring, gazni yig‘ing va tekshiring.",
+      "Mis qirindilari ustiga suyultirilgan HCl quying. Qizdirilganda ham sezilarli o‘zgarish bo‘lmasligini kuzating.",
+      "Metallarning kislotalar bilan reaksiyaga kirishish qobiliyatini faollik qatori bilan izohlang."
+    ],
+    "tasks": [
+      "Mg va Zn reaksiyalarining tenglamalarini yozing.",
+      "Cu ning HCl bilan reaksiyaga kirishmasligini tushuntiring."
+    ],
+    "reagents": [
+      "HCl",
+      "H2SO4",
+      "Zn",
+      "Mg",
+      "Al",
+      "Cu",
+      "KI"
+    ],
+    "recommended": [
+      "HCl",
+      "H2SO4"
+    ],
+    "kind": "reaksiya",
+    "goal": "Magniy ustiga suyultirilgan H2SO4 quying, ajralgan gazni yig‘ing va gugurt alangasi bilan tekshiring.",
+    "question": "Mg va Zn reaksiyalarining tenglamalarini yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "7.11",
+    "grade": "7-sinf",
+    "title": "Suvning oksidlar bilan o‘zaro ta’siri",
+    "source": "7-sinf darsligi, 140–141-betlar",
+    "catalogType": "Amaliy mashg‘ulot",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "7.15",
+      "7.21"
+    ],
+    "linkedTheoryTitles": [
+      "Kimyoviy reaksiya tenglamalarini tuzish",
+      "Suv: tarkibi, aylanishi, xossalari, neytrallanish va tozalash"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Birinchi probirkaga CaO va suv soling. Oqartiruvchi suspenziya yoki ishqoriy muhit hosil bo‘lishini kuzating.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "Probirkalar, shtativ, tomizgich.",
+    "materials": "CaO, suv, mineral suv yoki CO2 li suv, distillangan suv, fenolftalein yoki lakmus.",
+    "safety": "",
+    "steps": [
+      "Birinchi probirkaga CaO va suv soling. Oqartiruvchi suspenziya yoki ishqoriy muhit hosil bo‘lishini kuzating.",
+      "Ikkinchi probirkaga gazli mineral suv quying. U kislota muhitiga misol bo‘ladi.",
+      "Uchinchi probirkaga distillangan suv quying.",
+      "Uchala probirkaga indikator tomizib ranglarni taqqoslang.",
+      "CaO va suv reaksiyasi tenglamasini yozing va muhitlarning farqini tushuntiring."
+    ],
+    "tasks": [
+      "Asosiy va kislotali oksidlarning suv bilan o‘zaro ta’sirini izohlang."
+    ],
+    "reagents": [
+      "H2O",
+      "CO2",
+      "NaOH",
+      "CaO",
+      "Fe",
+      "Al",
+      "Cu",
+      "KI",
+      "indikator"
+    ],
+    "recommended": [
+      "H2O",
+      "CO2"
+    ],
+    "kind": "jarayon",
+    "goal": "Birinchi probirkaga CaO va suv soling. Oqartiruvchi suspenziya yoki ishqoriy muhit hosil bo‘lishini kuzating.",
+    "question": "Asosiy va kislotali oksidlarning suv bilan o‘zaro ta’sirini izohlang.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "7.12",
+    "grade": "7-sinf",
+    "title": "Suvning fizik xossalarini o‘rganish",
+    "source": "7-sinf darsligi, 135–136-betlar",
+    "catalogType": "Qo‘shimcha tajribalar majmuasi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "7.02",
+      "7.04",
+      "7.21"
+    ],
+    "linkedTheoryTitles": [
+      "Modda va uning xossalari",
+      "Moddalarning agregat holatining o‘zgarishi",
+      "Suv: tarkibi, aylanishi, xossalari, neytrallanish va tozalash"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Tiniqlikni tekshirish: turli suv namunalarini silindrga quying va tagidagi matn ko‘rinishini taqqoslang.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "O‘lchov silindri, stakanlar, qoshiq, isitish vositasi.",
+    "materials": "Distillangan suv, vodoprovod suvi, mineral suv, sut yoki sharbat, shakar, tuz, qum.",
+    "safety": "",
+    "steps": [
+      "Tiniqlikni tekshirish: turli suv namunalarini silindrga quying va tagidagi matn ko‘rinishini taqqoslang.",
+      "Rangni taqqoslash: suvni sut yoki sharbat bilan solishtiring.",
+      "Hidni tekshirish: suv namunalarini 40–50 °C gacha isitib, ehtiyotkor hidlab ko‘ring.",
+      "Erituvchanlikni tekshirish: shakar, tuz va qumning suvdagi xatti-harakatini kuzating.",
+      "Suvning agregat holatlarini taqqoslang."
+    ],
+    "tasks": [
+      "Har bir tajriba uchun kuzatuv jadvali tuzing."
+    ],
+    "reagents": [
+      "H2O",
+      "Al",
+      "KI",
+      "saxaroza"
+    ],
+    "recommended": [
+      "H2O",
+      "Al"
+    ],
+    "kind": "jarayon",
+    "goal": "Tiniqlikni tekshirish: turli suv namunalarini silindrga quying va tagidagi matn ko‘rinishini taqqoslang.",
+    "question": "Har bir tajriba uchun kuzatuv jadvali tuzing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "7.13",
+    "grade": "7-sinf",
+    "title": "Olma tarkibini aniqlash",
+    "source": "7-sinf darsligi, 162-bet",
+    "catalogType": "Amaliy tajriba",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "7.22"
+    ],
+    "linkedTheoryTitles": [
+      "Tirik organizmlardagi elementlar, oqsil, yog‘, uglevod, vitamin va minerallar"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Uch xil olma sharbatining kislotaliligini universal indikator yordamida taqqoslang.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "Turli olma sharbatlari, universal indikator, NaOH, azot kislotasi; darslikda ko‘rsatilgan tekshiruv eritmalari.",
+    "safety": "Azot kislotasi bilan faqat o‘qituvchi nazoratida ishlanadi.",
+    "steps": [
+      "Uch xil olma sharbatining kislotaliligini universal indikator yordamida taqqoslang.",
+      "Olma sharbatlari namunalarida mineral tarkibni tekshirish uchun darslikda berilgan reaktivni qo‘shing va o‘zgarishni kuzating.",
+      "Vitamin mavjudligini darslikdagi ko‘rsatmaga asosan azot kislotasi bilan tekshiring, aralashtiring va rang o‘zgarishini taqqoslang."
+    ],
+    "tasks": [
+      "Natijalarni jadvalga yozing va qaysi olma namunasi qanday xususiyat bilan ajralib turishini izohlang."
+    ],
+    "reagents": [
+      "HNO3",
+      "NaOH",
+      "Al",
+      "KI",
+      "indikator"
+    ],
+    "recommended": [
+      "HNO3",
+      "NaOH"
+    ],
+    "kind": "reaksiya",
+    "goal": "Uch xil olma sharbatining kislotaliligini universal indikator yordamida taqqoslang.",
+    "question": "Natijalarni jadvalga yozing va qaysi olma namunasi qanday xususiyat bilan ajralib turishini izohlang.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "7.14",
+    "grade": "7-sinf",
+    "title": "Ekologik izni kamaytirish",
+    "source": "7-sinf darsligi, 173–174-betlar",
+    "catalogType": "Amaliy mashg‘ulot",
+    "mappingType": "Case",
+    "linkedTheoryIds": [
+      "7.18",
+      "7.21",
+      "7.23"
+    ],
+    "linkedTheoryTitles": [
+      "Havo tarkibi va havoning ifloslanishi",
+      "Suv: tarkibi, aylanishi, xossalari, neytrallanish va tozalash",
+      "Foydali qazilmalar, konlar va ekologik aspektlar"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Oynaning ikki qismini alohida tozalang: bir tomonini sirka, ikkinchi tomonini maxsus oyna tozalagich bilan arting. Natijani taqqoslang.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "Oyna, mato, folga, idish, paxta bo‘laklari.",
+    "materials": "Sirka, oyna tozalash vositasi, suv, o‘simlik moyi.",
+    "safety": "",
+    "steps": [
+      "Oynaning ikki qismini alohida tozalang: bir tomonini sirka, ikkinchi tomonini maxsus oyna tozalagich bilan arting. Natijani taqqoslang.",
+      "Idishga suv quying, folgadan kichik qayiqcha yasang va suv yuzasiga qo‘ying.",
+      "Suv yuzasiga oz miqdorda moy qo‘shib, “neft to‘kilishi” modelini hosil qiling.",
+      "Paxta bo‘laklari yordamida moyni yig‘ishga harakat qiling va singdirish samaradorligini kuzating.",
+      "Ekologik tozalash usullarining afzallik va cheklovlarini xulosa qiling."
+    ],
+    "tasks": [
+      "Sirka va kimyoviy tozalagich natijalarini taqqoslang.",
+      "Moyni suvdan ajratish muammosini izohlang.",
+      "8-SINF KIMYO DARSLIGI",
+      "Manba: “Kimyo-8”, Toshkent, 2019. Bo‘limga 5 ta amaliy ish va 10 ta laboratoriya mashg‘uloti kiritildi."
+    ],
+    "reagents": [
+      "H2O",
+      "Zn",
+      "Al",
+      "KI",
+      "sirka",
+      "moy"
+    ],
+    "recommended": [
+      "H2O",
+      "Zn"
+    ],
+    "kind": "jarayon",
+    "goal": "Oynaning ikki qismini alohida tozalang: bir tomonini sirka, ikkinchi tomonini maxsus oyna tozalagich bilan arting. Natijani taqqoslang.",
+    "question": "Sirka va kimyoviy tozalagich natijalarini taqqoslang.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "8.1",
+    "grade": "8-sinf",
+    "title": "“Galogenlar” mavzusi bo‘yicha tajribaviy masalalar yechish",
+    "source": "8-sinf darsligi, 124-bet",
+    "catalogType": "1-amaliy ish",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "8.14",
+      "8.16"
+    ],
+    "linkedTheoryTitles": [
+      "Oksidlanish-qaytarilish reaksiyalari va tenglamalarni tuzish",
+      "Galogenlar: atom tuzilishi, xlor, HCl, xlorid kislota, ftor, brom va yod"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Xlorid kislota tarkibida vodorod va xlor ionlari mavjudligini tajriba yo‘li bilan isbotlang.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "Xlorid kislota tarkibida vodorod va xlor ionlari mavjudligini tajriba yo‘li bilan isbotlang.",
+      "Berilgan quruq tuz natriy xlorid ekanini tajriba bilan isbotlang.",
+      "Probirkadagi eritma natriy yodid ekanini isbotlang.",
+      "Rux xlorid tuzini tajriba yo‘li bilan to‘rt xil usulda oling.",
+      "Berilgan quruq tuz namunasining bromid ekanini isbotlang.",
+      "Ikki probirkadagi NaCl va Na2CO3 tuzlarini tajriba yo‘li bilan farqlang."
+    ],
+    "tasks": [
+      "Har bir masala uchun tanlangan reaktiv, kuzatilgan belgi va reaksiya tenglamasini yozing."
+    ],
+    "reagents": [
+      "H2",
+      "HCl",
+      "Zn",
+      "Al",
+      "NaCl",
+      "Na2CO3",
+      "ZnCl2",
+      "NaI",
+      "KI",
+      "Br2",
+      "I2"
+    ],
+    "recommended": [
+      "H2",
+      "HCl"
+    ],
+    "kind": "jarayon",
+    "goal": "Xlorid kislota tarkibida vodorod va xlor ionlari mavjudligini tajriba yo‘li bilan isbotlang.",
+    "question": "Har bir masala uchun tanlangan reaktiv, kuzatilgan belgi va reaksiya tenglamasini yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "8.2",
+    "grade": "8-sinf",
+    "title": "“Oltingugurt” mavzusi bo‘yicha tajribaviy masalalar yechish",
+    "source": "8-sinf darsligi, 151-bet",
+    "catalogType": "2-amaliy ish",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "8.18",
+      "8.21"
+    ],
+    "linkedTheoryTitles": [
+      "Kislorod guruhchasi va oltingugurt birikmalari",
+      "Sulfat kislota ishlab chiqarish"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Berilgan modda sulfat kislota ekanini tajriba yo‘li bilan isbotlang.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "Konsentrlangan sulfat kislota bilan faqat o‘qituvchi nazoratida ishlanadi.",
+    "steps": [
+      "Berilgan modda sulfat kislota ekanini tajriba yo‘li bilan isbotlang.",
+      "Suyultirilgan va konsentrlangan sulfat kislotaning rux metalliga ta’siri turlicha ekanini ko‘rsating.",
+      "Raqamlangan uch probirkadagi CaCl2, Na2S va K2SO4 tuzlarini aniqlang.",
+      "Alyuminiy sulfatdan alyuminiy xlorid olish mumkinligini tajriba bilan isbotlang va zarur tenglamalarni yozing."
+    ],
+    "tasks": [
+      "Kuzatuv va tenglamalarni tartib bilan yozing."
+    ],
+    "reagents": [
+      "H2SO4",
+      "Zn",
+      "Al",
+      "S",
+      "AlCl3",
+      "KI",
+      "K2SO4",
+      "CaCl2",
+      "Na2S"
+    ],
+    "recommended": [
+      "H2SO4",
+      "Zn"
+    ],
+    "kind": "jarayon",
+    "goal": "Berilgan modda sulfat kislota ekanini tajriba yo‘li bilan isbotlang.",
+    "question": "Kuzatuv va tenglamalarni tartib bilan yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "8.3",
+    "grade": "8-sinf",
+    "title": "Ammiak olish va u bilan tajribalar o‘tkazish",
+    "source": "8-sinf darsligi, 170–171-betlar",
+    "catalogType": "3-amaliy ish",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "8.22"
+    ],
+    "linkedTheoryTitles": [
+      "Azot, ammiak va azotning kislorodli birikmalari"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Apparatni darslikdagi sxema asosida yig‘ing.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "Gaz o‘tkazgichli apparat, probirkalar, silindr, suvli idish.",
+    "materials": "NH4Cl kristallari, so‘ndirilgan ohak, qizil lakmus, fenolftalein, kislorod, HNO3, HCl, H2SO4.",
+    "safety": "Ammiakni bevosita chuqur hidlamang; gazni qo‘l harakati bilan ehtiyotkor yo‘naltirib tekshiring.",
+    "steps": [
+      "Apparatni darslikdagi sxema asosida yig‘ing.",
+      "Teng hajmdagi NH4Cl kristallari va so‘ndirilgan ohak kukunini chinni hovonchada aralashtiring. Aralashmadan probirkaning 1/3 qismigacha solib ohista qizdiring.",
+      "Ajralgan ammiakni og‘zi pastga qaratilgan probirkaga yig‘ing.",
+      "Gaz to‘planganini ehtiyotkor hid bilan tekshiring, probirkani suvga botirib tiqinini oling. Suvning probirkaga to‘lishini kuzating.",
+      "Ammiakning suvli eritmasini qizil lakmus va fenolftalein bilan tekshiring.",
+      "Ammiakning kislorodda yonishini kuzating, mahsulotlarni aniqlang, oksidlovchi va qaytaruvchini belgilang.",
+      "Ammiakni nitrat, xlorid va sulfat kislotalarga yaqinlashtiring. Nay uchi eritma sirtidan 5–6 mm baland turishi kerak. Xlorid kislota bilan oq tutun hosil bo‘lishini izohlang."
+    ],
+    "tasks": [
+      "Barcha tenglamalarni yozing.",
+      "Gaz va eritmaning ammiak ekanini dalillar bilan isbotlang."
+    ],
+    "reagents": [
+      "H2O",
+      "O2",
+      "HCl",
+      "H2SO4",
+      "HNO3",
+      "Ca(OH)2",
+      "Fe",
+      "Al",
+      "KI",
+      "NH4Cl",
+      "indikator"
+    ],
+    "recommended": [
+      "H2O",
+      "O2"
+    ],
+    "kind": "reaksiya",
+    "goal": "Apparatni darslikdagi sxema asosida yig‘ing.",
+    "question": "Barcha tenglamalarni yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "8.4",
+    "grade": "8-sinf",
+    "title": "“Azot” guruhchasi elementlari mavzusiga oid tajribaviy masalalar",
+    "source": "8-sinf darsligi, 184-bet",
+    "catalogType": "4-amaliy ish",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "8.22",
+      "8.23"
+    ],
+    "linkedTheoryTitles": [
+      "Azot, ammiak va azotning kislorodli birikmalari",
+      "Fosfor va uning kislorodli birikmalari"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "NH4Cl kristallari bilan ohak kukuni aralashmasini probirkaning 1/3 qismigacha soling, ohista qizdiring va olingan gazning ammiak ekanini isbotlang.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "NH4Cl kristallari bilan ohak kukuni aralashmasini probirkaning 1/3 qismigacha soling, ohista qizdiring va olingan gazning ammiak ekanini isbotlang.",
+      "CuO, Cu(OH)2 va (CuOH)2CO3 dan HNO3 yordamida Cu(NO3)2 hosil qiling.",
+      "Ammoniyli o‘g‘itlarni ishqoriy tuproqqa solish mumkin emasligini tajriba yo‘li bilan isbotlang.",
+      "Na2SO4, NH4NO3 va NaCl tuzlari solingan uch probirkani aniqlang.",
+      "H3PO4, H2SO4 va HCl kislotalari solingan probirkalarni tajriba yo‘li bilan farqlang."
+    ],
+    "tasks": [
+      "Har bir masala uchun tanlangan reaktivlar va reaksiyalar tenglamalarini yozing."
+    ],
+    "reagents": [
+      "HCl",
+      "H2SO4",
+      "HNO3",
+      "NaOH",
+      "CuO",
+      "Zn",
+      "Al",
+      "NaCl",
+      "KI",
+      "Na2S",
+      "NH4Cl",
+      "NH4NO3"
+    ],
+    "recommended": [
+      "HCl",
+      "H2SO4"
+    ],
+    "kind": "jarayon",
+    "goal": "NH4Cl kristallari bilan ohak kukuni aralashmasini probirkaning 1/3 qismigacha soling, ohista qizdiring va olingan gazning ammiak ekanini isbotlang.",
+    "question": "Har bir masala uchun tanlangan reaktivlar va reaksiyalar tenglamalarini yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "8.5",
+    "grade": "8-sinf",
+    "title": "Mineral o‘g‘itlarni aniqlash",
+    "source": "8-sinf darsligi, 197-bet",
+    "catalogType": "5-amaliy ish",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "8.24"
+    ],
+    "linkedTheoryTitles": [
+      "Mineral o‘g‘itlar va biogen elementlar"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "1-variant: KNO3, NH4NO3 va superfosfat solingan probirkalarni aniqlang.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "1-variant: KNO3, NH4NO3 va superfosfat solingan probirkalarni aniqlang.",
+      "2-variant: berilgan o‘g‘itning KCl ekanini aniqlang.",
+      "3-variant: berilgan o‘g‘itning NH4Cl ekanini aniqlang.",
+      "4-variant: berilgan noma’lum mineral o‘g‘it nomini aniqlang va u haqida ma’lumot bering."
+    ],
+    "tasks": [
+      "Tanlangan reaktiv, kuzatuv va xulosani jadvalga kiriting."
+    ],
+    "reagents": [
+      "Al",
+      "KCl",
+      "NH4Cl",
+      "NH4NO3",
+      "KNO3"
+    ],
+    "recommended": [
+      "Al",
+      "KCl"
+    ],
+    "kind": "reaksiya",
+    "goal": "1-variant: KNO3, NH4NO3 va superfosfat solingan probirkalarni aniqlang.",
+    "question": "Tanlangan reaktiv, kuzatuv va xulosani jadvalga kiriting.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "8.6",
+    "grade": "8-sinf",
+    "title": "Rux gidroksidning olinishi, unga kislota va ishqor ta’siri",
+    "source": "8-sinf darsligi, 200-bet",
+    "catalogType": "1-laboratoriya ishi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "8.01"
+    ],
+    "linkedTheoryTitles": [
+      "Dastlabki kimyoviy tushunchalar va noorganik birikmalarning asosiy sinflari"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Probirkaga 1–2 ml 5% NaOH eritmasi quying.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "5% NaOH, ZnCl2, HCl; taqqoslash uchun CuCl2.",
+    "safety": "",
+    "steps": [
+      "Probirkaga 1–2 ml 5% NaOH eritmasi quying.",
+      "Ustiga mo‘l miqdorda ZnCl2 eritmasidan qo‘shing.",
+      "Hosil bo‘lgan cho‘kmani ikkita probirkaga bo‘ling.",
+      "Bir probirkaga HCl, ikkinchisiga NaOH eritmasi qo‘shing va chayqating.",
+      "Shunga o‘xshash tajribani CuCl2 eritmasi bilan takrorlang."
+    ],
+    "tasks": [
+      "Har bir bosqichdagi o‘zgarishni izohlang.",
+      "Zn(OH)2 va Cu(OH)2 xossalarini taqqoslang."
+    ],
+    "reagents": [
+      "HCl",
+      "NaOH",
+      "Zn",
+      "ZnCl2",
+      "KI"
+    ],
+    "recommended": [
+      "HCl",
+      "NaOH"
+    ],
+    "kind": "reaksiya",
+    "goal": "Probirkaga 1–2 ml 5% NaOH eritmasi quying.",
+    "question": "Har bir bosqichdagi o‘zgarishni izohlang.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "8.7",
+    "grade": "8-sinf",
+    "title": "Turli kimyoviy bog‘lanishli moddalar kristall panjaralari modellarini tayyorlash",
+    "source": "8-sinf darsligi, 200–201-betlar",
+    "catalogType": "2-laboratoriya ishi",
+    "mappingType": "Simulyatsiya",
+    "linkedTheoryIds": [
+      "8.10",
+      "8.11",
+      "8.12"
+    ],
+    "linkedTheoryTitles": [
+      "Qutbli va qutbsiz kovalent bog‘lanish",
+      "Ionli bog‘lanish",
+      "Kristall panjaralar"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "KCl ning ion bog‘lanishli modda ekanini aniqlang va ion bog‘lanishli moddalarga misollar keltiring.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "KCl ning ion bog‘lanishli modda ekanini aniqlang va ion bog‘lanishli moddalarga misollar keltiring.",
+      "K+ va Cl− ionlarining koordinatsion soni 6 ekanini hisobga olib KCl kristallining shar-sterjenli modelini tayyorlang va rasmini chizing.",
+      "Kristall oltingugurtda 8 ta oltingugurt atomi doira yoki “kreslo” shaklida birikishini hisobga olib model tayyorlang va rasmini chizing.",
+      "Darslik sarlavhasida ko‘rsatilgan yod kristall panjarasi modelini ham namunaga ko‘ra ko‘rib chiqing."
+    ],
+    "tasks": [
+      "Modellarda bog‘lanish turlarini taqqoslang."
+    ],
+    "reagents": [
+      "Al",
+      "Cu",
+      "S",
+      "KI",
+      "KCl",
+      "I2"
+    ],
+    "recommended": [
+      "Al",
+      "Cu"
+    ],
+    "kind": "jarayon",
+    "goal": "KCl ning ion bog‘lanishli modda ekanini aniqlang va ion bog‘lanishli moddalarga misollar keltiring.",
+    "question": "Modellarda bog‘lanish turlarini taqqoslang.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "8.8",
+    "grade": "8-sinf",
+    "title": "Xlorid kislota, galogenidlar va yod uchun sifat reaksiyalari",
+    "source": "8-sinf darsligi, 201-bet",
+    "catalogType": "3-laboratoriya ishi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "8.16"
+    ],
+    "linkedTheoryTitles": [
+      "Galogenlar: atom tuzilishi, xlor, HCl, xlorid kislota, ftor, brom va yod"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Daftarga reagentlar jadvalini ko‘chiring.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "HCl, NaCl, NaBr, NaI, AgNO3, kraxmal kleysteri, yodning spirtdagi eritmasi, kartoshka va non.",
+    "safety": "",
+    "steps": [
+      "Daftarga reagentlar jadvalini ko‘chiring.",
+      "To‘rtta probirkaga mos ravishda HCl, NaCl, NaBr va NaI eritmalaridan 1–2 ml quying.",
+      "Har biriga 3–4 tomchi AgNO3 eritmasi qo‘shing.",
+      "Cho‘kmalar rangini kuzating, tenglamalarni yozing va jadvalni to‘ldiring.",
+      "Kraxmal kleysteriga 1 tomchi yod eritmasi qo‘shib rang o‘zgarishini kuzating.",
+      "Kartoshka va non bo‘laklariga yod eritmasidan tomizing va natijani izohlang."
+    ],
+    "tasks": [
+      "Galogenidlarni cho‘kma rangiga ko‘ra farqlang."
+    ],
+    "reagents": [
+      "HCl",
+      "Al",
+      "NaCl",
+      "AgNO3",
+      "NaBr",
+      "NaI",
+      "KI",
+      "I2",
+      "kraxmal",
+      "etanol"
+    ],
+    "recommended": [
+      "HCl",
+      "Al"
+    ],
+    "kind": "reaksiya",
+    "goal": "Daftarga reagentlar jadvalini ko‘chiring.",
+    "question": "Galogenidlarni cho‘kma rangiga ko‘ra farqlang.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "8.9",
+    "grade": "8-sinf",
+    "title": "Tuproq eritmasi tarkibida xloridlar borligini aniqlash",
+    "source": "8-sinf darsligi, 201-bet",
+    "catalogType": "4-laboratoriya ishi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "8.16"
+    ],
+    "linkedTheoryTitles": [
+      "Galogenlar: atom tuzilishi, xlor, HCl, xlorid kislota, ftor, brom va yod"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Maktab tajriba maydonidan olingan tuproqni suv bilan aralashtiring.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "Maktab tajriba maydonidan olingan tuproqni suv bilan aralashtiring.",
+      "Hosil bo‘lgan loyqa eritmani filtrlang.",
+      "Filtratda xlorid ioni borligini sifat reaksiyasi yordamida tekshiring."
+    ],
+    "tasks": [
+      "Reaktiv va kuzatilgan cho‘kmani yozing."
+    ],
+    "reagents": [
+      "H2O",
+      "Al",
+      "KI"
+    ],
+    "recommended": [
+      "H2O",
+      "Al"
+    ],
+    "kind": "reaksiya",
+    "goal": "Maktab tajriba maydonidan olingan tuproqni suv bilan aralashtiring.",
+    "question": "Reaktiv va kuzatilgan cho‘kmani yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "8.10",
+    "grade": "8-sinf",
+    "title": "Galogenlarning birikmalar eritmalaridan bir-birini siqib chiqarishi",
+    "source": "8-sinf darsligi, 202-bet",
+    "catalogType": "5-laboratoriya ishi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "8.14",
+      "8.16"
+    ],
+    "linkedTheoryTitles": [
+      "Oksidlanish-qaytarilish reaksiyalari va tenglamalarni tuzish",
+      "Galogenlar: atom tuzilishi, xlor, HCl, xlorid kislota, ftor, brom va yod"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Jadvalni daftarga ko‘chiring.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "NaCl, NaBr, NaI eritmalari, xlorli suv, bromli suv, yodning spirtdagi eritmasi.",
+    "safety": "",
+    "steps": [
+      "Jadvalni daftarga ko‘chiring.",
+      "Ikki probirkaga NaBr va NaI eritmalaridan 3–4 ml quying. Har biriga 1–2 ml xlorli suv qo‘shing va o‘zgarishlarni kuzating.",
+      "NaI eritmasiga bromli suv qo‘shing va o‘zgarishni kuzating.",
+      "Ikki probirkadagi NaCl eritmasiga alohida-alohida bromli suv va yod eritmasi qo‘shing. O‘zgarish bo‘lmasligini kuzating."
+    ],
+    "tasks": [
+      "Reaksiya tenglamalarini yozing.",
+      "Galogenlarning faollik qatorini xulosa qiling."
+    ],
+    "reagents": [
+      "H2O",
+      "Al",
+      "NaCl",
+      "NaBr",
+      "NaI",
+      "KI",
+      "Br2",
+      "I2",
+      "etanol"
+    ],
+    "recommended": [
+      "H2O",
+      "Al"
+    ],
+    "kind": "jarayon",
+    "goal": "Jadvalni daftarga ko‘chiring.",
+    "question": "Reaksiya tenglamalarini yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "8.11",
+    "grade": "8-sinf",
+    "title": "Galogenlarning suvda va organik erituvchilarda erishi",
+    "source": "8-sinf darsligi, 202-bet",
+    "catalogType": "6-laboratoriya ishi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "8.16"
+    ],
+    "linkedTheoryTitles": [
+      "Galogenlar: atom tuzilishi, xlor, HCl, xlorid kislota, ftor, brom va yod"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Probirkaga 3–4 bo‘lak yod kristali soling va 1–2 ml suv qo‘shib aralashtiring.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "Yod kristallari, suv, benzol.",
+    "safety": "Benzol bilan faqat o‘qituvchi nazoratida, shamollatiladigan sharoitda ishlanadi.",
+    "steps": [
+      "Probirkaga 3–4 bo‘lak yod kristali soling va 1–2 ml suv qo‘shib aralashtiring.",
+      "Yodning suvdagi eritmasiga 1–2 ml benzol qo‘shing, chayqating va tindiring.",
+      "Suvli va benzol qatlamlarining rangini taqqoslang."
+    ],
+    "tasks": [
+      "Yodning suvdagi va benzoldagi eruvchanligi haqida xulosa yozing."
+    ],
+    "reagents": [
+      "H2O",
+      "Al",
+      "I2"
+    ],
+    "recommended": [
+      "H2O",
+      "Al"
+    ],
+    "kind": "jarayon",
+    "goal": "Probirkaga 3–4 bo‘lak yod kristali soling va 1–2 ml suv qo‘shib aralashtiring.",
+    "question": "Yodning suvdagi va benzoldagi eruvchanligi haqida xulosa yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "8.12",
+    "grade": "8-sinf",
+    "title": "Oltingugurt va uning tabiiy birikmalari namunalari bilan tanishish",
+    "source": "8-sinf darsligi, 203-bet",
+    "catalogType": "7-laboratoriya ishi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "8.15",
+      "8.18"
+    ],
+    "linkedTheoryTitles": [
+      "Metallmaslarning umumiy xossalari",
+      "Kislorod guruhchasi va oltingugurt birikmalari"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Oltingugurt, pirit, rux aldamasi va gips namunalarini ko‘zdan kechiring.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "Oltingugurt, pirit, rux aldamasi va gips namunalarini ko‘zdan kechiring.",
+      "Har bir namunani formula, nisbiy molekulyar massa, tashqi ko‘rinish va suvda eruvchanlik bo‘yicha jadvalga kiriting."
+    ],
+    "tasks": [
+      "Jadvalni to‘ldiring va namunalarni taqqoslang."
+    ],
+    "reagents": [
+      "H2O",
+      "Zn",
+      "Al",
+      "S",
+      "KI"
+    ],
+    "recommended": [
+      "H2O",
+      "Zn"
+    ],
+    "kind": "jarayon",
+    "goal": "Oltingugurt, pirit, rux aldamasi va gips namunalarini ko‘zdan kechiring.",
+    "question": "Jadvalni to‘ldiring va namunalarni taqqoslang.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "8.13",
+    "grade": "8-sinf",
+    "title": "Turli eritmalarda sulfat ioni borligini aniqlash",
+    "source": "8-sinf darsligi, 203-bet",
+    "catalogType": "8-laboratoriya ishi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "8.18"
+    ],
+    "linkedTheoryTitles": [
+      "Kislorod guruhchasi va oltingugurt birikmalari"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "To‘rtta probirkaga H2SO4, Na2SO4, CuSO4 va Al2(SO4)3 eritmalaridan 2–3 ml quying.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "H2SO4, Na2SO4, CuSO4, Al2(SO4)3, BaCl2.",
+    "safety": "",
+    "steps": [
+      "To‘rtta probirkaga H2SO4, Na2SO4, CuSO4 va Al2(SO4)3 eritmalaridan 2–3 ml quying.",
+      "Har biriga 1–2 ml BaCl2 eritmasi qo‘shing.",
+      "Har bir probirkada hosil bo‘lgan o‘zgarishni kuzating."
+    ],
+    "tasks": [
+      "Reaksiya tenglamalarini yozing va sulfat ioniga xos belgini ko‘rsating."
+    ],
+    "reagents": [
+      "H2SO4",
+      "Al",
+      "CuSO4",
+      "Na2S"
+    ],
+    "recommended": [
+      "H2SO4",
+      "Al"
+    ],
+    "kind": "reaksiya",
+    "goal": "To‘rtta probirkaga H2SO4, Na2SO4, CuSO4 va Al2(SO4)3 eritmalaridan 2–3 ml quying.",
+    "question": "Reaksiya tenglamalarini yozing va sulfat ioniga xos belgini ko‘rsating.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "8.14",
+    "grade": "8-sinf",
+    "title": "Ammoniy tuziga so‘ndirilgan ohak ta’sir ettirib ammiak olish",
+    "source": "8-sinf darsligi, 203–204-betlar",
+    "catalogType": "9-laboratoriya ishi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "8.22"
+    ],
+    "linkedTheoryTitles": [
+      "Azot, ammiak va azotning kislorodli birikmalari"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "NH4Cl va so‘ndirilgan ohakning 1,5:1 massa nisbatidagi aralashmasini probirkaga soling va gaz o‘tkazgich nayli tiqin bilan yoping.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "NH4Cl, so‘ndirilgan ohak, suv, fenolftalein shimdirilgan qog‘oz, HCl ga botirilgan shisha tayoqcha.",
+    "safety": "",
+    "steps": [
+      "NH4Cl va so‘ndirilgan ohakning 1,5:1 massa nisbatidagi aralashmasini probirkaga soling va gaz o‘tkazgich nayli tiqin bilan yoping.",
+      "Aralashmani biroz qizdiring va ajralgan gazni probirkalarga yig‘ing.",
+      "Gaz bilan to‘lgan probirkani suvga botirib, suvning probirkaga kirishini kuzating.",
+      "Gaz oqimiga fenolftaleinli qog‘oz tuting.",
+      "Gaz oqimiga HCl ga botirilgan shisha tayoqchani yaqinlashtiring va oq tutunni kuzating."
+    ],
+    "tasks": [
+      "O‘zgarishlar sababini tushuntiring va tenglamalarni yozing."
+    ],
+    "reagents": [
+      "H2O",
+      "HCl",
+      "Ca(OH)2",
+      "Zn",
+      "Fe",
+      "Al",
+      "KI",
+      "NH4Cl",
+      "indikator"
+    ],
+    "recommended": [
+      "H2O",
+      "HCl"
+    ],
+    "kind": "reaksiya",
+    "goal": "NH4Cl va so‘ndirilgan ohakning 1,5:1 massa nisbatidagi aralashmasini probirkaga soling va gaz o‘tkazgich nayli tiqin bilan yoping.",
+    "question": "O‘zgarishlar sababini tushuntiring va tenglamalarni yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "8.15",
+    "grade": "8-sinf",
+    "title": "Mineral o‘g‘itlar namunalari bilan tanishish",
+    "source": "8-sinf darsligi, 204-bet",
+    "catalogType": "10-laboratoriya ishi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "8.24"
+    ],
+    "linkedTheoryTitles": [
+      "Mineral o‘g‘itlar va biogen elementlar"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "O‘qituvchi bergan mineral o‘g‘it namunalarini diqqat bilan ko‘zdan kechiring.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "O‘qituvchi bergan mineral o‘g‘it namunalarini diqqat bilan ko‘zdan kechiring.",
+      "Har bir namuna uchun nomi, formulasi, nisbiy molekulyar massasi, tashqi ko‘rinishi va suvda eruvchanligini jadvalga yozing."
+    ],
+    "tasks": [
+      "Namunalarni taqqoslang.",
+      "9-SINF KIMYO DARSLIGI",
+      "Manba: “Kimyo 9”, Toshkent, 2019. Bo‘limga 3 ta amaliy ish va 17 ta laboratoriya ishi kiritildi."
+    ],
+    "reagents": [
+      "H2O",
+      "Al"
+    ],
+    "recommended": [
+      "H2O",
+      "Al"
+    ],
+    "kind": "jarayon",
+    "goal": "O‘qituvchi bergan mineral o‘g‘it namunalarini diqqat bilan ko‘zdan kechiring.",
+    "question": "Namunalarni taqqoslang.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "9.1",
+    "grade": "9-sinf",
+    "title": "Uglerod(IV)-oksid hosil qilish va uning xossalari bilan tanishish",
+    "source": "9-sinf darsligi, 192–193-betlar",
+    "catalogType": "1-amaliy ish",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "9.07",
+      "9.09"
+    ],
+    "linkedTheoryTitles": [
+      "Uglerod guruhidagi elementlarning umumiy tavsifi",
+      "Uglerodning eng muhim birikmalari"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Probirkaga bo‘r yoki marmar bo‘laklari soling va ozgina suyultirilgan HCl quying.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "Bo‘r yoki marmar, suyultirilgan HCl, ohakli suv, distillangan suv, ko‘k lakmus, NaOH, fenolftalein, tuproq namunasi, AgNO3, ammiak.",
+    "safety": "",
+    "steps": [
+      "Probirkaga bo‘r yoki marmar bo‘laklari soling va ozgina suyultirilgan HCl quying.",
+      "Probirka og‘zini gaz o‘tkazgich nayli tiqin bilan berkiting.",
+      "Gaz nayini 2–3 ml ohakli suv quyilgan probirkaga tushiring va hodisani kuzating.",
+      "Gazni distillangan suvdan 1–2 daqiqa o‘tkazing, so‘ng olingan eritmaga ko‘k lakmus tomizing.",
+      "NaOH eritmasiga fenolftalein qo‘shing va eritmadan CO2 o‘tkazing.",
+      "10 g tuproqni suv bilan aralashtirib filtrlang. Tuproqdan 2–3 g ni HCl bilan tekshiring; filtratga AgNO3 qo‘shing, oq cho‘kmani filtrlab ikki qismga bo‘ling: biriga ammiak yoki suyultirilgan HCl qo‘shing, ikkinchisini qizdiring."
+    ],
+    "tasks": [
+      "Barcha reaksiyalar tenglamalarini yozing.",
+      "Tajriba yuzasidan xulosa tayyorlang."
+    ],
+    "reagents": [
+      "H2O",
+      "CO2",
+      "HCl",
+      "NaOH",
+      "Ca(OH)2",
+      "Zn",
+      "Mg",
+      "Fe",
+      "Al",
+      "C",
+      "CaCO3",
+      "AgNO3"
+    ],
+    "recommended": [
+      "H2O",
+      "CO2"
+    ],
+    "kind": "jarayon",
+    "goal": "Probirkaga bo‘r yoki marmar bo‘laklari soling va ozgina suyultirilgan HCl quying.",
+    "question": "Barcha reaksiyalar tenglamalarini yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "9.2",
+    "grade": "9-sinf",
+    "title": "“Ishqoriy metallar” va “Kalsiy” mavzulari bo‘yicha tajribaviy masalalar",
+    "source": "9-sinf darsligi, 193–194-betlar",
+    "catalogType": "2-amaliy ish",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "9.16",
+      "9.17",
+      "9.18"
+    ],
+    "linkedTheoryTitles": [
+      "Ishqoriy metallar, natriy va kaliy birikmalari",
+      "Soda ishlab chiqarish",
+      "Kalsiy, magniy va suvning qattiqligi"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "NaCl, NaOH, Na2CO3 va NaNO3 solingan to‘rtta raqamlangan probirkani aniqlang.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "NaCl, NaOH, Na2CO3 va NaNO3 solingan to‘rtta raqamlangan probirkani aniqlang.",
+      "KCl, K2CO3, CaCO3 va CaCl2 solingan to‘rtta raqamlangan probirkani aniqlang.",
+      "Ikki rangsiz eritmadan KOH va Ca(OH)2 ni farqlang.",
+      "Ca(OH)2 → CaCO3 → Ca(HCO3)2 → CaCO3 → CaCl2 o‘zgarishlarini amalga oshiruvchi reaksiyalarni tanlang.",
+      "Ohakli suvdan CO2 o‘tkazib loyqalantiring. Loyqalangan eritmani uch probirkaga bo‘lib: biriga ohakli suv, ikkinchisiga Na2CO3, uchinchisini qizdiring."
+    ],
+    "tasks": [
+      "Tenglamalarni molekulyar, to‘liq ionli va qisqa ionli ko‘rinishda yozing.",
+      "Hisobot tuzing."
+    ],
+    "reagents": [
+      "H2O",
+      "CO2",
+      "NaOH",
+      "KOH",
+      "Ca(OH)2",
+      "Al",
+      "NaCl",
+      "Na2CO3",
+      "CaCO3",
+      "KI",
+      "KCl",
+      "CaCl2"
+    ],
+    "recommended": [
+      "H2O",
+      "CO2"
+    ],
+    "kind": "jarayon",
+    "goal": "NaCl, NaOH, Na2CO3 va NaNO3 solingan to‘rtta raqamlangan probirkani aniqlang.",
+    "question": "Tenglamalarni molekulyar, to‘liq ionli va qisqa ionli ko‘rinishda yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "9.3",
+    "grade": "9-sinf",
+    "title": "“Metallar” mavzusi bo‘yicha tajribaviy masalalar",
+    "source": "9-sinf darsligi, 194–195-betlar",
+    "catalogType": "3-amaliy ish",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "9.11",
+      "9.13",
+      "9.20"
+    ],
+    "linkedTheoryTitles": [
+      "Metallarning tarqalishi, olinishi va ishlatilishi",
+      "Metallarning fizik va kimyoviy xossalari",
+      "Mis, kumush va oltin"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "NaOH, CaCO3, Al2(SO4)3 va FeCl3 berilgan to‘rtta raqamlangan probirkani kimyoviy tajribalar bilan aniqlang.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "NaOH, CaCO3, Al2(SO4)3 va FeCl3 berilgan to‘rtta raqamlangan probirkani kimyoviy tajribalar bilan aniqlang.",
+      "Misning suvda eruvchan tuzidan foydalanib CuO olish usullarini ko‘rsating.",
+      "Mavjud jihoz va reaktivlar yordamida ZnCl2 ni to‘rt xil usulda hosil qiling."
+    ],
+    "tasks": [
+      "Har bir tajriba tenglamasini yozing.",
+      "O‘zgarishlarni izohlang va hisobot tuzing."
+    ],
+    "reagents": [
+      "H2O",
+      "NaOH",
+      "CuO",
+      "Zn",
+      "Fe",
+      "Al",
+      "Cu",
+      "CaCO3",
+      "ZnCl2",
+      "FeCl3",
+      "KI"
+    ],
+    "recommended": [
+      "H2O",
+      "NaOH"
+    ],
+    "kind": "jarayon",
+    "goal": "NaOH, CaCO3, Al2(SO4)3 va FeCl3 berilgan to‘rtta raqamlangan probirkani kimyoviy tajribalar bilan aniqlang.",
+    "question": "Har bir tajriba tenglamasini yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "9.4",
+    "grade": "9-sinf",
+    "title": "Karbonatlar va gidrokarbonatlarning xossalari hamda o‘zaro aylanishi",
+    "source": "9-sinf darsligi, 195–196-betlar",
+    "catalogType": "1-laboratoriya ishi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "9.05",
+      "9.07",
+      "9.09"
+    ],
+    "linkedTheoryTitles": [
+      "Ion almashinish reaksiyalari",
+      "Uglerod guruhidagi elementlarning umumiy tavsifi",
+      "Uglerodning eng muhim birikmalari"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Karbonat va gidrokarbonat namunalarini darslikdagi ko‘rsatma asosida reaktivlar bilan tekshiring.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "Karbonat va gidrokarbonat namunalarini darslikdagi ko‘rsatma asosida reaktivlar bilan tekshiring.",
+      "Karbonat ioniga xos CO2 ajralishi va ohakli suvning loyqalanishini kuzating.",
+      "Aylanish jarayonlarini molekulyar va ionli tenglamalar orqali ifodalang."
+    ],
+    "tasks": [
+      "Qaysi reaksiyalar karbonat ioniga xos ekanini xulosa qiling.",
+      "Molekulyar, to‘liq ionli va qisqa ionli tenglamalarni yozing."
+    ],
+    "reagents": [
+      "H2O",
+      "CO2",
+      "Ca(OH)2",
+      "Al"
+    ],
+    "recommended": [
+      "H2O",
+      "CO2"
+    ],
+    "kind": "reaksiya",
+    "goal": "Karbonat va gidrokarbonat namunalarini darslikdagi ko‘rsatma asosida reaktivlar bilan tekshiring.",
+    "question": "Qaysi reaksiyalar karbonat ioniga xos ekanini xulosa qiling.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "9.5",
+    "grade": "9-sinf",
+    "title": "Tabiiy silikatlar namunalari bilan tanishish",
+    "source": "9-sinf darsligi, 196-bet",
+    "catalogType": "2-laboratoriya ishi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "9.07",
+      "9.10"
+    ],
+    "linkedTheoryTitles": [
+      "Uglerod guruhidagi elementlarning umumiy tavsifi",
+      "Kremniy va silikat sanoati"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Berilgan tabiiy silikat namunalarini ko‘zdan kechiring.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "Berilgan tabiiy silikat namunalarini ko‘zdan kechiring.",
+      "Tashqi ko‘rinishiga e’tibor bering va qattiqligini tekshiring."
+    ],
+    "tasks": [
+      "Kuzatuv jadvalini tuzing.",
+      "Namunalarni nomlang."
+    ],
+    "reagents": [
+      "Al"
+    ],
+    "recommended": [
+      "Al"
+    ],
+    "kind": "jarayon",
+    "goal": "Berilgan tabiiy silikat namunalarini ko‘zdan kechiring.",
+    "question": "Kuzatuv jadvalini tuzing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "9.6",
+    "grade": "9-sinf",
+    "title": "Shisha turlari va shishadan yasalgan mahsulotlar bilan tanishish",
+    "source": "9-sinf darsligi, 196–197-betlar",
+    "catalogType": "3-laboratoriya ishi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "9.07",
+      "9.10"
+    ],
+    "linkedTheoryTitles": [
+      "Uglerod guruhidagi elementlarning umumiy tavsifi",
+      "Kremniy va silikat sanoati"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Turli shisha namunalarini va shishadan yasalgan buyumlarni ko‘zdan kechiring.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "Turli shisha namunalarini va shishadan yasalgan buyumlarni ko‘zdan kechiring."
+    ],
+    "tasks": [
+      "Namunalar qaysi shisha turiga kirishini aniqlang.",
+      "Buyumlarni tayyorlashda shishaning qaysi xossalaridan foydalanilganini izohlang."
+    ],
+    "reagents": [
+      "Al"
+    ],
+    "recommended": [
+      "Al"
+    ],
+    "kind": "jarayon",
+    "goal": "Turli shisha namunalarini va shishadan yasalgan buyumlarni ko‘zdan kechiring.",
+    "question": "Namunalar qaysi shisha turiga kirishini aniqlang.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "9.7",
+    "grade": "9-sinf",
+    "title": "Metallar namunalari va issiqlik o‘tkazuvchanligini ko‘zdan kechirish",
+    "source": "9-sinf darsligi, 197-bet",
+    "catalogType": "4-laboratoriya ishi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "9.13"
+    ],
+    "linkedTheoryTitles": [
+      "Metallarning fizik va kimyoviy xossalari"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Berilgan metall namunalarini ko‘zdan kechiring va nomlang.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "Temir va mis plastinkalar, parafin, gorelka, metall namunalar, ma’lumotnoma jadvali.",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "Berilgan metall namunalarini ko‘zdan kechiring va nomlang.",
+      "Jadvaldan ularning suyuqlanish harorati va qattiqligini aniqlang.",
+      "Temir va mis plastinkalarning bir uchiga parafin qo‘ying, ikkinchi uchini gorelka alangasida qizdiring. Qaysi metallda parafin tezroq erishini kuzating."
+    ],
+    "tasks": [
+      "Metallarni qattiqlik, suyuqlanish harorati va issiqlik o‘tkazuvchanligi bo‘yicha tartiblang."
+    ],
+    "reagents": [
+      "Fe",
+      "Al",
+      "Cu",
+      "KI"
+    ],
+    "recommended": [
+      "Fe",
+      "Al"
+    ],
+    "kind": "jarayon",
+    "goal": "Berilgan metall namunalarini ko‘zdan kechiring va nomlang.",
+    "question": "Metallarni qattiqlik, suyuqlanish harorati va issiqlik o‘tkazuvchanligi bo‘yicha tartiblang.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "9.8",
+    "grade": "9-sinf",
+    "title": "Qotishmalar namunalari bilan tanishish",
+    "source": "9-sinf darsligi, 197–198-betlar",
+    "catalogType": "5-laboratoriya ishi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "9.12"
+    ],
+    "linkedTheoryTitles": [
+      "Qotishmalar"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Berilgan qotishma namunalarini ko‘zdan kechiring.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "Berilgan qotishma namunalarini ko‘zdan kechiring.",
+      "Ularning qattiqligi va plastikligini tekshiring.",
+      "Rangiga e’tibor bering."
+    ],
+    "tasks": [
+      "Qotishmalarni taqqoslab xulosa yozing."
+    ],
+    "reagents": [
+      "Al"
+    ],
+    "recommended": [
+      "Al"
+    ],
+    "kind": "jarayon",
+    "goal": "Berilgan qotishma namunalarini ko‘zdan kechiring.",
+    "question": "Qotishmalarni taqqoslab xulosa yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "9.9",
+    "grade": "9-sinf",
+    "title": "Tuz eritmalari bilan metallarning o‘zaro ta’siri",
+    "source": "9-sinf darsligi, 198-bet",
+    "catalogType": "6-laboratoriya ishi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "9.05",
+      "9.13",
+      "9.20"
+    ],
+    "linkedTheoryTitles": [
+      "Ion almashinish reaksiyalari",
+      "Metallarning fizik va kimyoviy xossalari",
+      "Mis, kumush va oltin"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Birinchi probirkaga AgNO3, ikkinchisiga CuSO4, uchinchisiga Pb(NO3)2 eritmasidan 2–3 ml quying.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "AgNO3, CuSO4, Pb(NO3)2, mis simi, temir kukuni, mis kukuni.",
+    "safety": "",
+    "steps": [
+      "Birinchi probirkaga AgNO3, ikkinchisiga CuSO4, uchinchisiga Pb(NO3)2 eritmasidan 2–3 ml quying.",
+      "Birinchi probirkaga mis simi, ikkinchisiga temir kukuni, uchinchisiga mis kukuni soling.",
+      "Har bir probirkadagi o‘zgarishni kuzating."
+    ],
+    "tasks": [
+      "Hosil bo‘lgan moddalarni aniqlang.",
+      "Molekulyar, to‘liq va qisqa ionli tenglamalarni yozing."
+    ],
+    "reagents": [
+      "Fe",
+      "Al",
+      "Cu",
+      "CuSO4",
+      "AgNO3",
+      "KI"
+    ],
+    "recommended": [
+      "Fe",
+      "Al"
+    ],
+    "kind": "jarayon",
+    "goal": "Birinchi probirkaga AgNO3, ikkinchisiga CuSO4, uchinchisiga Pb(NO3)2 eritmasidan 2–3 ml quying.",
+    "question": "Hosil bo‘lgan moddalarni aniqlang.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "9.10",
+    "grade": "9-sinf",
+    "title": "Mis(II)-xlorid va kaliy yodid eritmalarining elektrolizi",
+    "source": "9-sinf darsligi, 198–199-betlar",
+    "catalogType": "7-laboratoriya ishi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "9.15"
+    ],
+    "linkedTheoryTitles": [
+      "Elektroliz va uning amaliy ahamiyati"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "U-simon nayning 3/4 qismigacha CuCl2 eritmasi quying. Bir tomonga mis, ikkinchi tomonga grafit elektrod tushiring. Grafitni katod, misni anod sifatida ulang.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "U-simon elektrolizyor, mis va grafit elektrodlar, o‘zgarmas tok manbai.",
+    "materials": "CuCl2 eritmasi, 2 M KI eritmasi, yangi tayyorlangan kraxmal eritmasi.",
+    "safety": "Elektr toki bilan ishlash faqat o‘qituvchi nazoratida bajariladi.",
+    "steps": [
+      "U-simon nayning 3/4 qismigacha CuCl2 eritmasi quying. Bir tomonga mis, ikkinchi tomonga grafit elektrod tushiring. Grafitni katod, misni anod sifatida ulang.",
+      "Katodda sof mis ajralishini kuzating. Elektrod qutblarini almashtirib, anod va katoddagi o‘zgarishlarni kuzating.",
+      "Elektrolizyorga 2 M KI eritmasi quying, grafit elektrodlarni ulang. Katodda vodorod pufakchalari, anodda yod ajralishini kuzating.",
+      "Tokni uzing, yod ajralgan tomonga 1–2 tomchi kraxmal eritmasi tomizing va rang o‘zgarishini kuzating."
+    ],
+    "tasks": [
+      "Elektrod jarayonlarini yozing."
+    ],
+    "reagents": [
+      "H2",
+      "Al",
+      "Cu",
+      "KI",
+      "I2",
+      "kraxmal",
+      "tok",
+      "CuCl2"
+    ],
+    "recommended": [
+      "H2",
+      "Al"
+    ],
+    "kind": "elektroliz",
+    "goal": "U-simon nayning 3/4 qismigacha CuCl2 eritmasi quying. Bir tomonga mis, ikkinchi tomonga grafit elektrod tushiring. Grafitni katod, misni anod sifatida ulang.",
+    "question": "Elektrod jarayonlarini yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "9.11",
+    "grade": "9-sinf",
+    "title": "Alyuminiyning kislota va ishqor eritmalari bilan o‘zaro ta’siri",
+    "source": "9-sinf darsligi, 199-bet",
+    "catalogType": "8-laboratoriya ishi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "9.19"
+    ],
+    "linkedTheoryTitles": [
+      "Alyuminiy va uning birikmalari"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Alyuminiy namunalarining kislota va ishqor eritmalaridagi xatti-harakatini darslik ko‘rsatmasiga muvofiq kuzating.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "Alyuminiy namunalarining kislota va ishqor eritmalaridagi xatti-harakatini darslik ko‘rsatmasiga muvofiq kuzating.",
+      "Gaz ajralishi va metallning erishini taqqoslang."
+    ],
+    "tasks": [
+      "Alyuminiyning amfoter xossasini izohlang va tenglamalarni yozing."
+    ],
+    "reagents": [
+      "NaOH",
+      "Al",
+      "KI"
+    ],
+    "recommended": [
+      "NaOH",
+      "Al"
+    ],
+    "kind": "reaksiya",
+    "goal": "Alyuminiy namunalarining kislota va ishqor eritmalaridagi xatti-harakatini darslik ko‘rsatmasiga muvofiq kuzating.",
+    "question": "Alyuminiyning amfoter xossasini izohlang va tenglamalarni yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "9.12",
+    "grade": "9-sinf",
+    "title": "Alyuminiy namunalari va qotishmalari bilan tanishish",
+    "source": "9-sinf darsligi, 199-bet",
+    "catalogType": "9-laboratoriya ishi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "9.12",
+      "9.19"
+    ],
+    "linkedTheoryTitles": [
+      "Qotishmalar",
+      "Alyuminiy va uning birikmalari"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Alyuminiy va uning qotishmalari namunalarini ko‘zdan kechiring.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "Alyuminiy va uning qotishmalari namunalarini ko‘zdan kechiring.",
+      "Tashqi ko‘rinish, yengillik va amaliy qo‘llanishini taqqoslang."
+    ],
+    "tasks": [
+      "Kuzatuv jadvali tuzing."
+    ],
+    "reagents": [
+      "Al"
+    ],
+    "recommended": [
+      "Al"
+    ],
+    "kind": "jarayon",
+    "goal": "Alyuminiy va uning qotishmalari namunalarini ko‘zdan kechiring.",
+    "question": "Kuzatuv jadvali tuzing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "9.13",
+    "grade": "9-sinf",
+    "title": "Alyuminiy gidroksidni olish va uning xossalari",
+    "source": "9-sinf darsligi, 199–200-betlar",
+    "catalogType": "10-laboratoriya ishi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "9.05",
+      "9.19"
+    ],
+    "linkedTheoryTitles": [
+      "Ion almashinish reaksiyalari",
+      "Alyuminiy va uning birikmalari"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Alyuminiy tuzi eritmasiga ishqor qo‘shib Al(OH)3 cho‘kmasini oling.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "Alyuminiy tuzi eritmasiga ishqor qo‘shib Al(OH)3 cho‘kmasini oling.",
+      "Cho‘kmani ikkiga bo‘ling.",
+      "Bir qismiga kislota, ikkinchisiga ortiqcha ishqor qo‘shib erishini kuzating."
+    ],
+    "tasks": [
+      "Amfoterlikni izohlang va tenglamalarni yozing."
+    ],
+    "reagents": [
+      "NaOH",
+      "Al",
+      "KI",
+      "AlCl3",
+      "HCl"
+    ],
+    "recommended": [
+      "NaOH",
+      "Al"
+    ],
+    "kind": "reaksiya",
+    "goal": "Alyuminiy tuzi eritmasiga ishqor qo‘shib Al(OH)3 cho‘kmasini oling.",
+    "question": "Amfoterlikni izohlang va tenglamalarni yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "9.14",
+    "grade": "9-sinf",
+    "title": "Alyuminiy tuzlari eritmalarining indikatorlarga ta’siri",
+    "source": "9-sinf darsligi, 200-bet",
+    "catalogType": "11-laboratoriya ishi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "9.06",
+      "9.19"
+    ],
+    "linkedTheoryTitles": [
+      "Tuzlarning gidrolizi",
+      "Alyuminiy va uning birikmalari"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Alyuminiy tuzi eritmasining indikatorga ta’sirini kuzating.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "Alyuminiy tuzi eritmasining indikatorga ta’sirini kuzating.",
+      "Gidroliz jarayonini tushuntiring."
+    ],
+    "tasks": [
+      "Tegishli tenglamalarni yozing."
+    ],
+    "reagents": [
+      "Al",
+      "indikator"
+    ],
+    "recommended": [
+      "Al",
+      "indikator"
+    ],
+    "kind": "jarayon",
+    "goal": "Alyuminiy tuzi eritmasining indikatorga ta’sirini kuzating.",
+    "question": "Tegishli tenglamalarni yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "9.15",
+    "grade": "9-sinf",
+    "title": "Mis(II)-gidroksidni olish va xossalarini tekshirish",
+    "source": "9-sinf darsligi, 200–201-betlar",
+    "catalogType": "12-laboratoriya ishi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "9.05",
+      "9.20"
+    ],
+    "linkedTheoryTitles": [
+      "Ion almashinish reaksiyalari",
+      "Mis, kumush va oltin"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Cu2+ tuzi eritmasiga ishqor qo‘shib Cu(OH)2 cho‘kmasini oling.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "Cu2+ tuzi eritmasiga ishqor qo‘shib Cu(OH)2 cho‘kmasini oling.",
+      "Cho‘kmaning rangini kuzating.",
+      "Kislota ta’sirini va qizdirilgandagi o‘zgarishni tekshiring."
+    ],
+    "tasks": [
+      "Tenglamalarni yozing."
+    ],
+    "reagents": [
+      "NaOH",
+      "Al",
+      "Cu",
+      "KI"
+    ],
+    "recommended": [
+      "NaOH",
+      "Al"
+    ],
+    "kind": "reaksiya",
+    "goal": "Cu2+ tuzi eritmasiga ishqor qo‘shib Cu(OH)2 cho‘kmasini oling.",
+    "question": "Tenglamalarni yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "9.16",
+    "grade": "9-sinf",
+    "title": "Rux gidroksidni olish va amfoter xossalarini tekshirish",
+    "source": "9-sinf darsligi, 201–202-betlar",
+    "catalogType": "13-laboratoriya ishi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "9.05",
+      "9.21"
+    ],
+    "linkedTheoryTitles": [
+      "Ion almashinish reaksiyalari",
+      "II guruh yonaki guruhcha elementlari"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Zn2+ tuzi eritmasiga ishqor qo‘shib Zn(OH)2 cho‘kmasini oling.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "Zn2+ tuzi eritmasiga ishqor qo‘shib Zn(OH)2 cho‘kmasini oling.",
+      "Cho‘kmani ikki qismga bo‘ling.",
+      "Biriga kislota, ikkinchisiga ortiqcha ishqor qo‘shing va erishini kuzating."
+    ],
+    "tasks": [
+      "Rux gidroksidning amfoterligini izohlang."
+    ],
+    "reagents": [
+      "NaOH",
+      "Zn",
+      "Mg",
+      "Al",
+      "KI",
+      "ZnCl2",
+      "HCl"
+    ],
+    "recommended": [
+      "NaOH",
+      "Zn"
+    ],
+    "kind": "reaksiya",
+    "goal": "Zn2+ tuzi eritmasiga ishqor qo‘shib Zn(OH)2 cho‘kmasini oling.",
+    "question": "Rux gidroksidning amfoterligini izohlang.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "9.17",
+    "grade": "9-sinf",
+    "title": "Xrom(II), xrom(III) va xrom(VI) birikmalari bilan tajribalar",
+    "source": "9-sinf darsligi, 202-bet",
+    "catalogType": "14-laboratoriya ishi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "9.22"
+    ],
+    "linkedTheoryTitles": [
+      "Xrom va uning II, III, VI valentli birikmalari"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Darslikda berilgan xrom birikmalari eritmalarining ranglarini kuzating.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "Darslikda berilgan xrom birikmalari eritmalarining ranglarini kuzating.",
+      "Oksidlanish darajasi o‘zgarishiga mos rang o‘zgarishlarini taqqoslang."
+    ],
+    "tasks": [
+      "Tenglamalarni yozing va ranglar jadvalini tuzing."
+    ],
+    "reagents": [
+      "Al"
+    ],
+    "recommended": [
+      "Al"
+    ],
+    "kind": "jarayon",
+    "goal": "Darslikda berilgan xrom birikmalari eritmalarining ranglarini kuzating.",
+    "question": "Tenglamalarni yozing va ranglar jadvalini tuzing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "9.18",
+    "grade": "9-sinf",
+    "title": "Temir(II) va temir(III)-gidroksidlarni olish",
+    "source": "9-sinf darsligi, 203-bet",
+    "catalogType": "15-laboratoriya ishi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "9.05",
+      "9.24"
+    ],
+    "linkedTheoryTitles": [
+      "Ion almashinish reaksiyalari",
+      "Temir va eng muhim birikmalari"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Fe2+ tuzi eritmasiga ishqor qo‘shib Fe(OH)2 cho‘kmasini oling.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "Fe2+ tuzi eritmasiga ishqor qo‘shib Fe(OH)2 cho‘kmasini oling.",
+      "Fe3+ tuzi eritmasiga ishqor qo‘shib Fe(OH)3 cho‘kmasini oling.",
+      "Cho‘kmalar rangini va havoda Fe(OH)2 ning o‘zgarishini kuzating."
+    ],
+    "tasks": [
+      "Tegishli tenglamalarni yozing."
+    ],
+    "reagents": [
+      "NaOH",
+      "Fe",
+      "Al",
+      "FeSO4",
+      "FeCl3"
+    ],
+    "recommended": [
+      "NaOH",
+      "Fe"
+    ],
+    "kind": "reaksiya",
+    "goal": "Fe2+ tuzi eritmasiga ishqor qo‘shib Fe(OH)2 cho‘kmasini oling.",
+    "question": "Tegishli tenglamalarni yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "9.19",
+    "grade": "9-sinf",
+    "title": "Temir(II) va temir(III) tuzlarini aniqlash",
+    "source": "9-sinf darsligi, 203–204-betlar",
+    "catalogType": "16-laboratoriya ishi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "9.24"
+    ],
+    "linkedTheoryTitles": [
+      "Temir va eng muhim birikmalari"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Temir(II) va temir(III) tuzlari eritmalariga darslikda ko‘rsatilgan sifat reaktivlarini qo‘shing.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "Temir(II) va temir(III) tuzlari eritmalariga darslikda ko‘rsatilgan sifat reaktivlarini qo‘shing.",
+      "Hosil bo‘lgan rang va cho‘kmalarni taqqoslang.",
+      "Temir(III) uchun tiotsianat bilan rangli kompleks hosil bo‘lishini kuzating."
+    ],
+    "tasks": [
+      "Har bir ionga xos sifat belgilarini yozing."
+    ],
+    "reagents": [
+      "Fe",
+      "Al"
+    ],
+    "recommended": [
+      "Fe",
+      "Al"
+    ],
+    "kind": "reaksiya",
+    "goal": "Temir(II) va temir(III) tuzlari eritmalariga darslikda ko‘rsatilgan sifat reaktivlarini qo‘shing.",
+    "question": "Har bir ionga xos sifat belgilarini yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "9.20",
+    "grade": "9-sinf",
+    "title": "Cho‘yan va po‘lat namunalari bilan tanishish",
+    "source": "9-sinf darsligi, 204-bet",
+    "catalogType": "17-laboratoriya ishi",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "9.12",
+      "9.25"
+    ],
+    "linkedTheoryTitles": [
+      "Qotishmalar",
+      "Cho‘yan va po‘lat ishlab chiqarish"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Cho‘yan va po‘lat namunalarini tashqi ko‘rinish bo‘yicha ko‘zdan kechiring.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "Cho‘yan va po‘lat namunalarini tashqi ko‘rinish bo‘yicha ko‘zdan kechiring.",
+      "Ularning mexanik xossalarini taqqoslang.",
+      "Kichik namunalarga HCl ta’sirini kuzatib farqini qayd eting."
+    ],
+    "tasks": [
+      "Cho‘yan va po‘latning tarkib va xossalaridagi farqni yozing.",
+      "10-SINF KIMYO DARSLIGI",
+      "Manba: “Kimyo 10”, Toshkent, 2022. Bo‘limda organik kimyoga oid 11 ta amaliy mashg‘ulot jamlandi."
+    ],
+    "reagents": [
+      "HCl",
+      "Al",
+      "KI"
+    ],
+    "recommended": [
+      "HCl",
+      "Al"
+    ],
+    "kind": "jarayon",
+    "goal": "Cho‘yan va po‘lat namunalarini tashqi ko‘rinish bo‘yicha ko‘zdan kechiring.",
+    "question": "Cho‘yan va po‘latning tarkib va xossalaridagi farqni yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "10.1",
+    "grade": "10-sinf",
+    "title": "Organik birikmalar namunalari bilan tanishish va qiyoslash",
+    "source": "10-sinf darsligi, 35–36-betlar",
+    "catalogType": "1.9-amaliy mashg‘ulot",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "10.01",
+      "10.05"
+    ],
+    "linkedTheoryTitles": [
+      "Organik kimyo tarixi va organik birikmalarning o‘ziga xos xususiyatlari",
+      "Organik birikmalarning sinflanishi"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Organik moddalar namunalarining tashqi ko‘rinishi, suvda eruvchanligi va zichligini taqqoslang.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "Probirkalar, shisha plastinka, termometr, isitish vositasi.",
+    "materials": "Turli organik modda namunalari, suv, atseton, etanol, parafin.",
+    "safety": "",
+    "steps": [
+      "Organik moddalar namunalarining tashqi ko‘rinishi, suvda eruvchanligi va zichligini taqqoslang.",
+      "Shisha plastinkaga suv, etanol va atsetondan tomizib, bug‘lanish tezligini kuzating.",
+      "Parafinni qizdirib suyuqlantiring, so‘ng sovutishda harorat o‘zgarishini termometr bilan qayd qiling va qotish grafigini tuzing."
+    ],
+    "tasks": [
+      "Kuzatuv jadvalini tuzing.",
+      "Organik moddalarning fizik xossalarini qiyoslang."
+    ],
+    "reagents": [
+      "H2O",
+      "Al",
+      "etanol"
+    ],
+    "recommended": [
+      "H2O",
+      "Al"
+    ],
+    "kind": "jarayon",
+    "goal": "Organik moddalar namunalarining tashqi ko‘rinishi, suvda eruvchanligi va zichligini taqqoslang.",
+    "question": "Kuzatuv jadvalini tuzing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "10.2",
+    "grade": "10-sinf",
+    "title": "Organik birikmalar tarkibini tahlil qilish",
+    "source": "10-sinf darsligi, 37–38-betlar",
+    "catalogType": "1.10-amaliy mashg‘ulot",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "10.01",
+      "10.02"
+    ],
+    "linkedTheoryTitles": [
+      "Organik kimyo tarixi va organik birikmalarning o‘ziga xos xususiyatlari",
+      "Organik birikmalar tuzilish nazariyasi"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Tekshiriluvchi organik modda va CuO aralashmasini qizdiring.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "Probirka, gaz o‘tkazgich nay, ohakli suvli probirka, chinni kosacha, shtativ, spirt lampa.",
+    "materials": "Organik modda namunasi, CuO, suvsiz CuSO4, ohakli suv, shakar.",
+    "safety": "",
+    "steps": [
+      "Tekshiriluvchi organik modda va CuO aralashmasini qizdiring.",
+      "Hosil bo‘lgan gazni ohakli suvdan o‘tkazing. Ohakli suvning loyqalanishi uglerod mavjudligini ko‘rsatadi.",
+      "Probirka devorida suv tomchilari hosil bo‘lishini kuzating. Bu vodorod mavjudligini ko‘rsatadi.",
+      "Suvsiz CuSO4 ning rang o‘zgarishini kuzating.",
+      "Uglerodni aniqlashning ikkinchi usuli sifatida chinni kosachadagi oz miqdor shakarni qizdiring. Shakar qorayib, ko‘mir ajralishini kuzating."
+    ],
+    "tasks": [
+      "CuO nimaga aylanganini tushuntiring.",
+      "Ohakli suvda sodir bo‘lgan reaksiyalarni yozing.",
+      "CuSO4 rang o‘zgarishi sababini izohlang."
+    ],
+    "reagents": [
+      "H2O",
+      "H2",
+      "Ca(OH)2",
+      "CuO",
+      "Zn",
+      "Al",
+      "C",
+      "CuSO4",
+      "KI",
+      "etanol",
+      "saxaroza"
+    ],
+    "recommended": [
+      "H2O",
+      "H2"
+    ],
+    "kind": "jarayon",
+    "goal": "Tekshiriluvchi organik modda va CuO aralashmasini qizdiring.",
+    "question": "CuO nimaga aylanganini tushuntiring.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "10.3",
+    "grade": "10-sinf",
+    "title": "Etilenning olinishi va xossalarini o‘rganish",
+    "source": "10-sinf darsligi, 62-bet",
+    "catalogType": "2.9-amaliy mashg‘ulot",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "10.06",
+      "10.12"
+    ],
+    "linkedTheoryTitles": [
+      "Organik reaksiyalar turlari",
+      "Alkenlar"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Probirkaga 2–3 ml etanol va 6–9 ml konsentrlangan H2SO4 qo‘shing, bir oz qum soling va ehtiyotkor qizdiring. Etilen gazini oling.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "Probirka, gaz o‘tkazgich nay, isitish vositasi.",
+    "materials": "Etanol, konsentrlangan H2SO4, qum, bromli suv, kislotalangan KMnO4.",
+    "safety": "Konsentrlangan sulfat kislota bilan faqat o‘qituvchi nazoratida ishlanadi.",
+    "steps": [
+      "Probirkaga 2–3 ml etanol va 6–9 ml konsentrlangan H2SO4 qo‘shing, bir oz qum soling va ehtiyotkor qizdiring. Etilen gazini oling.",
+      "Etilenni bromli suvdan o‘tkazing va eritmaning rangsizlanishini kuzating.",
+      "Etilenni kislotalangan KMnO4 eritmasidan o‘tkazing va rang o‘zgarishini kuzating."
+    ],
+    "tasks": [
+      "Etilen olish va sifat reaksiyalari tenglamalarini yozing."
+    ],
+    "reagents": [
+      "H2O",
+      "H2SO4",
+      "Al",
+      "KI",
+      "Br2",
+      "C2H4",
+      "etanol"
+    ],
+    "recommended": [
+      "H2O",
+      "H2SO4"
+    ],
+    "kind": "jarayon",
+    "goal": "Probirkaga 2–3 ml etanol va 6–9 ml konsentrlangan H2SO4 qo‘shing, bir oz qum soling va ehtiyotkor qizdiring. Etilen gazini oling.",
+    "question": "Etilen olish va sifat reaksiyalari tenglamalarini yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "10.4",
+    "grade": "10-sinf",
+    "title": "Uglevodorodlarning shar-sterjenli va masshtabli modellarini yasash",
+    "source": "10-sinf darsligi, 95–96-betlar",
+    "catalogType": "2.21-amaliy mashg‘ulot",
+    "mappingType": "Simulyatsiya",
+    "linkedTheoryIds": [
+      "10.02",
+      "10.03",
+      "10.04",
+      "10.08",
+      "10.09"
+    ],
+    "linkedTheoryTitles": [
+      "Organik birikmalar tuzilish nazariyasi",
+      "Uglerodning valentligi va oksidlanish darajasi",
+      "Izomeriya va uning turlari",
+      "Alkanlar va gomologik qator",
+      "Alkanlar izomeriyasi va nomlanishi"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Variant bo‘yicha uglevodorod molekulasini tanlang.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [
+      "Variant bo‘yicha uglevodorod molekulasini tanlang.",
+      "Uglerod va vodorod atomlarini belgilovchi sharlarni tayyorlang.",
+      "Bog‘lanishlarni sterjenlar orqali biriktiring.",
+      "Model asosida molekulyar va struktur formulani yozing.",
+      "Bir sinfga mansub modellarni izomeriya va gomologik qator bo‘yicha taqqoslang."
+    ],
+    "tasks": [
+      "Molekulalarni nomlang.",
+      "Modelning shar-sterjenli va masshtabli ko‘rinishlarini qiyoslang."
+    ],
+    "reagents": [
+      "H2",
+      "Al",
+      "C"
+    ],
+    "recommended": [
+      "H2",
+      "Al"
+    ],
+    "kind": "jarayon",
+    "goal": "Variant bo‘yicha uglevodorod molekulasini tanlang.",
+    "question": "Molekulalarni nomlang.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "10.5",
+    "grade": "10-sinf",
+    "title": "Ko‘p atomli spirtlarga oid tajribalar",
+    "source": "10-sinf darsligi, 122–123-betlar",
+    "catalogType": "3.5-amaliy mashg‘ulot",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "10.06",
+      "10.18"
+    ],
+    "linkedTheoryTitles": [
+      "Organik reaksiyalar turlari",
+      "Ko‘p atomli spirtlar: etilenglikol va glitserin"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "CuSO4 eritmasi va ishqor yordamida yangi Cu(OH)2 cho‘kmasini tayyorlang.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "CuSO4, KOH yoki NaOH, bolalar kremi yoki saqich ekstrakti; antifriz topshirig‘i uchun darslikda ko‘rsatilgan tarkibiy qismlar.",
+    "safety": "Antifriz ichish uchun mo‘ljallanmagan; tayyorlash va ishlatish faqat o‘qituvchi nazoratida amalga oshiriladi.",
+    "steps": [
+      "CuSO4 eritmasi va ishqor yordamida yangi Cu(OH)2 cho‘kmasini tayyorlang.",
+      "Cho‘kmani ikki probirkaga bo‘ling.",
+      "Birinchi probirkaga bolalar kremidan olingan namuna, ikkinchisiga saqich ekstraktini qo‘shing.",
+      "To‘q ko‘k eritma hosil bo‘lishini kuzating va ko‘p atomli spirtlar mavjudligini xulosa qiling.",
+      "Darslikda berilgan tarkib bo‘yicha antifriz tayyorlash bosqichlarini o‘rganing."
+    ],
+    "tasks": [
+      "Ko‘p atomli spirtlar uchun sifat reaksiyasini yozing."
+    ],
+    "reagents": [
+      "NaOH",
+      "KOH",
+      "Al",
+      "CuSO4",
+      "KI",
+      "etanol"
+    ],
+    "recommended": [
+      "NaOH",
+      "KOH"
+    ],
+    "kind": "jarayon",
+    "goal": "CuSO4 eritmasi va ishqor yordamida yangi Cu(OH)2 cho‘kmasini tayyorlang.",
+    "question": "Ko‘p atomli spirtlar uchun sifat reaksiyasini yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "10.6",
+    "grade": "10-sinf",
+    "title": "Spirtlar va aldegidlarga xos reaksiyalar",
+    "source": "10-sinf darsligi, 136-bet",
+    "catalogType": "3.10-amaliy mashg‘ulot",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "10.06",
+      "10.17",
+      "10.21"
+    ],
+    "linkedTheoryTitles": [
+      "Organik reaksiyalar turlari",
+      "Bir atomli spirtlar",
+      "Aldegidlar va ketonlar"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Cu(OH)2 cho‘kmasiga glitserin qo‘shing va to‘q ko‘k eritma hosil bo‘lishini kuzating.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "Yangi tayyorlangan Cu(OH)2, glitserin, formalin.",
+    "safety": "",
+    "steps": [
+      "Cu(OH)2 cho‘kmasiga glitserin qo‘shing va to‘q ko‘k eritma hosil bo‘lishini kuzating.",
+      "Yangi tayyorlangan Cu(OH)2 ga formalin qo‘shing va ehtiyotkor qizdiring.",
+      "Rang va cho‘kma o‘zgarishlarini kuzating."
+    ],
+    "tasks": [
+      "Glitserin va aldegid uchun sifat belgilarini taqqoslang.",
+      "Tenglamalarni yozing."
+    ],
+    "reagents": [
+      "Al",
+      "etanol",
+      "glitserin",
+      "formalin"
+    ],
+    "recommended": [
+      "Al",
+      "etanol"
+    ],
+    "kind": "jarayon",
+    "goal": "Cu(OH)2 cho‘kmasiga glitserin qo‘shing va to‘q ko‘k eritma hosil bo‘lishini kuzating.",
+    "question": "Glitserin va aldegid uchun sifat belgilarini taqqoslang.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "10.7",
+    "grade": "10-sinf",
+    "title": "O‘simliklar tarkibidagi murakkab efirlar",
+    "source": "10-sinf darsligi, 150–151-betlar",
+    "catalogType": "3.15-amaliy mashg‘ulot",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "10.06",
+      "10.23"
+    ],
+    "linkedTheoryTitles": [
+      "Organik reaksiyalar turlari",
+      "Murakkab efirlar"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Hidli o‘simlik qismlarini suv bilan haydash moslamasiga joylashtiring.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "Haydash moslamasi, idishlar, filtr.",
+    "materials": "Hidli o‘simlik materiali, suv; atir tayyorlash uchun gullar va darslikda ko‘rsatilgan erituvchi.",
+    "safety": "",
+    "steps": [
+      "Hidli o‘simlik qismlarini suv bilan haydash moslamasiga joylashtiring.",
+      "Aralashmani qizdirib, bug‘ bilan efir moylarini ajrating.",
+      "Kondensatni yig‘ing va ajralgan hidli qatlamni kuzating.",
+      "Gul barglaridan atir tayyorlash uchun darslikdagi ketma-ketlik asosida ekstraksiya va filtrlash ishlarini bajaring."
+    ],
+    "tasks": [
+      "Efir moylari va murakkab efirlarning hid hosil qilish xususiyatini izohlang."
+    ],
+    "reagents": [
+      "H2O",
+      "Al",
+      "KI"
+    ],
+    "recommended": [
+      "H2O",
+      "Al"
+    ],
+    "kind": "jarayon",
+    "goal": "Hidli o‘simlik qismlarini suv bilan haydash moslamasiga joylashtiring.",
+    "question": "Efir moylari va murakkab efirlarning hid hosil qilish xususiyatini izohlang.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "10.8",
+    "grade": "10-sinf",
+    "title": "Yog‘lardan sovun olish",
+    "source": "10-sinf darsligi, 155-bet",
+    "catalogType": "3.17-amaliy mashg‘ulot",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "10.06",
+      "10.24"
+    ],
+    "linkedTheoryTitles": [
+      "Organik reaksiyalar turlari",
+      "Yog‘lar"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Yog‘ namunasi va ishqorni darslikdagi nisbatda aralashtiring.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "Yog‘ namunasi, ishqor, suv, osh tuzi; darslikda ko‘rsatilgan qo‘shimcha vositalar.",
+    "safety": "Ishqor va issiq aralashma bilan o‘qituvchi nazoratida ishlanadi.",
+    "steps": [
+      "Yog‘ namunasi va ishqorni darslikdagi nisbatda aralashtiring.",
+      "Aralashmani ehtiyotkor qizdiring va muntazam aralashtiring.",
+      "Sovunlanish jarayonini kuzating.",
+      "Osh tuzi qo‘shib sovunni eritmadan ajrating.",
+      "Hosil bo‘lgan sovun namunasi xossalarini kuzating."
+    ],
+    "tasks": [
+      "Sovunlanish reaksiyasini tushuntiring."
+    ],
+    "reagents": [
+      "H2O",
+      "NaOH",
+      "Al",
+      "NaCl",
+      "moy"
+    ],
+    "recommended": [
+      "H2O",
+      "NaOH"
+    ],
+    "kind": "jarayon",
+    "goal": "Yog‘ namunasi va ishqorni darslikdagi nisbatda aralashtiring.",
+    "question": "Sovunlanish reaksiyasini tushuntiring.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "10.9",
+    "grade": "10-sinf",
+    "title": "Uglevodlarga oid tajribalar",
+    "source": "10-sinf darsligi, 167–168-betlar",
+    "catalogType": "3.21-amaliy mashg‘ulot",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "10.06",
+      "10.25"
+    ],
+    "linkedTheoryTitles": [
+      "Organik reaksiyalar turlari",
+      "Uglevodlar: mono-, di- va polisaxaridlar"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Uzum sharbati yoki glyukozaga CuSO4 va NaOH qo‘shib, so‘ng qizdiring. Rang va cho‘kma o‘zgarishini kuzating.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "Uzum sharbati yoki glyukoza, CuSO4, NaOH, saxaroza, kislota, kraxmal, yod, sellyuloza, ammiakli mis gidroksid eritmasi.",
+    "safety": "",
+    "steps": [
+      "Uzum sharbati yoki glyukozaga CuSO4 va NaOH qo‘shib, so‘ng qizdiring. Rang va cho‘kma o‘zgarishini kuzating.",
+      "Saxaroza eritmasiga CuSO4 va NaOH qo‘shib ko‘p gidroksil guruhlariga xos to‘q ko‘k rangni kuzating.",
+      "Saxarozani kislota ishtirokida qaynatib gidrolizlang va hosil bo‘lgan glyukozani sifat reaksiyasi bilan tekshiring.",
+      "Kraxmalni kislota bilan qizdirib gidrolizlang. Jarayon davomida yod eritmasi bilan tekshiring va oxirida Cu2+ reaksiyasi orqali glyukoza hosil bo‘lishini aniqlang.",
+      "Sellyulozaning ammiakli mis gidroksid eritmasidagi xatti-harakatini kuzating."
+    ],
+    "tasks": [
+      "Har tajribada qaysi uglevod aniqlanganini yozing."
+    ],
+    "reagents": [
+      "NaOH",
+      "Al",
+      "Cu",
+      "CuSO4",
+      "KI",
+      "I2",
+      "kraxmal",
+      "glyukoza",
+      "saxaroza"
+    ],
+    "recommended": [
+      "NaOH",
+      "Al"
+    ],
+    "kind": "jarayon",
+    "goal": "Uzum sharbati yoki glyukozaga CuSO4 va NaOH qo‘shib, so‘ng qizdiring. Rang va cho‘kma o‘zgarishini kuzating.",
+    "question": "Har tajribada qaysi uglevod aniqlanganini yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "10.10",
+    "grade": "10-sinf",
+    "title": "Organik birikmalarni xos reaksiyalar asosida aniqlash",
+    "source": "10-sinf darsligi, 173–174-betlar",
+    "catalogType": "3.23-amaliy mashg‘ulot",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "10.05",
+      "10.06",
+      "10.10",
+      "10.19",
+      "10.21",
+      "10.22"
+    ],
+    "linkedTheoryTitles": [
+      "Organik birikmalarning sinflanishi",
+      "Organik reaksiyalar turlari",
+      "Alkanlarning olinishi, xossalari va ishlatilishi",
+      "Fenollar va aromatik spirtlar",
+      "Aldegidlar va ketonlar",
+      "Karbon kislotalar"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Uch noma’lum namuna: sirka kislotasi, glitserin va glyukozani oling.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "Sirka kislotasi, glitserin, glyukoza, indikator, Cu(OH)2 va darslikdagi yordamchi reaktivlar.",
+    "safety": "",
+    "steps": [
+      "Uch noma’lum namuna: sirka kislotasi, glitserin va glyukozani oling.",
+      "Indikator yordamida kislotali namunani aniqlang.",
+      "Qolgan namunalarga yangi Cu(OH)2 qo‘shib to‘q ko‘k eritma hosil bo‘lishini kuzating.",
+      "Namunalarni qizdirib glyukozaga xos qaytaruvchanlik belgisi bilan glitserindan farqlang."
+    ],
+    "tasks": [
+      "Aniqlash algoritmini yozing.",
+      "Uy sharoitidagi qo‘shimcha topshiriqlar sifatida sut yog‘i va asal sifatini tekshirish usullarini muhokama qiling."
+    ],
+    "reagents": [
+      "Al",
+      "KI",
+      "indikator",
+      "sirka",
+      "glitserin",
+      "glyukoza"
+    ],
+    "recommended": [
+      "Al",
+      "KI"
+    ],
+    "kind": "reaksiya",
+    "goal": "Uch noma’lum namuna: sirka kislotasi, glitserin va glyukozani oling.",
+    "question": "Aniqlash algoritmini yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "10.11",
+    "grade": "10-sinf",
+    "title": "Qog‘ozni qayta ishlash",
+    "source": "10-sinf darsligi, 189–190-betlar",
+    "catalogType": "4.3-amaliy mashg‘ulot",
+    "mappingType": "Case",
+    "linkedTheoryIds": [
+      "10.26",
+      "10.27"
+    ],
+    "linkedTheoryTitles": [
+      "Tabiiy va sun’iy tolalar",
+      "Organik sanoat, chiqindilar va qayta ishlash"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Qog‘ozni mayda bo‘laklarga bo‘ling, stakanga joylashtiring, ustidan issiq suv quying va 2–3 soatga qoldiring.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "500 ml stakan, 2 tog‘oracha, dokali yoki to‘rli g‘alvir, sochiq, dazmol, issiq suv, gazeta yoki daftar varaqlari, vodorod peroksid.",
+    "materials": "",
+    "safety": "Issiq suv, vodorod peroksid va dazmol bilan o‘qituvchi nazoratida ishlanadi.",
+    "steps": [
+      "Qog‘ozni mayda bo‘laklarga bo‘ling, stakanga joylashtiring, ustidan issiq suv quying va 2–3 soatga qoldiring.",
+      "Bo‘kkan qog‘ozni yaxshilab ezing va bo‘tqasimon qog‘oz xomashyosini hosil qiling.",
+      "Tog‘orachaga dokali yoki to‘rli g‘alvirni joylashtiring.",
+      "Qog‘oz xomashyosini tog‘orachaga quying va zarur zichlik hosil bo‘lguncha suv bilan suyultiring. Aralashtiring va g‘alvirni ikkinchi tog‘orachaga tushirib, zarrachalar panjara ustiga joylashguncha kuting.",
+      "Kulrang xomashyoni oqartirish uchun 5–10 ml H2O2 qo‘shing.",
+      "G‘alvirdagi nam qog‘oz qatlamini sochiqqa o‘tkazing, ustidan boshqa sochiq qo‘ying va dazmollang.",
+      "Qog‘oz varag‘ini ehtiyotkor ajrating.",
+      "Nam varaqni tekislash uchun press ostida quriting.",
+      "Tayyor qayta ishlangan qog‘ozni ko‘rib chiqing va undan foydalaning."
+    ],
+    "tasks": [
+      "Mashg‘ulotni yaxshilash uchun qo‘shimcha takliflar bering.",
+      "Qayta ishlangan qog‘ozning ekologik ahamiyatini izohlang.",
+      "11-SINF UMUMIY KIMYO DARSLIGI",
+      "Manba: “Umumiy kimyo”, Toshkent, 2018. Yuklangan darslik skaner ko‘rinishida bo‘lib, mundarija va mavzular sahifalari alohida tekshirildi."
+    ],
+    "reagents": [
+      "H2O",
+      "H2",
+      "Zn",
+      "Al",
+      "KI"
+    ],
+    "recommended": [
+      "H2O",
+      "H2"
+    ],
+    "kind": "jarayon",
+    "goal": "Qog‘ozni mayda bo‘laklarga bo‘ling, stakanga joylashtiring, ustidan issiq suv quying va 2–3 soatga qoldiring.",
+    "question": "Mashg‘ulotni yaxshilash uchun qo‘shimcha takliflar bering.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "11.1",
+    "grade": "11-sinf",
+    "title": "Alohida laboratoriya va amaliy mashg‘ulotlar bo‘yicha xulosa",
+    "source": null,
+    "catalogType": null,
+    "mappingType": "Case",
+    "linkedTheoryIds": [
+      "11.01",
+      "11.02",
+      "11.03",
+      "11.04",
+      "11.05",
+      "11.06",
+      "11.07",
+      "11.08",
+      "11.09",
+      "11.10",
+      "11.11",
+      "11.12",
+      "11.13",
+      "11.14",
+      "11.15",
+      "11.16",
+      "11.17",
+      "11.18",
+      "11.19",
+      "11.20",
+      "11.21",
+      "11.22"
+    ],
+    "linkedTheoryTitles": [
+      "Atom tuzilishi",
+      "Davriy qonun va D.I. Mendeleyev davriy sistemasi",
+      "Atom tarkibi va yadro reaksiyalari",
+      "Kimyoviy bog‘lanish turlari va kristall panjaralar",
+      "Modda miqdori",
+      "Avogadro qonuni va gazlar aralashmasi",
+      "Ekvivalent",
+      "Mendeleyev-Klapeyron tenglamasi",
+      "Kuchli va kuchsiz elektrolitlar",
+      "Dissotsiatsiyalanish darajasi va ionli tenglamalar",
+      "Tuzlar gidrolizi va eritma muhiti",
+      "Eritma va eruvchanlik",
+      "Foiz konsentratsiya",
+      "Molyar va normal konsentratsiya hamda bog‘lanishlar",
+      "Reaksiya tezligi",
+      "Bosim, hajm, harorat va katalizatorning reaksiya tezligiga ta’siri",
+      "Qaytar va qaytmas reaksiyalar. Kimyoviy muvozanat",
+      "Kimyoviy muvozanatga ta’sir etuvchi omillar",
+      "Oksidlanish-qaytarilish reaksiyalarini yarim reaksiya usuli bilan tenglashtirish",
+      "Redoks reaksiyalarining eritma muhitiga bog‘liqligi",
+      "Elektroliz: eritma va suyuqlanma",
+      "Elektroliz qonunlari"
+    ],
+    "mappingStatus": "Reklassifikatsiya kerak",
+    "mappingGoal": "Alohida laboratoriya va amaliy mashg‘ulotlar bo‘yicha xulosa",
+    "mappingNote": "Bu band real amaliy faoliyat emas, 11-sinf bo‘yicha umumlashtiruvchi xulosa/placeholder. Uni 62 ta amaliy mashg‘ulot qatoridan chiqarish yoki yakuniy refleksiya/assessment sifatida qayta belgilash tavsiya etiladi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "",
+    "materials": "",
+    "safety": "",
+    "steps": [],
+    "tasks": [],
+    "reagents": [
+      "Al"
+    ],
+    "recommended": [
+      "Al"
+    ],
+    "kind": "jarayon",
+    "goal": "Alohida laboratoriya va amaliy mashg‘ulotlar bo‘yicha xulosa",
+    "question": "Tajriba natijasini kuzatuv va tenglama bilan izohlang.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  },
+  {
+    "id": "11.2",
+    "grade": "11-sinf",
+    "title": "Platforma uchun demonstratsion tajriba nomzodi: elektroliz",
+    "source": "11-sinf darsligi, 138–139-betlar",
+    "catalogType": "Demonstratsion tajriba nomzodi — alohida laboratoriya ishi sifatida belgilanmagan",
+    "mappingType": "Lab",
+    "linkedTheoryIds": [
+      "11.21",
+      "11.22"
+    ],
+    "linkedTheoryTitles": [
+      "Elektroliz: eritma va suyuqlanma",
+      "Elektroliz qonunlari"
+    ],
+    "mappingStatus": "Bog‘langan",
+    "mappingGoal": "Elektrolizyorga CuCl2 eritmasini quying.",
+    "mappingNote": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+    "baseFile": "KimyoLab_v19.html",
+    "equipment": "Elektrolizyor yoki elektrolitik vanna, elektrodlar, o‘zgarmas tok manbai.",
+    "materials": "CuCl2 eritmasi.",
+    "safety": "Elektr toki va xlor hosil bo‘lish ehtimoli sabab faqat o‘qituvchi demonstratsiyasi yoki raqamli simulyatsiya shaklida tavsiya etiladi.",
+    "steps": [
+      "Elektrolizyorga CuCl2 eritmasini quying.",
+      "Eritmaga ikki elektrod tushiring. Bir elektrodni manfiy qutbga, ikkinchisini musbat qutbga ulang.",
+      "Manfiy elektrod katod, musbat elektrod anod ekanini belgilang.",
+      "Tok manbaini ulang. Cu2+ kationlarining katod tomon, Cl− anionlarining anod tomon harakatlanishini kuzating.",
+      "Katodda mis ajralishi va anodda xlor hosil bo‘lishini tushuntiring."
+    ],
+    "tasks": [
+      "Katod va anod jarayonlarini yozing.",
+      "Ionlarning elektrod tomon harakatini izohlang.",
+      "Yakuniy eslatma",
+      "Mazkur katalogdagi har bir band platforma ishlab chiqish jarayonida alohida interaktiv modul kartasiga aylantirilishi mumkin. Keyingi bosqichda har bir modul uchun animatsiya ssenariysi, foydalanuvchi harakatlari, kuzatuv natijalari, noto‘g‘ri harakatlar uchun ogohlantirishlar va baholash mezonlari ishlab chiqiladi."
+    ],
+    "reagents": [
+      "Al",
+      "Cu",
+      "KI",
+      "tok"
+    ],
+    "recommended": [
+      "Al",
+      "Cu"
+    ],
+    "kind": "elektroliz",
+    "goal": "Elektrolizyorga CuCl2 eritmasini quying.",
+    "question": "Katod va anod jarayonlarini yozing.",
+    "method": "Tadqiq etish → kuzatish → dalil keltirish → xulosa yozish"
+  }
+]

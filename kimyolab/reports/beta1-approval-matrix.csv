@@ -1,0 +1,48 @@
+learningUnitId,legacyId,title,practiceActivityId,practiceType,technicalReady,technicalApproval,chemistryApproval,didacticApproval,accessibilityApproval,reviewNote
+lu.7.01,7.01,Kimyo fani va uning vazifalari,practice.case.7.01.planned,case,True,pending,not_applicable,pending,pending,
+lu.7.02,7.02,Modda va uning xossalari,practice.simulation.7.02.planned,simulation,True,pending,not_applicable,pending,pending,
+lu.7.03,7.03,Sof modda va aralashmalar,practice.experiment.7.2,experiment,True,pending,pending,pending,pending,
+lu.7.04,7.04,Moddalarning agregat holatining o‘zgarishi,practice.experiment.7.6,experiment,True,pending,pending,pending,pending,
+lu.7.05,7.05,Fizik va kimyoviy hodisalar,practice.experiment.7.3,experiment,True,pending,pending,pending,pending,
+lu.7.06,7.06,Atom,practice.simulation.7.06.planned,simulation,True,pending,not_applicable,pending,pending,
+lu.7.07,7.07,"Atom va uning tuzilishi: proton, neytron, elektron",practice.simulation.7.07.planned,simulation,True,pending,not_applicable,pending,pending,
+lu.7.08,7.08,Kimyoviy element va kimyoviy belgi,practice.trainer.7.08.planned,trainer,True,pending,not_applicable,pending,pending,
+lu.7.09,7.09,Kimyoviy elementning nisbiy atom massasi,practice.calculation.7.09.planned,calculation,True,pending,not_applicable,pending,pending,
+lu.7.10,7.10,"Izotoplar, izobarlar, izotonlar",practice.simulation.7.10.planned,simulation,True,pending,not_applicable,pending,pending,
+lu.7.11,7.11,Kimyoviy formula va valentlik,practice.trainer.7.4,trainer,True,pending,not_applicable,pending,pending,
+lu.7.12,7.12,Molekula va nisbiy molekulyar massa,practice.calculation.7.5,calculation,True,pending,not_applicable,pending,pending,
+lu.7.13,7.13,Oddiy va murakkab moddalar,practice.simulation.7.13.planned,simulation,True,pending,not_applicable,pending,pending,
+lu.7.14,7.14,"Modda miqdori, Avogadro doimiysi va molyar massa",practice.calculation.7.5,calculation,True,pending,not_applicable,pending,pending,Primary activity reuses 7.12 Mr/formula calculation; Avogadro constant and molar-mass breadth needs didactic review.
+lu.7.15,7.15,Kimyoviy reaksiya tenglamalarini tuzish,practice.trainer.7.15.planned,trainer,True,pending,not_applicable,pending,pending,
+lu.7.16,7.16,Kimyoviy elementlarning tavsiflanishi va tabiiy oilalari,practice.simulation.7.16.planned,simulation,True,pending,not_applicable,pending,pending,
+lu.7.17,7.17,Kimyoviy elementlar davriy jadvali,practice.simulation.7.17.planned,simulation,True,pending,not_applicable,pending,pending,
+lu.7.18,7.18,Havo tarkibi va havoning ifloslanishi,practice.case.7.14,case,True,pending,not_applicable,pending,pending,
+lu.7.19,7.19,"Kislorod: xossalari, yonish, ozon va oksidlar",practice.experiment.7.7,experiment,True,pending,pending,pending,pending,
+lu.7.20,7.20,"Vodorod, kislotalar va kislotali yomg‘ir",practice.experiment.7.8,experiment,True,pending,pending,pending,pending,Hydrogen experiment is relevant but acids/acid-rain breadth is wider than the primary activity.
+lu.7.21,7.21,"Suv: tarkibi, aylanishi, xossalari, neytrallanish va tozalash",practice.experiment.7.2,experiment,True,pending,pending,pending,pending,Salt-purification activity supports water treatment but not all water/neutralization concepts.
+lu.7.22,7.22,"Tirik organizmlardagi elementlar, oqsil, yog‘, uglevod, vitamin va minerallar",practice.experiment.7.13,experiment,True,pending,pending,pending,pending,
+lu.7.23,7.23,"Foydali qazilmalar, konlar va ekologik aspektlar",practice.case.7.14,case,True,pending,not_applicable,pending,pending,Shared ecological case is not mining-specific; dedicated mining/raw-material case may be preferable.
+lu.8.01,8.01,Dastlabki kimyoviy tushunchalar va noorganik birikmalarning asosiy sinflari,practice.trainer.8.01.planned,trainer,True,pending,not_applicable,pending,pending,
+lu.8.02,8.02,Kimyoviy elementlarning dastlabki toifalanishi va tabiiy oilalari,practice.simulation.8.02.planned,simulation,True,pending,not_applicable,pending,pending,
+lu.8.03,8.03,Davriy qonun va elementlar davriy sistemasi,practice.simulation.8.03.planned,simulation,True,pending,not_applicable,pending,pending,
+lu.8.04,8.04,Atom yadrosi tarkibi,practice.simulation.8.04.planned,simulation,True,pending,not_applicable,pending,pending,
+lu.8.05,8.05,Izotoplar va izobarlar,practice.simulation.8.05.planned,simulation,True,pending,not_applicable,pending,pending,
+lu.8.06,8.06,Atom elektron qavatlari va energetik pog‘onachalar,practice.simulation.8.06.planned,simulation,True,pending,not_applicable,pending,pending,
+lu.8.07,8.07,Kichik va katta davr elementlarining atom tuzilishi,practice.trainer.8.07.planned,trainer,True,pending,not_applicable,pending,pending,
+lu.8.08,8.08,Elementni davriy sistemadagi o‘rni va atom tuzilishiga qarab tavsiflash,practice.trainer.8.08.planned,trainer,True,pending,not_applicable,pending,pending,
+lu.8.09,8.09,Nisbiy elektromanfiylik,practice.simulation.8.09.planned,simulation,True,pending,not_applicable,pending,pending,
+lu.8.10,8.10,Qutbli va qutbsiz kovalent bog‘lanish,practice.simulation.8.7,simulation,True,pending,not_applicable,pending,pending,Shared lattice activity config currently demonstrates HCl polar-covalent/molecular structure; scope needs didactic review.
+lu.8.11,8.11,Ionli bog‘lanish,practice.simulation.8.7,simulation,True,pending,not_applicable,pending,pending,Shared lattice activity is not yet an ionic-specific target; dedicated NaCl ionic configuration is recommended.
+lu.8.12,8.12,Kristall panjaralar,practice.experiment.8.12.planned,experiment,True,pending,pending,pending,pending,Legacy mapping types a 3D crystal model as experiment although interaction is simulation-like; reclassification review required.
+lu.8.13,8.13,Oksidlanish darajasi,practice.trainer.8.13.planned,trainer,True,pending,not_applicable,pending,pending,
+lu.8.14,8.14,Oksidlanish-qaytarilish reaksiyalari va tenglamalarni tuzish,practice.trainer.8.14.planned,trainer,True,pending,not_applicable,pending,pending,
+lu.8.15,8.15,Metallmaslarning umumiy xossalari,practice.experiment.8.12,experiment,True,pending,pending,pending,pending,
+lu.8.16,8.16,"Galogenlar: atom tuzilishi, xlor, HCl, xlorid kislota, ftor, brom va yod",practice.experiment.8.1,experiment,True,pending,pending,pending,pending,
+lu.8.17,8.17,"Avogadro qonuni, molyar hajm va ekvivalent qonuni",practice.calculation.8.17.planned,calculation,True,pending,not_applicable,pending,pending,
+lu.8.18,8.18,Kislorod guruhchasi va oltingugurt birikmalari,practice.experiment.8.2,experiment,True,pending,pending,pending,pending,
+lu.8.19,8.19,Kimyoviy reaksiya tezligi,practice.simulation.8.19.planned,simulation,True,pending,not_applicable,pending,pending,
+lu.8.20,8.20,Kimyoviy muvozanat,practice.simulation.8.20.planned,simulation,True,pending,not_applicable,pending,pending,
+lu.8.21,8.21,Sulfat kislota ishlab chiqarish,practice.case.8.21.planned,case,True,pending,not_applicable,pending,pending,
+lu.8.22,8.22,"Azot, ammiak va azotning kislorodli birikmalari",practice.experiment.8.3,experiment,True,pending,pending,pending,pending,
+lu.8.23,8.23,Fosfor va uning kislorodli birikmalari,practice.experiment.8.4,experiment,True,pending,pending,pending,pending,Legacy experimental activity is broad nitrogen-group work; phosphorus-specific coverage requires review.
+lu.8.24,8.24,Mineral o‘g‘itlar va biogen elementlar,practice.experiment.8.5,experiment,True,pending,pending,pending,pending,

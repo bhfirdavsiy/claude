@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-09-29T12:31:01.320Z",
+  "status": "READY_WITH_EXTERNAL_BLOCKER",
+  "bindingCount": 11,
+  "readyReferenceBindings": 8,
+  "nobook": {
+    "bindings": 3,
+    "partnerConfigured": false,
+    "sdkReady": false,
+    "sdkChecksumValid": false,
+    "experimentUrlValid": false,
+    "missing": [
+      "NOBOOK_APP_KEY",
+      "NOBOOK_APP_SECRET",
+      "NOBOOK_PID_SCOPE",
+      "NOBOOK_EXPERIMENT_URL",
+      "NOBOOK_SDK_SHA256",
+      "NOBOOK_SDK_ARTIFACT"
+    ],
+    "sdkVersion": "2.2.1"
+  },
+  "safety": {
+    "secretsExposed": false,
+    "localAssessmentRequired": true,
+    "externalCompletionAwardsMastery": false
+  },
+  "next": "Obtain NOBOOK partner credentials, an official HTTPS experiment URL, and a licensed SDK artifact at public/vendor/nobook/postmate.js with its SHA-256 pinned in NOBOOK_SDK_SHA256."
+}

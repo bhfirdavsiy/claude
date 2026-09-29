@@ -1,0 +1,14 @@
+requirement,module,test,status,notes
+ENG-CAP,src/engines/shared/types.ts,tests/phase4-engine-smoke.test.mjs,PASS,Capabilities and engine compatibility contract
+ENG-010,src/engines/experiment/engine.ts,tests/phase4-experiment.test.mjs,PASS,Dependency-aware experiment state machine
+ENG-014,src/engines/experiment/engine.ts,tests/phase4-experiment.test.mjs,PASS,Structured accepted invalid unsafe action results
+ENG-020,src/engines/simulation/engine.ts,tests/phase4-simulation.test.mjs,PASS,Deterministic serializable reducer-based simulation engine
+ENG-021,src/engines/simulation/engine.ts,tests/phase4-simulation.test.mjs,PASS,Explicit deterministic seed
+ENG-022,src/engines/shared/types.ts;src/engines/index.ts,tests/phase4-public-engines.test.mjs,PASS,Public engine capability metadata
+ENG-030,src/engines/trainer/engine.ts,tests/phase4-trainer.test.mjs,PASS,Attempt feedback hint retry explanation flow
+ENG-031,src/engines/trainer/engine.ts,tests/phase4-trainer.test.mjs,PASS,Attempt policy
+ENG-032,src/engines/trainer/engine.ts,tests/phase4-trainer.test.mjs,PASS,Hint ladder
+ENG-040,src/engines/calculation/engine.ts,tests/phase4-calculation.test.mjs,PASS,Ordered calculation flow
+ENG-041,src/engines/calculation/engine.ts,tests/phase4-calculation.test.mjs,PASS,Step response validation
+ENG-050,src/engines/case/engine.ts,tests/phase4-case.test.mjs,PASS,Evidence decision justification reflection flow
+ENG-051,src/engines/case/engine.ts,tests/phase4-case.test.mjs,PASS,Rubric-based case scoring

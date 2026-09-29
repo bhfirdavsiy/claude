@@ -1,0 +1,29 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const bank=JSON.parse(fs.readFileSync(path.join(root,'content-src/assessment-items.json'),'utf8'));
+const units=JSON.parse(fs.readFileSync(path.join(root,'content-src/learning-units.json'),'utf8'));
+const unitIds=new Set(units.map((x:any)=>x.id));
+const ids=new Set<string>(); const issues:string[]=[];
+if(bank.schema!=='kimyolab.assessment-bank.v1') issues.push('ASSESSMENT_SCHEMA_INVALID');
+if(!Array.isArray(bank.items)) issues.push('ASSESSMENT_ITEMS_REQUIRED');
+for(const item of bank.items??[]){
+  if(typeof item.id!=='string'||ids.has(item.id)) issues.push(`ASSESSMENT_ID_INVALID:${item.id}`); else ids.add(item.id);
+  if(!unitIds.has(item.learningUnitId)) issues.push(`ASSESSMENT_UNIT_UNKNOWN:${item.id}`);
+  if(item.type!=='single_select') issues.push(`ASSESSMENT_TYPE_UNSUPPORTED:${item.id}`);
+  if(!Array.isArray(item.options)||item.options.length!==4) issues.push(`ASSESSMENT_OPTIONS_INVALID:${item.id}`);
+  const optionIds=new Set((item.options??[]).map((x:any)=>x.id));
+  if(!optionIds.has(item.correctOptionId)) issues.push(`ASSESSMENT_CORRECT_OPTION_INVALID:${item.id}`);
+  if(typeof item.prompt!=='string'||!item.prompt.trim()) issues.push(`ASSESSMENT_PROMPT_REQUIRED:${item.id}`);
+  if(typeof item.explanation!=='string'||!item.explanation.trim()) issues.push(`ASSESSMENT_EXPLANATION_REQUIRED:${item.id}`);
+  if(!Array.isArray(item.conceptIds)||!item.conceptIds.length) issues.push(`ASSESSMENT_CONCEPT_REQUIRED:${item.id}`);
+  if(!Array.isArray(item.sourceRefs)||!item.sourceRefs.length) issues.push(`ASSESSMENT_SOURCE_REQUIRED:${item.id}`);
+  for(const role of ['chemistry','didactic']) if(!['pending','approved','rejected'].includes(item.review?.[role])) issues.push(`ASSESSMENT_REVIEW_INVALID:${item.id}:${role}`);
+}
+const approved=(bank.items??[]).filter((x:any)=>x.review?.chemistry==='approved'&&x.review?.didactic==='approved').length;
+const coveredUnits=new Set((bank.items??[]).map((x:any)=>x.learningUnitId)).size;
+const report={generatedAt:new Date().toISOString(),schema:bank.schema,version:bank.version,itemCount:(bank.items??[]).length,coveredUnits,approvedItems:approved,pendingItems:(bank.items??[]).length-approved,releaseEligible:approved,issues,valid:issues.length===0};
+fs.writeFileSync(path.join(root,'reports/assessment-bank-validation.json'),JSON.stringify(report,null,2)+'\n');
+console.log(JSON.stringify(report));
+if(issues.length) process.exitCode=1;

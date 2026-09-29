@@ -1,0 +1,52 @@
+{
+  "generatedAt": "2026-09-29T10:19:51.622Z",
+  "schema": "kimyolab.approval-pipeline.v1",
+  "valid": true,
+  "checks": {
+    "gateApprovalImporter": true,
+    "betaApprovalImporter": true,
+    "approvalOverridesSource": true,
+    "browserEvidenceImporter": true,
+    "windowsBrowserRunner": true,
+    "windowsEvidenceCollector": true
+  },
+  "betaDecisionRows": 384,
+  "beta": {
+    "BETA1": {
+      "file": "review-packets/beta1-approval-register.json",
+      "records": 142
+    },
+    "BETA2": {
+      "file": "review-packets/beta2-approval-register.json",
+      "records": 175
+    },
+    "BETA3": {
+      "file": "review-packets/beta3-approval-register.json",
+      "records": 67
+    }
+  },
+  "gateTargets": {
+    "CHEM-033": {
+      "version": "1.0.0-rc.1",
+      "hash": "d6d0f5bb34893cc81c1ef84c644caf5640e92c606361b57b20701b315a592195",
+      "fileCount": 23
+    },
+    "PROD-002": {
+      "version": "2026.09.1",
+      "hash": "ccd3fa92b33864e9756e44005617152646dba6ed9c24187a2f614da7baf11aee",
+      "fileCount": 19
+    },
+    "VISUAL-001": {
+      "version": "production-build:c8a4df1f0e8a3170faa1db8a002e4d9c819758c55b1caa7a24dfb04a3b91653b",
+      "hash": "6374a43b33041fe20a9b06920525d0f9054687b3e33c93e1b49836b6b89c2969",
+      "readyForReview": false
+    }
+  },
+  "commands": {
+    "importGate": "npm run approval:import -- <GATE_ID> <approval.json>",
+    "importBeta": "npm run beta:approvals:import -- <filled-register.json>",
+    "refresh": "npm run approvals:refresh",
+    "importBrowser": "npm run browser:evidence:import -- <unpacked-browser-evidence-folder>",
+    "preflight": "npm run stable:preflight"
+  }
+}
