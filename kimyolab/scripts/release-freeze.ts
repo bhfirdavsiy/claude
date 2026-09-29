@@ -8,35 +8,17 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
+import {sourceChanges} from './lib/tree-state.ts';
+export {parsePorcelainZ} from './lib/tree-state.ts';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const argv=process.argv.slice(2);
 const arg=(name:string)=>argv.includes(name)?argv[argv.indexOf(name)+1]:undefined;
 const tag=arg('--tag')??'kimyolab-p0-integrity-20.1.0';
 const RELEASE_BRANCH='main';
-/** verify rewrites these report artefacts; nothing else may change. */
-const VERIFY_ARTEFACTS=[/^reports\//,/^review-packets\//];
 
 function git(args:string[]){const r=spawnSync('git',args,{cwd:root,encoding:'utf8'});if(r.status!==0)throw new Error(`git ${args.join(' ')} failed: ${r.stderr}`);return r.stdout.trim();}
 function fail(code:string,detail=''):never{console.error(`${code}${detail?`: ${detail}`:''}`);process.exit(1);}
-/**
- * Changed paths relative to the app root. Parses `git status --porcelain=v1 -z` without trimming:
- * the two status columns are significant (a leading space is part of " M path").
- */
-export function parsePorcelainZ(raw:string,prefix:string):string[]{
-  const entries=raw.split('\0'); const out:string[]=[];
-  for(let i=0;i<entries.length;i++){
-    const entry=entries[i]!; if(entry.length<4) continue;
-    const status=entry.slice(0,2); out.push(entry.slice(3));
-    if(status[0]==='R'||status[0]==='C') i++; // the next NUL-separated field is the rename source
-  }
-  return out.map(p=>prefix&&p.startsWith(prefix)?p.slice(prefix.length):p);
-}
-function dirtyPaths(){
-  const r=spawnSync('git',['status','--porcelain=v1','-z','--untracked-files=normal','--','.'],{cwd:root,encoding:'utf8'});
-  if(r.status!==0) throw new Error(`git status failed: ${r.stderr}`);
-  return parsePorcelainZ(r.stdout,git(['rev-parse','--show-prefix']));
-}
 
 function main(){
   if(!/^kimyolab-[a-z0-9.-]+$/.test(tag)) fail('RELEASE_TAG_INVALID',tag);
@@ -44,7 +26,7 @@ function main(){
   if(branch!==RELEASE_BRANCH) fail('RELEASE_BRANCH_MISMATCH',`on ${branch}, expected ${RELEASE_BRANCH}`);
   const head=git(['rev-parse','HEAD']);
   // Report artefacts left by a previous `npm run verify` are allowed: the tag names a commit, not the working tree.
-  const dirty=dirtyPaths().filter(p=>!VERIFY_ARTEFACTS.some(r=>r.test(p)));
+  const dirty=sourceChanges(root)??fail('RELEASE_NOT_A_GIT_CHECKOUT');
   if(dirty.length) fail('RELEASE_TREE_DIRTY',dirty.join(', '));
   if(spawnSync('git',['rev-parse','-q','--verify',`refs/tags/${tag}`],{cwd:root}).status===0) fail('RELEASE_TAG_EXISTS',tag);
 
@@ -57,7 +39,7 @@ function main(){
   if(acceptance.status!=='PASS'||acceptance.partialRun) fail('ACCEPTANCE_NOT_PASS',acceptance.status);
   if(acceptance.commit!==head||acceptance.workingTreeCleanAtStart!==true) fail('ACCEPTANCE_NOT_FOR_HEAD',`${acceptance.commit} clean=${acceptance.workingTreeCleanAtStart}`);
   if(git(['rev-parse','HEAD'])!==head) fail('RELEASE_HEAD_MOVED');
-  const changed=dirtyPaths().filter(p=>!VERIFY_ARTEFACTS.some(r=>r.test(p)));
+  const changed=sourceChanges(root)??fail('RELEASE_NOT_A_GIT_CHECKOUT');
   if(changed.length) fail('RELEASE_VERIFY_MUTATED_SOURCE',changed.join(', '));
 
   const freeze={

@@ -6,7 +6,7 @@ import os from 'node:os';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {repoRoot} from '../helpers/dist.mjs';
-import {parsePorcelainZ} from '../../scripts/release-freeze.ts';
+import {parsePorcelainZ,sourceChanges} from '../../scripts/lib/tree-state.ts';
 
 function sandbox(branch,acceptanceSource){
   const dir=fs.mkdtempSync(path.join(os.tmpdir(),'kimyolab-freeze-'));
@@ -14,6 +14,8 @@ function sandbox(branch,acceptanceSource){
   fs.mkdirSync(path.join(app,'scripts'),{recursive:true});
   fs.mkdirSync(path.join(app,'reports'),{recursive:true});
   fs.copyFileSync(path.join(repoRoot,'scripts/release-freeze.ts'),path.join(app,'scripts/release-freeze.ts'));
+  fs.mkdirSync(path.join(app,'scripts/lib'),{recursive:true});
+  fs.copyFileSync(path.join(repoRoot,'scripts/lib/tree-state.ts'),path.join(app,'scripts/lib/tree-state.ts'));
   if(acceptanceSource) fs.writeFileSync(path.join(app,'scripts/p0-acceptance.ts'),acceptanceSource);
   // A tracked report artefact that verify rewrites (as the real reports/*.json are).
   fs.writeFileSync(path.join(app,'reports/beta1-readiness.json'),'{"n":0}\n');
@@ -55,11 +57,13 @@ test('freeze script has no bypass switches',()=>{
 });
 
 // Stand-in for scripts/p0-acceptance.ts: behaves like verify (rewrites a tracked report, writes the manifest).
-const fakeAcceptance=(extra='')=>`import fs from 'node:fs';import {execSync} from 'node:child_process';
+// It uses the SAME tree-state rule as scripts/p0-acceptance.ts to decide workingTreeCleanAtStart.
+const fakeAcceptance=(extra='')=>`import fs from 'node:fs';import {execSync} from 'node:child_process';import {sourceChanges} from './lib/tree-state.ts';
 const head=execSync('git rev-parse HEAD').toString().trim();
+const cleanAtStart=sourceChanges(process.cwd()).length===0;
 fs.writeFileSync('reports/beta1-readiness.json','{"n":1}\\n');
 ${extra}
-fs.writeFileSync('reports/p0-acceptance.json',JSON.stringify({milestone:'P0-INTEGRITY',status:'PASS',partialRun:false,typecheck:'PASS',schema:'PASS',chemistry:'PASS',contentIntegrity:'PASS',security:'PASS',evidence:'PASS',migration:'PASS',unit:'PASS',e2e:'PASS',cleanBuild:'PASS',commit:head,workingTreeCleanAtStart:true,generatedAt:new Date().toISOString(),versions:{appVersion:'20.1.0',contentVersion:'2026.09.1',contentChecksum:'x',schemaVersion:'1.0.0',scoringVersion:'0.0.0',curriculumVersion:'2026.09',dbVersion:2,progressSchemaVersion:'2.0.0'},typecheckDebt:{errors:88}}));
+fs.writeFileSync('reports/p0-acceptance.json',JSON.stringify({milestone:'P0-INTEGRITY',status:'PASS',partialRun:false,typecheck:'PASS',schema:'PASS',chemistry:'PASS',contentIntegrity:'PASS',security:'PASS',evidence:'PASS',migration:'PASS',unit:'PASS',e2e:'PASS',cleanBuild:'PASS',commit:head,workingTreeCleanAtStart:cleanAtStart,generatedAt:new Date().toISOString(),versions:{appVersion:'20.1.0',contentVersion:'2026.09.1',contentChecksum:'x',schemaVersion:'1.0.0',scoringVersion:'0.0.0',curriculumVersion:'2026.09',dbVersion:2,progressSchemaVersion:'2.0.0'},typecheckDebt:{errors:88}}));
 `;
 
 test('happy path: verify rewriting tracked reports does not block the freeze; annotated tag carries the manifest',()=>{
@@ -91,4 +95,17 @@ test('documented flow `npm run verify && npm run release:freeze` works (reports 
   const r=freeze(app);
   assert.equal(r.status,0,r.stdout+r.stderr);
   assert.equal(g('cat-file','-t','kimyolab-p0-integrity-test'),'tag');
+});
+
+test('tree-state: report artefacts are not source changes; source edits are',()=>{
+  const {app}=sandbox('main');
+  fs.writeFileSync(path.join(app,'reports/beta1-readiness.json'),'{"n":5}\n');
+  assert.deepEqual(sourceChanges(app),[]);
+  fs.writeFileSync(path.join(app,'scripts/new.ts'),'export {}\n');
+  assert.deepEqual(sourceChanges(app),['scripts/new.ts']);
+});
+
+test('p0-acceptance decides workingTreeCleanAtStart with the shared tree-state rule',()=>{
+  const src=fs.readFileSync(path.join(repoRoot,'scripts/p0-acceptance.ts'),'utf8');
+  assert.match(src,/const dirtyAtStart=sourceChanges\(root\);/);
 });
