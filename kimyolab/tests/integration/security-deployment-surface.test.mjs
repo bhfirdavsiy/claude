@@ -72,3 +72,20 @@ test('the production build output contains no repository-internal files',()=>{
   assert.deepEqual(forbidden,[]);
   assert.ok(files.includes('index.html')&&files.includes('content/manifest.json'));
 });
+
+test('only the active and previous content packs are public; an unreferenced pack in dist is not',async()=>{
+  const dist=cloneDist();
+  const pointerFile=path.join(dist,'content','manifest.json');
+  const pointer=JSON.parse(fs.readFileSync(pointerFile,'utf8'));
+  for(const v of ['2020.01.1','2025.12.9']){
+    fs.mkdirSync(path.join(dist,'content',v),{recursive:true});
+    fs.writeFileSync(path.join(dist,'content',v,'concepts.json'),'[]');
+  }
+  fs.writeFileSync(pointerFile,JSON.stringify({...pointer,previousVersion:'2025.12.9'}));
+  const s=await startServer({publicRoot:dist});
+  try{
+    assert.equal((await rawRequest(s.url,'/content/2020.01.1/concepts.json')).status,404,'unreferenced pack');
+    assert.equal((await rawRequest(s.url,'/content/2025.12.9/concepts.json')).status,200,'rollback target');
+    assert.equal((await rawRequest(s.url,`/content/${pointer.activeVersion}/concepts.json`)).status,200,'active');
+  }finally{await s.close();}
+});

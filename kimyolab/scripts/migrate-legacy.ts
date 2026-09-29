@@ -371,8 +371,8 @@ writeJson('learning-units.json', learningUnits);
 writeJson('theory-activities.json', theoryActivities);
 writeJson('practice-activities.json', practiceActivities);
 writeJson('mapping-links.json', mappings);
-writeJson('migration-report.json', {
-  generatedAt: new Date().toISOString(),
+// Canonical source must be reproducible: keep the previous timestamp when the report content is unchanged.
+const migrationReportBody = {
   legacyTheoryCount: curriculum.length,
   legacyPracticeRows: legacyPractices.length,
   excludedLegacyPracticeIds: ['11.1'],
@@ -380,6 +380,12 @@ writeJson('migration-report.json', {
   canonicalPracticeCount: practiceActivities.length,
   primaryMappingCount: mappings.filter((x) => x.role === 'primary').length,
   supportingMappingCount: mappings.filter((x) => x.role === 'supporting').length,
+};
+const previousMigrationReport = (() => { try { return JSON.parse(fs.readFileSync(path.join(outDir, 'migration-report.json'), 'utf8')); } catch { return undefined; } })();
+const { generatedAt: previousGeneratedAt, ...previousBody } = previousMigrationReport ?? {};
+writeJson('migration-report.json', {
+  generatedAt: previousGeneratedAt && JSON.stringify(previousBody) === JSON.stringify(migrationReportBody) ? previousGeneratedAt : new Date().toISOString(),
+  ...migrationReportBody,
 });
 
 const manifestYaml = `contentVersion: "${CONTENT_VERSION}"\ncurriculumVersion: "${CURRICULUM_VERSION}"\nschemaVersion: "${SCHEMA_VERSION}"\nchemistryRulesVersion: "${CHEMISTRY_RULES_VERSION}"\nassessmentVersion: "0.0.0"\nscoringVersion: "0.0.0"\nauthoringSource: "content-src"\nruntimeSource: "public/content/${CONTENT_VERSION}"\ncreatedAt: "${CONTENT_CREATED_AT}"\n`;

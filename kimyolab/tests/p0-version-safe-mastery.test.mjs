@@ -60,3 +60,11 @@ test('browser service recomputes cached mastery under the active pack context on
   assert.equal(after.mastery[0].excludedEvidenceIds.length,1);
   assert.equal(after.mastery[0].status,'needs_review');
 });
+
+test('legacy evidence without curriculumVersion inherits it only from the same content version',()=>{
+  const legacy={...ev('legacy',{contentVersion:'V2'}),legacy:true};
+  const ctx={contentVersion:'V2',scoringVersion:'1.0.0',curriculumVersion:'2026.09'};
+  assert.deepEqual(computeConceptMastery({conceptId:'concept.c1',evidence:[legacy],scoringVersion:'1.0.0',context:ctx}).evidenceIds,['legacy']);
+  const otherPack={...ev('old',{contentVersion:'V1'})};
+  assert.deepEqual(computeConceptMastery({conceptId:'concept.c1',evidence:[otherPack],scoringVersion:'1.0.0',context:ctx}).excludedEvidenceIds,['old']);
+});

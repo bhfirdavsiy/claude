@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-09-29T13:24:32.819Z",
+  "createdAt": "2026-09-29T13:37:20.968Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -197,8 +197,8 @@
     {
       "path": "app-preview/domain/mastery/mastery.js",
       "sourcePath": "public/app-preview/domain/mastery/mastery.js",
-      "checksum": "7779983cea8b157fcdca8dddcb543d02fbd157be8cffc06f0bb9aa13ff26e66e",
-      "size": 5470
+      "checksum": "4f9946223b77a7f6b2ff8a5f0ececeadfb0b831958c42cae81d543f3bf419b48",
+      "size": 5802
     },
     {
       "path": "app-preview/engines/calculation/engine.js",

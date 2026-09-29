@@ -73,7 +73,9 @@ export function classifyEvidenceVersion(evidence:Evidence&{curriculumVersion?:st
   const verdicts=[
     axis(context.contentVersion,evidence.contentVersion,policy.content),
     axis(context.scoringVersion,evidence.scoringVersion,policy.scoring),
-    axis(context.curriculumVersion,evidence.curriculumVersion,policy.curriculum),
+    // A content pack pins exactly one curriculum version, so evidence recorded before curriculumVersion was
+    // stamped (e.g. migrated v1 records) inherits it when it comes from the same content version.
+    axis(context.curriculumVersion,evidence.curriculumVersion??(context.contentVersion!==undefined&&evidence.contentVersion===context.contentVersion?context.curriculumVersion:undefined),policy.curriculum),
   ];
   return verdicts.reduce((worst,v)=>RANK[v]>RANK[worst]?v:worst,'compatible' as VersionCompatibility);
 }

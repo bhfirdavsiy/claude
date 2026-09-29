@@ -111,3 +111,20 @@ git push origin refs/tags/kimyolab-p0-integrity-20.1.0
 | P0 diff review qilingan | reviewer kutilmoqda |
 | merge complete | kutilmoqda |
 | Integrity Release tag | merge’dan keyin `release:freeze` |
+
+### Merge oldidan yakuniy kill-critic review (b173722 → P0.15 HEAD)
+
+Topilgan va tuzatilgan blocker’lar (har biri uchun tuzatishsiz yiqiladigan test qo‘shildi):
+
+1. **Migratsiyadan keyin mastery yo‘qolishi.** v1 dalillarida `curriculumVersion` yo‘q; brauzer mastery’ni
+   `curriculumVersion` bilan hisoblagani uchun eski o‘quvchilarning dalillari (aynan shu content versiyasidan)
+   jim chiqarib tashlanar edi. Endi dalil xuddi shu `contentVersion` dan bo‘lsa, curriculum versiyasini meros
+   oladi (pack bitta curriculum versiyasini belgilaydi). Boshqa pack’dagi dalillar avvalgidek chiqariladi.
+2. **Release freeze oqimi buzuq va bypass qilinadigan edi.** `verify` kanonik `content-src/migration-report.json`
+   ni (faqat vaqt tamg‘asini) o‘zgartirgani uchun `verify → release:freeze` “tree dirty” bilan yiqilardi; freeze
+   esa git’da kuzatilmaydigan, qo‘lda tahrirlanadigan report fayliga ishonardi va `--allow-any-branch` bor edi.
+   Endi: migration report deterministik; acceptance `workingTreeCleanAtStart` ni qayd etadi; freeze faqat
+   `main` da, toza daraxtda acceptance’ni **o‘zi qayta ishga tushiradi**, verify manba fayllarni o‘zgartirmaganini
+   tekshiradi, bypass flag’lari yo‘q (`tests/integration/release-freeze.test.mjs`, soxta PASS report bilan ham).
+3. **Vakuum test.** “Faqat faol/oldingi pack public” testi mavjud bo‘lmagan versiyani so‘ragani uchun har doim
+   o‘tardi. Endi `dist` ichiga pointer’da yo‘q pack qo‘yiladi va 404 kutiladi; `previousVersion` 200.

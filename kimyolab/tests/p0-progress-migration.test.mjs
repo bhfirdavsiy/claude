@@ -102,6 +102,16 @@ test('IndexedDB v1 → v2 migration keeps legacy evidence, progress and metadata
   assert.equal((await store.listQuarantine())[0].key,'lu.7.02','unmigratable progress is isolated, not dropped');
 });
 
+test('after v1 → v2 migration the learner keeps their mastery (legacy evidence still counts)',async()=>{
+  const factory=createFakeIndexedDb();
+  await createV1Database(factory,'p0-v1-mastery');
+  const service=new BrowserProgressService(factory,'p0-v1-mastery');
+  // The browser computes mastery with the full pack context, including curriculumVersion.
+  const [m]=await service.recomputeMastery(['concept.c1'],{contentVersion:'2026.09.1',scoringVersion:'1',curriculumVersion:'2026.09'});
+  assert.equal(m.evidenceIds.length,1,'migrated evidence must not be silently excluded');
+  assert.equal(m.excludedEvidenceIds,undefined);
+});
+
 test('a rejected open() is not cached permanently — the next call retries',async()=>{
   const real=createFakeIndexedDb();
   let calls=0;

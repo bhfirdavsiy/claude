@@ -80,6 +80,8 @@ function generatedFilesCheck(before:Record<string,string>):GateResult{
 function main(){
   const only=process.argv.includes('--gates')?process.argv[process.argv.indexOf('--gates')+1]!.split(','):undefined;
   const before=generatedHash();
+  // Records whether the PASS is attributable to the commit: a dirty tree means "PASS for local edits", not for HEAD.
+  const dirtyAtStart=git(['status','--porcelain','--untracked-files=normal']);
   const results=new Map<string,GateResult>();
   for(const gate of [...GATES,...FOCUSED]) if(!only||only.includes(gate.id)) results.set(gate.id,runGate(gate));
   if(!only||only.includes('generated-files-committed')) results.set('generated-files-committed',generatedFilesCheck(before));
@@ -96,6 +98,7 @@ function main(){
     generatedAt:new Date().toISOString(),
     partialRun:Boolean(only),
     commit:git(['rev-parse','HEAD'])??null,
+    workingTreeCleanAtStart:dirtyAtStart===undefined?null:dirtyAtStart==='',
     versions:{
       appVersion:APP_COMPATIBILITY.appVersion,
       contentVersion:pack.contentVersion,
