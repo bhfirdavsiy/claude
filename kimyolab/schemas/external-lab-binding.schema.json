@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kimyolab.local/schemas/external-lab-binding.schema.json",
+  "title": "ExternalLabBinding",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "provider",
+    "mode",
+    "status",
+    "title",
+    "description",
+    "learningUnitIds",
+    "evidencePolicy",
+    "localAssessmentRequired"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^ext\\.[a-z0-9.-]+$"
+    },
+    "provider": {
+      "enum": [
+        "nobook",
+        "chemai",
+        "chem-lab-station"
+      ]
+    },
+    "mode": {
+      "enum": [
+        "embed",
+        "deep-link",
+        "reference"
+      ]
+    },
+    "status": {
+      "enum": [
+        "active",
+        "requires_partner_access",
+        "disabled"
+      ]
+    },
+    "title": {
+      "$ref": "common.schema.json#/$defs/text"
+    },
+    "description": {
+      "type": "string"
+    },
+    "learningUnitIds": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/learningUnitId"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "externalUrl": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://"
+    },
+    "nobookModuleId": {
+      "enum": [
+        9,
+        10,
+        27
+      ]
+    },
+    "nobookResourceId": {
+      "$ref": "common.schema.json#/$defs/text"
+    },
+    "evidencePolicy": {
+      "enum": [
+        "scene_state",
+        "self_report",
+        "none"
+      ]
+    },
+    "localAssessmentRequired": {
+      "type": "boolean"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "provider": {
+            "const": "nobook"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "nobookModuleId"
+        ],
+        "not": {
+          "required": [
+            "externalUrl"
+          ]
+        }
+      },
+      "else": {
+        "required": [
+          "externalUrl"
+        ],
+        "not": {
+          "required": [
+            "nobookModuleId"
+          ]
+        }
+      }
+    }
+  ]
+}

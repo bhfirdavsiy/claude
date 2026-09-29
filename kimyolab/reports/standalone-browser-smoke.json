@@ -1,0 +1,27 @@
+{
+  "generatedAt": "2026-09-29T10:49:22.137Z",
+  "status": "pass",
+  "browser": "chromium",
+  "method": "CDP Page.setDocumentContent; no localhost/file URL dependency",
+  "checks": {
+    "standaloneEntry": true,
+    "homeRendered": true,
+    "ctaClicked": true,
+    "curriculumRoute": true,
+    "unitClicked": true,
+    "hashRouting": true,
+    "learningUnitGuideRendered": true,
+    "guideToPracticeLinked": true,
+    "reinforcementLinked": true,
+    "labRouteOpened": true,
+    "labCatalogRendered": true,
+    "nativeLabRouteClicked": true,
+    "nativeLabWorkspaceRendered": true,
+    "nativeLabStepExecuted": true,
+    "reactionGroundedGuidedStep": true,
+    "externalRouteClicked": true,
+    "externalDetailRendered": true,
+    "exceptions": true
+  },
+  "exceptionCount": 0
+}

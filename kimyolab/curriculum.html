@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#913BFF">
+<title>KimyoLab — Mavzu studiyasi</title>
+<link rel="icon" type="image/png" sizes="56x56" href="images/fav-icon/icon.png">
+<link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+<link rel="stylesheet" type="text/css" href="css/responsive.css" media="all">
+<link rel="stylesheet" type="text/css" href="css/kimyolab.css" media="all">
+</head>
+<body data-page="curriculum">
+<div class="main-page-wrapper">
+<header class="theme-main-menu sticky-menu theme-menu-four">
+  <div class="inner-content">
+    <div class="d-flex align-items-center">
+      <div class="logo order-lg-0">
+        <a href="index.html" class="kl-brand"><span class="kl-brand-mark">K</span><span>KimyoLab<small>INTERAKTIV KIMYO PLATFORMASI</small></span></a>
+      </div>
+      <div class="right-widget d-flex align-items-center ms-auto order-lg-3">
+        <a href="curriculum.html" class="send-msg-btn tran3s d-none d-lg-block">122 mavzu</a>
+      </div>
+      <nav class="navbar navbar-expand-lg order-lg-2">
+        <button class="navbar-toggler d-block d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span></span></button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a data-page-link="home" class="nav-link" href="index.html">Bosh sahifa</a></li>
+            <li class="nav-item"><a data-page-link="curriculum" class="nav-link" href="curriculum.html">Mavzu studiyasi</a></li>
+            <li class="nav-item"><a data-page-link="lab" class="nav-link" href="lab.html">Virtual laboratoriya</a></li>
+            <li class="nav-item"><a data-page-link="periodic" class="nav-link" href="periodic.html">Davriy jadval</a></li>
+            <li class="nav-item"><a data-page-link="trainers" class="nav-link" href="trainers.html">Trenajyorlar</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<section class="kl-page-hero"><div class="container"><div class="kl-kicker">Excel mapping bazasi · 122 qator</div><h1>Mavzu <span style="color:#913bff">studiyasi</span></h1><p>Bu sahifada qisqartirilgan demo emas, siz bergan mapping faylidagi nazariya mavzusi, manba, tushunchalar, vizual format, interaksiya, amaliy tur, mavjud amaliyot, qamrov holati, yangi faoliyat va bog‘lanish mantig‘i ko‘rsatiladi.</p></div></section>
+<main class="container mt-60 mb-100">
+ <div class="kl-toolbar mb-25"><div class="row g-2 align-items-center"><div class="col-lg-4"><input id="q" placeholder="Mavzu, tushuncha yoki ID bo‘yicha qidirish"></div><div class="col-lg-2"><select id="grade"><option value="">Barcha sinflar</option><option>7-sinf</option><option>8-sinf</option><option>9-sinf</option><option>10-sinf</option><option>11-sinf</option></select></div><div class="col-lg-2"><select id="ptype"><option value="">Barcha amaliy turlar</option><option>Lab</option><option>Simulyatsiya</option><option>Trenajyor</option><option>Hisoblash</option><option>Case</option></select></div><div class="col-lg-2"><select id="coverage"><option value="">Barcha qamrov</option><option>Mavjud</option><option>Qisman mavjud</option><option>Yangi kerak</option></select></div><div class="col-lg-2"><div id="theoryCount" class="kl-count text-center">122 mavzu</div></div></div></div>
+ <div class="kl-layout"><div id="theoryGrid" class="kl-topic-list"></div><section id="detail" class="kl-detail"><h2>Mavzuni tanlang</h2></section></div>
+</main>
+
+<div class="footer-style-four theme-basic-footer mt-100">
+  <div class="container">
+    <div class="inner-wrapper">
+      <div class="row">
+        <div class="col-lg-5 footer-intro mb-40">
+          <a href="index.html" class="kl-brand"><span class="kl-brand-mark">K</span><span>KimyoLab</span></a>
+          <p class="mt-20">Nazariya, amaliyot, simulyatsiya, trenajyor va hisoblashni bitta o‘quv zanjirida birlashtiruvchi platforma.</p>
+        </div>
+        <div class="col-lg-2 col-sm-4 ms-auto mb-30"><h5 class="footer-title">Platforma</h5><ul class="footer-nav-link style-none"><li><a href="curriculum.html">122 mavzu</a></li><li><a href="practices.html">62 amaliyot</a></li><li><a href="periodic.html">118 element</a></li></ul></div>
+        <div class="col-lg-3 col-sm-4 mb-30"><h5 class="footer-title">Amaliy faoliyat</h5><ul class="footer-nav-link style-none"><li><a href="lab.html">Virtual laboratoriya</a></li><li><a href="trainers.html">Trenajyorlar</a></li><li><a href="curriculum.html">Mapping bazasi</a></li></ul></div>
+      </div>
+      <div class="bottom-footer"><p class="copyright text-center pb-15">KimyoLab v20 · Sinco dizayn tizimi asosida</p></div>
+    </div>
+  </div>
+</div>
+<button class="scroll-top"><i class="bi bi-arrow-up-short"></i></button>
+<script src="vendor/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="vendor/aos-next/dist/aos.js"></script>
+<script src="vendor/slick/slick.min.js"></script>
+<script src="vendor/jquery.counterup.min.js"></script>
+<script src="vendor/jquery.waypoints.min.js"></script>
+<script src="vendor/fancybox/dist/jquery.fancybox.min.js"></script>
+<script src="js/theme.js"></script>
+<script type="module" src="js/common.js"></script>
+<script type="module" src="js/curriculum.js"></script>
+</div></body></html>

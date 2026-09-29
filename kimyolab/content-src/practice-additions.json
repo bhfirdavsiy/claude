@@ -1,0 +1,172 @@
+[
+  {
+    "id": "practice.simulation.9.18.water-hardness",
+    "learningUnitLegacyId": "9.18",
+    "type": "simulation",
+    "title": "Suv qattiqligi va uni yumshatish modeli",
+    "goal": "Vaqtinchalik va doimiy qattiqlikni manba ionlari hamda mos yumshatish usuli bilan bog‘lang.",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ],
+    "authoringReason": "Legacy 9.2 practice does not primarily teach water hardness."
+  },
+  {
+    "id": "practice.simulation.9.20.cu-ag-au",
+    "learningUnitLegacyId": "9.20",
+    "type": "simulation",
+    "title": "Mis, kumush va oltin: xossa–qo‘llanish taqqoslash modeli",
+    "goal": "Cu, Ag va Au ning nisbiy faolligi, fizik xossalari va qo‘llanishini taqqoslang.",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ],
+    "authoringReason": "Generic metals problem set is not an adequate primary activity for Cu/Ag/Au."
+  },
+  {
+    "id": "practice.simulation.9.21.group12",
+    "learningUnitLegacyId": "9.21",
+    "type": "simulation",
+    "title": "II guruh yonaki guruhcha elementlari trend modeli",
+    "goal": "Zn, Cd va Hg uchun guruh bo‘yicha xossa va birikmalar trendini taqqoslang.",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ],
+    "authoringReason": "Zn(OH)2 experiment covers zinc only; group-level trend needs a model."
+  },
+  {
+    "id": "practice.case.9.25.steel-process",
+    "learningUnitLegacyId": "9.25",
+    "type": "case",
+    "title": "Cho‘yan va po‘lat ishlab chiqarish texnologik case’i",
+    "goal": "Xomashyo, qaytarilish, uglerod miqdori va mahsulot xossalari asosida ishlab chiqarish zanjirini tahlil qiling.",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "evidence-list"
+    ],
+    "authoringReason": "Sample observation does not cover the production process."
+  },
+  {
+    "id": "practice.simulation.10.17.monohydric-alcohols",
+    "learningUnitLegacyId": "10.17",
+    "type": "simulation",
+    "title": "Bir atomli spirtlar: tuzilish–xossa modeli",
+    "goal": "Bir atomli spirtlarning funksional guruhi, eruvchanligi va tipik xossalarini molekula tuzilishi bilan bog‘lang.",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ],
+    "authoringReason": "Legacy glycerin/formalin experiment is not a primary interaction for monohydric alcohols."
+  },
+  {
+    "id": "practice.simulation.10.19.phenols",
+    "learningUnitLegacyId": "10.19",
+    "type": "simulation",
+    "title": "Fenol va aromatik spirtlarni taqqoslash modeli",
+    "goal": "Fenol va aromatik spirtlarda OH guruhining bog‘lanish joyi hamda xossalardagi farqni taqqoslang.",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ],
+    "authoringReason": "Legacy acid/glycerin/glucose identification activity does not teach phenols."
+  },
+  {
+    "id": "practice.simulation.10.21.carbonyls",
+    "learningUnitLegacyId": "10.21",
+    "type": "simulation",
+    "title": "Aldegid va ketonlarni farqlash modeli",
+    "goal": "Karbonil guruhining joylashuvi va sifat belgilariga ko‘ra aldegid hamda ketonlarni farqlang.",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ],
+    "authoringReason": "Legacy practice covers formalin but not ketones, so the old full mapping is too broad."
+  },
+  {
+    "id": "practice.experiment.10.22.carboxylic-acid",
+    "learningUnitLegacyId": "10.22",
+    "type": "experiment",
+    "title": "Karbon kislotalarning xossalari — virtual tajriba",
+    "goal": "Sirka kislotasining indikator va karbonat bilan reaksiyalarini virtual tajribada kuzating va xulosa qiling.",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ],
+    "authoringReason": "Dedicated acid-properties scenario replaces a generic identification activity as primary."
+  },
+  {
+    "id": "practice.simulation.10.23.esters",
+    "learningUnitLegacyId": "10.23",
+    "type": "simulation",
+    "title": "Murakkab efirlar: hosil bo‘lish va tuzilish modeli",
+    "goal": "Kislota va spirt qismlaridan murakkab efir hosil bo‘lishini hamda funksional guruhini modelda bog‘lang.",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ],
+    "authoringReason": "Steam distillation of plant oils does not establish ester chemistry as the primary interaction."
+  },
+  {
+    "id": "practice.trainer.10.26.fibers",
+    "learningUnitLegacyId": "10.26",
+    "type": "trainer",
+    "title": "Tabiiy va sun’iy tolalarni tasniflash trenajyori",
+    "goal": "Tola namunalari va tavsiflarini tabiiy, sun’iy va sintetik guruhlarga tasniflang.",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "text-response"
+    ],
+    "authoringReason": "Paper recycling is not a primary activity for fiber classification."
+  },
+  {
+    "id": "practice.simulation.10.02.structure-theory",
+    "learningUnitLegacyId": "10.02",
+    "type": "simulation",
+    "title": "Organik tuzilish nazariyasi molekula modeli",
+    "goal": "Uglerod skeleti va molekulyar formula orasidagi bog‘lanishni modelda tekshiring.",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ],
+    "authoringReason": "Shared legacy 10.4 model cannot carry a unit-specific structure-theory config without colliding with isomerism/homologous-series units."
+  },
+  {
+    "id": "practice.simulation.10.04.isomerism",
+    "learningUnitLegacyId": "10.04",
+    "type": "simulation",
+    "title": "Izomeriya: bir formula — turli tuzilish modeli",
+    "goal": "Bir xil molekulyar formulaga ega turli tuzilishlarni aniqlang.",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ],
+    "authoringReason": "Dedicated canonical identity prevents shared 10.4 practice config collision."
+  },
+  {
+    "id": "practice.simulation.10.08.homologous-series",
+    "learningUnitLegacyId": "10.08",
+    "type": "simulation",
+    "title": "Alkanlar gomologik qatori modeli",
+    "goal": "Uglerod atomlari soniga ko‘ra alkan gomologining formulasini aniqlang.",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ],
+    "authoringReason": "Dedicated canonical identity prevents shared 10.4 practice config collision."
+  }
+]

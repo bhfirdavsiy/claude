@@ -1,0 +1,1191 @@
+[
+  {
+    "id": "rxn.h2-combustion",
+    "reactants": [
+      {
+        "formula": "H2"
+      },
+      {
+        "formula": "O2"
+      }
+    ],
+    "products": [
+      {
+        "formula": "H2O"
+      }
+    ],
+    "conditions": {
+      "tags": [
+        "ignition"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "combustion",
+    "molecularEquation": "2H2 + O2 → 2H2O",
+    "observations": [
+      {
+        "type": "color-change",
+        "to": "changed"
+      }
+    ],
+    "safety": [
+      "flammable"
+    ],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.c-combustion",
+    "reactants": [
+      {
+        "formula": "C"
+      },
+      {
+        "formula": "O2"
+      }
+    ],
+    "products": [
+      {
+        "formula": "CO2"
+      }
+    ],
+    "conditions": {
+      "tags": [
+        "oxygen-excess",
+        "ignition"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "combustion",
+    "molecularEquation": "C + O2 → CO2",
+    "observations": [
+      {
+        "type": "gas",
+        "descriptionKey": "rxn.c-combustion.observation"
+      }
+    ],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.s-combustion",
+    "reactants": [
+      {
+        "formula": "S"
+      },
+      {
+        "formula": "O2"
+      }
+    ],
+    "products": [
+      {
+        "formula": "SO2"
+      }
+    ],
+    "conditions": {
+      "tags": [
+        "ignition"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "combustion",
+    "molecularEquation": "S + O2 → SO2",
+    "observations": [
+      {
+        "type": "gas",
+        "descriptionKey": "rxn.s-combustion.observation"
+      }
+    ],
+    "safety": [
+      "toxic gas"
+    ],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.fe-combustion",
+    "reactants": [
+      {
+        "formula": "Fe"
+      },
+      {
+        "formula": "O2"
+      }
+    ],
+    "products": [
+      {
+        "formula": "Fe3O4"
+      }
+    ],
+    "conditions": {
+      "tags": [
+        "strong heating"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "redox",
+    "molecularEquation": "3Fe + 2O2 → Fe3O4",
+    "observations": [
+      {
+        "type": "no-visible-change"
+      }
+    ],
+    "safety": [
+      "high temperature"
+    ],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.zn-hcl",
+    "reactants": [
+      {
+        "formula": "Zn"
+      },
+      {
+        "formula": "HCl"
+      }
+    ],
+    "products": [
+      {
+        "formula": "ZnCl2"
+      },
+      {
+        "formula": "H2"
+      }
+    ],
+    "conditions": {
+      "tags": []
+    },
+    "direction": "forward",
+    "reactionType": "single_displacement",
+    "molecularEquation": "Zn + 2HCl → ZnCl2 + H2",
+    "observations": [
+      {
+        "type": "gas",
+        "descriptionKey": "rxn.zn-hcl.observation"
+      }
+    ],
+    "safety": [
+      "flammable gas"
+    ],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.zn-h2so4",
+    "reactants": [
+      {
+        "formula": "Zn"
+      },
+      {
+        "formula": "H2SO4"
+      }
+    ],
+    "products": [
+      {
+        "formula": "ZnSO4"
+      },
+      {
+        "formula": "H2"
+      }
+    ],
+    "conditions": {
+      "tags": [
+        "dilute acid"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "single_displacement",
+    "molecularEquation": "Zn + H2SO4 → ZnSO4 + H2",
+    "observations": [
+      {
+        "type": "gas",
+        "descriptionKey": "rxn.zn-h2so4.observation"
+      }
+    ],
+    "safety": [
+      "corrosive"
+    ],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.mg-h2so4",
+    "reactants": [
+      {
+        "formula": "Mg"
+      },
+      {
+        "formula": "H2SO4"
+      }
+    ],
+    "products": [
+      {
+        "formula": "MgSO4"
+      },
+      {
+        "formula": "H2"
+      }
+    ],
+    "conditions": {
+      "tags": [
+        "dilute acid"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "single_displacement",
+    "molecularEquation": "Mg + H2SO4 → MgSO4 + H2",
+    "observations": [
+      {
+        "type": "gas",
+        "descriptionKey": "rxn.mg-h2so4.observation"
+      }
+    ],
+    "safety": [
+      "corrosive",
+      "flammable gas"
+    ],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.h2-cuo",
+    "reactants": [
+      {
+        "formula": "H2"
+      },
+      {
+        "formula": "CuO"
+      }
+    ],
+    "products": [
+      {
+        "formula": "Cu"
+      },
+      {
+        "formula": "H2O"
+      }
+    ],
+    "conditions": {
+      "tags": [
+        "heating"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "redox",
+    "molecularEquation": "H2 + CuO → Cu + H2O",
+    "observations": [
+      {
+        "type": "no-visible-change"
+      }
+    ],
+    "safety": [
+      "flammable gas"
+    ],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.nacl-h2so4",
+    "reactants": [
+      {
+        "formula": "NaCl"
+      },
+      {
+        "formula": "H2SO4"
+      }
+    ],
+    "products": [
+      {
+        "formula": "NaHSO4"
+      },
+      {
+        "formula": "HCl"
+      }
+    ],
+    "conditions": {
+      "tags": [
+        "concentrated acid",
+        "gentle heating"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "gas_evolution",
+    "molecularEquation": "NaCl + H2SO4 → NaHSO4 + HCl",
+    "observations": [
+      {
+        "type": "gas",
+        "descriptionKey": "rxn.nacl-h2so4.observation"
+      }
+    ],
+    "safety": [
+      "corrosive gas"
+    ],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.cuo-hcl",
+    "reactants": [
+      {
+        "formula": "CuO"
+      },
+      {
+        "formula": "HCl"
+      }
+    ],
+    "products": [
+      {
+        "formula": "CuCl2"
+      },
+      {
+        "formula": "H2O"
+      }
+    ],
+    "conditions": {
+      "tags": []
+    },
+    "direction": "forward",
+    "reactionType": "acid_base",
+    "molecularEquation": "CuO + 2HCl → CuCl2 + H2O",
+    "observations": [
+      {
+        "type": "no-visible-change"
+      }
+    ],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.naoh-hcl",
+    "reactants": [
+      {
+        "formula": "NaOH"
+      },
+      {
+        "formula": "HCl"
+      }
+    ],
+    "products": [
+      {
+        "formula": "NaCl"
+      },
+      {
+        "formula": "H2O"
+      }
+    ],
+    "conditions": {
+      "tags": []
+    },
+    "direction": "forward",
+    "reactionType": "neutralization",
+    "molecularEquation": "NaOH + HCl → NaCl + H2O",
+    "observations": [
+      {
+        "type": "color-change",
+        "to": "changed"
+      }
+    ],
+    "safety": [
+      "corrosive"
+    ],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.caco3-hcl",
+    "reactants": [
+      {
+        "formula": "CaCO3"
+      },
+      {
+        "formula": "HCl"
+      }
+    ],
+    "products": [
+      {
+        "formula": "CaCl2"
+      },
+      {
+        "formula": "H2O"
+      },
+      {
+        "formula": "CO2"
+      }
+    ],
+    "conditions": {
+      "tags": []
+    },
+    "direction": "forward",
+    "reactionType": "gas_evolution",
+    "molecularEquation": "CaCO3 + 2HCl → CaCl2 + H2O + CO2",
+    "observations": [
+      {
+        "type": "gas",
+        "descriptionKey": "rxn.caco3-hcl.observation"
+      }
+    ],
+    "safety": [
+      "corrosive"
+    ],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.cao-water",
+    "reactants": [
+      {
+        "formula": "CaO"
+      },
+      {
+        "formula": "H2O"
+      }
+    ],
+    "products": [
+      {
+        "formula": "Ca(OH)2"
+      }
+    ],
+    "conditions": {
+      "tags": []
+    },
+    "direction": "forward",
+    "reactionType": "combination",
+    "molecularEquation": "CaO + H2O → Ca(OH)2",
+    "observations": [
+      {
+        "type": "temperature-change",
+        "direction": "up"
+      }
+    ],
+    "safety": [
+      "exothermic"
+    ],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.co2-water",
+    "reactants": [
+      {
+        "formula": "CO2"
+      },
+      {
+        "formula": "H2O"
+      }
+    ],
+    "products": [
+      {
+        "formula": "H2CO3"
+      }
+    ],
+    "conditions": {
+      "tags": []
+    },
+    "direction": "reversible",
+    "reactionType": "equilibrium",
+    "molecularEquation": "CO2 + H2O ⇌ H2CO3",
+    "observations": [
+      {
+        "type": "no-visible-change"
+      }
+    ],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.zncl2-naoh",
+    "reactants": [
+      {
+        "formula": "ZnCl2"
+      },
+      {
+        "formula": "NaOH"
+      }
+    ],
+    "products": [
+      {
+        "formula": "Zn(OH)2"
+      },
+      {
+        "formula": "NaCl"
+      }
+    ],
+    "conditions": {
+      "tags": []
+    },
+    "direction": "forward",
+    "reactionType": "precipitation",
+    "molecularEquation": "ZnCl2 + 2NaOH → Zn(OH)2 + 2NaCl",
+    "observations": [
+      {
+        "type": "precipitate",
+        "color": "white"
+      }
+    ],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.znoh2-hcl",
+    "reactants": [
+      {
+        "formula": "Zn(OH)2"
+      },
+      {
+        "formula": "HCl"
+      }
+    ],
+    "products": [
+      {
+        "formula": "ZnCl2"
+      },
+      {
+        "formula": "H2O"
+      }
+    ],
+    "conditions": {
+      "tags": []
+    },
+    "direction": "forward",
+    "reactionType": "acid_base",
+    "molecularEquation": "Zn(OH)2 + 2HCl → ZnCl2 + 2H2O",
+    "observations": [
+      {
+        "type": "precipitate",
+        "color": "white"
+      }
+    ],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.agno3-nacl",
+    "reactants": [
+      {
+        "formula": "AgNO3",
+        "phase": "aq"
+      },
+      {
+        "formula": "NaCl",
+        "phase": "aq"
+      }
+    ],
+    "products": [
+      {
+        "formula": "AgCl",
+        "phase": "s"
+      },
+      {
+        "formula": "NaNO3",
+        "phase": "aq"
+      }
+    ],
+    "conditions": {
+      "tags": []
+    },
+    "direction": "forward",
+    "reactionType": "precipitation",
+    "molecularEquation": "AgNO3 + NaCl → AgCl + NaNO3",
+    "observations": [
+      {
+        "type": "precipitate",
+        "color": "white"
+      }
+    ],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.agno3-nabr",
+    "reactants": [
+      {
+        "formula": "AgNO3"
+      },
+      {
+        "formula": "NaBr"
+      }
+    ],
+    "products": [
+      {
+        "formula": "AgBr"
+      },
+      {
+        "formula": "NaNO3"
+      }
+    ],
+    "conditions": {
+      "tags": []
+    },
+    "direction": "forward",
+    "reactionType": "precipitation",
+    "molecularEquation": "AgNO3 + NaBr → AgBr + NaNO3",
+    "observations": [
+      {
+        "type": "precipitate",
+        "color": "yellow"
+      }
+    ],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.agno3-nai",
+    "reactants": [
+      {
+        "formula": "AgNO3"
+      },
+      {
+        "formula": "NaI"
+      }
+    ],
+    "products": [
+      {
+        "formula": "AgI"
+      },
+      {
+        "formula": "NaNO3"
+      }
+    ],
+    "conditions": {
+      "tags": []
+    },
+    "direction": "forward",
+    "reactionType": "precipitation",
+    "molecularEquation": "AgNO3 + NaI → AgI + NaNO3",
+    "observations": [
+      {
+        "type": "precipitate",
+        "color": "yellow"
+      }
+    ],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.cl2-kbr",
+    "reactants": [
+      {
+        "formula": "Cl2"
+      },
+      {
+        "formula": "KBr"
+      }
+    ],
+    "products": [
+      {
+        "formula": "KCl"
+      },
+      {
+        "formula": "Br2"
+      }
+    ],
+    "conditions": {
+      "tags": []
+    },
+    "direction": "forward",
+    "reactionType": "redox",
+    "molecularEquation": "Cl2 + 2KBr → 2KCl + Br2",
+    "observations": [
+      {
+        "type": "color-change",
+        "to": "changed"
+      }
+    ],
+    "safety": [
+      "toxic halogen"
+    ],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.br2-ki",
+    "reactants": [
+      {
+        "formula": "Br2"
+      },
+      {
+        "formula": "KI"
+      }
+    ],
+    "products": [
+      {
+        "formula": "KBr"
+      },
+      {
+        "formula": "I2"
+      }
+    ],
+    "conditions": {
+      "tags": []
+    },
+    "direction": "forward",
+    "reactionType": "redox",
+    "molecularEquation": "Br2 + 2KI → 2KBr + I2",
+    "observations": [
+      {
+        "type": "color-change",
+        "to": "changed"
+      }
+    ],
+    "safety": [
+      "toxic halogen"
+    ],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.bacl2-h2so4",
+    "reactants": [
+      {
+        "formula": "BaCl2"
+      },
+      {
+        "formula": "H2SO4"
+      }
+    ],
+    "products": [
+      {
+        "formula": "BaSO4"
+      },
+      {
+        "formula": "HCl"
+      }
+    ],
+    "conditions": {
+      "tags": []
+    },
+    "direction": "forward",
+    "reactionType": "precipitation",
+    "molecularEquation": "BaCl2 + H2SO4 → BaSO4 + 2HCl",
+    "observations": [
+      {
+        "type": "precipitate",
+        "color": "white"
+      }
+    ],
+    "safety": [
+      "toxic barium salt"
+    ],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.nh4cl-caoh2",
+    "reactants": [
+      {
+        "formula": "NH4Cl"
+      },
+      {
+        "formula": "Ca(OH)2"
+      }
+    ],
+    "products": [
+      {
+        "formula": "NH3"
+      },
+      {
+        "formula": "CaCl2"
+      },
+      {
+        "formula": "H2O"
+      }
+    ],
+    "conditions": {
+      "tags": [
+        "gentle heating"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "gas_evolution",
+    "molecularEquation": "2NH4Cl + Ca(OH)2 → 2NH3 + CaCl2 + 2H2O",
+    "observations": [
+      {
+        "type": "gas",
+        "descriptionKey": "rxn.nh4cl-caoh2.observation"
+      }
+    ],
+    "safety": [
+      "toxic gas"
+    ],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.nh3-hcl",
+    "reactants": [
+      {
+        "formula": "NH3"
+      },
+      {
+        "formula": "HCl"
+      }
+    ],
+    "products": [
+      {
+        "formula": "NH4Cl"
+      }
+    ],
+    "conditions": {
+      "tags": []
+    },
+    "direction": "forward",
+    "reactionType": "combination",
+    "molecularEquation": "NH3 + HCl → NH4Cl",
+    "observations": [
+      {
+        "type": "no-visible-change"
+      }
+    ],
+    "safety": [
+      "irritant fumes"
+    ],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.na2s-hcl",
+    "reactants": [
+      {
+        "formula": "Na2S"
+      },
+      {
+        "formula": "HCl"
+      }
+    ],
+    "products": [
+      {
+        "formula": "H2S"
+      },
+      {
+        "formula": "NaCl"
+      }
+    ],
+    "conditions": {
+      "tags": []
+    },
+    "direction": "forward",
+    "reactionType": "gas_evolution",
+    "molecularEquation": "Na2S + 2HCl → H2S + 2NaCl",
+    "observations": [
+      {
+        "type": "gas",
+        "descriptionKey": "rxn.na2s-hcl.observation"
+      }
+    ],
+    "safety": [
+      "toxic gas"
+    ],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.cuso4-na2s",
+    "reactants": [
+      {
+        "formula": "CuSO4"
+      },
+      {
+        "formula": "Na2S"
+      }
+    ],
+    "products": [
+      {
+        "formula": "CuS"
+      },
+      {
+        "formula": "Na2SO4"
+      }
+    ],
+    "conditions": {
+      "tags": []
+    },
+    "direction": "forward",
+    "reactionType": "precipitation",
+    "molecularEquation": "CuSO4 + Na2S → CuS + Na2SO4",
+    "observations": [
+      {
+        "type": "precipitate",
+        "color": "black"
+      }
+    ],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.p-combustion",
+    "reactants": [
+      {
+        "formula": "P"
+      },
+      {
+        "formula": "O2"
+      }
+    ],
+    "products": [
+      {
+        "formula": "P2O5"
+      }
+    ],
+    "conditions": {
+      "tags": [
+        "ignition"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "combustion",
+    "molecularEquation": "4P + 5O2 → 2P2O5",
+    "observations": [
+      {
+        "type": "no-visible-change"
+      }
+    ],
+    "safety": [
+      "flammable"
+    ],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.c-combustion-limited",
+    "reactants": [
+      {
+        "formula": "C"
+      },
+      {
+        "formula": "O2"
+      }
+    ],
+    "products": [
+      {
+        "formula": "CO"
+      }
+    ],
+    "conditions": {
+      "tags": [
+        "oxygen-limited",
+        "ignition"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "combustion",
+    "molecularEquation": "2C + O2 → 2CO",
+    "observations": [
+      {
+        "type": "gas",
+        "descriptionKey": "rxn.c-combustion-limited.observation"
+      }
+    ],
+    "safety": [
+      "toxic gas"
+    ],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.beta1.migration",
+        "type": "internal",
+        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  }
+]

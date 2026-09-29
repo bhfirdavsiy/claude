@@ -1,0 +1,21 @@
+{
+  "phase": 9,
+  "status": "technical-green-release-yellow",
+  "beta2": {
+    "learningUnits": 53,
+    "technicalReady": 53,
+    "technicalErrors": 0,
+    "blocked": 0,
+    "releaseReady": 0,
+    "pendingApprovals": 175,
+    "focusedTests": {"passed": 41, "failed": 0},
+    "fullRegression": {"passed": 214, "failed": 0}
+  },
+  "releaseBlockers": [
+    "CHEMISTRY_EXPERT_APPROVAL_PENDING",
+    "BETA1_APPROVALS_PENDING",
+    "BETA2_APPROVALS_PENDING",
+    "LICENSING_PENDING",
+    "BROWSER_GATES_PENDING"
+  ]
+}

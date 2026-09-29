@@ -1,0 +1,20 @@
+requirement,module,test,status,notes
+LEARN-001,src/runtime/evidence/types.ts,tests/phase3-evidence.test.mjs,PASS,Typed discriminated evidence union
+LEARN-002,src/runtime/evidence/types.ts,tests/phase3-evidence.test.mjs,PASS,Version metadata and bounded score validation
+ASSESS-010,src/domain/assessment/scoring.ts,tests/phase3-assessment.test.mjs,PASS,Deterministic assessment result and weak concept detection
+MASTER-001,src/domain/mastery/mastery.ts,tests/phase3-mastery.test.mjs,PASS,Default evidence class weights
+MASTER-002,src/domain/mastery/mastery.ts,tests/phase3-mastery.test.mjs,PASS,Minimum independent evidence rule
+MASTER-003,src/domain/mastery/mastery.ts,tests/phase3-mastery.test.mjs,PASS,Recent weighted confidence
+MASTER-004,src/domain/mastery/mastery.ts,tests/phase3-mastery.test.mjs,PASS,Mastery thresholds
+MASTER-005,src/domain/mastery/mastery.ts,tests/phase3-mastery.test.mjs,PASS,Conflicting evidence retained and recency weighted
+MASTER-006,src/domain/mastery/mastery.ts,tests/phase3-mastery.test.mjs,PASS,lastEvidenceAt/reviewDueAt schema support
+LEARN-010,src/runtime/learning-runner/runner.ts,tests/phase3-learning-runner.test.mjs,PASS,Minimal canonical learning orchestration
+ENG-001,src/runtime/practice-router/router.ts,tests/phase3-router.test.mjs,PASS,Five-type routing contract
+ENG-002,src/runtime/practice-router/router.ts,tests/phase3-router.test.mjs,PASS,ACTIVITY_NOT_READY behavior
+LEARN-020,src/runtime/remediation/router.ts,tests/phase3-remediation.test.mjs,PASS,Typed remediation routing
+PROG-001,src/runtime/progress/types.ts;src/runtime/progress/reducer.ts,tests/phase3-progress.test.mjs,PASS,LearningUnit progress lifecycle
+PROG-010,src/runtime/progress/indexeddb-store.ts,tests/phase3-indexeddb.test.mjs,PASS,IndexedDB stores and round-trip persistence
+PROG-011,src/runtime/progress/indexeddb-store.ts,tests/phase3-indexeddb.test.mjs,PASS,Transaction completion awaited
+PROG-012,src/runtime/progress/indexeddb-store.ts,tests/phase3-indexeddb.test.mjs,PASS,Structured persistence unavailability/save/load errors
+PROG-013,, ,DEFERRED,Quota recovery belongs to Product Quality/Operations hardening
+PROG-014,, ,DEFERRED,Corruption recovery belongs to Product Quality/Operations hardening

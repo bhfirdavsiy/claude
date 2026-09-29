@@ -1,0 +1,401 @@
+{
+  "generatedAt": "2026-09-29T04:44:05.083Z",
+  "environment": {
+    "browser": "chromium",
+    "managedPolicyBlocked": true
+  },
+  "evidence": {
+    "routes": [
+      {
+        "name": "home",
+        "path": "/",
+        "url": "/",
+        "title": "172.26.39.221",
+        "lang": "en",
+        "hasMain": false,
+        "hasSkip": false,
+        "textLength": 79,
+        "bodyText": "172.26.39.221 is blocked\n\nYour organization doesn’t allow you to view this site",
+        "missingLabels": 0,
+        "nav": {
+          "duration": 719.1999999999534,
+          "domContentLoaded": 701.3999999999069,
+          "responseEnd": 688.5
+        },
+        "fcp": 724,
+        "vitals": {
+          "cls": 0,
+          "lcp": 724,
+          "inp": 0,
+          "longTasks": 0
+        },
+        "exceptions": 0,
+        "severeConsole": 0,
+        "axNamedInteractive": 0,
+        "screenshot": "reports/visual-regression/phase12-smoke/home.png",
+        "screenshotSha256": "a0ac413cefa1c0e4245966ea7432b9b30a7c28150e2dd0403076885b5014344f",
+        "pass": false
+      },
+      {
+        "name": "labs",
+        "path": "/labs",
+        "url": "/labs",
+        "title": "172.26.39.221",
+        "lang": "en",
+        "hasMain": false,
+        "hasSkip": false,
+        "textLength": 79,
+        "bodyText": "172.26.39.221 is blocked\n\nYour organization doesn’t allow you to view this site",
+        "missingLabels": 0,
+        "nav": {
+          "duration": 18.5,
+          "domContentLoaded": 17.300000000046566,
+          "responseEnd": 12
+        },
+        "fcp": 24,
+        "vitals": {
+          "cls": 0,
+          "lcp": 24,
+          "inp": 0,
+          "longTasks": 0
+        },
+        "exceptions": 0,
+        "severeConsole": 0,
+        "axNamedInteractive": 0,
+        "screenshot": "reports/visual-regression/phase12-smoke/labs.png",
+        "screenshotSha256": "a0ac413cefa1c0e4245966ea7432b9b30a7c28150e2dd0403076885b5014344f",
+        "pass": false
+      },
+      {
+        "name": "external-chemai",
+        "path": "/external-lab/ext.chemai.rate?lu=lu.8.19",
+        "url": "/external-lab/ext.chemai.rate?lu=lu.8.19",
+        "title": "172.26.39.221",
+        "lang": "en",
+        "hasMain": false,
+        "hasSkip": false,
+        "textLength": 79,
+        "bodyText": "172.26.39.221 is blocked\n\nYour organization doesn’t allow you to view this site",
+        "missingLabels": 0,
+        "nav": {
+          "duration": 16.300000000046566,
+          "domContentLoaded": 15.200000000186265,
+          "responseEnd": 10.5
+        },
+        "fcp": 28,
+        "vitals": {
+          "cls": 0,
+          "lcp": 28,
+          "inp": 0,
+          "longTasks": 0
+        },
+        "exceptions": 0,
+        "severeConsole": 0,
+        "axNamedInteractive": 0,
+        "screenshot": "reports/visual-regression/phase12-smoke/external-chemai.png",
+        "screenshotSha256": "a0ac413cefa1c0e4245966ea7432b9b30a7c28150e2dd0403076885b5014344f",
+        "pass": false
+      },
+      {
+        "name": "external-nobook-fallback",
+        "path": "/external-lab/ext.nobook.inorganic?lu=lu.8.14",
+        "url": "/external-lab/ext.nobook.inorganic?lu=lu.8.14",
+        "title": "172.26.39.221",
+        "lang": "en",
+        "hasMain": false,
+        "hasSkip": false,
+        "textLength": 79,
+        "bodyText": "172.26.39.221 is blocked\n\nYour organization doesn’t allow you to view this site",
+        "missingLabels": 0,
+        "nav": {
+          "duration": 18.699999999953434,
+          "domContentLoaded": 18.0999999998603,
+          "responseEnd": 11.699999999953434
+        },
+        "fcp": 24,
+        "vitals": {
+          "cls": 0,
+          "lcp": 24,
+          "inp": 0,
+          "longTasks": 0
+        },
+        "exceptions": 0,
+        "severeConsole": 0,
+        "axNamedInteractive": 0,
+        "screenshot": "reports/visual-regression/phase12-smoke/external-nobook-fallback.png",
+        "screenshotSha256": "a0ac413cefa1c0e4245966ea7432b9b30a7c28150e2dd0403076885b5014344f",
+        "pass": false
+      },
+      {
+        "name": "search",
+        "path": "/search?q=kimyo",
+        "url": "/search?q=kimyo",
+        "title": "172.26.39.221",
+        "lang": "en",
+        "hasMain": false,
+        "hasSkip": false,
+        "textLength": 79,
+        "bodyText": "172.26.39.221 is blocked\n\nYour organization doesn’t allow you to view this site",
+        "missingLabels": 0,
+        "nav": {
+          "duration": 15.099999999860302,
+          "domContentLoaded": 14.199999999953434,
+          "responseEnd": 9.799999999813735
+        },
+        "fcp": 28,
+        "vitals": {
+          "cls": 0,
+          "lcp": 28,
+          "inp": 0,
+          "longTasks": 0
+        },
+        "exceptions": 0,
+        "severeConsole": 0,
+        "axNamedInteractive": 0,
+        "screenshot": "reports/visual-regression/phase12-smoke/search.png",
+        "screenshotSha256": "a0ac413cefa1c0e4245966ea7432b9b30a7c28150e2dd0403076885b5014344f",
+        "pass": false
+      },
+      {
+        "name": "progress",
+        "path": "/progress",
+        "url": "/progress",
+        "title": "172.26.39.221",
+        "lang": "en",
+        "hasMain": false,
+        "hasSkip": false,
+        "textLength": 79,
+        "bodyText": "172.26.39.221 is blocked\n\nYour organization doesn’t allow you to view this site",
+        "missingLabels": 0,
+        "nav": {
+          "duration": 18.800000000046566,
+          "domContentLoaded": 17.5,
+          "responseEnd": 12
+        },
+        "fcp": 24,
+        "vitals": {
+          "cls": 0,
+          "lcp": 24,
+          "inp": 0,
+          "longTasks": 0
+        },
+        "exceptions": 0,
+        "severeConsole": 0,
+        "axNamedInteractive": 0,
+        "screenshot": "reports/visual-regression/phase12-smoke/progress.png",
+        "screenshotSha256": "a0ac413cefa1c0e4245966ea7432b9b30a7c28150e2dd0403076885b5014344f",
+        "pass": false
+      },
+      {
+        "name": "learning-unit",
+        "path": "/learn/lu.7.03",
+        "url": "/learn/lu.7.03",
+        "title": "172.26.39.221",
+        "lang": "en",
+        "hasMain": false,
+        "hasSkip": false,
+        "textLength": 79,
+        "bodyText": "172.26.39.221 is blocked\n\nYour organization doesn’t allow you to view this site",
+        "missingLabels": 0,
+        "nav": {
+          "duration": 18,
+          "domContentLoaded": 15.800000000046566,
+          "responseEnd": 9.5
+        },
+        "fcp": 28,
+        "vitals": {
+          "cls": 0,
+          "lcp": 28,
+          "inp": 0,
+          "longTasks": 0
+        },
+        "exceptions": 0,
+        "severeConsole": 0,
+        "axNamedInteractive": 0,
+        "screenshot": "reports/visual-regression/phase12-smoke/learning-unit.png",
+        "screenshotSha256": "a0ac413cefa1c0e4245966ea7432b9b30a7c28150e2dd0403076885b5014344f",
+        "pass": false
+      },
+      {
+        "name": "practice",
+        "path": "/practice/practice.experiment.7.1",
+        "url": "/practice/practice.experiment.7.1",
+        "title": "172.26.39.221",
+        "lang": "en",
+        "hasMain": false,
+        "hasSkip": false,
+        "textLength": 79,
+        "bodyText": "172.26.39.221 is blocked\n\nYour organization doesn’t allow you to view this site",
+        "missingLabels": 0,
+        "nav": {
+          "duration": 24.600000000093132,
+          "domContentLoaded": 21.9000000001397,
+          "responseEnd": 14.600000000093132
+        },
+        "fcp": 28,
+        "vitals": {
+          "cls": 0,
+          "lcp": 28,
+          "inp": 0,
+          "longTasks": 0
+        },
+        "exceptions": 0,
+        "severeConsole": 0,
+        "axNamedInteractive": 0,
+        "screenshot": "reports/visual-regression/phase12-smoke/practice.png",
+        "screenshotSha256": "a0ac413cefa1c0e4245966ea7432b9b30a7c28150e2dd0403076885b5014344f",
+        "pass": false
+      },
+      {
+        "name": "worksheet",
+        "path": "/worksheet/lu.7.03",
+        "url": "/worksheet/lu.7.03",
+        "title": "172.26.39.221",
+        "lang": "en",
+        "hasMain": false,
+        "hasSkip": false,
+        "textLength": 79,
+        "bodyText": "172.26.39.221 is blocked\n\nYour organization doesn’t allow you to view this site",
+        "missingLabels": 0,
+        "nav": {
+          "duration": 17,
+          "domContentLoaded": 15.899999999906868,
+          "responseEnd": 10.5
+        },
+        "fcp": 28,
+        "vitals": {
+          "cls": 0,
+          "lcp": 28,
+          "inp": 0,
+          "longTasks": 0
+        },
+        "exceptions": 0,
+        "severeConsole": 0,
+        "axNamedInteractive": 0,
+        "screenshot": "reports/visual-regression/phase12-smoke/worksheet.png",
+        "screenshotSha256": "a0ac413cefa1c0e4245966ea7432b9b30a7c28150e2dd0403076885b5014344f",
+        "pass": false
+      }
+    ],
+    "performance": [
+      {
+        "route": "/",
+        "fcp": 724,
+        "lcp": 724,
+        "cls": 0,
+        "duration": 719,
+        "longTasks": 0
+      },
+      {
+        "route": "/labs",
+        "fcp": 24,
+        "lcp": 24,
+        "cls": 0,
+        "duration": 19,
+        "longTasks": 0
+      },
+      {
+        "route": "/external-lab/ext.chemai.rate?lu=lu.8.19",
+        "fcp": 28,
+        "lcp": 28,
+        "cls": 0,
+        "duration": 16,
+        "longTasks": 0
+      },
+      {
+        "route": "/external-lab/ext.nobook.inorganic?lu=lu.8.14",
+        "fcp": 24,
+        "lcp": 24,
+        "cls": 0,
+        "duration": 19,
+        "longTasks": 0
+      },
+      {
+        "route": "/search?q=kimyo",
+        "fcp": 28,
+        "lcp": 28,
+        "cls": 0,
+        "duration": 15,
+        "longTasks": 0
+      },
+      {
+        "route": "/progress",
+        "fcp": 24,
+        "lcp": 24,
+        "cls": 0,
+        "duration": 19,
+        "longTasks": 0
+      },
+      {
+        "route": "/learn/lu.7.03",
+        "fcp": 28,
+        "lcp": 28,
+        "cls": 0,
+        "duration": 18,
+        "longTasks": 0
+      },
+      {
+        "route": "/practice/practice.experiment.7.1",
+        "fcp": 28,
+        "lcp": 28,
+        "cls": 0,
+        "duration": 25,
+        "longTasks": 0
+      },
+      {
+        "route": "/worksheet/lu.7.03",
+        "fcp": 28,
+        "lcp": 28,
+        "cls": 0,
+        "duration": 17,
+        "longTasks": 0
+      }
+    ]
+  },
+  "externalProviders": {
+    "status": "READY_WITH_EXTERNAL_BLOCKER",
+    "readyReferenceBindings": 8,
+    "nobook": {
+      "partnerConfigured": false,
+      "sdkReady": false,
+      "sdkChecksumValid": false,
+      "experimentUrlValid": false
+    }
+  },
+  "prodBuild": {
+    "status": "pass",
+    "fileCount": 144,
+    "sha256": "c8a4df1f0e8a3170faa1db8a002e4d9c819758c55b1caa7a24dfb04a3b91653b",
+    "deployFileCount": 143,
+    "deploySurfaceSha256": "0c7ca7530c1a3da3ee30578e5dce6c0c17f32caec03867acf328978412e3d313"
+  },
+  "e2e": {
+    "status": "blocked",
+    "reason": "MANAGED_BROWSER_URL_POLICY",
+    "routesPassed": 0,
+    "routesTotal": 9
+  },
+  "accessibility": {
+    "status": "blocked",
+    "reason": "MANAGED_BROWSER_URL_POLICY",
+    "method": "real Chromium DOM + Accessibility tree smoke",
+    "missingLabels": null
+  },
+  "webVitals": {
+    "status": "blocked",
+    "reason": "MANAGED_BROWSER_URL_POLICY",
+    "method": "real Chromium PerformanceObserver smoke",
+    "thresholds": {
+      "fcpMs": 3000,
+      "lcpMs": 4000,
+      "cls": 0.1,
+      "navigationDurationMs": 5000
+    },
+    "note": "INP is not asserted by navigation-only smoke; interaction-specific performance remains reviewer evidence."
+  },
+  "visual": {
+    "status": "blocked",
+    "reason": "MANAGED_BROWSER_URL_POLICY",
+    "screenshots": []
+  }
+}

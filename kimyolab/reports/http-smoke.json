@@ -1,0 +1,119 @@
+{
+  "generatedAt": "2026-09-29T10:48:59.383Z",
+  "checks": [
+    {
+      "id": "route:/",
+      "pass": true,
+      "status": 200,
+      "csp": true
+    },
+    {
+      "id": "route:/curriculum",
+      "pass": true,
+      "status": 200,
+      "csp": true
+    },
+    {
+      "id": "route:/labs",
+      "pass": true,
+      "status": 200,
+      "csp": true
+    },
+    {
+      "id": "route:/external-lab/ext.chemai.rate?lu=lu.8.19",
+      "pass": true,
+      "status": 200,
+      "csp": true
+    },
+    {
+      "id": "route:/search?q=kimyo",
+      "pass": true,
+      "status": 200,
+      "csp": true
+    },
+    {
+      "id": "route:/progress",
+      "pass": true,
+      "status": 200,
+      "csp": true
+    },
+    {
+      "id": "route:/learn/lu.7.03",
+      "pass": true,
+      "status": 200,
+      "csp": true
+    },
+    {
+      "id": "route:/practice/practice.experiment.7.1",
+      "pass": true,
+      "status": 200,
+      "csp": true
+    },
+    {
+      "id": "route:/worksheet/lu.7.03",
+      "pass": true,
+      "status": 200,
+      "csp": true
+    },
+    {
+      "id": "asset:/app-preview/app/bootstrap.js",
+      "pass": true,
+      "status": 200,
+      "contentType": "text/javascript; charset=utf-8"
+    },
+    {
+      "id": "asset:/app-preview/ui/tokens/kimyolab.css",
+      "pass": true,
+      "status": 200,
+      "contentType": "text/css; charset=utf-8"
+    },
+    {
+      "id": "asset:/content/manifest.json",
+      "pass": true,
+      "status": 200,
+      "contentType": "application/json; charset=utf-8"
+    },
+    {
+      "id": "security:/source/secret.xlsx",
+      "pass": true,
+      "status": 404
+    },
+    {
+      "id": "security:/%2e%2e/%2e%2e/etc/passwd",
+      "pass": true,
+      "status": 404
+    },
+    {
+      "id": "api:nobook-status",
+      "pass": true,
+      "status": 200,
+      "configured": false,
+      "sdkReady": false
+    },
+    {
+      "id": "api:external-provider-status",
+      "pass": true,
+      "status": 200
+    },
+    {
+      "id": "content:activeVersion",
+      "pass": true,
+      "value": "2026.09.1"
+    }
+  ],
+  "httpSmoke": {
+    "status": "pass",
+    "passed": 17,
+    "total": 17
+  },
+  "staticAccessibility": {
+    "status": "pass",
+    "checks": {
+      "lang": true,
+      "main": true,
+      "skip": true,
+      "navLabel": true,
+      "metaViewport": true
+    }
+  }
+}

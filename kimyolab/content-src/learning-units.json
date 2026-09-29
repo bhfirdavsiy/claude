@@ -1,0 +1,3303 @@
+[
+  {
+    "id": "lu.7.01",
+    "grade": 7,
+    "title": "Kimyo fani va uning vazifalari",
+    "chapter": "I bob, 1-mavzu",
+    "learningOutcomes": [
+      "Kirish mavzusi tajribadan ko‘ra fan xaritasi va hayotiy vaziyat bilan mustahkamlanadi; 7.1 laboratoriya xavfsizligi/jihozlar bilan tanishtiradi."
+    ],
+    "conceptIds": [
+      "concept.c001",
+      "concept.c002",
+      "concept.c003"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.7.01",
+        "type": "internal",
+        "title": "I bob, 1-mavzu"
+      }
+    ],
+    "legacyIds": [
+      "7.01"
+    ]
+  },
+  {
+    "id": "lu.7.02",
+    "grade": 7,
+    "title": "Modda va uning xossalari",
+    "chapter": "I bob, 2-mavzu",
+    "learningOutcomes": [
+      "Makro xossalarni 7.3 va suvning fizik xossalari 7.12 bilan kuzatish, zarracha modelida izohlash."
+    ],
+    "conceptIds": [
+      "concept.c004",
+      "concept.c005",
+      "concept.c006"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.7.02",
+        "type": "internal",
+        "title": "I bob, 2-mavzu"
+      }
+    ],
+    "legacyIds": [
+      "7.02"
+    ]
+  },
+  {
+    "id": "lu.7.03",
+    "grade": 7,
+    "title": "Sof modda va aralashmalar",
+    "chapter": "I bob, 5-mavzu",
+    "learningOutcomes": [
+      "7.2 eritish–filtrlash–bug‘latish orqali aralashmadan sof modda ajratishni bevosita namoyish qiladi."
+    ],
+    "conceptIds": [
+      "concept.c007",
+      "concept.c008"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.7.03",
+        "type": "internal",
+        "title": "I bob, 5-mavzu"
+      }
+    ],
+    "legacyIds": [
+      "7.03"
+    ]
+  },
+  {
+    "id": "lu.7.04",
+    "grade": 7,
+    "title": "Moddalarning agregat holatining o‘zgarishi",
+    "chapter": "I bob, 7-mavzu",
+    "learningOutcomes": [
+      "7.6 va 7.12 agregat holat va fizik xossalarni makrodarajada ko‘rsatadi, simulyatsiya mikrodarajani beradi."
+    ],
+    "conceptIds": [
+      "concept.c009",
+      "concept.c010",
+      "concept.c011",
+      "concept.c012",
+      "concept.c013"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.7.04",
+        "type": "internal",
+        "title": "I bob, 7-mavzu"
+      }
+    ],
+    "legacyIds": [
+      "7.04"
+    ]
+  },
+  {
+    "id": "lu.7.05",
+    "grade": 7,
+    "title": "Fizik va kimyoviy hodisalar",
+    "chapter": "I bob, 8-mavzu",
+    "learningOutcomes": [
+      "7.3 kundalik jarayonlar, 7.6 fizik o‘zgarish, 7.7 yonish orqali farqni taqqoslash mumkin."
+    ],
+    "conceptIds": [
+      "concept.c014",
+      "concept.c015",
+      "concept.c016"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.7.05",
+        "type": "internal",
+        "title": "I bob, 8-mavzu"
+      }
+    ],
+    "legacyIds": [
+      "7.05"
+    ]
+  },
+  {
+    "id": "lu.7.06",
+    "grade": 7,
+    "title": "Atom",
+    "chapter": "II bob, 1-mavzu",
+    "learningOutcomes": [
+      "Atom bevosita laboratoriyada kuzatilmaydi; model asosiy amaliyot bo‘lishi kerak."
+    ],
+    "conceptIds": [
+      "concept.c017",
+      "concept.c018"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.7.06",
+        "type": "internal",
+        "title": "II bob, 1-mavzu"
+      }
+    ],
+    "legacyIds": [
+      "7.06"
+    ]
+  },
+  {
+    "id": "lu.7.07",
+    "grade": 7,
+    "title": "Atom va uning tuzilishi: proton, neytron, elektron",
+    "chapter": "II bob, 2-mavzu",
+    "learningOutcomes": [
+      "Nazariya katalogida ko‘zda tutilgan konstruktiv faoliyat; laboratoriya shart emas."
+    ],
+    "conceptIds": [
+      "concept.c019",
+      "concept.c020",
+      "concept.c021",
+      "concept.c022",
+      "concept.c023"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.7.07",
+        "type": "internal",
+        "title": "II bob, 2-mavzu"
+      }
+    ],
+    "legacyIds": [
+      "7.07"
+    ]
+  },
+  {
+    "id": "lu.7.08",
+    "grade": 7,
+    "title": "Kimyoviy element va kimyoviy belgi",
+    "chapter": "II bob, 3-mavzu",
+    "learningOutcomes": [
+      "Element va belgi bilimini operatsion mashq orqali mustahkamlaydi."
+    ],
+    "conceptIds": [
+      "concept.c024",
+      "concept.c025",
+      "concept.c026"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.7.08",
+        "type": "internal",
+        "title": "II bob, 3-mavzu"
+      }
+    ],
+    "legacyIds": [
+      "7.08"
+    ]
+  },
+  {
+    "id": "lu.7.09",
+    "grade": 7,
+    "title": "Kimyoviy elementning nisbiy atom massasi",
+    "chapter": "II bob, 4-mavzu",
+    "learningOutcomes": [
+      "Mavzu sonli taqqoslashga asoslangan."
+    ],
+    "conceptIds": [
+      "concept.c027",
+      "concept.c028"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.7.09",
+        "type": "internal",
+        "title": "II bob, 4-mavzu"
+      }
+    ],
+    "legacyIds": [
+      "7.09"
+    ]
+  },
+  {
+    "id": "lu.7.10",
+    "grade": 7,
+    "title": "Izotoplar, izobarlar, izotonlar",
+    "chapter": "II bob, 5-mavzu",
+    "learningOutcomes": [
+      "Proton va neytron sonini o‘zgartirib tushunchalarni farqlash eng tabiiy amaliyot."
+    ],
+    "conceptIds": [
+      "concept.c029",
+      "concept.c030"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.7.10",
+        "type": "internal",
+        "title": "II bob, 5-mavzu"
+      }
+    ],
+    "legacyIds": [
+      "7.10"
+    ]
+  },
+  {
+    "id": "lu.7.11",
+    "grade": 7,
+    "title": "Kimyoviy formula va valentlik",
+    "chapter": "II bob, 6-mavzu",
+    "learningOutcomes": [
+      "7.4 aynan valentlik va formula tuzishga qaratilgan."
+    ],
+    "conceptIds": [
+      "concept.c031",
+      "concept.c032",
+      "concept.c033"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.7.11",
+        "type": "internal",
+        "title": "II bob, 6-mavzu"
+      }
+    ],
+    "legacyIds": [
+      "7.11"
+    ]
+  },
+  {
+    "id": "lu.7.12",
+    "grade": 7,
+    "title": "Molekula va nisbiy molekulyar massa",
+    "chapter": "II bob, 7-mavzu",
+    "learningOutcomes": [
+      "7.5 formula asosidagi hisoblashlar bilan bevosita bog‘liq."
+    ],
+    "conceptIds": [
+      "concept.c034",
+      "concept.c035",
+      "concept.c036"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.7.12",
+        "type": "internal",
+        "title": "II bob, 7-mavzu"
+      }
+    ],
+    "legacyIds": [
+      "7.12"
+    ]
+  },
+  {
+    "id": "lu.7.13",
+    "grade": 7,
+    "title": "Oddiy va murakkab moddalar",
+    "chapter": "II bob, 8-mavzu",
+    "learningOutcomes": [
+      "7.3 dagi moddalarni kuzatish qo‘llab-quvvatlaydi, asosiy faoliyat tasniflash bo‘lishi kerak."
+    ],
+    "conceptIds": [
+      "concept.c037"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.7.13",
+        "type": "internal",
+        "title": "II bob, 8-mavzu"
+      }
+    ],
+    "legacyIds": [
+      "7.13"
+    ]
+  },
+  {
+    "id": "lu.7.14",
+    "grade": 7,
+    "title": "Modda miqdori, Avogadro doimiysi va molyar massa",
+    "chapter": "II bob, 9-mavzu",
+    "learningOutcomes": [
+      "7.5 hisoblash topshiriqlari bilan bevosita mos."
+    ],
+    "conceptIds": [
+      "concept.c038",
+      "concept.c039",
+      "concept.c040"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.7.14",
+        "type": "internal",
+        "title": "II bob, 9-mavzu"
+      }
+    ],
+    "legacyIds": [
+      "7.14"
+    ]
+  },
+  {
+    "id": "lu.7.15",
+    "grade": 7,
+    "title": "Kimyoviy reaksiya tenglamalarini tuzish",
+    "chapter": "II bob, 12-mavzu",
+    "learningOutcomes": [
+      "Tenglama tuzish amaliyoti trenajyor orqali, laboratoriyalar esa real reaksiyalar uchun kontekst beradi."
+    ],
+    "conceptIds": [
+      "concept.c041",
+      "concept.c042",
+      "concept.c043"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.7.15",
+        "type": "internal",
+        "title": "II bob, 12-mavzu"
+      }
+    ],
+    "legacyIds": [
+      "7.15"
+    ]
+  },
+  {
+    "id": "lu.7.16",
+    "grade": 7,
+    "title": "Kimyoviy elementlarning tavsiflanishi va tabiiy oilalari",
+    "chapter": "III bob, 1-2-mavzular",
+    "learningOutcomes": [
+      "Tabiiy oilalarni davriy jadvalda ko‘rish va guruhlash asosiy amaliyot."
+    ],
+    "conceptIds": [
+      "concept.c044",
+      "concept.c045",
+      "concept.c046",
+      "concept.c047",
+      "concept.c048"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.7.16",
+        "type": "internal",
+        "title": "III bob, 1-2-mavzular"
+      }
+    ],
+    "legacyIds": [
+      "7.16"
+    ]
+  },
+  {
+    "id": "lu.7.17",
+    "grade": 7,
+    "title": "Kimyoviy elementlar davriy jadvali",
+    "chapter": "III bob, 3-mavzu",
+    "learningOutcomes": [
+      "Mavzuning o‘zi interaktiv davriy jadval bilan amaliy o‘rganiladi."
+    ],
+    "conceptIds": [
+      "concept.c049",
+      "concept.c050",
+      "concept.c051"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.7.17",
+        "type": "internal",
+        "title": "III bob, 3-mavzu"
+      }
+    ],
+    "legacyIds": [
+      "7.17"
+    ]
+  },
+  {
+    "id": "lu.7.18",
+    "grade": 7,
+    "title": "Havo tarkibi va havoning ifloslanishi",
+    "chapter": "IV bob, 1-mavzu",
+    "learningOutcomes": [
+      "7.14 ekologik izni kamaytirish faoliyati ekologik transfer uchun mos."
+    ],
+    "conceptIds": [
+      "concept.c052",
+      "concept.c053"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.7.18",
+        "type": "internal",
+        "title": "IV bob, 1-mavzu"
+      }
+    ],
+    "legacyIds": [
+      "7.18"
+    ]
+  },
+  {
+    "id": "lu.7.19",
+    "grade": 7,
+    "title": "Kislorod: xossalari, yonish, ozon va oksidlar",
+    "chapter": "IV bob, 2-10-mavzular",
+    "learningOutcomes": [
+      "7.7 kislorodda C, S, Fe yonishini bevosita bajaradi."
+    ],
+    "conceptIds": [
+      "concept.c054",
+      "concept.c055",
+      "concept.c056",
+      "concept.c057",
+      "concept.c058"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.7.19",
+        "type": "internal",
+        "title": "IV bob, 2-10-mavzular"
+      }
+    ],
+    "legacyIds": [
+      "7.19"
+    ]
+  },
+  {
+    "id": "lu.7.20",
+    "grade": 7,
+    "title": "Vodorod, kislotalar va kislotali yomg‘ir",
+    "chapter": "V bob, 1, 3, 4, 7-mavzular",
+    "learningOutcomes": [
+      "7.8 vodorod, 7.9–7.10 kislotalar va metall bilan reaksiyalarni qamrab oladi; ekologik qismi case bilan to‘ldiriladi."
+    ],
+    "conceptIds": [
+      "concept.c059",
+      "concept.c060",
+      "concept.c061",
+      "concept.c062"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.7.20",
+        "type": "internal",
+        "title": "V bob, 1, 3, 4, 7-mavzular"
+      }
+    ],
+    "legacyIds": [
+      "7.20"
+    ]
+  },
+  {
+    "id": "lu.7.21",
+    "grade": 7,
+    "title": "Suv: tarkibi, aylanishi, xossalari, neytrallanish va tozalash",
+    "chapter": "VI bob, 1-7-mavzular",
+    "learningOutcomes": [
+      "Bir nechta mavjud amaliyot suvning holati, oksidlar bilan ta’siri va tozalashni qamrab oladi."
+    ],
+    "conceptIds": [
+      "concept.c063",
+      "concept.c064",
+      "concept.c065",
+      "concept.c066",
+      "concept.c067"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.7.21",
+        "type": "internal",
+        "title": "VI bob, 1-7-mavzular"
+      }
+    ],
+    "legacyIds": [
+      "7.21"
+    ]
+  },
+  {
+    "id": "lu.7.22",
+    "grade": 7,
+    "title": "Tirik organizmlardagi elementlar, oqsil, yog‘, uglevod, vitamin va minerallar",
+    "chapter": "VII bob, 1-4-mavzular",
+    "learningOutcomes": [
+      "7.13 olma tarkibini indikator va reaktivlar bilan tekshirish orqali oziq moddalari mavzusiga ulanadi."
+    ],
+    "conceptIds": [
+      "concept.c068",
+      "concept.c069",
+      "concept.c070"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.7.22",
+        "type": "internal",
+        "title": "VII bob, 1-4-mavzular"
+      }
+    ],
+    "legacyIds": [
+      "7.22"
+    ]
+  },
+  {
+    "id": "lu.7.23",
+    "grade": 7,
+    "title": "Foydali qazilmalar, konlar va ekologik aspektlar",
+    "chapter": "VIII bob, 1-4-mavzular",
+    "learningOutcomes": [
+      "Mavzu kon–xomashyo–ekologik ta’sir zanjirini muammoli case orqali qo‘llashni talab qiladi."
+    ],
+    "conceptIds": [
+      "concept.c071",
+      "concept.c072",
+      "concept.c073",
+      "concept.c074"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.7.23",
+        "type": "internal",
+        "title": "VIII bob, 1-4-mavzular"
+      }
+    ],
+    "legacyIds": [
+      "7.23"
+    ]
+  },
+  {
+    "id": "lu.8.01",
+    "grade": 8,
+    "title": "Dastlabki kimyoviy tushunchalar va noorganik birikmalarning asosiy sinflari",
+    "chapter": "I bob, 1-2-§",
+    "learningOutcomes": [
+      "Takrorlash mavzusi keng; 8.6 gidroksidlarning xossalariga amaliy misol beradi."
+    ],
+    "conceptIds": [
+      "concept.c075",
+      "concept.c076",
+      "concept.c058",
+      "concept.c077",
+      "concept.c078",
+      "concept.c079"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.8.01",
+        "type": "internal",
+        "title": "I bob, 1-2-§"
+      }
+    ],
+    "legacyIds": [
+      "8.01"
+    ]
+  },
+  {
+    "id": "lu.8.02",
+    "grade": 8,
+    "title": "Kimyoviy elementlarning dastlabki toifalanishi va tabiiy oilalari",
+    "chapter": "II bob, 3-4-§, 17-24-betlar",
+    "learningOutcomes": [
+      "Tajriba emas, tarixiy-model faoliyat eng mos."
+    ],
+    "conceptIds": [
+      "concept.c080",
+      "concept.c081",
+      "concept.c082"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.8.02",
+        "type": "internal",
+        "title": "II bob, 3-4-§, 17-24-betlar"
+      }
+    ],
+    "legacyIds": [
+      "8.02"
+    ]
+  },
+  {
+    "id": "lu.8.03",
+    "grade": 8,
+    "title": "Davriy qonun va elementlar davriy sistemasi",
+    "chapter": "II bob, 5-6-§, 25-31-betlar",
+    "learningOutcomes": [
+      "Davriy qonunni jadval va trendlar orqali amaliy ko‘rish zarur."
+    ],
+    "conceptIds": [
+      "concept.c083",
+      "concept.c050",
+      "concept.c084",
+      "concept.c085"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.8.03",
+        "type": "internal",
+        "title": "II bob, 5-6-§, 25-31-betlar"
+      }
+    ],
+    "legacyIds": [
+      "8.03"
+    ]
+  },
+  {
+    "id": "lu.8.04",
+    "grade": 8,
+    "title": "Atom yadrosi tarkibi",
+    "chapter": "II bob, 7-§, 32-35-betlar",
+    "learningOutcomes": [
+      "Atom yadrosi laboratoriya emas, model orqali o‘zlashtiriladi."
+    ],
+    "conceptIds": [
+      "concept.c086",
+      "concept.c021",
+      "concept.c087",
+      "concept.c030"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.8.04",
+        "type": "internal",
+        "title": "II bob, 7-§, 32-35-betlar"
+      }
+    ],
+    "legacyIds": [
+      "8.04"
+    ]
+  },
+  {
+    "id": "lu.8.05",
+    "grade": 8,
+    "title": "Izotoplar va izobarlar",
+    "chapter": "II bob, 8-§, 36-38-betlar",
+    "learningOutcomes": [
+      "Zarralar soni bilan ishlash amaliyoti."
+    ],
+    "conceptIds": [
+      "concept.c088",
+      "concept.c089",
+      "concept.c030"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.8.05",
+        "type": "internal",
+        "title": "II bob, 8-§, 36-38-betlar"
+      }
+    ],
+    "legacyIds": [
+      "8.05"
+    ]
+  },
+  {
+    "id": "lu.8.06",
+    "grade": 8,
+    "title": "Atom elektron qavatlari va energetik pog‘onachalar",
+    "chapter": "II bob, 9-10-§, 39-45-betlar",
+    "learningOutcomes": [
+      "Elektronlarni qavat/orbitallarga joylashtirish kerak."
+    ],
+    "conceptIds": [
+      "concept.c090",
+      "concept.c091",
+      "concept.c092"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.8.06",
+        "type": "internal",
+        "title": "II bob, 9-10-§, 39-45-betlar"
+      }
+    ],
+    "legacyIds": [
+      "8.06"
+    ]
+  },
+  {
+    "id": "lu.8.07",
+    "grade": 8,
+    "title": "Kichik va katta davr elementlarining atom tuzilishi",
+    "chapter": "II bob, 11-12-§, 46-50-betlar",
+    "learningOutcomes": [
+      "Davr elementlarining qavatlar to‘lishini mashq qiladi."
+    ],
+    "conceptIds": [
+      "concept.c093",
+      "concept.c094"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.8.07",
+        "type": "internal",
+        "title": "II bob, 11-12-§, 46-50-betlar"
+      }
+    ],
+    "legacyIds": [
+      "8.07"
+    ]
+  },
+  {
+    "id": "lu.8.08",
+    "grade": 8,
+    "title": "Elementni davriy sistemadagi o‘rni va atom tuzilishiga qarab tavsiflash",
+    "chapter": "II bob, 13-§, 51-62-betlar",
+    "learningOutcomes": [
+      "Davriy o‘rin va atom tuzilishini birlashtiradi."
+    ],
+    "conceptIds": [
+      "concept.c095",
+      "concept.c084",
+      "concept.c096",
+      "concept.c097"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.8.08",
+        "type": "internal",
+        "title": "II bob, 13-§, 51-62-betlar"
+      }
+    ],
+    "legacyIds": [
+      "8.08"
+    ]
+  },
+  {
+    "id": "lu.8.09",
+    "grade": 8,
+    "title": "Nisbiy elektromanfiylik",
+    "chapter": "III bob, 14-§, 64-65-betlar",
+    "learningOutcomes": [
+      "Mavzu trendni ko‘rish va juftliklarni solishtirishga asoslangan."
+    ],
+    "conceptIds": [
+      "concept.c098",
+      "concept.c099"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.8.09",
+        "type": "internal",
+        "title": "III bob, 14-§, 64-65-betlar"
+      }
+    ],
+    "legacyIds": [
+      "8.09"
+    ]
+  },
+  {
+    "id": "lu.8.10",
+    "grade": 8,
+    "title": "Qutbli va qutbsiz kovalent bog‘lanish",
+    "chapter": "III bob, 15-§, 66-70-betlar",
+    "learningOutcomes": [
+      "8.7 kristall model amaliyoti bog‘lanish–tuzilish bog‘ini qo‘llab-quvvatlaydi."
+    ],
+    "conceptIds": [
+      "concept.c100",
+      "concept.c101"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.8.10",
+        "type": "internal",
+        "title": "III bob, 15-§, 66-70-betlar"
+      }
+    ],
+    "legacyIds": [
+      "8.10"
+    ]
+  },
+  {
+    "id": "lu.8.11",
+    "grade": 8,
+    "title": "Ionli bog‘lanish",
+    "chapter": "III bob, 16-§, 71-73-betlar",
+    "learningOutcomes": [
+      "8.7 ion bog‘lanishli kristall modeli bilan bog‘lanadi."
+    ],
+    "conceptIds": [
+      "concept.c102",
+      "concept.c103"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.8.11",
+        "type": "internal",
+        "title": "III bob, 16-§, 71-73-betlar"
+      }
+    ],
+    "legacyIds": [
+      "8.11"
+    ]
+  },
+  {
+    "id": "lu.8.12",
+    "grade": 8,
+    "title": "Kristall panjaralar",
+    "chapter": "III bob, 17-§, 74-75-betlar",
+    "learningOutcomes": [
+      "8.7 bevosita turli bog‘lanishli kristall panjara modellarini yasashga qaratilgan."
+    ],
+    "conceptIds": [
+      "concept.c104",
+      "concept.c105",
+      "concept.c106"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.8.12",
+        "type": "internal",
+        "title": "III bob, 17-§, 74-75-betlar"
+      }
+    ],
+    "legacyIds": [
+      "8.12"
+    ]
+  },
+  {
+    "id": "lu.8.13",
+    "grade": 8,
+    "title": "Oksidlanish darajasi",
+    "chapter": "III bob, 18-§, 76-79-betlar",
+    "learningOutcomes": [
+      "Belgilar va qoidalarni ko‘p misolda mashq qilish kerak."
+    ],
+    "conceptIds": [
+      "concept.c107",
+      "concept.c108"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.8.13",
+        "type": "internal",
+        "title": "III bob, 18-§, 76-79-betlar"
+      }
+    ],
+    "legacyIds": [
+      "8.13"
+    ]
+  },
+  {
+    "id": "lu.8.14",
+    "grade": 8,
+    "title": "Oksidlanish-qaytarilish reaksiyalari va tenglamalarni tuzish",
+    "chapter": "III bob, 19-20-§, 80-88-betlar",
+    "learningOutcomes": [
+      "Galogenlarning siqib chiqarishi va tajribaviy masalalar redoksga real kontekst beradi."
+    ],
+    "conceptIds": [
+      "concept.c109",
+      "concept.c110",
+      "concept.c111"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.8.14",
+        "type": "internal",
+        "title": "III bob, 19-20-§, 80-88-betlar"
+      }
+    ],
+    "legacyIds": [
+      "8.14"
+    ]
+  },
+  {
+    "id": "lu.8.15",
+    "grade": 8,
+    "title": "Metallmaslarning umumiy xossalari",
+    "chapter": "IV bob, 21-§, 89-91-betlar",
+    "learningOutcomes": [
+      "8.12 oltingugurt va tabiiy birikmalarni kuzatish bilan mavzuni amaliy qo‘llaydi."
+    ],
+    "conceptIds": [
+      "concept.c112",
+      "concept.c113"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.8.15",
+        "type": "internal",
+        "title": "IV bob, 21-§, 89-91-betlar"
+      }
+    ],
+    "legacyIds": [
+      "8.15"
+    ]
+  },
+  {
+    "id": "lu.8.16",
+    "grade": 8,
+    "title": "Galogenlar: atom tuzilishi, xlor, HCl, xlorid kislota, ftor, brom va yod",
+    "chapter": "IV bob, 22-24, 27-28-§, 92-102 va 116-129-betlar",
+    "learningOutcomes": [
+      "Mavjud besh amaliy ish galogenlar bo‘limini keng qamrab oladi."
+    ],
+    "conceptIds": [
+      "concept.c114",
+      "concept.c115",
+      "concept.c116",
+      "concept.c117"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.8.16",
+        "type": "internal",
+        "title": "IV bob, 22-24, 27-28-§, 92-102 va 116-129-betlar"
+      }
+    ],
+    "legacyIds": [
+      "8.16"
+    ]
+  },
+  {
+    "id": "lu.8.17",
+    "grade": 8,
+    "title": "Avogadro qonuni, molyar hajm va ekvivalent qonuni",
+    "chapter": "IV bob, 25-26-§, 103-115-betlar",
+    "learningOutcomes": [
+      "Mavzu asosan sonli qonunlar bilan ishlashga qaratilgan."
+    ],
+    "conceptIds": [
+      "concept.c118",
+      "concept.c076",
+      "concept.c119"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.8.17",
+        "type": "internal",
+        "title": "IV bob, 25-26-§, 103-115-betlar"
+      }
+    ],
+    "legacyIds": [
+      "8.17"
+    ]
+  },
+  {
+    "id": "lu.8.18",
+    "grade": 8,
+    "title": "Kislorod guruhchasi va oltingugurt birikmalari",
+    "chapter": "V bob, 29-32-§, 130-140-betlar",
+    "learningOutcomes": [
+      "8.2 tajribaviy masalalar, 8.12 namuna va 8.13 sulfat sifat reaksiyasi mavzuni bog‘laydi."
+    ],
+    "conceptIds": [
+      "concept.c120",
+      "concept.c121",
+      "concept.c122",
+      "concept.c123",
+      "concept.c124",
+      "concept.c125"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.8.18",
+        "type": "internal",
+        "title": "V bob, 29-32-§, 130-140-betlar"
+      }
+    ],
+    "legacyIds": [
+      "8.18"
+    ]
+  },
+  {
+    "id": "lu.8.19",
+    "grade": 8,
+    "title": "Kimyoviy reaksiya tezligi",
+    "chapter": "V bob, 33-§, 141-143-betlar",
+    "learningOutcomes": [
+      "Katalogda mos bevosita amaliy mashg‘ulot yo‘q; yangi tajriba kerak."
+    ],
+    "conceptIds": [
+      "concept.c126",
+      "concept.c127",
+      "concept.c128",
+      "concept.c129"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.8.19",
+        "type": "internal",
+        "title": "V bob, 33-§, 141-143-betlar"
+      }
+    ],
+    "legacyIds": [
+      "8.19"
+    ]
+  },
+  {
+    "id": "lu.8.20",
+    "grade": 8,
+    "title": "Kimyoviy muvozanat",
+    "chapter": "V bob, 34-§, 144-146-betlar",
+    "learningOutcomes": [
+      "Muvozanatni zarracha va grafik darajada ko‘rsatish eng mos."
+    ],
+    "conceptIds": [
+      "concept.c130",
+      "concept.c131",
+      "concept.c132"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.8.20",
+        "type": "internal",
+        "title": "V bob, 34-§, 144-146-betlar"
+      }
+    ],
+    "legacyIds": [
+      "8.20"
+    ]
+  },
+  {
+    "id": "lu.8.21",
+    "grade": 8,
+    "title": "Sulfat kislota ishlab chiqarish",
+    "chapter": "V bob, 35-§, 147-155-betlar",
+    "learningOutcomes": [
+      "8.2 oltingugurt kimyosini qo‘llab-quvvatlaydi, ishlab chiqarish qismi case/simulyatsiya bo‘lishi kerak."
+    ],
+    "conceptIds": [
+      "concept.c133",
+      "concept.c134",
+      "concept.c135"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.8.21",
+        "type": "internal",
+        "title": "V bob, 35-§, 147-155-betlar"
+      }
+    ],
+    "legacyIds": [
+      "8.21"
+    ]
+  },
+  {
+    "id": "lu.8.22",
+    "grade": 8,
+    "title": "Azot, ammiak va azotning kislorodli birikmalari",
+    "chapter": "VI bob, 36-39-§, 157-173-betlar",
+    "learningOutcomes": [
+      "Ammiak olish va azot guruhchasi tajribaviy ishlari bevosita mos."
+    ],
+    "conceptIds": [
+      "concept.c136",
+      "concept.c137",
+      "concept.c138",
+      "concept.c139"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.8.22",
+        "type": "internal",
+        "title": "VI bob, 36-39-§, 157-173-betlar"
+      }
+    ],
+    "legacyIds": [
+      "8.22"
+    ]
+  },
+  {
+    "id": "lu.8.23",
+    "grade": 8,
+    "title": "Fosfor va uning kislorodli birikmalari",
+    "chapter": "VI bob, 40-41-§, 174-184-betlar",
+    "learningOutcomes": [
+      "8.4 azot guruhchasi elementlari amaliy masalalari fosforni ham qamrab oladi."
+    ],
+    "conceptIds": [
+      "concept.c140",
+      "concept.c141",
+      "concept.c142"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.8.23",
+        "type": "internal",
+        "title": "VI bob, 40-41-§, 174-184-betlar"
+      }
+    ],
+    "legacyIds": [
+      "8.23"
+    ]
+  },
+  {
+    "id": "lu.8.24",
+    "grade": 8,
+    "title": "Mineral o‘g‘itlar va biogen elementlar",
+    "chapter": "VI bob, 42-44-§, 185-199-betlar",
+    "learningOutcomes": [
+      "8.5 mineral o‘g‘itlarni aniqlash, 8.15 namunalari bilan tanishish bevosita mos."
+    ],
+    "conceptIds": [
+      "concept.c143",
+      "concept.c144",
+      "concept.c145"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.8.24",
+        "type": "internal",
+        "title": "VI bob, 42-44-§, 185-199-betlar"
+      }
+    ],
+    "legacyIds": [
+      "8.24"
+    ]
+  },
+  {
+    "id": "lu.9.01",
+    "grade": 9,
+    "title": "Davriy sistema, davriy qonun va bog‘lanish turlarini takrorlash",
+    "chapter": "I bob, 1-2-§, 5-19-betlar",
+    "learningOutcomes": [
+      "Takrorlash mavzusi uchun integratsion model/trenajyor zarur."
+    ],
+    "conceptIds": [
+      "concept.c083",
+      "concept.c146",
+      "concept.c147"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.9.01",
+        "type": "internal",
+        "title": "I bob, 1-2-§, 5-19-betlar"
+      }
+    ],
+    "legacyIds": [
+      "9.01"
+    ]
+  },
+  {
+    "id": "lu.9.02",
+    "grade": 9,
+    "title": "Elektrolitlar va noelektrolitlar",
+    "chapter": "II bob, 3-§, 20-23-betlar",
+    "learningOutcomes": [
+      "Mos maxsus amaliy ish katalogda yo‘q; lampochkali simulyator kerak."
+    ],
+    "conceptIds": [
+      "concept.c148",
+      "concept.c103"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.9.02",
+        "type": "internal",
+        "title": "II bob, 3-§, 20-23-betlar"
+      }
+    ],
+    "legacyIds": [
+      "9.02"
+    ]
+  },
+  {
+    "id": "lu.9.03",
+    "grade": 9,
+    "title": "Kislota, ishqor va tuzlarning dissotsiatsiyalanishi",
+    "chapter": "II bob, 4-§, 24-25-betlar",
+    "learningOutcomes": [
+      "Molekula→ion o‘tishini model va yozuv bilan mashq qilish kerak."
+    ],
+    "conceptIds": [
+      "concept.c149",
+      "concept.c150"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.9.03",
+        "type": "internal",
+        "title": "II bob, 4-§, 24-25-betlar"
+      }
+    ],
+    "legacyIds": [
+      "9.03"
+    ]
+  },
+  {
+    "id": "lu.9.04",
+    "grade": 9,
+    "title": "Kuchli va kuchsiz elektrolitlar. Dissotsiatsiyalanish darajasi",
+    "chapter": "II bob, 5-§, 26-28-betlar",
+    "learningOutcomes": [
+      "Kuchli/kuchsiz elektrolitni miqdoriy va vizual taqqoslash."
+    ],
+    "conceptIds": [
+      "concept.c151",
+      "concept.c152"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.9.04",
+        "type": "internal",
+        "title": "II bob, 5-§, 26-28-betlar"
+      }
+    ],
+    "legacyIds": [
+      "9.04"
+    ]
+  },
+  {
+    "id": "lu.9.05",
+    "grade": 9,
+    "title": "Ion almashinish reaksiyalari",
+    "chapter": "II bob, 6-§, 29-31-betlar",
+    "learningOutcomes": [
+      "Ko‘plab cho‘kma/almashtirish reaksiyalari ion almashinishga real dalil beradi."
+    ],
+    "conceptIds": [
+      "concept.c153",
+      "concept.c154",
+      "concept.c155"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.9.05",
+        "type": "internal",
+        "title": "II bob, 6-§, 29-31-betlar"
+      }
+    ],
+    "legacyIds": [
+      "9.05"
+    ]
+  },
+  {
+    "id": "lu.9.06",
+    "grade": 9,
+    "title": "Tuzlarning gidrolizi",
+    "chapter": "II bob, 7-§, 32-41-betlar",
+    "learningOutcomes": [
+      "9.14 alyuminiy tuzi eritmasining indikatorga ta’sirini kuzatadi."
+    ],
+    "conceptIds": [
+      "concept.c156",
+      "concept.c157",
+      "concept.c061"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.9.06",
+        "type": "internal",
+        "title": "II bob, 7-§, 32-41-betlar"
+      }
+    ],
+    "legacyIds": [
+      "9.06"
+    ]
+  },
+  {
+    "id": "lu.9.07",
+    "grade": 9,
+    "title": "Uglerod guruhidagi elementlarning umumiy tavsifi",
+    "chapter": "III bob, 8-§, 42-46-betlar",
+    "learningOutcomes": [
+      "Uglerod/karbonatlar/silikatlar bo‘yicha mavjud amaliyotlar mavzuni qo‘llab-quvvatlaydi."
+    ],
+    "conceptIds": [
+      "concept.c158",
+      "concept.c159",
+      "concept.c160",
+      "concept.c161",
+      "concept.c162"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.9.07",
+        "type": "internal",
+        "title": "III bob, 8-§, 42-46-betlar"
+      }
+    ],
+    "legacyIds": [
+      "9.07"
+    ]
+  },
+  {
+    "id": "lu.9.08",
+    "grade": 9,
+    "title": "Uglerodning allotropiyasi va xossalari",
+    "chapter": "III bob, 9-§, 47-49-betlar",
+    "learningOutcomes": [
+      "Allotropiya uchun model birlamchi; katalogda maxsus laboratoriya yo‘q."
+    ],
+    "conceptIds": [
+      "concept.c163",
+      "concept.c164",
+      "concept.c165",
+      "concept.c166"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.9.08",
+        "type": "internal",
+        "title": "III bob, 9-§, 47-49-betlar"
+      }
+    ],
+    "legacyIds": [
+      "9.08"
+    ]
+  },
+  {
+    "id": "lu.9.09",
+    "grade": 9,
+    "title": "Uglerodning eng muhim birikmalari",
+    "chapter": "III bob, 10-11-§, 50-60-betlar",
+    "learningOutcomes": [
+      "9.1 va 9.4 uglerodning asosiy birikmalarini bevosita tajribada ko‘rsatadi."
+    ],
+    "conceptIds": [
+      "concept.c167",
+      "concept.c168",
+      "concept.c169",
+      "concept.c170"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.9.09",
+        "type": "internal",
+        "title": "III bob, 10-11-§, 50-60-betlar"
+      }
+    ],
+    "legacyIds": [
+      "9.09"
+    ]
+  },
+  {
+    "id": "lu.9.10",
+    "grade": 9,
+    "title": "Kremniy va silikat sanoati",
+    "chapter": "III bob, 12-14-§, 61-70-betlar",
+    "learningOutcomes": [
+      "Tabiiy silikat va shisha namunalarini kuzatish bevosita mos."
+    ],
+    "conceptIds": [
+      "concept.c159",
+      "concept.c171",
+      "concept.c172",
+      "concept.c173",
+      "concept.c174",
+      "concept.c175"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.9.10",
+        "type": "internal",
+        "title": "III bob, 12-14-§, 61-70-betlar"
+      }
+    ],
+    "legacyIds": [
+      "9.10"
+    ]
+  },
+  {
+    "id": "lu.9.11",
+    "grade": 9,
+    "title": "Metallarning tarqalishi, olinishi va ishlatilishi",
+    "chapter": "IV bob, 15-§, 71-73-betlar",
+    "learningOutcomes": [
+      "9.3 metallar bo‘yicha tajribaviy masalalar qo‘llab-quvvatlaydi; sanoat jarayoni case sifatida kerak."
+    ],
+    "conceptIds": [
+      "concept.c176",
+      "concept.c177",
+      "concept.c178"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.9.11",
+        "type": "internal",
+        "title": "IV bob, 15-§, 71-73-betlar"
+      }
+    ],
+    "legacyIds": [
+      "9.11"
+    ]
+  },
+  {
+    "id": "lu.9.12",
+    "grade": 9,
+    "title": "Qotishmalar",
+    "chapter": "IV bob, 16-§, 74-76-betlar",
+    "learningOutcomes": [
+      "Qotishma namunalarini ko‘rish va Al/cho‘yan/po‘lat misollari bilan bog‘lanadi."
+    ],
+    "conceptIds": [
+      "concept.c179",
+      "concept.c035",
+      "concept.c097"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.9.12",
+        "type": "internal",
+        "title": "IV bob, 16-§, 74-76-betlar"
+      }
+    ],
+    "legacyIds": [
+      "9.12"
+    ]
+  },
+  {
+    "id": "lu.9.13",
+    "grade": 9,
+    "title": "Metallarning fizik va kimyoviy xossalari",
+    "chapter": "IV bob, 17-§, 77-79-betlar",
+    "learningOutcomes": [
+      "9.7 fizik xossa, 9.9 tuz eritmasi bilan reaksiya, 9.3 tajribaviy masalalar bevosita mos."
+    ],
+    "conceptIds": [
+      "concept.c180",
+      "concept.c181"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.9.13",
+        "type": "internal",
+        "title": "IV bob, 17-§, 77-79-betlar"
+      }
+    ],
+    "legacyIds": [
+      "9.13"
+    ]
+  },
+  {
+    "id": "lu.9.14",
+    "grade": 9,
+    "title": "Metallar korroziyasi",
+    "chapter": "IV bob, 18-§, 80-84-betlar",
+    "learningOutcomes": [
+      "9-sinf katalogida maxsus korroziya amaliyoti yo‘q; yangi tajriba/case kerak."
+    ],
+    "conceptIds": [
+      "concept.c182",
+      "concept.c183"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.9.14",
+        "type": "internal",
+        "title": "IV bob, 18-§, 80-84-betlar"
+      }
+    ],
+    "legacyIds": [
+      "9.14"
+    ]
+  },
+  {
+    "id": "lu.9.15",
+    "grade": 9,
+    "title": "Elektroliz va uning amaliy ahamiyati",
+    "chapter": "IV bob, 19-§, 85-96-betlar",
+    "learningOutcomes": [
+      "9.10 CuCl2 va KI eritmalari elektrolizi bevosita mos."
+    ],
+    "conceptIds": [
+      "concept.c184",
+      "concept.c185",
+      "concept.c186",
+      "concept.c187",
+      "concept.c188"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.9.15",
+        "type": "internal",
+        "title": "IV bob, 19-§, 85-96-betlar"
+      }
+    ],
+    "legacyIds": [
+      "9.15"
+    ]
+  },
+  {
+    "id": "lu.9.16",
+    "grade": 9,
+    "title": "Ishqoriy metallar, natriy va kaliy birikmalari",
+    "chapter": "IV bob, 20-21-§, 97-104-betlar",
+    "learningOutcomes": [
+      "9.2 ishqoriy metallar va kalsiy bo‘yicha tajribaviy masalalar."
+    ],
+    "conceptIds": [
+      "concept.c189",
+      "concept.c190",
+      "concept.c116",
+      "concept.c191"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.9.16",
+        "type": "internal",
+        "title": "IV bob, 20-21-§, 97-104-betlar"
+      }
+    ],
+    "legacyIds": [
+      "9.16"
+    ]
+  },
+  {
+    "id": "lu.9.17",
+    "grade": 9,
+    "title": "Soda ishlab chiqarish",
+    "chapter": "IV bob, 22-§, 105-108-betlar",
+    "learningOutcomes": [
+      "9.2 natriy birikmalariga tayanch beradi; ishlab chiqarish zanjiri yangi case/simulyatsiya bo‘lishi kerak."
+    ],
+    "conceptIds": [
+      "concept.c192",
+      "concept.c193",
+      "concept.c042"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.9.17",
+        "type": "internal",
+        "title": "IV bob, 22-§, 105-108-betlar"
+      }
+    ],
+    "legacyIds": [
+      "9.17"
+    ]
+  },
+  {
+    "id": "lu.9.18",
+    "grade": 9,
+    "title": "Kalsiy, magniy va suvning qattiqligi",
+    "chapter": "IV bob, 23-24-§, 109-120-betlar",
+    "learningOutcomes": [
+      "9.2 kalsiy bo‘yicha amaliy masalalar bor, lekin suv qattiqligi uchun alohida activity kerak."
+    ],
+    "conceptIds": [
+      "concept.c194",
+      "concept.c195",
+      "concept.c196",
+      "concept.c197",
+      "concept.c198"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.9.18",
+        "type": "internal",
+        "title": "IV bob, 23-24-§, 109-120-betlar"
+      }
+    ],
+    "legacyIds": [
+      "9.18"
+    ]
+  },
+  {
+    "id": "lu.9.19",
+    "grade": 9,
+    "title": "Alyuminiy va uning birikmalari",
+    "chapter": "IV bob, 25-27-§, 121-130-betlar",
+    "learningOutcomes": [
+      "9.11–9.14 alyuminiy mavzusini juda to‘liq qoplaydi."
+    ],
+    "conceptIds": [
+      "concept.c199",
+      "concept.c200",
+      "concept.c201"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.9.19",
+        "type": "internal",
+        "title": "IV bob, 25-27-§, 121-130-betlar"
+      }
+    ],
+    "legacyIds": [
+      "9.19"
+    ]
+  },
+  {
+    "id": "lu.9.20",
+    "grade": 9,
+    "title": "Mis, kumush va oltin",
+    "chapter": "IV bob, 28-29-§, 131-138-betlar",
+    "learningOutcomes": [
+      "9.9 metall-tuz almashinuvi va 9.15 Cu(OH)2 mis kimyosini qo‘llab-quvvatlaydi."
+    ],
+    "conceptIds": [
+      "concept.c202",
+      "concept.c203",
+      "concept.c204",
+      "concept.c205",
+      "concept.c206"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.9.20",
+        "type": "internal",
+        "title": "IV bob, 28-29-§, 131-138-betlar"
+      }
+    ],
+    "legacyIds": [
+      "9.20"
+    ]
+  },
+  {
+    "id": "lu.9.21",
+    "grade": 9,
+    "title": "II guruh yonaki guruhcha elementlari",
+    "chapter": "IV bob, 30-§, 139-144-betlar",
+    "learningOutcomes": [
+      "9.16 Zn(OH)2 amfoterligini bevosita ko‘rsatadi; qolgan guruh uchun simulyatsiya zarur."
+    ],
+    "conceptIds": [
+      "concept.c207",
+      "concept.c208",
+      "concept.c209"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.9.21",
+        "type": "internal",
+        "title": "IV bob, 30-§, 139-144-betlar"
+      }
+    ],
+    "legacyIds": [
+      "9.21"
+    ]
+  },
+  {
+    "id": "lu.9.22",
+    "grade": 9,
+    "title": "Xrom va uning II, III, VI valentli birikmalari",
+    "chapter": "IV bob, 31-32-§, 145-151-betlar",
+    "learningOutcomes": [
+      "9.17 aynan xrom birikmalari tajribasi."
+    ],
+    "conceptIds": [
+      "concept.c210",
+      "concept.c211"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.9.22",
+        "type": "internal",
+        "title": "IV bob, 31-32-§, 145-151-betlar"
+      }
+    ],
+    "legacyIds": [
+      "9.22"
+    ]
+  },
+  {
+    "id": "lu.9.23",
+    "grade": 9,
+    "title": "Marganes",
+    "chapter": "IV bob, 33-§, 152-157-betlar",
+    "learningOutcomes": [
+      "Katalogda marganes uchun maxsus amaliy ish yo‘q."
+    ],
+    "conceptIds": [
+      "concept.c212",
+      "concept.c213"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.9.23",
+        "type": "internal",
+        "title": "IV bob, 33-§, 152-157-betlar"
+      }
+    ],
+    "legacyIds": [
+      "9.23"
+    ]
+  },
+  {
+    "id": "lu.9.24",
+    "grade": 9,
+    "title": "Temir va eng muhim birikmalari",
+    "chapter": "IV bob, 34-35-§, 158-164-betlar",
+    "learningOutcomes": [
+      "9.18–9.19 temir(II)/(III) birikmalarini bevosita qamrab oladi."
+    ],
+    "conceptIds": [
+      "concept.c214",
+      "concept.c215",
+      "concept.c141",
+      "concept.c216"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.9.24",
+        "type": "internal",
+        "title": "IV bob, 34-35-§, 158-164-betlar"
+      }
+    ],
+    "legacyIds": [
+      "9.24"
+    ]
+  },
+  {
+    "id": "lu.9.25",
+    "grade": 9,
+    "title": "Cho‘yan va po‘lat ishlab chiqarish",
+    "chapter": "IV bob, 36-37-§, 165-176-betlar",
+    "learningOutcomes": [
+      "9.20 tayyor mahsulotlarni kuzatadi; ishlab chiqarish jarayoni case/simulyatsiya bilan to‘ldiriladi."
+    ],
+    "conceptIds": [
+      "concept.c217",
+      "concept.c218",
+      "concept.c219"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.9.25",
+        "type": "internal",
+        "title": "IV bob, 36-37-§, 165-176-betlar"
+      }
+    ],
+    "legacyIds": [
+      "9.25"
+    ]
+  },
+  {
+    "id": "lu.9.26",
+    "grade": 9,
+    "title": "Kimyoviy ishlab chiqarish va atmosfera-gidrosferani muhofaza qilish",
+    "chapter": "V bob, 38-41-§, 177-191-betlar",
+    "learningOutcomes": [
+      "Ekologik integratsion mavzu; katalogda maxsus amaliy ish yo‘q."
+    ],
+    "conceptIds": [
+      "concept.c220",
+      "concept.c221",
+      "concept.c222",
+      "concept.c223"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.9.26",
+        "type": "internal",
+        "title": "V bob, 38-41-§, 177-191-betlar"
+      }
+    ],
+    "legacyIds": [
+      "9.26"
+    ]
+  },
+  {
+    "id": "lu.10.01",
+    "grade": 10,
+    "title": "Organik kimyo tarixi va organik birikmalarning o‘ziga xos xususiyatlari",
+    "chapter": "I bob, 1.1, 7-11-betlar",
+    "learningOutcomes": [
+      "10.1 namunalarni qiyoslaydi, 10.2 tarkibni tahlil qiladi."
+    ],
+    "conceptIds": [
+      "concept.c224",
+      "concept.c225"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.01",
+        "type": "internal",
+        "title": "I bob, 1.1, 7-11-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.01"
+    ]
+  },
+  {
+    "id": "lu.10.02",
+    "grade": 10,
+    "title": "Organik birikmalar tuzilish nazariyasi",
+    "chapter": "I bob, 1.2, 12-14-betlar",
+    "learningOutcomes": [
+      "10.4 modellar yasash, 10.2 tarkib tahlili tuzilish–tarkib bog‘ini qo‘llab-quvvatlaydi."
+    ],
+    "conceptIds": [
+      "concept.c226",
+      "concept.c227"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.02",
+        "type": "internal",
+        "title": "I bob, 1.2, 12-14-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.02"
+    ]
+  },
+  {
+    "id": "lu.10.03",
+    "grade": 10,
+    "title": "Uglerodning valentligi va oksidlanish darajasi",
+    "chapter": "I bob, 1.3, 15-17-betlar",
+    "learningOutcomes": [
+      "10.4 uglevodorod modellarida C valentligi amalda namoyon bo‘ladi."
+    ],
+    "conceptIds": [
+      "concept.c228",
+      "concept.c229",
+      "concept.c230"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.03",
+        "type": "internal",
+        "title": "I bob, 1.3, 15-17-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.03"
+    ]
+  },
+  {
+    "id": "lu.10.04",
+    "grade": 10,
+    "title": "Izomeriya va uning turlari",
+    "chapter": "I bob, 1.4, 18-21-betlar",
+    "learningOutcomes": [
+      "10.4 shar-sterjen modellarini yasash izomeriya uchun tayanch amaliyot."
+    ],
+    "conceptIds": [
+      "concept.c231"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.04",
+        "type": "internal",
+        "title": "I bob, 1.4, 18-21-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.04"
+    ]
+  },
+  {
+    "id": "lu.10.05",
+    "grade": 10,
+    "title": "Organik birikmalarning sinflanishi",
+    "chapter": "I bob, 1.5, 22-25-betlar",
+    "learningOutcomes": [
+      "10.1 namunalar va 10.10 xos reaksiyalar orqali sinflarni farqlash mumkin."
+    ],
+    "conceptIds": [
+      "concept.c232"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.05",
+        "type": "internal",
+        "title": "I bob, 1.5, 22-25-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.05"
+    ]
+  },
+  {
+    "id": "lu.10.06",
+    "grade": 10,
+    "title": "Organik reaksiyalar turlari",
+    "chapter": "I bob, 1.6, 26-28-betlar",
+    "learningOutcomes": [
+      "Deyarli barcha organik amaliy ishlar reaksiya turlariga kontekst beradi."
+    ],
+    "conceptIds": [
+      "concept.c233",
+      "concept.c234",
+      "concept.c235",
+      "concept.c236"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.06",
+        "type": "internal",
+        "title": "I bob, 1.6, 26-28-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.06"
+    ]
+  },
+  {
+    "id": "lu.10.07",
+    "grade": 10,
+    "title": "Organik birikmalar nomenklaturasi",
+    "chapter": "I bob, 1.7, 29-32-betlar",
+    "learningOutcomes": [
+      "Nomenklatura uchun bevosita drill kerak; laboratoriya shart emas."
+    ],
+    "conceptIds": [
+      "concept.c237",
+      "concept.c238",
+      "concept.c239"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.07",
+        "type": "internal",
+        "title": "I bob, 1.7, 29-32-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.07"
+    ]
+  },
+  {
+    "id": "lu.10.08",
+    "grade": 10,
+    "title": "Alkanlar va gomologik qator",
+    "chapter": "II bob, 2.1, 39-42-betlar",
+    "learningOutcomes": [
+      "10.4 uglevodorod modellarini yasash bilan bog‘lanadi."
+    ],
+    "conceptIds": [
+      "concept.c240",
+      "concept.c241"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.08",
+        "type": "internal",
+        "title": "II bob, 2.1, 39-42-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.08"
+    ]
+  },
+  {
+    "id": "lu.10.09",
+    "grade": 10,
+    "title": "Alkanlar izomeriyasi va nomlanishi",
+    "chapter": "II bob, 2.2, 43-45-betlar",
+    "learningOutcomes": [
+      "10.4 fizik model qurish amaliy tayanch."
+    ],
+    "conceptIds": [
+      "concept.c242",
+      "concept.c239"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.09",
+        "type": "internal",
+        "title": "II bob, 2.2, 43-45-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.09"
+    ]
+  },
+  {
+    "id": "lu.10.10",
+    "grade": 10,
+    "title": "Alkanlarning olinishi, xossalari va ishlatilishi",
+    "chapter": "II bob, 2.3-2.4, 46-50-betlar",
+    "learningOutcomes": [
+      "10.10 umumiy organik aniqlash ishida alkanlarga tegishli xos reaksiyalar bo‘lishi mumkin, lekin maxsus tajriba yo‘q."
+    ],
+    "conceptIds": [
+      "concept.c243",
+      "concept.c236",
+      "concept.c244"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.10",
+        "type": "internal",
+        "title": "II bob, 2.3-2.4, 46-50-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.10"
+    ]
+  },
+  {
+    "id": "lu.10.11",
+    "grade": 10,
+    "title": "Sikloalkanlar",
+    "chapter": "II bob, 2.5-2.6, 51-55-betlar",
+    "learningOutcomes": [
+      "Mavzu strukturaviy; maxsus laboratoriya talab qilmaydi."
+    ],
+    "conceptIds": [
+      "concept.c245",
+      "concept.c246"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.11",
+        "type": "internal",
+        "title": "II bob, 2.5-2.6, 51-55-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.11"
+    ]
+  },
+  {
+    "id": "lu.10.12",
+    "grade": 10,
+    "title": "Alkenlar",
+    "chapter": "II bob, 2.7-2.8, 56-61-betlar",
+    "learningOutcomes": [
+      "10.3 etilen olish va xossalari bevosita mos."
+    ],
+    "conceptIds": [
+      "concept.c247",
+      "concept.c248",
+      "concept.c249"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.12",
+        "type": "internal",
+        "title": "II bob, 2.7-2.8, 56-61-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.12"
+    ]
+  },
+  {
+    "id": "lu.10.13",
+    "grade": 10,
+    "title": "Alkadiyenlar, kauchuk va rezina",
+    "chapter": "II bob, 2.10-2.12, 63-71-betlar",
+    "learningOutcomes": [
+      "Polimerlanish va material xossalarini model/case bilan bog‘lash kerak."
+    ],
+    "conceptIds": [
+      "concept.c250",
+      "concept.c249",
+      "concept.c251"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.13",
+        "type": "internal",
+        "title": "II bob, 2.10-2.12, 63-71-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.13"
+    ]
+  },
+  {
+    "id": "lu.10.14",
+    "grade": 10,
+    "title": "Alkinlar",
+    "chapter": "II bob, 2.13-2.14, 72-76-betlar",
+    "learningOutcomes": [
+      "Katalogda maxsus alkin amaliyoti yo‘q."
+    ],
+    "conceptIds": [
+      "concept.c252",
+      "concept.c253",
+      "concept.c248"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.14",
+        "type": "internal",
+        "title": "II bob, 2.13-2.14, 72-76-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.14"
+    ]
+  },
+  {
+    "id": "lu.10.15",
+    "grade": 10,
+    "title": "Aromatik uglevodorodlar va stirol",
+    "chapter": "II bob, 2.15-2.17, 77-83-betlar",
+    "learningOutcomes": [
+      "Aromatik tuzilish model orqali yaxshiroq o‘zlashtiriladi."
+    ],
+    "conceptIds": [
+      "concept.c254",
+      "concept.c255",
+      "concept.c256"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.15",
+        "type": "internal",
+        "title": "II bob, 2.15-2.17, 77-83-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.15"
+    ]
+  },
+  {
+    "id": "lu.10.16",
+    "grade": 10,
+    "title": "Tabiiy gaz, neftni qayta ishlash va toshko‘mir",
+    "chapter": "II bob, 2.18-2.20, 84-94-betlar",
+    "learningOutcomes": [
+      "Sanoat-texnologik mavzu; laboratoriya katalogida mos ish yo‘q."
+    ],
+    "conceptIds": [
+      "concept.c257",
+      "concept.c244",
+      "concept.c258"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.16",
+        "type": "internal",
+        "title": "II bob, 2.18-2.20, 84-94-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.16"
+    ]
+  },
+  {
+    "id": "lu.10.17",
+    "grade": 10,
+    "title": "Bir atomli spirtlar",
+    "chapter": "III bob, 3.1-3.2, 107-114-betlar",
+    "learningOutcomes": [
+      "10.6 spirtlarga xos reaksiyalarni bevosita o‘tkazadi."
+    ],
+    "conceptIds": [
+      "concept.c259",
+      "concept.c260",
+      "concept.c057"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.17",
+        "type": "internal",
+        "title": "III bob, 3.1-3.2, 107-114-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.17"
+    ]
+  },
+  {
+    "id": "lu.10.18",
+    "grade": 10,
+    "title": "Ko‘p atomli spirtlar: etilenglikol va glitserin",
+    "chapter": "III bob, 3.3-3.4, 115-121-betlar",
+    "learningOutcomes": [
+      "10.5 ko‘p atomli spirtlarga oid tajribalar bevosita mos."
+    ],
+    "conceptIds": [
+      "concept.c261",
+      "concept.c205"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.18",
+        "type": "internal",
+        "title": "III bob, 3.3-3.4, 115-121-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.18"
+    ]
+  },
+  {
+    "id": "lu.10.19",
+    "grade": 10,
+    "title": "Fenollar va aromatik spirtlar",
+    "chapter": "III bob, 3.6-3.7, 123-129-betlar",
+    "learningOutcomes": [
+      "10.10 organik birikmalarni xos reaksiyalar bilan aniqlash qo‘llab-quvvatlaydi; maxsus fenol ssenariysi kerak."
+    ],
+    "conceptIds": [
+      "concept.c262",
+      "concept.c263",
+      "concept.c264"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.19",
+        "type": "internal",
+        "title": "III bob, 3.6-3.7, 123-129-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.19"
+    ]
+  },
+  {
+    "id": "lu.10.20",
+    "grade": 10,
+    "title": "Oddiy efirlar",
+    "chapter": "III bob, 3.8, 130-132-betlar",
+    "learningOutcomes": [
+      "Mavzu strukturaviy; katalogda maxsus amaliy ish yo‘q."
+    ],
+    "conceptIds": [
+      "concept.c265",
+      "concept.c266"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.20",
+        "type": "internal",
+        "title": "III bob, 3.8, 130-132-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.20"
+    ]
+  },
+  {
+    "id": "lu.10.21",
+    "grade": 10,
+    "title": "Aldegidlar va ketonlar",
+    "chapter": "III bob, 3.9 va 3.11, 133-139-betlar",
+    "learningOutcomes": [
+      "10.6 aldehidlarga xos, 10.10 aniqlash amaliyoti bevosita mos."
+    ],
+    "conceptIds": [
+      "concept.c267",
+      "concept.c268",
+      "concept.c057"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.21",
+        "type": "internal",
+        "title": "III bob, 3.9 va 3.11, 133-139-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.21"
+    ]
+  },
+  {
+    "id": "lu.10.22",
+    "grade": 10,
+    "title": "Karbon kislotalar",
+    "chapter": "III bob, 3.12, 140-145-betlar",
+    "learningOutcomes": [
+      "10.10 xos reaksiyalar orqali qo‘llab-quvvatlaydi; maxsus kislota tajribasi tavsiya etiladi."
+    ],
+    "conceptIds": [
+      "concept.c269",
+      "concept.c270",
+      "concept.c260"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.22",
+        "type": "internal",
+        "title": "III bob, 3.12, 140-145-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.22"
+    ]
+  },
+  {
+    "id": "lu.10.23",
+    "grade": 10,
+    "title": "Murakkab efirlar",
+    "chapter": "III bob, 3.14, 146-151-betlar",
+    "learningOutcomes": [
+      "10.7 o‘simliklardagi murakkab efirlar mavzuni amaliy bog‘laydi; esterifikatsiya ssenariysi bilan kuchaytiriladi."
+    ],
+    "conceptIds": [
+      "concept.c271",
+      "concept.c272",
+      "concept.c273"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.23",
+        "type": "internal",
+        "title": "III bob, 3.14, 146-151-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.23"
+    ]
+  },
+  {
+    "id": "lu.10.24",
+    "grade": 10,
+    "title": "Yog‘lar",
+    "chapter": "III bob, 3.16, 152-155-betlar",
+    "learningOutcomes": [
+      "10.8 yog‘lardan sovun olish bevosita mos."
+    ],
+    "conceptIds": [
+      "concept.c274",
+      "concept.c275",
+      "concept.c276"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.24",
+        "type": "internal",
+        "title": "III bob, 3.16, 152-155-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.24"
+    ]
+  },
+  {
+    "id": "lu.10.25",
+    "grade": 10,
+    "title": "Uglevodlar: mono-, di- va polisaxaridlar",
+    "chapter": "III bob, 3.18-3.20, 156-168-betlar",
+    "learningOutcomes": [
+      "10.9 uglevodlarga oid tajribalar bevosita mos."
+    ],
+    "conceptIds": [
+      "concept.c277",
+      "concept.c278",
+      "concept.c279",
+      "concept.c280"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.25",
+        "type": "internal",
+        "title": "III bob, 3.18-3.20, 156-168-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.25"
+    ]
+  },
+  {
+    "id": "lu.10.26",
+    "grade": 10,
+    "title": "Tabiiy va sun’iy tolalar",
+    "chapter": "III bob, 3.22, 169-172-betlar",
+    "learningOutcomes": [
+      "10.11 qog‘ozni qayta ishlash sellyuloza/material oqimi bilan bog‘lanadi, ammo tolalar uchun maxsus case kerak."
+    ],
+    "conceptIds": [
+      "concept.c281",
+      "concept.c282",
+      "concept.c097"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.26",
+        "type": "internal",
+        "title": "III bob, 3.22, 169-172-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.26"
+    ]
+  },
+  {
+    "id": "lu.10.27",
+    "grade": 10,
+    "title": "Organik sanoat, chiqindilar va qayta ishlash",
+    "chapter": "IV bob, 4.1-4.2, 182-188-betlar",
+    "learningOutcomes": [
+      "10.11 qayta ishlash amaliyoti bevosita aylana iqtisodiyotga ulanadi."
+    ],
+    "conceptIds": [
+      "concept.c220",
+      "concept.c221",
+      "concept.c283"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.10.27",
+        "type": "internal",
+        "title": "IV bob, 4.1-4.2, 182-188-betlar"
+      }
+    ],
+    "legacyIds": [
+      "10.27"
+    ]
+  },
+  {
+    "id": "lu.11.01",
+    "grade": 11,
+    "title": "Atom tuzilishi",
+    "chapter": "1-bob, 1-§, 4-10-betlar",
+    "learningOutcomes": [
+      "Atom tuzilishi model/trenajyor orqali o‘zlashtiriladi."
+    ],
+    "conceptIds": [
+      "concept.c284",
+      "concept.c285",
+      "concept.c286",
+      "concept.c287"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.11.01",
+        "type": "internal",
+        "title": "1-bob, 1-§, 4-10-betlar"
+      }
+    ],
+    "legacyIds": [
+      "11.01"
+    ]
+  },
+  {
+    "id": "lu.11.02",
+    "grade": 11,
+    "title": "Davriy qonun va D.I. Mendeleyev davriy sistemasi",
+    "chapter": "1-bob, 2-§, 11-15-betlar",
+    "learningOutcomes": [
+      "Davriy qonun uchun interaktiv trendlar asosiy amaliyot."
+    ],
+    "conceptIds": [
+      "concept.c288",
+      "concept.c289"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.11.02",
+        "type": "internal",
+        "title": "1-bob, 2-§, 11-15-betlar"
+      }
+    ],
+    "legacyIds": [
+      "11.02"
+    ]
+  },
+  {
+    "id": "lu.11.03",
+    "grade": 11,
+    "title": "Atom tarkibi va yadro reaksiyalari",
+    "chapter": "1-bob, 3-§, 16-22-betlar",
+    "learningOutcomes": [
+      "Yadro reaksiyalari uchun xavfsiz raqamli simulyatsiya zarur."
+    ],
+    "conceptIds": [
+      "concept.c290",
+      "concept.c291",
+      "concept.c292",
+      "concept.c293"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.11.03",
+        "type": "internal",
+        "title": "1-bob, 3-§, 16-22-betlar"
+      }
+    ],
+    "legacyIds": [
+      "11.03"
+    ]
+  },
+  {
+    "id": "lu.11.04",
+    "grade": 11,
+    "title": "Kimyoviy bog‘lanish turlari va kristall panjaralar",
+    "chapter": "1-bob, 4-§, 23-30-betlar",
+    "learningOutcomes": [
+      "Tuzilish–xossa bog‘ini model orqali qo‘llash kerak."
+    ],
+    "conceptIds": [
+      "concept.c294",
+      "concept.c295",
+      "concept.c296"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.11.04",
+        "type": "internal",
+        "title": "1-bob, 4-§, 23-30-betlar"
+      }
+    ],
+    "legacyIds": [
+      "11.04"
+    ]
+  },
+  {
+    "id": "lu.11.05",
+    "grade": 11,
+    "title": "Modda miqdori",
+    "chapter": "2-bob, 5-§, 31-33-betlar",
+    "learningOutcomes": [
+      "Modda miqdori sonli mavzu."
+    ],
+    "conceptIds": [
+      "concept.c038",
+      "concept.c297",
+      "concept.c298"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.11.05",
+        "type": "internal",
+        "title": "2-bob, 5-§, 31-33-betlar"
+      }
+    ],
+    "legacyIds": [
+      "11.05"
+    ]
+  },
+  {
+    "id": "lu.11.06",
+    "grade": 11,
+    "title": "Avogadro qonuni va gazlar aralashmasi",
+    "chapter": "2-bob, 6-§, 34-38-betlar",
+    "learningOutcomes": [
+      "Gaz tarkibi/hajmi bilan sonli ishlash kerak."
+    ],
+    "conceptIds": [
+      "concept.c118",
+      "concept.c076",
+      "concept.c299"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.11.06",
+        "type": "internal",
+        "title": "2-bob, 6-§, 34-38-betlar"
+      }
+    ],
+    "legacyIds": [
+      "11.06"
+    ]
+  },
+  {
+    "id": "lu.11.07",
+    "grade": 11,
+    "title": "Ekvivalent",
+    "chapter": "2-bob, 7-§, 39-44-betlar",
+    "learningOutcomes": [
+      "Mavzu hisoblash amaliyotiga asoslangan."
+    ],
+    "conceptIds": [
+      "concept.c300"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.11.07",
+        "type": "internal",
+        "title": "2-bob, 7-§, 39-44-betlar"
+      }
+    ],
+    "legacyIds": [
+      "11.07"
+    ]
+  },
+  {
+    "id": "lu.11.08",
+    "grade": 11,
+    "title": "Mendeleyev-Klapeyron tenglamasi",
+    "chapter": "2-bob, 8-§, 45-50-betlar",
+    "learningOutcomes": [
+      "Mendeleyev–Klapeyron tenglamasini slayder va hisob bilan qo‘llash."
+    ],
+    "conceptIds": [
+      "concept.c301",
+      "concept.c302"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.11.08",
+        "type": "internal",
+        "title": "2-bob, 8-§, 45-50-betlar"
+      }
+    ],
+    "legacyIds": [
+      "11.08"
+    ]
+  },
+  {
+    "id": "lu.11.09",
+    "grade": 11,
+    "title": "Kuchli va kuchsiz elektrolitlar",
+    "chapter": "3-bob, 9-§, 51-53-betlar",
+    "learningOutcomes": [
+      "Katalogda maxsus laboratoriya yo‘q; raqamli tajriba kerak."
+    ],
+    "conceptIds": [
+      "concept.c303",
+      "concept.c304"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.11.09",
+        "type": "internal",
+        "title": "3-bob, 9-§, 51-53-betlar"
+      }
+    ],
+    "legacyIds": [
+      "11.09"
+    ]
+  },
+  {
+    "id": "lu.11.10",
+    "grade": 11,
+    "title": "Dissotsiatsiyalanish darajasi va ionli tenglamalar",
+    "chapter": "3-bob, 10-§, 54-57-betlar",
+    "learningOutcomes": [
+      "Ionlar bilan operatsion ishlash asosiy amaliyot."
+    ],
+    "conceptIds": [
+      "concept.c151",
+      "concept.c305"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.11.10",
+        "type": "internal",
+        "title": "3-bob, 10-§, 54-57-betlar"
+      }
+    ],
+    "legacyIds": [
+      "11.10"
+    ]
+  },
+  {
+    "id": "lu.11.11",
+    "grade": 11,
+    "title": "Tuzlar gidrolizi va eritma muhiti",
+    "chapter": "3-bob, 11-§, 58-61-betlar",
+    "learningOutcomes": [
+      "Tuz tanlab muhitni aniqlash va tenglama tuzish."
+    ],
+    "conceptIds": [
+      "concept.c156",
+      "concept.c306",
+      "concept.c061"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.11.11",
+        "type": "internal",
+        "title": "3-bob, 11-§, 58-61-betlar"
+      }
+    ],
+    "legacyIds": [
+      "11.11"
+    ]
+  },
+  {
+    "id": "lu.11.12",
+    "grade": 11,
+    "title": "Eritma va eruvchanlik",
+    "chapter": "4-bob, 12-14-§, 62-72-betlar",
+    "learningOutcomes": [
+      "Harorat–eruvchanlik bog‘ini grafik/sonli ko‘rish."
+    ],
+    "conceptIds": [
+      "concept.c307",
+      "concept.c308",
+      "concept.c309",
+      "concept.c310"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.11.12",
+        "type": "internal",
+        "title": "4-bob, 12-14-§, 62-72-betlar"
+      }
+    ],
+    "legacyIds": [
+      "11.12"
+    ]
+  },
+  {
+    "id": "lu.11.13",
+    "grade": 11,
+    "title": "Foiz konsentratsiya",
+    "chapter": "4-bob, 15-17-§, 73-84-betlar",
+    "learningOutcomes": [
+      "Suv/modda miqdori bilan realistik hisoblash amaliyoti."
+    ],
+    "conceptIds": [
+      "concept.c311",
+      "concept.c312",
+      "concept.c313"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.11.13",
+        "type": "internal",
+        "title": "4-bob, 15-17-§, 73-84-betlar"
+      }
+    ],
+    "legacyIds": [
+      "11.13"
+    ]
+  },
+  {
+    "id": "lu.11.14",
+    "grade": 11,
+    "title": "Molyar va normal konsentratsiya hamda bog‘lanishlar",
+    "chapter": "4-bob, 18-21-§, 85-97-betlar",
+    "learningOutcomes": [
+      "Konsentratsiya birliklari orasidagi bog‘lanishni mashq qiladi."
+    ],
+    "conceptIds": [
+      "concept.c314",
+      "concept.c315",
+      "concept.c316"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.11.14",
+        "type": "internal",
+        "title": "4-bob, 18-21-§, 85-97-betlar"
+      }
+    ],
+    "legacyIds": [
+      "11.14"
+    ]
+  },
+  {
+    "id": "lu.11.15",
+    "grade": 11,
+    "title": "Reaksiya tezligi",
+    "chapter": "5-bob, 22-§, 98-103-betlar",
+    "learningOutcomes": [
+      "Tezlikni grafik va sonli tahlil qilish."
+    ],
+    "conceptIds": [
+      "concept.c126",
+      "concept.c317"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.11.15",
+        "type": "internal",
+        "title": "5-bob, 22-§, 98-103-betlar"
+      }
+    ],
+    "legacyIds": [
+      "11.15"
+    ]
+  },
+  {
+    "id": "lu.11.16",
+    "grade": 11,
+    "title": "Bosim, hajm, harorat va katalizatorning reaksiya tezligiga ta’siri",
+    "chapter": "5-bob, 23-§, 104-108-betlar",
+    "learningOutcomes": [
+      "Ko‘p omilli tezlik tajribasi katalogda yo‘q."
+    ],
+    "conceptIds": [
+      "concept.c318",
+      "concept.c319"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.11.16",
+        "type": "internal",
+        "title": "5-bob, 23-§, 104-108-betlar"
+      }
+    ],
+    "legacyIds": [
+      "11.16"
+    ]
+  },
+  {
+    "id": "lu.11.17",
+    "grade": 11,
+    "title": "Qaytar va qaytmas reaksiyalar. Kimyoviy muvozanat",
+    "chapter": "6-bob, 25-§, 112-115-betlar",
+    "learningOutcomes": [
+      "Qaytar reaksiya zarracha va tezlik grafigi bilan ko‘rsatiladi."
+    ],
+    "conceptIds": [
+      "concept.c130",
+      "concept.c320"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.11.17",
+        "type": "internal",
+        "title": "6-bob, 25-§, 112-115-betlar"
+      }
+    ],
+    "legacyIds": [
+      "11.17"
+    ]
+  },
+  {
+    "id": "lu.11.18",
+    "grade": 11,
+    "title": "Kimyoviy muvozanatga ta’sir etuvchi omillar",
+    "chapter": "6-bob, 26-§, 116-120-betlar",
+    "learningOutcomes": [
+      "Sharoit tanlab siljishni bashorat qilish amaliyoti."
+    ],
+    "conceptIds": [
+      "concept.c132",
+      "concept.c321",
+      "concept.c127",
+      "concept.c128"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.11.18",
+        "type": "internal",
+        "title": "6-bob, 26-§, 116-120-betlar"
+      }
+    ],
+    "legacyIds": [
+      "11.18"
+    ]
+  },
+  {
+    "id": "lu.11.19",
+    "grade": 11,
+    "title": "Oksidlanish-qaytarilish reaksiyalarini yarim reaksiya usuli bilan tenglashtirish",
+    "chapter": "7-bob, 28-§, 127-131-betlar",
+    "learningOutcomes": [
+      "Elektron balansni bosqichma-bosqich mashq qilish kerak."
+    ],
+    "conceptIds": [
+      "concept.c322",
+      "concept.c323"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.11.19",
+        "type": "internal",
+        "title": "7-bob, 28-§, 127-131-betlar"
+      }
+    ],
+    "legacyIds": [
+      "11.19"
+    ]
+  },
+  {
+    "id": "lu.11.20",
+    "grade": 11,
+    "title": "Redoks reaksiyalarining eritma muhitiga bog‘liqligi",
+    "chapter": "7-bob, 29-30-§, 132-138-betlar",
+    "learningOutcomes": [
+      "Muhit mahsulotga ta’sirini interaktiv ko‘rsatish kerak."
+    ],
+    "conceptIds": [
+      "concept.c324",
+      "concept.c325",
+      "concept.c326"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.11.20",
+        "type": "internal",
+        "title": "7-bob, 29-30-§, 132-138-betlar"
+      }
+    ],
+    "legacyIds": [
+      "11.20"
+    ]
+  },
+  {
+    "id": "lu.11.21",
+    "grade": 11,
+    "title": "Elektroliz: eritma va suyuqlanma",
+    "chapter": "8-bob, 31-§, 139-143-betlar",
+    "learningOutcomes": [
+      "11.2 aynan elektroliz demonstratsion tajribasi sifatida mos."
+    ],
+    "conceptIds": [
+      "concept.c327",
+      "concept.c328",
+      "concept.c186",
+      "concept.c187"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.11.21",
+        "type": "internal",
+        "title": "8-bob, 31-§, 139-143-betlar"
+      }
+    ],
+    "legacyIds": [
+      "11.21"
+    ]
+  },
+  {
+    "id": "lu.11.22",
+    "grade": 11,
+    "title": "Elektroliz qonunlari",
+    "chapter": "8-bob, 32-§, 144-148-betlar",
+    "learningOutcomes": [
+      "11.2 jarayon kontekstini beradi, qonunlarni hisoblash faoliyati bilan bog‘lash kerak."
+    ],
+    "conceptIds": [
+      "concept.c329",
+      "concept.c330",
+      "concept.c331",
+      "concept.c297"
+    ],
+    "prerequisiteConceptIds": [],
+    "lessonTemplates": [],
+    "curriculumVersion": "2026.09",
+    "sourceRefs": [
+      {
+        "id": "src.legacy.11.22",
+        "type": "internal",
+        "title": "8-bob, 32-§, 144-148-betlar"
+      }
+    ],
+    "legacyIds": [
+      "11.22"
+    ]
+  }
+]

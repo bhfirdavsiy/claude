@@ -1,0 +1,66 @@
+{
+  "practice.experiment.8.13": {
+    "2": "qual.sulfate-barium"
+  },
+  "practice.experiment.9.9": {
+    "3": "school.metal-displacement.9.9"
+  },
+  "practice.experiment.9.13": {
+    "1": "school.aloh3.precipitate",
+    "3": "school.aloh3.amphoteric"
+  },
+  "practice.experiment.9.15": {
+    "1": "school.cuoh2.precipitate",
+    "3": "school.cuoh2.acid-heat"
+  },
+  "practice.experiment.9.19": {
+    "1": "school.iron-ions.hexacyanoferrate",
+    "3": "school.iron3.thiocyanate"
+  },
+  "practice.experiment.9.20": {
+    "2": "school.cast-iron-steel.material-comparison",
+    "3": "school.cast-iron-steel.hcl"
+  },
+  "practice.experiment.10.2": {
+    "2": "school.organic-carbon.limewater",
+    "3": "school.organic-hydrogen.condensation",
+    "4": "school.water.anhydrous-cuso4",
+    "5": "school.sugar.charring"
+  },
+  "practice.experiment.10.6": {
+    "1": "school.glycerol.cuoh2",
+    "3": "school.formalin.cuoh2-heat"
+  },
+  "practice.experiment.10.10": {
+    "2": "school.acetic-acid.indicator",
+    "3": "school.glycerol-glucose.cuoh2-cold",
+    "4": "school.glucose.cuoh2-heat"
+  },
+  "practice.experiment.7.9": {
+    "2": "school.hcl-water.indicator"
+  },
+  "practice.experiment.7.10": {
+    "3": "school.cu-hcl.no-reaction"
+  },
+  "practice.experiment.7.11": {
+    "4": "school.water-oxide.indicator-comparison"
+  },
+  "practice.experiment.8.6": {
+    "4": "school.znoh2.excess-base",
+    "5": "school.cuoh2.comparison"
+  },
+  "practice.experiment.8.8": {
+    "5": "school.starch-iodine",
+    "6": "school.food-starch-iodine"
+  },
+  "practice.experiment.8.10": {
+    "4": "school.halogen.no-displacement-chloride"
+  },
+  "practice.experiment.8.14": {
+    "3": "school.ammonia.water-solubility",
+    "4": "school.ammonia.indicator"
+  },
+  "practice.experiment.9.16": {
+    "3": "school.znoh2.excess-base"
+  }
+}

@@ -1,0 +1,607 @@
+{
+  "version": "1.0.0-rc.1",
+  "sourceRefs": [
+    {
+      "id": "src.legacy.9.9",
+      "type": "internal",
+      "title": "9-sinf darsligi, 198-bet — tuz eritmalari va metallar"
+    },
+    {
+      "id": "src.legacy.9.13",
+      "type": "internal",
+      "title": "9-sinf darsligi — alyuminiy gidroksid amfoterligi"
+    },
+    {
+      "id": "src.legacy.9.15",
+      "type": "internal",
+      "title": "9-sinf darsligi — mis(II)-gidroksid xossalari"
+    },
+    {
+      "id": "src.legacy.9.19",
+      "type": "internal",
+      "title": "9-sinf darsligi, 203–204-betlar — Fe(II)/Fe(III) sifat reaksiyalari"
+    },
+    {
+      "id": "src.legacy.9.20",
+      "type": "internal",
+      "title": "9-sinf darsligi, 204-bet — cho‘yan va po‘lat namunalari"
+    },
+    {
+      "id": "src.legacy.10.2",
+      "type": "internal",
+      "title": "Kimyo 10 — organik birikma tarkibidagi C/H ni aniqlash"
+    },
+    {
+      "id": "src.legacy.10.6",
+      "type": "internal",
+      "title": "Kimyo 10 — spirtlar va aldegidlarga xos reaksiyalar"
+    },
+    {
+      "id": "src.legacy.10.10",
+      "type": "internal",
+      "title": "Kimyo 10 — organik birikmalarni sifat reaksiyalari bilan aniqlash"
+    },
+    {
+      "id": "src.legacy.7.9",
+      "type": "internal",
+      "title": "7-sinf darsligi — xlorid kislota olinishi va xossalari"
+    },
+    {
+      "id": "src.legacy.7.10",
+      "type": "internal",
+      "title": "7-sinf darsligi — kislotalarning metallar bilan o‘zaro ta’siri"
+    },
+    {
+      "id": "src.legacy.7.11",
+      "type": "internal",
+      "title": "7-sinf darsligi — suv va oksidlar, eritma muhiti"
+    },
+    {
+      "id": "src.legacy.8.6",
+      "type": "internal",
+      "title": "8-sinf darsligi — Zn(OH)₂ amfoterligi va Cu(OH)₂ taqqoslash"
+    },
+    {
+      "id": "src.legacy.8.8",
+      "type": "internal",
+      "title": "8-sinf darsligi — galogenidlar va yod uchun sifat reaksiyalari"
+    },
+    {
+      "id": "src.legacy.8.10",
+      "type": "internal",
+      "title": "8-sinf darsligi — galogenlarning siqib chiqarish qatori"
+    },
+    {
+      "id": "src.legacy.8.14",
+      "type": "internal",
+      "title": "8-sinf darsligi — ammiak olish va xossalari"
+    },
+    {
+      "id": "src.legacy.9.16",
+      "type": "internal",
+      "title": "9-sinf darsligi — Zn(OH)₂ amfoter xossalari"
+    }
+  ],
+  "models": [
+    {
+      "id": "school.metal-displacement.9.9",
+      "modelType": "metal-displacement-set",
+      "scope": "bounded-school-lab",
+      "observations": [
+        {
+          "type": "metal-deposition",
+          "metal": "Ag",
+          "description": "Mis simi yuzasida kumush ajralishi kuzatiladi; eritmada Cu²⁺ hosil bo‘lishi mumkin."
+        },
+        {
+          "type": "metal-deposition",
+          "metal": "Cu",
+          "description": "Temir CuSO₄ eritmasidan misni siqib chiqaradi; mis qoplami hosil bo‘ladi."
+        },
+        {
+          "type": "no-visible-change",
+          "description": "Mis Pb²⁺ ni maktab sharoitidagi bu tajribada siqib chiqarmaydi; ko‘zga ko‘rinadigan reaksiya kutilmaydi."
+        }
+      ],
+      "equations": [
+        "Cu + 2AgNO3 → Cu(NO3)2 + 2Ag",
+        "Fe + CuSO4 → FeSO4 + Cu"
+      ],
+      "sourceRefs": [
+        "src.legacy.9.9"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.aloh3.precipitate",
+      "modelType": "amphoteric-hydroxide",
+      "scope": "ionic-school-model",
+      "observations": [
+        {
+          "type": "precipitate",
+          "color": "white",
+          "description": "Al³⁺ ga OH⁻ qo‘shilganda oq, jelatinsimon Al(OH)₃ cho‘kmasi hosil bo‘ladi."
+        }
+      ],
+      "equations": [
+        "Al³⁺ + 3OH⁻ → Al(OH)₃↓"
+      ],
+      "sourceRefs": [
+        "src.legacy.9.13"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.aloh3.amphoteric",
+      "modelType": "amphoteric-hydroxide",
+      "scope": "ionic-school-model",
+      "observations": [
+        {
+          "type": "precipitate-dissolves",
+          "medium": "acid",
+          "description": "Al(OH)₃ kislota ta’sirida eriydi."
+        },
+        {
+          "type": "precipitate-dissolves",
+          "medium": "excess-base",
+          "description": "Al(OH)₃ ortiqcha kuchli ishqorda erib aluminate turini hosil qiladi."
+        }
+      ],
+      "sourceRefs": [
+        "src.legacy.9.13"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.cuoh2.precipitate",
+      "modelType": "hydroxide-properties",
+      "scope": "ionic-school-model",
+      "observations": [
+        {
+          "type": "precipitate",
+          "color": "blue",
+          "description": "Cu²⁺ ga OH⁻ qo‘shilganda ko‘k Cu(OH)₂ cho‘kmasi hosil bo‘ladi."
+        }
+      ],
+      "equations": [
+        "Cu²⁺ + 2OH⁻ → Cu(OH)₂↓"
+      ],
+      "sourceRefs": [
+        "src.legacy.9.15"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.cuoh2.acid-heat",
+      "modelType": "hydroxide-properties",
+      "scope": "bounded-school-lab",
+      "observations": [
+        {
+          "type": "precipitate-dissolves",
+          "medium": "acid",
+          "description": "Cu(OH)₂ kislota qo‘shilganda eriydi."
+        },
+        {
+          "type": "color-change",
+          "from": "blue-precipitate",
+          "to": "black-solid",
+          "description": "Qizdirilganda Cu(OH)₂ qora CuO ga parchalanadi."
+        }
+      ],
+      "equations": [
+        "Cu(OH)₂ → CuO + H₂O"
+      ],
+      "sourceRefs": [
+        "src.legacy.9.15"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.iron-ions.hexacyanoferrate",
+      "modelType": "qualitative-ion-test",
+      "scope": "bounded-school-lab",
+      "observations": [
+        {
+          "type": "precipitate",
+          "color": "deep-blue",
+          "description": "Fe²⁺ qizil qon tuzi K₃[Fe(CN)₆] bilan to‘q ko‘k Turnbull ko‘ki cho‘kmasini beradi."
+        },
+        {
+          "type": "precipitate",
+          "color": "deep-blue",
+          "description": "Fe³⁺ sariq qon tuzi K₄[Fe(CN)₆] bilan Berlin lazuri ko‘k cho‘kmasini beradi."
+        }
+      ],
+      "sourceRefs": [
+        "src.legacy.9.19"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.iron3.thiocyanate",
+      "modelType": "qualitative-ion-test",
+      "scope": "bounded-school-lab",
+      "observations": [
+        {
+          "type": "color-change",
+          "to": "deep-red",
+          "description": "Fe³⁺ tiotsianat ionlari bilan to‘q qizil rangli kompleks hosil qiladi."
+        }
+      ],
+      "sourceRefs": [
+        "src.legacy.9.19"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.cast-iron-steel.material-comparison",
+      "modelType": "materials-comparison",
+      "scope": "bounded-school-model",
+      "observations": [
+        {
+          "type": "property-comparison",
+          "property": "carbon-content",
+          "description": "Cho‘yan odatda po‘latga nisbatan ko‘proq uglerod tutadi; mexanik xossalari shunga mos farqlanadi."
+        },
+        {
+          "type": "property-comparison",
+          "property": "mechanical",
+          "description": "Namunalar tashqi ko‘rinish va mo‘rtlik/qovushqoqlik kabi xossalar bo‘yicha taqqoslanadi."
+        }
+      ],
+      "sourceRefs": [
+        "src.legacy.9.20"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.cast-iron-steel.hcl",
+      "modelType": "materials-comparison",
+      "scope": "bounded-school-lab",
+      "observations": [
+        {
+          "type": "gas",
+          "description": "Suyultirilgan HCl temir asosli namunaga ta’sir qilganda vodorod ajralishi kuzatiladi; ikki namuna uchun ajralish tezligi tajribada taqqoslanadi."
+        }
+      ],
+      "sourceRefs": [
+        "src.legacy.9.20"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.organic-carbon.limewater",
+      "modelType": "composition-analysis",
+      "scope": "bounded-school-lab",
+      "observations": [
+        {
+          "type": "precipitate",
+          "color": "white",
+          "description": "Hosil bo‘lgan CO₂ ohakli suvdan o‘tkazilganda CaCO₃ sabab loyqalanish kuzatiladi."
+        }
+      ],
+      "sourceRefs": [
+        "src.legacy.10.2"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.organic-hydrogen.condensation",
+      "modelType": "composition-analysis",
+      "scope": "bounded-school-lab",
+      "observations": [
+        {
+          "type": "state-change",
+          "description": "Oksidlanish mahsulotidagi suv sovuqroq probirka devorida tomchilar ko‘rinishida kondensatlanadi."
+        }
+      ],
+      "sourceRefs": [
+        "src.legacy.10.2"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.water.anhydrous-cuso4",
+      "modelType": "composition-analysis",
+      "scope": "qualitative-water-test",
+      "observations": [
+        {
+          "type": "color-change",
+          "from": "white",
+          "to": "blue",
+          "description": "Suvsiz CuSO₄ suv bilan gidratlanganda oq rangdan ko‘k rangga o‘tadi."
+        }
+      ],
+      "sourceRefs": [
+        "src.legacy.10.2"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.sugar.charring",
+      "modelType": "thermal-decomposition",
+      "scope": "bounded-school-lab",
+      "observations": [
+        {
+          "type": "color-change",
+          "from": "light",
+          "to": "black",
+          "description": "Shakar kuchli qizdirilganda qorayib, uglerodga boy qoldiq hosil qiladi."
+        }
+      ],
+      "sourceRefs": [
+        "src.legacy.10.2"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.glycerol.cuoh2",
+      "modelType": "organic-qualitative-test",
+      "scope": "bounded-school-lab",
+      "observations": [
+        {
+          "type": "color-change",
+          "from": "blue-precipitate",
+          "to": "deep-blue-solution",
+          "description": "Glitserin yangi Cu(OH)₂ bilan to‘q ko‘k eritma hosil qiladi."
+        }
+      ],
+      "sourceRefs": [
+        "src.legacy.10.6"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.formalin.cuoh2-heat",
+      "modelType": "organic-qualitative-test",
+      "scope": "bounded-school-lab",
+      "observations": [
+        {
+          "type": "precipitate",
+          "color": "brick-red",
+          "description": "Formalin yangi Cu(OH)₂ bilan qizdirilganda qaytaruvchanlik belgisi sifatida g‘isht-qizil Cu₂O cho‘kmasi hosil bo‘lishi kuzatiladi."
+        }
+      ],
+      "sourceRefs": [
+        "src.legacy.10.6"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.acetic-acid.indicator",
+      "modelType": "organic-identification",
+      "scope": "bounded-school-lab",
+      "observations": [
+        {
+          "type": "indicator-response",
+          "medium": "acidic",
+          "description": "Indikator kislotali muhitni ko‘rsatadi va sirka kislotasi namunasi ajratiladi."
+        }
+      ],
+      "sourceRefs": [
+        "src.legacy.10.10"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.glycerol-glucose.cuoh2-cold",
+      "modelType": "organic-identification",
+      "scope": "bounded-school-lab",
+      "observations": [
+        {
+          "type": "color-change",
+          "to": "deep-blue-solution",
+          "description": "Glitserin va glyukoza yangi Cu(OH)₂ bilan sovuq sharoitda to‘q ko‘k eritma berishi mumkin."
+        }
+      ],
+      "sourceRefs": [
+        "src.legacy.10.10"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.glucose.cuoh2-heat",
+      "modelType": "organic-identification",
+      "scope": "bounded-school-lab",
+      "observations": [
+        {
+          "type": "precipitate",
+          "color": "brick-red",
+          "description": "Glyukoza Cu(OH)₂ bilan qizdirilganda g‘isht-qizil Cu₂O hosil qilib qaytaruvchanlik belgisini beradi."
+        },
+        {
+          "type": "no-visible-change",
+          "sample": "glycerol-control",
+          "description": "Glitserin uchun glyukozaga xos g‘isht-qizil Cu₂O qaytarilish belgisi kutilmaydi; shu farq identifikatsiyada ishlatiladi."
+        }
+      ],
+      "sourceRefs": [
+        "src.legacy.10.10"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.hcl-water.indicator",
+      "modelType": "acid-base-indicator",
+      "scope": "bounded-school-lab",
+      "observations": [
+        {
+          "type": "indicator-response",
+          "sample": "water",
+          "medium": "neutral",
+          "description": "Distillangan suv indikator bilan neytral muhitga xos javob beradi."
+        },
+        {
+          "type": "indicator-response",
+          "sample": "HCl",
+          "medium": "acidic",
+          "description": "Xlorid kislota indikator bilan kislotali muhitga xos rang o‘zgarishini beradi."
+        }
+      ],
+      "sourceRefs": [
+        "src.legacy.7.9"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.cu-hcl.no-reaction",
+      "modelType": "activity-series-negative-control",
+      "scope": "bounded-school-lab",
+      "observations": [
+        {
+          "type": "no-visible-change",
+          "description": "Mis suyultirilgan HCl dan vodorodni siqib chiqarmaydi; qizdirilganda ham maktab tajribasi sharoitida sezilarli gaz ajralishi kutilmaydi."
+        }
+      ],
+      "sourceRefs": [
+        "src.legacy.7.10"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.water-oxide.indicator-comparison",
+      "modelType": "acid-base-indicator",
+      "scope": "bounded-school-lab",
+      "observations": [
+        {
+          "type": "indicator-response",
+          "sample": "CaO+H2O",
+          "medium": "basic",
+          "description": "CaO va suvdan hosil bo‘lgan muhit ishqoriy indikator javobini beradi."
+        },
+        {
+          "type": "indicator-response",
+          "sample": "carbonated-water",
+          "medium": "acidic",
+          "description": "CO₂ erigan suv kislotali muhitga xos indikator javobini beradi."
+        },
+        {
+          "type": "indicator-response",
+          "sample": "distilled-water",
+          "medium": "neutral",
+          "description": "Distillangan suv neytral muhitga xos indikator javobini beradi."
+        }
+      ],
+      "sourceRefs": [
+        "src.legacy.7.11"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.znoh2.excess-base",
+      "modelType": "amphoteric-hydroxide",
+      "scope": "ionic-school-model",
+      "observations": [
+        {
+          "type": "precipitate-dissolves",
+          "medium": "excess-base",
+          "description": "Zn(OH)₂ ortiqcha kuchli ishqorda erib, sinkat/hidroksokompleks turini hosil qiladi."
+        }
+      ],
+      "sourceRefs": [
+        "src.legacy.8.6",
+        "src.legacy.9.16"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.cuoh2.comparison",
+      "modelType": "hydroxide-comparison",
+      "scope": "bounded-school-lab",
+      "observations": [
+        {
+          "type": "precipitate",
+          "color": "blue",
+          "description": "Cu²⁺ ga OH⁻ qo‘shilganda ko‘k Cu(OH)₂ cho‘kmasi hosil bo‘ladi."
+        },
+        {
+          "type": "no-visible-change",
+          "medium": "excess-base",
+          "description": "Cu(OH)₂ maktab tajribasi sharoitida Zn(OH)₂ kabi ortiqcha NaOH da erib ketmaydi; bu taqqoslash amfoterlik farqini ko‘rsatadi."
+        }
+      ],
+      "sourceRefs": [
+        "src.legacy.8.6"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.starch-iodine",
+      "modelType": "qualitative-organic-test",
+      "scope": "bounded-school-lab",
+      "observations": [
+        {
+          "type": "color-change",
+          "to": "blue-black",
+          "description": "Yod kraxmal bilan ko‘k-qora rangli kompleks belgisini beradi."
+        }
+      ],
+      "sourceRefs": [
+        "src.legacy.8.8"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.food-starch-iodine",
+      "modelType": "qualitative-organic-test",
+      "scope": "bounded-school-lab",
+      "observations": [
+        {
+          "type": "color-change",
+          "to": "blue-black-where-starch-present",
+          "description": "Kartoshka yoki nonning kraxmal mavjud qismida yod tomizilganda ko‘k-qora rang paydo bo‘ladi."
+        }
+      ],
+      "sourceRefs": [
+        "src.legacy.8.8"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.halogen.no-displacement-chloride",
+      "modelType": "halogen-activity-negative-control",
+      "scope": "bounded-school-lab",
+      "observations": [
+        {
+          "type": "no-visible-change",
+          "description": "Bromli suv yoki yod eritmasi xlorid ionidan xlorni siqib chiqara olmaydi; NaCl eritmasida displacement belgisi kuzatilmaydi."
+        }
+      ],
+      "sourceRefs": [
+        "src.legacy.8.10"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.ammonia.water-solubility",
+      "modelType": "gas-solubility",
+      "scope": "bounded-school-lab",
+      "observations": [
+        {
+          "type": "state-change",
+          "description": "Ammiak suvda juda yaxshi erigani uchun gaz hajmi kamayadi va suv probirkaga ko‘tariladi."
+        }
+      ],
+      "sourceRefs": [
+        "src.legacy.8.14"
+      ],
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "school.ammonia.indicator",
+      "modelType": "acid-base-indicator",
+      "scope": "bounded-school-lab",
+      "observations": [
+        {
+          "type": "indicator-response",
+          "medium": "basic",
+          "description": "Nam indikator/fenolftalein ammiakning suvdagi ishqoriy muhitini ko‘rsatadi; fenolftalein pushti tus beradi."
+        }
+      ],
+      "sourceRefs": [
+        "src.legacy.8.14"
+      ],
+      "reviewStatus": "pending"
+    }
+  ]
+}

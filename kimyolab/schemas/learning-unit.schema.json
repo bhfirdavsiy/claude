@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kimyolab.local/schemas/learning-unit.schema.json",
+  "title": "LearningUnit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "grade",
+    "title",
+    "learningOutcomes",
+    "conceptIds",
+    "prerequisiteConceptIds",
+    "lessonTemplates",
+    "curriculumVersion",
+    "sourceRefs",
+    "legacyIds"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/learningUnitId"
+    },
+    "grade": {
+      "$ref": "common.schema.json#/$defs/grade"
+    },
+    "title": {
+      "$ref": "common.schema.json#/$defs/text"
+    },
+    "chapter": {
+      "type": "string"
+    },
+    "learningOutcomes": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/text"
+      },
+      "minItems": 1
+    },
+    "conceptIds": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/conceptId"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "prerequisiteConceptIds": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/conceptId"
+      },
+      "uniqueItems": true
+    },
+    "lessonTemplates": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/text"
+      },
+      "uniqueItems": true
+    },
+    "curriculumVersion": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "sourceRefs": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/sourceRef"
+      }
+    },
+    "legacyIds": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/legacyId"
+      },
+      "uniqueItems": true
+    }
+  }
+}

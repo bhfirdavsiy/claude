@@ -1,0 +1,11 @@
+import path from 'node:path';
+import fs from 'node:fs';
+import {fileURLToPath} from 'node:url';
+import {validateReleaseBundleIntegrity} from './release-bundle-integrity.ts';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const bundle=path.resolve(root,process.argv[2]??'dist-rc');
+const result=validateReleaseBundleIntegrity(bundle);
+fs.mkdirSync(path.join(root,'reports'),{recursive:true});
+fs.writeFileSync(path.join(root,'reports/release-bundle-integrity.json'),`${JSON.stringify(result,null,2)}\n`,'utf8');
+console.log(JSON.stringify(result));
+if(!result.valid) process.exitCode=1;

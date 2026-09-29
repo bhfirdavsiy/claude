@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kimyolab.local/schemas/mapping-link.schema.json",
+  "title": "MappingLink",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "learningUnitId",
+    "practiceActivityId",
+    "conceptIds",
+    "role",
+    "required",
+    "coverageStatus"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/mappingId"
+    },
+    "learningUnitId": {
+      "$ref": "common.schema.json#/$defs/learningUnitId"
+    },
+    "theoryActivityId": {
+      "$ref": "common.schema.json#/$defs/theoryId"
+    },
+    "practiceActivityId": {
+      "$ref": "common.schema.json#/$defs/practiceId"
+    },
+    "conceptIds": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/conceptId"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "role": {
+      "enum": [
+        "primary",
+        "supporting",
+        "remediation",
+        "extension"
+      ]
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "coverageStatus": {
+      "enum": [
+        "none",
+        "partial",
+        "full",
+        "not_applicable"
+      ]
+    }
+  }
+}

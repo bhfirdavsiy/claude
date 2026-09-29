@@ -1,0 +1,1344 @@
+[
+  {
+    "activityId": "practice.case.7.01.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c001",
+      "concept.c002",
+      "concept.c003"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "evidence-list"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.7.02.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c004",
+      "concept.c005",
+      "concept.c006"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.7.2",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c007",
+      "concept.c008",
+      "concept.c063",
+      "concept.c064",
+      "concept.c065",
+      "concept.c066",
+      "concept.c067"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.7.6",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c009",
+      "concept.c010",
+      "concept.c011",
+      "concept.c012",
+      "concept.c013"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.7.3",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c014",
+      "concept.c015",
+      "concept.c016"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.7.06.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c017",
+      "concept.c018"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.7.07.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c019",
+      "concept.c020",
+      "concept.c021",
+      "concept.c022",
+      "concept.c023"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.trainer.7.08.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c024",
+      "concept.c025",
+      "concept.c026"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "specific-feedback"
+    ]
+  },
+  {
+    "activityId": "practice.calculation.7.09.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c027",
+      "concept.c028"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-validation"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.7.10.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c029",
+      "concept.c030"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.trainer.7.4",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c031",
+      "concept.c032",
+      "concept.c033"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "specific-feedback"
+    ]
+  },
+  {
+    "activityId": "practice.calculation.7.5",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c034",
+      "concept.c035",
+      "concept.c036",
+      "concept.c038",
+      "concept.c039",
+      "concept.c040"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-validation"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.7.13.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c037"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.trainer.7.15.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c041",
+      "concept.c042",
+      "concept.c043"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "specific-feedback"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.7.16.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c044",
+      "concept.c045",
+      "concept.c046",
+      "concept.c047",
+      "concept.c048"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.7.17.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c049",
+      "concept.c050",
+      "concept.c051"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.case.7.14",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c052",
+      "concept.c053",
+      "concept.c071",
+      "concept.c072",
+      "concept.c073",
+      "concept.c074"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "evidence-list"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.7.7",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c054",
+      "concept.c055",
+      "concept.c056",
+      "concept.c057",
+      "concept.c058"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.7.8",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c059",
+      "concept.c060",
+      "concept.c061",
+      "concept.c062"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.7.13",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c068",
+      "concept.c069",
+      "concept.c070"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.trainer.8.01.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c075",
+      "concept.c076",
+      "concept.c058",
+      "concept.c077",
+      "concept.c078",
+      "concept.c079"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "specific-feedback"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.8.02.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c080",
+      "concept.c081",
+      "concept.c082"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.8.03.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c083",
+      "concept.c050",
+      "concept.c084",
+      "concept.c085"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.8.04.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c086",
+      "concept.c021",
+      "concept.c087",
+      "concept.c030"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.8.05.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c088",
+      "concept.c089",
+      "concept.c030"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.8.06.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c090",
+      "concept.c091",
+      "concept.c092"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.trainer.8.07.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c093",
+      "concept.c094"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "specific-feedback"
+    ]
+  },
+  {
+    "activityId": "practice.trainer.8.08.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c095",
+      "concept.c084",
+      "concept.c096",
+      "concept.c097"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "specific-feedback"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.8.09.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c098",
+      "concept.c099"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.8.7",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c100",
+      "concept.c101",
+      "concept.c102",
+      "concept.c103"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.8.12.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c104",
+      "concept.c105",
+      "concept.c106"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.trainer.8.13.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c107",
+      "concept.c108"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "specific-feedback"
+    ]
+  },
+  {
+    "activityId": "practice.trainer.8.14.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c109",
+      "concept.c110",
+      "concept.c111"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "specific-feedback"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.8.12",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c112",
+      "concept.c113"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.8.1",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c114",
+      "concept.c115",
+      "concept.c116",
+      "concept.c117"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.calculation.8.17.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c118",
+      "concept.c076",
+      "concept.c119"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-validation"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.8.2",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c120",
+      "concept.c121",
+      "concept.c122",
+      "concept.c123",
+      "concept.c124",
+      "concept.c125"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.8.19.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c126",
+      "concept.c127",
+      "concept.c128",
+      "concept.c129"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.8.20.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c130",
+      "concept.c131",
+      "concept.c132"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.case.8.21.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c133",
+      "concept.c134",
+      "concept.c135"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "evidence-list"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.8.3",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c136",
+      "concept.c137",
+      "concept.c138",
+      "concept.c139"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.8.4",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c140",
+      "concept.c141",
+      "concept.c142"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.8.5",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c143",
+      "concept.c144",
+      "concept.c145"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.9.01.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c083",
+      "concept.c146",
+      "concept.c147"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.9.02.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c148",
+      "concept.c103"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.9.03.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c149",
+      "concept.c150"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.9.04.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c151",
+      "concept.c152"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.9.07.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c158",
+      "concept.c159",
+      "concept.c160",
+      "concept.c161",
+      "concept.c162"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.9.08.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c163",
+      "concept.c164",
+      "concept.c165",
+      "concept.c166"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.9.1",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c167",
+      "concept.c168",
+      "concept.c169",
+      "concept.c170"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.9.5",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c159",
+      "concept.c171",
+      "concept.c172",
+      "concept.c173",
+      "concept.c174",
+      "concept.c175"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.case.9.11.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c176",
+      "concept.c177",
+      "concept.c178"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "evidence-list"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.9.8",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c179",
+      "concept.c035",
+      "concept.c097"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.9.3",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c180",
+      "concept.c181"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.case.9.14.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c182",
+      "concept.c183"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "evidence-list"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.9.2",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c189",
+      "concept.c190",
+      "concept.c116",
+      "concept.c191"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.case.9.17.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c192",
+      "concept.c193",
+      "concept.c042"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "evidence-list"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.9.11",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c199",
+      "concept.c200",
+      "concept.c201"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.9.17",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c210",
+      "concept.c211"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.9.18",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c214",
+      "concept.c215",
+      "concept.c141",
+      "concept.c216"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.case.9.26.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c220",
+      "concept.c221",
+      "concept.c222",
+      "concept.c223"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "evidence-list"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.10.1",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c224",
+      "concept.c225"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.trainer.10.05.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c232"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "specific-feedback"
+    ]
+  },
+  {
+    "activityId": "practice.case.10.16.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c257",
+      "concept.c244",
+      "concept.c258"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "evidence-list"
+    ]
+  },
+  {
+    "activityId": "practice.case.10.11",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c220",
+      "concept.c221",
+      "concept.c283"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "evidence-list"
+    ]
+  },
+  {
+    "activityId": "practice.trainer.9.05.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c153",
+      "concept.c154",
+      "concept.c155"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "specific-feedback"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.9.14",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c156",
+      "concept.c157",
+      "concept.c061"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.9.10",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c184",
+      "concept.c185",
+      "concept.c186",
+      "concept.c187",
+      "concept.c188"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.9.23.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c212",
+      "concept.c213"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.10.02.structure-theory",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c226",
+      "concept.c227"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.trainer.10.03.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c228",
+      "concept.c229",
+      "concept.c230"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "specific-feedback"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.10.04.isomerism",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c231"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.trainer.10.06.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c233",
+      "concept.c234",
+      "concept.c235",
+      "concept.c236"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "specific-feedback"
+    ]
+  },
+  {
+    "activityId": "practice.trainer.10.07.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c237",
+      "concept.c238",
+      "concept.c239"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "specific-feedback"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.10.08.homologous-series",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c240",
+      "concept.c241"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.trainer.10.09.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c242",
+      "concept.c239"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "specific-feedback"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.10.10.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c243",
+      "concept.c236",
+      "concept.c244"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.10.11.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c245",
+      "concept.c246"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.10.3",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c247",
+      "concept.c248",
+      "concept.c249"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.10.13.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c250",
+      "concept.c249",
+      "concept.c251"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.10.14.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c252",
+      "concept.c253",
+      "concept.c248"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.10.15.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c254",
+      "concept.c255",
+      "concept.c256"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.10.5",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c261",
+      "concept.c205"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.10.20.planned",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c265",
+      "concept.c266"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.10.8",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c274",
+      "concept.c275",
+      "concept.c276"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.10.9",
+    "lifecycleStatus": "ready",
+    "conceptIds": [
+      "concept.c277",
+      "concept.c278",
+      "concept.c279",
+      "concept.c280"
+    ],
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.calculation.11.05.planned",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "numeric-input"
+    ]
+  },
+  {
+    "activityId": "practice.calculation.11.06.planned",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "numeric-input"
+    ]
+  },
+  {
+    "activityId": "practice.calculation.11.07.planned",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "numeric-input"
+    ]
+  },
+  {
+    "activityId": "practice.calculation.11.08.planned",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "numeric-input"
+    ]
+  },
+  {
+    "activityId": "practice.calculation.11.13.planned",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "numeric-input"
+    ]
+  },
+  {
+    "activityId": "practice.calculation.11.14.planned",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "numeric-input"
+    ]
+  },
+  {
+    "activityId": "practice.calculation.11.22.planned",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "numeric-input"
+    ]
+  },
+  {
+    "activityId": "practice.experiment.11.2",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "step-alternative",
+      "observation-text"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.11.01.planned",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.11.02.planned",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.11.03.planned",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.11.04.planned",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.11.09.planned",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.11.11.planned",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.11.12.planned",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.11.15.planned",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.11.16.planned",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.11.17.planned",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.11.18.planned",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.simulation.11.20.planned",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-state"
+    ]
+  },
+  {
+    "activityId": "practice.trainer.11.10.planned",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-feedback"
+    ]
+  },
+  {
+    "activityId": "practice.trainer.11.19.planned",
+    "lifecycleStatus": "ready",
+    "accessibilityProfile": [
+      "keyboard",
+      "textual-feedback"
+    ]
+  }
+]

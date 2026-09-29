@@ -1,0 +1,39 @@
+                      
+                 
+                       
+                 
+                                          
+                                                
+                                                 
+                                                    
+                                                
+                                               
+                                            
+                     
+                   
+                                   
+
+export function parseAppRoute(pathname       )          {
+  const path=(pathname||'/').split('?')[0].split('#')[0]||'/';
+  if(path==='/') return {name:'home'};
+  if(path==='/curriculum') return {name:'curriculum'};
+  if(path==='/labs') return {name:'labs'};
+  if(path==='/progress') return {name:'progress'};
+  if(path==='/search') return {name:'search'};
+  const external=path.match(/^\/external-lab\/(ext\.[A-Za-z0-9.-]+)$/);
+  if(external) return {name:'external-lab',bindingId:decodeURIComponent(external[1])};
+  const worksheet=path.match(/^\/worksheet\/(lu\.(?:7|8|9|10|11)\.[A-Za-z0-9.-]+)$/);
+  if(worksheet) return {name:'worksheet',learningUnitId:decodeURIComponent(worksheet[1])};
+  const practice=path.match(/^\/practice\/(practice\.(?:experiment|simulation|trainer|calculation|case)\.[A-Za-z0-9.-]+)$/);
+  if(practice) return {name:'practice',practiceActivityId:decodeURIComponent(practice[1])};
+  const staged=path.match(/^\/learn\/(lu\.(?:7|8|9|10|11)\.[A-Za-z0-9.-]+)\/(guide|practice|quiz)$/);
+  if(staged){
+    const learningUnitId=decodeURIComponent(staged[1]);
+    if(staged[2]==='guide') return {name:'learning-guide',learningUnitId};
+    if(staged[2]==='practice') return {name:'learning-practice',learningUnitId};
+    return {name:'learning-quiz',learningUnitId};
+  }
+  const learning=path.match(/^\/learn\/(lu\.(?:7|8|9|10|11)\.[A-Za-z0-9.-]+)$/);
+  if(learning) return {name:'learning-unit',learningUnitId:decodeURIComponent(learning[1])};
+  return {name:'not-found',path};
+}

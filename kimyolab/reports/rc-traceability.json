@@ -1,0 +1,1116 @@
+{
+  "generatedAt": "2026-09-19T18:34:38.783Z",
+  "total": 156,
+  "counts": {
+    "PASS": 146,
+    "PARTIAL": 0,
+    "NOT_IMPLEMENTED": 0,
+    "REVIEW_PENDING": 2,
+    "EXTERNAL_PENDING": 8
+  },
+  "unmapped": [],
+  "rows": [
+    {
+      "id": "PROD-001",
+      "status": "PASS",
+      "module": "src/features",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "PROD-002",
+      "status": "REVIEW_PENDING",
+      "module": "src/features",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "RC_PREFLIGHT",
+      "note": "Representation audit covers 122/122 units; applicability and macro–micro–symbolic metadata require didactic/content review."
+    },
+    {
+      "id": "PROD-003",
+      "status": "PASS",
+      "module": "src/features",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "PROD-004",
+      "status": "PASS",
+      "module": "src/features",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ARCH-001",
+      "status": "PASS",
+      "module": "src",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ARCH-002",
+      "status": "PASS",
+      "module": "src",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ARCH-003",
+      "status": "PASS",
+      "module": "src",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ARCH-004",
+      "status": "PASS",
+      "module": "src",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ARCH-005",
+      "status": "PASS",
+      "module": "src",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "STACK-001",
+      "status": "EXTERNAL_PENDING",
+      "module": "package.json",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "RC_PREFLIGHT",
+      "note": "Core TypeScript/ESM/IndexedDB/PWA code is present; Vite/Vitest/Playwright tool execution is unavailable in this execution environment and remains a release gate."
+    },
+    {
+      "id": "STACK-002",
+      "status": "PASS",
+      "module": "package.json",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "DATA-001",
+      "status": "PASS",
+      "module": "src/domain/content",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "DATA-002",
+      "status": "PASS",
+      "module": "src/domain/content",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "DATA-003",
+      "status": "PASS",
+      "module": "src/domain/content",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "DATA-004",
+      "status": "PASS",
+      "module": "src/domain/content",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "VER-001",
+      "status": "PASS",
+      "module": "src/runtime/compatibility",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "VER-002",
+      "status": "PASS",
+      "module": "src/runtime/compatibility",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "VER-003",
+      "status": "PASS",
+      "module": "src/runtime/compatibility",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ID-001",
+      "status": "PASS",
+      "module": "src/domain/content",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ID-002",
+      "status": "PASS",
+      "module": "src/domain/content",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ID-003",
+      "status": "PASS",
+      "module": "src/domain/content",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ID-004",
+      "status": "PASS",
+      "module": "src/domain/content",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ID-005",
+      "status": "PASS",
+      "module": "src/domain/content",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "SRC-001",
+      "status": "PASS",
+      "module": "src/domain/content/types.ts",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "SRC-002",
+      "status": "PASS",
+      "module": "src/domain/content/types.ts",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "I18N-001",
+      "status": "PASS",
+      "module": "content-src/locales",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "I18N-002",
+      "status": "PASS",
+      "module": "content-src/locales",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "I18N-003",
+      "status": "PASS",
+      "module": "content-src/locales",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "DATA-010",
+      "status": "PASS",
+      "module": "src/domain/content",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "DATA-011",
+      "status": "PASS",
+      "module": "src/domain/content",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "DATA-012",
+      "status": "PASS",
+      "module": "src/domain/content",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "DATA-013",
+      "status": "PASS",
+      "module": "src/domain/content",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "DATA-014",
+      "status": "PASS",
+      "module": "src/domain/content",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "LIFE-001",
+      "status": "PASS",
+      "module": "src/domain/content/types.ts",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "APR-001",
+      "status": "PASS",
+      "module": "src/runtime/governance",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "APR-002",
+      "status": "PASS",
+      "module": "src/runtime/governance",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "PIPE-001",
+      "status": "PASS",
+      "module": "scripts",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "PIPE-002",
+      "status": "PASS",
+      "module": "scripts",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "PIPE-003",
+      "status": "PASS",
+      "module": "scripts",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "VAL-001",
+      "status": "PASS",
+      "module": "src/domain/content/validate.ts",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "VAL-002",
+      "status": "PASS",
+      "module": "src/domain/content/validate.ts",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "VAL-003",
+      "status": "PASS",
+      "module": "src/domain/content/validate.ts",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "CHEM-001",
+      "status": "PASS",
+      "module": "src/domain/chemistry",
+      "test": "tests/phase2-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "CHEM-002",
+      "status": "PASS",
+      "module": "src/domain/chemistry",
+      "test": "tests/phase2-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "CHEM-010",
+      "status": "PASS",
+      "module": "src/domain/chemistry",
+      "test": "tests/phase2-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "CHEM-020",
+      "status": "PASS",
+      "module": "src/domain/chemistry",
+      "test": "tests/phase2-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "CHEM-021",
+      "status": "PASS",
+      "module": "src/domain/chemistry",
+      "test": "tests/phase2-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "CHEM-030",
+      "status": "PASS",
+      "module": "src/domain/chemistry",
+      "test": "tests/phase2-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "CHEM-031",
+      "status": "PASS",
+      "module": "src/domain/chemistry",
+      "test": "tests/phase2-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "CHEM-032",
+      "status": "PASS",
+      "module": "src/domain/chemistry",
+      "test": "tests/phase2-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "CHEM-033",
+      "status": "REVIEW_PENDING",
+      "module": "src/domain/chemistry",
+      "test": "tests/phase2-*.test.mjs",
+      "gate": "RC_PREFLIGHT",
+      "note": "200-case technical corpus exists; chemistry expert approval remains external."
+    },
+    {
+      "id": "CHEM-040",
+      "status": "PASS",
+      "module": "src/domain/chemistry",
+      "test": "tests/phase2-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "CHEM-050",
+      "status": "PASS",
+      "module": "src/domain/chemistry",
+      "test": "tests/phase2-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "CHEM-051",
+      "status": "PASS",
+      "module": "src/domain/chemistry",
+      "test": "tests/phase2-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "CHEM-060",
+      "status": "PASS",
+      "module": "src/domain/chemistry",
+      "test": "tests/phase2-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "CHEM-061",
+      "status": "PASS",
+      "module": "src/domain/chemistry",
+      "test": "tests/phase2-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "CHEM-062",
+      "status": "PASS",
+      "module": "src/domain/chemistry",
+      "test": "tests/phase2-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "CHEM-063",
+      "status": "PASS",
+      "module": "src/domain/chemistry",
+      "test": "tests/phase2-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "CHEM-070",
+      "status": "PASS",
+      "module": "src/domain/chemistry",
+      "test": "tests/phase2-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "CHEM-080",
+      "status": "PASS",
+      "module": "src/domain/chemistry",
+      "test": "tests/phase2-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "LEARN-001",
+      "status": "PASS",
+      "module": "src/runtime",
+      "test": "tests/phase3-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "LEARN-002",
+      "status": "PASS",
+      "module": "src/runtime",
+      "test": "tests/phase3-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "LEARN-010",
+      "status": "PASS",
+      "module": "src/runtime",
+      "test": "tests/phase3-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ENG-001",
+      "status": "PASS",
+      "module": "src/engines",
+      "test": "tests/phase4-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ENG-002",
+      "status": "PASS",
+      "module": "src/engines",
+      "test": "tests/phase4-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ENG-010",
+      "status": "PASS",
+      "module": "src/engines",
+      "test": "tests/phase4-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ENG-011",
+      "status": "PASS",
+      "module": "src/engines",
+      "test": "tests/phase4-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ENG-012",
+      "status": "PASS",
+      "module": "src/engines",
+      "test": "tests/phase4-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ENG-013",
+      "status": "PASS",
+      "module": "src/engines",
+      "test": "tests/phase4-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ENG-014",
+      "status": "PASS",
+      "module": "src/engines",
+      "test": "tests/phase4-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ENG-020",
+      "status": "PASS",
+      "module": "src/engines",
+      "test": "tests/phase4-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ENG-021",
+      "status": "PASS",
+      "module": "src/engines",
+      "test": "tests/phase4-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ENG-022",
+      "status": "PASS",
+      "module": "src/engines",
+      "test": "tests/phase4-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ENG-030",
+      "status": "PASS",
+      "module": "src/engines",
+      "test": "tests/phase4-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ENG-031",
+      "status": "PASS",
+      "module": "src/engines",
+      "test": "tests/phase4-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ENG-032",
+      "status": "PASS",
+      "module": "src/engines",
+      "test": "tests/phase4-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ENG-040",
+      "status": "PASS",
+      "module": "src/engines",
+      "test": "tests/phase4-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ENG-041",
+      "status": "PASS",
+      "module": "src/engines",
+      "test": "tests/phase4-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ENG-050",
+      "status": "PASS",
+      "module": "src/engines",
+      "test": "tests/phase4-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ENG-051",
+      "status": "PASS",
+      "module": "src/engines",
+      "test": "tests/phase4-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ASSESS-001",
+      "status": "PASS",
+      "module": "src/domain/assessment",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ASSESS-002",
+      "status": "PASS",
+      "module": "src/domain/assessment",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ASSESS-010",
+      "status": "PASS",
+      "module": "src/domain/assessment",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "MASTER-001",
+      "status": "PASS",
+      "module": "src/domain/mastery",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "MASTER-002",
+      "status": "PASS",
+      "module": "src/domain/mastery",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "MASTER-003",
+      "status": "PASS",
+      "module": "src/domain/mastery",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "MASTER-004",
+      "status": "PASS",
+      "module": "src/domain/mastery",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "MASTER-005",
+      "status": "PASS",
+      "module": "src/domain/mastery",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "MASTER-006",
+      "status": "PASS",
+      "module": "src/domain/mastery",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "LEARN-020",
+      "status": "PASS",
+      "module": "src/runtime",
+      "test": "tests/phase3-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "PROG-001",
+      "status": "PASS",
+      "module": "src/runtime/progress",
+      "test": "tests/phase3-*.test.mjs + tests/phase11-progress-recovery.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "PROG-010",
+      "status": "PASS",
+      "module": "src/runtime/progress",
+      "test": "tests/phase3-*.test.mjs + tests/phase11-progress-recovery.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "PROG-011",
+      "status": "PASS",
+      "module": "src/runtime/progress",
+      "test": "tests/phase3-*.test.mjs + tests/phase11-progress-recovery.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "PROG-012",
+      "status": "PASS",
+      "module": "src/runtime/progress",
+      "test": "tests/phase3-*.test.mjs + tests/phase11-progress-recovery.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "PROG-013",
+      "status": "PASS",
+      "module": "src/runtime/progress",
+      "test": "tests/phase3-*.test.mjs + tests/phase11-progress-recovery.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "PROG-014",
+      "status": "PASS",
+      "module": "src/runtime/progress",
+      "test": "tests/phase3-*.test.mjs + tests/phase11-progress-recovery.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "UX-001",
+      "status": "PASS",
+      "module": "src/features",
+      "test": "tests/phase6*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "UX-002",
+      "status": "PASS",
+      "module": "src/features",
+      "test": "tests/phase6*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "UX-010",
+      "status": "PASS",
+      "module": "src/features",
+      "test": "tests/phase6*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "UX-011",
+      "status": "PASS",
+      "module": "src/features",
+      "test": "tests/phase6*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ROUTE-001",
+      "status": "PASS",
+      "module": "src/app/routes.ts",
+      "test": "tests/phase6*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ROUTE-002",
+      "status": "PASS",
+      "module": "src/app/routes.ts",
+      "test": "tests/phase6*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "ROUTE-003",
+      "status": "PASS",
+      "module": "src/app/routes.ts",
+      "test": "tests/phase6*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "SEARCH-001",
+      "status": "PASS",
+      "module": "src/features/search",
+      "test": "tests/phase6b-search-worksheet.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "SEARCH-002",
+      "status": "PASS",
+      "module": "src/features/search",
+      "test": "tests/phase6b-search-worksheet.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "SEARCH-003",
+      "status": "PASS",
+      "module": "src/features/search",
+      "test": "tests/phase6b-search-worksheet.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "A11Y-001",
+      "status": "EXTERNAL_PENDING",
+      "module": "src/ui",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "RC_PREFLIGHT",
+      "note": "Accessibility foundations are implemented; WCAG 2.2 AA conformance requires real-browser audit."
+    },
+    {
+      "id": "A11Y-002",
+      "status": "EXTERNAL_PENDING",
+      "module": "src/ui",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "RC_PREFLIGHT",
+      "note": "Keyboard/semantic/reduced-motion contracts exist; engine-by-engine browser verification remains external."
+    },
+    {
+      "id": "A11Y-003",
+      "status": "EXTERNAL_PENDING",
+      "module": "src/ui",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "RC_PREFLIGHT",
+      "note": "axe critical/serious automated browser gate is blocked by managed browser policy."
+    },
+    {
+      "id": "PERF-001",
+      "status": "PASS",
+      "module": "reports/performance",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "PERF-002",
+      "status": "EXTERNAL_PENDING",
+      "module": "reports/performance",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "RC_PREFLIGHT",
+      "note": "Core Web Vitals require a real browser environment."
+    },
+    {
+      "id": "PERF-003",
+      "status": "EXTERNAL_PENDING",
+      "module": "reports/performance",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "RC_PREFLIGHT",
+      "note": "Static route byte budgets are enforced; long-task measurement requires a real browser environment."
+    },
+    {
+      "id": "PERF-004",
+      "status": "PASS",
+      "module": "reports/performance",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "PERF-005",
+      "status": "PASS",
+      "module": "reports/performance",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "UX-020",
+      "status": "PASS",
+      "module": "src/features",
+      "test": "tests/phase6*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "SEC-001",
+      "status": "PASS",
+      "module": "server.mjs",
+      "test": "tests/security.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "SEC-002",
+      "status": "PASS",
+      "module": "server.mjs",
+      "test": "tests/security.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "SEC-003",
+      "status": "PASS",
+      "module": "server.mjs",
+      "test": "tests/security.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "SEC-004",
+      "status": "PASS",
+      "module": "server.mjs",
+      "test": "tests/security.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "OFF-001",
+      "status": "PASS",
+      "module": "src/infra/pwa",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "OFF-002",
+      "status": "PASS",
+      "module": "src/infra/pwa",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "OFF-003",
+      "status": "PASS",
+      "module": "src/infra/pwa",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "PRIV-001",
+      "status": "PASS",
+      "module": "src/runtime/governance/telemetry.ts",
+      "test": "tests/phase8-telemetry.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "PRIV-002",
+      "status": "PASS",
+      "module": "src/runtime/governance/telemetry.ts",
+      "test": "tests/phase8-telemetry.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "LIC-001",
+      "status": "PASS",
+      "module": "scripts/validate-release-licensing.ts",
+      "test": "tests/phase11-release-licensing.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "LIC-002",
+      "status": "PASS",
+      "module": "scripts/validate-release-licensing.ts",
+      "test": "tests/phase11-release-licensing.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "OPS-001",
+      "status": "PASS",
+      "module": "scripts",
+      "test": "tests/phase8-*.test.mjs + tests/phase11-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "QA-001",
+      "status": "PASS",
+      "module": "src/runtime/governance/release-gate.ts",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "OPS-010",
+      "status": "EXTERNAL_PENDING",
+      "module": "scripts",
+      "test": "tests/phase8-*.test.mjs + tests/phase11-*.test.mjs",
+      "gate": "RC_PREFLIGHT",
+      "note": "Static/content/security/release CI gates are implemented; real-browser E2E/a11y/Web-Vitals stages are blocked by the managed environment."
+    },
+    {
+      "id": "OPS-020",
+      "status": "PASS",
+      "module": "scripts",
+      "test": "tests/phase8-*.test.mjs + tests/phase11-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "OPS-021",
+      "status": "PASS",
+      "module": "scripts",
+      "test": "tests/phase8-*.test.mjs + tests/phase11-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "OPS-022",
+      "status": "PASS",
+      "module": "scripts",
+      "test": "tests/phase8-*.test.mjs + tests/phase11-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "OPS-023",
+      "status": "PASS",
+      "module": "scripts",
+      "test": "tests/phase8-*.test.mjs + tests/phase11-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "TEST-001",
+      "status": "PASS",
+      "module": "tests",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "TEST-002",
+      "status": "PASS",
+      "module": "tests",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "TEST-003",
+      "status": "PASS",
+      "module": "tests",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "TEST-004",
+      "status": "PASS",
+      "module": "tests",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "TEST-005",
+      "status": "EXTERNAL_PENDING",
+      "module": "tests",
+      "test": "tests/phase1-*.test.mjs",
+      "gate": "RC_PREFLIGHT",
+      "note": "Visual regression requires usable managed-browser navigation."
+    },
+    {
+      "id": "SLICE-01",
+      "status": "PASS",
+      "module": "src/runtime/reference-slices",
+      "test": "tests/phase5-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "SLICE-02",
+      "status": "PASS",
+      "module": "src/runtime/reference-slices",
+      "test": "tests/phase5-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "SLICE-03",
+      "status": "PASS",
+      "module": "src/runtime/reference-slices",
+      "test": "tests/phase5-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "SLICE-04",
+      "status": "PASS",
+      "module": "src/runtime/reference-slices",
+      "test": "tests/phase5-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "SLICE-05",
+      "status": "PASS",
+      "module": "src/runtime/reference-slices",
+      "test": "tests/phase5-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "SLICE-06",
+      "status": "PASS",
+      "module": "src/runtime/reference-slices",
+      "test": "tests/phase5-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "BS-001",
+      "status": "PASS",
+      "module": "src/runtime",
+      "test": "tests/phase8-*.test.mjs + tests/phase11-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "BS-002",
+      "status": "PASS",
+      "module": "src/runtime",
+      "test": "tests/phase8-*.test.mjs + tests/phase11-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "BS-003",
+      "status": "PASS",
+      "module": "src/runtime",
+      "test": "tests/phase8-*.test.mjs + tests/phase11-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "BS-004",
+      "status": "PASS",
+      "module": "src/runtime",
+      "test": "tests/phase8-*.test.mjs + tests/phase11-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "BS-005",
+      "status": "PASS",
+      "module": "src/runtime",
+      "test": "tests/phase8-*.test.mjs + tests/phase11-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "BS-006",
+      "status": "PASS",
+      "module": "src/runtime",
+      "test": "tests/phase8-*.test.mjs + tests/phase11-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "BS-007",
+      "status": "PASS",
+      "module": "src/runtime",
+      "test": "tests/phase8-*.test.mjs + tests/phase11-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "BS-008",
+      "status": "PASS",
+      "module": "src/runtime",
+      "test": "tests/phase8-*.test.mjs + tests/phase11-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "BS-009",
+      "status": "PASS",
+      "module": "src/runtime",
+      "test": "tests/phase8-*.test.mjs + tests/phase11-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "BS-010",
+      "status": "PASS",
+      "module": "src/runtime",
+      "test": "tests/phase8-*.test.mjs + tests/phase11-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "BS-011",
+      "status": "PASS",
+      "module": "src/runtime",
+      "test": "tests/phase8-*.test.mjs + tests/phase11-*.test.mjs",
+      "gate": "AUTOMATED"
+    },
+    {
+      "id": "BS-012",
+      "status": "PASS",
+      "module": "src/runtime",
+      "test": "tests/phase8-*.test.mjs + tests/phase11-*.test.mjs",
+      "gate": "AUTOMATED"
+    }
+  ]
+}

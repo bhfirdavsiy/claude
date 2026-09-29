@@ -1,0 +1,7645 @@
+[
+  {
+    "id": "concept.c001",
+    "name": "Kimyo tarixi",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Kimyo tarixi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c002",
+    "name": "fan yo'nalishlari",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "fan yo'nalishlari"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c003",
+    "name": "modda va materiallar",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "modda va materiallar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c004",
+    "name": "Modda",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Modda"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c005",
+    "name": "zarracha",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "zarracha"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c006",
+    "name": "fizik xossa",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "fizik xossa"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c007",
+    "name": "Sof modda",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Sof modda"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c008",
+    "name": "bir jinsli va turli jinsli aralashma",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "bir jinsli va turli jinsli aralashma"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c009",
+    "name": "Qattiq",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Qattiq"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c010",
+    "name": "suyuq",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "suyuq"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c011",
+    "name": "gaz; erish",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "gaz; erish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c012",
+    "name": "bug'lanish",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "bug'lanish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c013",
+    "name": "kondensatsiya",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "kondensatsiya"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c014",
+    "name": "Fizik o'zgarish",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Fizik o'zgarish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c015",
+    "name": "kimyoviy reaksiya",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "kimyoviy reaksiya"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c016",
+    "name": "yangi modda",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "yangi modda"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c017",
+    "name": "Atom tushunchasi",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Atom tushunchasi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c018",
+    "name": "mikroolam",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "mikroolam"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c019",
+    "name": "Yadro",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Yadro"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c020",
+    "name": "proton",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "proton"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c021",
+    "name": "neytron",
+    "gradeRange": [
+      7,
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "neytron"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c022",
+    "name": "elektron",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "elektron"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c023",
+    "name": "zaryad",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "zaryad"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c024",
+    "name": "Element nomi",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Element nomi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c025",
+    "name": "belgisi",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "belgisi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c026",
+    "name": "tartib raqami",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "tartib raqami"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c027",
+    "name": "Nisbiy massa",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Nisbiy massa"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c028",
+    "name": "atom massa birligi",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "atom massa birligi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c029",
+    "name": "Proton va neytron soni",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Proton va neytron soni"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c030",
+    "name": "massa soni",
+    "gradeRange": [
+      7,
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "massa soni"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c031",
+    "name": "Indeks",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Indeks"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c032",
+    "name": "valentlik",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "valentlik"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c033",
+    "name": "formula",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "formula"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c034",
+    "name": "Molekula",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Molekula"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c035",
+    "name": "tarkib",
+    "gradeRange": [
+      7,
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "tarkib"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c036",
+    "name": "Mr",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Mr"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c037",
+    "name": "Bir elementli va ko'p elementli modda",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Bir elementli va ko'p elementli modda"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c038",
+    "name": "Mol",
+    "gradeRange": [
+      7,
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Mol"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c039",
+    "name": "NA",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "NA"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c040",
+    "name": "molyar massa",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "molyar massa"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c041",
+    "name": "Reagent",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Reagent"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c042",
+    "name": "mahsulot",
+    "gradeRange": [
+      7,
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "mahsulot"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c043",
+    "name": "koeffitsiyent",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "koeffitsiyent"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c044",
+    "name": "Metallar",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Metallar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c045",
+    "name": "metallmaslar",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "metallmaslar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c046",
+    "name": "ishqoriy metallar",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "ishqoriy metallar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c047",
+    "name": "galogenlar",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "galogenlar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c048",
+    "name": "inert gazlar",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "inert gazlar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c049",
+    "name": "Davr",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Davr"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c050",
+    "name": "guruh",
+    "gradeRange": [
+      7,
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "guruh"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c051",
+    "name": "element o'rni",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "element o'rni"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c052",
+    "name": "Atmosfera tarkibi",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Atmosfera tarkibi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c053",
+    "name": "ifloslantiruvchi omillar",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "ifloslantiruvchi omillar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c054",
+    "name": "O2",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "O2"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c055",
+    "name": "O3",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "O3"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c056",
+    "name": "yonish",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "yonish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c057",
+    "name": "oksidlanish",
+    "gradeRange": [
+      7,
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "oksidlanish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c058",
+    "name": "oksid",
+    "gradeRange": [
+      7,
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "oksid"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c059",
+    "name": "H2",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "H2"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c060",
+    "name": "kislota xossalari",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "kislota xossalari"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c061",
+    "name": "indikator",
+    "gradeRange": [
+      7,
+      9,
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "indikator"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c062",
+    "name": "ekologik ta'sir",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "ekologik ta'sir"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c063",
+    "name": "H2O",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "H2O"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c064",
+    "name": "agregat holat",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "agregat holat"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c065",
+    "name": "suv aylanishi",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "suv aylanishi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c066",
+    "name": "neytrallanish",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "neytrallanish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c067",
+    "name": "filtratsiya",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "filtratsiya"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c068",
+    "name": "Biogen elementlar",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Biogen elementlar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c069",
+    "name": "organik modda",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "organik modda"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c070",
+    "name": "oziq tarkibi",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "oziq tarkibi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c071",
+    "name": "Mineral",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Mineral"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c072",
+    "name": "kon",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "kon"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c073",
+    "name": "qazib olish",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "qazib olish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c074",
+    "name": "barqaror rivojlanish",
+    "gradeRange": [
+      7
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "barqaror rivojlanish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c075",
+    "name": "Valentlik",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Valentlik"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c076",
+    "name": "mol",
+    "gradeRange": [
+      8,
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "mol"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c077",
+    "name": "asos",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "asos"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c078",
+    "name": "kislota",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "kislota"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c079",
+    "name": "tuz",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "tuz"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c080",
+    "name": "Elementlar toifalanishi",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Elementlar toifalanishi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c081",
+    "name": "triadalar",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "triadalar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c082",
+    "name": "oilalar",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "oilalar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c083",
+    "name": "Davriy qonun",
+    "gradeRange": [
+      8,
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Davriy qonun"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c084",
+    "name": "davr",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "davr"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c085",
+    "name": "xossalarning davriyligi",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "xossalarning davriyligi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c086",
+    "name": "Proton",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Proton"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c087",
+    "name": "yadro zaryadi",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "yadro zaryadi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c088",
+    "name": "Izotop",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Izotop"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c089",
+    "name": "izobar",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "izobar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c090",
+    "name": "Elektron qavat",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Elektron qavat"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c091",
+    "name": "orbital",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "orbital"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c092",
+    "name": "s va p pog'onacha",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "s va p pog'onacha"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c093",
+    "name": "Davrlar",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Davrlar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c094",
+    "name": "elektron taqsimlanish",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "elektron taqsimlanish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c095",
+    "name": "Guruh",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Guruh"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c096",
+    "name": "konfiguratsiya",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "konfiguratsiya"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c097",
+    "name": "xossa",
+    "gradeRange": [
+      8,
+      9,
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "xossa"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c098",
+    "name": "Elektromanfiylik",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Elektromanfiylik"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c099",
+    "name": "davriy o'zgarish",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "davriy o'zgarish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c100",
+    "name": "Elektron juft",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Elektron juft"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c101",
+    "name": "qutblanish",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "qutblanish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c102",
+    "name": "Elektron berish-olish",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Elektron berish-olish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c103",
+    "name": "ionlar",
+    "gradeRange": [
+      8,
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "ionlar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c104",
+    "name": "Ion",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Ion"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c105",
+    "name": "atom",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "atom"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c106",
+    "name": "molekulyar va metall panjara",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "molekulyar va metall panjara"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c107",
+    "name": "Oksidlanish darajasi",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Oksidlanish darajasi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c108",
+    "name": "elektron balansga tayyorgarlik",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "elektron balansga tayyorgarlik"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c109",
+    "name": "Oksidlovchi",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Oksidlovchi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c110",
+    "name": "qaytaruvchi",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "qaytaruvchi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c111",
+    "name": "elektron balans",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "elektron balans"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c112",
+    "name": "Metallmaslar",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Metallmaslar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c113",
+    "name": "fizik va kimyoviy xossalar",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "fizik va kimyoviy xossalar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c114",
+    "name": "Galogenlar qatori",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Galogenlar qatori"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c115",
+    "name": "rang",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "rang"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c116",
+    "name": "reaktivlik",
+    "gradeRange": [
+      8,
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "reaktivlik"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c117",
+    "name": "xloridlar",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "xloridlar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c118",
+    "name": "Gaz hajmi",
+    "gradeRange": [
+      8,
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Gaz hajmi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c119",
+    "name": "ekvivalent",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "ekvivalent"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c120",
+    "name": "O",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "O"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c121",
+    "name": "S",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "S"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c122",
+    "name": "H2S",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "H2S"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c123",
+    "name": "SO2",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "SO2"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c124",
+    "name": "SO3",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "SO3"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c125",
+    "name": "H2SO4",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "H2SO4"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c126",
+    "name": "Tezlik",
+    "gradeRange": [
+      8,
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Tezlik"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c127",
+    "name": "harorat",
+    "gradeRange": [
+      8,
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "harorat"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c128",
+    "name": "konsentratsiya",
+    "gradeRange": [
+      8,
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "konsentratsiya"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c129",
+    "name": "sirt maydoni",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "sirt maydoni"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c130",
+    "name": "Qaytar reaksiya",
+    "gradeRange": [
+      8,
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Qaytar reaksiya"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c131",
+    "name": "muvozanat",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "muvozanat"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c132",
+    "name": "Le-Shatele prinsipi",
+    "gradeRange": [
+      8,
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Le-Shatele prinsipi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c133",
+    "name": "Piritni kuydirish",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Piritni kuydirish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c134",
+    "name": "kontakt apparati",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "kontakt apparati"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c135",
+    "name": "oleum",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "oleum"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c136",
+    "name": "N2",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "N2"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c137",
+    "name": "NH3",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "NH3"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c138",
+    "name": "NOx",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "NOx"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c139",
+    "name": "HNO3",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "HNO3"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c140",
+    "name": "P allotropiyasi",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "P allotropiyasi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c141",
+    "name": "oksidlar",
+    "gradeRange": [
+      8,
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "oksidlar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c142",
+    "name": "fosfat kislota",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "fosfat kislota"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c143",
+    "name": "Azotli",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Azotli"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c144",
+    "name": "fosforli",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "fosforli"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c145",
+    "name": "kaliyli o'g'itlar; biogen elementlar",
+    "gradeRange": [
+      8
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "kaliyli o'g'itlar; biogen elementlar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c146",
+    "name": "elektron tuzilish",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "elektron tuzilish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c147",
+    "name": "bog'lanish",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "bog'lanish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c148",
+    "name": "Elektr o'tkazuvchanlik",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Elektr o'tkazuvchanlik"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c149",
+    "name": "Ionlarga ajralish",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Ionlarga ajralish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c150",
+    "name": "formulalar",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "formulalar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c151",
+    "name": "α",
+    "gradeRange": [
+      9,
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "α"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c152",
+    "name": "kuchli va kuchsiz elektrolit",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "kuchli va kuchsiz elektrolit"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c153",
+    "name": "Cho'kma",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Cho'kma"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c154",
+    "name": "gaz",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "gaz"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c155",
+    "name": "suv hosil bo'lishi",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "suv hosil bo'lishi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c156",
+    "name": "Gidroliz",
+    "gradeRange": [
+      9,
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Gidroliz"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c157",
+    "name": "eritma muhiti",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "eritma muhiti"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c158",
+    "name": "C",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "C"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c159",
+    "name": "Si",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Si"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c160",
+    "name": "Ge",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Ge"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c161",
+    "name": "Sn",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Sn"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c162",
+    "name": "Pb; guruh trendi",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Pb; guruh trendi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c163",
+    "name": "Olmos",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Olmos"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c164",
+    "name": "grafit",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "grafit"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c165",
+    "name": "ko'mir",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "ko'mir"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c166",
+    "name": "fullerenga kirish",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "fullerenga kirish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c167",
+    "name": "CO",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "CO"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c168",
+    "name": "CO2",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "CO2"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c169",
+    "name": "H2CO3",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "H2CO3"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c170",
+    "name": "karbonatlar",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "karbonatlar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c171",
+    "name": "SiO2",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "SiO2"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c172",
+    "name": "silikat",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "silikat"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c173",
+    "name": "shisha",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "shisha"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c174",
+    "name": "sement",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "sement"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c175",
+    "name": "keramika",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "keramika"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c176",
+    "name": "Ruda",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Ruda"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c177",
+    "name": "qaytarilish",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "qaytarilish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c178",
+    "name": "metallurgiya",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "metallurgiya"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c179",
+    "name": "Qotishma",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Qotishma"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c180",
+    "name": "Metall bog'lanish",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Metall bog'lanish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c181",
+    "name": "faollik qatori",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "faollik qatori"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c182",
+    "name": "Korroziya",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Korroziya"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c183",
+    "name": "himoya usullari",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "himoya usullari"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c184",
+    "name": "Anod",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Anod"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c185",
+    "name": "katod",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "katod"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c186",
+    "name": "eritma",
+    "gradeRange": [
+      9,
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "eritma"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c187",
+    "name": "suyuqlanma",
+    "gradeRange": [
+      9,
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "suyuqlanma"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c188",
+    "name": "qoplama",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "qoplama"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c189",
+    "name": "Na",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Na"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c190",
+    "name": "K",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "K"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c191",
+    "name": "birikmalar",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "birikmalar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c192",
+    "name": "Sanoat jarayoni",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Sanoat jarayoni"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c193",
+    "name": "xomashyo",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "xomashyo"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c194",
+    "name": "Ca",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Ca"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c195",
+    "name": "Mg",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Mg"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c196",
+    "name": "karbonat",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "karbonat"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c197",
+    "name": "qattiqlik",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "qattiqlik"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c198",
+    "name": "yumshatish",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "yumshatish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c199",
+    "name": "Al",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Al"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c200",
+    "name": "amfoterlik",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "amfoterlik"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c201",
+    "name": "oksid parda",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "oksid parda"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c202",
+    "name": "Cu",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Cu"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c203",
+    "name": "Ag",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Ag"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c204",
+    "name": "Au",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Au"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c205",
+    "name": "xossalar",
+    "gradeRange": [
+      9,
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "xossalar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c206",
+    "name": "ishlatilish",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "ishlatilish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c207",
+    "name": "Zn",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Zn"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c208",
+    "name": "Cd",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Cd"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c209",
+    "name": "Hg; elektron tuzilish va xossa",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Hg; elektron tuzilish va xossa"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c210",
+    "name": "Cr oksidlanish darajalari",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Cr oksidlanish darajalari"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c211",
+    "name": "rangli birikmalar",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "rangli birikmalar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c212",
+    "name": "Mn oksidlanish darajalari",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Mn oksidlanish darajalari"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c213",
+    "name": "permanganat",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "permanganat"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c214",
+    "name": "Fe2+",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Fe2+"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c215",
+    "name": "Fe3+",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Fe3+"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c216",
+    "name": "tuzlar",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "tuzlar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c217",
+    "name": "Domna jarayoni",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Domna jarayoni"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c218",
+    "name": "cho'yan",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "cho'yan"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c219",
+    "name": "po'lat",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "po'lat"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c220",
+    "name": "Sanoat",
+    "gradeRange": [
+      9,
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Sanoat"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c221",
+    "name": "chiqindi",
+    "gradeRange": [
+      9,
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "chiqindi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c222",
+    "name": "ekologiya",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "ekologiya"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c223",
+    "name": "davriy qonun ahamiyati",
+    "gradeRange": [
+      9
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "davriy qonun ahamiyati"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c224",
+    "name": "Organik/noorganik moddalar farqi",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Organik/noorganik moddalar farqi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c225",
+    "name": "tarix",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "tarix"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c226",
+    "name": "Butlerov nazariyasi",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Butlerov nazariyasi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c227",
+    "name": "struktura",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "struktura"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c228",
+    "name": "C valentligi",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "C valentligi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c229",
+    "name": "bog'lar",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "bog'lar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c230",
+    "name": "oksidlanish darajasi",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "oksidlanish darajasi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c231",
+    "name": "Strukturaviy va fazoviy izomeriya",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Strukturaviy va fazoviy izomeriya"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c232",
+    "name": "Uglevodorod va funksional guruhlar",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Uglevodorod va funksional guruhlar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c233",
+    "name": "Birikish",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Birikish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c234",
+    "name": "ajralish",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "ajralish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c235",
+    "name": "almashinish",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "almashinish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c236",
+    "name": "o'rin olish",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "o'rin olish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c237",
+    "name": "Asosiy zanjir",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Asosiy zanjir"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c238",
+    "name": "raqamlash",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "raqamlash"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c239",
+    "name": "nomlash",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "nomlash"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c240",
+    "name": "CnH2n+2",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "CnH2n+2"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c241",
+    "name": "gomologik farq",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "gomologik farq"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c242",
+    "name": "Zanjir izomeriyasi",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Zanjir izomeriyasi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c243",
+    "name": "Yonish",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Yonish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c244",
+    "name": "kreking",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "kreking"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c245",
+    "name": "Halqa tuzilishi",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Halqa tuzilishi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c246",
+    "name": "izomeriya",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "izomeriya"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c247",
+    "name": "Qo'shbog'",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Qo'shbog'"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c248",
+    "name": "birikish",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "birikish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c249",
+    "name": "polimerlanish",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "polimerlanish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c250",
+    "name": "Konjugatsiya",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Konjugatsiya"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c251",
+    "name": "vulkanizatsiya",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "vulkanizatsiya"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c252",
+    "name": "Uchbog'",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Uchbog'"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c253",
+    "name": "asetilen",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "asetilen"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c254",
+    "name": "Benzol halqasi",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Benzol halqasi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c255",
+    "name": "aromatiklik",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "aromatiklik"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c256",
+    "name": "stirol",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "stirol"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c257",
+    "name": "Fraksion haydash",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Fraksion haydash"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c258",
+    "name": "tabiiy manbalar",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "tabiiy manbalar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c259",
+    "name": "OH guruh",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "OH guruh"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c260",
+    "name": "gomologik qator",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "gomologik qator"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c261",
+    "name": "Ko'p OH guruh",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Ko'p OH guruh"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c262",
+    "name": "Fenol",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Fenol"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c263",
+    "name": "benzol halqasi",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "benzol halqasi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c264",
+    "name": "OH ta'siri",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "OH ta'siri"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c265",
+    "name": "R-O-R tuzilishi",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "R-O-R tuzilishi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c266",
+    "name": "olinishi",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "olinishi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c267",
+    "name": "Karbonil guruh",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Karbonil guruh"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c268",
+    "name": "farqlar",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "farqlar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c269",
+    "name": "COOH guruh",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "COOH guruh"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c270",
+    "name": "kislotalik",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "kislotalik"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c271",
+    "name": "Esterifikatsiya",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Esterifikatsiya"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c272",
+    "name": "hid",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "hid"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c273",
+    "name": "qo'llanish",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "qo'llanish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c274",
+    "name": "Triglitserid",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Triglitserid"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c275",
+    "name": "gidroliz",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "gidroliz"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c276",
+    "name": "sovunlanish",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "sovunlanish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c277",
+    "name": "Glyukoza",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Glyukoza"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c278",
+    "name": "saxaroza",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "saxaroza"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c279",
+    "name": "kraxmal",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "kraxmal"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c280",
+    "name": "sellyuloza",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "sellyuloza"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c281",
+    "name": "Sellyuloza",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Sellyuloza"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c282",
+    "name": "sintetik tola",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "sintetik tola"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c283",
+    "name": "resurs aylanishi",
+    "gradeRange": [
+      10
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "resurs aylanishi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c284",
+    "name": "Rezerford",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Rezerford"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c285",
+    "name": "Bor va kvant modeli; orbital; kvant sonlari; Pauli",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Bor va kvant modeli; orbital; kvant sonlari; Pauli"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c286",
+    "name": "Klechkovskiy",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Klechkovskiy"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c287",
+    "name": "Gund qoidalari",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Gund qoidalari"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c288",
+    "name": "Davriylik",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Davriylik"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c289",
+    "name": "atom tuzilishi va xossalar bog'lanishi",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "atom tuzilishi va xossalar bog'lanishi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c290",
+    "name": "Yadro zarrachalari",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Yadro zarrachalari"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c291",
+    "name": "izotop",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "izotop"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c292",
+    "name": "radioaktiv yemirilish",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "radioaktiv yemirilish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c293",
+    "name": "yadro reaksiya",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "yadro reaksiya"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c294",
+    "name": "Kovalent",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Kovalent"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c295",
+    "name": "ion",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "ion"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c296",
+    "name": "metall bog'lanish; panjara",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "metall bog'lanish; panjara"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c297",
+    "name": "massa",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "massa"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c298",
+    "name": "zarracha soni",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "zarracha soni"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c299",
+    "name": "aralashma",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "aralashma"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c300",
+    "name": "Ekvivalent massa va miqdor",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Ekvivalent massa va miqdor"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c301",
+    "name": "PV=nRT",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "PV=nRT"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c302",
+    "name": "gaz holati",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "gaz holati"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c303",
+    "name": "Ionlanish",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Ionlanish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c304",
+    "name": "o'tkazuvchanlik",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "o'tkazuvchanlik"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c305",
+    "name": "qisqa va to'liq ionli tenglama",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "qisqa va to'liq ionli tenglama"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c306",
+    "name": "pH",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "pH"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c307",
+    "name": "Erituvchi",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Erituvchi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c308",
+    "name": "eruvchi",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "eruvchi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c309",
+    "name": "to'yingan eritma",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "to'yingan eritma"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c310",
+    "name": "eruvchanlik egri chizig'i",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "eruvchanlik egri chizig'i"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c311",
+    "name": "Massa ulushi",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Massa ulushi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c312",
+    "name": "eritma massasi",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "eritma massasi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c313",
+    "name": "hajm va zichlik",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "hajm va zichlik"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c314",
+    "name": "CM",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "CM"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c315",
+    "name": "CN",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "CN"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c316",
+    "name": "foiz bilan bog'lanish",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "foiz bilan bog'lanish"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c317",
+    "name": "konsentratsiyaning vaqt bo'yicha o'zgarishi",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "konsentratsiyaning vaqt bo'yicha o'zgarishi"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c318",
+    "name": "Ta'sir omillari",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Ta'sir omillari"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c319",
+    "name": "katalizator",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "katalizator"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c320",
+    "name": "dinamik muvozanat",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "dinamik muvozanat"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c321",
+    "name": "bosim",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "bosim"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c322",
+    "name": "Elektron-ion balans",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Elektron-ion balans"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c323",
+    "name": "yarim reaksiyalar",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "yarim reaksiyalar"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c324",
+    "name": "Kislotali",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Kislotali"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c325",
+    "name": "neytral",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "neytral"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c326",
+    "name": "ishqoriy muhit; ekvivalent og'irlik",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "ishqoriy muhit; ekvivalent og'irlik"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c327",
+    "name": "Katod",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Katod"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c328",
+    "name": "anod",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "anod"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c329",
+    "name": "Faradey qonuni",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "Faradey qonuni"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c330",
+    "name": "tok",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "tok"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  },
+  {
+    "id": "concept.c331",
+    "name": "vaqt",
+    "gradeRange": [
+      11
+    ],
+    "prerequisiteIds": [],
+    "relatedConceptIds": [],
+    "representations": [],
+    "misconceptionIds": [],
+    "synonyms": {
+      "uz-Latn": [
+        "vaqt"
+      ]
+    },
+    "sourceRefs": [
+      {
+        "id": "src.legacy.curriculum",
+        "type": "internal",
+        "title": "Legacy curriculum mapping migration"
+      }
+    ]
+  }
+]

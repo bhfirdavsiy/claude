@@ -1,0 +1,1551 @@
+{
+  "schema": "kimyolab.beta-approval-register.v1",
+  "generatedAt": "2026-09-29T10:19:50.399Z",
+  "beta": "BETA3",
+  "grades": [
+    11
+  ],
+  "records": [
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.05"
+      ],
+      "legacyIds": [
+        "11.05"
+      ],
+      "titles": [
+        "Modda miqdori"
+      ],
+      "practiceActivityId": "practice.calculation.11.05.planned",
+      "practiceTitle": "n–m–M–N bog‘lanish kalkulyatori",
+      "practiceType": "calculation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "a452575fc98adc0d8311d3f4985c1ecb52ad07f335d4d192d56e89b800a8d814",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.05"
+      ],
+      "legacyIds": [
+        "11.05"
+      ],
+      "titles": [
+        "Modda miqdori"
+      ],
+      "practiceActivityId": "practice.calculation.11.05.planned",
+      "practiceTitle": "n–m–M–N bog‘lanish kalkulyatori",
+      "practiceType": "calculation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "a452575fc98adc0d8311d3f4985c1ecb52ad07f335d4d192d56e89b800a8d814",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.05"
+      ],
+      "legacyIds": [
+        "11.05"
+      ],
+      "titles": [
+        "Modda miqdori"
+      ],
+      "practiceActivityId": "practice.calculation.11.05.planned",
+      "practiceTitle": "n–m–M–N bog‘lanish kalkulyatori",
+      "practiceType": "calculation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "a452575fc98adc0d8311d3f4985c1ecb52ad07f335d4d192d56e89b800a8d814",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.06"
+      ],
+      "legacyIds": [
+        "11.06"
+      ],
+      "titles": [
+        "Avogadro qonuni va gazlar aralashmasi"
+      ],
+      "practiceActivityId": "practice.calculation.11.06.planned",
+      "practiceTitle": "Gaz aralashmasi va Avogadro qonuni simulyatori",
+      "practiceType": "calculation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "0fd362c661027a0d75cb411b48143fa9a08c8fa09c02dc8801f2a009e49645a4",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.06"
+      ],
+      "legacyIds": [
+        "11.06"
+      ],
+      "titles": [
+        "Avogadro qonuni va gazlar aralashmasi"
+      ],
+      "practiceActivityId": "practice.calculation.11.06.planned",
+      "practiceTitle": "Gaz aralashmasi va Avogadro qonuni simulyatori",
+      "practiceType": "calculation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "0fd362c661027a0d75cb411b48143fa9a08c8fa09c02dc8801f2a009e49645a4",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.06"
+      ],
+      "legacyIds": [
+        "11.06"
+      ],
+      "titles": [
+        "Avogadro qonuni va gazlar aralashmasi"
+      ],
+      "practiceActivityId": "practice.calculation.11.06.planned",
+      "practiceTitle": "Gaz aralashmasi va Avogadro qonuni simulyatori",
+      "practiceType": "calculation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "0fd362c661027a0d75cb411b48143fa9a08c8fa09c02dc8801f2a009e49645a4",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.07"
+      ],
+      "legacyIds": [
+        "11.07"
+      ],
+      "titles": [
+        "Ekvivalent"
+      ],
+      "practiceActivityId": "practice.calculation.11.07.planned",
+      "practiceTitle": "Ekvivalentni bosqichma-bosqich hisoblash",
+      "practiceType": "calculation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "7238a383d844683b84c127b4984e5ae50fc8a0946e18eb30dd0045960205193f",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.07"
+      ],
+      "legacyIds": [
+        "11.07"
+      ],
+      "titles": [
+        "Ekvivalent"
+      ],
+      "practiceActivityId": "practice.calculation.11.07.planned",
+      "practiceTitle": "Ekvivalentni bosqichma-bosqich hisoblash",
+      "practiceType": "calculation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "7238a383d844683b84c127b4984e5ae50fc8a0946e18eb30dd0045960205193f",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.07"
+      ],
+      "legacyIds": [
+        "11.07"
+      ],
+      "titles": [
+        "Ekvivalent"
+      ],
+      "practiceActivityId": "practice.calculation.11.07.planned",
+      "practiceTitle": "Ekvivalentni bosqichma-bosqich hisoblash",
+      "practiceType": "calculation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "7238a383d844683b84c127b4984e5ae50fc8a0946e18eb30dd0045960205193f",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.08"
+      ],
+      "legacyIds": [
+        "11.08"
+      ],
+      "titles": [
+        "Mendeleyev-Klapeyron tenglamasi"
+      ],
+      "practiceActivityId": "practice.calculation.11.08.planned",
+      "practiceTitle": "P–V–T gaz tenglamasi simulyatori",
+      "practiceType": "calculation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "77f18120ad84b7577509691def59be200b46e093a7e098a2778c26396453c645",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.08"
+      ],
+      "legacyIds": [
+        "11.08"
+      ],
+      "titles": [
+        "Mendeleyev-Klapeyron tenglamasi"
+      ],
+      "practiceActivityId": "practice.calculation.11.08.planned",
+      "practiceTitle": "P–V–T gaz tenglamasi simulyatori",
+      "practiceType": "calculation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "77f18120ad84b7577509691def59be200b46e093a7e098a2778c26396453c645",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.08"
+      ],
+      "legacyIds": [
+        "11.08"
+      ],
+      "titles": [
+        "Mendeleyev-Klapeyron tenglamasi"
+      ],
+      "practiceActivityId": "practice.calculation.11.08.planned",
+      "practiceTitle": "P–V–T gaz tenglamasi simulyatori",
+      "practiceType": "calculation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "77f18120ad84b7577509691def59be200b46e093a7e098a2778c26396453c645",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.13"
+      ],
+      "legacyIds": [
+        "11.13"
+      ],
+      "titles": [
+        "Foiz konsentratsiya"
+      ],
+      "practiceActivityId": "practice.calculation.11.13.planned",
+      "practiceTitle": "Foiz konsentratsiyali eritma tayyorlash virtual amaliyoti",
+      "practiceType": "calculation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "2e5412b4b778f8889dbdebf6e0089dcb03a586e0c22a91bf5d49c91f5ffc8928",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.13"
+      ],
+      "legacyIds": [
+        "11.13"
+      ],
+      "titles": [
+        "Foiz konsentratsiya"
+      ],
+      "practiceActivityId": "practice.calculation.11.13.planned",
+      "practiceTitle": "Foiz konsentratsiyali eritma tayyorlash virtual amaliyoti",
+      "practiceType": "calculation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "2e5412b4b778f8889dbdebf6e0089dcb03a586e0c22a91bf5d49c91f5ffc8928",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.13"
+      ],
+      "legacyIds": [
+        "11.13"
+      ],
+      "titles": [
+        "Foiz konsentratsiya"
+      ],
+      "practiceActivityId": "practice.calculation.11.13.planned",
+      "practiceTitle": "Foiz konsentratsiyali eritma tayyorlash virtual amaliyoti",
+      "practiceType": "calculation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "2e5412b4b778f8889dbdebf6e0089dcb03a586e0c22a91bf5d49c91f5ffc8928",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.14"
+      ],
+      "legacyIds": [
+        "11.14"
+      ],
+      "titles": [
+        "Molyar va normal konsentratsiya hamda bog‘lanishlar"
+      ],
+      "practiceActivityId": "practice.calculation.11.14.planned",
+      "practiceTitle": "Molyar/normal konsentratsiya konvertori va masalalar",
+      "practiceType": "calculation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "03a876846242875c732829b1145f9d7a90cd7303e55a7118f45e65d32acba96d",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.14"
+      ],
+      "legacyIds": [
+        "11.14"
+      ],
+      "titles": [
+        "Molyar va normal konsentratsiya hamda bog‘lanishlar"
+      ],
+      "practiceActivityId": "practice.calculation.11.14.planned",
+      "practiceTitle": "Molyar/normal konsentratsiya konvertori va masalalar",
+      "practiceType": "calculation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "03a876846242875c732829b1145f9d7a90cd7303e55a7118f45e65d32acba96d",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.14"
+      ],
+      "legacyIds": [
+        "11.14"
+      ],
+      "titles": [
+        "Molyar va normal konsentratsiya hamda bog‘lanishlar"
+      ],
+      "practiceActivityId": "practice.calculation.11.14.planned",
+      "practiceTitle": "Molyar/normal konsentratsiya konvertori va masalalar",
+      "practiceType": "calculation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "03a876846242875c732829b1145f9d7a90cd7303e55a7118f45e65d32acba96d",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.22"
+      ],
+      "legacyIds": [
+        "11.22"
+      ],
+      "titles": [
+        "Elektroliz qonunlari"
+      ],
+      "practiceActivityId": "practice.calculation.11.22.planned",
+      "practiceTitle": "Faradey qonunlari: tok–vaqt–massa kalkulyatori",
+      "practiceType": "calculation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "60c8bc40379f95a4f588bd9be6d723947d71da6ef48f2d65087f002fc59604ee",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.22"
+      ],
+      "legacyIds": [
+        "11.22"
+      ],
+      "titles": [
+        "Elektroliz qonunlari"
+      ],
+      "practiceActivityId": "practice.calculation.11.22.planned",
+      "practiceTitle": "Faradey qonunlari: tok–vaqt–massa kalkulyatori",
+      "practiceType": "calculation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "60c8bc40379f95a4f588bd9be6d723947d71da6ef48f2d65087f002fc59604ee",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.22"
+      ],
+      "legacyIds": [
+        "11.22"
+      ],
+      "titles": [
+        "Elektroliz qonunlari"
+      ],
+      "practiceActivityId": "practice.calculation.11.22.planned",
+      "practiceTitle": "Faradey qonunlari: tok–vaqt–massa kalkulyatori",
+      "practiceType": "calculation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "60c8bc40379f95a4f588bd9be6d723947d71da6ef48f2d65087f002fc59604ee",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.21"
+      ],
+      "legacyIds": [
+        "11.21"
+      ],
+      "titles": [
+        "Elektroliz: eritma va suyuqlanma"
+      ],
+      "practiceActivityId": "practice.experiment.11.2",
+      "practiceTitle": "Platforma uchun demonstratsion tajriba nomzodi: elektroliz",
+      "practiceType": "experiment",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "586d664894b006946e4e768a4c815754369b34b548e6df5d82ec60202cbd6cee",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.21"
+      ],
+      "legacyIds": [
+        "11.21"
+      ],
+      "titles": [
+        "Elektroliz: eritma va suyuqlanma"
+      ],
+      "practiceActivityId": "practice.experiment.11.2",
+      "practiceTitle": "Platforma uchun demonstratsion tajriba nomzodi: elektroliz",
+      "practiceType": "experiment",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "586d664894b006946e4e768a4c815754369b34b548e6df5d82ec60202cbd6cee",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.21"
+      ],
+      "legacyIds": [
+        "11.21"
+      ],
+      "titles": [
+        "Elektroliz: eritma va suyuqlanma"
+      ],
+      "practiceActivityId": "practice.experiment.11.2",
+      "practiceTitle": "Platforma uchun demonstratsion tajriba nomzodi: elektroliz",
+      "practiceType": "experiment",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "586d664894b006946e4e768a4c815754369b34b548e6df5d82ec60202cbd6cee",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.21"
+      ],
+      "legacyIds": [
+        "11.21"
+      ],
+      "titles": [
+        "Elektroliz: eritma va suyuqlanma"
+      ],
+      "practiceActivityId": "practice.experiment.11.2",
+      "practiceTitle": "Platforma uchun demonstratsion tajriba nomzodi: elektroliz",
+      "practiceType": "experiment",
+      "approvalType": "chemistry",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "chemistry",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "586d664894b006946e4e768a4c815754369b34b548e6df5d82ec60202cbd6cee",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.01"
+      ],
+      "legacyIds": [
+        "11.01"
+      ],
+      "titles": [
+        "Atom tuzilishi"
+      ],
+      "practiceActivityId": "practice.simulation.11.01.planned",
+      "practiceTitle": "3D orbital va elektron konfiguratsiya konstruktori",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "8fc69ce33dccbb92a3c51e6a551eee775ecaa3a920d8d7a8bedc981cc402544f",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.01"
+      ],
+      "legacyIds": [
+        "11.01"
+      ],
+      "titles": [
+        "Atom tuzilishi"
+      ],
+      "practiceActivityId": "practice.simulation.11.01.planned",
+      "practiceTitle": "3D orbital va elektron konfiguratsiya konstruktori",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "8fc69ce33dccbb92a3c51e6a551eee775ecaa3a920d8d7a8bedc981cc402544f",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.01"
+      ],
+      "legacyIds": [
+        "11.01"
+      ],
+      "titles": [
+        "Atom tuzilishi"
+      ],
+      "practiceActivityId": "practice.simulation.11.01.planned",
+      "practiceTitle": "3D orbital va elektron konfiguratsiya konstruktori",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "8fc69ce33dccbb92a3c51e6a551eee775ecaa3a920d8d7a8bedc981cc402544f",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.02"
+      ],
+      "legacyIds": [
+        "11.02"
+      ],
+      "titles": [
+        "Davriy qonun va D.I. Mendeleyev davriy sistemasi"
+      ],
+      "practiceActivityId": "practice.simulation.11.02.planned",
+      "practiceTitle": "Davriy trendli jadval",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "7ea1c19e338e1cfa4aad306309c6700344c1afa4a87725581234340d84c6c3d1",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.02"
+      ],
+      "legacyIds": [
+        "11.02"
+      ],
+      "titles": [
+        "Davriy qonun va D.I. Mendeleyev davriy sistemasi"
+      ],
+      "practiceActivityId": "practice.simulation.11.02.planned",
+      "practiceTitle": "Davriy trendli jadval",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "7ea1c19e338e1cfa4aad306309c6700344c1afa4a87725581234340d84c6c3d1",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.02"
+      ],
+      "legacyIds": [
+        "11.02"
+      ],
+      "titles": [
+        "Davriy qonun va D.I. Mendeleyev davriy sistemasi"
+      ],
+      "practiceActivityId": "practice.simulation.11.02.planned",
+      "practiceTitle": "Davriy trendli jadval",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "7ea1c19e338e1cfa4aad306309c6700344c1afa4a87725581234340d84c6c3d1",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.03"
+      ],
+      "legacyIds": [
+        "11.03"
+      ],
+      "titles": [
+        "Atom tarkibi va yadro reaksiyalari"
+      ],
+      "practiceActivityId": "practice.simulation.11.03.planned",
+      "practiceTitle": "Yadro tenglamalarini balanslash va zarracha modeli",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "9dc5ae6523ed8ee755589cdf7adf3e126442fc389cab6faa96000a983df9c819",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.03"
+      ],
+      "legacyIds": [
+        "11.03"
+      ],
+      "titles": [
+        "Atom tarkibi va yadro reaksiyalari"
+      ],
+      "practiceActivityId": "practice.simulation.11.03.planned",
+      "practiceTitle": "Yadro tenglamalarini balanslash va zarracha modeli",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "9dc5ae6523ed8ee755589cdf7adf3e126442fc389cab6faa96000a983df9c819",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.03"
+      ],
+      "legacyIds": [
+        "11.03"
+      ],
+      "titles": [
+        "Atom tarkibi va yadro reaksiyalari"
+      ],
+      "practiceActivityId": "practice.simulation.11.03.planned",
+      "practiceTitle": "Yadro tenglamalarini balanslash va zarracha modeli",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "9dc5ae6523ed8ee755589cdf7adf3e126442fc389cab6faa96000a983df9c819",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.04"
+      ],
+      "legacyIds": [
+        "11.04"
+      ],
+      "titles": [
+        "Kimyoviy bog‘lanish turlari va kristall panjaralar"
+      ],
+      "practiceActivityId": "practice.simulation.11.04.planned",
+      "practiceTitle": "Bog‘lanish va kristall panjara 3D modeli",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "a232da29e6d1e517baa5e2fca385898cca3ad98dde15b30ce467aa6f0d20e260",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.04"
+      ],
+      "legacyIds": [
+        "11.04"
+      ],
+      "titles": [
+        "Kimyoviy bog‘lanish turlari va kristall panjaralar"
+      ],
+      "practiceActivityId": "practice.simulation.11.04.planned",
+      "practiceTitle": "Bog‘lanish va kristall panjara 3D modeli",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "a232da29e6d1e517baa5e2fca385898cca3ad98dde15b30ce467aa6f0d20e260",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.04"
+      ],
+      "legacyIds": [
+        "11.04"
+      ],
+      "titles": [
+        "Kimyoviy bog‘lanish turlari va kristall panjaralar"
+      ],
+      "practiceActivityId": "practice.simulation.11.04.planned",
+      "practiceTitle": "Bog‘lanish va kristall panjara 3D modeli",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "a232da29e6d1e517baa5e2fca385898cca3ad98dde15b30ce467aa6f0d20e260",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.09"
+      ],
+      "legacyIds": [
+        "11.09"
+      ],
+      "titles": [
+        "Kuchli va kuchsiz elektrolitlar"
+      ],
+      "practiceActivityId": "practice.simulation.11.09.planned",
+      "practiceTitle": "Kuchli/kuchsiz elektrolit o‘tkazuvchanlik va ion ulushi modeli",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "74d7c9c43b155e620de2acc20275c4f4a628c3452cbb05b04decdc9bf13465f0",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.09"
+      ],
+      "legacyIds": [
+        "11.09"
+      ],
+      "titles": [
+        "Kuchli va kuchsiz elektrolitlar"
+      ],
+      "practiceActivityId": "practice.simulation.11.09.planned",
+      "practiceTitle": "Kuchli/kuchsiz elektrolit o‘tkazuvchanlik va ion ulushi modeli",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "74d7c9c43b155e620de2acc20275c4f4a628c3452cbb05b04decdc9bf13465f0",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.09"
+      ],
+      "legacyIds": [
+        "11.09"
+      ],
+      "titles": [
+        "Kuchli va kuchsiz elektrolitlar"
+      ],
+      "practiceActivityId": "practice.simulation.11.09.planned",
+      "practiceTitle": "Kuchli/kuchsiz elektrolit o‘tkazuvchanlik va ion ulushi modeli",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "74d7c9c43b155e620de2acc20275c4f4a628c3452cbb05b04decdc9bf13465f0",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.11"
+      ],
+      "legacyIds": [
+        "11.11"
+      ],
+      "titles": [
+        "Tuzlar gidrolizi va eritma muhiti"
+      ],
+      "practiceActivityId": "practice.simulation.11.11.planned",
+      "practiceTitle": "Tuz gidrolizi pH va ion modeli",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "eab4aa3bf31e8b0f79a30712529413c2a7badfca72192565ece1575f27d5c749",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.11"
+      ],
+      "legacyIds": [
+        "11.11"
+      ],
+      "titles": [
+        "Tuzlar gidrolizi va eritma muhiti"
+      ],
+      "practiceActivityId": "practice.simulation.11.11.planned",
+      "practiceTitle": "Tuz gidrolizi pH va ion modeli",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "eab4aa3bf31e8b0f79a30712529413c2a7badfca72192565ece1575f27d5c749",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.11"
+      ],
+      "legacyIds": [
+        "11.11"
+      ],
+      "titles": [
+        "Tuzlar gidrolizi va eritma muhiti"
+      ],
+      "practiceActivityId": "practice.simulation.11.11.planned",
+      "practiceTitle": "Tuz gidrolizi pH va ion modeli",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "eab4aa3bf31e8b0f79a30712529413c2a7badfca72192565ece1575f27d5c749",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.12"
+      ],
+      "legacyIds": [
+        "11.12"
+      ],
+      "titles": [
+        "Eritma va eruvchanlik"
+      ],
+      "practiceActivityId": "practice.simulation.11.12.planned",
+      "practiceTitle": "Eruvchanlik grafigi va to‘yingan eritma simulyatori",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "3e96f3d30b518ec17019ef0af3079eff83e38c8994722df6aa57a440b33b9812",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.12"
+      ],
+      "legacyIds": [
+        "11.12"
+      ],
+      "titles": [
+        "Eritma va eruvchanlik"
+      ],
+      "practiceActivityId": "practice.simulation.11.12.planned",
+      "practiceTitle": "Eruvchanlik grafigi va to‘yingan eritma simulyatori",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "3e96f3d30b518ec17019ef0af3079eff83e38c8994722df6aa57a440b33b9812",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.12"
+      ],
+      "legacyIds": [
+        "11.12"
+      ],
+      "titles": [
+        "Eritma va eruvchanlik"
+      ],
+      "practiceActivityId": "practice.simulation.11.12.planned",
+      "practiceTitle": "Eruvchanlik grafigi va to‘yingan eritma simulyatori",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "3e96f3d30b518ec17019ef0af3079eff83e38c8994722df6aa57a440b33b9812",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.15"
+      ],
+      "legacyIds": [
+        "11.15"
+      ],
+      "titles": [
+        "Reaksiya tezligi"
+      ],
+      "practiceActivityId": "practice.simulation.11.15.planned",
+      "practiceTitle": "Reagent sarfi–mahsulot hosil bo‘lish tezlik grafigi",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "e92ede3805cef2bc2ece746f7055274b01a92e2dedc88d1bc3fd4f4a6d3a1538",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.15"
+      ],
+      "legacyIds": [
+        "11.15"
+      ],
+      "titles": [
+        "Reaksiya tezligi"
+      ],
+      "practiceActivityId": "practice.simulation.11.15.planned",
+      "practiceTitle": "Reagent sarfi–mahsulot hosil bo‘lish tezlik grafigi",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "e92ede3805cef2bc2ece746f7055274b01a92e2dedc88d1bc3fd4f4a6d3a1538",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.15"
+      ],
+      "legacyIds": [
+        "11.15"
+      ],
+      "titles": [
+        "Reaksiya tezligi"
+      ],
+      "practiceActivityId": "practice.simulation.11.15.planned",
+      "practiceTitle": "Reagent sarfi–mahsulot hosil bo‘lish tezlik grafigi",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "e92ede3805cef2bc2ece746f7055274b01a92e2dedc88d1bc3fd4f4a6d3a1538",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.16"
+      ],
+      "legacyIds": [
+        "11.16"
+      ],
+      "titles": [
+        "Bosim, hajm, harorat va katalizatorning reaksiya tezligiga ta’siri"
+      ],
+      "practiceActivityId": "practice.simulation.11.16.planned",
+      "practiceTitle": "T, P, V, katalizator omillarini o‘zgartirish virtual tajribasi",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "12edcf9c7b86af0af767faee1cc73a9fb4056eafc0267529b5cbcb74a21b7842",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.16"
+      ],
+      "legacyIds": [
+        "11.16"
+      ],
+      "titles": [
+        "Bosim, hajm, harorat va katalizatorning reaksiya tezligiga ta’siri"
+      ],
+      "practiceActivityId": "practice.simulation.11.16.planned",
+      "practiceTitle": "T, P, V, katalizator omillarini o‘zgartirish virtual tajribasi",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "12edcf9c7b86af0af767faee1cc73a9fb4056eafc0267529b5cbcb74a21b7842",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.16"
+      ],
+      "legacyIds": [
+        "11.16"
+      ],
+      "titles": [
+        "Bosim, hajm, harorat va katalizatorning reaksiya tezligiga ta’siri"
+      ],
+      "practiceActivityId": "practice.simulation.11.16.planned",
+      "practiceTitle": "T, P, V, katalizator omillarini o‘zgartirish virtual tajribasi",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "12edcf9c7b86af0af767faee1cc73a9fb4056eafc0267529b5cbcb74a21b7842",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.17"
+      ],
+      "legacyIds": [
+        "11.17"
+      ],
+      "titles": [
+        "Qaytar va qaytmas reaksiyalar. Kimyoviy muvozanat"
+      ],
+      "practiceActivityId": "practice.simulation.11.17.planned",
+      "practiceTitle": "Oldinga/teskari reaksiya va dinamik muvozanat modeli",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "f059a4952b8a4a7b9f62131818c91d333fc18d19f5d46b47e3a3eeacf618c555",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.17"
+      ],
+      "legacyIds": [
+        "11.17"
+      ],
+      "titles": [
+        "Qaytar va qaytmas reaksiyalar. Kimyoviy muvozanat"
+      ],
+      "practiceActivityId": "practice.simulation.11.17.planned",
+      "practiceTitle": "Oldinga/teskari reaksiya va dinamik muvozanat modeli",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "f059a4952b8a4a7b9f62131818c91d333fc18d19f5d46b47e3a3eeacf618c555",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.17"
+      ],
+      "legacyIds": [
+        "11.17"
+      ],
+      "titles": [
+        "Qaytar va qaytmas reaksiyalar. Kimyoviy muvozanat"
+      ],
+      "practiceActivityId": "practice.simulation.11.17.planned",
+      "practiceTitle": "Oldinga/teskari reaksiya va dinamik muvozanat modeli",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "f059a4952b8a4a7b9f62131818c91d333fc18d19f5d46b47e3a3eeacf618c555",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.18"
+      ],
+      "legacyIds": [
+        "11.18"
+      ],
+      "titles": [
+        "Kimyoviy muvozanatga ta’sir etuvchi omillar"
+      ],
+      "practiceActivityId": "practice.simulation.11.18.planned",
+      "practiceTitle": "Le-Shatele: sharoit o‘zgarishi bo‘yicha muvozanat case’i",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "df61ebb5390da37e0c7b152d78edf3f653075d0af320ae598da47d1beab49dcd",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.18"
+      ],
+      "legacyIds": [
+        "11.18"
+      ],
+      "titles": [
+        "Kimyoviy muvozanatga ta’sir etuvchi omillar"
+      ],
+      "practiceActivityId": "practice.simulation.11.18.planned",
+      "practiceTitle": "Le-Shatele: sharoit o‘zgarishi bo‘yicha muvozanat case’i",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "df61ebb5390da37e0c7b152d78edf3f653075d0af320ae598da47d1beab49dcd",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.18"
+      ],
+      "legacyIds": [
+        "11.18"
+      ],
+      "titles": [
+        "Kimyoviy muvozanatga ta’sir etuvchi omillar"
+      ],
+      "practiceActivityId": "practice.simulation.11.18.planned",
+      "practiceTitle": "Le-Shatele: sharoit o‘zgarishi bo‘yicha muvozanat case’i",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "df61ebb5390da37e0c7b152d78edf3f653075d0af320ae598da47d1beab49dcd",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.20"
+      ],
+      "legacyIds": [
+        "11.20"
+      ],
+      "titles": [
+        "Redoks reaksiyalarining eritma muhitiga bog‘liqligi"
+      ],
+      "practiceActivityId": "practice.simulation.11.20.planned",
+      "practiceTitle": "Kislotali/neytral/ishqoriy muhitda redoks mahsulotlari simulyatsiyasi",
+      "practiceType": "simulation",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "583c943fc8a758db45abaf6135b02208873a9daa87ceecd24b1d100d1635dc6e",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.20"
+      ],
+      "legacyIds": [
+        "11.20"
+      ],
+      "titles": [
+        "Redoks reaksiyalarining eritma muhitiga bog‘liqligi"
+      ],
+      "practiceActivityId": "practice.simulation.11.20.planned",
+      "practiceTitle": "Kislotali/neytral/ishqoriy muhitda redoks mahsulotlari simulyatsiyasi",
+      "practiceType": "simulation",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "583c943fc8a758db45abaf6135b02208873a9daa87ceecd24b1d100d1635dc6e",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.20"
+      ],
+      "legacyIds": [
+        "11.20"
+      ],
+      "titles": [
+        "Redoks reaksiyalarining eritma muhitiga bog‘liqligi"
+      ],
+      "practiceActivityId": "practice.simulation.11.20.planned",
+      "practiceTitle": "Kislotali/neytral/ishqoriy muhitda redoks mahsulotlari simulyatsiyasi",
+      "practiceType": "simulation",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "583c943fc8a758db45abaf6135b02208873a9daa87ceecd24b1d100d1635dc6e",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.10"
+      ],
+      "legacyIds": [
+        "11.10"
+      ],
+      "titles": [
+        "Dissotsiatsiyalanish darajasi va ionli tenglamalar"
+      ],
+      "practiceActivityId": "practice.trainer.11.10.planned",
+      "practiceTitle": "Dissotsiatsiya va qisqa ionli tenglama konstruktori",
+      "practiceType": "trainer",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "39d49776987463af1dfff37b6eb155ce0bad14d4bfd7a4a16557279d51bcd696",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.10"
+      ],
+      "legacyIds": [
+        "11.10"
+      ],
+      "titles": [
+        "Dissotsiatsiyalanish darajasi va ionli tenglamalar"
+      ],
+      "practiceActivityId": "practice.trainer.11.10.planned",
+      "practiceTitle": "Dissotsiatsiya va qisqa ionli tenglama konstruktori",
+      "practiceType": "trainer",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "39d49776987463af1dfff37b6eb155ce0bad14d4bfd7a4a16557279d51bcd696",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.10"
+      ],
+      "legacyIds": [
+        "11.10"
+      ],
+      "titles": [
+        "Dissotsiatsiyalanish darajasi va ionli tenglamalar"
+      ],
+      "practiceActivityId": "practice.trainer.11.10.planned",
+      "practiceTitle": "Dissotsiatsiya va qisqa ionli tenglama konstruktori",
+      "practiceType": "trainer",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "39d49776987463af1dfff37b6eb155ce0bad14d4bfd7a4a16557279d51bcd696",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.19"
+      ],
+      "legacyIds": [
+        "11.19"
+      ],
+      "titles": [
+        "Oksidlanish-qaytarilish reaksiyalarini yarim reaksiya usuli bilan tenglashtirish"
+      ],
+      "practiceActivityId": "practice.trainer.11.19.planned",
+      "practiceTitle": "Yarim reaksiya usuli bilan redoks balanslash",
+      "practiceType": "trainer",
+      "approvalType": "technical",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "technical",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "958fa1c53804753a45d300f8fb4225919032ac9436e25cc6253915eac727384a",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.19"
+      ],
+      "legacyIds": [
+        "11.19"
+      ],
+      "titles": [
+        "Oksidlanish-qaytarilish reaksiyalarini yarim reaksiya usuli bilan tenglashtirish"
+      ],
+      "practiceActivityId": "practice.trainer.11.19.planned",
+      "practiceTitle": "Yarim reaksiya usuli bilan redoks balanslash",
+      "practiceType": "trainer",
+      "approvalType": "didactic",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "didactic",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "958fa1c53804753a45d300f8fb4225919032ac9436e25cc6253915eac727384a",
+      "reviewedAt": "",
+      "notes": ""
+    },
+    {
+      "beta": "BETA3",
+      "learningUnitIds": [
+        "lu.11.19"
+      ],
+      "legacyIds": [
+        "11.19"
+      ],
+      "titles": [
+        "Oksidlanish-qaytarilish reaksiyalarini yarim reaksiya usuli bilan tenglashtirish"
+      ],
+      "practiceActivityId": "practice.trainer.11.19.planned",
+      "practiceTitle": "Yarim reaksiya usuli bilan redoks balanslash",
+      "practiceType": "trainer",
+      "approvalType": "accessibility",
+      "status": "pending",
+      "reviewerId": "",
+      "reviewerRole": "accessibility",
+      "reviewedVersion": "2026.09.1",
+      "reviewedHash": "958fa1c53804753a45d300f8fb4225919032ac9436e25cc6253915eac727384a",
+      "reviewedAt": "",
+      "notes": ""
+    }
+  ]
+}

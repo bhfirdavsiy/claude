@@ -1,0 +1,9 @@
+{
+  "status": "pending",
+  "reviewerId": "",
+  "reviewerRole": "Chemistry Reviewer",
+  "reviewedVersion": "",
+  "reviewedHash": "",
+  "reviewedAt": "",
+  "notes": "Populate only after a real chemistry expert review. Use reports/stable-signoff-targets.json for the exact version/hash."
+}

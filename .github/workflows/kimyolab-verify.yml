@@ -1,0 +1,63 @@
+name: KimyoLab verify
+
+on:
+  push:
+    paths:
+      - 'kimyolab/**'
+      - '.github/workflows/kimyolab-verify.yml'
+  pull_request:
+    paths:
+      - 'kimyolab/**'
+      - '.github/workflows/kimyolab-verify.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: kimyolab
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: kimyolab/.nvmrc
+          cache: npm
+          cache-dependency-path: kimyolab/package-lock.json
+      - name: Install exact dependencies from the lockfile
+        run: npm ci
+      - name: Install Chromium for E2E
+        run: npx playwright install --with-deps chromium
+      - name: verify (lint → typecheck → typecheck:next → schema → content → chemistry → unit → integration → E2E → build)
+        run: npm run verify
+      - name: Upload P0 acceptance manifest
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p0-acceptance
+          path: kimyolab/reports/p0-acceptance.json
+      - name: Generated browser preview and content pack must be committed
+        run: git status --porcelain -- public src schemas | tee /dev/stderr | (! grep .)
+
+  windows-paths:
+    # P0.15.2: public-root resolution and server startup on Windows (drive letters, spaces).
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: kimyolab
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: kimyolab/.nvmrc
+          cache: npm
+          cache-dependency-path: kimyolab/package-lock.json
+      - run: npm ci
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
+      - name: Path resolution unit tests
+        run: node --test tests/p0-server-paths.test.mjs
+      - name: Build and serve dist from a Windows path
+        run: node --test --test-concurrency=1 tests/integration/server-assets.test.mjs tests/integration/security-legacy.test.mjs

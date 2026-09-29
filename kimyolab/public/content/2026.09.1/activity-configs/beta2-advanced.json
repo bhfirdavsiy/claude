@@ -1,0 +1,32 @@
+{
+  "practice.trainer.9.05.planned": {
+    "capability": "ionic-equation-trainer",
+    "type": "trainer",
+    "version": "1.0.0",
+    "conceptId": "concept.c160",
+    "reactionId": "rxn.agno3-nacl",
+    "prompt": "AgNO3 va NaCl reaksiyasi uchun qisqa ionli tenglamani yozing."
+  },
+  "practice.experiment.9.14": {
+    "capability": "hydrolysis-experiment",
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c164",
+    "salt": "AlCl3",
+    "expectedMedium": "acidic"
+  },
+  "practice.experiment.9.10": {
+    "capability": "electrolysis-experiment",
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c185",
+    "query": {"electrolyte":"CuCl2","phase":"aq","electrode":"inert"}
+  },
+  "practice.simulation.9.23.planned": {
+    "capability": "manganese-redox-simulation",
+    "type": "simulation",
+    "version": "1.0.0",
+    "conceptId": "concept.c213",
+    "targetMedium": "acidic"
+  }
+}

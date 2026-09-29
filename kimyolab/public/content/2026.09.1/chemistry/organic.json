@@ -1,0 +1,35 @@
+{
+  "version": "1.0.0",
+  "molecules": [
+    {"id":"methane","formula":"CH4","name":"methane","class":"alkane","carbonCount":1,"carbonValence":4,"homologSeries":"alkane","functionalGroups":[],"sourceRefs":["src.curriculum.10.02"],"reviewStatus":"pending"},
+    {"id":"ethane","formula":"C2H6","name":"ethane","class":"alkane","carbonCount":2,"carbonValence":4,"homologSeries":"alkane","functionalGroups":[],"sourceRefs":["src.curriculum.10.08"],"reviewStatus":"pending"},
+    {"id":"propane","formula":"C3H8","name":"propane","class":"alkane","carbonCount":3,"carbonValence":4,"homologSeries":"alkane","functionalGroups":[],"sourceRefs":["src.curriculum.10.08"],"reviewStatus":"pending"},
+    {"id":"butane","formula":"C4H10","name":"butane","class":"alkane","carbonCount":4,"carbonValence":4,"homologSeries":"alkane","functionalGroups":[],"sourceRefs":["src.curriculum.10.09"],"reviewStatus":"pending"},
+    {"id":"2-methylpropane","formula":"C4H10","name":"2-methylpropane","class":"alkane","carbonCount":4,"carbonValence":4,"homologSeries":"alkane","functionalGroups":[],"sourceRefs":["src.curriculum.10.09"],"reviewStatus":"pending"},
+    {"id":"ethene","formula":"C2H4","name":"ethene","class":"alkene","carbonCount":2,"carbonValence":4,"homologSeries":"alkene","functionalGroups":["C=C"],"sourceRefs":["src.curriculum.10.12"],"reviewStatus":"pending"},
+    {"id":"ethyne","formula":"C2H2","name":"ethyne","class":"alkyne","carbonCount":2,"carbonValence":4,"homologSeries":"alkyne","functionalGroups":["C≡C"],"sourceRefs":["src.curriculum.10.14"],"reviewStatus":"pending"},
+    {"id":"1,3-butadiene","formula":"C4H6","name":"buta-1,3-diene","class":"alkadiene","carbonCount":4,"carbonValence":4,"functionalGroups":["C=C","C=C"],"sourceRefs":["src.curriculum.10.13"],"reviewStatus":"pending"},
+    {"id":"cyclohexane","formula":"C6H12","name":"cyclohexane","class":"cycloalkane","carbonCount":6,"carbonValence":4,"ringSize":6,"functionalGroups":[],"sourceRefs":["src.curriculum.10.11"],"reviewStatus":"pending"},
+    {"id":"benzene","formula":"C6H6","name":"benzene","class":"aromatic-hydrocarbon","carbonCount":6,"carbonValence":4,"ringSize":6,"aromatic":true,"functionalGroups":["aromatic-ring"],"sourceRefs":["src.curriculum.10.15"],"reviewStatus":"pending"},
+    {"id":"styrene","formula":"C8H8","name":"ethenylbenzene","class":"aromatic-alkene","carbonCount":8,"carbonValence":4,"aromatic":true,"functionalGroups":["aromatic-ring","C=C"],"sourceRefs":["src.curriculum.10.15"],"reviewStatus":"pending"},
+    {"id":"ethanol","formula":"C2H6O","name":"ethanol","class":"monohydric-alcohol","carbonCount":2,"carbonValence":4,"functionalGroups":["-OH"],"sourceRefs":["src.curriculum.10.17"],"reviewStatus":"pending"},
+    {"id":"dimethyl-ether","formula":"C2H6O","name":"methoxymethane","class":"ether","carbonCount":2,"carbonValence":4,"functionalGroups":["-O-"],"sourceRefs":["src.curriculum.10.20"],"reviewStatus":"pending"},
+    {"id":"glycerol","formula":"C3H8O3","name":"propane-1,2,3-triol","class":"polyhydric-alcohol","carbonCount":3,"carbonValence":4,"functionalGroups":["-OH","-OH","-OH"],"sourceRefs":["src.curriculum.10.18"],"reviewStatus":"pending"},
+    {"id":"ethanal","formula":"C2H4O","name":"ethanal","class":"aldehyde","carbonCount":2,"carbonValence":4,"functionalGroups":["-CHO"],"sourceRefs":["src.curriculum.10.21"],"reviewStatus":"pending"},
+    {"id":"propanone","formula":"C3H6O","name":"propanone","class":"ketone","carbonCount":3,"carbonValence":4,"functionalGroups":[">C=O"],"sourceRefs":["src.curriculum.10.21"],"reviewStatus":"pending"},
+    {"id":"ethanoic-acid","formula":"C2H4O2","name":"ethanoic acid","class":"carboxylic-acid","carbonCount":2,"carbonValence":4,"functionalGroups":["-COOH"],"sourceRefs":["src.curriculum.10.22"],"reviewStatus":"pending"},
+    {"id":"ethyl-ethanoate","formula":"C4H8O2","name":"ethyl ethanoate","class":"ester","carbonCount":4,"carbonValence":4,"functionalGroups":["-COO-"],"sourceRefs":["src.curriculum.10.23"],"reviewStatus":"pending"},
+    {"id":"glucose","formula":"C6H12O6","name":"glucose","class":"monosaccharide","carbonCount":6,"carbonValence":4,"functionalGroups":["carbonyl","-OH"],"sourceRefs":["src.curriculum.10.25"],"reviewStatus":"pending"}
+  ],
+  "reactions": [
+    {"id":"methane-chlorination","reactionType":"substitution","reactantIds":["methane","chlorine"],"productIds":["chloromethane","hydrogen-chloride"],"conditions":{"lightRequired":true},"observation":{"type":"no-visible-change"},"sourceRefs":["src.curriculum.10.10"],"reviewStatus":"pending"},
+    {"id":"ethanol-dehydration","reactionType":"elimination","reactantIds":["ethanol"],"productIds":["ethene","water"],"conditions":{"catalyst":"concentrated-sulfuric-acid","heatRequired":true},"observation":{"type":"gas","descriptionKey":"ethene-gas-forms"},"sourceRefs":["src.curriculum.10.12"],"reviewStatus":"pending"},
+    {"id":"ethene-bromine-addition","reactionType":"addition","reactantIds":["ethene","bromine"],"productIds":["1,2-dibromoethane"],"conditions":{},"observation":{"type":"color-change","from":"bromine-color","to":"decolorized"},"sourceRefs":["src.curriculum.10.12"],"reviewStatus":"pending"},
+    {"id":"butadiene-polymerization","reactionType":"polymerization","reactantIds":["1,3-butadiene"],"productIds":["polybutadiene-repeat-unit"],"conditions":{"initiatorRequired":true},"observation":{"type":"state-change","from":"monomer","to":"polymer"},"sourceRefs":["src.curriculum.10.13"],"reviewStatus":"pending"},
+    {"id":"ethyne-bromine-addition","reactionType":"addition","reactantIds":["ethyne","bromine"],"productIds":["brominated-addition-products"],"conditions":{"boundedSchoolModel":true},"observation":{"type":"color-change","from":"bromine-color","to":"decolorized"},"sourceRefs":["src.curriculum.10.14"],"reviewStatus":"pending"},
+    {"id":"styrene-polymerization","reactionType":"polymerization","reactantIds":["styrene"],"productIds":["polystyrene-repeat-unit"],"conditions":{"initiatorRequired":true},"observation":{"type":"state-change","from":"monomer","to":"polymer"},"sourceRefs":["src.curriculum.10.15"],"reviewStatus":"pending"},
+    {"id":"glycerol-cuoh2","reactionType":"qualitative-complexation","reactantIds":["glycerol","copper-hydroxide"],"productIds":["glycerol-copper-complex-bounded-model"],"conditions":{"aqueous":true},"observation":{"type":"color-change","from":"blue-precipitate","to":"deep-blue-solution"},"sourceRefs":["src.curriculum.10.18"],"reviewStatus":"pending"},
+    {"id":"fat-saponification","reactionType":"saponification","reactantIds":["fat-model","alkali"],"productIds":["soap-salts","glycerol"],"conditions":{"heatRequired":true},"observation":{"type":"state-change","from":"fat-mixture","to":"soap-mixture"},"sourceRefs":["src.curriculum.10.24"],"reviewStatus":"pending"},
+    {"id":"glucose-cuoh2-heating","reactionType":"qualitative-redox","reactantIds":["glucose","copper-hydroxide"],"productIds":["copper-i-oxide-bounded-model"],"conditions":{"heatRequired":true},"observation":{"type":"precipitate","color":"brick-red"},"sourceRefs":["src.curriculum.10.25"],"reviewStatus":"pending"}
+  ]
+}

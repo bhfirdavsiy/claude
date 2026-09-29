@@ -1,0 +1,12 @@
+{
+  "generatedAt": "2026-09-29T12:31:13.947Z",
+  "legacyTheoryCount": 122,
+  "legacyPracticeRows": 62,
+  "excludedLegacyPracticeIds": [
+    "11.1"
+  ],
+  "canonicalConceptCount": 331,
+  "canonicalPracticeCount": 146,
+  "primaryMappingCount": 122,
+  "supportingMappingCount": 85
+}

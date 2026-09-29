@@ -1,0 +1,10 @@
+{
+  "gateId": "PROD-002",
+  "status": "pending",
+  "reviewerId": "",
+  "reviewerRole": "Didactic Reviewer",
+  "reviewedVersion": "2026.09.1",
+  "reviewedHash": "b0bf3284366d72a8f3c33f821809087dcb5a190bbeb8e05e65b46a1034d199d6",
+  "reviewedAt": "",
+  "notes": "Review PROD-002 evidence package before changing status to approved."
+}

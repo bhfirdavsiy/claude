@@ -1,0 +1,1927 @@
+{
+  "practice.experiment.7.1": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c001",
+    "scenario": {
+      "id": "guided.practice.experiment.7.1",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "Laboratoriya idishlari bilan tanishing: probirka, kolba, stakan, voronka, pipetka, chinni hovoncha va dastacha, tigel, qoshiqcha yoki shpatel, bug‘latish kosachasi, Byuxner voronkasi vazifalarini farqlang."
+        },
+        {
+          "id": "step-2",
+          "actionType": "guided.step.2",
+          "label": "Laboratoriya shtativining taglik, sterjen, qisqich, halqa va tutqich qismlarini ko‘rib chiqing. Probirkani qisqich bilan ehtiyotkor mahkamlang; stakanni to‘rli taglikka, chinni idish yoki tigelni halqaga joylashtiring."
+        },
+        {
+          "id": "step-3",
+          "actionType": "guided.step.3",
+          "label": "Spirt lampaning rezervuar, disk, pilik va qalpoqcha qismlarini tekshiring. Lampani yarmigacha spirt bilan to‘ldiring, pilikni joylashtiring va yoqing. Ish tugagach, alangani qalpoqcha bilan o‘chiring."
+        },
+        {
+          "id": "step-4",
+          "actionType": "guided.step.4",
+          "label": "Probirkadagi moddani qizdirishda probirkani qiya tuting, og‘zini o‘zingizga va yoningizdagi kishilarga qaratmang. Avval probirkaning barcha qismini, keyin modda turgan joyni qizdiring."
+        },
+        {
+          "id": "step-5",
+          "actionType": "guided.step.5",
+          "label": "Gaz gorelkasida gaz va havo oqimini sozlang, gugurtni yon tomondan yaqinlashtiring va alangani ishga moslang. Ish tugagach, gaz jo‘mragini yoping."
+        },
+        {
+          "id": "step-6",
+          "actionType": "guided.step.6",
+          "label": "Elektr isitgichdan foydalanishda probirkani isitgichga joylashtiring va jarayonni himoya ekrani ortidan kuzating."
+        }
+      ]
+    },
+    "safetyNotes": [
+      "Ochiq alanga, issiq idishlar va kislotalar bilan ishlashda o‘qituvchi ko‘rsatmasiga qat’iy amal qilinadi."
+    ],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "procedural-only",
+      "groundedSteps": 0,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 0,
+      "hybridGroundedSteps": 0
+    }
+  },
+  "practice.experiment.7.9": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c041",
+    "scenario": {
+      "id": "guided.practice.experiment.7.9",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "NaCl ga H2SO4 ta’sir ettirib va ehtiyotkor qizdirib HCl gazini oling. Gazni suvga yuttirib xlorid kislota hosil qiling.",
+          "reactionIds": [
+            "rxn.nacl-h2so4"
+          ],
+          "reactionId": "rxn.nacl-h2so4",
+          "observations": [
+            {
+              "type": "gas",
+              "descriptionKey": "rxn.nacl-h2so4.observation"
+            }
+          ],
+          "observation": {
+            "type": "gas",
+            "descriptionKey": "rxn.nacl-h2so4.observation"
+          }
+        },
+        {
+          "id": "step-2",
+          "actionType": "guided.step.2",
+          "label": "Suv va HCl eritmalariga indikator tomizib ranglarni taqqoslang.",
+          "modelId": "school.hcl-water.indicator",
+          "modelType": "acid-base-indicator",
+          "sourceRefs": [
+            "src.legacy.7.9"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "indicator-response",
+              "sample": "water",
+              "medium": "neutral",
+              "description": "Distillangan suv indikator bilan neytral muhitga xos javob beradi."
+            },
+            {
+              "type": "indicator-response",
+              "sample": "HCl",
+              "medium": "acidic",
+              "description": "Xlorid kislota indikator bilan kislotali muhitga xos rang o‘zgarishini beradi."
+            }
+          ],
+          "observation": {
+            "type": "indicator-response",
+            "sample": "water",
+            "medium": "neutral",
+            "description": "Distillangan suv indikator bilan neytral muhitga xos javob beradi."
+          }
+        },
+        {
+          "id": "step-3",
+          "actionType": "guided.step.3",
+          "label": "CuO namunasi ustiga taxminan 1 ml HCl qo‘shing, qora rangli oksidning erishini kuzating va tenglamani yozing.",
+          "reactionIds": [
+            "rxn.cuo-hcl"
+          ],
+          "reactionId": "rxn.cuo-hcl",
+          "observations": [
+            {
+              "type": "no-visible-change"
+            }
+          ],
+          "observation": {
+            "type": "no-visible-change"
+          }
+        },
+        {
+          "id": "step-4",
+          "actionType": "guided.step.4",
+          "label": "NaOH eritmasiga fenolftalein tomizing, so‘ng HCl ni tomchilab qo‘shing. Eritma rangsizlanishini kuzating va neytrallanish tenglamasini yozing.",
+          "reactionIds": [
+            "rxn.naoh-hcl"
+          ],
+          "reactionId": "rxn.naoh-hcl",
+          "observations": [
+            {
+              "type": "color-change",
+              "to": "changed"
+            }
+          ],
+          "observation": {
+            "type": "color-change",
+            "to": "changed"
+          }
+        },
+        {
+          "id": "step-5",
+          "actionType": "guided.step.5",
+          "label": "HCl eritmasiga CaCO3 yoki bo‘r qo‘shing. CO2 ajralishini kuzating va tenglamani yozing.",
+          "reactionIds": [
+            "rxn.caco3-hcl"
+          ],
+          "reactionId": "rxn.caco3-hcl",
+          "observations": [
+            {
+              "type": "gas",
+              "descriptionKey": "rxn.caco3-hcl.observation"
+            }
+          ],
+          "observation": {
+            "type": "gas",
+            "descriptionKey": "rxn.caco3-hcl.observation"
+          }
+        }
+      ]
+    },
+    "safetyNotes": [],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "chemistry-grounded-partial",
+      "groundedSteps": 5,
+      "reactionGroundedSteps": 4,
+      "modelGroundedSteps": 1,
+      "hybridGroundedSteps": 0
+    }
+  },
+  "practice.experiment.7.10": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c041",
+    "scenario": {
+      "id": "guided.practice.experiment.7.10",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "Magniy ustiga suyultirilgan H2SO4 quying, ajralgan gazni yig‘ing va gugurt alangasi bilan tekshiring.",
+          "reactionIds": [
+            "rxn.mg-h2so4"
+          ],
+          "reactionId": "rxn.mg-h2so4",
+          "observations": [
+            {
+              "type": "gas",
+              "descriptionKey": "rxn.mg-h2so4.observation"
+            }
+          ],
+          "observation": {
+            "type": "gas",
+            "descriptionKey": "rxn.mg-h2so4.observation"
+          }
+        },
+        {
+          "id": "step-2",
+          "actionType": "guided.step.2",
+          "label": "Rux granulalari ustiga HCl quying. Reaksiyani kuzating, zarur bo‘lsa biroz qizdiring, gazni yig‘ing va tekshiring.",
+          "reactionIds": [
+            "rxn.zn-hcl"
+          ],
+          "reactionId": "rxn.zn-hcl",
+          "observations": [
+            {
+              "type": "gas",
+              "descriptionKey": "rxn.zn-hcl.observation"
+            }
+          ],
+          "observation": {
+            "type": "gas",
+            "descriptionKey": "rxn.zn-hcl.observation"
+          }
+        },
+        {
+          "id": "step-3",
+          "actionType": "guided.step.3",
+          "label": "Mis qirindilari ustiga suyultirilgan HCl quying. Qizdirilganda ham sezilarli o‘zgarish bo‘lmasligini kuzating.",
+          "modelId": "school.cu-hcl.no-reaction",
+          "modelType": "activity-series-negative-control",
+          "sourceRefs": [
+            "src.legacy.7.10"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "no-visible-change",
+              "description": "Mis suyultirilgan HCl dan vodorodni siqib chiqarmaydi; qizdirilganda ham maktab tajribasi sharoitida sezilarli gaz ajralishi kutilmaydi."
+            }
+          ],
+          "observation": {
+            "type": "no-visible-change",
+            "description": "Mis suyultirilgan HCl dan vodorodni siqib chiqarmaydi; qizdirilganda ham maktab tajribasi sharoitida sezilarli gaz ajralishi kutilmaydi."
+          }
+        },
+        {
+          "id": "step-4",
+          "actionType": "guided.step.4",
+          "label": "Metallarning kislotalar bilan reaksiyaga kirishish qobiliyatini faollik qatori bilan izohlang."
+        }
+      ]
+    },
+    "safetyNotes": [
+      "Vodorod miqdori probirka hajmining 1/3 qismidan oshmasin."
+    ],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "chemistry-grounded-partial",
+      "groundedSteps": 3,
+      "reactionGroundedSteps": 2,
+      "modelGroundedSteps": 1,
+      "hybridGroundedSteps": 0
+    }
+  },
+  "practice.experiment.7.11": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c041",
+    "scenario": {
+      "id": "guided.practice.experiment.7.11",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "Birinchi probirkaga CaO va suv soling. Oqartiruvchi suspenziya yoki ishqoriy muhit hosil bo‘lishini kuzating.",
+          "reactionIds": [
+            "rxn.cao-water"
+          ],
+          "reactionId": "rxn.cao-water",
+          "observations": [
+            {
+              "type": "temperature-change",
+              "direction": "up"
+            }
+          ],
+          "observation": {
+            "type": "temperature-change",
+            "direction": "up"
+          }
+        },
+        {
+          "id": "step-2",
+          "actionType": "guided.step.2",
+          "label": "Ikkinchi probirkaga gazli mineral suv quying. U kislota muhitiga misol bo‘ladi.",
+          "reactionIds": [
+            "rxn.co2-water"
+          ],
+          "reactionId": "rxn.co2-water",
+          "observations": [
+            {
+              "type": "no-visible-change"
+            }
+          ],
+          "observation": {
+            "type": "no-visible-change"
+          }
+        },
+        {
+          "id": "step-3",
+          "actionType": "guided.step.3",
+          "label": "Uchinchi probirkaga distillangan suv quying."
+        },
+        {
+          "id": "step-4",
+          "actionType": "guided.step.4",
+          "label": "Uchala probirkaga indikator tomizib ranglarni taqqoslang.",
+          "modelId": "school.water-oxide.indicator-comparison",
+          "modelType": "acid-base-indicator",
+          "sourceRefs": [
+            "src.legacy.7.11"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "indicator-response",
+              "sample": "CaO+H2O",
+              "medium": "basic",
+              "description": "CaO va suvdan hosil bo‘lgan muhit ishqoriy indikator javobini beradi."
+            },
+            {
+              "type": "indicator-response",
+              "sample": "carbonated-water",
+              "medium": "acidic",
+              "description": "CO₂ erigan suv kislotali muhitga xos indikator javobini beradi."
+            },
+            {
+              "type": "indicator-response",
+              "sample": "distilled-water",
+              "medium": "neutral",
+              "description": "Distillangan suv neytral muhitga xos indikator javobini beradi."
+            }
+          ],
+          "observation": {
+            "type": "indicator-response",
+            "sample": "CaO+H2O",
+            "medium": "basic",
+            "description": "CaO va suvdan hosil bo‘lgan muhit ishqoriy indikator javobini beradi."
+          }
+        },
+        {
+          "id": "step-5",
+          "actionType": "guided.step.5",
+          "label": "CaO va suv reaksiyasi tenglamasini yozing va muhitlarning farqini tushuntiring."
+        }
+      ]
+    },
+    "safetyNotes": [],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "chemistry-grounded-partial",
+      "groundedSteps": 3,
+      "reactionGroundedSteps": 2,
+      "modelGroundedSteps": 1,
+      "hybridGroundedSteps": 0
+    }
+  },
+  "practice.experiment.7.12": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c004",
+    "scenario": {
+      "id": "guided.practice.experiment.7.12",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "Tiniqlikni tekshirish: turli suv namunalarini silindrga quying va tagidagi matn ko‘rinishini taqqoslang."
+        },
+        {
+          "id": "step-2",
+          "actionType": "guided.step.2",
+          "label": "Rangni taqqoslash: suvni sut yoki sharbat bilan solishtiring."
+        },
+        {
+          "id": "step-3",
+          "actionType": "guided.step.3",
+          "label": "Hidni tekshirish: suv namunalarini 40–50 °C gacha isitib, ehtiyotkor hidlab ko‘ring."
+        },
+        {
+          "id": "step-4",
+          "actionType": "guided.step.4",
+          "label": "Erituvchanlikni tekshirish: shakar, tuz va qumning suvdagi xatti-harakatini kuzating."
+        },
+        {
+          "id": "step-5",
+          "actionType": "guided.step.5",
+          "label": "Suvning agregat holatlarini taqqoslang."
+        }
+      ]
+    },
+    "safetyNotes": [],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "procedural-only",
+      "groundedSteps": 0,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 0,
+      "hybridGroundedSteps": 0
+    }
+  },
+  "practice.experiment.8.6": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c075",
+    "scenario": {
+      "id": "guided.practice.experiment.8.6",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "Probirkaga 1–2 ml 5% NaOH eritmasi quying."
+        },
+        {
+          "id": "step-2",
+          "actionType": "guided.step.2",
+          "label": "Ustiga mo‘l miqdorda ZnCl2 eritmasidan qo‘shing.",
+          "reactionIds": [
+            "rxn.zncl2-naoh"
+          ],
+          "reactionId": "rxn.zncl2-naoh",
+          "observations": [
+            {
+              "type": "precipitate",
+              "color": "white"
+            }
+          ],
+          "observation": {
+            "type": "precipitate",
+            "color": "white"
+          }
+        },
+        {
+          "id": "step-3",
+          "actionType": "guided.step.3",
+          "label": "Hosil bo‘lgan cho‘kmani ikkita probirkaga bo‘ling."
+        },
+        {
+          "id": "step-4",
+          "actionType": "guided.step.4",
+          "label": "Bir probirkaga HCl, ikkinchisiga NaOH eritmasi qo‘shing va chayqating.",
+          "reactionIds": [
+            "rxn.znoh2-hcl"
+          ],
+          "reactionId": "rxn.znoh2-hcl",
+          "modelId": "school.znoh2.excess-base",
+          "modelType": "amphoteric-hydroxide",
+          "sourceRefs": [
+            "src.legacy.8.6",
+            "src.legacy.9.16"
+          ],
+          "reviewStatus": "pending",
+          "groundingMode": "hybrid",
+          "observations": [
+            {
+              "type": "precipitate",
+              "color": "white"
+            },
+            {
+              "type": "precipitate-dissolves",
+              "medium": "excess-base",
+              "description": "Zn(OH)₂ ortiqcha kuchli ishqorda erib, sinkat/hidroksokompleks turini hosil qiladi."
+            }
+          ],
+          "observation": {
+            "type": "precipitate",
+            "color": "white"
+          }
+        },
+        {
+          "id": "step-5",
+          "actionType": "guided.step.5",
+          "label": "Shunga o‘xshash tajribani CuCl2 eritmasi bilan takrorlang.",
+          "modelId": "school.cuoh2.comparison",
+          "modelType": "hydroxide-comparison",
+          "sourceRefs": [
+            "src.legacy.8.6"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "precipitate",
+              "color": "blue",
+              "description": "Cu²⁺ ga OH⁻ qo‘shilganda ko‘k Cu(OH)₂ cho‘kmasi hosil bo‘ladi."
+            },
+            {
+              "type": "no-visible-change",
+              "medium": "excess-base",
+              "description": "Cu(OH)₂ maktab tajribasi sharoitida Zn(OH)₂ kabi ortiqcha NaOH da erib ketmaydi; bu taqqoslash amfoterlik farqini ko‘rsatadi."
+            }
+          ],
+          "observation": {
+            "type": "precipitate",
+            "color": "blue",
+            "description": "Cu²⁺ ga OH⁻ qo‘shilganda ko‘k Cu(OH)₂ cho‘kmasi hosil bo‘ladi."
+          }
+        }
+      ]
+    },
+    "safetyNotes": [],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "chemistry-grounded-partial",
+      "groundedSteps": 3,
+      "reactionGroundedSteps": 2,
+      "modelGroundedSteps": 2,
+      "hybridGroundedSteps": 1
+    }
+  },
+  "practice.experiment.8.8": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c114",
+    "scenario": {
+      "id": "guided.practice.experiment.8.8",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "Daftarga reagentlar jadvalini ko‘chiring."
+        },
+        {
+          "id": "step-2",
+          "actionType": "guided.step.2",
+          "label": "To‘rtta probirkaga mos ravishda HCl, NaCl, NaBr va NaI eritmalaridan 1–2 ml quying."
+        },
+        {
+          "id": "step-3",
+          "actionType": "guided.step.3",
+          "label": "Har biriga 3–4 tomchi AgNO3 eritmasi qo‘shing.",
+          "reactionIds": [
+            "rxn.agno3-nacl",
+            "rxn.agno3-nabr",
+            "rxn.agno3-nai"
+          ],
+          "observations": [
+            {
+              "type": "precipitate",
+              "color": "white"
+            },
+            {
+              "type": "precipitate",
+              "color": "yellow"
+            },
+            {
+              "type": "precipitate",
+              "color": "yellow"
+            }
+          ],
+          "observation": {
+            "type": "precipitate",
+            "color": "white"
+          }
+        },
+        {
+          "id": "step-4",
+          "actionType": "guided.step.4",
+          "label": "Cho‘kmalar rangini kuzating, tenglamalarni yozing va jadvalni to‘ldiring."
+        },
+        {
+          "id": "step-5",
+          "actionType": "guided.step.5",
+          "label": "Kraxmal kleysteriga 1 tomchi yod eritmasi qo‘shib rang o‘zgarishini kuzating.",
+          "modelId": "school.starch-iodine",
+          "modelType": "qualitative-organic-test",
+          "sourceRefs": [
+            "src.legacy.8.8"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "color-change",
+              "to": "blue-black",
+              "description": "Yod kraxmal bilan ko‘k-qora rangli kompleks belgisini beradi."
+            }
+          ],
+          "observation": {
+            "type": "color-change",
+            "to": "blue-black",
+            "description": "Yod kraxmal bilan ko‘k-qora rangli kompleks belgisini beradi."
+          }
+        },
+        {
+          "id": "step-6",
+          "actionType": "guided.step.6",
+          "label": "Kartoshka va non bo‘laklariga yod eritmasidan tomizing va natijani izohlang.",
+          "modelId": "school.food-starch-iodine",
+          "modelType": "qualitative-organic-test",
+          "sourceRefs": [
+            "src.legacy.8.8"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "color-change",
+              "to": "blue-black-where-starch-present",
+              "description": "Kartoshka yoki nonning kraxmal mavjud qismida yod tomizilganda ko‘k-qora rang paydo bo‘ladi."
+            }
+          ],
+          "observation": {
+            "type": "color-change",
+            "to": "blue-black-where-starch-present",
+            "description": "Kartoshka yoki nonning kraxmal mavjud qismida yod tomizilganda ko‘k-qora rang paydo bo‘ladi."
+          }
+        }
+      ]
+    },
+    "safetyNotes": [],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "chemistry-grounded-partial",
+      "groundedSteps": 3,
+      "reactionGroundedSteps": 1,
+      "modelGroundedSteps": 2,
+      "hybridGroundedSteps": 0
+    }
+  },
+  "practice.experiment.8.9": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c114",
+    "scenario": {
+      "id": "guided.practice.experiment.8.9",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "Maktab tajriba maydonidan olingan tuproqni suv bilan aralashtiring."
+        },
+        {
+          "id": "step-2",
+          "actionType": "guided.step.2",
+          "label": "Hosil bo‘lgan loyqa eritmani filtrlang."
+        },
+        {
+          "id": "step-3",
+          "actionType": "guided.step.3",
+          "label": "Filtratda xlorid ioni borligini sifat reaksiyasi yordamida tekshiring.",
+          "reactionIds": [
+            "rxn.agno3-nacl"
+          ],
+          "reactionId": "rxn.agno3-nacl",
+          "observations": [
+            {
+              "type": "precipitate",
+              "color": "white"
+            }
+          ],
+          "observation": {
+            "type": "precipitate",
+            "color": "white"
+          }
+        }
+      ]
+    },
+    "safetyNotes": [],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "reaction-grounded-partial",
+      "groundedSteps": 1,
+      "reactionGroundedSteps": 1,
+      "modelGroundedSteps": 0,
+      "hybridGroundedSteps": 0
+    }
+  },
+  "practice.experiment.8.10": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c109",
+    "scenario": {
+      "id": "guided.practice.experiment.8.10",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "Jadvalni daftarga ko‘chiring."
+        },
+        {
+          "id": "step-2",
+          "actionType": "guided.step.2",
+          "label": "Ikki probirkaga NaBr va NaI eritmalaridan 3–4 ml quying. Har biriga 1–2 ml xlorli suv qo‘shing va o‘zgarishlarni kuzating.",
+          "reactionIds": [
+            "rxn.cl2-kbr"
+          ],
+          "reactionId": "rxn.cl2-kbr",
+          "observations": [
+            {
+              "type": "color-change",
+              "to": "changed"
+            }
+          ],
+          "observation": {
+            "type": "color-change",
+            "to": "changed"
+          }
+        },
+        {
+          "id": "step-3",
+          "actionType": "guided.step.3",
+          "label": "NaI eritmasiga bromli suv qo‘shing va o‘zgarishni kuzating.",
+          "reactionIds": [
+            "rxn.br2-ki"
+          ],
+          "reactionId": "rxn.br2-ki",
+          "observations": [
+            {
+              "type": "color-change",
+              "to": "changed"
+            }
+          ],
+          "observation": {
+            "type": "color-change",
+            "to": "changed"
+          }
+        },
+        {
+          "id": "step-4",
+          "actionType": "guided.step.4",
+          "label": "Ikki probirkadagi NaCl eritmasiga alohida-alohida bromli suv va yod eritmasi qo‘shing. O‘zgarish bo‘lmasligini kuzating.",
+          "modelId": "school.halogen.no-displacement-chloride",
+          "modelType": "halogen-activity-negative-control",
+          "sourceRefs": [
+            "src.legacy.8.10"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "no-visible-change",
+              "description": "Bromli suv yoki yod eritmasi xlorid ionidan xlorni siqib chiqara olmaydi; NaCl eritmasida displacement belgisi kuzatilmaydi."
+            }
+          ],
+          "observation": {
+            "type": "no-visible-change",
+            "description": "Bromli suv yoki yod eritmasi xlorid ionidan xlorni siqib chiqara olmaydi; NaCl eritmasida displacement belgisi kuzatilmaydi."
+          }
+        }
+      ]
+    },
+    "safetyNotes": [],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "chemistry-grounded-partial",
+      "groundedSteps": 3,
+      "reactionGroundedSteps": 2,
+      "modelGroundedSteps": 1,
+      "hybridGroundedSteps": 0
+    }
+  },
+  "practice.experiment.8.11": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c114",
+    "scenario": {
+      "id": "guided.practice.experiment.8.11",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "Probirkaga 3–4 bo‘lak yod kristali soling va 1–2 ml suv qo‘shib aralashtiring."
+        },
+        {
+          "id": "step-2",
+          "actionType": "guided.step.2",
+          "label": "Yodning suvdagi eritmasiga 1–2 ml benzol qo‘shing, chayqating va tindiring."
+        },
+        {
+          "id": "step-3",
+          "actionType": "guided.step.3",
+          "label": "Suvli va benzol qatlamlarining rangini taqqoslang."
+        }
+      ]
+    },
+    "safetyNotes": [
+      "Benzol bilan faqat o‘qituvchi nazoratida, shamollatiladigan sharoitda ishlanadi."
+    ],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "procedural-only",
+      "groundedSteps": 0,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 0,
+      "hybridGroundedSteps": 0
+    }
+  },
+  "practice.experiment.8.13": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c120",
+    "scenario": {
+      "id": "guided.practice.experiment.8.13",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "To‘rtta probirkaga H2SO4, Na2SO4, CuSO4 va Al2(SO4)3 eritmalaridan 2–3 ml quying."
+        },
+        {
+          "id": "step-2",
+          "actionType": "guided.step.2",
+          "label": "Har biriga 1–2 ml BaCl2 eritmasi qo‘shing.",
+          "modelId": "qual.sulfate-barium",
+          "modelType": "qualitative-test",
+          "sourceRefs": [
+            "src.legacy.8.13"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "precipitate",
+              "color": "white",
+              "description": "Sulfat ioni mavjud eritmada oq BaSO4 cho‘kmasi hosil bo‘ladi."
+            }
+          ],
+          "observation": {
+            "type": "precipitate",
+            "color": "white",
+            "description": "Sulfat ioni mavjud eritmada oq BaSO4 cho‘kmasi hosil bo‘ladi."
+          }
+        },
+        {
+          "id": "step-3",
+          "actionType": "guided.step.3",
+          "label": "Har bir probirkada hosil bo‘lgan o‘zgarishni kuzating."
+        }
+      ]
+    },
+    "safetyNotes": [],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "chemistry-grounded-partial",
+      "groundedSteps": 1,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 1,
+      "hybridGroundedSteps": 0
+    }
+  },
+  "practice.experiment.8.14": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c136",
+    "scenario": {
+      "id": "guided.practice.experiment.8.14",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "NH4Cl va so‘ndirilgan ohakning 1,5:1 massa nisbatidagi aralashmasini probirkaga soling va gaz o‘tkazgich nayli tiqin bilan yoping."
+        },
+        {
+          "id": "step-2",
+          "actionType": "guided.step.2",
+          "label": "Aralashmani biroz qizdiring va ajralgan gazni probirkalarga yig‘ing.",
+          "reactionIds": [
+            "rxn.nh4cl-caoh2"
+          ],
+          "reactionId": "rxn.nh4cl-caoh2",
+          "observations": [
+            {
+              "type": "gas",
+              "descriptionKey": "rxn.nh4cl-caoh2.observation"
+            }
+          ],
+          "observation": {
+            "type": "gas",
+            "descriptionKey": "rxn.nh4cl-caoh2.observation"
+          }
+        },
+        {
+          "id": "step-3",
+          "actionType": "guided.step.3",
+          "label": "Gaz bilan to‘lgan probirkani suvga botirib, suvning probirkaga kirishini kuzating.",
+          "modelId": "school.ammonia.water-solubility",
+          "modelType": "gas-solubility",
+          "sourceRefs": [
+            "src.legacy.8.14"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "state-change",
+              "description": "Ammiak suvda juda yaxshi erigani uchun gaz hajmi kamayadi va suv probirkaga ko‘tariladi."
+            }
+          ],
+          "observation": {
+            "type": "state-change",
+            "description": "Ammiak suvda juda yaxshi erigani uchun gaz hajmi kamayadi va suv probirkaga ko‘tariladi."
+          }
+        },
+        {
+          "id": "step-4",
+          "actionType": "guided.step.4",
+          "label": "Gaz oqimiga fenolftaleinli qog‘oz tuting.",
+          "modelId": "school.ammonia.indicator",
+          "modelType": "acid-base-indicator",
+          "sourceRefs": [
+            "src.legacy.8.14"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "indicator-response",
+              "medium": "basic",
+              "description": "Nam indikator/fenolftalein ammiakning suvdagi ishqoriy muhitini ko‘rsatadi; fenolftalein pushti tus beradi."
+            }
+          ],
+          "observation": {
+            "type": "indicator-response",
+            "medium": "basic",
+            "description": "Nam indikator/fenolftalein ammiakning suvdagi ishqoriy muhitini ko‘rsatadi; fenolftalein pushti tus beradi."
+          }
+        },
+        {
+          "id": "step-5",
+          "actionType": "guided.step.5",
+          "label": "Gaz oqimiga HCl ga botirilgan shisha tayoqchani yaqinlashtiring va oq tutunni kuzating.",
+          "reactionIds": [
+            "rxn.nh3-hcl"
+          ],
+          "reactionId": "rxn.nh3-hcl",
+          "observations": [
+            {
+              "type": "no-visible-change"
+            }
+          ],
+          "observation": {
+            "type": "no-visible-change"
+          }
+        }
+      ]
+    },
+    "safetyNotes": [],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "chemistry-grounded-partial",
+      "groundedSteps": 4,
+      "reactionGroundedSteps": 2,
+      "modelGroundedSteps": 2,
+      "hybridGroundedSteps": 0
+    }
+  },
+  "practice.experiment.8.15": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c143",
+    "scenario": {
+      "id": "guided.practice.experiment.8.15",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "O‘qituvchi bergan mineral o‘g‘it namunalarini diqqat bilan ko‘zdan kechiring."
+        },
+        {
+          "id": "step-2",
+          "actionType": "guided.step.2",
+          "label": "Har bir namuna uchun nomi, formulasi, nisbiy molekulyar massasi, tashqi ko‘rinishi va suvda eruvchanligini jadvalga yozing."
+        }
+      ]
+    },
+    "safetyNotes": [],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "procedural-only",
+      "groundedSteps": 0,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 0,
+      "hybridGroundedSteps": 0
+    }
+  },
+  "practice.experiment.9.4": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c153",
+    "scenario": {
+      "id": "guided.practice.experiment.9.4",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "Karbonat va gidrokarbonat namunalarini darslikdagi ko‘rsatma asosida reaktivlar bilan tekshiring."
+        },
+        {
+          "id": "step-2",
+          "actionType": "guided.step.2",
+          "label": "Karbonat ioniga xos CO2 ajralishi va ohakli suvning loyqalanishini kuzating.",
+          "reactionIds": [
+            "rxn.caco3-hcl"
+          ],
+          "reactionId": "rxn.caco3-hcl",
+          "observations": [
+            {
+              "type": "gas",
+              "descriptionKey": "rxn.caco3-hcl.observation"
+            }
+          ],
+          "observation": {
+            "type": "gas",
+            "descriptionKey": "rxn.caco3-hcl.observation"
+          }
+        },
+        {
+          "id": "step-3",
+          "actionType": "guided.step.3",
+          "label": "Aylanish jarayonlarini molekulyar va ionli tenglamalar orqali ifodalang."
+        }
+      ]
+    },
+    "safetyNotes": [],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "reaction-grounded-partial",
+      "groundedSteps": 1,
+      "reactionGroundedSteps": 1,
+      "modelGroundedSteps": 0,
+      "hybridGroundedSteps": 0
+    }
+  },
+  "practice.experiment.9.6": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c158",
+    "scenario": {
+      "id": "guided.practice.experiment.9.6",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "Turli shisha namunalarini va shishadan yasalgan buyumlarni ko‘zdan kechiring."
+        }
+      ]
+    },
+    "safetyNotes": [],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "procedural-only",
+      "groundedSteps": 0,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 0,
+      "hybridGroundedSteps": 0
+    }
+  },
+  "practice.experiment.9.7": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c180",
+    "scenario": {
+      "id": "guided.practice.experiment.9.7",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "Berilgan metall namunalarini ko‘zdan kechiring va nomlang."
+        },
+        {
+          "id": "step-2",
+          "actionType": "guided.step.2",
+          "label": "Jadvaldan ularning suyuqlanish harorati va qattiqligini aniqlang."
+        },
+        {
+          "id": "step-3",
+          "actionType": "guided.step.3",
+          "label": "Temir va mis plastinkalarning bir uchiga parafin qo‘ying, ikkinchi uchini gorelka alangasida qizdiring. Qaysi metallda parafin tezroq erishini kuzating."
+        }
+      ]
+    },
+    "safetyNotes": [],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "procedural-only",
+      "groundedSteps": 0,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 0,
+      "hybridGroundedSteps": 0
+    }
+  },
+  "practice.experiment.9.9": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c153",
+    "scenario": {
+      "id": "guided.practice.experiment.9.9",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "Birinchi probirkaga AgNO3, ikkinchisiga CuSO4, uchinchisiga Pb(NO3)2 eritmasidan 2–3 ml quying."
+        },
+        {
+          "id": "step-2",
+          "actionType": "guided.step.2",
+          "label": "Birinchi probirkaga mis simi, ikkinchisiga temir kukuni, uchinchisiga mis kukuni soling."
+        },
+        {
+          "id": "step-3",
+          "actionType": "guided.step.3",
+          "label": "Har bir probirkadagi o‘zgarishni kuzating.",
+          "modelId": "school.metal-displacement.9.9",
+          "modelType": "metal-displacement-set",
+          "sourceRefs": [
+            "src.legacy.9.9"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "metal-deposition",
+              "metal": "Ag",
+              "description": "Mis simi yuzasida kumush ajralishi kuzatiladi; eritmada Cu²⁺ hosil bo‘lishi mumkin."
+            },
+            {
+              "type": "metal-deposition",
+              "metal": "Cu",
+              "description": "Temir CuSO₄ eritmasidan misni siqib chiqaradi; mis qoplami hosil bo‘ladi."
+            },
+            {
+              "type": "no-visible-change",
+              "description": "Mis Pb²⁺ ni maktab sharoitidagi bu tajribada siqib chiqarmaydi; ko‘zga ko‘rinadigan reaksiya kutilmaydi."
+            }
+          ],
+          "observation": {
+            "type": "metal-deposition",
+            "metal": "Ag",
+            "description": "Mis simi yuzasida kumush ajralishi kuzatiladi; eritmada Cu²⁺ hosil bo‘lishi mumkin."
+          }
+        }
+      ]
+    },
+    "safetyNotes": [],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "chemistry-grounded-partial",
+      "groundedSteps": 1,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 1,
+      "hybridGroundedSteps": 0
+    }
+  },
+  "practice.experiment.9.12": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c179",
+    "scenario": {
+      "id": "guided.practice.experiment.9.12",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "Alyuminiy va uning qotishmalari namunalarini ko‘zdan kechiring."
+        },
+        {
+          "id": "step-2",
+          "actionType": "guided.step.2",
+          "label": "Tashqi ko‘rinish, yengillik va amaliy qo‘llanishini taqqoslang."
+        }
+      ]
+    },
+    "safetyNotes": [],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "procedural-only",
+      "groundedSteps": 0,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 0,
+      "hybridGroundedSteps": 0
+    }
+  },
+  "practice.experiment.9.13": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c153",
+    "scenario": {
+      "id": "guided.practice.experiment.9.13",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "Alyuminiy tuzi eritmasiga ishqor qo‘shib Al(OH)3 cho‘kmasini oling.",
+          "modelId": "school.aloh3.precipitate",
+          "modelType": "amphoteric-hydroxide",
+          "sourceRefs": [
+            "src.legacy.9.13"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "precipitate",
+              "color": "white",
+              "description": "Al³⁺ ga OH⁻ qo‘shilganda oq, jelatinsimon Al(OH)₃ cho‘kmasi hosil bo‘ladi."
+            }
+          ],
+          "observation": {
+            "type": "precipitate",
+            "color": "white",
+            "description": "Al³⁺ ga OH⁻ qo‘shilganda oq, jelatinsimon Al(OH)₃ cho‘kmasi hosil bo‘ladi."
+          }
+        },
+        {
+          "id": "step-2",
+          "actionType": "guided.step.2",
+          "label": "Cho‘kmani ikkiga bo‘ling."
+        },
+        {
+          "id": "step-3",
+          "actionType": "guided.step.3",
+          "label": "Bir qismiga kislota, ikkinchisiga ortiqcha ishqor qo‘shib erishini kuzating.",
+          "modelId": "school.aloh3.amphoteric",
+          "modelType": "amphoteric-hydroxide",
+          "sourceRefs": [
+            "src.legacy.9.13"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "precipitate-dissolves",
+              "medium": "acid",
+              "description": "Al(OH)₃ kislota ta’sirida eriydi."
+            },
+            {
+              "type": "precipitate-dissolves",
+              "medium": "excess-base",
+              "description": "Al(OH)₃ ortiqcha kuchli ishqorda erib aluminate turini hosil qiladi."
+            }
+          ],
+          "observation": {
+            "type": "precipitate-dissolves",
+            "medium": "acid",
+            "description": "Al(OH)₃ kislota ta’sirida eriydi."
+          }
+        }
+      ]
+    },
+    "safetyNotes": [],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "chemistry-grounded-partial",
+      "groundedSteps": 2,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 2,
+      "hybridGroundedSteps": 0
+    }
+  },
+  "practice.experiment.9.15": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c153",
+    "scenario": {
+      "id": "guided.practice.experiment.9.15",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "Cu2+ tuzi eritmasiga ishqor qo‘shib Cu(OH)2 cho‘kmasini oling.",
+          "modelId": "school.cuoh2.precipitate",
+          "modelType": "hydroxide-properties",
+          "sourceRefs": [
+            "src.legacy.9.15"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "precipitate",
+              "color": "blue",
+              "description": "Cu²⁺ ga OH⁻ qo‘shilganda ko‘k Cu(OH)₂ cho‘kmasi hosil bo‘ladi."
+            }
+          ],
+          "observation": {
+            "type": "precipitate",
+            "color": "blue",
+            "description": "Cu²⁺ ga OH⁻ qo‘shilganda ko‘k Cu(OH)₂ cho‘kmasi hosil bo‘ladi."
+          }
+        },
+        {
+          "id": "step-2",
+          "actionType": "guided.step.2",
+          "label": "Cho‘kmaning rangini kuzating."
+        },
+        {
+          "id": "step-3",
+          "actionType": "guided.step.3",
+          "label": "Kislota ta’sirini va qizdirilgandagi o‘zgarishni tekshiring.",
+          "modelId": "school.cuoh2.acid-heat",
+          "modelType": "hydroxide-properties",
+          "sourceRefs": [
+            "src.legacy.9.15"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "precipitate-dissolves",
+              "medium": "acid",
+              "description": "Cu(OH)₂ kislota qo‘shilganda eriydi."
+            },
+            {
+              "type": "color-change",
+              "from": "blue-precipitate",
+              "to": "black-solid",
+              "description": "Qizdirilganda Cu(OH)₂ qora CuO ga parchalanadi."
+            }
+          ],
+          "observation": {
+            "type": "precipitate-dissolves",
+            "medium": "acid",
+            "description": "Cu(OH)₂ kislota qo‘shilganda eriydi."
+          }
+        }
+      ]
+    },
+    "safetyNotes": [],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "chemistry-grounded-partial",
+      "groundedSteps": 2,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 2,
+      "hybridGroundedSteps": 0
+    }
+  },
+  "practice.experiment.9.16": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c153",
+    "scenario": {
+      "id": "guided.practice.experiment.9.16",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "Zn2+ tuzi eritmasiga ishqor qo‘shib Zn(OH)2 cho‘kmasini oling.",
+          "reactionIds": [
+            "rxn.zncl2-naoh"
+          ],
+          "reactionId": "rxn.zncl2-naoh",
+          "observations": [
+            {
+              "type": "precipitate",
+              "color": "white"
+            }
+          ],
+          "observation": {
+            "type": "precipitate",
+            "color": "white"
+          }
+        },
+        {
+          "id": "step-2",
+          "actionType": "guided.step.2",
+          "label": "Cho‘kmani ikki qismga bo‘ling."
+        },
+        {
+          "id": "step-3",
+          "actionType": "guided.step.3",
+          "label": "Biriga kislota, ikkinchisiga ortiqcha ishqor qo‘shing va erishini kuzating.",
+          "reactionIds": [
+            "rxn.znoh2-hcl"
+          ],
+          "reactionId": "rxn.znoh2-hcl",
+          "modelId": "school.znoh2.excess-base",
+          "modelType": "amphoteric-hydroxide",
+          "sourceRefs": [
+            "src.legacy.8.6",
+            "src.legacy.9.16"
+          ],
+          "reviewStatus": "pending",
+          "groundingMode": "hybrid",
+          "observations": [
+            {
+              "type": "precipitate",
+              "color": "white"
+            },
+            {
+              "type": "precipitate-dissolves",
+              "medium": "excess-base",
+              "description": "Zn(OH)₂ ortiqcha kuchli ishqorda erib, sinkat/hidroksokompleks turini hosil qiladi."
+            }
+          ],
+          "observation": {
+            "type": "precipitate",
+            "color": "white"
+          }
+        }
+      ]
+    },
+    "safetyNotes": [],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "chemistry-grounded-partial",
+      "groundedSteps": 2,
+      "reactionGroundedSteps": 2,
+      "modelGroundedSteps": 1,
+      "hybridGroundedSteps": 1
+    }
+  },
+  "practice.experiment.9.19": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c214",
+    "scenario": {
+      "id": "guided.practice.experiment.9.19",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "Temir(II) va temir(III) tuzlari eritmalariga darslikda ko‘rsatilgan sifat reaktivlarini qo‘shing.",
+          "modelId": "school.iron-ions.hexacyanoferrate",
+          "modelType": "qualitative-ion-test",
+          "sourceRefs": [
+            "src.legacy.9.19"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "precipitate",
+              "color": "deep-blue",
+              "description": "Fe²⁺ qizil qon tuzi K₃[Fe(CN)₆] bilan to‘q ko‘k Turnbull ko‘ki cho‘kmasini beradi."
+            },
+            {
+              "type": "precipitate",
+              "color": "deep-blue",
+              "description": "Fe³⁺ sariq qon tuzi K₄[Fe(CN)₆] bilan Berlin lazuri ko‘k cho‘kmasini beradi."
+            }
+          ],
+          "observation": {
+            "type": "precipitate",
+            "color": "deep-blue",
+            "description": "Fe²⁺ qizil qon tuzi K₃[Fe(CN)₆] bilan to‘q ko‘k Turnbull ko‘ki cho‘kmasini beradi."
+          }
+        },
+        {
+          "id": "step-2",
+          "actionType": "guided.step.2",
+          "label": "Hosil bo‘lgan rang va cho‘kmalarni taqqoslang."
+        },
+        {
+          "id": "step-3",
+          "actionType": "guided.step.3",
+          "label": "Temir(III) uchun tiotsianat bilan rangli kompleks hosil bo‘lishini kuzating.",
+          "modelId": "school.iron3.thiocyanate",
+          "modelType": "qualitative-ion-test",
+          "sourceRefs": [
+            "src.legacy.9.19"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "color-change",
+              "to": "deep-red",
+              "description": "Fe³⁺ tiotsianat ionlari bilan to‘q qizil rangli kompleks hosil qiladi."
+            }
+          ],
+          "observation": {
+            "type": "color-change",
+            "to": "deep-red",
+            "description": "Fe³⁺ tiotsianat ionlari bilan to‘q qizil rangli kompleks hosil qiladi."
+          }
+        }
+      ]
+    },
+    "safetyNotes": [],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "chemistry-grounded-partial",
+      "groundedSteps": 2,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 2,
+      "hybridGroundedSteps": 0
+    }
+  },
+  "practice.experiment.9.20": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c179",
+    "scenario": {
+      "id": "guided.practice.experiment.9.20",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "Cho‘yan va po‘lat namunalarini tashqi ko‘rinish bo‘yicha ko‘zdan kechiring."
+        },
+        {
+          "id": "step-2",
+          "actionType": "guided.step.2",
+          "label": "Ularning mexanik xossalarini taqqoslang.",
+          "modelId": "school.cast-iron-steel.material-comparison",
+          "modelType": "materials-comparison",
+          "sourceRefs": [
+            "src.legacy.9.20"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "property-comparison",
+              "property": "carbon-content",
+              "description": "Cho‘yan odatda po‘latga nisbatan ko‘proq uglerod tutadi; mexanik xossalari shunga mos farqlanadi."
+            },
+            {
+              "type": "property-comparison",
+              "property": "mechanical",
+              "description": "Namunalar tashqi ko‘rinish va mo‘rtlik/qovushqoqlik kabi xossalar bo‘yicha taqqoslanadi."
+            }
+          ],
+          "observation": {
+            "type": "property-comparison",
+            "property": "carbon-content",
+            "description": "Cho‘yan odatda po‘latga nisbatan ko‘proq uglerod tutadi; mexanik xossalari shunga mos farqlanadi."
+          }
+        },
+        {
+          "id": "step-3",
+          "actionType": "guided.step.3",
+          "label": "Kichik namunalarga HCl ta’sirini kuzatib farqini qayd eting.",
+          "modelId": "school.cast-iron-steel.hcl",
+          "modelType": "materials-comparison",
+          "sourceRefs": [
+            "src.legacy.9.20"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "gas",
+              "description": "Suyultirilgan HCl temir asosli namunaga ta’sir qilganda vodorod ajralishi kuzatiladi; ikki namuna uchun ajralish tezligi tajribada taqqoslanadi."
+            }
+          ],
+          "observation": {
+            "type": "gas",
+            "description": "Suyultirilgan HCl temir asosli namunaga ta’sir qilganda vodorod ajralishi kuzatiladi; ikki namuna uchun ajralish tezligi tajribada taqqoslanadi."
+          }
+        }
+      ]
+    },
+    "safetyNotes": [],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "chemistry-grounded-partial",
+      "groundedSteps": 2,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 2,
+      "hybridGroundedSteps": 0
+    }
+  },
+  "practice.experiment.10.2": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c224",
+    "scenario": {
+      "id": "guided.practice.experiment.10.2",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "Tekshiriluvchi organik modda va CuO aralashmasini qizdiring."
+        },
+        {
+          "id": "step-2",
+          "actionType": "guided.step.2",
+          "label": "Hosil bo‘lgan gazni ohakli suvdan o‘tkazing. Ohakli suvning loyqalanishi uglerod mavjudligini ko‘rsatadi.",
+          "modelId": "school.organic-carbon.limewater",
+          "modelType": "composition-analysis",
+          "sourceRefs": [
+            "src.legacy.10.2"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "precipitate",
+              "color": "white",
+              "description": "Hosil bo‘lgan CO₂ ohakli suvdan o‘tkazilganda CaCO₃ sabab loyqalanish kuzatiladi."
+            }
+          ],
+          "observation": {
+            "type": "precipitate",
+            "color": "white",
+            "description": "Hosil bo‘lgan CO₂ ohakli suvdan o‘tkazilganda CaCO₃ sabab loyqalanish kuzatiladi."
+          }
+        },
+        {
+          "id": "step-3",
+          "actionType": "guided.step.3",
+          "label": "Probirka devorida suv tomchilari hosil bo‘lishini kuzating. Bu vodorod mavjudligini ko‘rsatadi.",
+          "modelId": "school.organic-hydrogen.condensation",
+          "modelType": "composition-analysis",
+          "sourceRefs": [
+            "src.legacy.10.2"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "state-change",
+              "description": "Oksidlanish mahsulotidagi suv sovuqroq probirka devorida tomchilar ko‘rinishida kondensatlanadi."
+            }
+          ],
+          "observation": {
+            "type": "state-change",
+            "description": "Oksidlanish mahsulotidagi suv sovuqroq probirka devorida tomchilar ko‘rinishida kondensatlanadi."
+          }
+        },
+        {
+          "id": "step-4",
+          "actionType": "guided.step.4",
+          "label": "Suvsiz CuSO4 ning rang o‘zgarishini kuzating.",
+          "modelId": "school.water.anhydrous-cuso4",
+          "modelType": "composition-analysis",
+          "sourceRefs": [
+            "src.legacy.10.2"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "color-change",
+              "from": "white",
+              "to": "blue",
+              "description": "Suvsiz CuSO₄ suv bilan gidratlanganda oq rangdan ko‘k rangga o‘tadi."
+            }
+          ],
+          "observation": {
+            "type": "color-change",
+            "from": "white",
+            "to": "blue",
+            "description": "Suvsiz CuSO₄ suv bilan gidratlanganda oq rangdan ko‘k rangga o‘tadi."
+          }
+        },
+        {
+          "id": "step-5",
+          "actionType": "guided.step.5",
+          "label": "Uglerodni aniqlashning ikkinchi usuli sifatida chinni kosachadagi oz miqdor shakarni qizdiring. Shakar qorayib, ko‘mir ajralishini kuzating.",
+          "modelId": "school.sugar.charring",
+          "modelType": "thermal-decomposition",
+          "sourceRefs": [
+            "src.legacy.10.2"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "color-change",
+              "from": "light",
+              "to": "black",
+              "description": "Shakar kuchli qizdirilganda qorayib, uglerodga boy qoldiq hosil qiladi."
+            }
+          ],
+          "observation": {
+            "type": "color-change",
+            "from": "light",
+            "to": "black",
+            "description": "Shakar kuchli qizdirilganda qorayib, uglerodga boy qoldiq hosil qiladi."
+          }
+        }
+      ]
+    },
+    "safetyNotes": [],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "chemistry-grounded-partial",
+      "groundedSteps": 4,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 4,
+      "hybridGroundedSteps": 0
+    }
+  },
+  "practice.experiment.10.6": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c233",
+    "scenario": {
+      "id": "guided.practice.experiment.10.6",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "Cu(OH)2 cho‘kmasiga glitserin qo‘shing va to‘q ko‘k eritma hosil bo‘lishini kuzating.",
+          "modelId": "school.glycerol.cuoh2",
+          "modelType": "organic-qualitative-test",
+          "sourceRefs": [
+            "src.legacy.10.6"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "color-change",
+              "from": "blue-precipitate",
+              "to": "deep-blue-solution",
+              "description": "Glitserin yangi Cu(OH)₂ bilan to‘q ko‘k eritma hosil qiladi."
+            }
+          ],
+          "observation": {
+            "type": "color-change",
+            "from": "blue-precipitate",
+            "to": "deep-blue-solution",
+            "description": "Glitserin yangi Cu(OH)₂ bilan to‘q ko‘k eritma hosil qiladi."
+          }
+        },
+        {
+          "id": "step-2",
+          "actionType": "guided.step.2",
+          "label": "Yangi tayyorlangan Cu(OH)2 ga formalin qo‘shing va ehtiyotkor qizdiring."
+        },
+        {
+          "id": "step-3",
+          "actionType": "guided.step.3",
+          "label": "Rang va cho‘kma o‘zgarishlarini kuzating.",
+          "modelId": "school.formalin.cuoh2-heat",
+          "modelType": "organic-qualitative-test",
+          "sourceRefs": [
+            "src.legacy.10.6"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "precipitate",
+              "color": "brick-red",
+              "description": "Formalin yangi Cu(OH)₂ bilan qizdirilganda qaytaruvchanlik belgisi sifatida g‘isht-qizil Cu₂O cho‘kmasi hosil bo‘lishi kuzatiladi."
+            }
+          ],
+          "observation": {
+            "type": "precipitate",
+            "color": "brick-red",
+            "description": "Formalin yangi Cu(OH)₂ bilan qizdirilganda qaytaruvchanlik belgisi sifatida g‘isht-qizil Cu₂O cho‘kmasi hosil bo‘lishi kuzatiladi."
+          }
+        }
+      ]
+    },
+    "safetyNotes": [],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "chemistry-grounded-partial",
+      "groundedSteps": 2,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 2,
+      "hybridGroundedSteps": 0
+    }
+  },
+  "practice.experiment.10.7": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c233",
+    "scenario": {
+      "id": "guided.practice.experiment.10.7",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "Hidli o‘simlik qismlarini suv bilan haydash moslamasiga joylashtiring."
+        },
+        {
+          "id": "step-2",
+          "actionType": "guided.step.2",
+          "label": "Aralashmani qizdirib, bug‘ bilan efir moylarini ajrating."
+        },
+        {
+          "id": "step-3",
+          "actionType": "guided.step.3",
+          "label": "Kondensatni yig‘ing va ajralgan hidli qatlamni kuzating."
+        },
+        {
+          "id": "step-4",
+          "actionType": "guided.step.4",
+          "label": "Gul barglaridan atir tayyorlash uchun darslikdagi ketma-ketlik asosida ekstraksiya va filtrlash ishlarini bajaring."
+        }
+      ]
+    },
+    "safetyNotes": [],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "procedural-only",
+      "groundedSteps": 0,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 0,
+      "hybridGroundedSteps": 0
+    }
+  },
+  "practice.experiment.10.10": {
+    "type": "experiment",
+    "version": "1.0.0",
+    "conceptId": "concept.c232",
+    "scenario": {
+      "id": "guided.practice.experiment.10.10",
+      "steps": [
+        {
+          "id": "step-1",
+          "actionType": "guided.step.1",
+          "label": "Uch noma’lum namuna: sirka kislotasi, glitserin va glyukozani oling."
+        },
+        {
+          "id": "step-2",
+          "actionType": "guided.step.2",
+          "label": "Indikator yordamida kislotali namunani aniqlang.",
+          "modelId": "school.acetic-acid.indicator",
+          "modelType": "organic-identification",
+          "sourceRefs": [
+            "src.legacy.10.10"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "indicator-response",
+              "medium": "acidic",
+              "description": "Indikator kislotali muhitni ko‘rsatadi va sirka kislotasi namunasi ajratiladi."
+            }
+          ],
+          "observation": {
+            "type": "indicator-response",
+            "medium": "acidic",
+            "description": "Indikator kislotali muhitni ko‘rsatadi va sirka kislotasi namunasi ajratiladi."
+          }
+        },
+        {
+          "id": "step-3",
+          "actionType": "guided.step.3",
+          "label": "Qolgan namunalarga yangi Cu(OH)2 qo‘shib to‘q ko‘k eritma hosil bo‘lishini kuzating.",
+          "modelId": "school.glycerol-glucose.cuoh2-cold",
+          "modelType": "organic-identification",
+          "sourceRefs": [
+            "src.legacy.10.10"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "color-change",
+              "to": "deep-blue-solution",
+              "description": "Glitserin va glyukoza yangi Cu(OH)₂ bilan sovuq sharoitda to‘q ko‘k eritma berishi mumkin."
+            }
+          ],
+          "observation": {
+            "type": "color-change",
+            "to": "deep-blue-solution",
+            "description": "Glitserin va glyukoza yangi Cu(OH)₂ bilan sovuq sharoitda to‘q ko‘k eritma berishi mumkin."
+          }
+        },
+        {
+          "id": "step-4",
+          "actionType": "guided.step.4",
+          "label": "Namunalarni qizdirib glyukozaga xos qaytaruvchanlik belgisi bilan glitserindan farqlang.",
+          "modelId": "school.glucose.cuoh2-heat",
+          "modelType": "organic-identification",
+          "sourceRefs": [
+            "src.legacy.10.10"
+          ],
+          "reviewStatus": "pending",
+          "observations": [
+            {
+              "type": "precipitate",
+              "color": "brick-red",
+              "description": "Glyukoza Cu(OH)₂ bilan qizdirilganda g‘isht-qizil Cu₂O hosil qilib qaytaruvchanlik belgisini beradi."
+            },
+            {
+              "type": "no-visible-change",
+              "sample": "glycerol-control",
+              "description": "Glitserin uchun glyukozaga xos g‘isht-qizil Cu₂O qaytarilish belgisi kutilmaydi; shu farq identifikatsiyada ishlatiladi."
+            }
+          ],
+          "observation": {
+            "type": "precipitate",
+            "color": "brick-red",
+            "description": "Glyukoza Cu(OH)₂ bilan qizdirilganda g‘isht-qizil Cu₂O hosil qilib qaytaruvchanlik belgisini beradi."
+          }
+        }
+      ]
+    },
+    "safetyNotes": [],
+    "virtualOnly": true,
+    "authoredSource": "legacyContent.steps",
+    "readiness": "guided-protocol",
+    "hardening": {
+      "status": "chemistry-grounded-partial",
+      "groundedSteps": 3,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 3,
+      "hybridGroundedSteps": 0
+    }
+  }
+}

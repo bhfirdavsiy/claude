@@ -1,0 +1,649 @@
+{
+  "generatedAt": "2026-09-29T04:33:39.664Z",
+  "classification": "engineering-audit-not-expert-approval",
+  "coverageTargetVersion": "1.0.0-rc.1",
+  "summary": {
+    "total": 27,
+    "proceduralGuided": 8,
+    "chemistryBaselined": 19,
+    "chemistryBaselineMissing": 0,
+    "chemistryGroundedSteps": 47,
+    "reactionGroundedSteps": 19,
+    "modelGroundedSteps": 30,
+    "chemistryTargetSteps": 47,
+    "chemistryTargetGrounded": 47,
+    "chemistryTargetMissing": 0,
+    "chemistryTargetCoverage": 100
+  },
+  "rows": [
+    {
+      "id": "practice.experiment.10.10",
+      "title": "Organik birikmalarni xos reaksiyalar asosida aniqlash",
+      "grade": 10,
+      "status": "CHEMISTRY_BASELINED_DOMAIN",
+      "reason": "A source-linked bounded school-lab model now grounds the domain-specific chemistry steps; expert approval is still pending.",
+      "groundedSteps": 3,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 3,
+      "safety": ""
+    },
+    {
+      "id": "practice.experiment.10.2",
+      "title": "Organik birikmalar tarkibini tahlil qilish",
+      "grade": 10,
+      "status": "CHEMISTRY_BASELINED_DOMAIN",
+      "reason": "A source-linked bounded school-lab model now grounds the domain-specific chemistry steps; expert approval is still pending.",
+      "groundedSteps": 4,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 4,
+      "safety": ""
+    },
+    {
+      "id": "practice.experiment.10.6",
+      "title": "Spirtlar va aldegidlarga xos reaksiyalar",
+      "grade": 10,
+      "status": "CHEMISTRY_BASELINED_DOMAIN",
+      "reason": "A source-linked bounded school-lab model now grounds the domain-specific chemistry steps; expert approval is still pending.",
+      "groundedSteps": 2,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 2,
+      "safety": ""
+    },
+    {
+      "id": "practice.experiment.10.7",
+      "title": "O‘simliklar tarkibidagi murakkab efirlar",
+      "grade": 10,
+      "status": "GUIDED_PROTOCOL",
+      "reason": "Primarily apparatus/material/physical-observation procedure; chemistry model is not required for the current authored protocol.",
+      "groundedSteps": 0,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 0,
+      "safety": ""
+    },
+    {
+      "id": "practice.experiment.7.1",
+      "title": "Laboratoriya shtativi, spirt lampa, gaz gorelkalari va elektr isitgich bilan ishlash",
+      "grade": 7,
+      "status": "GUIDED_PROTOCOL",
+      "reason": "Primarily apparatus/material/physical-observation procedure; chemistry model is not required for the current authored protocol.",
+      "groundedSteps": 0,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 0,
+      "safety": "Ochiq alanga, issiq idishlar va kislotalar bilan ishlashda o‘qituvchi ko‘rsatmasiga qat’iy amal qilinadi."
+    },
+    {
+      "id": "practice.experiment.7.10",
+      "title": "Kislotalarning metallar bilan o‘zaro ta’siri",
+      "grade": 7,
+      "status": "CHEMISTRY_BASELINED_REACTION",
+      "reason": "At least one authored chemistry step is grounded in curated Reaction KB evidence; deeper step coverage can continue without inventing chemistry.",
+      "groundedSteps": 3,
+      "reactionGroundedSteps": 2,
+      "modelGroundedSteps": 1,
+      "safety": "Vodorod miqdori probirka hajmining 1/3 qismidan oshmasin."
+    },
+    {
+      "id": "practice.experiment.7.11",
+      "title": "Suvning oksidlar bilan o‘zaro ta’siri",
+      "grade": 7,
+      "status": "CHEMISTRY_BASELINED_REACTION",
+      "reason": "At least one authored chemistry step is grounded in curated Reaction KB evidence; deeper step coverage can continue without inventing chemistry.",
+      "groundedSteps": 3,
+      "reactionGroundedSteps": 2,
+      "modelGroundedSteps": 1,
+      "safety": ""
+    },
+    {
+      "id": "practice.experiment.7.12",
+      "title": "Suvning fizik xossalarini o‘rganish",
+      "grade": 7,
+      "status": "GUIDED_PROTOCOL",
+      "reason": "Primarily apparatus/material/physical-observation procedure; chemistry model is not required for the current authored protocol.",
+      "groundedSteps": 0,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 0,
+      "safety": ""
+    },
+    {
+      "id": "practice.experiment.7.9",
+      "title": "Kislotalarning olinishi va xossalari",
+      "grade": 7,
+      "status": "CHEMISTRY_BASELINED_REACTION",
+      "reason": "At least one authored chemistry step is grounded in curated Reaction KB evidence; deeper step coverage can continue without inventing chemistry.",
+      "groundedSteps": 5,
+      "reactionGroundedSteps": 4,
+      "modelGroundedSteps": 1,
+      "safety": ""
+    },
+    {
+      "id": "practice.experiment.8.10",
+      "title": "Galogenlarning birikmalar eritmalaridan bir-birini siqib chiqarishi",
+      "grade": 8,
+      "status": "CHEMISTRY_BASELINED_REACTION",
+      "reason": "At least one authored chemistry step is grounded in curated Reaction KB evidence; deeper step coverage can continue without inventing chemistry.",
+      "groundedSteps": 3,
+      "reactionGroundedSteps": 2,
+      "modelGroundedSteps": 1,
+      "safety": ""
+    },
+    {
+      "id": "practice.experiment.8.11",
+      "title": "Galogenlarning suvda va organik erituvchilarda erishi",
+      "grade": 8,
+      "status": "GUIDED_PROTOCOL",
+      "reason": "Primarily apparatus/material/physical-observation procedure; chemistry model is not required for the current authored protocol.",
+      "groundedSteps": 0,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 0,
+      "safety": "Benzol bilan faqat o‘qituvchi nazoratida, shamollatiladigan sharoitda ishlanadi."
+    },
+    {
+      "id": "practice.experiment.8.13",
+      "title": "Turli eritmalarda sulfat ioni borligini aniqlash",
+      "grade": 8,
+      "status": "CHEMISTRY_BASELINED_REACTION",
+      "reason": "At least one authored chemistry step is grounded in curated Reaction KB evidence; deeper step coverage can continue without inventing chemistry.",
+      "groundedSteps": 1,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 1,
+      "safety": ""
+    },
+    {
+      "id": "practice.experiment.8.14",
+      "title": "Ammoniy tuziga so‘ndirilgan ohak ta’sir ettirib ammiak olish",
+      "grade": 8,
+      "status": "CHEMISTRY_BASELINED_REACTION",
+      "reason": "At least one authored chemistry step is grounded in curated Reaction KB evidence; deeper step coverage can continue without inventing chemistry.",
+      "groundedSteps": 4,
+      "reactionGroundedSteps": 2,
+      "modelGroundedSteps": 2,
+      "safety": ""
+    },
+    {
+      "id": "practice.experiment.8.15",
+      "title": "Mineral o‘g‘itlar namunalari bilan tanishish",
+      "grade": 8,
+      "status": "GUIDED_PROTOCOL",
+      "reason": "Primarily apparatus/material/physical-observation procedure; chemistry model is not required for the current authored protocol.",
+      "groundedSteps": 0,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 0,
+      "safety": ""
+    },
+    {
+      "id": "practice.experiment.8.6",
+      "title": "Rux gidroksidning olinishi, unga kislota va ishqor ta’siri",
+      "grade": 8,
+      "status": "CHEMISTRY_BASELINED_REACTION",
+      "reason": "At least one authored chemistry step is grounded in curated Reaction KB evidence; deeper step coverage can continue without inventing chemistry.",
+      "groundedSteps": 3,
+      "reactionGroundedSteps": 2,
+      "modelGroundedSteps": 2,
+      "safety": ""
+    },
+    {
+      "id": "practice.experiment.8.8",
+      "title": "Xlorid kislota, galogenidlar va yod uchun sifat reaksiyalari",
+      "grade": 8,
+      "status": "CHEMISTRY_BASELINED_REACTION",
+      "reason": "At least one authored chemistry step is grounded in curated Reaction KB evidence; deeper step coverage can continue without inventing chemistry.",
+      "groundedSteps": 3,
+      "reactionGroundedSteps": 1,
+      "modelGroundedSteps": 2,
+      "safety": ""
+    },
+    {
+      "id": "practice.experiment.8.9",
+      "title": "Tuproq eritmasi tarkibida xloridlar borligini aniqlash",
+      "grade": 8,
+      "status": "CHEMISTRY_BASELINED_REACTION",
+      "reason": "At least one authored chemistry step is grounded in curated Reaction KB evidence; deeper step coverage can continue without inventing chemistry.",
+      "groundedSteps": 1,
+      "reactionGroundedSteps": 1,
+      "modelGroundedSteps": 0,
+      "safety": ""
+    },
+    {
+      "id": "practice.experiment.9.12",
+      "title": "Alyuminiy namunalari va qotishmalari bilan tanishish",
+      "grade": 9,
+      "status": "GUIDED_PROTOCOL",
+      "reason": "Primarily apparatus/material/physical-observation procedure; chemistry model is not required for the current authored protocol.",
+      "groundedSteps": 0,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 0,
+      "safety": ""
+    },
+    {
+      "id": "practice.experiment.9.13",
+      "title": "Alyuminiy gidroksidni olish va uning xossalari",
+      "grade": 9,
+      "status": "CHEMISTRY_BASELINED_DOMAIN",
+      "reason": "A source-linked bounded school-lab model now grounds the domain-specific chemistry steps; expert approval is still pending.",
+      "groundedSteps": 2,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 2,
+      "safety": ""
+    },
+    {
+      "id": "practice.experiment.9.15",
+      "title": "Mis(II)-gidroksidni olish va xossalarini tekshirish",
+      "grade": 9,
+      "status": "CHEMISTRY_BASELINED_DOMAIN",
+      "reason": "A source-linked bounded school-lab model now grounds the domain-specific chemistry steps; expert approval is still pending.",
+      "groundedSteps": 2,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 2,
+      "safety": ""
+    },
+    {
+      "id": "practice.experiment.9.16",
+      "title": "Rux gidroksidni olish va amfoter xossalarini tekshirish",
+      "grade": 9,
+      "status": "CHEMISTRY_BASELINED_REACTION",
+      "reason": "At least one authored chemistry step is grounded in curated Reaction KB evidence; deeper step coverage can continue without inventing chemistry.",
+      "groundedSteps": 2,
+      "reactionGroundedSteps": 2,
+      "modelGroundedSteps": 1,
+      "safety": ""
+    },
+    {
+      "id": "practice.experiment.9.19",
+      "title": "Temir(II) va temir(III) tuzlarini aniqlash",
+      "grade": 9,
+      "status": "CHEMISTRY_BASELINED_DOMAIN",
+      "reason": "A source-linked bounded school-lab model now grounds the domain-specific chemistry steps; expert approval is still pending.",
+      "groundedSteps": 2,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 2,
+      "safety": ""
+    },
+    {
+      "id": "practice.experiment.9.20",
+      "title": "Cho‘yan va po‘lat namunalari bilan tanishish",
+      "grade": 9,
+      "status": "CHEMISTRY_BASELINED_DOMAIN",
+      "reason": "A source-linked bounded school-lab model now grounds the domain-specific chemistry steps; expert approval is still pending.",
+      "groundedSteps": 2,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 2,
+      "safety": ""
+    },
+    {
+      "id": "practice.experiment.9.4",
+      "title": "Karbonatlar va gidrokarbonatlarning xossalari hamda o‘zaro aylanishi",
+      "grade": 9,
+      "status": "CHEMISTRY_BASELINED_REACTION",
+      "reason": "At least one authored chemistry step is grounded in curated Reaction KB evidence; deeper step coverage can continue without inventing chemistry.",
+      "groundedSteps": 1,
+      "reactionGroundedSteps": 1,
+      "modelGroundedSteps": 0,
+      "safety": ""
+    },
+    {
+      "id": "practice.experiment.9.6",
+      "title": "Shisha turlari va shishadan yasalgan mahsulotlar bilan tanishish",
+      "grade": 9,
+      "status": "GUIDED_PROTOCOL",
+      "reason": "Primarily apparatus/material/physical-observation procedure; chemistry model is not required for the current authored protocol.",
+      "groundedSteps": 0,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 0,
+      "safety": ""
+    },
+    {
+      "id": "practice.experiment.9.7",
+      "title": "Metallar namunalari va issiqlik o‘tkazuvchanligini ko‘zdan kechirish",
+      "grade": 9,
+      "status": "GUIDED_PROTOCOL",
+      "reason": "Primarily apparatus/material/physical-observation procedure; chemistry model is not required for the current authored protocol.",
+      "groundedSteps": 0,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 0,
+      "safety": ""
+    },
+    {
+      "id": "practice.experiment.9.9",
+      "title": "Tuz eritmalari bilan metallarning o‘zaro ta’siri",
+      "grade": 9,
+      "status": "CHEMISTRY_BASELINED_DOMAIN",
+      "reason": "A source-linked bounded school-lab model now grounds the domain-specific chemistry steps; expert approval is still pending.",
+      "groundedSteps": 1,
+      "reactionGroundedSteps": 0,
+      "modelGroundedSteps": 1,
+      "safety": ""
+    }
+  ],
+  "targetRows": [
+    {
+      "activityId": "practice.experiment.7.9",
+      "step": 1,
+      "grounded": true,
+      "reaction": true,
+      "model": false
+    },
+    {
+      "activityId": "practice.experiment.7.9",
+      "step": 2,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.7.9",
+      "step": 3,
+      "grounded": true,
+      "reaction": true,
+      "model": false
+    },
+    {
+      "activityId": "practice.experiment.7.9",
+      "step": 4,
+      "grounded": true,
+      "reaction": true,
+      "model": false
+    },
+    {
+      "activityId": "practice.experiment.7.9",
+      "step": 5,
+      "grounded": true,
+      "reaction": true,
+      "model": false
+    },
+    {
+      "activityId": "practice.experiment.7.10",
+      "step": 1,
+      "grounded": true,
+      "reaction": true,
+      "model": false
+    },
+    {
+      "activityId": "practice.experiment.7.10",
+      "step": 2,
+      "grounded": true,
+      "reaction": true,
+      "model": false
+    },
+    {
+      "activityId": "practice.experiment.7.10",
+      "step": 3,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.7.11",
+      "step": 1,
+      "grounded": true,
+      "reaction": true,
+      "model": false
+    },
+    {
+      "activityId": "practice.experiment.7.11",
+      "step": 2,
+      "grounded": true,
+      "reaction": true,
+      "model": false
+    },
+    {
+      "activityId": "practice.experiment.7.11",
+      "step": 4,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.8.6",
+      "step": 2,
+      "grounded": true,
+      "reaction": true,
+      "model": false
+    },
+    {
+      "activityId": "practice.experiment.8.6",
+      "step": 4,
+      "grounded": true,
+      "reaction": true,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.8.6",
+      "step": 5,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.8.8",
+      "step": 3,
+      "grounded": true,
+      "reaction": true,
+      "model": false
+    },
+    {
+      "activityId": "practice.experiment.8.8",
+      "step": 5,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.8.8",
+      "step": 6,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.8.9",
+      "step": 3,
+      "grounded": true,
+      "reaction": true,
+      "model": false
+    },
+    {
+      "activityId": "practice.experiment.8.10",
+      "step": 2,
+      "grounded": true,
+      "reaction": true,
+      "model": false
+    },
+    {
+      "activityId": "practice.experiment.8.10",
+      "step": 3,
+      "grounded": true,
+      "reaction": true,
+      "model": false
+    },
+    {
+      "activityId": "practice.experiment.8.10",
+      "step": 4,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.8.13",
+      "step": 2,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.8.14",
+      "step": 2,
+      "grounded": true,
+      "reaction": true,
+      "model": false
+    },
+    {
+      "activityId": "practice.experiment.8.14",
+      "step": 3,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.8.14",
+      "step": 4,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.8.14",
+      "step": 5,
+      "grounded": true,
+      "reaction": true,
+      "model": false
+    },
+    {
+      "activityId": "practice.experiment.9.4",
+      "step": 2,
+      "grounded": true,
+      "reaction": true,
+      "model": false
+    },
+    {
+      "activityId": "practice.experiment.9.16",
+      "step": 1,
+      "grounded": true,
+      "reaction": true,
+      "model": false
+    },
+    {
+      "activityId": "practice.experiment.9.16",
+      "step": 3,
+      "grounded": true,
+      "reaction": true,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.9.9",
+      "step": 3,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.9.13",
+      "step": 1,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.9.13",
+      "step": 3,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.9.15",
+      "step": 1,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.9.15",
+      "step": 3,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.9.19",
+      "step": 1,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.9.19",
+      "step": 3,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.9.20",
+      "step": 2,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.9.20",
+      "step": 3,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.10.2",
+      "step": 2,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.10.2",
+      "step": 3,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.10.2",
+      "step": 4,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.10.2",
+      "step": 5,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.10.6",
+      "step": 1,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.10.6",
+      "step": 3,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.10.10",
+      "step": 2,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.10.10",
+      "step": 3,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    },
+    {
+      "activityId": "practice.experiment.10.10",
+      "step": 4,
+      "grounded": true,
+      "reaction": false,
+      "model": true
+    }
+  ],
+  "missingTargets": []
+}

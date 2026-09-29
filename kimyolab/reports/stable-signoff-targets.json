@@ -1,0 +1,77 @@
+{
+  "generatedAt": "2026-09-29T10:49:25.930Z",
+  "targets": {
+    "CHEM-033": {
+      "reviewerRole": "Chemistry Reviewer",
+      "version": "1.0.0-rc.1",
+      "hash": "d6d0f5bb34893cc81c1ef84c644caf5640e92c606361b57b20701b315a592195",
+      "evidencePackage": "docs/approvals/CHEM-033-review-package.md",
+      "reviewSurfaceSchema": "kimyolab.chemistry-review-surface.v2",
+      "reviewSurfaceFiles": [
+        "content-src/activity-configs/beta1.json",
+        "content-src/activity-configs/beta2-advanced.json",
+        "content-src/activity-configs/beta2-organic.json",
+        "content-src/activity-configs/beta2-safe.json",
+        "content-src/activity-configs/beta3-advanced.json",
+        "content-src/activity-configs/beta3-safe.json",
+        "content-src/activity-configs/guided-labs.json",
+        "content-src/activity-configs/reference-slices.json",
+        "content-src/chemistry/constants.json",
+        "content-src/chemistry/electrolysis.json",
+        "content-src/chemistry/equilibrium.json",
+        "content-src/chemistry/guided-step-coverage-targets.json",
+        "content-src/chemistry/guided-step-model-map.json",
+        "content-src/chemistry/guided-step-reaction-map.json",
+        "content-src/chemistry/hydrolysis.json",
+        "content-src/chemistry/kinetics.json",
+        "content-src/chemistry/manganese-redox.json",
+        "content-src/chemistry/organic.json",
+        "content-src/chemistry/qualitative-tests.json",
+        "content-src/chemistry/reactions.json",
+        "content-src/chemistry/school-lab-models.json",
+        "content-src/chemistry/solubility.json",
+        "content-src/chemistry/species.json"
+      ],
+      "reviewSurfaceFileCount": 23
+    },
+    "PROD-002": {
+      "reviewerRole": "Didactic Reviewer",
+      "version": "2026.09.1",
+      "hash": "b0bf3284366d72a8f3c33f821809087dcb5a190bbeb8e05e65b46a1034d199d6",
+      "evidencePackage": "docs/approvals/PROD-002-review-package.md",
+      "reviewSurfaceSchema": "kimyolab.didactic-review-surface.v2",
+      "reviewSurfaceFiles": [
+        "content-src/activity-configs/beta1.json",
+        "content-src/activity-configs/beta2-advanced.json",
+        "content-src/activity-configs/beta2-organic.json",
+        "content-src/activity-configs/beta2-safe.json",
+        "content-src/activity-configs/beta3-advanced.json",
+        "content-src/activity-configs/beta3-safe.json",
+        "content-src/activity-configs/guided-labs.json",
+        "content-src/activity-configs/reference-slices.json",
+        "content-src/activity-overrides.json",
+        "content-src/assessment-items.json",
+        "content-src/beta2-capability-matrix.json",
+        "content-src/beta3-capability-matrix.json",
+        "content-src/concepts.json",
+        "content-src/external-lab-bindings.json",
+        "content-src/learning-cycle.json",
+        "content-src/learning-units.json",
+        "content-src/mapping-links.json",
+        "content-src/mapping-overrides.json",
+        "content-src/practice-activities.json",
+        "content-src/practice-additions.json",
+        "content-src/theory-activities.json"
+      ],
+      "reviewSurfaceFileCount": 21
+    },
+    "VISUAL-001": {
+      "reviewerRole": "Visual QA Reviewer",
+      "version": "production-build:1656cf4f3a6338add96e81fcea306d0e60cf7175227b3d506a015ab74775e435",
+      "hash": "8ee4ab2bca2d7106b1c54e78268122dca93d2bc744f7cc280df629e6f121836f",
+      "evidencePackage": "reports/visual-regression/phase12-smoke",
+      "readyForReview": false,
+      "screenshotCount": 0
+    }
+  }
+}

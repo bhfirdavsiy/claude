@@ -1,0 +1,514 @@
+[
+  {
+    "learningUnitId": "lu.9.01",
+    "legacyId": "9.01",
+    "grade": 9,
+    "primaryPracticeId": "practice.simulation.9.01.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Current reusable engine family can represent the primary learning interaction without a new domain capability."
+  },
+  {
+    "learningUnitId": "lu.9.02",
+    "legacyId": "9.02",
+    "grade": 9,
+    "primaryPracticeId": "practice.simulation.9.02.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Current reusable engine family can represent the primary learning interaction without a new domain capability."
+  },
+  {
+    "learningUnitId": "lu.9.03",
+    "legacyId": "9.03",
+    "grade": 9,
+    "primaryPracticeId": "practice.simulation.9.03.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Current reusable engine family can represent the primary learning interaction without a new domain capability."
+  },
+  {
+    "learningUnitId": "lu.9.04",
+    "legacyId": "9.04",
+    "grade": 9,
+    "primaryPracticeId": "practice.simulation.9.04.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Current reusable engine family can represent the primary learning interaction without a new domain capability."
+  },
+  {
+    "learningUnitId": "lu.9.05",
+    "legacyId": "9.05",
+    "grade": 9,
+    "primaryPracticeId": "practice.trainer.9.05.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Ionic equation trainer capability is implemented using IonicEngine-derived net ionic equations."
+  },
+  {
+    "learningUnitId": "lu.9.06",
+    "legacyId": "9.06",
+    "grade": 9,
+    "primaryPracticeId": "practice.experiment.9.14",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Hydrolysis capability is implemented as a bounded curated salt-medium model; chemistry approval remains pending."
+  },
+  {
+    "learningUnitId": "lu.9.07",
+    "legacyId": "9.07",
+    "grade": 9,
+    "primaryPracticeId": "practice.simulation.9.07.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Current reusable engine family can represent the primary learning interaction without a new domain capability."
+  },
+  {
+    "learningUnitId": "lu.9.08",
+    "legacyId": "9.08",
+    "grade": 9,
+    "primaryPracticeId": "practice.simulation.9.08.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Current reusable engine family can represent the primary learning interaction without a new domain capability."
+  },
+  {
+    "learningUnitId": "lu.9.09",
+    "legacyId": "9.09",
+    "grade": 9,
+    "primaryPracticeId": "practice.experiment.9.1",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Current reusable engine family can represent the primary learning interaction without a new domain capability."
+  },
+  {
+    "learningUnitId": "lu.9.10",
+    "legacyId": "9.10",
+    "grade": 9,
+    "primaryPracticeId": "practice.experiment.9.5",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Current reusable engine family can represent the primary learning interaction without a new domain capability."
+  },
+  {
+    "learningUnitId": "lu.9.11",
+    "legacyId": "9.11",
+    "grade": 9,
+    "primaryPracticeId": "practice.case.9.11.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Current reusable engine family can represent the primary learning interaction without a new domain capability."
+  },
+  {
+    "learningUnitId": "lu.9.12",
+    "legacyId": "9.12",
+    "grade": 9,
+    "primaryPracticeId": "practice.experiment.9.8",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Current reusable engine family can represent the primary learning interaction without a new domain capability."
+  },
+  {
+    "learningUnitId": "lu.9.13",
+    "legacyId": "9.13",
+    "grade": 9,
+    "primaryPracticeId": "practice.experiment.9.3",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Current reusable engine family can represent the primary learning interaction without a new domain capability."
+  },
+  {
+    "learningUnitId": "lu.9.14",
+    "legacyId": "9.14",
+    "grade": 9,
+    "primaryPracticeId": "practice.case.9.14.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Current reusable engine family can represent the primary learning interaction without a new domain capability."
+  },
+  {
+    "learningUnitId": "lu.9.15",
+    "legacyId": "9.15",
+    "grade": 9,
+    "primaryPracticeId": "practice.experiment.9.10",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Electrolysis capability is implemented as a bounded curated CuCl2(aq)/inert-electrode model; unknown systems are blocked."
+  },
+  {
+    "learningUnitId": "lu.9.16",
+    "legacyId": "9.16",
+    "grade": 9,
+    "primaryPracticeId": "practice.experiment.9.2",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Current reusable engine family can represent the primary learning interaction without a new domain capability."
+  },
+  {
+    "learningUnitId": "lu.9.17",
+    "legacyId": "9.17",
+    "grade": 9,
+    "primaryPracticeId": "practice.case.9.17.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Current reusable engine family can represent the primary learning interaction without a new domain capability."
+  },
+  {
+    "learningUnitId": "lu.9.18",
+    "legacyId": "9.18",
+    "grade": 9,
+    "primaryPracticeId": "practice.simulation.9.18.water-hardness",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "A dedicated water-hardness simulation now replaces the semantically weak legacy primary; legacy 9.2 remains supporting."
+  },
+  {
+    "learningUnitId": "lu.9.19",
+    "legacyId": "9.19",
+    "grade": 9,
+    "primaryPracticeId": "practice.experiment.9.11",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Current reusable engine family can represent the primary learning interaction without a new domain capability."
+  },
+  {
+    "learningUnitId": "lu.9.20",
+    "legacyId": "9.20",
+    "grade": 9,
+    "primaryPracticeId": "practice.simulation.9.20.cu-ag-au",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "A dedicated Cu/Ag/Au comparison simulation now provides the primary interaction; generic metals work remains supporting."
+  },
+  {
+    "learningUnitId": "lu.9.21",
+    "legacyId": "9.21",
+    "grade": 9,
+    "primaryPracticeId": "practice.simulation.9.21.group12",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "A dedicated Group 12 trend simulation now covers the group-level gap; Zn(OH)2 experiment remains supporting."
+  },
+  {
+    "learningUnitId": "lu.9.22",
+    "legacyId": "9.22",
+    "grade": 9,
+    "primaryPracticeId": "practice.experiment.9.17",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Current reusable engine family can represent the primary learning interaction without a new domain capability."
+  },
+  {
+    "learningUnitId": "lu.9.23",
+    "legacyId": "9.23",
+    "grade": 9,
+    "primaryPracticeId": "practice.simulation.9.23.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Manganese redox capability is implemented as a curated medium-dependent outcome model; chemistry approval remains pending."
+  },
+  {
+    "learningUnitId": "lu.9.24",
+    "legacyId": "9.24",
+    "grade": 9,
+    "primaryPracticeId": "practice.experiment.9.18",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Current reusable engine family can represent the primary learning interaction without a new domain capability."
+  },
+  {
+    "learningUnitId": "lu.9.25",
+    "legacyId": "9.25",
+    "grade": 9,
+    "primaryPracticeId": "practice.case.9.25.steel-process",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "A dedicated production-process case now covers the industrial flow; sample observation remains supporting."
+  },
+  {
+    "learningUnitId": "lu.9.26",
+    "legacyId": "9.26",
+    "grade": 9,
+    "primaryPracticeId": "practice.case.9.26.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Current reusable engine family can represent the primary learning interaction without a new domain capability."
+  },
+  {
+    "learningUnitId": "lu.10.01",
+    "legacyId": "10.01",
+    "grade": 10,
+    "primaryPracticeId": "practice.experiment.10.1",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Current reusable engine family can represent the primary learning interaction without a new domain capability."
+  },
+  {
+    "learningUnitId": "lu.10.02",
+    "legacyId": "10.02",
+    "grade": 10,
+    "primaryPracticeId": "practice.simulation.10.02.structure-theory",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "organic-structure-model"
+    ],
+    "reason": "Required organic capability is implemented by the bounded Organic Knowledge Base and Organic Activity Router; chemistry review remains pending where applicable."
+  },
+  {
+    "learningUnitId": "lu.10.03",
+    "legacyId": "10.03",
+    "grade": 10,
+    "primaryPracticeId": "practice.trainer.10.03.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "organic-valence-model"
+    ],
+    "reason": "Required organic capability is implemented by the bounded Organic Knowledge Base and Organic Activity Router; chemistry review remains pending where applicable."
+  },
+  {
+    "learningUnitId": "lu.10.04",
+    "legacyId": "10.04",
+    "grade": 10,
+    "primaryPracticeId": "practice.simulation.10.04.isomerism",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "organic-isomerism"
+    ],
+    "reason": "Required organic capability is implemented by the bounded Organic Knowledge Base and Organic Activity Router; chemistry review remains pending where applicable."
+  },
+  {
+    "learningUnitId": "lu.10.05",
+    "legacyId": "10.05",
+    "grade": 10,
+    "primaryPracticeId": "practice.trainer.10.05.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Current reusable engine family can represent the primary learning interaction without a new domain capability."
+  },
+  {
+    "learningUnitId": "lu.10.06",
+    "legacyId": "10.06",
+    "grade": 10,
+    "primaryPracticeId": "practice.trainer.10.06.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "organic-reaction-template"
+    ],
+    "reason": "Required organic capability is implemented by the bounded Organic Knowledge Base and Organic Activity Router; chemistry review remains pending where applicable."
+  },
+  {
+    "learningUnitId": "lu.10.07",
+    "legacyId": "10.07",
+    "grade": 10,
+    "primaryPracticeId": "practice.trainer.10.07.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "organic-nomenclature"
+    ],
+    "reason": "Required organic capability is implemented by the bounded Organic Knowledge Base and Organic Activity Router; chemistry review remains pending where applicable."
+  },
+  {
+    "learningUnitId": "lu.10.08",
+    "legacyId": "10.08",
+    "grade": 10,
+    "primaryPracticeId": "practice.simulation.10.08.homologous-series",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "homologous-series"
+    ],
+    "reason": "Required organic capability is implemented by the bounded Organic Knowledge Base and Organic Activity Router; chemistry review remains pending where applicable."
+  },
+  {
+    "learningUnitId": "lu.10.09",
+    "legacyId": "10.09",
+    "grade": 10,
+    "primaryPracticeId": "practice.trainer.10.09.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "organic-isomerism",
+      "organic-nomenclature"
+    ],
+    "reason": "Required organic capability is implemented by the bounded Organic Knowledge Base and Organic Activity Router; chemistry review remains pending where applicable."
+  },
+  {
+    "learningUnitId": "lu.10.10",
+    "legacyId": "10.10",
+    "grade": 10,
+    "primaryPracticeId": "practice.simulation.10.10.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "organic-reaction-template"
+    ],
+    "reason": "Required organic capability is implemented by the bounded Organic Knowledge Base and Organic Activity Router; chemistry review remains pending where applicable."
+  },
+  {
+    "learningUnitId": "lu.10.11",
+    "legacyId": "10.11",
+    "grade": 10,
+    "primaryPracticeId": "practice.simulation.10.11.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "cyclic-structure-model"
+    ],
+    "reason": "Required organic capability is implemented by the bounded Organic Knowledge Base and Organic Activity Router; chemistry review remains pending where applicable."
+  },
+  {
+    "learningUnitId": "lu.10.12",
+    "legacyId": "10.12",
+    "grade": 10,
+    "primaryPracticeId": "practice.experiment.10.3",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "organic-reaction-template"
+    ],
+    "reason": "Required organic capability is implemented by the bounded Organic Knowledge Base and Organic Activity Router; chemistry review remains pending where applicable."
+  },
+  {
+    "learningUnitId": "lu.10.13",
+    "legacyId": "10.13",
+    "grade": 10,
+    "primaryPracticeId": "practice.simulation.10.13.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "organic-polymerization"
+    ],
+    "reason": "Required organic capability is implemented by the bounded Organic Knowledge Base and Organic Activity Router; chemistry review remains pending where applicable."
+  },
+  {
+    "learningUnitId": "lu.10.14",
+    "legacyId": "10.14",
+    "grade": 10,
+    "primaryPracticeId": "practice.simulation.10.14.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "organic-addition"
+    ],
+    "reason": "Required organic capability is implemented by the bounded Organic Knowledge Base and Organic Activity Router; chemistry review remains pending where applicable."
+  },
+  {
+    "learningUnitId": "lu.10.15",
+    "legacyId": "10.15",
+    "grade": 10,
+    "primaryPracticeId": "practice.simulation.10.15.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "aromatic-structure"
+    ],
+    "reason": "Required organic capability is implemented by the bounded Organic Knowledge Base and Organic Activity Router; chemistry review remains pending where applicable."
+  },
+  {
+    "learningUnitId": "lu.10.16",
+    "legacyId": "10.16",
+    "grade": 10,
+    "primaryPracticeId": "practice.case.10.16.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Current reusable engine family can represent the primary learning interaction without a new domain capability."
+  },
+  {
+    "learningUnitId": "lu.10.17",
+    "legacyId": "10.17",
+    "grade": 10,
+    "primaryPracticeId": "practice.simulation.10.17.monohydric-alcohols",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Explicit canonical primary activity resolves the audited mapping/content gap and is representable by an existing reusable engine."
+  },
+  {
+    "learningUnitId": "lu.10.18",
+    "legacyId": "10.18",
+    "grade": 10,
+    "primaryPracticeId": "practice.experiment.10.5",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "organic-qualitative-reaction"
+    ],
+    "reason": "Required organic capability is implemented by the bounded Organic Knowledge Base and Organic Activity Router; chemistry review remains pending where applicable."
+  },
+  {
+    "learningUnitId": "lu.10.19",
+    "legacyId": "10.19",
+    "grade": 10,
+    "primaryPracticeId": "practice.simulation.10.19.phenols",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Explicit canonical primary activity resolves the audited mapping/content gap and is representable by an existing reusable engine."
+  },
+  {
+    "learningUnitId": "lu.10.20",
+    "legacyId": "10.20",
+    "grade": 10,
+    "primaryPracticeId": "practice.simulation.10.20.planned",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "organic-structure-model"
+    ],
+    "reason": "Required organic capability is implemented by the bounded Organic Knowledge Base and Organic Activity Router; chemistry review remains pending where applicable."
+  },
+  {
+    "learningUnitId": "lu.10.21",
+    "legacyId": "10.21",
+    "grade": 10,
+    "primaryPracticeId": "practice.simulation.10.21.carbonyls",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Explicit canonical primary activity resolves the audited mapping/content gap and is representable by an existing reusable engine."
+  },
+  {
+    "learningUnitId": "lu.10.22",
+    "legacyId": "10.22",
+    "grade": 10,
+    "primaryPracticeId": "practice.experiment.10.22.carboxylic-acid",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Explicit canonical primary activity resolves the audited mapping/content gap and is representable by an existing reusable engine."
+  },
+  {
+    "learningUnitId": "lu.10.23",
+    "legacyId": "10.23",
+    "grade": 10,
+    "primaryPracticeId": "practice.simulation.10.23.esters",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Explicit canonical primary activity resolves the audited mapping/content gap and is representable by an existing reusable engine."
+  },
+  {
+    "learningUnitId": "lu.10.24",
+    "legacyId": "10.24",
+    "grade": 10,
+    "primaryPracticeId": "practice.experiment.10.8",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "saponification"
+    ],
+    "reason": "Required organic capability is implemented by the bounded Organic Knowledge Base and Organic Activity Router; chemistry review remains pending where applicable."
+  },
+  {
+    "learningUnitId": "lu.10.25",
+    "legacyId": "10.25",
+    "grade": 10,
+    "primaryPracticeId": "practice.experiment.10.9",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [
+      "carbohydrate-reaction-model"
+    ],
+    "reason": "Required organic capability is implemented by the bounded Organic Knowledge Base and Organic Activity Router; chemistry review remains pending where applicable."
+  },
+  {
+    "learningUnitId": "lu.10.26",
+    "legacyId": "10.26",
+    "grade": 10,
+    "primaryPracticeId": "practice.trainer.10.26.fibers",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Explicit canonical primary activity resolves the audited mapping/content gap and is representable by an existing reusable engine."
+  },
+  {
+    "learningUnitId": "lu.10.27",
+    "legacyId": "10.27",
+    "grade": 10,
+    "primaryPracticeId": "practice.case.10.11",
+    "disposition": "existing-engine",
+    "requiredCapabilities": [],
+    "reason": "Current reusable engine family can represent the primary learning interaction without a new domain capability."
+  }
+]

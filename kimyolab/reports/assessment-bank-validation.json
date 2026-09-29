@@ -1,0 +1,12 @@
+{
+  "generatedAt": "2026-09-29T10:47:00.602Z",
+  "schema": "kimyolab.assessment-bank.v1",
+  "version": "1.0.0-rc.1",
+  "itemCount": 5,
+  "coveredUnits": 1,
+  "approvedItems": 0,
+  "pendingItems": 5,
+  "releaseEligible": 0,
+  "issues": [],
+  "valid": true
+}

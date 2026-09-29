@@ -1,0 +1,241 @@
+{
+  "generatedAt": "2026-09-29T10:49:26.136Z",
+  "phase": {
+    "current": 12,
+    "total": 13,
+    "percent": 92.3,
+    "name": "Stable Product finalization"
+  },
+  "currentSubstage": "12.10 — Validated mustahkamlash savollar banki",
+  "evidence": {
+    "fullRegression": "330/330",
+    "rcTests": "26/26",
+    "phase12Tests": "66/66",
+    "httpSmoke": "17/17",
+    "standaloneBrowser": "PASS",
+    "releaseDeployFiles": 145,
+    "productionFiles": 146,
+    "productionDeployFiles": 145
+  },
+  "brandPalette": {
+    "from": "#004EB8",
+    "mid": "#023480",
+    "to": "#021236",
+    "status": "APPLIED"
+  },
+  "virtualLabs": {
+    "total": 57,
+    "engineBacked": 30,
+    "guided": 27,
+    "proceduralGuided": 8,
+    "reactionKbPartial": 11,
+    "domainModelRequired": 0,
+    "domainModelBaselined": 8,
+    "reactionGroundedLabs": 10,
+    "reactionGroundedSteps": 19,
+    "chemistryGroundedLabs": 19,
+    "chemistryGroundedSteps": 47,
+    "modelGroundedSteps": 30
+  },
+  "externalLabs": {
+    "bindings": 11,
+    "placements": 44,
+    "learningUnits": 27,
+    "providers": {
+      "nobook": 3,
+      "chemai": 6,
+      "chem-lab-station": 2
+    },
+    "readiness": "READY_WITH_EXTERNAL_BLOCKER",
+    "readyReferenceBindings": 8,
+    "nobook": {
+      "bindings": 3,
+      "partnerConfigured": false,
+      "sdkReady": false,
+      "sdkChecksumValid": false,
+      "experimentUrlValid": false,
+      "missing": [
+        "NOBOOK_APP_KEY",
+        "NOBOOK_APP_SECRET",
+        "NOBOOK_PID_SCOPE",
+        "NOBOOK_EXPERIMENT_URL",
+        "NOBOOK_SDK_SHA256",
+        "NOBOOK_SDK_ARTIFACT"
+      ],
+      "sdkVersion": "2.2.1"
+    }
+  },
+  "humanApprovals": {
+    "betaPending": 397,
+    "stablePending": [
+      "CHEM-033",
+      "PROD-002",
+      "BETA1-APPROVALS",
+      "BETA2-APPROVALS",
+      "BETA3-APPROVALS",
+      "BROWSER-E2E",
+      "BROWSER-ACCESSIBILITY",
+      "BROWSER-WEBVITALS",
+      "BROWSER-VISUAL"
+    ],
+    "chemistry": {
+      "status": "pending",
+      "valid": false,
+      "reason": "APPROVAL_PENDING",
+      "reviewSurfaceSchema": "kimyolab.chemistry-review-surface.v2",
+      "reviewSurfaceFileCount": 23,
+      "reviewHash": "d6d0f5bb34893cc81c1ef84c644caf5640e92c606361b57b20701b315a592195"
+    },
+    "didactic": {
+      "status": "pending",
+      "reviewSurfaceSchema": "kimyolab.didactic-review-surface.v2",
+      "reviewSurfaceFileCount": 21,
+      "reviewHash": "b0bf3284366d72a8f3c33f821809087dcb5a190bbeb8e05e65b46a1034d199d6"
+    }
+  },
+  "futureStages": [
+    {
+      "order": 1,
+      "id": "palette",
+      "name": "Blue brand palette migration",
+      "status": "DONE",
+      "detail": "Canonical UI tokens migrated to #004EB8 → #023480 → #021236 while preserving the Sinco layout."
+    },
+    {
+      "order": 2,
+      "id": "visual-qa",
+      "name": "Front visual QA & approval",
+      "status": "TECHNICAL_DONE",
+      "detail": "Desktop/mobile regression, approved home hero copy, supplied 3D card icons, contrast and human visual review of the current blue UI."
+    },
+    {
+      "order": 3,
+      "id": "lab-hardening",
+      "name": "Native lab chemistry hardening",
+      "status": "DONE",
+      "detail": "47/47 curated chemistry-evidence target steps grounded across 19/19 chemistry-relevant guided labs; expert approval remains a separate gate."
+    },
+    {
+      "order": 4,
+      "id": "external-live",
+      "name": "External provider production hookup",
+      "status": "TECHNICAL_DONE",
+      "detail": "8/8 reference/deep-link binding READY; NOBOOK 3 binding PARTNER_CONFIGURATION_REQUIRED. Same-origin pinned SDK + server-only credentials enforced."
+    },
+    {
+      "order": 5,
+      "id": "browser-qa",
+      "name": "Unrestricted browser evidence",
+      "status": "HANDOFF_READY",
+      "detail": "Windows runner/importer tayyor; production E2E, accessibility tree, Web Vitals va screenshots exact build hashga bog‘lanadi. External unrestricted workstation execution talab qilinadi."
+    },
+    {
+      "order": 6,
+      "id": "learning-cycle",
+      "name": "Nazariya → Amaliyot → Mustahkamlash learning cycle",
+      "status": "TECHNICAL_DONE",
+      "detail": "122 LearningUnit uchun uch bosqichli route/navigation va progress bog‘landi; standalone Chromium flow PASS; mustahkamlash completion avtomatik mastery bermaydi."
+    },
+    {
+      "order": 7,
+      "id": "question-bank",
+      "name": "Validated mustahkamlash savollar banki",
+      "status": "CURRENT",
+      "detail": "Assessment bank/schema faol: 5 pilot savol / 1/122 LearningUnit / 0 approved. Pending itemlar student UI’da yashirin; yozma self-check fallback qoladi."
+    },
+    {
+      "order": 8,
+      "id": "human-approvals",
+      "name": "Expert / Beta / visual approvals",
+      "status": "WAITING",
+      "detail": "Offline reviewer workspace READY: 384 individual Beta activity-role row + CHEM-033/PROD-002 exact-hash forms. VISUAL-001 browser screenshots kelgach ochiladi."
+    },
+    {
+      "order": 9,
+      "id": "stable-preflight",
+      "name": "Stable preflight",
+      "status": "FUTURE",
+      "detail": "Refresh approvals and require every fail-closed gate to be GREEN."
+    },
+    {
+      "order": 10,
+      "id": "stable-finalize",
+      "name": "Stable finalize",
+      "status": "FINAL",
+      "detail": "Create immutable Stable bundle, verify rollback and publish the final release manifest."
+    }
+  ],
+  "workstreams": [
+    {
+      "id": "core",
+      "name": "Core data & curriculum",
+      "status": "DONE",
+      "evidence": "122/122 LearningUnit technical-ready; canonical pack deterministic.",
+      "next": "Human approvals can review exact frozen versions."
+    },
+    {
+      "id": "front",
+      "name": "Front fidelity & navigation",
+      "status": "TECHNICAL_DONE",
+      "evidence": "Sinco layout preserved; approved blue gradient #004EB8 → #023480 → #021236 applied as canonical brand tokens; approved hero copy integrated; Mavzu studiyasi / Virtual laboratoriya / Natijalarim use the supplied transparent 3D PNG icons; self-contained styled index; desktop standalone PASS; mobile 390x844 smoke PASS with no page overflow.",
+      "next": "Human visual approval remains in the approval gate; automated front fidelity work is complete."
+    },
+    {
+      "id": "native-labs",
+      "name": "Native virtual laboratories",
+      "status": "DONE",
+      "evidence": "57/57 launchable: 30 engine-backed + 27 guided. Chemistry-relevant guided baseline: 47/47 target steps (100%) across 19/19 labs; 0 baseline missing. Reaction/model records remain pending CHEM-033 expert review.",
+      "next": "No automated native-lab baseline blocker remains; complete CHEM-033 human review on the exact frozen chemistry surface."
+    },
+    {
+      "id": "external-labs",
+      "name": "External lab providers",
+      "status": "BLOCKED_EXTERNAL",
+      "evidence": "11 provider bindings → 44 curriculum placements → 27 LearningUnits. 8/8 reference/deep-link bindings READY; NOBOOK partnerConfigured=false, sdkReady=false, experimentUrlValid=false.",
+      "next": "Connect real NOBOOK partner credentials, approved HTTPS experiment URL and pinned SDK artifact; no secret is shipped to the browser."
+    },
+    {
+      "id": "learning",
+      "name": "Learning cycle, evidence & mastery",
+      "status": "IN_PROGRESS",
+      "evidence": "122 LearningUnit uchun Nazariya → Amaliyot → Mustahkamlash route/navigation contracti TECHNICAL_DONE. Assessment bank: 5 pilot item / 1 unit / 0 approved; pending itemlar release UI’da ko‘rinmaydi.",
+      "next": "Scale the validated objective reinforcement bank from the electrolysis pilot to the remaining LearningUnits under chemistry+didactic review."
+    },
+    {
+      "id": "browser",
+      "name": "Real-browser E2E & visual QA",
+      "status": "BLOCKED_EXTERNAL",
+      "evidence": "Standalone Chromium smoke PASS with native lab step execution and 0 exceptions; managed policy blocks normal local URL browser gate. Evidence importer is fail-closed and bound to the exact production build hash.",
+      "next": "On unrestricted Windows run scripts/windows/Run_KimyoLab_Browser_Gates.cmd, then import evidence; VISUAL-001 remains human-reviewed."
+    },
+    {
+      "id": "quality",
+      "name": "Accessibility & performance",
+      "status": "PARTIAL",
+      "evidence": "HTTP 17/17 PASS; static accessibility PASS; standalone mobile layout PASS.",
+      "next": "Real-browser accessibility tree, Web Vitals and visual regression evidence."
+    },
+    {
+      "id": "approvals",
+      "name": "Expert / Beta approvals",
+      "status": "PENDING",
+      "evidence": "CHEM-033 1.0.0-rc.1: 23 files / d6d0f5bb34893cc8…; PROD-002: 21 files / b0bf3284366d72a8…; 397 per-LearningUnit role approvals pending. Reviewer handoff has 384 unique activity-role decision rows and fail-closed importers.",
+      "next": "Reviewers fill exact-hash templates/registers, import decisions, then run approvals:refresh."
+    },
+    {
+      "id": "stable",
+      "name": "Stable release & rollback",
+      "status": "PENDING",
+      "evidence": "RC integrity/licensing/rollback GREEN; Stable preflight still has 9 pending gates.",
+      "next": "When every required gate is GREEN, run stable:preflight then stable:finalize."
+    }
+  ],
+  "executionOrder": [
+    "Run unrestricted Windows browser gates and import evidence bound to the current production build (external workstation).",
+    "Use review-packets/reviewer-workspace.html for CHEM-033, PROD-002 and Beta1/2/3 human decisions; import exported JSON files.",
+    "Connect NOBOOK production access when official partner credentials, HTTPS experiment URL and checksum-pinned SDK artifact are available.",
+    "Complete CHEM-033 and PROD-002 exact-hash reviews; import reviewer decisions.",
+    "Complete Beta1/Beta2/Beta3 activity-role review registers and VISUAL-001 review.",
+    "Run approvals:refresh, fail-closed stable:preflight, then stable:finalize."
+  ]
+}

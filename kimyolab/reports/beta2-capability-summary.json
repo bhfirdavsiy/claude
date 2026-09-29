@@ -1,0 +1,24 @@
+{
+  "total": 53,
+  "byDisposition": {
+    "existing-engine": 53,
+    "needs-capability": 0,
+    "needs-content": 0,
+    "remap-required": 0
+  },
+  "capabilities": {
+    "aromatic-structure": 1,
+    "carbohydrate-reaction-model": 1,
+    "cyclic-structure-model": 1,
+    "homologous-series": 1,
+    "organic-addition": 1,
+    "organic-isomerism": 2,
+    "organic-nomenclature": 2,
+    "organic-polymerization": 1,
+    "organic-qualitative-reaction": 1,
+    "organic-reaction-template": 3,
+    "organic-structure-model": 2,
+    "organic-valence-model": 1,
+    "saponification": 1
+  }
+}

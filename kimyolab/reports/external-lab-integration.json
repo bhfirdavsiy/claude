@@ -1,0 +1,241 @@
+{
+  "generatedAt": "2026-09-29T13:41:48.551Z",
+  "bindingCount": 11,
+  "mappedPlacements": 44,
+  "providers": {
+    "nobook": 3,
+    "chemai": 6,
+    "chem-lab-station": 2
+  },
+  "uniqueLearningUnits": 27,
+  "nobookModules": [
+    10,
+    27,
+    9
+  ],
+  "localAssessmentRequired": true,
+  "issues": [],
+  "valid": true,
+  "placements": [
+    {
+      "bindingId": "ext.chemlab.reaction-sandbox",
+      "provider": "chem-lab-station",
+      "learningUnitId": "lu.8.14"
+    },
+    {
+      "bindingId": "ext.chemlab.reaction-sandbox",
+      "provider": "chem-lab-station",
+      "learningUnitId": "lu.9.05"
+    },
+    {
+      "bindingId": "ext.chemlab.reaction-sandbox",
+      "provider": "chem-lab-station",
+      "learningUnitId": "lu.11.19"
+    },
+    {
+      "bindingId": "ext.chemlab.reaction-sandbox",
+      "provider": "chem-lab-station",
+      "learningUnitId": "lu.11.20"
+    },
+    {
+      "bindingId": "ext.chemlab.acid-base",
+      "provider": "chem-lab-station",
+      "learningUnitId": "lu.7.20"
+    },
+    {
+      "bindingId": "ext.chemlab.acid-base",
+      "provider": "chem-lab-station",
+      "learningUnitId": "lu.9.03"
+    },
+    {
+      "bindingId": "ext.chemlab.acid-base",
+      "provider": "chem-lab-station",
+      "learningUnitId": "lu.9.06"
+    },
+    {
+      "bindingId": "ext.chemlab.acid-base",
+      "provider": "chem-lab-station",
+      "learningUnitId": "lu.11.11"
+    },
+    {
+      "bindingId": "ext.chemai.rate",
+      "provider": "chemai",
+      "learningUnitId": "lu.8.19"
+    },
+    {
+      "bindingId": "ext.chemai.rate",
+      "provider": "chemai",
+      "learningUnitId": "lu.11.15"
+    },
+    {
+      "bindingId": "ext.chemai.rate",
+      "provider": "chemai",
+      "learningUnitId": "lu.11.16"
+    },
+    {
+      "bindingId": "ext.chemai.equilibrium",
+      "provider": "chemai",
+      "learningUnitId": "lu.8.20"
+    },
+    {
+      "bindingId": "ext.chemai.equilibrium",
+      "provider": "chemai",
+      "learningUnitId": "lu.11.17"
+    },
+    {
+      "bindingId": "ext.chemai.equilibrium",
+      "provider": "chemai",
+      "learningUnitId": "lu.11.18"
+    },
+    {
+      "bindingId": "ext.chemai.electrochem",
+      "provider": "chemai",
+      "learningUnitId": "lu.9.15"
+    },
+    {
+      "bindingId": "ext.chemai.electrochem",
+      "provider": "chemai",
+      "learningUnitId": "lu.11.21"
+    },
+    {
+      "bindingId": "ext.chemai.electrochem",
+      "provider": "chemai",
+      "learningUnitId": "lu.11.22"
+    },
+    {
+      "bindingId": "ext.chemai.separation",
+      "provider": "chemai",
+      "learningUnitId": "lu.7.03"
+    },
+    {
+      "bindingId": "ext.chemai.corrosion",
+      "provider": "chemai",
+      "learningUnitId": "lu.9.14"
+    },
+    {
+      "bindingId": "ext.chemai.organic-analysis",
+      "provider": "chemai",
+      "learningUnitId": "lu.10.17"
+    },
+    {
+      "bindingId": "ext.chemai.organic-analysis",
+      "provider": "chemai",
+      "learningUnitId": "lu.10.18"
+    },
+    {
+      "bindingId": "ext.chemai.organic-analysis",
+      "provider": "chemai",
+      "learningUnitId": "lu.10.19"
+    },
+    {
+      "bindingId": "ext.chemai.organic-analysis",
+      "provider": "chemai",
+      "learningUnitId": "lu.10.21"
+    },
+    {
+      "bindingId": "ext.chemai.organic-analysis",
+      "provider": "chemai",
+      "learningUnitId": "lu.10.22"
+    },
+    {
+      "bindingId": "ext.chemai.organic-analysis",
+      "provider": "chemai",
+      "learningUnitId": "lu.10.23"
+    },
+    {
+      "bindingId": "ext.nobook.inorganic",
+      "provider": "nobook",
+      "learningUnitId": "lu.8.14"
+    },
+    {
+      "bindingId": "ext.nobook.inorganic",
+      "provider": "nobook",
+      "learningUnitId": "lu.8.16"
+    },
+    {
+      "bindingId": "ext.nobook.inorganic",
+      "provider": "nobook",
+      "learningUnitId": "lu.8.20"
+    },
+    {
+      "bindingId": "ext.nobook.inorganic",
+      "provider": "nobook",
+      "learningUnitId": "lu.9.05"
+    },
+    {
+      "bindingId": "ext.nobook.inorganic",
+      "provider": "nobook",
+      "learningUnitId": "lu.9.06"
+    },
+    {
+      "bindingId": "ext.nobook.inorganic",
+      "provider": "nobook",
+      "learningUnitId": "lu.11.17"
+    },
+    {
+      "bindingId": "ext.nobook.inorganic",
+      "provider": "nobook",
+      "learningUnitId": "lu.11.18"
+    },
+    {
+      "bindingId": "ext.nobook.inorganic",
+      "provider": "nobook",
+      "learningUnitId": "lu.11.19"
+    },
+    {
+      "bindingId": "ext.nobook.inorganic",
+      "provider": "nobook",
+      "learningUnitId": "lu.11.20"
+    },
+    {
+      "bindingId": "ext.nobook.organic",
+      "provider": "nobook",
+      "learningUnitId": "lu.10.17"
+    },
+    {
+      "bindingId": "ext.nobook.organic",
+      "provider": "nobook",
+      "learningUnitId": "lu.10.18"
+    },
+    {
+      "bindingId": "ext.nobook.organic",
+      "provider": "nobook",
+      "learningUnitId": "lu.10.19"
+    },
+    {
+      "bindingId": "ext.nobook.organic",
+      "provider": "nobook",
+      "learningUnitId": "lu.10.20"
+    },
+    {
+      "bindingId": "ext.nobook.organic",
+      "provider": "nobook",
+      "learningUnitId": "lu.10.21"
+    },
+    {
+      "bindingId": "ext.nobook.organic",
+      "provider": "nobook",
+      "learningUnitId": "lu.10.22"
+    },
+    {
+      "bindingId": "ext.nobook.organic",
+      "provider": "nobook",
+      "learningUnitId": "lu.10.23"
+    },
+    {
+      "bindingId": "ext.nobook.electrochem",
+      "provider": "nobook",
+      "learningUnitId": "lu.9.15"
+    },
+    {
+      "bindingId": "ext.nobook.electrochem",
+      "provider": "nobook",
+      "learningUnitId": "lu.11.21"
+    },
+    {
+      "bindingId": "ext.nobook.electrochem",
+      "provider": "nobook",
+      "learningUnitId": "lu.11.22"
+    }
+  ]
+}

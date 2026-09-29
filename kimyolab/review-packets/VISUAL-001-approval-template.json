@@ -1,0 +1,10 @@
+{
+  "gateId": "VISUAL-001",
+  "status": "pending",
+  "reviewerId": "",
+  "reviewerRole": "Visual QA Reviewer",
+  "reviewedVersion": "production-build:1656cf4f3a6338add96e81fcea306d0e60cf7175227b3d506a015ab74775e435",
+  "reviewedHash": "8ee4ab2bca2d7106b1c54e78268122dca93d2bc744f7cc280df629e6f121836f",
+  "reviewedAt": "",
+  "notes": "DO NOT APPROVE YET: unrestricted browser screenshots are not available for the current production build."
+}

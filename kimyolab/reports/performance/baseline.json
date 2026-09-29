@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-09-14",
+  "runtime": {
+    "node": "v22.16.0",
+    "chromium": "Chromium 144.0.7559.96 built on Debian GNU/Linux 13 (trixie)"
+  },
+  "repository": {
+    "fileCount": 404,
+    "rootHtmlCount": 33,
+    "imageCount": 277,
+    "totalBytes": 24352189,
+    "imagesBytes": 16188559,
+    "vendorBytes": 3039935
+  },
+  "payloads": {
+    "index.html": {
+      "bytes": 7578,
+      "gzipBytes": 2389
+    },
+    "data/curriculum.json": {
+      "bytes": 130225,
+      "gzipBytes": 19308
+    },
+    "data/practices.json": {
+      "bytes": 115046,
+      "gzipBytes": 17762
+    },
+    "data/elements.json": {
+      "bytes": 17005,
+      "gzipBytes": 2388
+    }
+  },
+  "homeDependencies": {
+    "scripts": [
+      "vendor/jquery.min.js",
+      "vendor/bootstrap/js/bootstrap.bundle.min.js",
+      "vendor/aos-next/dist/aos.js",
+      "vendor/slick/slick.min.js",
+      "vendor/jquery.counterup.min.js",
+      "vendor/jquery.waypoints.min.js",
+      "vendor/fancybox/dist/jquery.fancybox.min.js",
+      "js/theme.js",
+      "js/common.js",
+      "js/home.js"
+    ],
+    "stylesheets": [
+      "css/style.css",
+      "css/responsive.css",
+      "css/kimyolab.css"
+    ]
+  },
+  "routes": [
+    "/",
+    "/curriculum.html",
+    "/practices.html",
+    "/lab.html",
+    "/periodic.html",
+    "/trainers.html"
+  ],
+  "notes": [
+    "Core Web Vitals screenshot/browser capture not available yet because container Chromium hangs on DBus/zygote startup; static/HTTP baseline recorded instead."
+  ]
+}

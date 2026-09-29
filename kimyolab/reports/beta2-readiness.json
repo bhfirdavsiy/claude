@@ -1,0 +1,791 @@
+{
+  "generatedAt": "2026-09-29T13:42:15.702Z",
+  "totalLearningUnits": 53,
+  "technicalReady": 53,
+  "releaseReady": 0,
+  "technicalErrors": 0,
+  "pendingApprovals": 175,
+  "blocked": {
+    "total": 0,
+    "byDisposition": {
+      "needs-capability": 0,
+      "needs-content": 0,
+      "remap-required": 0
+    },
+    "capabilities": {
+      "aromatic-structure": 1,
+      "carbohydrate-reaction-model": 1,
+      "cyclic-structure-model": 1,
+      "homologous-series": 1,
+      "organic-addition": 1,
+      "organic-isomerism": 2,
+      "organic-nomenclature": 2,
+      "organic-polymerization": 1,
+      "organic-qualitative-reaction": 1,
+      "organic-reaction-template": 3,
+      "organic-structure-model": 2,
+      "organic-valence-model": 1,
+      "saponification": 1
+    }
+  },
+  "rows": [
+    {
+      "learningUnitId": "lu.9.01",
+      "legacyId": "9.01",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.simulation.9.01.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.9.02",
+      "legacyId": "9.02",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.simulation.9.02.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.9.03",
+      "legacyId": "9.03",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.simulation.9.03.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.9.04",
+      "legacyId": "9.04",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.simulation.9.04.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.9.05",
+      "legacyId": "9.05",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.trainer.9.05.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.9.06",
+      "legacyId": "9.06",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.experiment.9.14",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.9.07",
+      "legacyId": "9.07",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.simulation.9.07.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.9.08",
+      "legacyId": "9.08",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.simulation.9.08.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.9.09",
+      "legacyId": "9.09",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.experiment.9.1",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.9.10",
+      "legacyId": "9.10",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.experiment.9.5",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.9.11",
+      "legacyId": "9.11",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.case.9.11.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.9.12",
+      "legacyId": "9.12",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.experiment.9.8",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.9.13",
+      "legacyId": "9.13",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.experiment.9.3",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.9.14",
+      "legacyId": "9.14",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.case.9.14.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.9.15",
+      "legacyId": "9.15",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.experiment.9.10",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.9.16",
+      "legacyId": "9.16",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.experiment.9.2",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.9.17",
+      "legacyId": "9.17",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.case.9.17.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.9.18",
+      "legacyId": "9.18",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.simulation.9.18.water-hardness",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.9.19",
+      "legacyId": "9.19",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.experiment.9.11",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.9.20",
+      "legacyId": "9.20",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.simulation.9.20.cu-ag-au",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.9.21",
+      "legacyId": "9.21",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.simulation.9.21.group12",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.9.22",
+      "legacyId": "9.22",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.experiment.9.17",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.9.23",
+      "legacyId": "9.23",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.simulation.9.23.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.9.24",
+      "legacyId": "9.24",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.experiment.9.18",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.9.25",
+      "legacyId": "9.25",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.case.9.25.steel-process",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.9.26",
+      "legacyId": "9.26",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.case.9.26.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.01",
+      "legacyId": "10.01",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.experiment.10.1",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.02",
+      "legacyId": "10.02",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.simulation.10.02.structure-theory",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.03",
+      "legacyId": "10.03",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.trainer.10.03.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.04",
+      "legacyId": "10.04",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.simulation.10.04.isomerism",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.05",
+      "legacyId": "10.05",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.trainer.10.05.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.06",
+      "legacyId": "10.06",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.trainer.10.06.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.07",
+      "legacyId": "10.07",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.trainer.10.07.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.08",
+      "legacyId": "10.08",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.simulation.10.08.homologous-series",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.09",
+      "legacyId": "10.09",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.trainer.10.09.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.10",
+      "legacyId": "10.10",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.simulation.10.10.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.11",
+      "legacyId": "10.11",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.simulation.10.11.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.12",
+      "legacyId": "10.12",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.experiment.10.3",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.13",
+      "legacyId": "10.13",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.simulation.10.13.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.14",
+      "legacyId": "10.14",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.simulation.10.14.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.15",
+      "legacyId": "10.15",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.simulation.10.15.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.16",
+      "legacyId": "10.16",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.case.10.16.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.17",
+      "legacyId": "10.17",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.simulation.10.17.monohydric-alcohols",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.18",
+      "legacyId": "10.18",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.experiment.10.5",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.19",
+      "legacyId": "10.19",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.simulation.10.19.phenols",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.20",
+      "legacyId": "10.20",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.simulation.10.20.planned",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.21",
+      "legacyId": "10.21",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.simulation.10.21.carbonyls",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.22",
+      "legacyId": "10.22",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.experiment.10.22.carboxylic-acid",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.23",
+      "legacyId": "10.23",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.simulation.10.23.esters",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.24",
+      "legacyId": "10.24",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.experiment.10.8",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.25",
+      "legacyId": "10.25",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.experiment.10.9",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.26",
+      "legacyId": "10.26",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.trainer.10.26.fibers",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    },
+    {
+      "learningUnitId": "lu.10.27",
+      "legacyId": "10.27",
+      "disposition": "existing-engine",
+      "practiceActivityId": "practice.case.10.11",
+      "technicalReady": true,
+      "releaseReady": false,
+      "reasons": [],
+      "approvalPending": [
+        "technical",
+        "didactic",
+        "accessibility"
+      ]
+    }
+  ]
+}

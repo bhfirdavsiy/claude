@@ -1,0 +1,4026 @@
+{
+  "sourceFile": "KimyoLab_v20_nazariya_amaliyot_mapping.xlsx",
+  "importedAt": "2026-09-29T13:41:53.758Z",
+  "sheetNames": [
+    "Nazariya-Amaliyot",
+    "Amaliyot-Nazariya",
+    "Qamrov-xulosa",
+    "Metodika"
+  ],
+  "theory": [
+    {
+      "legacyId": "7.01",
+      "grade": "7-sinf",
+      "title": "Kimyo fani va uning vazifalari",
+      "source": "I bob, 1-mavzu",
+      "conceptsText": "Kimyo tarixi, fan yo‘nalishlari, modda va materiallar",
+      "visualFormat": "Interaktiv vaqt chizig‘i va fan xaritasi",
+      "interaction": "Davrlar va kimyo tarmoqlarini bosib, misollarni ochish",
+      "primaryPracticeType": "Case",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "7.1"
+      ],
+      "existingPracticeNames": [
+        "Laboratoriya shtativi, spirt lampa, gaz gorelkalari va elektr isitgich bilan ishlash"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Kimyoning kundalik hayot va kasblardagi roli bo‘yicha interaktiv case",
+      "mappingLogic": "Kirish mavzusi tajribadan ko‘ra fan xaritasi va hayotiy vaziyat bilan mustahkamlanadi; 7.1 laboratoriya xavfsizligi/jihozlar bilan tanishtiradi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.02",
+      "grade": "7-sinf",
+      "title": "Modda va uning xossalari",
+      "source": "I bob, 2-mavzu",
+      "conceptsText": "Modda, zarracha, fizik xossa",
+      "visualFormat": "Zarracha modeli va xossalar kartasi",
+      "interaction": "Moddalarni xossalari bo‘yicha tasniflash",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Lab",
+        "Case"
+      ],
+      "existingPracticeIds": [
+        "7.3",
+        "7.12"
+      ],
+      "existingPracticeNames": [
+        "Kundalik hayotdagi kimyoviy jarayonlarni kuzatish va tavsiflash",
+        "Suvning fizik xossalarini o‘rganish"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Modda xossalarini tasniflash simulyatori",
+      "mappingLogic": "Makro xossalarni 7.3 va suvning fizik xossalari 7.12 bilan kuzatish, zarracha modelida izohlash.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.03",
+      "grade": "7-sinf",
+      "title": "Sof modda va aralashmalar",
+      "source": "I bob, 5-mavzu",
+      "conceptsText": "Sof modda, bir jinsli va turli jinsli aralashma",
+      "visualFormat": "Tasniflash simulyatori",
+      "interaction": "Namunalarning qaysi guruhga mansubligini sudrab joylashtirish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "7.2"
+      ],
+      "existingPracticeNames": [
+        "Aralashmalar tarkibidan sof moddani ajratish: ifloslangan osh tuzini tozalash"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Aralashmalarni bir jinsli/turli jinsli tasniflash drag-drop",
+      "mappingLogic": "7.2 eritish–filtrlash–bug‘latish orqali aralashmadan sof modda ajratishni bevosita namoyish qiladi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.04",
+      "grade": "7-sinf",
+      "title": "Moddalarning agregat holatining o‘zgarishi",
+      "source": "I bob, 7-mavzu",
+      "conceptsText": "Qattiq, suyuq, gaz; erish, bug‘lanish, kondensatsiya",
+      "visualFormat": "Zarrachalar harakati animatsiyasi",
+      "interaction": "Harorat slayderi bilan agregat holatini o‘zgartirish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "7.6",
+        "7.12"
+      ],
+      "existingPracticeNames": [
+        "Suvning agregat holatlari o‘zgarishini kuzatish",
+        "Suvning fizik xossalarini o‘rganish"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Zarracha-harorat holat simulyatori",
+      "mappingLogic": "7.6 va 7.12 agregat holat va fizik xossalarni makrodarajada ko‘rsatadi, simulyatsiya mikrodarajani beradi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.05",
+      "grade": "7-sinf",
+      "title": "Fizik va kimyoviy hodisalar",
+      "source": "I bob, 8-mavzu",
+      "conceptsText": "Fizik o‘zgarish, kimyoviy reaksiya, yangi modda",
+      "visualFormat": "Taqqoslash animatsiyasi",
+      "interaction": "Kuzatuv belgilariga qarab hodisani aniqlash",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya",
+        "Case"
+      ],
+      "existingPracticeIds": [
+        "7.3",
+        "7.6",
+        "7.7"
+      ],
+      "existingPracticeNames": [
+        "Kundalik hayotdagi kimyoviy jarayonlarni kuzatish va tavsiflash",
+        "Suvning agregat holatlari o‘zgarishini kuzatish",
+        "Alanga tuzilishi va moddalarning kislorodda yonishi"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Fizik/kimyoviy hodisalarni kuzatuv belgisi bo‘yicha ajratish trenajyori",
+      "mappingLogic": "7.3 kundalik jarayonlar, 7.6 fizik o‘zgarish, 7.7 yonish orqali farqni taqqoslash mumkin.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.06",
+      "grade": "7-sinf",
+      "title": "Atom",
+      "source": "II bob, 1-mavzu",
+      "conceptsText": "Atom tushunchasi, mikroolam",
+      "visualFormat": "Masshtab animatsiyasi",
+      "interaction": "Oddiy jismdan atomgacha kattalashtirib ko‘rish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Jism → modda → molekula/atom masshtab simulyatsiyasi",
+      "mappingLogic": "Atom bevosita laboratoriyada kuzatilmaydi; model asosiy amaliyot bo‘lishi kerak.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.07",
+      "grade": "7-sinf",
+      "title": "Atom va uning tuzilishi: proton, neytron, elektron",
+      "source": "II bob, 2-mavzu",
+      "conceptsText": "Yadro, proton, neytron, elektron, zaryad",
+      "visualFormat": "3D atom konstruktori",
+      "interaction": "Zarrachalarni yadro va qavatlarga joylashtirish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "3D atom konstruktori: p/n/e joylashtirish",
+      "mappingLogic": "Nazariya katalogida ko‘zda tutilgan konstruktiv faoliyat; laboratoriya shart emas.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.08",
+      "grade": "7-sinf",
+      "title": "Kimyoviy element va kimyoviy belgi",
+      "source": "II bob, 3-mavzu",
+      "conceptsText": "Element nomi, belgisi, tartib raqami",
+      "visualFormat": "Element kartalari va mini-jadval",
+      "interaction": "Belgi-nom moslashtirish o‘yini",
+      "primaryPracticeType": "Trenajyor",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Element nomi–belgisi–Z moslashtirish o‘yini",
+      "mappingLogic": "Element va belgi bilimini operatsion mashq orqali mustahkamlaydi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.09",
+      "grade": "7-sinf",
+      "title": "Kimyoviy elementning nisbiy atom massasi",
+      "source": "II bob, 4-mavzu",
+      "conceptsText": "Nisbiy massa, atom massa birligi",
+      "visualFormat": "Masshtab va taqqoslash vizuali",
+      "interaction": "Elementlar massasini taqqoslash",
+      "primaryPracticeType": "Hisoblash",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Nisbiy atom massalarini taqqoslash va oddiy hisoblash trenajyori",
+      "mappingLogic": "Mavzu sonli taqqoslashga asoslangan.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.10",
+      "grade": "7-sinf",
+      "title": "Izotoplar, izobarlar, izotonlar",
+      "source": "II bob, 5-mavzu",
+      "conceptsText": "Proton va neytron soni, massa soni",
+      "visualFormat": "Yadro konstruktori",
+      "interaction": "Zarrachalar sonini o‘zgartirib turini aniqlash",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Yadro konstruktori: izotop/izobar/izotonni aniqlash",
+      "mappingLogic": "Proton va neytron sonini o‘zgartirib tushunchalarni farqlash eng tabiiy amaliyot.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.11",
+      "grade": "7-sinf",
+      "title": "Kimyoviy formula va valentlik",
+      "source": "II bob, 6-mavzu",
+      "conceptsText": "Indeks, valentlik, formula",
+      "visualFormat": "Formula konstruktori",
+      "interaction": "Elementlarni tanlab indekslarni avtomatik tekshirish",
+      "primaryPracticeType": "Trenajyor",
+      "secondaryPracticeTypes": [],
+      "existingPracticeIds": [
+        "7.4"
+      ],
+      "existingPracticeNames": [
+        "Birikmalardagi elementlarning valentliklarini aniqlash"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Valentlikdan formula tuzish konstruktori",
+      "mappingLogic": "7.4 aynan valentlik va formula tuzishga qaratilgan.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.12",
+      "grade": "7-sinf",
+      "title": "Molekula va nisbiy molekulyar massa",
+      "source": "II bob, 7-mavzu",
+      "conceptsText": "Molekula, tarkib, Mr",
+      "visualFormat": "2D/3D molekula modeli",
+      "interaction": "Formula asosida molekula yig‘ish va Mr hisoblash",
+      "primaryPracticeType": "Hisoblash",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya",
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [
+        "7.5"
+      ],
+      "existingPracticeNames": [
+        "Kimyoviy formulalar asosida hisoblashga oid masalalar"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Molekula yig‘ish + Mr hisoblash",
+      "mappingLogic": "7.5 formula asosidagi hisoblashlar bilan bevosita bog‘liq.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.13",
+      "grade": "7-sinf",
+      "title": "Oddiy va murakkab moddalar",
+      "source": "II bob, 8-mavzu",
+      "conceptsText": "Bir elementli va ko‘p elementli modda",
+      "visualFormat": "Molekula galereyasi",
+      "interaction": "Molekula modelini oddiy yoki murakkab deb ajratish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [
+        "7.3"
+      ],
+      "existingPracticeNames": [
+        "Kundalik hayotdagi kimyoviy jarayonlarni kuzatish va tavsiflash"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Molekulalarni oddiy/murakkab modda sifatida tasniflash",
+      "mappingLogic": "7.3 dagi moddalarni kuzatish qo‘llab-quvvatlaydi, asosiy faoliyat tasniflash bo‘lishi kerak.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.14",
+      "grade": "7-sinf",
+      "title": "Modda miqdori, Avogadro doimiysi va molyar massa",
+      "source": "II bob, 9-mavzu",
+      "conceptsText": "Mol, NA, molyar massa",
+      "visualFormat": "Interaktiv masshtab va kalkulyator",
+      "interaction": "Zarracha soni, mol va massani bog‘lash",
+      "primaryPracticeType": "Hisoblash",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "7.5"
+      ],
+      "existingPracticeNames": [
+        "Kimyoviy formulalar asosida hisoblashga oid masalalar"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Massa–mol–zarracha interaktiv kalkulyatori",
+      "mappingLogic": "7.5 hisoblash topshiriqlari bilan bevosita mos.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.15",
+      "grade": "7-sinf",
+      "title": "Kimyoviy reaksiya tenglamalarini tuzish",
+      "source": "II bob, 12-mavzu",
+      "conceptsText": "Reagent, mahsulot, koeffitsiyent",
+      "visualFormat": "Balanslash trenajyori",
+      "interaction": "Atomlar sanog‘i paneli bilan koeffitsiyent tanlash",
+      "primaryPracticeType": "Trenajyor",
+      "secondaryPracticeTypes": [
+        "Lab"
+      ],
+      "existingPracticeIds": [
+        "7.7",
+        "7.8",
+        "7.9",
+        "7.10",
+        "7.11"
+      ],
+      "existingPracticeNames": [
+        "Alanga tuzilishi va moddalarning kislorodda yonishi",
+        "Vodorodning olinishi va uning xossalarini sinash",
+        "Kislotalarning olinishi va xossalari",
+        "Kislotalarning metallar bilan o‘zaro ta’siri",
+        "Suvning oksidlar bilan o‘zaro ta’siri"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Universal tenglama balanslash trenajyori",
+      "mappingLogic": "Tenglama tuzish amaliyoti trenajyor orqali, laboratoriyalar esa real reaksiyalar uchun kontekst beradi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.16",
+      "grade": "7-sinf",
+      "title": "Kimyoviy elementlarning tavsiflanishi va tabiiy oilalari",
+      "source": "III bob, 1-2-mavzular",
+      "conceptsText": "Metallar, metallmaslar, ishqoriy metallar, galogenlar, inert gazlar",
+      "visualFormat": "Rangli tasnif xaritasi",
+      "interaction": "Elementlarni oilalar bo‘yicha filtrlash",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Element oilalari bo‘yicha rangli tasnif va filtrlash",
+      "mappingLogic": "Tabiiy oilalarni davriy jadvalda ko‘rish va guruhlash asosiy amaliyot.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.17",
+      "grade": "7-sinf",
+      "title": "Kimyoviy elementlar davriy jadvali",
+      "source": "III bob, 3-mavzu",
+      "conceptsText": "Davr, guruh, element o‘rni",
+      "visualFormat": "Interaktiv davriy jadval",
+      "interaction": "Elementni bosib karta, xossa va bog‘liq mavzularni ochish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Interaktiv davriy jadval: guruh/davr/element pasporti",
+      "mappingLogic": "Mavzuning o‘zi interaktiv davriy jadval bilan amaliy o‘rganiladi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.18",
+      "grade": "7-sinf",
+      "title": "Havo tarkibi va havoning ifloslanishi",
+      "source": "IV bob, 1-mavzu",
+      "conceptsText": "Atmosfera tarkibi, ifloslantiruvchi omillar",
+      "visualFormat": "Animatsion infografika",
+      "interaction": "Manbalarni tanlab ifloslanish oqibatini ko‘rish",
+      "primaryPracticeType": "Case",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "7.14"
+      ],
+      "existingPracticeNames": [
+        "Ekologik izni kamaytirish"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Havo ifloslanishi manbai–oqibat–yechim case’i",
+      "mappingLogic": "7.14 ekologik izni kamaytirish faoliyati ekologik transfer uchun mos.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.19",
+      "grade": "7-sinf",
+      "title": "Kislorod: xossalari, yonish, ozon va oksidlar",
+      "source": "IV bob, 2-10-mavzular",
+      "conceptsText": "O2, O3, yonish, oksidlanish, oksid",
+      "visualFormat": "Jarayon animatsiyasi va reaksiyalar xaritasi",
+      "interaction": "Modda tanlab kislorodda yonish natijasini ko‘rish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya",
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [
+        "7.7"
+      ],
+      "existingPracticeNames": [
+        "Alanga tuzilishi va moddalarning kislorodda yonishi"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Kislorodda yonish reaksiyalari xaritasi va tenglama mashqi",
+      "mappingLogic": "7.7 kislorodda C, S, Fe yonishini bevosita bajaradi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.20",
+      "grade": "7-sinf",
+      "title": "Vodorod, kislotalar va kislotali yomg‘ir",
+      "source": "V bob, 1, 3, 4, 7-mavzular",
+      "conceptsText": "H2, kislota xossalari, indikator, ekologik ta’sir",
+      "visualFormat": "Reaksiya xaritasi va ekologik animatsiya",
+      "interaction": "Metall va kislota tanlab mahsulotni aniqlash",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya",
+        "Case"
+      ],
+      "existingPracticeIds": [
+        "7.8",
+        "7.9",
+        "7.10"
+      ],
+      "existingPracticeNames": [
+        "Vodorodning olinishi va uning xossalarini sinash",
+        "Kislotalarning olinishi va xossalari",
+        "Kislotalarning metallar bilan o‘zaro ta’siri"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Kislota yomg‘iri bo‘yicha ekologik case",
+      "mappingLogic": "7.8 vodorod, 7.9–7.10 kislotalar va metall bilan reaksiyalarni qamrab oladi; ekologik qismi case bilan to‘ldiriladi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.21",
+      "grade": "7-sinf",
+      "title": "Suv: tarkibi, aylanishi, xossalari, neytrallanish va tozalash",
+      "source": "VI bob, 1-7-mavzular",
+      "conceptsText": "H2O, agregat holat, suv aylanishi, neytrallanish, filtratsiya",
+      "visualFormat": "Suv aylanishi va tozalash simulyatori",
+      "interaction": "Tozalash bosqichlarini to‘g‘ri ketma-ketlikda joylashtirish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya",
+        "Case"
+      ],
+      "existingPracticeIds": [
+        "7.2",
+        "7.6",
+        "7.11",
+        "7.12",
+        "7.14"
+      ],
+      "existingPracticeNames": [
+        "Aralashmalar tarkibidan sof moddani ajratish: ifloslangan osh tuzini tozalash",
+        "Suvning agregat holatlari o‘zgarishini kuzatish",
+        "Suvning oksidlar bilan o‘zaro ta’siri",
+        "Suvning fizik xossalarini o‘rganish",
+        "Ekologik izni kamaytirish"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Suv aylanishi–tozalash bosqichlari simulyatori",
+      "mappingLogic": "Bir nechta mavjud amaliyot suvning holati, oksidlar bilan ta’siri va tozalashni qamrab oladi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.22",
+      "grade": "7-sinf",
+      "title": "Tirik organizmlardagi elementlar, oqsil, yog‘, uglevod, vitamin va minerallar",
+      "source": "VII bob, 1-4-mavzular",
+      "conceptsText": "Biogen elementlar, organik modda, oziq tarkibi",
+      "visualFormat": "Inson tanasi va hujayra infografikasi",
+      "interaction": "Elementni bosib biologik vazifasini ko‘rish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Case",
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "7.13"
+      ],
+      "existingPracticeNames": [
+        "Olma tarkibini aniqlash"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Oziq tarkibi va biogen elementlar bo‘yicha case",
+      "mappingLogic": "7.13 olma tarkibini indikator va reaktivlar bilan tekshirish orqali oziq moddalari mavzusiga ulanadi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.23",
+      "grade": "7-sinf",
+      "title": "Foydali qazilmalar, konlar va ekologik aspektlar",
+      "source": "VIII bob, 1-4-mavzular",
+      "conceptsText": "Mineral, kon, qazib olish, barqaror rivojlanish",
+      "visualFormat": "O‘zbekiston xaritasi va jarayon sxemasi",
+      "interaction": "Konni xaritada tanlab xomashyo va ta’sirini ko‘rish",
+      "primaryPracticeType": "Case",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "7.14"
+      ],
+      "existingPracticeNames": [
+        "Ekologik izni kamaytirish"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "O‘zbekiston konlari va ekologik ta’sir xaritasi",
+      "mappingLogic": "Mavzu kon–xomashyo–ekologik ta’sir zanjirini muammoli case orqali qo‘llashni talab qiladi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.01",
+      "grade": "8-sinf",
+      "title": "Dastlabki kimyoviy tushunchalar va noorganik birikmalarning asosiy sinflari",
+      "source": "I bob, 1-2-§",
+      "conceptsText": "Valentlik, mol, oksid, asos, kislota, tuz",
+      "visualFormat": "Takrorlash xaritasi",
+      "interaction": "Sinf bo‘yicha tushunchalarni bog‘lash",
+      "primaryPracticeType": "Trenajyor",
+      "secondaryPracticeTypes": [
+        "Lab",
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "8.6"
+      ],
+      "existingPracticeNames": [
+        "Rux gidroksidning olinishi, unga kislota va ishqor ta’siri"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Noorganik sinflarni formula/xossa bo‘yicha tasniflash trenajyori",
+      "mappingLogic": "Takrorlash mavzusi keng; 8.6 gidroksidlarning xossalariga amaliy misol beradi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.02",
+      "grade": "8-sinf",
+      "title": "Kimyoviy elementlarning dastlabki toifalanishi va tabiiy oilalari",
+      "source": "II bob, 3-4-§, 17-24-betlar",
+      "conceptsText": "Elementlar toifalanishi, triadalar, oilalar",
+      "visualFormat": "Tarixiy vaqt chizig‘i va rangli jadval",
+      "interaction": "Davrlar bo‘yicha tasniflash usullarini solishtirish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Case"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Tarixiy tasniflash usullarini vaqt chizig‘ida solishtirish",
+      "mappingLogic": "Tajriba emas, tarixiy-model faoliyat eng mos.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.03",
+      "grade": "8-sinf",
+      "title": "Davriy qonun va elementlar davriy sistemasi",
+      "source": "II bob, 5-6-§, 25-31-betlar",
+      "conceptsText": "Davriy qonun, guruh, davr, xossalarning davriyligi",
+      "visualFormat": "Interaktiv davriy jadval",
+      "interaction": "Xossa filtrlari va davr bo‘yicha animatsion o‘zgarish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Davriy trend filtrlari va element pasporti",
+      "mappingLogic": "Davriy qonunni jadval va trendlar orqali amaliy ko‘rish zarur.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.04",
+      "grade": "8-sinf",
+      "title": "Atom yadrosi tarkibi",
+      "source": "II bob, 7-§, 32-35-betlar",
+      "conceptsText": "Proton, neytron, yadro zaryadi, massa soni",
+      "visualFormat": "Yadro konstruktori",
+      "interaction": "Zarracha sonlarini tanlab atomni yig‘ish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Yadro konstruktori",
+      "mappingLogic": "Atom yadrosi laboratoriya emas, model orqali o‘zlashtiriladi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.05",
+      "grade": "8-sinf",
+      "title": "Izotoplar va izobarlar",
+      "source": "II bob, 8-§, 36-38-betlar",
+      "conceptsText": "Izotop, izobar, massa soni",
+      "visualFormat": "Taqqoslash konstruktori",
+      "interaction": "Juft atomlarni toifa bo‘yicha ajratish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Izotop/izobar juftliklarini qurish va tasniflash",
+      "mappingLogic": "Zarralar soni bilan ishlash amaliyoti.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.06",
+      "grade": "8-sinf",
+      "title": "Atom elektron qavatlari va energetik pog‘onachalar",
+      "source": "II bob, 9-10-§, 39-45-betlar",
+      "conceptsText": "Elektron qavat, orbital, s va p pog‘onacha",
+      "visualFormat": "Energiya diagrammasi",
+      "interaction": "Elektronlarni qavat va orbital kataklarga joylashtirish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Orbital va energetik pog‘onacha konstruktori",
+      "mappingLogic": "Elektronlarni qavat/orbitallarga joylashtirish kerak.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.07",
+      "grade": "8-sinf",
+      "title": "Kichik va katta davr elementlarining atom tuzilishi",
+      "source": "II bob, 11-12-§, 46-50-betlar",
+      "conceptsText": "Davrlar, elektron taqsimlanish",
+      "visualFormat": "Elektron konfiguratsiya generatori",
+      "interaction": "Elementni tanlab qavatlar to‘lishini ko‘rish",
+      "primaryPracticeType": "Trenajyor",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Elektron konfiguratsiya generatori",
+      "mappingLogic": "Davr elementlarining qavatlar to‘lishini mashq qiladi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.08",
+      "grade": "8-sinf",
+      "title": "Elementni davriy sistemadagi o‘rni va atom tuzilishiga qarab tavsiflash",
+      "source": "II bob, 13-§, 51-62-betlar",
+      "conceptsText": "Guruh, davr, konfiguratsiya, xossa",
+      "visualFormat": "Element pasporti",
+      "interaction": "Elementni bosib to‘liq tavsif kartasini yaratish",
+      "primaryPracticeType": "Trenajyor",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Element pasportini avtomatik tuzish",
+      "mappingLogic": "Davriy o‘rin va atom tuzilishini birlashtiradi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.09",
+      "grade": "8-sinf",
+      "title": "Nisbiy elektromanfiylik",
+      "source": "III bob, 14-§, 64-65-betlar",
+      "conceptsText": "Elektromanfiylik, davriy o‘zgarish",
+      "visualFormat": "Gradient xarita",
+      "interaction": "Element juftligini tanlab farqini ko‘rish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Elektromanfiylik gradienti va juftlik taqqoslash",
+      "mappingLogic": "Mavzu trendni ko‘rish va juftliklarni solishtirishga asoslangan.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.10",
+      "grade": "8-sinf",
+      "title": "Qutbli va qutbsiz kovalent bog‘lanish",
+      "source": "III bob, 15-§, 66-70-betlar",
+      "conceptsText": "Elektron juft, qutblanish",
+      "visualFormat": "2D/3D bog‘lanish animatsiyasi",
+      "interaction": "Atomlarni yaqinlashtirib elektron juft hosil qilish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Lab"
+      ],
+      "existingPracticeIds": [
+        "8.7"
+      ],
+      "existingPracticeNames": [
+        "Turli kimyoviy bog‘lanishli moddalar kristall panjaralari modellarini tayyorlash"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Kovalent bog‘ hosil bo‘lish 2D/3D modeli",
+      "mappingLogic": "8.7 kristall model amaliyoti bog‘lanish–tuzilish bog‘ini qo‘llab-quvvatlaydi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.11",
+      "grade": "8-sinf",
+      "title": "Ionli bog‘lanish",
+      "source": "III bob, 16-§, 71-73-betlar",
+      "conceptsText": "Elektron berish-olish, ionlar",
+      "visualFormat": "Ion hosil bo‘lish animatsiyasi",
+      "interaction": "Na va Cl kabi atomlar orasida elektron ko‘chirish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Lab"
+      ],
+      "existingPracticeIds": [
+        "8.7"
+      ],
+      "existingPracticeNames": [
+        "Turli kimyoviy bog‘lanishli moddalar kristall panjaralari modellarini tayyorlash"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Ion hosil bo‘lish va elektron ko‘chishi simulyatsiyasi",
+      "mappingLogic": "8.7 ion bog‘lanishli kristall modeli bilan bog‘lanadi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.12",
+      "grade": "8-sinf",
+      "title": "Kristall panjaralar",
+      "source": "III bob, 17-§, 74-75-betlar",
+      "conceptsText": "Ion, atom, molekulyar va metall panjara",
+      "visualFormat": "3D kristall modeli",
+      "interaction": "Panjara turini aylantirib ko‘rish va xossalar bilan bog‘lash",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "8.7"
+      ],
+      "existingPracticeNames": [
+        "Turli kimyoviy bog‘lanishli moddalar kristall panjaralari modellarini tayyorlash"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "3D kristall panjara aylantirish modeli",
+      "mappingLogic": "8.7 bevosita turli bog‘lanishli kristall panjara modellarini yasashga qaratilgan.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.13",
+      "grade": "8-sinf",
+      "title": "Oksidlanish darajasi",
+      "source": "III bob, 18-§, 76-79-betlar",
+      "conceptsText": "Oksidlanish darajasi, elektron balansga tayyorgarlik",
+      "visualFormat": "Belgilar konstruktori",
+      "interaction": "Formuladagi atomlarning darajasini aniqlash",
+      "primaryPracticeType": "Trenajyor",
+      "secondaryPracticeTypes": [],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Oksidlanish darajasini formula bo‘yicha aniqlash trenajyori",
+      "mappingLogic": "Belgilar va qoidalarni ko‘p misolda mashq qilish kerak.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.14",
+      "grade": "8-sinf",
+      "title": "Oksidlanish-qaytarilish reaksiyalari va tenglamalarni tuzish",
+      "source": "III bob, 19-20-§, 80-88-betlar",
+      "conceptsText": "Oksidlovchi, qaytaruvchi, elektron balans",
+      "visualFormat": "Elektron balans trenajyori",
+      "interaction": "Elektron yo‘qotish va qabul qilishni vizual tenglashtirish",
+      "primaryPracticeType": "Trenajyor",
+      "secondaryPracticeTypes": [
+        "Lab",
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "8.1",
+        "8.10"
+      ],
+      "existingPracticeNames": [
+        "“Galogenlar” mavzusi bo‘yicha tajribaviy masalalar yechish",
+        "Galogenlarning birikmalar eritmalaridan bir-birini siqib chiqarishi"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Elektron balans + redoks jarayonini vizual ko‘rsatish",
+      "mappingLogic": "Galogenlarning siqib chiqarishi va tajribaviy masalalar redoksga real kontekst beradi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.15",
+      "grade": "8-sinf",
+      "title": "Metallmaslarning umumiy xossalari",
+      "source": "IV bob, 21-§, 89-91-betlar",
+      "conceptsText": "Metallmaslar, fizik va kimyoviy xossalar",
+      "visualFormat": "Taqqoslash paneli",
+      "interaction": "Elementlarni xossalari bo‘yicha solishtirish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "8.12"
+      ],
+      "existingPracticeNames": [
+        "Oltingugurt va uning tabiiy birikmalari namunalari bilan tanishish"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Metallmaslar xossalarini taqqoslash paneli",
+      "mappingLogic": "8.12 oltingugurt va tabiiy birikmalarni kuzatish bilan mavzuni amaliy qo‘llaydi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.16",
+      "grade": "8-sinf",
+      "title": "Galogenlar: atom tuzilishi, xlor, HCl, xlorid kislota, ftor, brom va yod",
+      "source": "IV bob, 22-24, 27-28-§, 92-102 va 116-129-betlar",
+      "conceptsText": "Galogenlar qatori, rang, reaktivlik, xloridlar",
+      "visualFormat": "Guruh bo‘yicha interaktiv taqqoslash",
+      "interaction": "Galogenlar bo‘yicha yuqoridan pastga trendlarni ko‘rish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya",
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [
+        "8.1",
+        "8.8",
+        "8.9",
+        "8.10",
+        "8.11"
+      ],
+      "existingPracticeNames": [
+        "“Galogenlar” mavzusi bo‘yicha tajribaviy masalalar yechish",
+        "Xlorid kislota, galogenidlar va yod uchun sifat reaksiyalari",
+        "Tuproq eritmasi tarkibida xloridlar borligini aniqlash",
+        "Galogenlarning birikmalar eritmalaridan bir-birini siqib chiqarishi",
+        "Galogenlarning suvda va organik erituvchilarda erishi"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Galogenlar trendi va sifat reaksiyalari xaritasi",
+      "mappingLogic": "Mavjud besh amaliy ish galogenlar bo‘limini keng qamrab oladi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.17",
+      "grade": "8-sinf",
+      "title": "Avogadro qonuni, molyar hajm va ekvivalent qonuni",
+      "source": "IV bob, 25-26-§, 103-115-betlar",
+      "conceptsText": "Gaz hajmi, mol, ekvivalent",
+      "visualFormat": "Grafik kalkulyator",
+      "interaction": "Gaz sharoitlari va modda miqdorini o‘zgartirish",
+      "primaryPracticeType": "Hisoblash",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Gaz hajmi–mol–ekvivalent kalkulyatori",
+      "mappingLogic": "Mavzu asosan sonli qonunlar bilan ishlashga qaratilgan.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.18",
+      "grade": "8-sinf",
+      "title": "Kislorod guruhchasi va oltingugurt birikmalari",
+      "source": "V bob, 29-32-§, 130-140-betlar",
+      "conceptsText": "O, S, H2S, SO2, SO3, H2SO4",
+      "visualFormat": "Reaksiyalar tarmog‘i",
+      "interaction": "Birikmalar o‘rtasidagi o‘tishlarni bosib ko‘rish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya",
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [
+        "8.2",
+        "8.12",
+        "8.13"
+      ],
+      "existingPracticeNames": [
+        "“Oltingugurt” mavzusi bo‘yicha tajribaviy masalalar yechish",
+        "Oltingugurt va uning tabiiy birikmalari namunalari bilan tanishish",
+        "Turli eritmalarda sulfat ioni borligini aniqlash"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Oltingugurt birikmalari reaksiyalar tarmog‘i",
+      "mappingLogic": "8.2 tajribaviy masalalar, 8.12 namuna va 8.13 sulfat sifat reaksiyasi mavzuni bog‘laydi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.19",
+      "grade": "8-sinf",
+      "title": "Kimyoviy reaksiya tezligi",
+      "source": "V bob, 33-§, 141-143-betlar",
+      "conceptsText": "Tezlik, harorat, konsentratsiya, sirt maydoni",
+      "visualFormat": "Interaktiv grafik",
+      "interaction": "Omillar slayderlari bilan grafikni o‘zgartirish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Lab"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Reaksiya tezligiga T, konsentratsiya va sirt ta’siri simulyatsiyasi; oddiy virtual tajriba",
+      "mappingLogic": "Katalogda mos bevosita amaliy mashg‘ulot yo‘q; yangi tajriba kerak.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.20",
+      "grade": "8-sinf",
+      "title": "Kimyoviy muvozanat",
+      "source": "V bob, 34-§, 144-146-betlar",
+      "conceptsText": "Qaytar reaksiya, muvozanat, Le-Shatele prinsipi",
+      "visualFormat": "Dinamik muvozanat simulyatori",
+      "interaction": "Bosim, harorat va konsentratsiya ta’sirini ko‘rish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Case"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Dinamik muvozanat va Le-Shatele simulyatori",
+      "mappingLogic": "Muvozanatni zarracha va grafik darajada ko‘rsatish eng mos.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.21",
+      "grade": "8-sinf",
+      "title": "Sulfat kislota ishlab chiqarish",
+      "source": "V bob, 35-§, 147-155-betlar",
+      "conceptsText": "Piritni kuydirish, kontakt apparati, oleum",
+      "visualFormat": "Sanoat jarayoni animatsiyasi",
+      "interaction": "Bosqichlarni texnologik zanjirga joylashtirish",
+      "primaryPracticeType": "Case",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "8.2"
+      ],
+      "existingPracticeNames": [
+        "“Oltingugurt” mavzusi bo‘yicha tajribaviy masalalar yechish"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Kontakt usuli texnologik zanjiri",
+      "mappingLogic": "8.2 oltingugurt kimyosini qo‘llab-quvvatlaydi, ishlab chiqarish qismi case/simulyatsiya bo‘lishi kerak.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.22",
+      "grade": "8-sinf",
+      "title": "Azot, ammiak va azotning kislorodli birikmalari",
+      "source": "VI bob, 36-39-§, 157-173-betlar",
+      "conceptsText": "N2, NH3, NOx, HNO3",
+      "visualFormat": "Reaksiyalar xaritasi va molekula modeli",
+      "interaction": "Birikmalar o‘rtasidagi o‘zgarishlarni ochish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya",
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [
+        "8.3",
+        "8.4",
+        "8.14"
+      ],
+      "existingPracticeNames": [
+        "Ammiak olish va u bilan tajribalar o‘tkazish",
+        "“Azot” guruhchasi elementlari mavzusiga oid tajribaviy masalalar",
+        "Ammoniy tuziga so‘ndirilgan ohak ta’sir ettirib ammiak olish"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Azot–ammiak–NOx reaksiyalar xaritasi",
+      "mappingLogic": "Ammiak olish va azot guruhchasi tajribaviy ishlari bevosita mos.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.23",
+      "grade": "8-sinf",
+      "title": "Fosfor va uning kislorodli birikmalari",
+      "source": "VI bob, 40-41-§, 174-184-betlar",
+      "conceptsText": "P allotropiyasi, oksidlar, fosfat kislota",
+      "visualFormat": "3D model va jarayon xaritasi",
+      "interaction": "Oq va qizil fosforni taqqoslash",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "8.4"
+      ],
+      "existingPracticeNames": [
+        "“Azot” guruhchasi elementlari mavzusiga oid tajribaviy masalalar"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Fosfor allotropiyasi va oksidlanish modeli",
+      "mappingLogic": "8.4 azot guruhchasi elementlari amaliy masalalari fosforni ham qamrab oladi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.24",
+      "grade": "8-sinf",
+      "title": "Mineral o‘g‘itlar va biogen elementlar",
+      "source": "VI bob, 42-44-§, 185-199-betlar",
+      "conceptsText": "Azotli, fosforli, kaliyli o‘g‘itlar; biogen elementlar",
+      "visualFormat": "O‘simlik modeli va o‘g‘it xaritasi",
+      "interaction": "Element yetishmovchiligi belgilarini aniqlash",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Case",
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "8.5",
+        "8.15"
+      ],
+      "existingPracticeNames": [
+        "Mineral o‘g‘itlarni aniqlash",
+        "Mineral o‘g‘itlar namunalari bilan tanishish"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "O‘g‘it tanlash va o‘simlik yetishmovchiligi case’i",
+      "mappingLogic": "8.5 mineral o‘g‘itlarni aniqlash, 8.15 namunalari bilan tanishish bevosita mos.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.01",
+      "grade": "9-sinf",
+      "title": "Davriy sistema, davriy qonun va bog‘lanish turlarini takrorlash",
+      "source": "I bob, 1-2-§, 5-19-betlar",
+      "conceptsText": "Davriy qonun, elektron tuzilish, bog‘lanish",
+      "visualFormat": "Takrorlash paneli",
+      "interaction": "Davriy jadvaldan bog‘lanish turigacha yo‘l xaritasi",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Davriy jadval–elektron tuzilish–bog‘lanish takrorlash paneli",
+      "mappingLogic": "Takrorlash mavzusi uchun integratsion model/trenajyor zarur.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.02",
+      "grade": "9-sinf",
+      "title": "Elektrolitlar va noelektrolitlar",
+      "source": "II bob, 3-§, 20-23-betlar",
+      "conceptsText": "Elektr o‘tkazuvchanlik, ionlar",
+      "visualFormat": "Lampochkali eritma simulyatori",
+      "interaction": "Moddani suvga qo‘shib o‘tkazuvchanlikni ko‘rish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Lab"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Elektrolit/noelektrolit o‘tkazuvchanlik virtual tajribasi",
+      "mappingLogic": "Mos maxsus amaliy ish katalogda yo‘q; lampochkali simulyator kerak.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.03",
+      "grade": "9-sinf",
+      "title": "Kislota, ishqor va tuzlarning dissotsiatsiyalanishi",
+      "source": "II bob, 4-§, 24-25-betlar",
+      "conceptsText": "Ionlarga ajralish, formulalar",
+      "visualFormat": "Dissotsiatsiya animatsiyasi",
+      "interaction": "Molekulalarni suvda ionlarga ajratish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Dissotsiatsiya animatsiyasi va ion yozuv trenajyori",
+      "mappingLogic": "Molekula→ion o‘tishini model va yozuv bilan mashq qilish kerak.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.04",
+      "grade": "9-sinf",
+      "title": "Kuchli va kuchsiz elektrolitlar. Dissotsiatsiyalanish darajasi",
+      "source": "II bob, 5-§, 26-28-betlar",
+      "conceptsText": "α, kuchli va kuchsiz elektrolit",
+      "visualFormat": "Zarrachalar soni simulyatsiyasi",
+      "interaction": "Ionlangan zarrachalar ulushini slayder bilan ko‘rish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Hisoblash"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Dissotsiatsiyalanish darajasi slayderi va α hisoblash",
+      "mappingLogic": "Kuchli/kuchsiz elektrolitni miqdoriy va vizual taqqoslash.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.05",
+      "grade": "9-sinf",
+      "title": "Ion almashinish reaksiyalari",
+      "source": "II bob, 6-§, 29-31-betlar",
+      "conceptsText": "Cho‘kma, gaz, suv hosil bo‘lishi",
+      "visualFormat": "Ion tenglama konstruktori",
+      "interaction": "Ionlarni birlashtirib qisqa ionli tenglama tuzish",
+      "primaryPracticeType": "Trenajyor",
+      "secondaryPracticeTypes": [
+        "Lab",
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "9.4",
+        "9.9",
+        "9.13",
+        "9.15",
+        "9.16",
+        "9.18"
+      ],
+      "existingPracticeNames": [
+        "Karbonatlar va gidrokarbonatlarning xossalari hamda o‘zaro aylanishi",
+        "Tuz eritmalari bilan metallarning o‘zaro ta’siri",
+        "Alyuminiy gidroksidni olish va uning xossalari",
+        "Mis(II)-gidroksidni olish va xossalarini tekshirish",
+        "Rux gidroksidni olish va amfoter xossalarini tekshirish",
+        "Temir(II) va temir(III)-gidroksidlarni olish"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Molekulyar→to‘liq ionli→qisqa ionli tenglama konstruktori",
+      "mappingLogic": "Ko‘plab cho‘kma/almashtirish reaksiyalari ion almashinishga real dalil beradi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.06",
+      "grade": "9-sinf",
+      "title": "Tuzlarning gidrolizi",
+      "source": "II bob, 7-§, 32-41-betlar",
+      "conceptsText": "Gidroliz, eritma muhiti, indikator",
+      "visualFormat": "pH animatsiyasi",
+      "interaction": "Tuz tanlab muhitni va ion reaksiyasini ko‘rish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya",
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [
+        "9.14"
+      ],
+      "existingPracticeNames": [
+        "Alyuminiy tuzlari eritmalarining indikatorlarga ta’siri"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Tuz tanlab pH va gidroliz ion tenglamasini ko‘rsatish",
+      "mappingLogic": "9.14 alyuminiy tuzi eritmasining indikatorga ta’sirini kuzatadi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.07",
+      "grade": "9-sinf",
+      "title": "Uglerod guruhidagi elementlarning umumiy tavsifi",
+      "source": "III bob, 8-§, 42-46-betlar",
+      "conceptsText": "C, Si, Ge, Sn, Pb; guruh trendi",
+      "visualFormat": "Guruh bo‘yicha taqqoslash paneli",
+      "interaction": "Element xossalarining guruh bo‘ylab o‘zgarishini ko‘rish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Lab"
+      ],
+      "existingPracticeIds": [
+        "9.1",
+        "9.4",
+        "9.5",
+        "9.6"
+      ],
+      "existingPracticeNames": [
+        "Uglerod(IV)-oksid hosil qilish va uning xossalari bilan tanishish",
+        "Karbonatlar va gidrokarbonatlarning xossalari hamda o‘zaro aylanishi",
+        "Tabiiy silikatlar namunalari bilan tanishish",
+        "Shisha turlari va shishadan yasalgan mahsulotlar bilan tanishish"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Uglerod guruhi trendi va materiallar case’i",
+      "mappingLogic": "Uglerod/karbonatlar/silikatlar bo‘yicha mavjud amaliyotlar mavzuni qo‘llab-quvvatlaydi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.08",
+      "grade": "9-sinf",
+      "title": "Uglerodning allotropiyasi va xossalari",
+      "source": "III bob, 9-§, 47-49-betlar",
+      "conceptsText": "Olmos, grafit, ko‘mir, fullerenga kirish",
+      "visualFormat": "3D tuzilma modeli",
+      "interaction": "Panjara tuzilishini aylantirib xossalar bilan bog‘lash",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Case"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Grafit–olmos–fulleren 3D tuzilma taqqoslash",
+      "mappingLogic": "Allotropiya uchun model birlamchi; katalogda maxsus laboratoriya yo‘q.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.09",
+      "grade": "9-sinf",
+      "title": "Uglerodning eng muhim birikmalari",
+      "source": "III bob, 10-11-§, 50-60-betlar",
+      "conceptsText": "CO, CO2, H2CO3, karbonatlar",
+      "visualFormat": "Reaksiyalar tarmog‘i",
+      "interaction": "Birikma tanlab olinishi va xossalarini ochish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya",
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [
+        "9.1",
+        "9.4"
+      ],
+      "existingPracticeNames": [
+        "Uglerod(IV)-oksid hosil qilish va uning xossalari bilan tanishish",
+        "Karbonatlar va gidrokarbonatlarning xossalari hamda o‘zaro aylanishi"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "CO2 va karbonatlar reaksiyalar tarmog‘i",
+      "mappingLogic": "9.1 va 9.4 uglerodning asosiy birikmalarini bevosita tajribada ko‘rsatadi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.10",
+      "grade": "9-sinf",
+      "title": "Kremniy va silikat sanoati",
+      "source": "III bob, 12-14-§, 61-70-betlar",
+      "conceptsText": "Si, SiO2, silikat, shisha, sement, keramika",
+      "visualFormat": "Sanoat jarayoni va materiallar galereyasi",
+      "interaction": "Xomashyodan mahsulotgacha zanjir tuzish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Case",
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "9.5",
+        "9.6"
+      ],
+      "existingPracticeNames": [
+        "Tabiiy silikatlar namunalari bilan tanishish",
+        "Shisha turlari va shishadan yasalgan mahsulotlar bilan tanishish"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Silikat sanoati xomashyo→shisha mahsulot zanjiri",
+      "mappingLogic": "Tabiiy silikat va shisha namunalarini kuzatish bevosita mos.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.11",
+      "grade": "9-sinf",
+      "title": "Metallarning tarqalishi, olinishi va ishlatilishi",
+      "source": "IV bob, 15-§, 71-73-betlar",
+      "conceptsText": "Ruda, qaytarilish, metallurgiya",
+      "visualFormat": "Ruda-metall jarayoni xaritasi",
+      "interaction": "Rudani tanlab olish usulini ko‘rish",
+      "primaryPracticeType": "Case",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya",
+        "Lab"
+      ],
+      "existingPracticeIds": [
+        "9.3"
+      ],
+      "existingPracticeNames": [
+        "“Metallar” mavzusi bo‘yicha tajribaviy masalalar"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Ruda→metall olish usuli tanlash case’i",
+      "mappingLogic": "9.3 metallar bo‘yicha tajribaviy masalalar qo‘llab-quvvatlaydi; sanoat jarayoni case sifatida kerak.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.12",
+      "grade": "9-sinf",
+      "title": "Qotishmalar",
+      "source": "IV bob, 16-§, 74-76-betlar",
+      "conceptsText": "Qotishma, tarkib, xossa",
+      "visualFormat": "Mikrotuzilma vizuali",
+      "interaction": "Tarkib foizini o‘zgartirib xossadagi farqni ko‘rish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "9.8",
+        "9.12",
+        "9.20"
+      ],
+      "existingPracticeNames": [
+        "Qotishmalar namunalari bilan tanishish",
+        "Alyuminiy namunalari va qotishmalari bilan tanishish",
+        "Cho‘yan va po‘lat namunalari bilan tanishish"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Qotishma tarkibi–mikrotuzilma–xossa simulyatsiyasi",
+      "mappingLogic": "Qotishma namunalarini ko‘rish va Al/cho‘yan/po‘lat misollari bilan bog‘lanadi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.13",
+      "grade": "9-sinf",
+      "title": "Metallarning fizik va kimyoviy xossalari",
+      "source": "IV bob, 17-§, 77-79-betlar",
+      "conceptsText": "Metall bog‘lanish, faollik qatori",
+      "visualFormat": "Interaktiv faollik qatori",
+      "interaction": "Metallni reaktiv bilan solishtirish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya",
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [
+        "9.3",
+        "9.7",
+        "9.9"
+      ],
+      "existingPracticeNames": [
+        "“Metallar” mavzusi bo‘yicha tajribaviy masalalar",
+        "Metallar namunalari va issiqlik o‘tkazuvchanligini ko‘zdan kechirish",
+        "Tuz eritmalari bilan metallarning o‘zaro ta’siri"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Metallar faollik qatori simulyatori",
+      "mappingLogic": "9.7 fizik xossa, 9.9 tuz eritmasi bilan reaksiya, 9.3 tajribaviy masalalar bevosita mos.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.14",
+      "grade": "9-sinf",
+      "title": "Metallar korroziyasi",
+      "source": "IV bob, 18-§, 80-84-betlar",
+      "conceptsText": "Korroziya, himoya usullari",
+      "visualFormat": "Vaqt bo‘yicha animatsiya",
+      "interaction": "Muhit va himoya qoplamasini tanlab natijani ko‘rish",
+      "primaryPracticeType": "Case",
+      "secondaryPracticeTypes": [
+        "Lab",
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Korroziya sharoitlari va himoya usullari virtual tajribasi",
+      "mappingLogic": "9-sinf katalogida maxsus korroziya amaliyoti yo‘q; yangi tajriba/case kerak.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.15",
+      "grade": "9-sinf",
+      "title": "Elektroliz va uning amaliy ahamiyati",
+      "source": "IV bob, 19-§, 85-96-betlar",
+      "conceptsText": "Anod, katod, eritma, suyuqlanma, qoplama",
+      "visualFormat": "Elektroliz simulyatori",
+      "interaction": "Elektrolit va elektrod tanlab mahsulotlarni ko‘rish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya",
+        "Hisoblash"
+      ],
+      "existingPracticeIds": [
+        "9.10"
+      ],
+      "existingPracticeNames": [
+        "Mis(II)-xlorid va kaliy yodid eritmalarining elektrolizi"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Elektrolit/elektrod tanlash simulyatori",
+      "mappingLogic": "9.10 CuCl2 va KI eritmalari elektrolizi bevosita mos.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.16",
+      "grade": "9-sinf",
+      "title": "Ishqoriy metallar, natriy va kaliy birikmalari",
+      "source": "IV bob, 20-21-§, 97-104-betlar",
+      "conceptsText": "Na, K, reaktivlik, birikmalar",
+      "visualFormat": "Guruh trendi va reaksiya animatsiyasi",
+      "interaction": "Elementni suvga tushirib trendni solishtirish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "9.2"
+      ],
+      "existingPracticeNames": [
+        "“Ishqoriy metallar” va “Kalsiy” mavzulari bo‘yicha tajribaviy masalalar"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Na/K/Ca reaksiyalari va guruh trendi",
+      "mappingLogic": "9.2 ishqoriy metallar va kalsiy bo‘yicha tajribaviy masalalar.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.17",
+      "grade": "9-sinf",
+      "title": "Soda ishlab chiqarish",
+      "source": "IV bob, 22-§, 105-108-betlar",
+      "conceptsText": "Sanoat jarayoni, xomashyo, mahsulot",
+      "visualFormat": "Texnologik sxema",
+      "interaction": "Bosqichlarni to‘g‘ri zanjirga joylashtirish",
+      "primaryPracticeType": "Case",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya",
+        "Hisoblash"
+      ],
+      "existingPracticeIds": [
+        "9.2"
+      ],
+      "existingPracticeNames": [
+        "“Ishqoriy metallar” va “Kalsiy” mavzulari bo‘yicha tajribaviy masalalar"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Solvay jarayoni texnologik zanjiri",
+      "mappingLogic": "9.2 natriy birikmalariga tayanch beradi; ishlab chiqarish zanjiri yangi case/simulyatsiya bo‘lishi kerak.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.18",
+      "grade": "9-sinf",
+      "title": "Kalsiy, magniy va suvning qattiqligi",
+      "source": "IV bob, 23-24-§, 109-120-betlar",
+      "conceptsText": "Ca, Mg, karbonat, qattiqlik, yumshatish",
+      "visualFormat": "Suv qattiqligi simulyatori",
+      "interaction": "Ion miqdorini o‘zgartirib usul tanlash",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya",
+        "Hisoblash"
+      ],
+      "existingPracticeIds": [
+        "9.2"
+      ],
+      "existingPracticeNames": [
+        "“Ishqoriy metallar” va “Kalsiy” mavzulari bo‘yicha tajribaviy masalalar"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Suv qattiqligi ion modeli va yumshatish usuli tanlash",
+      "mappingLogic": "9.2 kalsiy bo‘yicha amaliy masalalar bor, lekin suv qattiqligi uchun alohida activity kerak.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.19",
+      "grade": "9-sinf",
+      "title": "Alyuminiy va uning birikmalari",
+      "source": "IV bob, 25-27-§, 121-130-betlar",
+      "conceptsText": "Al, amfoterlik, oksid parda",
+      "visualFormat": "Reaksiya xaritasi",
+      "interaction": "Kislota va ishqor ta’sirini taqqoslash",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya",
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [
+        "9.11",
+        "9.12",
+        "9.13",
+        "9.14"
+      ],
+      "existingPracticeNames": [
+        "Alyuminiyning kislota va ishqor eritmalari bilan o‘zaro ta’siri",
+        "Alyuminiy namunalari va qotishmalari bilan tanishish",
+        "Alyuminiy gidroksidni olish va uning xossalari",
+        "Alyuminiy tuzlari eritmalarining indikatorlarga ta’siri"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Al va Al(OH)3 amfoterlik reaksiyalar xaritasi",
+      "mappingLogic": "9.11–9.14 alyuminiy mavzusini juda to‘liq qoplaydi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.20",
+      "grade": "9-sinf",
+      "title": "Mis, kumush va oltin",
+      "source": "IV bob, 28-29-§, 131-138-betlar",
+      "conceptsText": "Cu, Ag, Au, xossalar, ishlatilish",
+      "visualFormat": "Element kartalari va faollik taqqoslash",
+      "interaction": "Metallni bosib reaksiya va qo‘llanishini ko‘rish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "9.3",
+        "9.9",
+        "9.15"
+      ],
+      "existingPracticeNames": [
+        "“Metallar” mavzusi bo‘yicha tajribaviy masalalar",
+        "Tuz eritmalari bilan metallarning o‘zaro ta’siri",
+        "Mis(II)-gidroksidni olish va xossalarini tekshirish"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Cu/Ag/Au faollik va sifat reaksiyalari paneli",
+      "mappingLogic": "9.9 metall-tuz almashinuvi va 9.15 Cu(OH)2 mis kimyosini qo‘llab-quvvatlaydi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.21",
+      "grade": "9-sinf",
+      "title": "II guruh yonaki guruhcha elementlari",
+      "source": "IV bob, 30-§, 139-144-betlar",
+      "conceptsText": "Zn, Cd, Hg; elektron tuzilish va xossa",
+      "visualFormat": "Guruh kartalari",
+      "interaction": "Trend va birikmalarni taqqoslash",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "9.16"
+      ],
+      "existingPracticeNames": [
+        "Rux gidroksidni olish va amfoter xossalarini tekshirish"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Zn/Cd/Hg guruh xossalari taqqoslash",
+      "mappingLogic": "9.16 Zn(OH)2 amfoterligini bevosita ko‘rsatadi; qolgan guruh uchun simulyatsiya zarur.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.22",
+      "grade": "9-sinf",
+      "title": "Xrom va uning II, III, VI valentli birikmalari",
+      "source": "IV bob, 31-32-§, 145-151-betlar",
+      "conceptsText": "Cr oksidlanish darajalari, rangli birikmalar",
+      "visualFormat": "Rang o‘zgarishi xaritasi",
+      "interaction": "Muhitga qarab xrom birikmalari o‘zgarishini ko‘rish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya",
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [
+        "9.17"
+      ],
+      "existingPracticeNames": [
+        "Xrom(II), xrom(III) va xrom(VI) birikmalari bilan tajribalar"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Cr(II)/Cr(III)/Cr(VI) rang va redoks xaritasi",
+      "mappingLogic": "9.17 aynan xrom birikmalari tajribasi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.23",
+      "grade": "9-sinf",
+      "title": "Marganes",
+      "source": "IV bob, 33-§, 152-157-betlar",
+      "conceptsText": "Mn oksidlanish darajalari, permanganat",
+      "visualFormat": "Rangli redoks animatsiyasi",
+      "interaction": "Muhitni tanlab rang va mahsulotni ko‘rish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Mn oksidlanish darajalari va muhitga bog‘liq rangli redoks simulyatsiyasi",
+      "mappingLogic": "Katalogda marganes uchun maxsus amaliy ish yo‘q.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.24",
+      "grade": "9-sinf",
+      "title": "Temir va eng muhim birikmalari",
+      "source": "IV bob, 34-35-§, 158-164-betlar",
+      "conceptsText": "Fe2+, Fe3+, oksidlar, tuzlar",
+      "visualFormat": "Oksidlanish darajasi va rang xaritasi",
+      "interaction": "Fe2+ va Fe3+ reaksiyalarini taqqoslash",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya",
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [
+        "9.18",
+        "9.19"
+      ],
+      "existingPracticeNames": [
+        "Temir(II) va temir(III)-gidroksidlarni olish",
+        "Temir(II) va temir(III) tuzlarini aniqlash"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Fe2+/Fe3+ rang, cho‘kma va sifat reaksiyalari",
+      "mappingLogic": "9.18–9.19 temir(II)/(III) birikmalarini bevosita qamrab oladi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.25",
+      "grade": "9-sinf",
+      "title": "Cho‘yan va po‘lat ishlab chiqarish",
+      "source": "IV bob, 36-37-§, 165-176-betlar",
+      "conceptsText": "Domna jarayoni, cho‘yan, po‘lat",
+      "visualFormat": "Sanoat animatsiyasi",
+      "interaction": "Xomashyoni domna zonalariga joylashtirish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Case",
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "9.20"
+      ],
+      "existingPracticeNames": [
+        "Cho‘yan va po‘lat namunalari bilan tanishish"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Domna jarayoni va cho‘yan-po‘lat tarkib/xossa taqqoslash",
+      "mappingLogic": "9.20 tayyor mahsulotlarni kuzatadi; ishlab chiqarish jarayoni case/simulyatsiya bilan to‘ldiriladi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.26",
+      "grade": "9-sinf",
+      "title": "Kimyoviy ishlab chiqarish va atmosfera-gidrosferani muhofaza qilish",
+      "source": "V bob, 38-41-§, 177-191-betlar",
+      "conceptsText": "Sanoat, chiqindi, ekologiya, davriy qonun ahamiyati",
+      "visualFormat": "Ekologik tizim xaritasi",
+      "interaction": "Ifloslanish manbai va yechimni bog‘lash",
+      "primaryPracticeType": "Case",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Kimyoviy ishlab chiqarishda ifloslanish manbai–tozalash yechimi case’i",
+      "mappingLogic": "Ekologik integratsion mavzu; katalogda maxsus amaliy ish yo‘q.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.01",
+      "grade": "10-sinf",
+      "title": "Organik kimyo tarixi va organik birikmalarning o‘ziga xos xususiyatlari",
+      "source": "I bob, 1.1, 7-11-betlar",
+      "conceptsText": "Organik/noorganik moddalar farqi, tarix",
+      "visualFormat": "Vaqt chizig‘i va taqqoslash paneli",
+      "interaction": "Mezonlarni bosib ikki guruh xossalarini solishtirish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Case",
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "10.1",
+        "10.2"
+      ],
+      "existingPracticeNames": [
+        "Organik birikmalar namunalari bilan tanishish va qiyoslash",
+        "Organik birikmalar tarkibini tahlil qilish"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Organik/noorganik xossalarni taqqoslash case’i",
+      "mappingLogic": "10.1 namunalarni qiyoslaydi, 10.2 tarkibni tahlil qiladi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.02",
+      "grade": "10-sinf",
+      "title": "Organik birikmalar tuzilish nazariyasi",
+      "source": "I bob, 1.2, 12-14-betlar",
+      "conceptsText": "Butlerov nazariyasi, struktura",
+      "visualFormat": "Molekula konstruktori",
+      "interaction": "Atomlarni turli tartibda bog‘lab xossalar farqini ko‘rish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Lab"
+      ],
+      "existingPracticeIds": [
+        "10.2",
+        "10.4"
+      ],
+      "existingPracticeNames": [
+        "Organik birikmalar tarkibini tahlil qilish",
+        "Uglevodorodlarning shar-sterjenli va masshtabli modellarini yasash"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Tuzilish nazariyasi molekula konstruktori",
+      "mappingLogic": "10.4 modellar yasash, 10.2 tarkib tahlili tuzilish–tarkib bog‘ini qo‘llab-quvvatlaydi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.03",
+      "grade": "10-sinf",
+      "title": "Uglerodning valentligi va oksidlanish darajasi",
+      "source": "I bob, 1.3, 15-17-betlar",
+      "conceptsText": "C valentligi, bog‘lar, oksidlanish darajasi",
+      "visualFormat": "Bog‘lar konstruktori",
+      "interaction": "Uglerod atrofiga atomlarni joylashtirish",
+      "primaryPracticeType": "Trenajyor",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya",
+        "Lab"
+      ],
+      "existingPracticeIds": [
+        "10.4"
+      ],
+      "existingPracticeNames": [
+        "Uglevodorodlarning shar-sterjenli va masshtabli modellarini yasash"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Uglerod valentligi/bog‘lar konstruktori",
+      "mappingLogic": "10.4 uglevodorod modellarida C valentligi amalda namoyon bo‘ladi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.04",
+      "grade": "10-sinf",
+      "title": "Izomeriya va uning turlari",
+      "source": "I bob, 1.4, 18-21-betlar",
+      "conceptsText": "Strukturaviy va fazoviy izomeriya",
+      "visualFormat": "3D izomer konstruktori",
+      "interaction": "Bir formuladan turli tuzilishlar yasash",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Trenajyor",
+        "Lab"
+      ],
+      "existingPracticeIds": [
+        "10.4"
+      ],
+      "existingPracticeNames": [
+        "Uglevodorodlarning shar-sterjenli va masshtabli modellarini yasash"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "3D izomer konstruktori",
+      "mappingLogic": "10.4 shar-sterjen modellarini yasash izomeriya uchun tayanch amaliyot.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.05",
+      "grade": "10-sinf",
+      "title": "Organik birikmalarning sinflanishi",
+      "source": "I bob, 1.5, 22-25-betlar",
+      "conceptsText": "Uglevodorod va funksional guruhlar",
+      "visualFormat": "Sinf daraxti",
+      "interaction": "Molekulalarni sinflarga sudrab joylashtirish",
+      "primaryPracticeType": "Trenajyor",
+      "secondaryPracticeTypes": [
+        "Lab"
+      ],
+      "existingPracticeIds": [
+        "10.1",
+        "10.10"
+      ],
+      "existingPracticeNames": [
+        "Organik birikmalar namunalari bilan tanishish va qiyoslash",
+        "Organik birikmalarni xos reaksiyalar asosida aniqlash"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Organik sinflarga tasniflash drag-drop",
+      "mappingLogic": "10.1 namunalar va 10.10 xos reaksiyalar orqali sinflarni farqlash mumkin.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.06",
+      "grade": "10-sinf",
+      "title": "Organik reaksiyalar turlari",
+      "source": "I bob, 1.6, 26-28-betlar",
+      "conceptsText": "Birikish, ajralish, almashinish, o‘rin olish",
+      "visualFormat": "Reaksiya animatsiyasi",
+      "interaction": "Reaksiya sxemasini turiga mos ajratish",
+      "primaryPracticeType": "Trenajyor",
+      "secondaryPracticeTypes": [
+        "Lab",
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "10.3",
+        "10.5",
+        "10.6",
+        "10.7",
+        "10.8",
+        "10.9",
+        "10.10"
+      ],
+      "existingPracticeNames": [
+        "Etilenning olinishi va xossalarini o‘rganish",
+        "Ko‘p atomli spirtlarga oid tajribalar",
+        "Spirtlar va aldegidlarga xos reaksiyalar",
+        "O‘simliklar tarkibidagi murakkab efirlar",
+        "Yog‘lardan sovun olish",
+        "Uglevodlarga oid tajribalar",
+        "Organik birikmalarni xos reaksiyalar asosida aniqlash"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Organik reaksiya turini aniqlash trenajyori",
+      "mappingLogic": "Deyarli barcha organik amaliy ishlar reaksiya turlariga kontekst beradi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.07",
+      "grade": "10-sinf",
+      "title": "Organik birikmalar nomenklaturasi",
+      "source": "I bob, 1.7, 29-32-betlar",
+      "conceptsText": "Asosiy zanjir, raqamlash, nomlash",
+      "visualFormat": "Nomlash trenajyori",
+      "interaction": "Molekuladan nom yoki nomdan tuzilma yaratish",
+      "primaryPracticeType": "Trenajyor",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "IUPAC nomlash: tuzilma↔nom konstruktori",
+      "mappingLogic": "Nomenklatura uchun bevosita drill kerak; laboratoriya shart emas.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.08",
+      "grade": "10-sinf",
+      "title": "Alkanlar va gomologik qator",
+      "source": "II bob, 2.1, 39-42-betlar",
+      "conceptsText": "CnH2n+2, gomologik farq",
+      "visualFormat": "Gomologik qator generatori",
+      "interaction": "Uglerod soni slayderi bilan molekulani o‘zgartirish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Lab"
+      ],
+      "existingPracticeIds": [
+        "10.4"
+      ],
+      "existingPracticeNames": [
+        "Uglevodorodlarning shar-sterjenli va masshtabli modellarini yasash"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Gomologik qator generatori",
+      "mappingLogic": "10.4 uglevodorod modellarini yasash bilan bog‘lanadi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.09",
+      "grade": "10-sinf",
+      "title": "Alkanlar izomeriyasi va nomlanishi",
+      "source": "II bob, 2.2, 43-45-betlar",
+      "conceptsText": "Zanjir izomeriyasi, nomlash",
+      "visualFormat": "Izomer topish o‘yini",
+      "interaction": "Berilgan formuladan barcha izomerlarni yig‘ish",
+      "primaryPracticeType": "Trenajyor",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya",
+        "Lab"
+      ],
+      "existingPracticeIds": [
+        "10.4"
+      ],
+      "existingPracticeNames": [
+        "Uglevodorodlarning shar-sterjenli va masshtabli modellarini yasash"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Alkan izomerlarini qurish va nomlash o‘yini",
+      "mappingLogic": "10.4 fizik model qurish amaliy tayanch.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.10",
+      "grade": "10-sinf",
+      "title": "Alkanlarning olinishi, xossalari va ishlatilishi",
+      "source": "II bob, 2.3-2.4, 46-50-betlar",
+      "conceptsText": "Yonish, o‘rin olish, kreking",
+      "visualFormat": "Reaksiya xaritasi",
+      "interaction": "Sharoitni tanlab reaksiyani ishga tushirish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Lab",
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [
+        "10.10"
+      ],
+      "existingPracticeNames": [
+        "Organik birikmalarni xos reaksiyalar asosida aniqlash"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Alkan reaksiyalari xaritasi va sharoit tanlash",
+      "mappingLogic": "10.10 umumiy organik aniqlash ishida alkanlarga tegishli xos reaksiyalar bo‘lishi mumkin, lekin maxsus tajriba yo‘q.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.11",
+      "grade": "10-sinf",
+      "title": "Sikloalkanlar",
+      "source": "II bob, 2.5-2.6, 51-55-betlar",
+      "conceptsText": "Halqa tuzilishi, izomeriya",
+      "visualFormat": "3D halqa modeli",
+      "interaction": "Halqa o‘lchamini va yon guruhlarni o‘zgartirish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "3D sikloalkan halqa modeli",
+      "mappingLogic": "Mavzu strukturaviy; maxsus laboratoriya talab qilmaydi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.12",
+      "grade": "10-sinf",
+      "title": "Alkenlar",
+      "source": "II bob, 2.7-2.8, 56-61-betlar",
+      "conceptsText": "Qo‘shbog‘, birikish, polimerlanish",
+      "visualFormat": "Qo‘shbog‘ animatsiyasi",
+      "interaction": "Reagent tanlab birikish mahsulotini ko‘rish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya",
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [
+        "10.3"
+      ],
+      "existingPracticeNames": [
+        "Etilenning olinishi va xossalarini o‘rganish"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Etilen qo‘shilish reaksiyalari simulyatori",
+      "mappingLogic": "10.3 etilen olish va xossalari bevosita mos.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.13",
+      "grade": "10-sinf",
+      "title": "Alkadiyenlar, kauchuk va rezina",
+      "source": "II bob, 2.10-2.12, 63-71-betlar",
+      "conceptsText": "Konjugatsiya, polimerlanish, vulkanizatsiya",
+      "visualFormat": "Polimer zanjiri animatsiyasi",
+      "interaction": "Monomerdan polimer va rezina hosil qilish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Case"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Diyen polimerlanishi: kauchuk→rezina zanjiri",
+      "mappingLogic": "Polimerlanish va material xossalarini model/case bilan bog‘lash kerak.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.14",
+      "grade": "10-sinf",
+      "title": "Alkinlar",
+      "source": "II bob, 2.13-2.14, 72-76-betlar",
+      "conceptsText": "Uchbog‘, asetilen, birikish",
+      "visualFormat": "Bog‘ animatsiyasi",
+      "interaction": "Uchbog‘ga bosqichma-bosqich reagent qo‘shish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Alkin uchbog‘iga bosqichli qo‘shilish simulyatsiyasi",
+      "mappingLogic": "Katalogda maxsus alkin amaliyoti yo‘q.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.15",
+      "grade": "10-sinf",
+      "title": "Aromatik uglevodorodlar va stirol",
+      "source": "II bob, 2.15-2.17, 77-83-betlar",
+      "conceptsText": "Benzol halqasi, aromatiklik, stirol",
+      "visualFormat": "3D benzol va polistirol modeli",
+      "interaction": "Halqa va yon guruhlarni o‘zgartirish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Case"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Benzol/stiren/polistirol 3D model va qo‘llanish case’i",
+      "mappingLogic": "Aromatik tuzilish model orqali yaxshiroq o‘zlashtiriladi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.16",
+      "grade": "10-sinf",
+      "title": "Tabiiy gaz, neftni qayta ishlash va toshko‘mir",
+      "source": "II bob, 2.18-2.20, 84-94-betlar",
+      "conceptsText": "Fraksion haydash, kreking, tabiiy manbalar",
+      "visualFormat": "Sanoat texnologik xaritasi",
+      "interaction": "Harorat zonalari bo‘yicha fraksiyalarni joylashtirish",
+      "primaryPracticeType": "Case",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Neft fraksiyalash va gaz/ko‘mir qayta ishlash texnologik simulyatsiyasi",
+      "mappingLogic": "Sanoat-texnologik mavzu; laboratoriya katalogida mos ish yo‘q.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.17",
+      "grade": "10-sinf",
+      "title": "Bir atomli spirtlar",
+      "source": "III bob, 3.1-3.2, 107-114-betlar",
+      "conceptsText": "OH guruh, gomologik qator, oksidlanish",
+      "visualFormat": "Molekula va reaksiya xaritasi",
+      "interaction": "Spirtni tanlab xossa va qo‘llanishini ko‘rish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya",
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [
+        "10.6"
+      ],
+      "existingPracticeNames": [
+        "Spirtlar va aldegidlarga xos reaksiyalar"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Bir atomli spirtlarning reaksiyalar xaritasi",
+      "mappingLogic": "10.6 spirtlarga xos reaksiyalarni bevosita o‘tkazadi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.18",
+      "grade": "10-sinf",
+      "title": "Ko‘p atomli spirtlar: etilenglikol va glitserin",
+      "source": "III bob, 3.3-3.4, 115-121-betlar",
+      "conceptsText": "Ko‘p OH guruh, xossalar",
+      "visualFormat": "3D molekula taqqoslash",
+      "interaction": "OH guruhlar soni va xossani bog‘lash",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "10.5"
+      ],
+      "existingPracticeNames": [
+        "Ko‘p atomli spirtlarga oid tajribalar"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "OH guruhlar soni va xossa taqqoslash modeli",
+      "mappingLogic": "10.5 ko‘p atomli spirtlarga oid tajribalar bevosita mos.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.19",
+      "grade": "10-sinf",
+      "title": "Fenollar va aromatik spirtlar",
+      "source": "III bob, 3.6-3.7, 123-129-betlar",
+      "conceptsText": "Fenol, benzol halqasi, OH ta’siri",
+      "visualFormat": "Taqqoslash modeli",
+      "interaction": "Spirt va fenol reaktivligini solishtirish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "10.10"
+      ],
+      "existingPracticeNames": [
+        "Organik birikmalarni xos reaksiyalar asosida aniqlash"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Spirt–fenol reaktivligi taqqoslash tajribasi",
+      "mappingLogic": "10.10 organik birikmalarni xos reaksiyalar bilan aniqlash qo‘llab-quvvatlaydi; maxsus fenol ssenariysi kerak.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.20",
+      "grade": "10-sinf",
+      "title": "Oddiy efirlar",
+      "source": "III bob, 3.8, 130-132-betlar",
+      "conceptsText": "R-O-R tuzilishi, olinishi",
+      "visualFormat": "Molekula modeli",
+      "interaction": "Radikallarni tanlab efir yaratish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Oddiy efir molekula konstruktori",
+      "mappingLogic": "Mavzu strukturaviy; katalogda maxsus amaliy ish yo‘q.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.21",
+      "grade": "10-sinf",
+      "title": "Aldegidlar va ketonlar",
+      "source": "III bob, 3.9 va 3.11, 133-139-betlar",
+      "conceptsText": "Karbonil guruh, farqlar, oksidlanish",
+      "visualFormat": "Funksional guruh taqqoslash",
+      "interaction": "Tuzilmani bosib sinfini aniqlash",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya",
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [
+        "10.6",
+        "10.10"
+      ],
+      "existingPracticeNames": [
+        "Spirtlar va aldegidlarga xos reaksiyalar",
+        "Organik birikmalarni xos reaksiyalar asosida aniqlash"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Aldegid/keton funksional guruh va sifat reaksiyalari",
+      "mappingLogic": "10.6 aldehidlarga xos, 10.10 aniqlash amaliyoti bevosita mos.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.22",
+      "grade": "10-sinf",
+      "title": "Karbon kislotalar",
+      "source": "III bob, 3.12, 140-145-betlar",
+      "conceptsText": "COOH guruh, kislotalik, gomologik qator",
+      "visualFormat": "Reaksiya xaritasi",
+      "interaction": "Kislota turini tanlab reaksiyalarni ochish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "10.10"
+      ],
+      "existingPracticeNames": [
+        "Organik birikmalarni xos reaksiyalar asosida aniqlash"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Karbon kislota reaksiyalari xaritasi",
+      "mappingLogic": "10.10 xos reaksiyalar orqali qo‘llab-quvvatlaydi; maxsus kislota tajribasi tavsiya etiladi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.23",
+      "grade": "10-sinf",
+      "title": "Murakkab efirlar",
+      "source": "III bob, 3.14, 146-151-betlar",
+      "conceptsText": "Esterifikatsiya, hid, qo‘llanish",
+      "visualFormat": "Molekula va hidlar galereyasi",
+      "interaction": "Kislota va spirt tanlab efir hosil qilish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "10.7"
+      ],
+      "existingPracticeNames": [
+        "O‘simliklar tarkibidagi murakkab efirlar"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Esterifikatsiya: kislota + spirt → efir",
+      "mappingLogic": "10.7 o‘simliklardagi murakkab efirlar mavzuni amaliy bog‘laydi; esterifikatsiya ssenariysi bilan kuchaytiriladi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.24",
+      "grade": "10-sinf",
+      "title": "Yog‘lar",
+      "source": "III bob, 3.16, 152-155-betlar",
+      "conceptsText": "Triglitserid, gidroliz, sovunlanish",
+      "visualFormat": "Molekula modeli",
+      "interaction": "Yog‘ tarkibini va sovunlanish zanjirini ko‘rish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya",
+        "Case"
+      ],
+      "existingPracticeIds": [
+        "10.8"
+      ],
+      "existingPracticeNames": [
+        "Yog‘lardan sovun olish"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Yog‘ tarkibi va sovunlanish modeli",
+      "mappingLogic": "10.8 yog‘lardan sovun olish bevosita mos.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.25",
+      "grade": "10-sinf",
+      "title": "Uglevodlar: mono-, di- va polisaxaridlar",
+      "source": "III bob, 3.18-3.20, 156-168-betlar",
+      "conceptsText": "Glyukoza, saxaroza, kraxmal, sellyuloza",
+      "visualFormat": "Molekula taqqoslash va polimer zanjiri",
+      "interaction": "Uglevodlarni tuzilishiga ko‘ra ajratish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya",
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [
+        "10.9"
+      ],
+      "existingPracticeNames": [
+        "Uglevodlarga oid tajribalar"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Uglevodlarni sifat reaksiyalari va tuzilish bo‘yicha ajratish",
+      "mappingLogic": "10.9 uglevodlarga oid tajribalar bevosita mos.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.26",
+      "grade": "10-sinf",
+      "title": "Tabiiy va sun’iy tolalar",
+      "source": "III bob, 3.22, 169-172-betlar",
+      "conceptsText": "Sellyuloza, sintetik tola, xossa",
+      "visualFormat": "Materiallar galereyasi",
+      "interaction": "Tolalarni manba va xossaga ko‘ra tasniflash",
+      "primaryPracticeType": "Case",
+      "secondaryPracticeTypes": [
+        "Lab",
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "10.11"
+      ],
+      "existingPracticeNames": [
+        "Qog‘ozni qayta ishlash"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Tabiiy/sun’iy tolalarni xossa va manba bo‘yicha tasniflash",
+      "mappingLogic": "10.11 qog‘ozni qayta ishlash sellyuloza/material oqimi bilan bog‘lanadi, ammo tolalar uchun maxsus case kerak.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.27",
+      "grade": "10-sinf",
+      "title": "Organik sanoat, chiqindilar va qayta ishlash",
+      "source": "IV bob, 4.1-4.2, 182-188-betlar",
+      "conceptsText": "Sanoat, chiqindi, resurs aylanishi",
+      "visualFormat": "Aylana iqtisodiyot sxemasi",
+      "interaction": "Chiqindini qayta ishlash yo‘liga joylashtirish",
+      "primaryPracticeType": "Case",
+      "secondaryPracticeTypes": [
+        "Lab",
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "10.11"
+      ],
+      "existingPracticeNames": [
+        "Qog‘ozni qayta ishlash"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "Organik chiqindi uchun qayta ishlash yo‘lini tanlash case’i",
+      "mappingLogic": "10.11 qayta ishlash amaliyoti bevosita aylana iqtisodiyotga ulanadi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "11.01",
+      "grade": "11-sinf",
+      "title": "Atom tuzilishi",
+      "source": "1-bob, 1-§, 4-10-betlar",
+      "conceptsText": "Rezerford, Bor va kvant modeli; orbital; kvant sonlari; Pauli, Klechkovskiy, Gund qoidalari",
+      "visualFormat": "3D orbital va elektron konfiguratsiya vizualizatori",
+      "interaction": "Atom modelini bosqichma-bosqich almashtirish va elektronlarni orbitallarga joylashtirish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "3D orbital va elektron konfiguratsiya konstruktori",
+      "mappingLogic": "Atom tuzilishi model/trenajyor orqali o‘zlashtiriladi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "11.02",
+      "grade": "11-sinf",
+      "title": "Davriy qonun va D.I. Mendeleyev davriy sistemasi",
+      "source": "1-bob, 2-§, 11-15-betlar",
+      "conceptsText": "Davriylik, atom tuzilishi va xossalar bog‘lanishi",
+      "visualFormat": "Trendli davriy jadval",
+      "interaction": "Xossa filtrlari orqali davr va guruh bo‘yicha trendni ko‘rish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Davriy trendli jadval",
+      "mappingLogic": "Davriy qonun uchun interaktiv trendlar asosiy amaliyot.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "11.03",
+      "grade": "11-sinf",
+      "title": "Atom tarkibi va yadro reaksiyalari",
+      "source": "1-bob, 3-§, 16-22-betlar",
+      "conceptsText": "Yadro zarrachalari, izotop, radioaktiv yemirilish, yadro reaksiya",
+      "visualFormat": "Yadro animatsiyasi",
+      "interaction": "Zarrachalarni tanlab yadro tenglamasini balanslash",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Yadro tenglamalarini balanslash va zarracha modeli",
+      "mappingLogic": "Yadro reaksiyalari uchun xavfsiz raqamli simulyatsiya zarur.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "11.04",
+      "grade": "11-sinf",
+      "title": "Kimyoviy bog‘lanish turlari va kristall panjaralar",
+      "source": "1-bob, 4-§, 23-30-betlar",
+      "conceptsText": "Kovalent, ion, metall bog‘lanish; panjara",
+      "visualFormat": "3D bog‘ va kristall model",
+      "interaction": "Panjara turini aylantirib xossalar bilan bog‘lash",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Bog‘lanish va kristall panjara 3D modeli",
+      "mappingLogic": "Tuzilish–xossa bog‘ini model orqali qo‘llash kerak.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "11.05",
+      "grade": "11-sinf",
+      "title": "Modda miqdori",
+      "source": "2-bob, 5-§, 31-33-betlar",
+      "conceptsText": "Mol, massa, zarracha soni",
+      "visualFormat": "Dinamik kalkulyator",
+      "interaction": "Bir kattalikni o‘zgartirib qolganlarini ko‘rish",
+      "primaryPracticeType": "Hisoblash",
+      "secondaryPracticeTypes": [
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "n–m–M–N bog‘lanish kalkulyatori",
+      "mappingLogic": "Modda miqdori sonli mavzu.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "11.06",
+      "grade": "11-sinf",
+      "title": "Avogadro qonuni va gazlar aralashmasi",
+      "source": "2-bob, 6-§, 34-38-betlar",
+      "conceptsText": "Gaz hajmi, mol, aralashma",
+      "visualFormat": "Gaz konteyner simulyatori",
+      "interaction": "Gaz tarkibi va sharoitini o‘zgartirish",
+      "primaryPracticeType": "Hisoblash",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Gaz aralashmasi va Avogadro qonuni simulyatori",
+      "mappingLogic": "Gaz tarkibi/hajmi bilan sonli ishlash kerak.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "11.07",
+      "grade": "11-sinf",
+      "title": "Ekvivalent",
+      "source": "2-bob, 7-§, 39-44-betlar",
+      "conceptsText": "Ekvivalent massa va miqdor",
+      "visualFormat": "Hisoblash trenajyori",
+      "interaction": "Modda tanlab ekvivalentni bosqichma-bosqich aniqlash",
+      "primaryPracticeType": "Hisoblash",
+      "secondaryPracticeTypes": [
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Ekvivalentni bosqichma-bosqich hisoblash",
+      "mappingLogic": "Mavzu hisoblash amaliyotiga asoslangan.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "11.08",
+      "grade": "11-sinf",
+      "title": "Mendeleyev-Klapeyron tenglamasi",
+      "source": "2-bob, 8-§, 45-50-betlar",
+      "conceptsText": "PV=nRT, gaz holati",
+      "visualFormat": "Grafik gaz simulyatori",
+      "interaction": "P, V, T slayderlari bilan o‘zgarishni ko‘rish",
+      "primaryPracticeType": "Hisoblash",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "P–V–T gaz tenglamasi simulyatori",
+      "mappingLogic": "Mendeleyev–Klapeyron tenglamasini slayder va hisob bilan qo‘llash.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "11.09",
+      "grade": "11-sinf",
+      "title": "Kuchli va kuchsiz elektrolitlar",
+      "source": "3-bob, 9-§, 51-53-betlar",
+      "conceptsText": "Ionlanish, o‘tkazuvchanlik",
+      "visualFormat": "Eritma zarrachalari modeli",
+      "interaction": "Elektrolit tanlab ionlar ulushini ko‘rish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Lab"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Kuchli/kuchsiz elektrolit o‘tkazuvchanlik va ion ulushi modeli",
+      "mappingLogic": "Katalogda maxsus laboratoriya yo‘q; raqamli tajriba kerak.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "11.10",
+      "grade": "11-sinf",
+      "title": "Dissotsiatsiyalanish darajasi va ionli tenglamalar",
+      "source": "3-bob, 10-§, 54-57-betlar",
+      "conceptsText": "α, qisqa va to‘liq ionli tenglama",
+      "visualFormat": "Ion tenglama konstruktori",
+      "interaction": "Tomoshabin ionlarni olib tashlab qisqa tenglama tuzish",
+      "primaryPracticeType": "Trenajyor",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Dissotsiatsiya va qisqa ionli tenglama konstruktori",
+      "mappingLogic": "Ionlar bilan operatsion ishlash asosiy amaliyot.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "11.11",
+      "grade": "11-sinf",
+      "title": "Tuzlar gidrolizi va eritma muhiti",
+      "source": "3-bob, 11-§, 58-61-betlar",
+      "conceptsText": "Gidroliz, pH, indikator",
+      "visualFormat": "pH va ion modeli",
+      "interaction": "Tuz tanlab eritma muhitini aniqlash",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Tuz gidrolizi pH va ion modeli",
+      "mappingLogic": "Tuz tanlab muhitni aniqlash va tenglama tuzish.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "11.12",
+      "grade": "11-sinf",
+      "title": "Eritma va eruvchanlik",
+      "source": "4-bob, 12-14-§, 62-72-betlar",
+      "conceptsText": "Erituvchi, eruvchi, to‘yingan eritma, eruvchanlik egri chizig‘i",
+      "visualFormat": "Grafik simulyator",
+      "interaction": "Haroratni o‘zgartirib qancha modda erishini ko‘rish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Hisoblash"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Eruvchanlik grafigi va to‘yingan eritma simulyatori",
+      "mappingLogic": "Harorat–eruvchanlik bog‘ini grafik/sonli ko‘rish.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "11.13",
+      "grade": "11-sinf",
+      "title": "Foiz konsentratsiya",
+      "source": "4-bob, 15-17-§, 73-84-betlar",
+      "conceptsText": "Massa ulushi, eritma massasi, hajm va zichlik",
+      "visualFormat": "Eritma tayyorlash simulyatori",
+      "interaction": "Suv va modda miqdorini o‘zgartirib foizni hisoblash",
+      "primaryPracticeType": "Hisoblash",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Foiz konsentratsiyali eritma tayyorlash virtual amaliyoti",
+      "mappingLogic": "Suv/modda miqdori bilan realistik hisoblash amaliyoti.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "11.14",
+      "grade": "11-sinf",
+      "title": "Molyar va normal konsentratsiya hamda bog‘lanishlar",
+      "source": "4-bob, 18-21-§, 85-97-betlar",
+      "conceptsText": "CM, CN, foiz bilan bog‘lanish",
+      "visualFormat": "Konsentratsiya konvertori",
+      "interaction": "Bir birlikdan boshqasiga o‘tish",
+      "primaryPracticeType": "Hisoblash",
+      "secondaryPracticeTypes": [
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Molyar/normal konsentratsiya konvertori va masalalar",
+      "mappingLogic": "Konsentratsiya birliklari orasidagi bog‘lanishni mashq qiladi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "11.15",
+      "grade": "11-sinf",
+      "title": "Reaksiya tezligi",
+      "source": "5-bob, 22-§, 98-103-betlar",
+      "conceptsText": "Tezlik, konsentratsiyaning vaqt bo‘yicha o‘zgarishi",
+      "visualFormat": "Grafik animatsiya",
+      "interaction": "Reagent sarfi va mahsulot hosil bo‘lish grafigini ko‘rish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Hisoblash"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Reagent sarfi–mahsulot hosil bo‘lish tezlik grafigi",
+      "mappingLogic": "Tezlikni grafik va sonli tahlil qilish.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "11.16",
+      "grade": "11-sinf",
+      "title": "Bosim, hajm, harorat va katalizatorning reaksiya tezligiga ta’siri",
+      "source": "5-bob, 23-§, 104-108-betlar",
+      "conceptsText": "Ta’sir omillari, katalizator",
+      "visualFormat": "Ko‘p omilli simulyator",
+      "interaction": "Slayderlar bilan tezlik grafigini o‘zgartirish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Lab"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "T, P, V, katalizator omillarini o‘zgartirish virtual tajribasi",
+      "mappingLogic": "Ko‘p omilli tezlik tajribasi katalogda yo‘q.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "11.17",
+      "grade": "11-sinf",
+      "title": "Qaytar va qaytmas reaksiyalar. Kimyoviy muvozanat",
+      "source": "6-bob, 25-§, 112-115-betlar",
+      "conceptsText": "Qaytar reaksiya, dinamik muvozanat",
+      "visualFormat": "Zarrachalar animatsiyasi",
+      "interaction": "Oldinga va teskari tezliklarning tenglashishini ko‘rish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Oldinga/teskari reaksiya va dinamik muvozanat modeli",
+      "mappingLogic": "Qaytar reaksiya zarracha va tezlik grafigi bilan ko‘rsatiladi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "11.18",
+      "grade": "11-sinf",
+      "title": "Kimyoviy muvozanatga ta’sir etuvchi omillar",
+      "source": "6-bob, 26-§, 116-120-betlar",
+      "conceptsText": "Le-Shatele prinsipi, bosim, harorat, konsentratsiya",
+      "visualFormat": "Muvozanat slayderlari",
+      "interaction": "Sharoitni o‘zgartirib siljishni aniqlash",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Case"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Le-Shatele: sharoit o‘zgarishi bo‘yicha muvozanat case’i",
+      "mappingLogic": "Sharoit tanlab siljishni bashorat qilish amaliyoti.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "11.19",
+      "grade": "11-sinf",
+      "title": "Oksidlanish-qaytarilish reaksiyalarini yarim reaksiya usuli bilan tenglashtirish",
+      "source": "7-bob, 28-§, 127-131-betlar",
+      "conceptsText": "Elektron-ion balans, yarim reaksiyalar",
+      "visualFormat": "Bosqichli redoks trenajyori",
+      "interaction": "Elektronlarni tenglashtirib umumiy tenglama yaratish",
+      "primaryPracticeType": "Trenajyor",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Yarim reaksiya usuli bilan redoks balanslash",
+      "mappingLogic": "Elektron balansni bosqichma-bosqich mashq qilish kerak.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "11.20",
+      "grade": "11-sinf",
+      "title": "Redoks reaksiyalarining eritma muhitiga bog‘liqligi",
+      "source": "7-bob, 29-30-§, 132-138-betlar",
+      "conceptsText": "Kislotali, neytral, ishqoriy muhit; ekvivalent og‘irlik",
+      "visualFormat": "Muhitga bog‘liq reaksiya simulyatori",
+      "interaction": "Muhitni tanlab mahsulot o‘zgarishini ko‘rish",
+      "primaryPracticeType": "Simulyatsiya",
+      "secondaryPracticeTypes": [
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [],
+      "existingPracticeNames": [],
+      "coverage": "Yangi kerak",
+      "proposedPractice": "Kislotali/neytral/ishqoriy muhitda redoks mahsulotlari simulyatsiyasi",
+      "mappingLogic": "Muhit mahsulotga ta’sirini interaktiv ko‘rsatish kerak.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "11.21",
+      "grade": "11-sinf",
+      "title": "Elektroliz: eritma va suyuqlanma",
+      "source": "8-bob, 31-§, 139-143-betlar",
+      "conceptsText": "Katod, anod, eritma, suyuqlanma",
+      "visualFormat": "Elektroliz qurilmasi simulyatori",
+      "interaction": "Elektrolit va elektrod turini tanlab mahsulotlarni kuzatish",
+      "primaryPracticeType": "Lab",
+      "secondaryPracticeTypes": [
+        "Simulyatsiya",
+        "Trenajyor"
+      ],
+      "existingPracticeIds": [
+        "11.2"
+      ],
+      "existingPracticeNames": [
+        "Platforma uchun demonstratsion tajriba nomzodi: elektroliz"
+      ],
+      "coverage": "Mavjud",
+      "proposedPractice": "CuCl2 elektrolizi: katod/anod va ion migratsiyasi",
+      "mappingLogic": "11.2 aynan elektroliz demonstratsion tajribasi sifatida mos.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "11.22",
+      "grade": "11-sinf",
+      "title": "Elektroliz qonunlari",
+      "source": "8-bob, 32-§, 144-148-betlar",
+      "conceptsText": "Faradey qonuni, tok, vaqt, massa",
+      "visualFormat": "Tok-vaqt kalkulyatori va grafik",
+      "interaction": "Tok kuchi va vaqtni o‘zgartirib ajralgan massani ko‘rish",
+      "primaryPracticeType": "Hisoblash",
+      "secondaryPracticeTypes": [
+        "Lab",
+        "Simulyatsiya"
+      ],
+      "existingPracticeIds": [
+        "11.2"
+      ],
+      "existingPracticeNames": [
+        "Platforma uchun demonstratsion tajriba nomzodi: elektroliz"
+      ],
+      "coverage": "Qisman mavjud",
+      "proposedPractice": "Faradey qonunlari: tok–vaqt–massa kalkulyatori",
+      "mappingLogic": "11.2 jarayon kontekstini beradi, qonunlarni hisoblash faoliyati bilan bog‘lash kerak.",
+      "baseFile": "KimyoLab_v19.html"
+    }
+  ],
+  "practices": [
+    {
+      "legacyId": "7.1",
+      "grade": "7-sinf",
+      "title": "Laboratoriya shtativi, spirt lampa, gaz gorelkalari va elektr isitgich bilan ishlash",
+      "source": "7-sinf darsligi, 16–19-betlar",
+      "catalogType": "Amaliy mashg‘ulot",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "7.01"
+      ],
+      "linkedTheoryTitles": [
+        "Kimyo fani va uning vazifalari"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Laboratoriya idishlari bilan tanishing: probirka, kolba, stakan, voronka, pipetka, chinni hovoncha va dastacha, tigel, qoshiqcha yoki shpatel, bug‘latish kosachasi, Byuxner voronkasi vazifalarini farqlang.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.2",
+      "grade": "7-sinf",
+      "title": "Aralashmalar tarkibidan sof moddani ajratish: ifloslangan osh tuzini tozalash",
+      "source": "7-sinf darsligi, 24–25-betlar",
+      "catalogType": "Amaliy mashg‘ulot",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "7.03",
+        "7.21"
+      ],
+      "linkedTheoryTitles": [
+        "Sof modda va aralashmalar",
+        "Suv: tarkibi, aylanishi, xossalari, neytrallanish va tozalash"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "20 ml distillangan suvga ifloslangan osh tuzidan oz-ozdan soling va shisha tayoqcha bilan aralashtiring. Tuz erimay qolguncha davom eting.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.3",
+      "grade": "7-sinf",
+      "title": "Kundalik hayotdagi kimyoviy jarayonlarni kuzatish va tavsiflash",
+      "source": "7-sinf darsligi, 31–32-betlar",
+      "catalogType": "Amaliy mashg‘ulot",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "7.02",
+        "7.05",
+        "7.13"
+      ],
+      "linkedTheoryTitles": [
+        "Modda va uning xossalari",
+        "Fizik va kimyoviy hodisalar",
+        "Oddiy va murakkab moddalar"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Siyoh dog‘ini tozalashning 1-usuli: dog‘ ustiga oq tish pastasini surting, eski tish cho‘tkasi bilan aylana harakatda ishqalang va issiq suv bilan yuving.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.4",
+      "grade": "7-sinf",
+      "title": "Birikmalardagi elementlarning valentliklarini aniqlash",
+      "source": "7-sinf darsligi, 63–64-betlar",
+      "catalogType": "Amaliy mashg‘ulot / trenajyor asosidagi topshiriq",
+      "mappingType": "Trenajyor",
+      "linkedTheoryIds": [
+        "7.11"
+      ],
+      "linkedTheoryTitles": [
+        "Kimyoviy formula va valentlik"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Berilgan modda formulasidagi element belgilarini aniqlang.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.5",
+      "grade": "7-sinf",
+      "title": "Kimyoviy formulalar asosida hisoblashga oid masalalar",
+      "source": "7-sinf darsligi, 65–66-betlar",
+      "catalogType": "Amaliy mashg‘ulot / hisoblash trenajyori",
+      "mappingType": "Hisoblash",
+      "linkedTheoryIds": [
+        "7.12",
+        "7.14"
+      ],
+      "linkedTheoryTitles": [
+        "Molekula va nisbiy molekulyar massa",
+        "Modda miqdori, Avogadro doimiysi va molyar massa"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Berilgan formuladan moddadagi elementlar sonini va sifat tarkibini aniqlang.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.6",
+      "grade": "7-sinf",
+      "title": "Suvning agregat holatlari o‘zgarishini kuzatish",
+      "source": "7-sinf darsligi, 27-bet",
+      "catalogType": "Qo‘shimcha tajriba",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "7.04",
+        "7.05",
+        "7.21"
+      ],
+      "linkedTheoryTitles": [
+        "Moddalarning agregat holatining o‘zgarishi",
+        "Fizik va kimyoviy hodisalar",
+        "Suv: tarkibi, aylanishi, xossalari, neytrallanish va tozalash"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "100 ml suvni stakanga quying, keyin boshqa shakldagi 50 ml stakanga o‘tkazing va suyuqlik shaklining idishga moslashishini kuzating.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.7",
+      "grade": "7-sinf",
+      "title": "Alanga tuzilishi va moddalarning kislorodda yonishi",
+      "source": "7-sinf darsligi, 100–101-betlar",
+      "catalogType": "Amaliy mashg‘ulot",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "7.05",
+        "7.15",
+        "7.19"
+      ],
+      "linkedTheoryTitles": [
+        "Fizik va kimyoviy hodisalar",
+        "Kimyoviy reaksiya tenglamalarini tuzish",
+        "Kislorod: xossalari, yonish, ozon va oksidlar"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Spirt lampani yoqing va alangani to‘g‘ri o‘chiring. Alanganing pastki, o‘rta va yuqori qismlarini kuzating.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.8",
+      "grade": "7-sinf",
+      "title": "Vodorodning olinishi va uning xossalarini sinash",
+      "source": "7-sinf darsligi, 115–116-betlar",
+      "catalogType": "Amaliy mashg‘ulot",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "7.15",
+        "7.20"
+      ],
+      "linkedTheoryTitles": [
+        "Kimyoviy reaksiya tenglamalarini tuzish",
+        "Vodorod, kislotalar va kislotali yomg‘ir"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Apparatga 2–3 bo‘lak metall soling, mahkam yoping va zichligini tekshiring.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.9",
+      "grade": "7-sinf",
+      "title": "Kislotalarning olinishi va xossalari",
+      "source": "7-sinf darsligi, 122–123-betlar",
+      "catalogType": "Amaliy mashg‘ulot",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "7.15",
+        "7.20"
+      ],
+      "linkedTheoryTitles": [
+        "Kimyoviy reaksiya tenglamalarini tuzish",
+        "Vodorod, kislotalar va kislotali yomg‘ir"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "NaCl ga H2SO4 ta’sir ettirib va ehtiyotkor qizdirib HCl gazini oling. Gazni suvga yuttirib xlorid kislota hosil qiling.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.10",
+      "grade": "7-sinf",
+      "title": "Kislotalarning metallar bilan o‘zaro ta’siri",
+      "source": "7-sinf darsligi, 124–125-betlar",
+      "catalogType": "Amaliy mashg‘ulot",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "7.15",
+        "7.20"
+      ],
+      "linkedTheoryTitles": [
+        "Kimyoviy reaksiya tenglamalarini tuzish",
+        "Vodorod, kislotalar va kislotali yomg‘ir"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Magniy ustiga suyultirilgan H2SO4 quying, ajralgan gazni yig‘ing va gugurt alangasi bilan tekshiring.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.11",
+      "grade": "7-sinf",
+      "title": "Suvning oksidlar bilan o‘zaro ta’siri",
+      "source": "7-sinf darsligi, 140–141-betlar",
+      "catalogType": "Amaliy mashg‘ulot",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "7.15",
+        "7.21"
+      ],
+      "linkedTheoryTitles": [
+        "Kimyoviy reaksiya tenglamalarini tuzish",
+        "Suv: tarkibi, aylanishi, xossalari, neytrallanish va tozalash"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Birinchi probirkaga CaO va suv soling. Oqartiruvchi suspenziya yoki ishqoriy muhit hosil bo‘lishini kuzating.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.12",
+      "grade": "7-sinf",
+      "title": "Suvning fizik xossalarini o‘rganish",
+      "source": "7-sinf darsligi, 135–136-betlar",
+      "catalogType": "Qo‘shimcha tajribalar majmuasi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "7.02",
+        "7.04",
+        "7.21"
+      ],
+      "linkedTheoryTitles": [
+        "Modda va uning xossalari",
+        "Moddalarning agregat holatining o‘zgarishi",
+        "Suv: tarkibi, aylanishi, xossalari, neytrallanish va tozalash"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Tiniqlikni tekshirish: turli suv namunalarini silindrga quying va tagidagi matn ko‘rinishini taqqoslang.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.13",
+      "grade": "7-sinf",
+      "title": "Olma tarkibini aniqlash",
+      "source": "7-sinf darsligi, 162-bet",
+      "catalogType": "Amaliy tajriba",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "7.22"
+      ],
+      "linkedTheoryTitles": [
+        "Tirik organizmlardagi elementlar, oqsil, yog‘, uglevod, vitamin va minerallar"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Uch xil olma sharbatining kislotaliligini universal indikator yordamida taqqoslang.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "7.14",
+      "grade": "7-sinf",
+      "title": "Ekologik izni kamaytirish",
+      "source": "7-sinf darsligi, 173–174-betlar",
+      "catalogType": "Amaliy mashg‘ulot",
+      "mappingType": "Case",
+      "linkedTheoryIds": [
+        "7.18",
+        "7.21",
+        "7.23"
+      ],
+      "linkedTheoryTitles": [
+        "Havo tarkibi va havoning ifloslanishi",
+        "Suv: tarkibi, aylanishi, xossalari, neytrallanish va tozalash",
+        "Foydali qazilmalar, konlar va ekologik aspektlar"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Oynaning ikki qismini alohida tozalang: bir tomonini sirka, ikkinchi tomonini maxsus oyna tozalagich bilan arting. Natijani taqqoslang.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.1",
+      "grade": "8-sinf",
+      "title": "“Galogenlar” mavzusi bo‘yicha tajribaviy masalalar yechish",
+      "source": "8-sinf darsligi, 124-bet",
+      "catalogType": "1-amaliy ish",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "8.14",
+        "8.16"
+      ],
+      "linkedTheoryTitles": [
+        "Oksidlanish-qaytarilish reaksiyalari va tenglamalarni tuzish",
+        "Galogenlar: atom tuzilishi, xlor, HCl, xlorid kislota, ftor, brom va yod"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Xlorid kislota tarkibida vodorod va xlor ionlari mavjudligini tajriba yo‘li bilan isbotlang.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.2",
+      "grade": "8-sinf",
+      "title": "“Oltingugurt” mavzusi bo‘yicha tajribaviy masalalar yechish",
+      "source": "8-sinf darsligi, 151-bet",
+      "catalogType": "2-amaliy ish",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "8.18",
+        "8.21"
+      ],
+      "linkedTheoryTitles": [
+        "Kislorod guruhchasi va oltingugurt birikmalari",
+        "Sulfat kislota ishlab chiqarish"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Berilgan modda sulfat kislota ekanini tajriba yo‘li bilan isbotlang.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.3",
+      "grade": "8-sinf",
+      "title": "Ammiak olish va u bilan tajribalar o‘tkazish",
+      "source": "8-sinf darsligi, 170–171-betlar",
+      "catalogType": "3-amaliy ish",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "8.22"
+      ],
+      "linkedTheoryTitles": [
+        "Azot, ammiak va azotning kislorodli birikmalari"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Apparatni darslikdagi sxema asosida yig‘ing.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.4",
+      "grade": "8-sinf",
+      "title": "“Azot” guruhchasi elementlari mavzusiga oid tajribaviy masalalar",
+      "source": "8-sinf darsligi, 184-bet",
+      "catalogType": "4-amaliy ish",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "8.22",
+        "8.23"
+      ],
+      "linkedTheoryTitles": [
+        "Azot, ammiak va azotning kislorodli birikmalari",
+        "Fosfor va uning kislorodli birikmalari"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "NH4Cl kristallari bilan ohak kukuni aralashmasini probirkaning 1/3 qismigacha soling, ohista qizdiring va olingan gazning ammiak ekanini isbotlang.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.5",
+      "grade": "8-sinf",
+      "title": "Mineral o‘g‘itlarni aniqlash",
+      "source": "8-sinf darsligi, 197-bet",
+      "catalogType": "5-amaliy ish",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "8.24"
+      ],
+      "linkedTheoryTitles": [
+        "Mineral o‘g‘itlar va biogen elementlar"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "1-variant: KNO3, NH4NO3 va superfosfat solingan probirkalarni aniqlang.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.6",
+      "grade": "8-sinf",
+      "title": "Rux gidroksidning olinishi, unga kislota va ishqor ta’siri",
+      "source": "8-sinf darsligi, 200-bet",
+      "catalogType": "1-laboratoriya ishi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "8.01"
+      ],
+      "linkedTheoryTitles": [
+        "Dastlabki kimyoviy tushunchalar va noorganik birikmalarning asosiy sinflari"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Probirkaga 1–2 ml 5% NaOH eritmasi quying.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.7",
+      "grade": "8-sinf",
+      "title": "Turli kimyoviy bog‘lanishli moddalar kristall panjaralari modellarini tayyorlash",
+      "source": "8-sinf darsligi, 200–201-betlar",
+      "catalogType": "2-laboratoriya ishi",
+      "mappingType": "Simulyatsiya",
+      "linkedTheoryIds": [
+        "8.10",
+        "8.11",
+        "8.12"
+      ],
+      "linkedTheoryTitles": [
+        "Qutbli va qutbsiz kovalent bog‘lanish",
+        "Ionli bog‘lanish",
+        "Kristall panjaralar"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "KCl ning ion bog‘lanishli modda ekanini aniqlang va ion bog‘lanishli moddalarga misollar keltiring.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.8",
+      "grade": "8-sinf",
+      "title": "Xlorid kislota, galogenidlar va yod uchun sifat reaksiyalari",
+      "source": "8-sinf darsligi, 201-bet",
+      "catalogType": "3-laboratoriya ishi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "8.16"
+      ],
+      "linkedTheoryTitles": [
+        "Galogenlar: atom tuzilishi, xlor, HCl, xlorid kislota, ftor, brom va yod"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Daftarga reagentlar jadvalini ko‘chiring.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.9",
+      "grade": "8-sinf",
+      "title": "Tuproq eritmasi tarkibida xloridlar borligini aniqlash",
+      "source": "8-sinf darsligi, 201-bet",
+      "catalogType": "4-laboratoriya ishi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "8.16"
+      ],
+      "linkedTheoryTitles": [
+        "Galogenlar: atom tuzilishi, xlor, HCl, xlorid kislota, ftor, brom va yod"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Maktab tajriba maydonidan olingan tuproqni suv bilan aralashtiring.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.10",
+      "grade": "8-sinf",
+      "title": "Galogenlarning birikmalar eritmalaridan bir-birini siqib chiqarishi",
+      "source": "8-sinf darsligi, 202-bet",
+      "catalogType": "5-laboratoriya ishi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "8.14",
+        "8.16"
+      ],
+      "linkedTheoryTitles": [
+        "Oksidlanish-qaytarilish reaksiyalari va tenglamalarni tuzish",
+        "Galogenlar: atom tuzilishi, xlor, HCl, xlorid kislota, ftor, brom va yod"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Jadvalni daftarga ko‘chiring.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.11",
+      "grade": "8-sinf",
+      "title": "Galogenlarning suvda va organik erituvchilarda erishi",
+      "source": "8-sinf darsligi, 202-bet",
+      "catalogType": "6-laboratoriya ishi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "8.16"
+      ],
+      "linkedTheoryTitles": [
+        "Galogenlar: atom tuzilishi, xlor, HCl, xlorid kislota, ftor, brom va yod"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Probirkaga 3–4 bo‘lak yod kristali soling va 1–2 ml suv qo‘shib aralashtiring.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.12",
+      "grade": "8-sinf",
+      "title": "Oltingugurt va uning tabiiy birikmalari namunalari bilan tanishish",
+      "source": "8-sinf darsligi, 203-bet",
+      "catalogType": "7-laboratoriya ishi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "8.15",
+        "8.18"
+      ],
+      "linkedTheoryTitles": [
+        "Metallmaslarning umumiy xossalari",
+        "Kislorod guruhchasi va oltingugurt birikmalari"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Oltingugurt, pirit, rux aldamasi va gips namunalarini ko‘zdan kechiring.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.13",
+      "grade": "8-sinf",
+      "title": "Turli eritmalarda sulfat ioni borligini aniqlash",
+      "source": "8-sinf darsligi, 203-bet",
+      "catalogType": "8-laboratoriya ishi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "8.18"
+      ],
+      "linkedTheoryTitles": [
+        "Kislorod guruhchasi va oltingugurt birikmalari"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "To‘rtta probirkaga H2SO4, Na2SO4, CuSO4 va Al2(SO4)3 eritmalaridan 2–3 ml quying.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.14",
+      "grade": "8-sinf",
+      "title": "Ammoniy tuziga so‘ndirilgan ohak ta’sir ettirib ammiak olish",
+      "source": "8-sinf darsligi, 203–204-betlar",
+      "catalogType": "9-laboratoriya ishi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "8.22"
+      ],
+      "linkedTheoryTitles": [
+        "Azot, ammiak va azotning kislorodli birikmalari"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "NH4Cl va so‘ndirilgan ohakning 1,5:1 massa nisbatidagi aralashmasini probirkaga soling va gaz o‘tkazgich nayli tiqin bilan yoping.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "8.15",
+      "grade": "8-sinf",
+      "title": "Mineral o‘g‘itlar namunalari bilan tanishish",
+      "source": "8-sinf darsligi, 204-bet",
+      "catalogType": "10-laboratoriya ishi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "8.24"
+      ],
+      "linkedTheoryTitles": [
+        "Mineral o‘g‘itlar va biogen elementlar"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "O‘qituvchi bergan mineral o‘g‘it namunalarini diqqat bilan ko‘zdan kechiring.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.1",
+      "grade": "9-sinf",
+      "title": "Uglerod(IV)-oksid hosil qilish va uning xossalari bilan tanishish",
+      "source": "9-sinf darsligi, 192–193-betlar",
+      "catalogType": "1-amaliy ish",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "9.07",
+        "9.09"
+      ],
+      "linkedTheoryTitles": [
+        "Uglerod guruhidagi elementlarning umumiy tavsifi",
+        "Uglerodning eng muhim birikmalari"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Probirkaga bo‘r yoki marmar bo‘laklari soling va ozgina suyultirilgan HCl quying.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.2",
+      "grade": "9-sinf",
+      "title": "“Ishqoriy metallar” va “Kalsiy” mavzulari bo‘yicha tajribaviy masalalar",
+      "source": "9-sinf darsligi, 193–194-betlar",
+      "catalogType": "2-amaliy ish",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "9.16",
+        "9.17",
+        "9.18"
+      ],
+      "linkedTheoryTitles": [
+        "Ishqoriy metallar, natriy va kaliy birikmalari",
+        "Soda ishlab chiqarish",
+        "Kalsiy, magniy va suvning qattiqligi"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "NaCl, NaOH, Na2CO3 va NaNO3 solingan to‘rtta raqamlangan probirkani aniqlang.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.3",
+      "grade": "9-sinf",
+      "title": "“Metallar” mavzusi bo‘yicha tajribaviy masalalar",
+      "source": "9-sinf darsligi, 194–195-betlar",
+      "catalogType": "3-amaliy ish",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "9.11",
+        "9.13",
+        "9.20"
+      ],
+      "linkedTheoryTitles": [
+        "Metallarning tarqalishi, olinishi va ishlatilishi",
+        "Metallarning fizik va kimyoviy xossalari",
+        "Mis, kumush va oltin"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "NaOH, CaCO3, Al2(SO4)3 va FeCl3 berilgan to‘rtta raqamlangan probirkani kimyoviy tajribalar bilan aniqlang.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.4",
+      "grade": "9-sinf",
+      "title": "Karbonatlar va gidrokarbonatlarning xossalari hamda o‘zaro aylanishi",
+      "source": "9-sinf darsligi, 195–196-betlar",
+      "catalogType": "1-laboratoriya ishi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "9.05",
+        "9.07",
+        "9.09"
+      ],
+      "linkedTheoryTitles": [
+        "Ion almashinish reaksiyalari",
+        "Uglerod guruhidagi elementlarning umumiy tavsifi",
+        "Uglerodning eng muhim birikmalari"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Karbonat va gidrokarbonat namunalarini darslikdagi ko‘rsatma asosida reaktivlar bilan tekshiring.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.5",
+      "grade": "9-sinf",
+      "title": "Tabiiy silikatlar namunalari bilan tanishish",
+      "source": "9-sinf darsligi, 196-bet",
+      "catalogType": "2-laboratoriya ishi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "9.07",
+        "9.10"
+      ],
+      "linkedTheoryTitles": [
+        "Uglerod guruhidagi elementlarning umumiy tavsifi",
+        "Kremniy va silikat sanoati"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Berilgan tabiiy silikat namunalarini ko‘zdan kechiring.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.6",
+      "grade": "9-sinf",
+      "title": "Shisha turlari va shishadan yasalgan mahsulotlar bilan tanishish",
+      "source": "9-sinf darsligi, 196–197-betlar",
+      "catalogType": "3-laboratoriya ishi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "9.07",
+        "9.10"
+      ],
+      "linkedTheoryTitles": [
+        "Uglerod guruhidagi elementlarning umumiy tavsifi",
+        "Kremniy va silikat sanoati"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Turli shisha namunalarini va shishadan yasalgan buyumlarni ko‘zdan kechiring.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.7",
+      "grade": "9-sinf",
+      "title": "Metallar namunalari va issiqlik o‘tkazuvchanligini ko‘zdan kechirish",
+      "source": "9-sinf darsligi, 197-bet",
+      "catalogType": "4-laboratoriya ishi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "9.13"
+      ],
+      "linkedTheoryTitles": [
+        "Metallarning fizik va kimyoviy xossalari"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Berilgan metall namunalarini ko‘zdan kechiring va nomlang.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.8",
+      "grade": "9-sinf",
+      "title": "Qotishmalar namunalari bilan tanishish",
+      "source": "9-sinf darsligi, 197–198-betlar",
+      "catalogType": "5-laboratoriya ishi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "9.12"
+      ],
+      "linkedTheoryTitles": [
+        "Qotishmalar"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Berilgan qotishma namunalarini ko‘zdan kechiring.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.9",
+      "grade": "9-sinf",
+      "title": "Tuz eritmalari bilan metallarning o‘zaro ta’siri",
+      "source": "9-sinf darsligi, 198-bet",
+      "catalogType": "6-laboratoriya ishi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "9.05",
+        "9.13",
+        "9.20"
+      ],
+      "linkedTheoryTitles": [
+        "Ion almashinish reaksiyalari",
+        "Metallarning fizik va kimyoviy xossalari",
+        "Mis, kumush va oltin"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Birinchi probirkaga AgNO3, ikkinchisiga CuSO4, uchinchisiga Pb(NO3)2 eritmasidan 2–3 ml quying.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.10",
+      "grade": "9-sinf",
+      "title": "Mis(II)-xlorid va kaliy yodid eritmalarining elektrolizi",
+      "source": "9-sinf darsligi, 198–199-betlar",
+      "catalogType": "7-laboratoriya ishi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "9.15"
+      ],
+      "linkedTheoryTitles": [
+        "Elektroliz va uning amaliy ahamiyati"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "U-simon nayning 3/4 qismigacha CuCl2 eritmasi quying. Bir tomonga mis, ikkinchi tomonga grafit elektrod tushiring. Grafitni katod, misni anod sifatida ulang.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.11",
+      "grade": "9-sinf",
+      "title": "Alyuminiyning kislota va ishqor eritmalari bilan o‘zaro ta’siri",
+      "source": "9-sinf darsligi, 199-bet",
+      "catalogType": "8-laboratoriya ishi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "9.19"
+      ],
+      "linkedTheoryTitles": [
+        "Alyuminiy va uning birikmalari"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Alyuminiy namunalarining kislota va ishqor eritmalaridagi xatti-harakatini darslik ko‘rsatmasiga muvofiq kuzating.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.12",
+      "grade": "9-sinf",
+      "title": "Alyuminiy namunalari va qotishmalari bilan tanishish",
+      "source": "9-sinf darsligi, 199-bet",
+      "catalogType": "9-laboratoriya ishi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "9.12",
+        "9.19"
+      ],
+      "linkedTheoryTitles": [
+        "Qotishmalar",
+        "Alyuminiy va uning birikmalari"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Alyuminiy va uning qotishmalari namunalarini ko‘zdan kechiring.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.13",
+      "grade": "9-sinf",
+      "title": "Alyuminiy gidroksidni olish va uning xossalari",
+      "source": "9-sinf darsligi, 199–200-betlar",
+      "catalogType": "10-laboratoriya ishi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "9.05",
+        "9.19"
+      ],
+      "linkedTheoryTitles": [
+        "Ion almashinish reaksiyalari",
+        "Alyuminiy va uning birikmalari"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Alyuminiy tuzi eritmasiga ishqor qo‘shib Al(OH)3 cho‘kmasini oling.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.14",
+      "grade": "9-sinf",
+      "title": "Alyuminiy tuzlari eritmalarining indikatorlarga ta’siri",
+      "source": "9-sinf darsligi, 200-bet",
+      "catalogType": "11-laboratoriya ishi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "9.06",
+        "9.19"
+      ],
+      "linkedTheoryTitles": [
+        "Tuzlarning gidrolizi",
+        "Alyuminiy va uning birikmalari"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Alyuminiy tuzi eritmasining indikatorga ta’sirini kuzating.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.15",
+      "grade": "9-sinf",
+      "title": "Mis(II)-gidroksidni olish va xossalarini tekshirish",
+      "source": "9-sinf darsligi, 200–201-betlar",
+      "catalogType": "12-laboratoriya ishi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "9.05",
+        "9.20"
+      ],
+      "linkedTheoryTitles": [
+        "Ion almashinish reaksiyalari",
+        "Mis, kumush va oltin"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Cu2+ tuzi eritmasiga ishqor qo‘shib Cu(OH)2 cho‘kmasini oling.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.16",
+      "grade": "9-sinf",
+      "title": "Rux gidroksidni olish va amfoter xossalarini tekshirish",
+      "source": "9-sinf darsligi, 201–202-betlar",
+      "catalogType": "13-laboratoriya ishi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "9.05",
+        "9.21"
+      ],
+      "linkedTheoryTitles": [
+        "Ion almashinish reaksiyalari",
+        "II guruh yonaki guruhcha elementlari"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Zn2+ tuzi eritmasiga ishqor qo‘shib Zn(OH)2 cho‘kmasini oling.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.17",
+      "grade": "9-sinf",
+      "title": "Xrom(II), xrom(III) va xrom(VI) birikmalari bilan tajribalar",
+      "source": "9-sinf darsligi, 202-bet",
+      "catalogType": "14-laboratoriya ishi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "9.22"
+      ],
+      "linkedTheoryTitles": [
+        "Xrom va uning II, III, VI valentli birikmalari"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Darslikda berilgan xrom birikmalari eritmalarining ranglarini kuzating.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.18",
+      "grade": "9-sinf",
+      "title": "Temir(II) va temir(III)-gidroksidlarni olish",
+      "source": "9-sinf darsligi, 203-bet",
+      "catalogType": "15-laboratoriya ishi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "9.05",
+        "9.24"
+      ],
+      "linkedTheoryTitles": [
+        "Ion almashinish reaksiyalari",
+        "Temir va eng muhim birikmalari"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Fe2+ tuzi eritmasiga ishqor qo‘shib Fe(OH)2 cho‘kmasini oling.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.19",
+      "grade": "9-sinf",
+      "title": "Temir(II) va temir(III) tuzlarini aniqlash",
+      "source": "9-sinf darsligi, 203–204-betlar",
+      "catalogType": "16-laboratoriya ishi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "9.24"
+      ],
+      "linkedTheoryTitles": [
+        "Temir va eng muhim birikmalari"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Temir(II) va temir(III) tuzlari eritmalariga darslikda ko‘rsatilgan sifat reaktivlarini qo‘shing.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "9.20",
+      "grade": "9-sinf",
+      "title": "Cho‘yan va po‘lat namunalari bilan tanishish",
+      "source": "9-sinf darsligi, 204-bet",
+      "catalogType": "17-laboratoriya ishi",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "9.12",
+        "9.25"
+      ],
+      "linkedTheoryTitles": [
+        "Qotishmalar",
+        "Cho‘yan va po‘lat ishlab chiqarish"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Cho‘yan va po‘lat namunalarini tashqi ko‘rinish bo‘yicha ko‘zdan kechiring.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.1",
+      "grade": "10-sinf",
+      "title": "Organik birikmalar namunalari bilan tanishish va qiyoslash",
+      "source": "10-sinf darsligi, 35–36-betlar",
+      "catalogType": "1.9-amaliy mashg‘ulot",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "10.01",
+        "10.05"
+      ],
+      "linkedTheoryTitles": [
+        "Organik kimyo tarixi va organik birikmalarning o‘ziga xos xususiyatlari",
+        "Organik birikmalarning sinflanishi"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Organik moddalar namunalarining tashqi ko‘rinishi, suvda eruvchanligi va zichligini taqqoslang.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.2",
+      "grade": "10-sinf",
+      "title": "Organik birikmalar tarkibini tahlil qilish",
+      "source": "10-sinf darsligi, 37–38-betlar",
+      "catalogType": "1.10-amaliy mashg‘ulot",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "10.01",
+        "10.02"
+      ],
+      "linkedTheoryTitles": [
+        "Organik kimyo tarixi va organik birikmalarning o‘ziga xos xususiyatlari",
+        "Organik birikmalar tuzilish nazariyasi"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Tekshiriluvchi organik modda va CuO aralashmasini qizdiring.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.3",
+      "grade": "10-sinf",
+      "title": "Etilenning olinishi va xossalarini o‘rganish",
+      "source": "10-sinf darsligi, 62-bet",
+      "catalogType": "2.9-amaliy mashg‘ulot",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "10.06",
+        "10.12"
+      ],
+      "linkedTheoryTitles": [
+        "Organik reaksiyalar turlari",
+        "Alkenlar"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Probirkaga 2–3 ml etanol va 6–9 ml konsentrlangan H2SO4 qo‘shing, bir oz qum soling va ehtiyotkor qizdiring. Etilen gazini oling.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.4",
+      "grade": "10-sinf",
+      "title": "Uglevodorodlarning shar-sterjenli va masshtabli modellarini yasash",
+      "source": "10-sinf darsligi, 95–96-betlar",
+      "catalogType": "2.21-amaliy mashg‘ulot",
+      "mappingType": "Simulyatsiya",
+      "linkedTheoryIds": [
+        "10.02",
+        "10.03",
+        "10.04",
+        "10.08",
+        "10.09"
+      ],
+      "linkedTheoryTitles": [
+        "Organik birikmalar tuzilish nazariyasi",
+        "Uglerodning valentligi va oksidlanish darajasi",
+        "Izomeriya va uning turlari",
+        "Alkanlar va gomologik qator",
+        "Alkanlar izomeriyasi va nomlanishi"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Variant bo‘yicha uglevodorod molekulasini tanlang.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.5",
+      "grade": "10-sinf",
+      "title": "Ko‘p atomli spirtlarga oid tajribalar",
+      "source": "10-sinf darsligi, 122–123-betlar",
+      "catalogType": "3.5-amaliy mashg‘ulot",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "10.06",
+        "10.18"
+      ],
+      "linkedTheoryTitles": [
+        "Organik reaksiyalar turlari",
+        "Ko‘p atomli spirtlar: etilenglikol va glitserin"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "CuSO4 eritmasi va ishqor yordamida yangi Cu(OH)2 cho‘kmasini tayyorlang.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.6",
+      "grade": "10-sinf",
+      "title": "Spirtlar va aldegidlarga xos reaksiyalar",
+      "source": "10-sinf darsligi, 136-bet",
+      "catalogType": "3.10-amaliy mashg‘ulot",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "10.06",
+        "10.17",
+        "10.21"
+      ],
+      "linkedTheoryTitles": [
+        "Organik reaksiyalar turlari",
+        "Bir atomli spirtlar",
+        "Aldegidlar va ketonlar"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Cu(OH)2 cho‘kmasiga glitserin qo‘shing va to‘q ko‘k eritma hosil bo‘lishini kuzating.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.7",
+      "grade": "10-sinf",
+      "title": "O‘simliklar tarkibidagi murakkab efirlar",
+      "source": "10-sinf darsligi, 150–151-betlar",
+      "catalogType": "3.15-amaliy mashg‘ulot",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "10.06",
+        "10.23"
+      ],
+      "linkedTheoryTitles": [
+        "Organik reaksiyalar turlari",
+        "Murakkab efirlar"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Hidli o‘simlik qismlarini suv bilan haydash moslamasiga joylashtiring.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.8",
+      "grade": "10-sinf",
+      "title": "Yog‘lardan sovun olish",
+      "source": "10-sinf darsligi, 155-bet",
+      "catalogType": "3.17-amaliy mashg‘ulot",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "10.06",
+        "10.24"
+      ],
+      "linkedTheoryTitles": [
+        "Organik reaksiyalar turlari",
+        "Yog‘lar"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Yog‘ namunasi va ishqorni darslikdagi nisbatda aralashtiring.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.9",
+      "grade": "10-sinf",
+      "title": "Uglevodlarga oid tajribalar",
+      "source": "10-sinf darsligi, 167–168-betlar",
+      "catalogType": "3.21-amaliy mashg‘ulot",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "10.06",
+        "10.25"
+      ],
+      "linkedTheoryTitles": [
+        "Organik reaksiyalar turlari",
+        "Uglevodlar: mono-, di- va polisaxaridlar"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Uzum sharbati yoki glyukozaga CuSO4 va NaOH qo‘shib, so‘ng qizdiring. Rang va cho‘kma o‘zgarishini kuzating.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.10",
+      "grade": "10-sinf",
+      "title": "Organik birikmalarni xos reaksiyalar asosida aniqlash",
+      "source": "10-sinf darsligi, 173–174-betlar",
+      "catalogType": "3.23-amaliy mashg‘ulot",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "10.05",
+        "10.06",
+        "10.10",
+        "10.19",
+        "10.21",
+        "10.22"
+      ],
+      "linkedTheoryTitles": [
+        "Organik birikmalarning sinflanishi",
+        "Organik reaksiyalar turlari",
+        "Alkanlarning olinishi, xossalari va ishlatilishi",
+        "Fenollar va aromatik spirtlar",
+        "Aldegidlar va ketonlar",
+        "Karbon kislotalar"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Uch noma’lum namuna: sirka kislotasi, glitserin va glyukozani oling.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "10.11",
+      "grade": "10-sinf",
+      "title": "Qog‘ozni qayta ishlash",
+      "source": "10-sinf darsligi, 189–190-betlar",
+      "catalogType": "4.3-amaliy mashg‘ulot",
+      "mappingType": "Case",
+      "linkedTheoryIds": [
+        "10.26",
+        "10.27"
+      ],
+      "linkedTheoryTitles": [
+        "Tabiiy va sun’iy tolalar",
+        "Organik sanoat, chiqindilar va qayta ishlash"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Qog‘ozni mayda bo‘laklarga bo‘ling, stakanga joylashtiring, ustidan issiq suv quying va 2–3 soatga qoldiring.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "11.1",
+      "grade": "11-sinf",
+      "title": "Alohida laboratoriya va amaliy mashg‘ulotlar bo‘yicha xulosa",
+      "source": "",
+      "catalogType": "",
+      "mappingType": "Case",
+      "linkedTheoryIds": [
+        "11.01",
+        "11.02",
+        "11.03",
+        "11.04",
+        "11.05",
+        "11.06",
+        "11.07",
+        "11.08",
+        "11.09",
+        "11.10",
+        "11.11",
+        "11.12",
+        "11.13",
+        "11.14",
+        "11.15",
+        "11.16",
+        "11.17",
+        "11.18",
+        "11.19",
+        "11.20",
+        "11.21",
+        "11.22"
+      ],
+      "linkedTheoryTitles": [
+        "Atom tuzilishi",
+        "Davriy qonun va D.I. Mendeleyev davriy sistemasi",
+        "Atom tarkibi va yadro reaksiyalari",
+        "Kimyoviy bog‘lanish turlari va kristall panjaralar",
+        "Modda miqdori",
+        "Avogadro qonuni va gazlar aralashmasi",
+        "Ekvivalent",
+        "Mendeleyev-Klapeyron tenglamasi",
+        "Kuchli va kuchsiz elektrolitlar",
+        "Dissotsiatsiyalanish darajasi va ionli tenglamalar",
+        "Tuzlar gidrolizi va eritma muhiti",
+        "Eritma va eruvchanlik",
+        "Foiz konsentratsiya",
+        "Molyar va normal konsentratsiya hamda bog‘lanishlar",
+        "Reaksiya tezligi",
+        "Bosim, hajm, harorat va katalizatorning reaksiya tezligiga ta’siri",
+        "Qaytar va qaytmas reaksiyalar. Kimyoviy muvozanat",
+        "Kimyoviy muvozanatga ta’sir etuvchi omillar",
+        "Oksidlanish-qaytarilish reaksiyalarini yarim reaksiya usuli bilan tenglashtirish",
+        "Redoks reaksiyalarining eritma muhitiga bog‘liqligi",
+        "Elektroliz: eritma va suyuqlanma",
+        "Elektroliz qonunlari"
+      ],
+      "mappingStatus": "Reklassifikatsiya kerak",
+      "goal": "Alohida laboratoriya va amaliy mashg‘ulotlar bo‘yicha xulosa",
+      "note": "Bu band real amaliy faoliyat emas, 11-sinf bo‘yicha umumlashtiruvchi xulosa/placeholder. Uni 62 ta amaliy mashg‘ulot qatoridan chiqarish yoki yakuniy refleksiya/assessment sifatida qayta belgilash tavsiya etiladi.",
+      "baseFile": "KimyoLab_v19.html"
+    },
+    {
+      "legacyId": "11.2",
+      "grade": "11-sinf",
+      "title": "Platforma uchun demonstratsion tajriba nomzodi: elektroliz",
+      "source": "11-sinf darsligi, 138–139-betlar",
+      "catalogType": "Demonstratsion tajriba nomzodi — alohida laboratoriya ishi sifatida belgilanmagan",
+      "mappingType": "Lab",
+      "linkedTheoryIds": [
+        "11.21",
+        "11.22"
+      ],
+      "linkedTheoryTitles": [
+        "Elektroliz: eritma va suyuqlanma",
+        "Elektroliz qonunlari"
+      ],
+      "mappingStatus": "Bog‘langan",
+      "goal": "Elektrolizyorga CuCl2 eritmasini quying.",
+      "note": "Mavjud amaliy faoliyat tegishli nazariy tushunchalarga many-to-many mapping qilindi.",
+      "baseFile": "KimyoLab_v19.html"
+    }
+  ]
+}

@@ -1,0 +1,276 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kimyolab.local/schemas/practice-activity.schema.json",
+  "title": "PracticeActivity",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "type",
+    "title",
+    "goal",
+    "conceptIds",
+    "prerequisiteConceptIds",
+    "lifecycleStatus",
+    "approvals",
+    "accessibilityProfile",
+    "engineCompatibility",
+    "sourceRefs",
+    "legacyIds",
+    "version"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/practiceId"
+    },
+    "type": {
+      "enum": [
+        "experiment",
+        "simulation",
+        "trainer",
+        "calculation",
+        "case"
+      ]
+    },
+    "title": {
+      "$ref": "common.schema.json#/$defs/text"
+    },
+    "goal": {
+      "$ref": "common.schema.json#/$defs/text"
+    },
+    "conceptIds": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/conceptId"
+      },
+      "uniqueItems": true,
+      "description": "May be empty for legacy experiments whose concepts are carried by mapping links; reported as a pedagogical warning, not a schema error."
+    },
+    "prerequisiteConceptIds": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/conceptId"
+      },
+      "uniqueItems": true
+    },
+    "lifecycleStatus": {
+      "$ref": "common.schema.json#/$defs/lifecycleStatus"
+    },
+    "approvals": {
+      "$ref": "common.schema.json#/$defs/approvals"
+    },
+    "accessibilityProfile": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "keyboard",
+          "step-alternative",
+          "observation-text",
+          "specific-feedback",
+          "step-validation",
+          "evidence-list",
+          "textual-state",
+          "numeric-input",
+          "textual-feedback",
+          "text-response"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "engineCompatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "engine",
+        "range"
+      ],
+      "properties": {
+        "engine": {
+          "enum": [
+            "experiment",
+            "simulation",
+            "trainer",
+            "calculation",
+            "case"
+          ]
+        },
+        "range": {
+          "type": "string",
+          "pattern": "^\\^[0-9]+\\.[0-9]+\\.[0-9]+$"
+        }
+      }
+    },
+    "sourceRefs": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/sourceRef"
+      }
+    },
+    "legacyIds": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/legacyId"
+      },
+      "uniqueItems": true
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "legacyContent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "equipment": {
+          "type": "string"
+        },
+        "materials": {
+          "type": "string"
+        },
+        "safety": {
+          "type": "string"
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tasks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reagents": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "recommended": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "mappingStatus": {
+          "type": "string"
+        },
+        "mappingNote": {
+          "type": "string"
+        },
+        "migrationReason": {
+          "type": "string"
+        },
+        "legacyRecommendation": {
+          "type": "string"
+        },
+        "authoringReason": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "experiment"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "engineCompatibility": {
+            "properties": {
+              "engine": {
+                "const": "experiment"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "simulation"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "engineCompatibility": {
+            "properties": {
+              "engine": {
+                "const": "simulation"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "trainer"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "engineCompatibility": {
+            "properties": {
+              "engine": {
+                "const": "trainer"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "calculation"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "engineCompatibility": {
+            "properties": {
+              "engine": {
+                "const": "calculation"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "case"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "engineCompatibility": {
+            "properties": {
+              "engine": {
+                "const": "case"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

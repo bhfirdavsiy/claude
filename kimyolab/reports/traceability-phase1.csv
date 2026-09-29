@@ -1,0 +1,18 @@
+requirement,module,test,gate,status
+DATA-001,content-src/,phase1-migration.test.mjs,Phase 1,PASS
+DATA-002,scripts/import-xlsx.ts,phase1-xlsx.test.mjs,Phase 1,PASS
+DATA-003,public/content/<version>/,phase1-pack.test.mjs,Phase 1,PASS
+DATA-004,scripts/build-content-pack.ts,phase1-pack.test.mjs,Phase 1,PASS
+DATA-010,content-src/concepts.json,phase1-content.test.mjs;phase1-validation.test.mjs,Phase 1,PASS
+DATA-011,content-src/learning-units.json,phase1-migration.test.mjs;phase1-validation.test.mjs,Phase 1,PASS
+DATA-012,content-src/theory-activities.json,phase1-validation.test.mjs,Phase 1,PASS
+DATA-013,content-src/practice-activities.json,phase1-migration.test.mjs;phase1-validation.test.mjs,Phase 1,PASS
+DATA-014,content-src/mapping-links.json,phase1-validation.test.mjs,Phase 1,PASS
+VER-001,content-src/manifest.yaml,phase1-pack.test.mjs,Phase 1,PASS
+VER-002,public/content/2026.09.1/manifest.json,phase1-pack.test.mjs,Phase 1,PASS
+ID-001,src/domain/content/ids.ts,phase1-migration.test.mjs,Phase 1,PASS
+ID-003,content-src/aliases.yaml,phase1-migration.test.mjs,Phase 1,PASS
+PIPE-001,scripts/migrate-legacy.ts;import-xlsx.ts,phase1-migration.test.mjs;phase1-xlsx.test.mjs,Phase 1,PASS
+PIPE-002,scripts/migrate-legacy.ts,phase1-migration.test.mjs,Phase 1,PASS
+VAL-001,src/domain/content/validate.ts,phase1-validation.test.mjs,Phase 1,PASS
+SEC-001,server.mjs,security.test.mjs,Phase 0 carry-forward,PASS

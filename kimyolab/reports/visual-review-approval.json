@@ -1,0 +1,9 @@
+{
+  "status": "pending",
+  "reviewerId": "",
+  "reviewerRole": "Visual QA Reviewer",
+  "reviewedVersion": "",
+  "reviewedHash": "",
+  "reviewedAt": "",
+  "notes": "Run browser:gates on an unrestricted workstation first. Then review the generated screenshots and copy the exact VISUAL-001 version/hash from reports/stable-signoff-targets.json before approving."
+}

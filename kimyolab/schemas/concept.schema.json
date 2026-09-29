@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kimyolab.local/schemas/concept.schema.json",
+  "title": "Concept",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "gradeRange",
+    "prerequisiteIds",
+    "relatedConceptIds",
+    "representations",
+    "misconceptionIds",
+    "synonyms",
+    "sourceRefs"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/conceptId"
+    },
+    "name": {
+      "$ref": "common.schema.json#/$defs/text"
+    },
+    "gradeRange": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/grade"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "prerequisiteIds": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/conceptId"
+      },
+      "uniqueItems": true
+    },
+    "relatedConceptIds": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/conceptId"
+      },
+      "uniqueItems": true
+    },
+    "representations": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/representation"
+      },
+      "uniqueItems": true
+    },
+    "misconceptionIds": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/misconceptionId"
+      },
+      "uniqueItems": true
+    },
+    "synonyms": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "uz-Latn": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/text"
+          }
+        },
+        "uz-Cyrl": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/text"
+          }
+        },
+        "ru": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/text"
+          }
+        },
+        "en": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/text"
+          }
+        }
+      }
+    },
+    "sourceRefs": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/sourceRef"
+      }
+    }
+  }
+}

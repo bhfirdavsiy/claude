@@ -1,0 +1,5 @@
+{
+  "flags": ["--noUncheckedIndexedAccess"],
+  "maxErrors": 88,
+  "note": "Incremental strict migration: lower maxErrors as files are fixed; switch the flag on in tsconfig.json when it reaches 0."
+}

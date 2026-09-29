@@ -1,0 +1,529 @@
+[
+  {
+    "mappingId": "mapping.7.01.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.7.02.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.7.03.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.7.04.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.7.05.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.7.06.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.7.07.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.7.08.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.7.09.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.7.10.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.7.11.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.7.12.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.7.13.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.7.14.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.7.15.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.7.16.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.7.17.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.7.18.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.7.19.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.7.20.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.7.21.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.7.22.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.7.23.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.8.01.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.8.02.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.8.03.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.8.04.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.8.05.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.8.06.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.8.07.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.8.08.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.8.09.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.8.10.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.8.11.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.8.12.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.8.13.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.8.14.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.8.15.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.8.16.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.8.17.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.8.18.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.8.19.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.8.20.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.8.21.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.8.22.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.8.23.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.8.24.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.9.01.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.9.02.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.9.03.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.9.04.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.9.07.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.9.08.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.9.09.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.9.10.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.9.11.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.9.12.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.9.13.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.9.14.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.9.16.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.9.17.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.9.19.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.9.22.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.9.24.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.9.26.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.01.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.05.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.16.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.27.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.9.18.primary",
+    "practiceActivityId": "practice.simulation.9.18.water-hardness",
+    "coverageStatus": "full",
+    "preservePreviousAsSupporting": true,
+    "previousCoverageStatus": "partial"
+  },
+  {
+    "mappingId": "mapping.9.20.primary",
+    "practiceActivityId": "practice.simulation.9.20.cu-ag-au",
+    "coverageStatus": "full",
+    "preservePreviousAsSupporting": true,
+    "previousCoverageStatus": "partial"
+  },
+  {
+    "mappingId": "mapping.9.21.primary",
+    "practiceActivityId": "practice.simulation.9.21.group12",
+    "coverageStatus": "full",
+    "preservePreviousAsSupporting": true,
+    "previousCoverageStatus": "partial"
+  },
+  {
+    "mappingId": "mapping.9.25.primary",
+    "practiceActivityId": "practice.case.9.25.steel-process",
+    "coverageStatus": "full",
+    "preservePreviousAsSupporting": true,
+    "previousCoverageStatus": "partial"
+  },
+  {
+    "mappingId": "mapping.9.05.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.9.06.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.9.15.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.9.23.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.17.primary",
+    "practiceActivityId": "practice.simulation.10.17.monohydric-alcohols",
+    "preservePreviousAsSupporting": true,
+    "previousCoverageStatus": "partial",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.19.primary",
+    "practiceActivityId": "practice.simulation.10.19.phenols",
+    "preservePreviousAsSupporting": true,
+    "previousCoverageStatus": "partial",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.21.primary",
+    "practiceActivityId": "practice.simulation.10.21.carbonyls",
+    "preservePreviousAsSupporting": true,
+    "previousCoverageStatus": "partial",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.22.primary",
+    "practiceActivityId": "practice.experiment.10.22.carboxylic-acid",
+    "preservePreviousAsSupporting": true,
+    "previousCoverageStatus": "partial",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.23.primary",
+    "practiceActivityId": "practice.simulation.10.23.esters",
+    "preservePreviousAsSupporting": true,
+    "previousCoverageStatus": "partial",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.26.primary",
+    "practiceActivityId": "practice.trainer.10.26.fibers",
+    "preservePreviousAsSupporting": true,
+    "previousCoverageStatus": "partial",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.02.primary",
+    "practiceActivityId": "practice.simulation.10.02.structure-theory",
+    "preservePreviousAsSupporting": true,
+    "previousCoverageStatus": "partial",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.04.primary",
+    "practiceActivityId": "practice.simulation.10.04.isomerism",
+    "preservePreviousAsSupporting": true,
+    "previousCoverageStatus": "partial",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.08.primary",
+    "practiceActivityId": "practice.simulation.10.08.homologous-series",
+    "preservePreviousAsSupporting": true,
+    "previousCoverageStatus": "partial",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.03.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.06.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.07.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.09.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.10.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.11.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.12.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.13.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.14.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.15.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.18.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.20.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.24.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.10.25.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.11.01.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.11.02.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.11.03.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.11.04.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.11.05.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.11.06.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.11.07.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.11.08.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.11.09.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.11.10.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.11.11.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.11.12.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.11.13.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.11.14.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.11.15.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.11.16.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.11.17.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.11.18.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.11.19.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.11.20.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.11.21.primary",
+    "coverageStatus": "full"
+  },
+  {
+    "mappingId": "mapping.11.22.primary",
+    "coverageStatus": "full"
+  }
+]

@@ -1,0 +1,98 @@
+{
+  "gradeCoverage": [
+    {
+      "grade": "7-sinf",
+      "theoryCount": 23,
+      "available": 8,
+      "partial": 8,
+      "newNeeded": 7,
+      "practiceCount": 14,
+      "coverage": 0.6956521739130435,
+      "note": "Yangi faoliyatlar ishlab chiqish kerak"
+    },
+    {
+      "grade": "8-sinf",
+      "theoryCount": 24,
+      "available": 5,
+      "partial": 7,
+      "newNeeded": 12,
+      "practiceCount": 15,
+      "coverage": 0.5,
+      "note": "Yangi faoliyatlar ishlab chiqish kerak"
+    },
+    {
+      "grade": "9-sinf",
+      "theoryCount": 26,
+      "available": 11,
+      "partial": 7,
+      "newNeeded": 8,
+      "practiceCount": 20,
+      "coverage": 0.6923076923076923,
+      "note": "Yangi faoliyatlar ishlab chiqish kerak"
+    },
+    {
+      "grade": "10-sinf",
+      "theoryCount": 27,
+      "available": 11,
+      "partial": 9,
+      "newNeeded": 7,
+      "practiceCount": 11,
+      "coverage": 0.7407407407407407,
+      "note": "Yangi faoliyatlar ishlab chiqish kerak"
+    },
+    {
+      "grade": "11-sinf",
+      "theoryCount": 22,
+      "available": 1,
+      "partial": 1,
+      "newNeeded": 20,
+      "practiceCount": 2,
+      "coverage": 0.09090909090909091,
+      "note": "Yangi faoliyatlar ishlab chiqish kerak"
+    }
+  ],
+  "practiceTypes": [
+    {
+      "type": "Lab",
+      "count": 39,
+      "share": 0.319672131147541
+    },
+    {
+      "type": "Simulyatsiya",
+      "count": 45,
+      "share": 0.36885245901639346
+    },
+    {
+      "type": "Trenajyor",
+      "count": 16,
+      "share": 0.13114754098360656
+    },
+    {
+      "type": "Hisoblash",
+      "count": 11,
+      "share": 0.09016393442622951
+    },
+    {
+      "type": "Case",
+      "count": 11,
+      "share": 0.09016393442622951
+    }
+  ],
+  "coverageStates": [
+    {
+      "status": "Mavjud",
+      "count": 36,
+      "share": 0.29508196721311475
+    },
+    {
+      "status": "Qisman mavjud",
+      "count": 32,
+      "share": 0.26229508196721313
+    },
+    {
+      "status": "Yangi kerak",
+      "count": 54,
+      "share": 0.4426229508196721
+    }
+  ]
+}

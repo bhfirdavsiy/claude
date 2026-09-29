@@ -1,0 +1,260 @@
+{
+  "generatedAt": "2026-09-29T10:49:25.954Z",
+  "phase": 12,
+  "name": "Stable Product preflight",
+  "gates": [
+    {
+      "id": "RC-INTERNAL",
+      "category": "technical",
+      "status": "PASS",
+      "detail": {
+        "technicalPreflight": "GREEN",
+        "internalBlockers": []
+      }
+    },
+    {
+      "id": "RELEASE-BUNDLE-INTEGRITY",
+      "category": "technical",
+      "status": "PASS",
+      "detail": {
+        "valid": true,
+        "issues": []
+      }
+    },
+    {
+      "id": "RELEASE-LICENSING",
+      "category": "technical",
+      "status": "PASS",
+      "detail": {
+        "totalReleaseFiles": 145,
+        "disallowedProvenance": [],
+        "unlicensedSourceRefs": [],
+        "releaseReady": true
+      }
+    },
+    {
+      "id": "ROLLBACK-DRILL",
+      "category": "technical",
+      "status": "PASS",
+      "detail": {
+        "valid": true,
+        "activeRelease": "drill-1",
+        "previousRelease": "drill-2"
+      }
+    },
+    {
+      "id": "CHEM-033",
+      "category": "human",
+      "status": "PENDING",
+      "detail": {
+        "status": "pending",
+        "reason": "APPROVAL_PENDING",
+        "version": "1.0.0-rc.1",
+        "hash": "d6d0f5bb34893cc81c1ef84c644caf5640e92c606361b57b20701b315a592195"
+      }
+    },
+    {
+      "id": "PROD-002",
+      "category": "human",
+      "status": "PENDING",
+      "detail": {
+        "status": "pending",
+        "valid": false,
+        "reason": "APPROVAL_PENDING",
+        "version": "2026.09.1",
+        "hash": "b0bf3284366d72a8f3c33f821809087dcb5a190bbeb8e05e65b46a1034d199d6"
+      }
+    },
+    {
+      "id": "BETA1-APPROVALS",
+      "category": "human",
+      "status": "PENDING",
+      "detail": {
+        "totalLearningUnits": 47,
+        "releaseReady": 0,
+        "pendingApprovals": 155
+      }
+    },
+    {
+      "id": "BETA2-APPROVALS",
+      "category": "human",
+      "status": "PENDING",
+      "detail": {
+        "totalLearningUnits": 53,
+        "releaseReady": 0,
+        "pendingApprovals": 175
+      }
+    },
+    {
+      "id": "BETA3-APPROVALS",
+      "category": "human",
+      "status": "PENDING",
+      "detail": {
+        "totalLearningUnits": 22,
+        "releaseReady": 0,
+        "pendingApprovals": 67
+      }
+    },
+    {
+      "id": "PRODUCTION-BUILD",
+      "category": "technical",
+      "status": "PASS",
+      "detail": {
+        "generatedAt": "2026-09-29T10:48:59.088Z",
+        "builder": "dependency-free production pack",
+        "entry": "index.html",
+        "fileCount": 146,
+        "sha256": "1656cf4f3a6338add96e81fcea306d0e60cf7175227b3d506a015ab74775e435",
+        "deployFileCount": 145,
+        "deploySurfaceSha256": "c19ba7710e9430d82ea8b9eeac215560cea5311da9d3a07c417ae071285061a4",
+        "requiredFiles": [
+          "app.html",
+          "index.html",
+          "app-preview/app/bootstrap.js",
+          "content/manifest.json"
+        ],
+        "valid": true
+      }
+    },
+    {
+      "id": "HTTP-SMOKE",
+      "category": "technical",
+      "status": "PASS",
+      "detail": {
+        "status": "pass",
+        "passed": 17,
+        "total": 17
+      }
+    },
+    {
+      "id": "A11Y-STATIC",
+      "category": "technical",
+      "status": "PASS",
+      "detail": {
+        "status": "pass",
+        "checks": {
+          "lang": true,
+          "main": true,
+          "skip": true,
+          "navLabel": true,
+          "metaViewport": true
+        }
+      }
+    },
+    {
+      "id": "BROWSER-E2E",
+      "category": "external",
+      "status": "PENDING",
+      "detail": {
+        "status": "blocked",
+        "reason": "MANAGED_BROWSER_URL_POLICY",
+        "routesPassed": 0,
+        "routesTotal": 9,
+        "buildBinding": {
+          "valid": false,
+          "currentSha256": "1656cf4f3a6338add96e81fcea306d0e60cf7175227b3d506a015ab74775e435",
+          "browserSha256": "c8a4df1f0e8a3170faa1db8a002e4d9c819758c55b1caa7a24dfb04a3b91653b",
+          "currentFileCount": 146,
+          "browserFileCount": 144,
+          "currentDeploySurfaceSha256": "c19ba7710e9430d82ea8b9eeac215560cea5311da9d3a07c417ae071285061a4",
+          "browserDeploySurfaceSha256": "0c7ca7530c1a3da3ee30578e5dce6c0c17f32caec03867acf328978412e3d313",
+          "currentDeployFileCount": 145,
+          "browserDeployFileCount": 143
+        }
+      }
+    },
+    {
+      "id": "BROWSER-ACCESSIBILITY",
+      "category": "external",
+      "status": "PENDING",
+      "detail": {
+        "status": "blocked",
+        "reason": "MANAGED_BROWSER_URL_POLICY",
+        "method": "real Chromium DOM + Accessibility tree smoke",
+        "missingLabels": null,
+        "buildBinding": {
+          "valid": false,
+          "currentSha256": "1656cf4f3a6338add96e81fcea306d0e60cf7175227b3d506a015ab74775e435",
+          "browserSha256": "c8a4df1f0e8a3170faa1db8a002e4d9c819758c55b1caa7a24dfb04a3b91653b",
+          "currentFileCount": 146,
+          "browserFileCount": 144,
+          "currentDeploySurfaceSha256": "c19ba7710e9430d82ea8b9eeac215560cea5311da9d3a07c417ae071285061a4",
+          "browserDeploySurfaceSha256": "0c7ca7530c1a3da3ee30578e5dce6c0c17f32caec03867acf328978412e3d313",
+          "currentDeployFileCount": 145,
+          "browserDeployFileCount": 143
+        }
+      }
+    },
+    {
+      "id": "BROWSER-WEBVITALS",
+      "category": "external",
+      "status": "PENDING",
+      "detail": {
+        "status": "blocked",
+        "reason": "MANAGED_BROWSER_URL_POLICY",
+        "method": "real Chromium PerformanceObserver smoke",
+        "thresholds": {
+          "fcpMs": 3000,
+          "lcpMs": 4000,
+          "cls": 0.1,
+          "navigationDurationMs": 5000
+        },
+        "note": "INP is not asserted by navigation-only smoke; interaction-specific performance remains reviewer evidence.",
+        "buildBinding": {
+          "valid": false,
+          "currentSha256": "1656cf4f3a6338add96e81fcea306d0e60cf7175227b3d506a015ab74775e435",
+          "browserSha256": "c8a4df1f0e8a3170faa1db8a002e4d9c819758c55b1caa7a24dfb04a3b91653b",
+          "currentFileCount": 146,
+          "browserFileCount": 144,
+          "currentDeploySurfaceSha256": "c19ba7710e9430d82ea8b9eeac215560cea5311da9d3a07c417ae071285061a4",
+          "browserDeploySurfaceSha256": "0c7ca7530c1a3da3ee30578e5dce6c0c17f32caec03867acf328978412e3d313",
+          "currentDeployFileCount": 145,
+          "browserDeployFileCount": 143
+        }
+      }
+    },
+    {
+      "id": "BROWSER-VISUAL",
+      "category": "human",
+      "status": "PENDING",
+      "detail": {
+        "browserEvidence": {
+          "status": "blocked",
+          "reason": "MANAGED_BROWSER_URL_POLICY",
+          "screenshots": []
+        },
+        "buildBinding": {
+          "valid": false,
+          "currentSha256": "1656cf4f3a6338add96e81fcea306d0e60cf7175227b3d506a015ab74775e435",
+          "browserSha256": "c8a4df1f0e8a3170faa1db8a002e4d9c819758c55b1caa7a24dfb04a3b91653b",
+          "currentFileCount": 146,
+          "browserFileCount": 144,
+          "currentDeploySurfaceSha256": "c19ba7710e9430d82ea8b9eeac215560cea5311da9d3a07c417ae071285061a4",
+          "browserDeploySurfaceSha256": "0c7ca7530c1a3da3ee30578e5dce6c0c17f32caec03867acf328978412e3d313",
+          "currentDeployFileCount": 145,
+          "browserDeployFileCount": 143
+        },
+        "approval": {
+          "status": "pending",
+          "valid": false,
+          "reason": "APPROVAL_PENDING",
+          "version": "production-build:1656cf4f3a6338add96e81fcea306d0e60cf7175227b3d506a015ab74775e435",
+          "hash": "8ee4ab2bca2d7106b1c54e78268122dca93d2bc744f7cc280df629e6f121836f",
+          "readyForReview": false
+        }
+      }
+    }
+  ],
+  "pending": [
+    "CHEM-033",
+    "PROD-002",
+    "BETA1-APPROVALS",
+    "BETA2-APPROVALS",
+    "BETA3-APPROVALS",
+    "BROWSER-E2E",
+    "BROWSER-ACCESSIBILITY",
+    "BROWSER-WEBVITALS",
+    "BROWSER-VISUAL"
+  ],
+  "stableReady": false
+}
