@@ -9,6 +9,7 @@ import {APP_COMPATIBILITY} from '../src/app/app-version.ts';
 import {CURRENT_DB_VERSION} from '../src/runtime/progress/indexeddb-store.ts';
 import {PROGRESS_SCHEMA_VERSION} from '../src/runtime/progress/types.ts';
 import {computeTreeHash} from './deploy-surface-hash.ts';
+import {sourceChanges} from './lib/tree-state.ts';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 
@@ -81,7 +82,8 @@ function main(){
   const only=process.argv.includes('--gates')?process.argv[process.argv.indexOf('--gates')+1]!.split(','):undefined;
   const before=generatedHash();
   // Records whether the PASS is attributable to the commit: a dirty tree means "PASS for local edits", not for HEAD.
-  const dirtyAtStart=git(['status','--porcelain','--untracked-files=normal']);
+  // Report artefacts rewritten by a previous verify are not source changes (same rule as release:freeze).
+  const dirtyAtStart=sourceChanges(root);
   const results=new Map<string,GateResult>();
   for(const gate of [...GATES,...FOCUSED]) if(!only||only.includes(gate.id)) results.set(gate.id,runGate(gate));
   if(!only||only.includes('generated-files-committed')) results.set('generated-files-committed',generatedFilesCheck(before));
@@ -98,7 +100,7 @@ function main(){
     generatedAt:new Date().toISOString(),
     partialRun:Boolean(only),
     commit:git(['rev-parse','HEAD'])??null,
-    workingTreeCleanAtStart:dirtyAtStart===undefined?null:dirtyAtStart==='',
+    workingTreeCleanAtStart:dirtyAtStart===undefined?null:dirtyAtStart.length===0,
     versions:{
       appVersion:APP_COMPATIBILITY.appVersion,
       contentVersion:pack.contentVersion,
