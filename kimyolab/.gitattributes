@@ -1,0 +1,8 @@
+# Generated artefacts are collapsed in GitHub diffs so review focuses on
+# src/ → server/ → scripts/ → schemas/ → tests/ (P0.15.4).
+public/app-preview/** linguist-generated=true
+dist-rc/** linguist-generated=true
+dist-standalone/** linguist-generated=true
+reports/** linguist-generated=true
+review-packets/** linguist-generated=true
+package-lock.json linguist-generated=true

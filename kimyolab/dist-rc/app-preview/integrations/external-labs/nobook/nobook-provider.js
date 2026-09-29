@@ -22,11 +22,11 @@ async function loadPostmate()                      {
   }
 }
 
-async function getSessionConfig(binding                   ,learningUnitId       ){
+async function getSessionConfig(binding                   ,learningUnitId       ,learnerRef       ){
   const response=await fetch('/api/external-labs/nobook/session',{
     method:'POST',headers:{'Content-Type':'application/json'},
     // The server derives provider/module from the canonical binding; the client only names it.
-    body:JSON.stringify({bindingId:binding.id,learningUnitId}),
+    body:JSON.stringify({bindingId:binding.id,learningUnitId,learnerRef}),
   });
   const body=await response.json().catch(()=>({}));
   if(!response.ok) throw new Error(String(body?.code??'NOBOOK_SESSION_FAILED'));
@@ -49,14 +49,15 @@ export class NobookLabProvider                                {
     finally{clearTimeout(timer);}
   }
   async canLaunch(binding                   ){return (await this.readiness(binding)).ready;}
-  async launch(binding                   ,context                                           )                            {
+  async launch(binding                   ,context                                                              )                            {
     if(!context.mount) throw new Error('NOBOOK_MOUNT_REQUIRED');
+    if(!context.learnerRef) throw new Error('NOBOOK_LEARNER_REF_REQUIRED');
     const iframe=document.createElement('iframe');
     iframe.className='kl-external-lab-frame';
     iframe.title=binding.title;
     iframe.setAttribute('allow','fullscreen');
     context.mount.replaceChildren(iframe);
-    const [{experimentalUrl},Postmate]=await Promise.all([getSessionConfig(binding,context.learningUnitId),loadPostmate()]);
+    const [{experimentalUrl},Postmate]=await Promise.all([getSessionConfig(binding,context.learningUnitId,context.learnerRef),loadPostmate()]);
     const handshake=new Postmate({iframe,printlog:false});
     const communication=await handshake.init(experimentalUrl);
     await new Promise      ((resolve,reject)=>{

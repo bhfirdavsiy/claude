@@ -1,3 +1,4 @@
+import {fileURLToPath} from 'node:url';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -8,7 +9,7 @@ const r1=mk('drill-1','one'); const r2=mk('drill-2','two');
 promoteRelease(path.join(temp,'registry'),'drill-1',r1); promoteRelease(path.join(temp,'registry'),'drill-2',r2); rollbackRelease(path.join(temp,'registry'));
 const current=readCurrentRelease(path.join(temp,'registry'));
 const result={valid:current.activeRelease==='drill-1'&&current.previousRelease==='drill-2',activeRelease:current.activeRelease,previousRelease:current.previousRelease};
-const projectRoot=path.resolve(path.dirname(new URL(import.meta.url).pathname),'..');
+const projectRoot=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 fs.mkdirSync(path.join(projectRoot,'reports'),{recursive:true});
 fs.writeFileSync(path.join(projectRoot,'reports/release-rollback-drill.json'),`${JSON.stringify(result,null,2)}\n`,'utf8');
 console.log(JSON.stringify(result));

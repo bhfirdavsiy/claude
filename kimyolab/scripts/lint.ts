@@ -64,7 +64,17 @@ if(/experimental-strip-types/.test(String(pkg.scripts?.typecheck))) issues.push(
 
 // Server must only expose the built deployment surface.
 const server=fs.readFileSync(path.join(root,'server','app.mjs'),'utf8');
-if(!/path\.join\(base, 'dist'\)/.test(server)) issues.push('SERVER_PUBLIC_ROOT:server/app.mjs must default PUBLIC_ROOT to dist');
+const serverPaths=fs.readFileSync(path.join(root,'server','paths.mjs'),'utf8');
+if(!/p\.join\(appRoot, 'dist'\)/.test(serverPaths)) issues.push('SERVER_PUBLIC_ROOT:server/paths.mjs must default PUBLIC_ROOT to dist');
+
+// Platform-safe module paths (P0.15.2): URL.pathname breaks on Windows drives, spaces and Unicode.
+const pathFiles=[...srcFiles,...walk(path.join(root,'scripts'),f=>/\.(ts|mjs)$/.test(f)),...walk(path.join(root,'server'),f=>f.endsWith('.mjs')),...walk(path.join(root,'tests'),f=>f.endsWith('.mjs')),path.join(root,'server.mjs')];
+for(const file of pathFiles){
+  fs.readFileSync(file,'utf8').split(/\r?\n/).forEach((line,i)=>{
+    const code=line.replace(/\/\/.*$/,'');
+    if(/import\.meta\.url\)\s*\.pathname/.test(code)) issues.push(`NO_URL_PATHNAME_AS_PATH:${rel(file)}:${i+1}: use fileURLToPath(import.meta.url)`);
+  });
+}
 if(/\/api\/external-labs\/nobook\/auth/.test(server)) issues.push('NOBOOK_AUTH_ENDPOINT_EXPOSED:server/app.mjs');
 
 console.log(JSON.stringify({files:srcFiles.length,issues:issues.length}));

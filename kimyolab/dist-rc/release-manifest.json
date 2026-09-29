@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-09-29T12:56:50.131Z",
+  "createdAt": "2026-09-29T13:24:32.819Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -269,8 +269,8 @@
     {
       "path": "app-preview/features/labs/external-render.js",
       "sourcePath": "public/app-preview/features/labs/external-render.js",
-      "checksum": "5c914606afe7bc1681f99dade7c93c81c0a69f7d0b9b84973973e844dda74e5a",
-      "size": 6245
+      "checksum": "460f1d8400b23af4ce82be62761c6dbbdae7a9ffcae933eb3800231d8dab1afc",
+      "size": 6351
     },
     {
       "path": "app-preview/features/labs/model.js",
@@ -377,8 +377,8 @@
     {
       "path": "app-preview/integrations/external-labs/nobook/nobook-provider.js",
       "sourcePath": "public/app-preview/integrations/external-labs/nobook/nobook-provider.js",
-      "checksum": "15ccb9ddfc2b83677fa22fa1ecd4f7dd8ca033ce7e31c1f81a457bf7def4a666",
-      "size": 4899
+      "checksum": "1301071136b6590c4f0043844b06f1927650612ecc592cff4abdfd3ff830122a",
+      "size": 5042
     },
     {
       "path": "app-preview/integrations/external-labs/nobook/sdk-adapter.js",
@@ -401,8 +401,8 @@
     {
       "path": "app-preview/integrations/external-labs/types.js",
       "sourcePath": "public/app-preview/integrations/external-labs/types.js",
-      "checksum": "fb738bccb860270cf96c7f9a04b09e22e23b94d0ba9f88ab85c32b89ef26cbad",
-      "size": 1732
+      "checksum": "975c7e18d8f98357b10282ebb907832370beec1be08f0b154dee0fdc901ddb62",
+      "size": 1878
     },
     {
       "path": "app-preview/integrations/external-labs/url-policy.js",
@@ -551,8 +551,8 @@
     {
       "path": "app-preview/runtime/progress/indexeddb-store.js",
       "sourcePath": "public/app-preview/runtime/progress/indexeddb-store.js",
-      "checksum": "f039975ee6a40e7cd2326e3edd9b5cf0baaa9b873ebeb7092e5103ec00f9b876",
-      "size": 17897
+      "checksum": "847426e426098e8f10a7c2dd4d8edbba0b94a4d410e029b7d43317dd69f364bb",
+      "size": 18721
     },
     {
       "path": "app-preview/runtime/progress/migrations.js",

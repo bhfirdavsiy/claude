@@ -48,5 +48,6 @@ export interface ExternalLabProvider {
   readonly id:ExternalLabProviderId;
   readiness(binding:ExternalLabBinding):Promise<ExternalProviderReadiness>|ExternalProviderReadiness;
   canLaunch(binding:ExternalLabBinding):Promise<boolean>|boolean;
-  launch(binding:ExternalLabBinding,context:{learningUnitId:string;mount?:HTMLElement}):Promise<ExternalLabSession>;
+  /** learnerRef: opaque anonymous installation id (UUID). Never PII — see docs/integrations/nobook-identity-contract.md. */
+  launch(binding:ExternalLabBinding,context:{learningUnitId:string;mount?:HTMLElement;learnerRef?:string}):Promise<ExternalLabSession>;
 }

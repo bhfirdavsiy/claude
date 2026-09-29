@@ -1,3 +1,4 @@
+import {fileURLToPath} from 'node:url';
 // P0.8 — runtime verifies every content file against manifest SHA-256 and fails closed.
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -7,7 +8,7 @@ import crypto from 'node:crypto';
 import {ContentClient,ContentLoadError,contentErrorMessage} from '../src/app/content-client.ts';
 import {sha256HexSync} from '../src/domain/content/sha256.ts';
 
-const root=path.resolve(new URL('..',import.meta.url).pathname);
+const root=fileURLToPath(new URL('..',import.meta.url));
 const pointer=JSON.parse(fs.readFileSync(path.join(root,'public/content/manifest.json'),'utf8'));
 const packRoot=path.join(root,'public/content',pointer.activeVersion);
 const manifest=JSON.parse(fs.readFileSync(path.join(packRoot,'manifest.json'),'utf8'));

@@ -1,3 +1,4 @@
+import {fileURLToPath} from 'node:url';
 // P0.11 / P0.12 — one canonical external URL policy; external evidence out of localStorage.
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -9,7 +10,7 @@ import {validateExternalLabEvidence,EXTERNAL_EVIDENCE_LIMITS} from '../src/integ
 import {IndexedDbProgressStore} from '../src/runtime/progress/indexeddb-store.ts';
 import {createFakeIndexedDb} from './helpers/fake-indexeddb.mjs';
 
-const root=path.resolve(new URL('..',import.meta.url).pathname);
+const root=fileURLToPath(new URL('..',import.meta.url));
 
 test('validateExternalLabUrl accepts only approved hosts over HTTPS',()=>{
   assert.equal(validateExternalLabUrl('chemai','https://chemai.in/virtual%20lab/index.html').ok,true);
@@ -77,4 +78,20 @@ test('no browser runtime code writes to localStorage',()=>{
   assert.equal(/localStorage\s*\./.test(ui),false);
   assert.match(ui,/saveExternalEvidence\(/);
   assert.match(ui,/loadExternalEvidence\(/);
+});
+
+test('anonymous installation id is a random UUID, created once and stable across store instances',async()=>{
+  const factory=createFakeIndexedDb();
+  const a=await new IndexedDbProgressStore(factory,'p0-installation').getOrCreateInstallationId();
+  const b=await new IndexedDbProgressStore(factory,'p0-installation').getOrCreateInstallationId();
+  const other=await new IndexedDbProgressStore(createFakeIndexedDb(),'p0-installation').getOrCreateInstallationId();
+  assert.match(a,/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i);
+  assert.equal(a,b);
+  assert.notEqual(a,other);
+});
+
+test('NOBOOK client sends only the opaque learnerRef, never profile data',()=>{
+  const provider=fs.readFileSync(path.join(root,'src/integrations/external-labs/nobook/nobook-provider.ts'),'utf8');
+  assert.match(provider,/body:JSON\.stringify\(\{bindingId:binding\.id,learningUnitId,learnerRef\}\)/);
+  assert.match(provider,/NOBOOK_LEARNER_REF_REQUIRED/);
 });

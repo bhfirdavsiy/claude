@@ -7,7 +7,8 @@ import crypto from 'node:crypto';
 import {startServer,cloneDist,rawRequest} from '../helpers/dist.mjs';
 
 const SESSION='/api/external-labs/nobook/session';
-const good={bindingId:'ext.nobook.electrochem',learningUnitId:'lu.9.15'};
+const learnerRef='3f2b8c1e-9d4a-4b6f-8e2d-1a0b9c8d7e6f';
+const good={bindingId:'ext.nobook.electrochem',learningUnitId:'lu.9.15',learnerRef};
 function post(server,body,{origin=server.url,type='application/json',raw}={}){
   const headers={}; if(origin) headers.origin=origin; if(type) headers['content-type']=type;
   return fetch(`${server.url}${SESSION}`,{method:'POST',headers,body:raw??JSON.stringify(body)});
@@ -39,9 +40,14 @@ test('client cannot choose provider/module → 422',async()=>{
   await expectError(await post(server,{...good,moduleId:9}),422,'REQUEST_FIELD_NOT_ALLOWED');
   await expectError(await post(server,{...good,provider:'nobook'}),422,'REQUEST_FIELD_NOT_ALLOWED');
 });
-test('malformed ids → 422',async()=>{await expectError(await post(server,{bindingId:'../../etc',learningUnitId:'lu.7.01'}),422,'REQUEST_FIELD_INVALID');});
+test('malformed ids → 422',async()=>{await expectError(await post(server,{...good,bindingId:'../../etc'}),422,'REQUEST_FIELD_INVALID');});
+test('learnerRef must be an opaque UUID — e-mail/name-like values are rejected → 422',async()=>{
+  await expectError(await post(server,{...good,learnerRef:'ali.valiyev@maktab.uz'}),422,'REQUEST_FIELD_INVALID');
+  const {learnerRef:_,...withoutRef}=good;
+  await expectError(await post(server,withoutRef),422,'REQUEST_FIELD_INVALID');
+});
 test('unknown binding → 422',async()=>{await expectError(await post(server,{...good,bindingId:'ext.nobook.unknown'}),422,'BINDING_UNKNOWN');});
-test('binding of another provider → 422',async()=>{await expectError(await post(server,{bindingId:'ext.chemai.rate',learningUnitId:'lu.8.19'}),422,'BINDING_PROVIDER_MISMATCH');});
+test('binding of another provider → 422',async()=>{await expectError(await post(server,{...good,bindingId:'ext.chemai.rate',learningUnitId:'lu.8.19'}),422,'BINDING_PROVIDER_MISMATCH');});
 test('learning unit not bound to the lab → 422',async()=>{await expectError(await post(server,{...good,learningUnitId:'lu.7.01'}),422,'BINDING_LEARNING_UNIT_MISMATCH');});
 test('valid request without partner configuration → 503',async()=>{await expectError(await post(server,good),503,'NOBOOK_PARTNER_CONFIGURATION_REQUIRED');});
 test('wrong method on a known endpoint → 405 with Allow',async()=>{
@@ -89,6 +95,20 @@ test('configured session derives module from the binding and never returns partn
     assert.equal(calls.length,1);
     assert.equal(calls[0].url,'https://nbapi.nobook.com/v1/auth');
     assert.equal('app_secret' in calls[0].body,false,'secret is only used for the signature');
+    assert.match(calls[0].body.unique_id,/^kl_[a-f0-9]{32}$/);
+    assert.equal(calls[0].body.unique_id.includes(learnerRef.replaceAll('-','').slice(0,8)),false);
+  }finally{await s.close();}
+});
+
+test('unique_id is a stable pseudonym per installation, independent of the lab/activity',async()=>{
+  const {s,calls}=await configuredServer(()=>new Response('{}',{status:200}));
+  try{
+    await post(s,good);
+    await post(s,{...good,bindingId:'ext.nobook.inorganic',learningUnitId:'lu.8.14'});
+    await post(s,{...good,learnerRef:'0c1d2e3f-4a5b-4c6d-9e7f-8091a2b3c4d5'});
+    assert.equal(calls.length,3);
+    assert.equal(calls[0].body.unique_id,calls[1].body.unique_id,'same learner → same partner identity across labs');
+    assert.notEqual(calls[0].body.unique_id,calls[2].body.unique_id,'different installations → different partner identities');
   }finally{await s.close();}
 });
 

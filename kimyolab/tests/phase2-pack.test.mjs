@@ -1,9 +1,10 @@
+import {fileURLToPath} from 'node:url';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
-const root=path.resolve(new URL('..',import.meta.url).pathname);
+const root=fileURLToPath(new URL('..',import.meta.url));
 
 test('content pack contains versioned chemistry datasets with manifest checksums',()=>{
   execFileSync(process.execPath,['--experimental-strip-types','scripts/build-content-pack.ts'],{cwd:root,stdio:'pipe'});

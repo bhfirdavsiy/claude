@@ -1,10 +1,11 @@
+import {fileURLToPath} from 'node:url';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { ContentClient, ContentLoadError } from '../src/app/content-client.ts';
 
-const root=path.resolve(new URL('..',import.meta.url).pathname);
+const root=fileURLToPath(new URL('..',import.meta.url));
 const active=JSON.parse(fs.readFileSync(path.join(root,'public/content/manifest.json'),'utf8'));
 const packRoot=path.join(root,'public/content',active.activeVersion);
 

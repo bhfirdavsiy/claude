@@ -73,3 +73,41 @@ qabul qiluvchiga bog‘langan va bu holat real Chromium E2E testi bilan himoyala
 ## P1–P3
 
 Boshlanmagan. TT qoidasi bo‘yicha P1 (LearningOrchestrator, RendererRegistry, …) ushbu relizdan keyin alohida branch/milestone’da olib boriladi.
+
+---
+
+## P0.15 — Integrity Release closeout
+
+P0.15 P0’ni kengaytirmaydi, yopadi. Yangi pedagogik funksiya, simulation, renderer, LearningUnit yoki assessment kontenti yo‘q.
+
+| Band | Natija | Dalil |
+|---|---|---|
+| P0.15.1 Ratchet CI gate | `verify` = `scripts/p0-acceptance.ts`: lint → typecheck → **typecheck:next** → schema → content → chemistry → unit → integration → E2E → build. `noUncheckedIndexedAccess` qarzi 88; 89 bo‘lsa FAIL, kamaysa `-- --update` bilan qulflanadi. `src/` ga bitta yangi xato kiritilganda `npm run verify` → `TYPECHECK_RATCHET_REGRESSION: 89 > 88`, exit 1 (qo‘lda tekshirildi). | `tests/integration/typecheck-ratchet.test.mjs` |
+| P0.15.2 Windows-safe paths | `server/paths.mjs`: `fileURLToPath(import.meta.url)` (+ `path.win32`/`path.posix`). `new URL(import.meta.url).pathname` repo kodidan olib tashlandi (7 joy) va lint qoidasi `NO_URL_PATHNAME_AS_PATH` bilan taqiqlandi. CI’da `windows-latest` job’i path testlari va real server ishga tushirishini bajaradi. | `tests/p0-server-paths.test.mjs` (`/opt/kimyolab`, `C:\KimyoLab`, `C:\Program Files\KimyoLab`, `D:\Ta'lim\KimyoLab`, Unicode, bo‘shliqli haqiqiy katalog) |
+| P0.15.3 NOBOOK identity | NOBOOK hujjati bo‘yicha `unique_id` = foydalanuvchi ID’si. Qaror: Variant B + C — brauzerdagi anonim `installationId` → serverda HMAC pseudonim `kl_…`; token/sirlar server chegarasida. P0’dagi `kimyolab-${bindingId}` (barcha o‘quvchilar bitta NOBOOK foydalanuvchisi) tuzatildi. | `docs/integrations/nobook-identity-contract.md`, `tests/integration/security-api.test.mjs` |
+| P0.15.4 Review surface | Kanonik taqqoslash: baseline `b173722` → P0 head. `.gitattributes` generated artefaktlarni (`public/app-preview`, `dist-rc`, `dist-standalone`, `reports`, `review-packets`, `package-lock.json`) GitHub diff’da yig‘adi. Ko‘rib chiqish tartibi: `src/` → `server/` → `scripts/` → `schemas/` → `tests/` → generated. | PR tavsifi |
+| P0.15.5 Acceptance manifest | `reports/p0-acceptance.json` har `verify` da gate’larning haqiqiy exit kodlaridan generatsiya qilinadi (qo‘lda yozilmaydi, git’ga commit qilinmaydi, CI artefakti sifatida yuklanadi). `cleanBuild` = build muvaffaqiyatli **va** generatsiya qilingan `public/app-preview` + `public/content` verify boshidagi holat bilan bayt-bayt bir xil. Versiyalar: app, content (+checksum), schema, scoring, curriculum, DB, progress schema, Node, commit. | `scripts/p0-acceptance.ts` |
+| P0.15.6 Release freeze | `npm run release:freeze -- --tag kimyolab-p0-integrity-20.1.0`: faqat `main` da, toza daraxtda, shu HEAD uchun `verify` PASS bo‘lsa annotated tag yaratadi; tag xabarida versiya manifesti bor. Push — alohida, ongli qadam. | `scripts/release-freeze.ts` |
+
+### Merge’dan keyingi freeze tartibi
+
+```
+git checkout main && git pull
+cd kimyolab && npm ci && npx playwright install chromium
+npm run verify                                            # reports/p0-acceptance.json, commit = merge SHA
+npm run release:freeze -- --tag kimyolab-p0-integrity-20.1.0
+git push origin refs/tags/kimyolab-p0-integrity-20.1.0
+```
+
+### P0.15 DoD holati
+
+| Shart | Holat |
+|---|---|
+| CI green | PR’da tekshiriladi |
+| review complete | reviewer kutilmoqda |
+| typecheck ratchet enforced | ✅ |
+| Windows path resolution verified | ✅ unit (win32 semantikasi) + `windows-latest` CI job |
+| NOBOOK identity semantics documented | ✅ |
+| P0 diff review qilingan | reviewer kutilmoqda |
+| merge complete | kutilmoqda |
+| Integrity Release tag | merge’dan keyin `release:freeze` |

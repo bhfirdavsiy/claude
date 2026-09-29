@@ -4,7 +4,7 @@ import { validateAttempt, validatePersistedEvidence } from '../evidence/types.ts
 import type { AssessmentResult } from '../../domain/assessment/scoring.ts';
 import type { ConceptMastery } from '../../domain/mastery/mastery.ts';
 import { loadProgressRecord } from './migrations.ts';
-import { newUuid } from '../shared/ids.ts';
+import { newUuid, UUID_PATTERN } from '../shared/ids.ts';
 import { validateExternalLabEvidence, externalEvidenceKey, type StoredExternalLabEvidence } from '../../integrations/external-labs/evidence.ts';
 
 // IndexedDB layout (P0.7). Every database version has an explicit migration; the
@@ -275,6 +275,22 @@ export class IndexedDbProgressStore {
   }
 
   async metadata<T=unknown>(key:string){return this.get<T>('metadata',key);}
+
+  /**
+   * Anonymous, random, per-installation identifier (UUID v4). Created once and kept in
+   * IndexedDB metadata. It carries no personal data and is only sent to the KimyoLab server,
+   * which derives a pseudonymous partner id from it (docs/integrations/nobook-identity-contract.md).
+   */
+  async getOrCreateInstallationId():Promise<string>{
+    return this.run(['metadata'],'readwrite','PROGRESS_SAVE_FAILED',async tx=>{
+      const store=tx.objectStore('metadata');
+      const existing=await this.request<{id?:string}|undefined>(store.get('installation.id'));
+      if(existing&&typeof existing.id==='string'&&UUID_PATTERN.test(existing.id)) return existing.id;
+      const id=newUuid();
+      await this.request(store.put({id,createdAt:this.now()},'installation.id'));
+      return id;
+    });
+  }
 
   // ---- progress (P0.6: load → validate → version check → migrate → isolate) ----
 

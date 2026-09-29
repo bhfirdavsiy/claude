@@ -1,3 +1,4 @@
+import {fileURLToPath} from 'node:url';
 // P0.9 — full JSON Schema validation with additionalProperties:false catches every error class.
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -5,7 +6,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {validateCanonicalContent,readCanonicalContent} from '../scripts/lib/content-schema.ts';
 
-const root=path.resolve(new URL('..',import.meta.url).pathname);
+const root=fileURLToPath(new URL('..',import.meta.url));
 const contentDir=path.join(root,'content-src'), schemaDir=path.join(root,'schemas');
 const base=readCanonicalContent(contentDir);
 const clone=(v)=>structuredClone(v);
