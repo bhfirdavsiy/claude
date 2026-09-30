@@ -1272,6 +1272,7 @@
   {
     "activityId": "practice.simulation.11.11.planned",
     "lifecycleStatus": "ready",
+    "chemistryReviewRequired": true,
     "accessibilityProfile": [
       "keyboard",
       "textual-state"

@@ -14,6 +14,8 @@ import {buildPracticeUiModel} from '../src/features/practice/ui-model.ts';
 import {IonicEngine} from '../src/domain/chemistry/ionic-engine.ts';
 import {isPracticeResultComplete} from '../src/runtime/learning-orchestrator/selectors.ts';
 import {atomIntent} from '../src/renderers/atom-builder/renderer.ts';
+import {hydrolysisIntent} from '../src/renderers/hydrolysis-medium/renderer.ts';
+import {HydrolysisModel} from '../src/domain/chemistry/hydrolysis-model.ts';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 export const RENDERER_REPORT_FILE='reports/renderer-foundation-readiness.json';
@@ -38,7 +40,7 @@ const CANDIDATES:CandidateSpec[]=[
   {
     id:'atom-builder',title:'Atom tuzilishi konstruktori (p/n/e → element, izotop, zaryad)',leadActivityId:'practice.simulation.7.07.planned',
     family:(s,c)=>s==='reference-slices'&&c.sliceId==='slice.7.07.atom-builder',modelData:[],domainModel:'StatefulSimulationEngine reducer (derive: Z → element, A = p+n, charge = p−e); electronConfiguration(Z≤36) in src/domain/chemistry',
-    assessment:{pedagogicalValue:'high — every learner action changes a derived chemical identity (element, isotope, ion); core 7th-grade concept',currentLimitation:'P1.4: element data moved to the domain periodic table (Z 1–118, Uzbek names Z≤20); DOM + text-state renderer only — no shell/orbital view yet',engineMaturity:'mature: pure reducer, serialize/restore, construction evidence',interactionDepth:'real model-based: arbitrary particle combinations → derived state (not a fixed path)',accessibilityComplexity:'low — the state is naturally textual; +/- buttons are keyboard operable',reusePotential:'high — ions, isotopes, electron configuration (lu.8.x), atomic-orbital model (practice.simulation.11.01)',blackSwan:'PASS — model-based: the renderer only draws state the reducer derived; no canned sequence',accessibilityPlan:'text summary of the derived state (element, A, charge) announced via aria-live; buttons with explicit labels; no colour-only cues; reduced motion = no particle animation',dependencies:[]},
+    assessment:{pedagogicalValue:'high — every learner action changes a derived chemical identity (element, isotope, ion); core 7th-grade concept',currentLimitation:'P1.4: element identity in the domain periodic table (Z 1–118), Uzbek names in localization content (Z≤20); DOM + text-state renderer only — no shell/orbital view yet',engineMaturity:'mature: pure reducer, serialize/restore, construction evidence',interactionDepth:'real model-based: arbitrary particle combinations → derived state (not a fixed path)',accessibilityComplexity:'low — the state is naturally textual; +/- buttons are keyboard operable',reusePotential:'high — ions, isotopes, electron configuration (lu.8.x), atomic-orbital model (practice.simulation.11.01)',blackSwan:'PASS — model-based: the renderer only draws state the reducer derived; no canned sequence',accessibilityPlan:'text summary of the derived state (element, A, charge) announced via aria-live; buttons with explicit labels; no colour-only cues; reduced motion = no particle animation',dependencies:[]},
     rank:1,implemented:'P1.4 — RendererRegistry capability atom-builder@1.0.0 (src/renderers/atom-builder)',
   },
   {
@@ -50,7 +52,8 @@ const CANDIDATES:CandidateSpec[]=[
   {
     id:'hydrolysis-medium',title:'Tuz gidrolizi: tuz tanlash → muhitni bashorat qilish → indikator',leadActivityId:'practice.experiment.9.14',
     family:(s,c)=>(s==='beta2-advanced'&&c.capability==='hydrolysis-experiment')||(s==='beta3-advanced'&&c.task==='hydrolysis'),modelData:['content-src/chemistry/hydrolysis.json'],domainModel:'HydrolysisModel.classify(salt) → acidic/basic/neutral',
-    assessment:{pedagogicalValue:'high — a genuine prediction (medium) that the model confirms or refutes',currentLimitation:'BROKEN in the browser: the UI sends selectSalt/recordMedium without the salt or the medium, so the learner can never succeed (score 0 on every attempt); only 4 salts are modeled',engineMaturity:'model small but fail-closed (unmodeled salt → not modeled)',interactionDepth:'model-based decision once inputs reach the model; limited by 4 records',accessibilityComplexity:'medium — indicator colour needs a text/label equivalent',reusePotential:'medium — practice.simulation.11.11 (beta3 hydrolysis) uses the same model',blackSwan:'PASS in the domain (learner choice → model verdict); FAIL in the current UI (no input reaches the model)',accessibilityPlan:'salt and medium as labelled radio groups, indicator result as text ("muhit: kislotali"), no colour-only feedback',dependencies:['fix the UI command payload (P1.4 renderer or a targeted bugfix)','more modeled salts reviewed by a chemist']},
+    assessment:{pedagogicalValue:'high — a genuine prediction (medium) that the model confirms or refutes',currentLimitation:'P1.5: fixed — the hydrolysis-medium renderer sends the chosen salt and the predicted medium; only 4 salts are modeled (content, review pending)',engineMaturity:'model small but fail-closed (unmodeled salt → HYDROLYSIS_NOT_MODELED, no observation)',interactionDepth:'model-based: the learner chooses among the modeled salts and predicts; the domain returns the medium and the indicator colour (3 distinct outcomes)',accessibilityComplexity:'medium — indicator colour needs a text/label equivalent',reusePotential:'medium — practice.simulation.11.11 (beta3 hydrolysis) uses the same renderer and trial scoring',blackSwan:'PASS — learner choice → model verdict; predict-before-reveal enforced in the domain',accessibilityPlan:'salt and medium as labelled radio groups, indicator result as text ("Indikator (lakmus) qizil tusga o‘tdi. Muhit kislotali."), no colour-only feedback',dependencies:['more modeled salts reviewed by a chemist']},
+    implemented:'P1.5 — RendererRegistry capability hydrolysis-medium@1.0.0 (src/renderers/hydrolysis-medium)',
     rank:3,
   },
   {
@@ -75,8 +78,14 @@ async function uiPathCanSucceed(client:ContentClient,activityId:string){
   // P1.4: a registry-rendered activity is driven by the intents its renderer emits (not the legacy UI model)
   const ui:any=model.executionPlan.rendererRequirement?{kind:'registry'}:buildPracticeUiModel(model);
   if(ui.kind==='registry'){
-    if(model.executionPlan.rendererRequirement.capability!=='atom-builder') return {verdict:'NOT_EVALUATED',detail:'no intent script for this capability'};
-    commands=(['protons','neutrons','electrons'] as const).flatMap(p=>Array.from({length:c.target[p]},()=>atomIntent(p,1)));
+    const capability=model.executionPlan.rendererRequirement.capability;
+    if(capability==='atom-builder') commands=(['protons','neutrons','electrons'] as const).flatMap(p=>Array.from({length:c.target[p]},()=>atomIntent(p,1)));
+    else if(capability==='hydrolysis-medium'){
+      // P1.5: the intents the hydrolysis renderer emits — choose the target salt, predict (the domain's medium), reveal
+      const medium=(HydrolysisModel.from(model.chemistry.hydrolysis).classify(c.salt) as any).medium;
+      commands=[{type:'selectSalt',payload:{salt:c.salt}},{type:'predictMedium',payload:{medium}},{type:'addIndicator'}].map(a=>hydrolysisIntent(a as any,model.type));
+    }
+    else return {verdict:'NOT_EVALUATED',detail:'no intent script for this capability'};
   }
   else if(ui.kind==='experiment'){
     const equation=c.reactionId?IonicEngine.from({reactions:model.chemistry.reactions,rules:model.chemistry.solutionRules}).netIonicEquation(c.reactionId).equation:'';

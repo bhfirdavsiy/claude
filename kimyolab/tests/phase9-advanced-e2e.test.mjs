@@ -17,7 +17,8 @@ const advanced=loadBeta2AdvancedRegistry(read('content-src/activity-configs/beta
 const reactions=read('content-src/chemistry/reactions.json');const rules=read('content-src/chemistry/solubility.json');const at='2026-09-15T00:00:00.000Z';
 const inputs={
  'practice.trainer.9.05.planned':{trainerAnswers:['Ag+ + Cl- → AgCl(s)']},
- 'practice.experiment.9.14':{actions:[{type:'selectSalt',payload:{salt:'AlCl3'}},{type:'addIndicator'},{type:'recordMedium',payload:{medium:'acidic'}}]},
+ // P1.5: predict before the indicator (the former recordMedium-after-reveal input is no longer a prediction)
+ 'practice.experiment.9.14':{actions:[{type:'selectSalt',payload:{salt:'AlCl3'}},{type:'predictMedium',payload:{medium:'acidic'}},{type:'addIndicator'}]},
  'practice.experiment.9.10':{actions:[{type:'connectCurrent'},{type:'observeCathode'},{type:'observeAnode'}]},
  'practice.simulation.9.23.planned':{simulationActions:[{field:'medium',value:'acidic'}]},
 };

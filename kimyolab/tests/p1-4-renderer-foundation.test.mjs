@@ -57,7 +57,9 @@ test('registry: duplicate registration fails (no first-match-wins)',()=>{
 
 test('registry: unknown renderer and version mismatch fail closed with RENDERER_UNAVAILABLE',()=>{
   const registry=createDefaultRendererRegistry();
-  assert.throws(()=>registry.resolve({capability:'hydrolysis-medium',range:'^1.0.0'}),e=>e.code==='RENDERER_UNAVAILABLE');
+  // P1.5: hydrolysis-medium is now registered, so the "unknown renderer" probe uses a capability that is still
+  // not implemented (ionic precipitation is deferred to P1.6).
+  assert.throws(()=>registry.resolve({capability:'ionic-precipitation',range:'^1.0.0'}),e=>e.code==='RENDERER_UNAVAILABLE');
   assert.throws(()=>registry.resolve({capability:'atom-builder',range:'^2.0.0'}),e=>e.code==='RENDERER_UNAVAILABLE');
   assert.throws(()=>registry.resolve({capability:'atom-builder',range:'garbage'}),e=>e.code==='RENDERER_REQUIREMENT_INVALID');
   assert.throws(()=>registry.resolve({capability:'atom-builder'}),e=>e.code==='RENDERER_REQUIREMENT_INVALID');
@@ -117,10 +119,12 @@ test('rendererRequirement is compiled from content, only for migrated activities
   const src=sources();
   const configs=Object.fromEntries(CONFIG_SOURCE_NAMES.map(n=>[n,src.configs[n]??{}]));
   const {pack}=compileExecutionPlans(src.activities,configs);
-  assert.deepEqual(pack.plans.filter(p=>p.rendererRequirement).map(p=>[p.activityId,p.rendererRequirement]),[[ATOM_ACTIVITY,{capability:'atom-builder',range:'^1.0.0'}]]);
+  // P1.5: the two hydrolysis activities joined the atom (the old single-entry list was the P1.4 scope).
+  const HYDRO={capability:'hydrolysis-medium',range:'^1.0.0'};
+  assert.deepEqual(pack.plans.filter(p=>p.rendererRequirement).map(p=>[p.activityId,p.rendererRequirement]).sort(),[['practice.experiment.9.14',HYDRO],['practice.simulation.11.11.planned',HYDRO],[ATOM_ACTIVITY,{capability:'atom-builder',range:'^1.0.0'}]]);
   const shipped=committed(`public/content/${committed('public/content/manifest.json').activeVersion}/execution-plans.json`);
   assert.deepEqual(resolveExecutionPlan(shipped,ATOM_ACTIVITY).rendererRequirement,{capability:'atom-builder',range:'^1.0.0'});
-  assert.equal(shipped.plans.filter(p=>p.rendererRequirement).length,1,'legacy activities get no artificial requirement');
+  assert.equal(shipped.plans.filter(p=>p.rendererRequirement).length,3,'legacy activities get no artificial requirement');
   const bad=structuredClone(configs);bad['reference-slices'][ATOM_ACTIVITY].rendererRequirement={capability:'atom-builder'};
   const route=deriveActivityExecutionPlan(src.activities.find(a=>a.id===ATOM_ACTIVITY),bad);
   assert.equal(route.ok,false);assert.equal(route.error.code,'CONFIG_INVALID');
@@ -208,18 +212,20 @@ test('evidence and completion parity: renderer intents reproduce the pre-P1.4 le
   assert.deepEqual(current.progress,[{learningUnitId:'lu.7.07',status:'practice_complete'}]);
 });
 
-test('legacy activities are unaffected: every other routed activity still builds its legacy UI model; the atom no longer can',async()=>{
+test('legacy activities are unaffected: every other routed activity still builds its legacy UI model; registry activities no longer can',async()=>{
   const client=new ContentClient({fetchImpl:memoryPackFetch(),baseUrl:'/content'});
   const readiness=committed(`public/content/${committed('public/content/manifest.json').activeVersion}/activity-readiness.json`);
   const launchable=readiness.activities.filter(a=>a.runtime==='READY').map(a=>a.activityId);
-  assert.equal(launchable.length,118,'runtime readiness counts unchanged by P1.4');
-  let legacy=0;
+  assert.equal(launchable.length,118,'runtime readiness counts unchanged by P1.4/P1.5');
+  let legacy=0,registry=0;
   for(const id of launchable){
     const model=await client.loadPractice(id);
-    if(model.executionPlan.rendererRequirement){ assert.throws(()=>buildPracticeUiModel(model),/RENDERER_REQUIRED/,id); continue; }
+    if(model.executionPlan.rendererRequirement){ assert.throws(()=>buildPracticeUiModel(model),/RENDERER_REQUIRED/,id); registry++; continue; }
     assert.doesNotThrow(()=>buildPracticeUiModel(model),id); legacy++;
   }
-  assert.equal(legacy,117);
+  // P1.5: computed, not hardcoded — every launchable activity is either registry- or legacy-rendered
+  assert.equal(legacy+registry,launchable.length);
+  assert.equal(registry,readiness.activities.filter(a=>a.runtime==='READY').filter(a=>committed(`public/content/${committed('public/content/manifest.json').activeVersion}/execution-plans.json`).plans.find(p=>p.activityId===a.activityId)?.rendererRequirement).length);
 });
 
 // ------------------------------------------------------------------ architecture guard
@@ -248,18 +254,22 @@ test('renderer guards: no persistence, mastery, readiness or chemistry in render
 
 // ------------------------------------------------------------------ reports
 
-test('renderer reports are deterministic and current; hydrolysis stays CANNOT_SUCCEED; ionic/electrolysis not implemented',async()=>{
+test('renderer reports are deterministic and current; ionic/electrolysis not implemented',async()=>{
   assert.deepEqual(committed(REGISTRY_REPORT),buildRegistryReport(),'run npm run renderer:reports');
   assert.deepEqual(committed(MIGRATION_REPORT),buildMigrationReport());
   const atom=await buildAtomReport();
   assert.deepEqual(committed(ATOM_REPORT),atom);
   const registry=committed(REGISTRY_REPORT);
   assert.equal(registry.catalogMatchesRegistry,true);
-  assert.deepEqual(registry.renderers.map(r=>[r.capability,r.rendererVersion,r.status,r.compatibleActivities]),[['atom-builder','1.0.0','ACTIVE',[ATOM_ACTIVITY]]]);
+  // P1.5: two ACTIVE capabilities (the old single-renderer expectation was the P1.4 scope)
+  assert.deepEqual(registry.renderers.map(r=>[r.capability,r.rendererVersion,r.status,r.compatibleActivities]),[['atom-builder','1.0.0','ACTIVE',[ATOM_ACTIVITY]],['hydrolysis-medium','1.0.0','ACTIVE',['practice.experiment.9.14','practice.simulation.11.11.planned']]]);
   const migration=committed(MIGRATION_REPORT);
-  assert.deepEqual([migration.totalActivities,migration.registryRendered,migration.legacyRendered,migration.rendererBlocked,migration.unrouted],[146,1,144,0,1]);
-  const hydrolysis=migration.futureCandidates.find(c=>c.candidate==='hydrolysis-medium');
-  assert.equal(hydrolysis.learnerUiPath,'CANNOT_SUCCEED','the known hydrolysis blocker stays visible');
+  // P1.5: migration numbers are computed from the compiled plans, never hardcoded
+  const shippedPlans=committed(`public/content/${committed('public/content/manifest.json').activeVersion}/execution-plans.json`).plans;
+  assert.equal(migration.registryRendered,shippedPlans.filter(p=>p.rendererRequirement).length);
+  assert.equal(migration.totalActivities,migration.registryRendered+migration.legacyRendered+migration.rendererBlocked+migration.unrouted);
+  assert.equal(migration.rendererBlocked,0);
+  assert.equal(migration.futureCandidates.find(c=>c.candidate==='hydrolysis-medium'),undefined,'hydrolysis is implemented, no longer a future candidate');
   assert.match(migration.futureCandidates.find(c=>c.candidate==='ionic-precipitation').dependency,/reagent-choice intent/);
   assert.ok(migration.notCandidates.find(c=>c.candidate==='electrolysis').reason.some(r=>/canned animation/.test(r)));
   assert.equal(atom.modelBased,true);assert.equal(atom.evidenceParity.equal,true);assert.equal(atom.keyboardE2E.keyboardOnly,true);

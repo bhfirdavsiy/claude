@@ -11,4 +11,14 @@ export const ATOM_BUILDER_CAPABILITY:RendererCapability=Object.freeze({
   accessibility:Object.freeze({keyboard:true,nonColorCues:true,screenReaderSummary:true,reducedMotion:'static',nonVisualAlternative:'text-state'} as const),
 }) as RendererCapability;
 
-export const RENDERER_CATALOG:readonly RendererCapability[]=Object.freeze([ATOM_BUILDER_CAPABILITY]);
+/** P1.5: hydrolysis medium — choose a salt, predict the medium, reveal it with the indicator (9.14 experiment,
+ *  11.11 simulation: the same trial through either engine's command kind). */
+export const HYDROLYSIS_MEDIUM_CAPABILITY:RendererCapability=Object.freeze({
+  id:'hydrolysis-medium',
+  version:'1.0.0',
+  rendererModelSchema:'kimyolab.renderer.hydrolysis-medium.v1',
+  intents:Object.freeze(['experiment-action','simulation-action'] as const),
+  accessibility:Object.freeze({keyboard:true,nonColorCues:true,screenReaderSummary:true,reducedMotion:'static',nonVisualAlternative:'text-state'} as const),
+}) as RendererCapability;
+
+export const RENDERER_CATALOG:readonly RendererCapability[]=Object.freeze([ATOM_BUILDER_CAPABILITY,HYDROLYSIS_MEDIUM_CAPABILITY]);

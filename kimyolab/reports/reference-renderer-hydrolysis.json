@@ -1,0 +1,134 @@
+{
+  "schema": "kimyolab.reference-renderer-hydrolysis.v1",
+  "capability": "hydrolysis-medium@1.0.0",
+  "status": "PASS",
+  "checks": {
+    "modelBased": true,
+    "distinctOutcomesAtLeastTwo": true,
+    "learnerDecision": true,
+    "predictionBeforeReveal": true,
+    "evidenceParity": true,
+    "unmodeledFailsClosed": true
+  },
+  "modelBased": true,
+  "modeledSalts": [
+    "AlCl3",
+    "Na2CO3",
+    "NaCl",
+    "NH4Cl"
+  ],
+  "distinctOutcomes": 3,
+  "probes": [
+    {
+      "salt": "AlCl3",
+      "domainMedium": "acidic",
+      "engineActualMedium": "acidic",
+      "rendererObservation": "Indikator (lakmus) qizil tusga o‘tdi. Muhit kislotali.",
+      "rendererMedium": "acidic",
+      "predicted": "neutral",
+      "correct": false,
+      "score": 0
+    },
+    {
+      "salt": "Na2CO3",
+      "domainMedium": "basic",
+      "engineActualMedium": "basic",
+      "rendererObservation": "Indikator (lakmus) ko‘k tusga o‘tdi. Muhit ishqoriy.",
+      "rendererMedium": "basic",
+      "predicted": "neutral",
+      "correct": false,
+      "score": 0
+    },
+    {
+      "salt": "NaCl",
+      "domainMedium": "neutral",
+      "engineActualMedium": "neutral",
+      "rendererObservation": "Indikator (lakmus) binafsha tusga o‘tdi. Muhit neytral.",
+      "rendererMedium": "neutral",
+      "predicted": "neutral",
+      "correct": true,
+      "score": 1
+    },
+    {
+      "salt": "NH4Cl",
+      "domainMedium": "acidic",
+      "engineActualMedium": "acidic",
+      "rendererObservation": "Indikator (lakmus) qizil tusga o‘tdi. Muhit kislotali.",
+      "rendererMedium": "acidic",
+      "predicted": "neutral",
+      "correct": false,
+      "score": 0
+    }
+  ],
+  "learnerDecision": {
+    "offeredSalts": [
+      "AlCl3",
+      "Na2CO3",
+      "NaCl",
+      "NH4Cl"
+    ],
+    "offeredEqualsModeled": true,
+    "choiceChangesOutcome": true,
+    "intents": [
+      "selectSalt",
+      "predictMedium",
+      "addIndicator"
+    ]
+  },
+  "predictionBeforeReveal": {
+    "beforeRevealCompletes": true,
+    "afterRevealCompletes": false,
+    "afterRevealScore": 0,
+    "afterRevealRecorded": true
+  },
+  "evidenceParity": {
+    "claim": "engine evidence actualMedium = renderer observation = HydrolysisModel.classify(salt) for every modeled salt",
+    "equal": true
+  },
+  "unmodeledFailsClosed": true,
+  "domainSource": [
+    "src/domain/chemistry/hydrolysis-model.ts",
+    "src/domain/chemistry/hydrolysis-trial.ts",
+    "content-src/chemistry/hydrolysis.json"
+  ],
+  "contentReviewStatus": {
+    "records": [
+      "pending"
+    ],
+    "indicator": "pending"
+  },
+  "converter": "src/renderers/hydrolysis-medium/renderer-model.ts#toHydrolysisRendererModel",
+  "rendererModelSchema": "kimyolab.renderer.hydrolysis-medium.v1",
+  "intents": {
+    "kinds": [
+      "experiment-action",
+      "simulation-action"
+    ],
+    "shape": {
+      "kind": "experiment-action",
+      "action": {
+        "type": "selectSalt",
+        "payload": {
+          "salt": "AlCl3"
+        }
+      }
+    }
+  },
+  "accessibility": {
+    "keyboard": true,
+    "nonColorCues": true,
+    "screenReaderSummary": true,
+    "reducedMotion": "static",
+    "nonVisualAlternative": "text-state",
+    "keyboardE2E": {
+      "spec": "tests/e2e/renderer-hydrolysis.spec.mjs",
+      "present": true,
+      "keyboardOnly": true
+    }
+  },
+  "knownLimitations": [
+    "only 4 salts are modeled (content-src/chemistry/hydrolysis.json, review pending); the indicator (litmus) colours are content too, review pending",
+    "salts are shown as formulas (no localized salt names yet)",
+    "one indicator; no pH scale or quantitative hydrolysis"
+  ]
+}

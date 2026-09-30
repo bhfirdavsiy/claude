@@ -47,6 +47,8 @@ function advExpected(c){
 function input(id){
  const s=safe[id];if(s){if(s.type==='calculation')return {calculationResponses:s.steps.map(x=>({stepId:x.id,value:x.value,unit:x.unit}))};throw new Error('unexpected safe type');}
  const c=advanced[id];const e=advExpected(c);
+ // P1.5: the hydrolysis task is a prediction trial (salt → prediction → indicator); a typed value is no longer an answer
+ if(c.type==='simulation'&&c.task==='hydrolysis')return {simulationActions:[{type:'selectSalt',payload:{salt:c.salt}},{type:'predictMedium',payload:{medium:e}},{type:'addIndicator'}]};
  if(c.type==='simulation')return {simulationActions:[{field:c.field,value:e}]};
  if(c.type==='trainer')return {trainerAnswers:[String(e)]};
  if(c.type==='calculation')return {calculationResponses:[{stepId:c.stepId,value:e,unit:c.unit}]};

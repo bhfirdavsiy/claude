@@ -83,7 +83,8 @@ export function classifyEvidenceVersion(evidence                                
 /** Re-scores raw evidence with the current scoring model (binary outcomes are recomputed from raw fields). */
 export function rescoreEvidence(evidence         )       {
   switch(evidence.type){
-    case 'answer': return evidence.correct?1:0;
+    // P1.5 closeout: a hydrolysis prediction made after the reveal is never credited, not even when rescored
+    case 'answer': return evidence.correct&&!((evidence       ).answerKind==='hydrolysis-prediction'&&(evidence       ).predictedBeforeReveal!==true)?1:0;
     case 'construction': return evidence.achieved?1:0;
     case 'procedure': return evidence.accepted?1:0;
     default: return evidence.score;

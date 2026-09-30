@@ -32,6 +32,18 @@
                                                                                                    
                        
  
+/**
+ * P1.5: one hydrolysis prediction trial (answer evidence with the full trial). `correct` compares the prediction
+ * with the domain's medium; `score` is 1 only for a correct prediction made BEFORE the indicator revealed it.
+ */
+                                                                      
+                                                                                                   
+                                      
+                       
+                                                  
+                                               
+                                 
+ 
                                                            
                       
                  
@@ -69,6 +81,7 @@ const CLASSES = new Set               ([
 ]);
 const TYPES = new Set(['observation', 'answer', 'calculation', 'decision', 'construction', 'procedure']);
 
+const HYDROLYSIS_FIELDS = ['selectedSalt', 'predictedMedium', 'actualMedium', 'predictedBeforeReveal'];
 function invalid(message        )        {
   throw new Error(`EVIDENCE_INVALID: ${message}`);
 }
@@ -92,6 +105,15 @@ export function validateEvidence(input         )           {
       if (!text(input.questionId) || typeof input.correct !== 'boolean') invalid('answer fields required');
       if (input.response !== undefined && !text(input.response)) invalid('answer response must be text');
       if (input.itemVersion !== undefined && !text(input.itemVersion)) invalid('answer itemVersion must be text');
+      // P1.5 closeout: the hydrolysis subtype is identified by an explicit discriminator. Its fields are
+      // reserved: an answer without answerKind may not carry them, and a partial record is rejected.
+      if (input.answerKind !== undefined && input.answerKind !== 'hydrolysis-prediction') invalid('unknown answerKind');
+      if (input.answerKind === 'hydrolysis-prediction') {
+        const media = ['acidic', 'basic', 'neutral'];
+        if (!text(input.selectedSalt) || !media.includes(String(input.predictedMedium)) || !media.includes(String(input.actualMedium)) || typeof input.predictedBeforeReveal !== 'boolean') invalid('hydrolysis prediction fields required');
+        if (input.correct !== (input.predictedMedium === input.actualMedium)) invalid('hydrolysis correct must match prediction');
+        if (input.score > 0 && !input.predictedBeforeReveal) invalid('a prediction after the reveal earns no credit');
+      } else if (HYDROLYSIS_FIELDS.some((k) => input[k] !== undefined)) invalid('hydrolysis fields require answerKind');
       break;
     case 'calculation':
       if (!text(input.stepId) || typeof input.value !== 'number' || !Number.isFinite(input.value) || !text(input.unit)) invalid('calculation fields required');

@@ -9314,7 +9314,14 @@
         "reviewedHash": "",
         "reviewedAt": ""
       },
-      "chemistry": "not_applicable",
+      "chemistry": {
+        "status": "pending",
+        "reviewerId": "unassigned",
+        "reviewerRole": "chemistry",
+        "reviewedVersion": "2026.09.1",
+        "reviewedHash": "",
+        "reviewedAt": ""
+      },
       "didactic": {
         "status": "pending",
         "reviewerId": "unassigned",

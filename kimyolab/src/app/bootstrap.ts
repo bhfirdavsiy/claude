@@ -71,7 +71,7 @@ async function renderCurrent(){
       const attemptSession=progressService.beginPracticeSession(page,practiceEngine);activePractice=attemptSession;
       let persistError:unknown;
       // P1.4 strangler seam: a rendererRequirement → RendererRegistry; otherwise the legacy practice renderer.
-      renderPracticePage(main,page,{apply:async(command)=>{const out=await progressService.applyPracticeCommand(attemptSession,command);persistError=out.persistError;return out.result;},current:()=>practiceEngine.result()},rendererRegistry,async()=>{if(persistError)throw persistError;});}
+      renderPracticePage(main,page,{apply:async(command)=>{const out=await progressService.applyPracticeCommand(attemptSession,command);persistError=out.persistError;return out.result;},current:()=>practiceEngine.result(),retry:()=>{void renderCurrent();}},rendererRegistry,async()=>{if(persistError)throw persistError;});}
     catch(error){renderError(main,contentErrorMessage(error,'Faoliyatni yuklab bo‘lmadi.'));}
     return;
   }

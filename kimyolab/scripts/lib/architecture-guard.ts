@@ -32,6 +32,9 @@ const RENDERER_FORBIDDEN_IMPORTS:Array<[RegExp,string]>=[
   [/^src\/domain\/(readiness|assessment|pilot)\/|^src\/runtime\/governance\//,'RENDERER_DERIVES_READINESS'],
   [/^src\/domain\/chemistry\/|^src\/engines\/|^src\/runtime\/(reference-slices|beta1|beta2|beta3)\//,'CHEMISTRY_DOMAIN_IMPORTED_IN_RENDERER'],
 ];
+/** P1.5: renderers draw RendererModels only — never the content pack, raw chemistry KB or activity configs. */
+const CONTENT_DATA=/\.json$|^content-src\/|^public\/content\/|activity-configs|^src\/app\/content-client\.ts$/;
+const CONTENT_DATA_TEXT=/\.json\b|activity-configs|content-src\/|chemistry\/[a-z-]+\.json|\/content\//;
 const PARTICLE_FIELDS=new Set(['protons','neutrons','electrons']);
 const DERIVED_ATOM_FIELDS=new Set(['atomicNumber','massNumber','charge']);
 /** Answer-key layer and evaluator: owned by the domain + orchestrator + content source only. */
@@ -76,11 +79,23 @@ export function checkSource(rel:string,source:string):GuardViolation[]{
   const flagBoundary=(node:any,name:string)=>{ if(!privileged&&BOUNDARY_FUNCTIONS.has(name)) out.push({file:rel,line:line(node),rule:'PROGRESS_TRANSITION_OUTSIDE_ORCHESTRATOR',detail:name}); };
 
   const visit=(node:any)=>{
+    // ---- P1.5: a renderer never loads content itself (fetch, dynamic import, or a content/config path literal)
+    if(RENDERER.test(rel)){
+      if(ts.isCallExpression(node)&&((ts.isIdentifier(node.expression)&&['fetch','require'].includes(node.expression.text))||node.expression.kind===ts.SyntaxKind.ImportKeyword))
+        out.push({file:rel,line:line(node),rule:'RENDERER_IMPORTS_CONTENT_DATA',detail:node.expression.getText?.()??'call'});
+      if((ts.isStringLiteral(node)||ts.isNoSubstitutionTemplateLiteral(node))&&!ts.isImportDeclaration(node.parent)&&CONTENT_DATA_TEXT.test(node.text))
+        out.push({file:rel,line:line(node),rule:'RENDERER_IMPORTS_CONTENT_DATA',detail:node.text});
+      if(ts.isTemplateExpression(node)){
+        const text=[node.head.text,...node.templateSpans.map((x:any)=>x.literal.text)].join('${}');
+        if(CONTENT_DATA_TEXT.test(text)) out.push({file:rel,line:line(node),rule:'RENDERER_IMPORTS_CONTENT_DATA',detail:text});
+      }
+    }
     // ---- imports: aliases, namespace imports, forbidden layers
     if(ts.isImportDeclaration(node)&&ts.isStringLiteral(node.moduleSpecifier)){
       const target=resolve(node.moduleSpecifier.text);
       const typeOnly=Boolean(node.importClause?.isTypeOnly);
       const bindings=node.importClause?.namedBindings;
+      if(RENDERER.test(rel)&&CONTENT_DATA.test(target)) out.push({file:rel,line:line(node),rule:'RENDERER_IMPORTS_CONTENT_DATA',detail:target});
       if(RENDERER.test(rel)&&!typeOnly){
         const valueBindings=!bindings||!ts.isNamedImports(bindings)||Boolean(node.importClause?.name)||bindings.elements.some((e:any)=>!e.isTypeOnly);
         const hit=RENDERER_FORBIDDEN_IMPORTS.find(([re])=>re.test(target));

@@ -293,6 +293,10 @@ if (fs.existsSync(overridesFile)) {
     if (override.lifecycleStatus) activity.lifecycleStatus = override.lifecycleStatus;
     if (Array.isArray(override.conceptIds)) activity.conceptIds = [...override.conceptIds];
     if (Array.isArray(override.accessibilityProfile)) activity.accessibilityProfile = [...override.accessibilityProfile];
+    // P1.5 closeout: an activity whose evaluation depends on chemistry content (e.g. 11.11 reads the hydrolysis
+    // model and the indicator colours) needs a chemistry review even when its engine type would not imply one.
+    // This only ADDS a pending review requirement; it can never create or carry an approval.
+    if (override.chemistryReviewRequired === true && activity.approvals.chemistry === 'not_applicable') activity.approvals.chemistry = pending('chemistry');
   }
 }
 

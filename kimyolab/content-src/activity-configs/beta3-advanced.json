@@ -100,11 +100,12 @@
   "practice.simulation.11.11.planned": {
     "capability": "hydrolysis",
     "type": "simulation",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "conceptId": "concept.c156",
     "task": "hydrolysis",
     "salt": "NH4Cl",
-    "field": "medium"
+    "field": "medium",
+    "rendererRequirement": {"capability": "hydrolysis-medium", "range": "^1.0.0"}
   },
   "practice.simulation.11.12.planned": {
     "capability": "solubility-curve",

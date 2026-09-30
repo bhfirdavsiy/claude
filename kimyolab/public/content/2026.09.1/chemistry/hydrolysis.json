@@ -1,5 +1,6 @@
 {
   "version": "1.0.0",
+  "indicator": {"id":"litmus","colors":{"acidic":"red","basic":"blue","neutral":"violet"},"explanation":"Litmus is red in an acidic solution, blue in a basic solution and keeps its violet colour in a neutral solution (school-level observation used to reveal the modeled medium).","sourceRefs":["src.curriculum.9.06"],"reviewStatus":"pending"},
   "records": [
     {"salt":"AlCl3","medium":"acidic","explanation":"Aluminium(III) salt solution is modeled as acidic in the curriculum-bounded hydrolysis set.","sourceRefs":["src.curriculum.9.06"],"reviewStatus":"pending"},
     {"salt":"Na2CO3","medium":"basic","explanation":"Carbonate hydrolysis is modeled as producing a basic solution in the curriculum-bounded set.","sourceRefs":["src.curriculum.9.06"],"reviewStatus":"pending"},

@@ -10,10 +10,11 @@
   "practice.experiment.9.14": {
     "capability": "hydrolysis-experiment",
     "type": "experiment",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "conceptId": "concept.c164",
     "salt": "AlCl3",
-    "expectedMedium": "acidic"
+    "expectedMedium": "acidic",
+    "rendererRequirement": {"capability": "hydrolysis-medium", "range": "^1.0.0"}
   },
   "practice.experiment.9.10": {
     "capability": "electrolysis-experiment",

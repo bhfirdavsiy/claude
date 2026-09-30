@@ -2,23 +2,33 @@
   "schema": "kimyolab.renderer-migration.v1",
   "semantics": "Strangler migration: an activity with a rendererRequirement is drawn by the RendererRegistry; every other routed activity keeps the legacy practice renderer unchanged.",
   "totalActivities": 146,
-  "registryRendered": 1,
-  "legacyRendered": 144,
+  "registryRendered": 3,
+  "legacyRendered": 142,
   "rendererBlocked": 0,
   "unrouted": 1,
   "registryActivities": [
     {
+      "activityId": "practice.experiment.9.14",
+      "capability": "hydrolysis-medium",
+      "runtime": "READY"
+    },
+    {
       "activityId": "practice.simulation.7.07.planned",
       "capability": "atom-builder",
+      "runtime": "READY"
+    },
+    {
+      "activityId": "practice.simulation.11.11.planned",
+      "capability": "hydrolysis-medium",
       "runtime": "READY"
     }
   ],
   "legacyByEngine": {
-    "experiment": 57,
+    "experiment": 56,
     "trainer": 17,
     "calculation": 10,
     "case": 10,
-    "simulation": 50
+    "simulation": 49
   },
   "futureCandidates": [
     {
@@ -29,15 +39,6 @@
         "black-swan risk: learner choice not yet exposed"
       ],
       "dependency": "reagent-choice intent (learner-chosen reactants) — the adapter accepts payload.reactants, the UI does not expose it yet"
-    },
-    {
-      "candidate": "hydrolysis-medium",
-      "rank": 3,
-      "learnerUiPath": "CANNOT_SUCCEED",
-      "blockers": [
-        "learner UI path: CANNOT_SUCCEED (controls 3; complete=false; positive evidence=false)"
-      ],
-      "dependency": "UI must send payload.salt / payload.medium (today CANNOT_SUCCEED)"
     }
   ],
   "notCandidates": [

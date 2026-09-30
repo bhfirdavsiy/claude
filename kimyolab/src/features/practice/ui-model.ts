@@ -14,6 +14,10 @@ export type PracticeUiModel =
 export function buildPracticeUiModel(model:StudentPracticePageModel):PracticeUiModel {
   const c=model.referenceConfig;
   const common={title:model.title,goal:model.goal,backHref:`/learn/${model.learningUnit.id}/practice`};
+  // P1.4/P1.5: activities with a rendererRequirement are drawn by the RendererRegistry (src/renderers/**) —
+  // never by this legacy model (atom-builder: its UI-side goal label; hydrolysis: its payload-less buttons that
+  // could never complete 9.14).
+  if(model.executionPlan.rendererRequirement) throw new Error('RENDERER_REQUIRED');
   const experimentMeta={equipment:model.legacyContent?.equipment??'',materials:model.legacyContent?.materials??'',safety:model.legacyContent?.safety??''};
   if(model.type==='experiment'){
     if(model.executionPlan.runtime==='beta2-organic'){
@@ -21,9 +25,7 @@ export function buildPracticeUiModel(model:StudentPracticePageModel):PracticeUiM
       return {...common,...experimentMeta,kind:'experiment',controls:actions.map((action:string)=>({action,label:ACTION_LABELS[action]??String(action).replace(/([A-Z])/g,' $1').trim(),requiresEquation:false}))};
     }
     if(model.executionPlan.runtime==='beta2-advanced'){
-      const actions=c.capability==='hydrolysis-experiment'
-        ? ['selectSalt','addIndicator','recordMedium']
-        : c.capability==='electrolysis-experiment'
+      const actions=c.capability==='electrolysis-experiment'
           ? ['connectCurrent','observeCathode','observeAnode']
           : [];
       return {...common,...experimentMeta,kind:'experiment',controls:actions.map(action=>({action,label:ACTION_LABELS[action]??action.replace(/([A-Z])/g,' $1').trim(),requiresEquation:false}))};
@@ -35,9 +37,6 @@ export function buildPracticeUiModel(model:StudentPracticePageModel):PracticeUiM
     return {...common,...experimentMeta,kind:'experiment',controls:(c.scenario?.steps??[]).map((s:any)=>({action:String(s.actionType),label:model.executionPlan.runtime!=='reference-slice'?String(s.label??s.actionType):(ACTION_LABELS[String(s.actionType)]??String(s.actionType)),requiresEquation:model.executionPlan.runtime==='reference-slice'&&s.actionType==='record'}))};
   }
   if(model.type==='simulation'){
-    // P1.4: the reference-slice atom builder is drawn by the RendererRegistry (src/renderers/atom-builder) —
-    // its former 'atom' form (with a UI-side "element-(p+n)" goal label) was removed from this legacy model.
-    if(model.executionPlan.rendererRequirement) throw new Error('RENDERER_REQUIRED');
     const fields=model.executionPlan.runtime==='beta2-organic'?[String(c.field??c.property??'value')]:model.executionPlan.runtime==='beta2-advanced'&&model.executionPlan.capability==='manganese-redox-simulation'?['medium']:model.executionPlan.runtime==='beta3-advanced'?[String(c.field??'value')]:(c.controls??[]);
     return {...common,kind:'simulation',mode:'generic',controls:fields.map((field:string)=>{const value=c.initialState?.[field]??c.expected;const booleanTask=c.task==='nuclear-conservation'||c.task==='equal-rates';const numberTask=typeof value==='number'||c.task==='reaction-rate';return {field:String(field),label:String(field).replaceAll('-',' '),valueType:booleanTask?'boolean':numberTask?'number':typeof value==='boolean'?'boolean':'text'};})};
   }

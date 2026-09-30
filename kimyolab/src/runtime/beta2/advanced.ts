@@ -1,6 +1,8 @@
 import type {PracticeActivity,PracticeType} from '../../domain/content/types.ts';
 import type {IonicEngine} from '../../domain/chemistry/ionic-engine.ts';
 import type {HydrolysisModel,HydrolysisMedium} from '../../domain/chemistry/hydrolysis-model.ts';
+import {assertHydrolysisTarget} from '../../domain/chemistry/hydrolysis-trial.ts';
+import {hydrolysisPracticeResult} from '../reference-slices/hydrolysis-practice.ts';
 import type {ElectrolysisModel,ElectrolysisQuery} from '../../domain/chemistry/electrolysis-model.ts';
 import type {ManganeseRedoxModel,ManganeseMedium} from '../../domain/chemistry/manganese-redox-model.ts';
 import type {AnswerEvidence,ConstructionEvidence,ObservationEvidence,ProcedureEvidence,Evidence} from '../evidence/types.ts';
@@ -68,12 +70,11 @@ export function createBeta2AdvancedRouter(o:Options):PracticeRouter<ReferenceSli
     const config=o.registry[activity.id];if(!config||config.type!=='experiment')throw new Error(`BETA2_ADVANCED_CONFIG_MISSING:${activity.id}`);
     const actions=context.inputs[activity.id]?.actions??[];
     if(config.capability==='hydrolysis-experiment'){
-      const selected=actions.find((a:any)=>a.type==='selectSalt')?.payload?.salt as string|undefined;
-      const recorded=[...actions].reverse().find((a:any)=>a.type==='recordMedium')?.payload?.medium as HydrolysisMedium|undefined;
-      const model=selected?o.hydrolysisModel.classify(selected):{modeled:false as const,code:'HYDROLYSIS_NOT_MODELED' as const};
-      const achieved=!!selected&&model.modeled&&selected===config.salt&&recorded===model.medium&&recorded===config.expectedMedium;
-      const evidence:ConstructionEvidence={...meta(activity,config,o),id:`${activity.id}.hydrolysis`,score:achieved?1:0,evidenceClass:'practice-observation',type:'construction',targetId:`hydrolysis-${config.salt}-${config.expectedMedium}`,achieved,independenceKey:`${activity.id}:hydrolysis`};
-      return {evidence:[evidence],serializedState:JSON.stringify({selected,recorded,model}),model,finalState:{status:achieved?'complete':'in_progress'}} as any;
+      // P1.5: the learner chooses a salt, predicts the medium, then adds the indicator; the domain decides the
+      // medium and the colour (hydrolysis-trial.ts). The former selectSalt/recordMedium protocol recorded the
+      // medium AFTER the reveal and could not be driven from the UI (9.14 was CANNOT_SUCCEED).
+      assertHydrolysisTarget(o.hydrolysisModel,config.salt,config.expectedMedium);
+      return hydrolysisPracticeResult({model:o.hydrolysisModel,targetSalt:config.salt,actions,meta:meta(activity,config,o),construction:{id:`${activity.id}.hydrolysis`,targetId:`hydrolysis-${config.salt}-${config.expectedMedium}`}}) as any;
     }
     if(config.capability==='electrolysis-experiment'){
       const model=o.electrolysisModel.resolve(config.query);if(!model.modeled)throw new Error(model.code);

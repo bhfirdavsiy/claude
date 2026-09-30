@@ -23,6 +23,29 @@
         "practice.simulation.7.07.planned"
       ],
       "status": "ACTIVE"
+    },
+    {
+      "capability": "hydrolysis-medium",
+      "rendererVersion": "1.0.0",
+      "rendererModelSchema": "kimyolab.renderer.hydrolysis-medium.v1",
+      "intents": [
+        "experiment-action",
+        "simulation-action"
+      ],
+      "implementation": "src/renderers/hydrolysis-medium/renderer.ts",
+      "implementationExists": true,
+      "accessibility": {
+        "keyboard": true,
+        "nonColorCues": true,
+        "screenReaderSummary": true,
+        "reducedMotion": "static",
+        "nonVisualAlternative": "text-state"
+      },
+      "compatibleActivities": [
+        "practice.experiment.9.14",
+        "practice.simulation.11.11.planned"
+      ],
+      "status": "ACTIVE"
     }
   ]
 }
