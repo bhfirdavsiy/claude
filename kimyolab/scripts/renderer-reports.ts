@@ -23,14 +23,18 @@ import {ContentClient} from '../src/app/content-client.ts';
 import {ReferencePracticeSession} from '../src/features/practice/session.ts';
 import {isPracticeResultComplete} from '../src/runtime/learning-orchestrator/selectors.ts';
 import {diskFetch} from './pilot-status.ts';
+import {ionicIntent} from '../src/renderers/ionic-precipitation/renderer.ts';
+import {toIonicPrecipitationRendererModel,IONIC_RENDERER_MODEL_SCHEMA} from '../src/renderers/ionic-precipitation/renderer-model.ts';
+import {IonicEngine} from '../src/domain/chemistry/ionic-engine.ts';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 export const REGISTRY_REPORT='reports/renderer-registry.json';
 export const MIGRATION_REPORT='reports/renderer-migration.json';
 export const ATOM_REPORT='reports/reference-renderer-atom.json';
 export const HYDROLYSIS_REPORT='reports/reference-renderer-hydrolysis.json';
+export const IONIC_REPORT='reports/reference-renderer-ionic-precipitation.json';
 /** Where each registered capability is implemented (checked to exist). */
-const IMPLEMENTATIONS:Record<string,string>={'atom-builder':'src/renderers/atom-builder/renderer.ts','hydrolysis-medium':'src/renderers/hydrolysis-medium/renderer.ts'};
+const IMPLEMENTATIONS:Record<string,string>={'atom-builder':'src/renderers/atom-builder/renderer.ts','hydrolysis-medium':'src/renderers/hydrolysis-medium/renderer.ts','ionic-precipitation':'src/renderers/ionic-precipitation/renderer.ts'};
 
 function plans(base:string){
   const src=loadSources(base);
@@ -77,7 +81,7 @@ export function buildMigrationReport(base=root){
     unrouted:rows.filter(r=>!r.route.ok).length,
     registryActivities:registryRendered.map(r=>({activityId:r.activity.id,capability:r.route.ok?r.route.plan.rendererRequirement!.capability:null,runtime:r.readiness.runtime})),
     legacyByEngine:legacy.reduce((m:Record<string,number>,r)=>{m[r.activity.type]=(m[r.activity.type]??0)+1;return m;},{}),
-    futureCandidates:(foundation.rows??[]).filter((r:any)=>r.rank&&!r.implemented).map((r:any)=>({candidate:r.candidate,rank:r.rank,learnerUiPath:r.learnerUiPath.verdict,blockers:r.blockers,dependency:r.candidate==='ionic-precipitation'?'reagent-choice intent (learner-chosen reactants) — the adapter accepts payload.reactants, the UI does not expose it yet':null})),
+    futureCandidates:(foundation.rows??[]).filter((r:any)=>r.rank&&!r.implemented).map((r:any)=>({candidate:r.candidate,rank:r.rank,learnerUiPath:r.learnerUiPath.verdict,blockers:r.blockers,dependency:null})),
     notCandidates:(foundation.rows??[]).filter((r:any)=>!r.rank).map((r:any)=>({candidate:r.candidate,reason:r.blockers})),
   };
 }
@@ -200,10 +204,90 @@ export async function buildHydrolysisReport(base=root,options:{hydrolysisData?:u
   };
 }
 
+/**
+ * P1.6 ionic precipitation reference renderer report. Every value is measured by driving the REAL stack with the
+ * renderer's intents over EVERY pair of the content shelf. `status` FAILS when the flow is canned (fewer than two
+ * distinct modeled results), when the learner has no real choice, when an unmodeled pair produces anything but a
+ * fail-closed coverage message, when equation validation is not order-insensitive, or when renderer ≠ domain.
+ * `reactions` overrides the KB (used by tests to prove that a canned KB FAILs).
+ */
+export async function buildIonicReport(base=root,options:{reactions?:unknown[]}={}){
+  const LEAD='practice.experiment.8.1';
+  const client=new ContentClient({fetchImpl:diskFetch(base) as any,baseUrl:'/content'});
+  const page:any=await client.loadPractice(LEAD);
+  if(options.reactions) page.chemistry={...page.chemistry,reactions:options.reactions};
+  const run=async(actions:any[])=>{ const session=new ReferencePracticeSession(page); let r:any=await session.result(); for(const a of actions) r=await session.apply(ionicIntent(a,page.type)); return r; };
+  const start=toIonicPrecipitationRendererModel(await run([]));
+  const shelf=start.reagents.map(r=>r.id);
+  const pairs=[];
+  for(let i=0;i<shelf.length;i++) for(let j=i+1;j<shelf.length;j++){
+    const r=await run([{type:'selectReagent',payload:{slot:'A',speciesId:shelf[i]}},{type:'selectReagent',payload:{slot:'B',speciesId:shelf[j]}},{type:'mix'}]);
+    const cur=r.finalState.ionic.current, m=toIonicPrecipitationRendererModel(r);
+    const obs=r.evidence.filter((e:any)=>e.observationKind==='ionic-mixing');
+    pairs.push({reagents:[shelf[i],shelf[j]],outcome:cur.outcome,reactionId:cur.reactionId,coverageCode:cur.coverageCode,rendererState:m.reactionState,observation:m.observation?.text??null,observationEvidence:obs.length,kbObservations:cur.observations});
+  }
+  const modeled=pairs.filter(p=>p.outcome!=='not-modeled');
+  const distinct=new Set(modeled.map(p=>`${p.outcome}:${p.reactionId}`)).size;
+  const stateMap:Record<string,string>={reaction:'modeled-reaction','no-reaction':'modeled-no-reaction','not-modeled':'not-modeled'};
+  const evidenceParity=pairs.every(p=>p.rendererState===stateMap[p.outcome]&&(p.outcome==='not-modeled'?p.observationEvidence===0:p.observationEvidence===1));
+  const unmodeledFailClosed=pairs.filter(p=>p.outcome==='not-modeled').every(p=>p.observationEvidence===0&&p.kbObservations===null&&/modelda yo‘q/.test(p.observation??'')&&!/reaksiya bormaydi \(/.test(p.observation??''));
+  // equation validation (the expected equation comes from IonicEngine, never from this report)
+  const target=page.referenceConfig.reactionId;
+  const rx=page.chemistry.reactions.find((x:any)=>x.id===target);
+  const idOf=(f:string)=>page.chemistry.species.find((x:any)=>x.formula===f)?.id;
+  const expected=IonicEngine.from({reactions:page.chemistry.reactions,rules:page.chemistry.solutionRules}).netIonicEquation(target).equation;
+  const [left,right]=expected.split(' → ');
+  const swapped=`${left!.split(' + ').reverse().join(' + ')} -> ${right}`;
+  const mixTarget=[{type:'selectReagent',payload:{slot:'A',speciesId:idOf(rx.reactants[0].formula)}},{type:'selectReagent',payload:{slot:'B',speciesId:idOf(rx.reactants[1].formula)}},{type:'mix'}];
+  const verdict=async(eq:string)=>{ const r=await run([...mixTarget,{type:'writeEquation',payload:{equation:eq}}]); return {accepted:r.finalState.ionic.equations.at(-1)?.correct??null,syntaxRejected:r.finalState.ionic.rejected==='EQUATION_SYNTAX',complete:isPracticeResultComplete(page.type,r),answerEvidence:r.evidence.filter((e:any)=>e.answerKind==='net-ionic-equation').length}; };
+  const canonical=await verdict(expected), reordered=await verdict(swapped), wrong=await verdict(`${left} -> ${right!.replace('(s)','(aq)')}`), syntax=await verdict('Ag+ Cl- AgCl');
+  const equationValidation={authority:'IonicEngine.netIonicEquation + compareNetIonic',canonicalAccepted:canonical.accepted===true&&canonical.complete,reorderedAccepted:reordered.accepted===true,wrongRejectedAsEvidence:wrong.accepted===false&&wrong.answerEvidence===1&&!wrong.complete,syntaxErrorNotEvidence:syntax.syntaxRejected&&syntax.answerEvidence===0};
+  const expectedHidden=!JSON.stringify(toIonicPrecipitationRendererModel(await run(mixTarget))).includes(expected);
+  const learnerChoice={availableReagents:shelf.length,pairs:pairs.length,choiceChangesOutcome:distinct>=2,fixedScript:false};
+  const e2e=path.join(base,'tests/e2e/renderer-ionic.spec.mjs');
+  const e2eText=fs.existsSync(e2e)?fs.readFileSync(e2e,'utf8'):'';
+  const cap=RENDERER_CATALOG.find(c=>c.id==='ionic-precipitation')!;
+  const checks={
+    modelBased:distinct>=2&&evidenceParity,
+    learnerChoice:learnerChoice.choiceChangesOutcome&&shelf.length>=2,
+    unmodeledFailClosed,
+    equationValidation:Object.values(equationValidation).filter(v=>typeof v==='boolean').every(Boolean),
+    expectedEquationHidden:expectedHidden,
+    evidenceParity,
+  };
+  return {
+    schema:'kimyolab.reference-renderer-ionic-precipitation.v1',
+    capability:`${cap.id}@${cap.version}`,
+    status:Object.values(checks).every(Boolean)?'PASS':'FAIL',
+    checks,
+    modelBased:checks.modelBased,
+    availableReagents:start.reagents.map(r=>({speciesId:r.id,label:r.label})),
+    modeledPairs:modeled.map(p=>({reagents:p.reagents,outcome:p.outcome,reactionId:p.reactionId,observation:p.observation})),
+    modeledNoReactionPairs:modeled.filter(p=>p.outcome==='no-reaction').length,
+    notModeledPairs:pairs.length-modeled.length,
+    distinctOutcomes:distinct,
+    learnerChoice,
+    unmodeledFailClosed,
+    equationValidation,
+    evidenceParity:{claim:'for every shelf pair: renderer state = ReactionMatcher outcome; one observation evidence per modeled pair, none for an unmodeled pair',equal:evidenceParity},
+    domainSource:['src/domain/chemistry/ionic-mixing.ts','src/domain/chemistry/reaction-matcher.ts','src/domain/chemistry/ionic-engine.ts','src/domain/chemistry/ionic-equation.ts','content-src/chemistry/reactions.json','content-src/chemistry/solubility.json','content-src/chemistry/species.json'],
+    converter:'src/renderers/ionic-precipitation/renderer-model.ts#toIonicPrecipitationRendererModel',
+    rendererModelSchema:IONIC_RENDERER_MODEL_SCHEMA,
+    intents:{kinds:cap.intents,shape:ionicIntent({type:'selectReagent',payload:{slot:'A',speciesId:shelf[0]!}},'experiment')},
+    accessibility:{...cap.accessibility,keyboardE2E:{spec:'tests/e2e/renderer-ionic.spec.mjs',present:e2eText.length>0,keyboardOnly:/keyboard\.press/.test(e2eText)&&!/\.click\(/.test(e2eText)}},
+    knownLimitations:[
+      `only ${modeled.length} of the ${pairs.length} shelf pairs are modeled in reactions.json (review pending); the others fail closed as "not modeled"`,
+      'the KB has no explicit no-reaction records yet: the domain supports them (reactionType "no-reaction"), no data asserts one',
+      'the shelf holds only solution reagents with dissociation rules (IonicEngine can compute their net ionic equation)',
+      'phases in the learner equation are optional; a coefficient multiple (2Ag+ + 2Cl- → 2AgCl) is not the net equation',
+    ],
+  };
+}
+
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
   const write=(rel:string,body:unknown)=>fs.writeFileSync(path.join(root,rel),`${JSON.stringify(body,null,2)}\n`,'utf8');
-  const registry=buildRegistryReport();const migration=buildMigrationReport();const atom=await buildAtomReport();const hydrolysis=await buildHydrolysisReport();
-  write(REGISTRY_REPORT,registry);write(MIGRATION_REPORT,migration);write(ATOM_REPORT,atom);write(HYDROLYSIS_REPORT,hydrolysis);
-  console.log(JSON.stringify({renderers:registry.renderers.length,registryRendered:migration.registryRendered,legacyRendered:migration.legacyRendered,rendererBlocked:migration.rendererBlocked,atomModelBased:atom.modelBased,evidenceParity:atom.evidenceParity.equal,hydrolysis:hydrolysis.status,hydrolysisDistinctOutcomes:hydrolysis.distinctOutcomes}));
-  if(!registry.catalogMatchesRegistry||!atom.modelBased||!atom.evidenceParity.equal||hydrolysis.status!=='PASS'){console.error('RENDERER_REPORT_INVARIANT_FAILED');process.exitCode=1;}
+  const registry=buildRegistryReport();const migration=buildMigrationReport();const atom=await buildAtomReport();const hydrolysis=await buildHydrolysisReport();const ionic=await buildIonicReport();
+  write(REGISTRY_REPORT,registry);write(MIGRATION_REPORT,migration);write(ATOM_REPORT,atom);write(HYDROLYSIS_REPORT,hydrolysis);write(IONIC_REPORT,ionic);
+  console.log(JSON.stringify({renderers:registry.renderers.length,registryRendered:migration.registryRendered,legacyRendered:migration.legacyRendered,rendererBlocked:migration.rendererBlocked,atomModelBased:atom.modelBased,evidenceParity:atom.evidenceParity.equal,hydrolysis:hydrolysis.status,hydrolysisDistinctOutcomes:hydrolysis.distinctOutcomes,ionic:ionic.status,ionicDistinctOutcomes:ionic.distinctOutcomes}));
+  if(!registry.catalogMatchesRegistry||!atom.modelBased||!atom.evidenceParity.equal||hydrolysis.status!=='PASS'||ionic.status!=='PASS'){console.error('RENDERER_REPORT_INVARIANT_FAILED');process.exitCode=1;}
 }

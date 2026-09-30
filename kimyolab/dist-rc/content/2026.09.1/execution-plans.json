@@ -343,7 +343,11 @@
       "runtime": "reference-slice",
       "capability": "slice.8.16.chloride-precipitation",
       "configSource": "reference-slices",
-      "configVersion": "1.0.0"
+      "configVersion": "2.0.0",
+      "rendererRequirement": {
+        "capability": "ionic-precipitation",
+        "range": "^1.0.0"
+      }
     },
     {
       "activityId": "practice.experiment.8.10",

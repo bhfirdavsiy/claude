@@ -55,8 +55,11 @@ export interface RendererMountContext {
   goal:string;
   /** localized element display name for a symbol (content-backed presentation mapper); defaults to the symbol */
   elementName?:(symbol:string)=>string;
-  /** engine family of the page (P1.5): a renderer serving several engines picks the matching command kind */
-  practiceType?:'experiment'|'simulation'|'trainer'|'calculation'|'case';
+  /**
+   * Engine family of the page (P1.5; required since the P1.6 audit). Generic page context: it selects the
+   * command kind of the existing PracticeCommand contract (see renderers/intent.ts), nothing renderer-specific.
+   */
+  practiceType:'experiment'|'simulation'|'trainer'|'calculation'|'case';
 }
 
 export interface RendererImplementation {

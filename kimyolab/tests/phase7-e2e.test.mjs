@@ -8,6 +8,7 @@ import { ReactionMatcher } from '../src/domain/chemistry/reaction-matcher.ts';
 import { IonicEngine } from '../src/domain/chemistry/ionic-engine.ts';
 import { createCanonicalContentRepository } from '../src/runtime/reference-slices/repository.ts';
 import { loadReferenceSliceRegistry } from '../src/runtime/reference-slices/config.ts';
+import { SpeciesRegistry } from '../src/domain/chemistry/species-registry.ts';
 import { createBeta1Router, loadBeta1ConfigRegistry } from '../src/runtime/beta1/index.ts';
 
 const read=(p)=>JSON.parse(fs.readFileSync(new URL(`../${p}`,import.meta.url),'utf8'));
@@ -25,7 +26,8 @@ function referenceInput(activityId){
     'practice.trainer.7.4':{trainerAnswers:['Al2O3']},
     'practice.calculation.7.5':{calculationResponses:[{stepId:'h-contribution',value:2,unit:'relative-mass'},{stepId:'s-contribution',value:32,unit:'relative-mass'},{stepId:'o-contribution',value:64,unit:'relative-mass'},{stepId:'total',value:98,unit:'relative-mass'}]},
     'practice.case.7.14':{case:{evidenceIds:['traffic-no2','calm-weather'],decision:'Prioritize transport emission reduction',justification:'NO2 evidence is highest near traffic and calm weather limits dispersion, so transport is a supported source hypothesis.'}},
-    'practice.experiment.8.1':{actions:[{type:'selectApparatus'},{type:'addNaCl'},{type:'addAgNO3'},{type:'observe'},{type:'record',payload:{netIonicEquation:'Ag+ + Cl- → AgCl(s)'}}]},
+    // P1.6: learner reagent choice → mix → equation (the scripted reagent sequence was removed; ADR-P1-007)
+    'practice.experiment.8.1':{actions:[{type:'selectReagent',payload:{slot:'A',speciesId:'species.agno3'}},{type:'selectReagent',payload:{slot:'B',speciesId:'species.nacl'}},{type:'mix'},{type:'writeEquation',payload:{equation:'Ag+ + Cl- → AgCl(s)'}}]},
   };
   return fixed[activityId];
 }
@@ -50,7 +52,7 @@ function assessmentEvidence(unit){
 
 test('all 47 grade 7-8 canonical learning units execute through a runnable primary practice',async()=>{
   const repo=createCanonicalContentRepository(data);
-  const router=createBeta1Router({referenceRegistry:reference,beta1Registry:beta,reactionMatcher:ReactionMatcher.from(reactions),ionicEngine:IonicEngine.from({reactions,rules}),contentVersion:'2026.09.1',scoringVersion:'1.0.0',now:()=>at});
+  const router=createBeta1Router({referenceRegistry:reference,beta1Registry:beta,reactionMatcher:ReactionMatcher.from(reactions),ionicEngine:IonicEngine.from({reactions,rules}),speciesRegistry:SpeciesRegistry.from(JSON.parse(fs.readFileSync(new URL('../content-src/chemistry/species.json',import.meta.url),'utf8'))),contentVersion:'2026.09.1',scoringVersion:'1.0.0',now:()=>at});
   const units=data.units.filter(x=>x.grade===7||x.grade===8);
   assert.equal(units.length,47);
   for(const unit of units){

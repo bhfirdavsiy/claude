@@ -253,7 +253,8 @@ test('retry opens a NEW attempt; the old attempt and its (wrong) evidence stay i
 test('renderer family: atom + hydrolysis — one registry, one host, one readiness path, declared intents only',async()=>{
   const registry=createDefaultRendererRegistry();
   assert.deepEqual(registry.capabilities().map(c=>c.id),RENDERER_CATALOG.map(c=>c.id));
-  assert.deepEqual(RENDERER_CATALOG.map(c=>c.id),['atom-builder','hydrolysis-medium']);
+  // P1.6 added the third capability; the family contract below covers all of them
+  assert.deepEqual(RENDERER_CATALOG.map(c=>c.id),['atom-builder','hydrolysis-medium','ionic-precipitation']);
   for(const [impl,cap] of [[atomBuilderRenderer,ATOM_BUILDER_CAPABILITY],[hydrolysisMediumRenderer,HYDROLYSIS_MEDIUM_CAPABILITY]]){
     assert.equal(impl.capability,cap);
     assert.equal(registry.resolve({capability:cap.id,range:'^1.0.0'}),impl);
@@ -310,7 +311,7 @@ test('hydrolysis report: deterministic, PASS, model-based — and FAILS when the
   assert.equal(cannedReport.distinctOutcomes,1);
   assert.equal(cannedReport.checks.modelBased,false);
   const registry=buildRegistryReport();
-  assert.deepEqual(registry.renderers.filter(r=>r.status==='ACTIVE').map(r=>r.capability),['atom-builder','hydrolysis-medium']);
+  assert.deepEqual(registry.renderers.filter(r=>r.status==='ACTIVE').map(r=>r.capability),['atom-builder','hydrolysis-medium','ionic-precipitation']);
 });
 
 test('governance: no release, no approval — readiness counts unchanged, reviews pending, no sign-offs',()=>{

@@ -1,3 +1,4 @@
+import type {SpeciesRegistry} from '../../domain/chemistry/species-registry.ts';
 export { loadReferenceSliceRegistry } from './config.ts';
 export { createExperimentSliceAdapter } from './experiment-adapter.ts';
 export { createSimulationSliceAdapter } from './simulation-adapter.ts';
@@ -21,6 +22,8 @@ export function createReferenceSliceRouter(options:{
   registry:ReferenceSliceRegistry;
   reactionMatcher:ReactionMatcher;
   ionicEngine:IonicEngine;
+  /** P1.6: reagent identities for the ionic mixing practice */
+  speciesRegistry?:SpeciesRegistry;
   contentVersion:string;
   scoringVersion:string;
   now:()=>string;

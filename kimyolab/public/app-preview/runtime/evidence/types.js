@@ -44,6 +44,20 @@
                                                
                                  
  
+/** P1.6: one distinct modeled pair the learner mixed (reaction or explicit modeled no-reaction; never "not modeled"). */
+                                                                             
+                                  
+                     
+                                      
+                     
+ 
+/** P1.6: one net ionic equation the learner submitted, with the expected equation (from IonicEngine) for audit. */
+                                                                
+                                   
+                     
+                   
+                            
+ 
                                                            
                       
                  
@@ -82,6 +96,8 @@ const CLASSES = new Set               ([
 const TYPES = new Set(['observation', 'answer', 'calculation', 'decision', 'construction', 'procedure']);
 
 const HYDROLYSIS_FIELDS = ['selectedSalt', 'predictedMedium', 'actualMedium', 'predictedBeforeReveal'];
+const NET_IONIC_FIELDS = ['canonicalExpected'];
+const IONIC_MIXING_FIELDS = ['observationKind', 'reagents', 'outcome'];
 function invalid(message        )        {
   throw new Error(`EVIDENCE_INVALID: ${message}`);
 }
@@ -100,14 +116,24 @@ export function validateEvidence(input         )           {
   switch (input.type) {
     case 'observation':
       if (!object(input.observation) || !text(input.observation.type)) invalid('observation required');
+      // P1.6: explicit subtype; its fields are reserved (a stray or partial record is rejected)
+      if (input.observationKind === 'ionic-mixing') {
+        if (!Array.isArray(input.reagents) || input.reagents.length !== 2 || !input.reagents.every(text)) invalid('ionic mixing reagents required');
+        if (input.outcome !== 'reaction' && input.outcome !== 'no-reaction') invalid('ionic mixing outcome must be a modeled result');
+        if (!text(input.reactionId)) invalid('ionic mixing reactionId required');
+      } else if (input.observationKind !== undefined) invalid('unknown observationKind');
+      else if (IONIC_MIXING_FIELDS.some((k) => input[k] !== undefined)) invalid('ionic mixing fields require observationKind');
       break;
     case 'answer':
       if (!text(input.questionId) || typeof input.correct !== 'boolean') invalid('answer fields required');
       if (input.response !== undefined && !text(input.response)) invalid('answer response must be text');
       if (input.itemVersion !== undefined && !text(input.itemVersion)) invalid('answer itemVersion must be text');
-      // P1.5 closeout: the hydrolysis subtype is identified by an explicit discriminator. Its fields are
-      // reserved: an answer without answerKind may not carry them, and a partial record is rejected.
-      if (input.answerKind !== undefined && input.answerKind !== 'hydrolysis-prediction') invalid('unknown answerKind');
+      // P1.5 closeout / P1.6: answer subtypes are identified by an explicit discriminator (answerKind). Each
+      // subtype's fields are reserved: another answer may not carry them, and a partial record is rejected.
+      if (input.answerKind !== undefined && input.answerKind !== 'hydrolysis-prediction' && input.answerKind !== 'net-ionic-equation') invalid('unknown answerKind');
+      if (input.answerKind === 'net-ionic-equation') {
+        if (!text(input.reactionId) || !text(input.response) || !text(input.canonicalExpected)) invalid('net ionic fields required');
+      } else if (NET_IONIC_FIELDS.some((k) => input[k] !== undefined)) invalid('net ionic fields require answerKind');
       if (input.answerKind === 'hydrolysis-prediction') {
         const media = ['acidic', 'basic', 'neutral'];
         if (!text(input.selectedSalt) || !media.includes(String(input.predictedMedium)) || !media.includes(String(input.actualMedium)) || typeof input.predictedBeforeReveal !== 'boolean') invalid('hydrolysis prediction fields required');

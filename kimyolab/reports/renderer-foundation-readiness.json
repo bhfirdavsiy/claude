@@ -55,7 +55,7 @@
       "candidate": "ionic-precipitation",
       "title": "Ion almashinish / cho‘kma tajribasi (reagentlar → reaksiya, kuzatuv, net-ion tenglama)",
       "rank": 2,
-      "implemented": null,
+      "implemented": "P1.6 — RendererRegistry capability ionic-precipitation@1.0.0 (src/renderers/ionic-precipitation)",
       "leadActivityId": "practice.experiment.8.1",
       "readyActivities": 1,
       "activities": [
@@ -79,34 +79,30 @@
       "domainModelReady?": true,
       "engineReady?": true,
       "contentReady?": true,
-      "interactionModelReady?": false,
+      "interactionModelReady?": true,
       "accessibilityPlan?": "observation text for every visual change (precipitate colour + \"cho‘kma\"), equation field with plain-text syntax and error text, keyboard-only reagent selection, reduced motion = instant state",
       "assessmentLinkage?": "none — mastery for these units cannot reach MASTERED until an approved assessment exists",
       "learnerUiPath": {
         "verdict": "CAN_SUCCEED",
-        "detail": "controls 5; complete=true; positive evidence=true"
+        "detail": "controls 4; complete=true; positive evidence=true"
       },
       "assessment": {
         "pedagogicalValue": "high — predict/observe/explain on precipitation; net-ionic equation checked by the IonicEngine",
-        "currentLimitation": "the UI adds the configured reagents in a fixed order; the adapter already accepts learner-chosen reactants (action.payload.reactants) but the UI never offers the choice → today it is a guided sequence",
-        "engineMaturity": "mature: ExperimentEngine with dependencies, ReactionMatcher fail-closed on unmodeled reactions",
-        "interactionDepth": "model-capable but not yet exposed: with reagent choice, any modeled pair yields its own observation; unmodeled pairs are refused (no invented chemistry)",
+        "currentLimitation": "P1.6: fixed — the learner chooses two reagents from a content shelf, the ReactionMatcher decides; only 3 of the 21 shelf pairs are modeled (reactions.json, review pending) and the KB has no explicit no-reaction records yet",
+        "engineMaturity": "mature: ReactionMatcher fail-closed on unmodeled pairs, IonicEngine net ionic equation, order-insensitive equation comparison",
+        "interactionDepth": "model-based: any shelf pair → modeled reaction / explicit no-reaction / not modeled (never guessed as \"no reaction\")",
         "accessibilityComplexity": "medium — observations must have text equivalents (colour of precipitate), equation input needs a sub/superscript-free syntax",
         "reusePotential": "high — the 28-reaction KB serves 8th/9th-grade reaction experiments and the qualitative tests",
-        "blackSwan": "RISK today (fixed reagent sequence = scripted); PASS once the renderer lets the learner choose reagents and shows only what the matcher returns",
+        "blackSwan": "PASS — different pairs give different domain results; unmodeled pairs fail closed; no fixed reagent script",
         "accessibilityPlan": "observation text for every visual change (precipitate colour + \"cho‘kma\"), equation field with plain-text syntax and error text, keyboard-only reagent selection, reduced motion = instant state",
         "dependencies": [
-          "RendererModel for ExperimentState + matched reaction",
-          "reagent-choice intent in the renderer contract (no chemistry in the renderer)"
+          "more modeled pairs and explicit no-reaction records reviewed by a chemist"
         ]
       },
       "dependencies": [
-        "RendererModel for ExperimentState + matched reaction",
-        "reagent-choice intent in the renderer contract (no chemistry in the renderer)"
+        "more modeled pairs and explicit no-reaction records reviewed by a chemist"
       ],
-      "blockers": [
-        "black-swan risk: learner choice not yet exposed"
-      ]
+      "blockers": []
     },
     {
       "candidate": "hydrolysis-medium",

@@ -10,6 +10,7 @@
                                                                         
 import {el,clear} from '../../ui/components/dom.js';
 import {HYDROLYSIS_MEDIUM_CAPABILITY} from '../catalog.js';
+import {commandFor} from '../intent.js';
                                                                                                               
 import {toHydrolysisRendererModel,                            } from './renderer-model.js';
 
@@ -20,7 +21,7 @@ import {toHydrolysisRendererModel,                            } from './renderer
 
 /** Typed intents in the existing command contract: experiment pages send experiment-action, simulation pages simulation-action. */
 export function hydrolysisIntent(action                       ,practiceType                                     ='experiment')                {
-  return practiceType==='simulation'?{kind:'simulation-action',action:{...action}}:{kind:'experiment-action',action:{...action}};
+  return commandFor(practiceType,action);
 }
 
 let instances=0;

@@ -1,6 +1,6 @@
 import type { Phase, ReactionConditions, ReactionRecord, ReactionSpeciesRef } from './types.ts';
 export type ReactantQuery=string|{formula:string;phase?:Phase};
-export type ReactionMatchResult={modeled:true;reaction:ReactionRecord}|{modeled:false;code:'REACTION_NOT_MODELED'|'REACTION_CONDITION_REQUIRED'};
+export type ReactionMatchResult={modeled:true;reaction:ReactionRecord}|{modeled:false;code:'REACTION_NOT_MODELED'|'REACTION_CONDITION_REQUIRED'|'REACTION_CONDITIONS_NOT_MET'};
 
 function formula(x:ReactantQuery){return typeof x==='string'?x:x.formula}
 function phasesCompatible(query:ReactantQuery[], refs:ReactionSpeciesRef[]):boolean{
@@ -23,17 +23,48 @@ function conditionMatch(q:ReactionConditions|undefined,r:ReactionConditions):boo
   if(q.lightRequired!==undefined && q.lightRequired!==r.lightRequired)return false;
   return true;
 }
+/** reactionType of an explicit modeled "no reaction" record (P1.6). */
+export const NO_REACTION_TYPE='no-reaction';
+export const isNoReaction=(r:ReactionRecord)=>r.reactionType===NO_REACTION_TYPE;
+
+/** every condition the record demands is present in the actual conditions */
+function requirementsMet(r:ReactionConditions|undefined,actual:ReactionConditions|undefined):boolean{
+  const have=new Set(actual?.tags??[]);
+  if((r?.tags??[]).some(t=>!have.has(t)))return false;
+  if(r?.electricalCurrent&&!actual?.electricalCurrent)return false;
+  if(r?.lightRequired&&!actual?.lightRequired)return false;
+  if(r?.medium&&r.medium!==actual?.medium)return false;
+  return true;
+}
+
 export class ReactionMatcher{
   #records:ReactionRecord[];
   private constructor(records:ReactionRecord[]){this.#records=records.map(r=>Object.freeze({...r}))}
   static from(records:ReactionRecord[]){
     const ids=new Set<string>();
-    for(const r of records){if(ids.has(r.id))throw new Error('REACTION_DUPLICATE_ID');ids.add(r.id);if(!r.reactants?.length||!r.products?.length||!r.sourceRefs?.length)throw new Error('REACTION_INVALID')}
+    for(const r of records){
+      if(ids.has(r.id))throw new Error('REACTION_DUPLICATE_ID');ids.add(r.id);
+      if(!r.reactants?.length||!r.sourceRefs?.length)throw new Error('REACTION_INVALID');
+      // P1.6: an explicit, reviewed "these reactants do not react" record is a MODELED result, distinct from an
+      // unknown pair (REACTION_NOT_MODELED). It has no products and only a no-visible-change observation.
+      if(isNoReaction(r)){ if(r.products?.length||!(r.observations??[]).every(o=>o.type==='no-visible-change'))throw new Error('REACTION_INVALID'); }
+      else if(!r.products?.length)throw new Error('REACTION_INVALID');
+    }
     return new ReactionMatcher(records);
   }
-  match(query:{reactants:ReactantQuery[];conditions?:ReactionConditions}):ReactionMatchResult{
+  /**
+   * `requireConditionsMet` (P1.6): the query describes the ACTUAL conditions (e.g. mixing two solutions at room
+   * temperature: no tags). A record that needs more (heating, concentrated acid, current, light) does not apply —
+   * REACTION_CONDITIONS_NOT_MET — instead of silently matching as if the conditions were there.
+   */
+  match(query:{reactants:ReactantQuery[];conditions?:ReactionConditions;requireConditionsMet?:boolean}):ReactionMatchResult{
     let candidates=this.#records.filter(r=>sameFormulas(query.reactants,r.reactants)&&phasesCompatible(query.reactants,r.reactants));
     if(query.conditions)candidates=candidates.filter(r=>conditionMatch(query.conditions,r.conditions));
+    if(query.requireConditionsMet){
+      const before=candidates.length;
+      candidates=candidates.filter(r=>requirementsMet(r.conditions,query.conditions));
+      if(before&&!candidates.length)return {modeled:false,code:'REACTION_CONDITIONS_NOT_MET'};
+    }
     if(!candidates.length)return {modeled:false,code:'REACTION_NOT_MODELED'};
     if(candidates.length>1)return {modeled:false,code:'REACTION_CONDITION_REQUIRED'};
     return {modeled:true,reaction:candidates[0]};

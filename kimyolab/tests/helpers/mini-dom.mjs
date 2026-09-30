@@ -23,6 +23,7 @@ class Node_ {
     let m;
     if((m=/^\[([\w-]+)(?:="([^"]*)")?\]$/.exec(sel))){ const key=m[1]; const dataKey=key.startsWith('data-')?key.slice(5).replace(/-(\w)/g,(_,c)=>c.toUpperCase()):null; const v=dataKey&&dataKey in this.dataset?this.dataset[dataKey]:this.getAttribute(key); return v!==null&&v!==undefined&&(m[2]===undefined||v===m[2]); }
     if(sel.startsWith('.')) return this.className.split(/\s+/).includes(sel.slice(1));
+    if(sel.startsWith('#')) return this.getAttribute('id')===sel.slice(1);
     return this.tagName===sel.toUpperCase();
   }
   querySelectorAll(sel){ const out=[]; const walk=(n)=>{ for(const c of n.childNodes){ if(c.tagName!=='#TEXT'&&c.matches(sel)) out.push(c); walk(c); } }; walk(this); return out; }

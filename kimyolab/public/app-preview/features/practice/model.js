@@ -33,6 +33,8 @@
                  
                   
                      
+                                                                                         
+                   
     
  
 
@@ -55,6 +57,7 @@ export function buildPracticePageModel(input
                
                 
                    
+                 
                                    
  )                          {
   return {
@@ -90,6 +93,7 @@ export function buildPracticePageModel(input
       organic:input.organic===undefined?undefined:structuredClone(input.organic),
       kinetics:input.kinetics===undefined?undefined:structuredClone(input.kinetics),
       equilibrium:input.equilibrium===undefined?undefined:structuredClone(input.equilibrium),
+      species:input.species===undefined?undefined:structuredClone(input.species),
     },
   };
 }

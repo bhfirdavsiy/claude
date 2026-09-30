@@ -1,6 +1,8 @@
 import type { PracticeActivity } from '../../domain/content/types.ts';
 import type { ReactionMatcher } from '../../domain/chemistry/reaction-matcher.ts';
 import type { IonicEngine } from '../../domain/chemistry/ionic-engine.ts';
+import type { SpeciesRegistry } from '../../domain/chemistry/species-registry.ts';
+import { ionicPracticeResult } from './ionic-practice.ts';
 import type { Evidence, ObservationEvidence, AnswerEvidence, ProcedureEvidence } from '../evidence/types.ts';
 import { ExperimentEngine } from '../../engines/experiment/engine.ts';
 import type { ExperimentScenario, ExperimentStep, LabAction, ExperimentActionResult } from '../../engines/experiment/types.ts';
@@ -11,6 +13,7 @@ interface Options {
   registry:ReferenceSliceRegistry;
   reactionMatcher:ReactionMatcher;
   ionicEngine:IonicEngine;
+  speciesRegistry?:SpeciesRegistry;
   contentVersion:string;
   scoringVersion:string;
   now:()=>string;
@@ -63,6 +66,12 @@ export function createExperimentSliceAdapter(o:Options):PracticeEngineAdapter<Re
     async run(activity,context){
       const config=o.registry[activity.id];
       if(!config||config.type!=='experiment') throw new Error(`REFERENCE_SLICE_CONFIG_MISSING:${activity.id}`);
+      // P1.6: a reagent shelf means the learner CHOOSES the reagents (ionic-mixing.ts); the former fixed scenario
+      // (addNaCl → addAgNO3 → observe → record) added the configured reagents in a scripted order.
+      if(Array.isArray(config.reagentShelf)){
+        if(!o.speciesRegistry) throw new Error('IONIC_SPECIES_DATA_MISSING');
+        return ionicPracticeResult({domain:{species:o.speciesRegistry,matcher:o.reactionMatcher,ionic:o.ionicEngine},shelf:config.reagentShelf,targetReactionId:config.reactionId,actions:context.inputs[activity.id]?.actions??[],meta:metadata(activity,config,o)});
+      }
       const scenario=stepScenario(config);
       let matchedReaction:any;
       const evaluator=(_state:any,action:LabAction,step:ExperimentStep):ExperimentActionResult=>{
