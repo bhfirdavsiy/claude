@@ -1,0 +1,108 @@
+{
+  "schema": "kimyolab.learning-depth-summary.v1",
+  "totalLearningUnits": 122,
+  "totalActivities": 146,
+  "theoryCoverage": {
+    "present": {
+      "count": 122,
+      "percent": 100
+    },
+    "structured": {
+      "count": 0,
+      "percent": 0
+    },
+    "byDepth": {
+      "MINIMAL": 122
+    },
+    "note": "every theory has a one-line concept summary + a legacy mapping note; no worked example, misconception or summary block exists yet"
+  },
+  "practiceCoverage": {
+    "atLeastStaticCheck": {
+      "count": 122,
+      "percent": 100
+    },
+    "atLeastGuided": {
+      "count": 37,
+      "percent": 30.3
+    },
+    "byDepth": {
+      "GUIDED": 31,
+      "MODEL_BASED": 6,
+      "STATIC_CHECK": 85
+    },
+    "activitiesByDepth": {
+      "GUIDED": 25,
+      "MODEL_BASED": 4,
+      "NONE": 1,
+      "STATIC_CHECK": 116
+    },
+    "activitiesByInteraction": {
+      "FORM": 86,
+      "MODEL_INTERACTIVE": 4,
+      "NONE": 1,
+      "SCRIPTED": 55
+    }
+  },
+  "modelBasedCoverage": {
+    "activities": 4,
+    "learningUnits": 6,
+    "percentOfLearningUnits": 4.9
+  },
+  "assessmentCoverage": {
+    "totalItems": 5,
+    "approvedItems": 0,
+    "learningUnitsWithItems": 1,
+    "learningUnitsWithApprovedAssessment": 0,
+    "outcomes": 122,
+    "outcomesCovered": 1,
+    "outcomesCoveredByApprovedItems": 0,
+    "outcomeCoveragePercent": 0.8,
+    "note": "5 draft items in one unit (lu.9.15), 0 approved: the production assessment is a pilot baseline, not coverage"
+  },
+  "masteryReachable": {
+    "count": 0,
+    "percent": 0,
+    "byDepth": {
+      "PARTIAL": 122
+    },
+    "blockReasons": {
+      "ASSESSMENT_NOT_APPROVED": 1,
+      "MASTERY_UI_PILOT_ONLY": 118,
+      "NO_ASSESSMENT": 121
+    }
+  },
+  "released": {
+    "humanReleasedActivities": 0,
+    "runtimeAvailableActivities": 118,
+    "note": "runtime availability comes from grandfathered authored lifecycle; a human RELEASE decision exists for 0 activities"
+  },
+  "canSucceed": {
+    "CAN_SUCCEED": 145,
+    "NOT_LAUNCHABLE": 1
+  },
+  "dimensions": {
+    "theory": {
+      "MINIMAL": 122
+    },
+    "practice": {
+      "GUIDED": 31,
+      "MODEL_BASED": 6,
+      "STATIC_CHECK": 85
+    },
+    "assessment": {
+      "NONE": 121,
+      "REVIEW_PENDING": 1
+    },
+    "mastery": {
+      "PARTIAL": 122
+    },
+    "interaction": {
+      "FORM": 65,
+      "MODEL_INTERACTIVE": 6,
+      "SCRIPTED": 51
+    },
+    "governance": {
+      "UNREVIEWED": 122
+    }
+  }
+}

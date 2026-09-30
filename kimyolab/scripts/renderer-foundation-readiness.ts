@@ -72,7 +72,7 @@ const CANDIDATES:CandidateSpec[]=[
   },
 ];
 
-async function uiPathCanSucceed(client:ContentClient,activityId:string){
+export async function uiPathCanSucceed(client:ContentClient,activityId:string){
   let model:any;
   try{ model=await client.loadPractice(activityId); }catch(e:any){ return {verdict:'NOT_LAUNCHABLE',detail:String(e?.code??e?.message)}; }
   const c=model.referenceConfig;

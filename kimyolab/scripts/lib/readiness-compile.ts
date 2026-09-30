@@ -7,6 +7,8 @@ import {deriveItemLifecycle,type AssessmentReviewRecord} from '../../src/domain/
 import {RENDERER_CATALOG} from '../../src/renderers/catalog.ts';
 import {selectCapability} from '../../src/renderers/registry.ts';
 import type {RendererRequirement} from '../../src/renderers/contract.ts';
+import {computeReviewHash} from '../../src/runtime/governance/approvals.ts';
+import {releaseBasisHash,releaseStateOf,type ActivityReleaseDecision} from '../../src/domain/governance/release-decision.ts';
 
 /** P1.4: is a registered renderer (per the catalog) compatible with the requirement? Same rule as the runtime registry. */
 export function rendererAvailable(requirement:RendererRequirement):boolean{
@@ -21,6 +23,16 @@ export interface ReadinessSources {
   bank:any;
   reviews:AssessmentReviewRecord[];
   pilot:{learningUnits:Array<{id:string}>};
+  /** P2.0: validated human release decisions (the single release authority). Absent = none. */
+  releaseDecisions?:ActivityReleaseDecision[];
+}
+
+/** Effective human release of an activity on its CURRENT basis (stale/missing → null). Build-time only. */
+export function effectiveRelease(activity:any,config:unknown,records:readonly ActivityReleaseDecision[]|undefined):'RELEASED'|'DISABLED'|null{
+  if(!records?.length) return null;
+  const basis=releaseBasisHash({activityId:activity.id,version:activity.version,reviewHash:computeReviewHash(activity),config:config??null});
+  const s=releaseStateOf(activity.id,basis,records).state;
+  return s==='RELEASED'?'RELEASED':s==='DISABLED'?'DISABLED':null;
 }
 
 /** Human review state of an activity (hash-pinned via effectiveApprovalState): roles not yet approved, and roles that rejected it. */
@@ -54,7 +66,8 @@ export function compileReadiness(src:ReadinessSources):{pack:ReadinessPack&{unit
     const route=deriveActivityExecutionPlan(a,configs);
     const review=reviewStateOf(a);
     const requirement=route.ok?route.plan.rendererRequirement:undefined;
-    return deriveActivityReadiness({id:a.id,lifecycleStatus:a.lifecycleStatus,reviewPending:review.pending,reviewRejected:review.rejected},route.ok?{ok:true}:{ok:false,code:route.error.code},strictActivities.has(a.id)?'strict':'observe',requirement?{required:true,available:rendererAvailable(requirement)}:{required:false});
+    const config=route.ok?(configs as any)[route.plan.configSource]?.[a.id]??null:null;
+    return deriveActivityReadiness({id:a.id,lifecycleStatus:a.lifecycleStatus,reviewPending:review.pending,reviewRejected:review.rejected,release:effectiveRelease(a,config,src.releaseDecisions)},route.ok?{ok:true}:{ok:false,code:route.error.code},strictActivities.has(a.id)?'strict':'observe',requirement?{required:true,available:rendererAvailable(requirement)}:{required:false});
   }).sort((x:LearningActivityReadiness,y:LearningActivityReadiness)=>x.activityId.localeCompare(y.activityId));
   // pilot units must launch their primary practice under strict enforcement
   for(const id of pilotIds){

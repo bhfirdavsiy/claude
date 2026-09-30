@@ -1,0 +1,6247 @@
+{
+  "schema": "kimyolab.learning-unit-gap-map.v1",
+  "semantics": "Per unit: normalized layer levels (0..1), strongest/weakest layer, blocking gaps with their CATEGORY (learning content / depth / outcome vs governance vs provenance vs localization vs accessibility — never merged), one technical opportunity and one human dependency. Ties broken alphabetically. No priority score.",
+  "gapCounts": {
+    "ACCESSIBILITY_UNVERIFIED": 119,
+    "ASSESSMENT_NOT_APPROVED": 1,
+    "MASTERY_UNREACHABLE": 122,
+    "NOT_RELEASED": 122,
+    "NO_ASSESSMENT": 121,
+    "NO_GUIDED_OR_MODEL_PRACTICE": 85,
+    "NO_MODEL_BASED_PRACTICE": 31,
+    "PROVENANCE_DEBT": 19,
+    "RAW_ID_LABELS": 74,
+    "THEORY_MINIMAL": 122,
+    "UNREVIEWED": 122,
+    "UNTRANSLATED_ANSWER_TOKEN": 37
+  },
+  "gapCountsByCategory": {
+    "ACCESSIBILITY": 119,
+    "GOVERNANCE": 245,
+    "LEARNING_CONTENT": 243,
+    "LEARNING_DEPTH": 116,
+    "LEARNING_OUTCOME": 122,
+    "LOCALIZATION": 111,
+    "PROVENANCE": 19
+  },
+  "units": [
+    {
+      "learningUnitId": "lu.7.01",
+      "grade": 7,
+      "topic": "Kimyo fani va uning vazifalari",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.7.02",
+      "grade": 7,
+      "topic": "Modda va uning xossalari",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.7.03",
+      "grade": 7,
+      "topic": "Sof modda va aralashmalar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.7.04",
+      "grade": 7,
+      "topic": "Moddalarning agregat holatining o‘zgarishi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.7.05",
+      "grade": 7,
+      "topic": "Fizik va kimyoviy hodisalar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.7.06",
+      "grade": 7,
+      "topic": "Atom",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.7.07",
+      "grade": 7,
+      "topic": "Atom va uning tuzilishi: proton, neytron, elektron",
+      "layers": {
+        "theory": 0.5,
+        "practice": 1,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 1,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "PROVENANCE_DEBT",
+          "category": "PROVENANCE"
+        }
+      ],
+      "nextTechnicalOpportunity": "extend the existing model-based renderer (more modeled records reviewed by a chemist)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.7.08",
+      "grade": 7,
+      "topic": "Kimyoviy element va kimyoviy belgi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.7.09",
+      "grade": 7,
+      "topic": "Kimyoviy elementning nisbiy atom massasi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.7.10",
+      "grade": 7,
+      "topic": "Izotoplar, izobarlar, izotonlar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.7.11",
+      "grade": 7,
+      "topic": "Kimyoviy formula va valentlik",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model formula-parser through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.7.12",
+      "grade": 7,
+      "topic": "Molekula va nisbiy molekulyar massa",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model formula-parser through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.7.13",
+      "grade": 7,
+      "topic": "Oddiy va murakkab moddalar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.7.14",
+      "grade": 7,
+      "topic": "Modda miqdori, Avogadro doimiysi va molyar massa",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model formula-parser through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.7.15",
+      "grade": 7,
+      "topic": "Kimyoviy reaksiya tenglamalarini tuzish",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "PROVENANCE_DEBT",
+          "category": "PROVENANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "reuse renderer ionic-precipitation for practice.experiment.7.10, practice.experiment.7.11, practice.experiment.7.9",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.7.16",
+      "grade": 7,
+      "topic": "Kimyoviy elementlarning tavsiflanishi va tabiiy oilalari",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.7.17",
+      "grade": 7,
+      "topic": "Kimyoviy elementlar davriy jadvali",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.7.18",
+      "grade": 7,
+      "topic": "Havo tarkibi va havoning ifloslanishi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.7.19",
+      "grade": 7,
+      "topic": "Kislorod: xossalari, yonish, ozon va oksidlar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.7.20",
+      "grade": 7,
+      "topic": "Vodorod, kislotalar va kislotali yomg‘ir",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "PROVENANCE_DEBT",
+          "category": "PROVENANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "reuse renderer ionic-precipitation for practice.experiment.7.10, practice.experiment.7.9",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.7.21",
+      "grade": 7,
+      "topic": "Suv: tarkibi, aylanishi, xossalari, neytrallanish va tozalash",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "PROVENANCE_DEBT",
+          "category": "PROVENANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "reuse renderer ionic-precipitation for practice.experiment.7.11",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.7.22",
+      "grade": 7,
+      "topic": "Tirik organizmlardagi elementlar, oqsil, yog‘, uglevod, vitamin va minerallar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.7.23",
+      "grade": 7,
+      "topic": "Foydali qazilmalar, konlar va ekologik aspektlar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.8.01",
+      "grade": 8,
+      "topic": "Dastlabki kimyoviy tushunchalar va noorganik birikmalarning asosiy sinflari",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "PROVENANCE_DEBT",
+          "category": "PROVENANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "reuse renderer ionic-precipitation for practice.experiment.8.6",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.8.02",
+      "grade": 8,
+      "topic": "Kimyoviy elementlarning dastlabki toifalanishi va tabiiy oilalari",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.8.03",
+      "grade": 8,
+      "topic": "Davriy qonun va elementlar davriy sistemasi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.8.04",
+      "grade": 8,
+      "topic": "Atom yadrosi tarkibi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.8.05",
+      "grade": 8,
+      "topic": "Izotoplar va izobarlar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.8.06",
+      "grade": 8,
+      "topic": "Atom elektron qavatlari va energetik pog‘onachalar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.8.07",
+      "grade": 8,
+      "topic": "Kichik va katta davr elementlarining atom tuzilishi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.8.08",
+      "grade": 8,
+      "topic": "Elementni davriy sistemadagi o‘rni va atom tuzilishiga qarab tavsiflash",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.8.09",
+      "grade": 8,
+      "topic": "Nisbiy elektromanfiylik",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.8.10",
+      "grade": 8,
+      "topic": "Qutbli va qutbsiz kovalent bog‘lanish",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.8.11",
+      "grade": 8,
+      "topic": "Ionli bog‘lanish",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.8.12",
+      "grade": 8,
+      "topic": "Kristall panjaralar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.8.13",
+      "grade": 8,
+      "topic": "Oksidlanish darajasi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.8.14",
+      "grade": 8,
+      "topic": "Oksidlanish-qaytarilish reaksiyalari va tenglamalarni tuzish",
+      "layers": {
+        "theory": 0.5,
+        "practice": 1,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 1,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "PROVENANCE_DEBT",
+          "category": "PROVENANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "extend the existing model-based renderer (more modeled records reviewed by a chemist)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.8.15",
+      "grade": 8,
+      "topic": "Metallmaslarning umumiy xossalari",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.8.16",
+      "grade": 8,
+      "topic": "Galogenlar: atom tuzilishi, xlor, HCl, xlorid kislota, ftor, brom va yod",
+      "layers": {
+        "theory": 0.5,
+        "practice": 1,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 1,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "PROVENANCE_DEBT",
+          "category": "PROVENANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "extend the existing model-based renderer (more modeled records reviewed by a chemist)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.8.17",
+      "grade": 8,
+      "topic": "Avogadro qonuni, molyar hajm va ekvivalent qonuni",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.8.18",
+      "grade": 8,
+      "topic": "Kislorod guruhchasi va oltingugurt birikmalari",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.8.19",
+      "grade": 8,
+      "topic": "Kimyoviy reaksiya tezligi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.8.20",
+      "grade": 8,
+      "topic": "Kimyoviy muvozanat",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.8.21",
+      "grade": 8,
+      "topic": "Sulfat kislota ishlab chiqarish",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.8.22",
+      "grade": 8,
+      "topic": "Azot, ammiak va azotning kislorodli birikmalari",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "PROVENANCE_DEBT",
+          "category": "PROVENANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "reuse renderer ionic-precipitation for practice.experiment.8.14",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.8.23",
+      "grade": 8,
+      "topic": "Fosfor va uning kislorodli birikmalari",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.8.24",
+      "grade": 8,
+      "topic": "Mineral o‘g‘itlar va biogen elementlar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.9.01",
+      "grade": 9,
+      "topic": "Davriy sistema, davriy qonun va bog‘lanish turlarini takrorlash",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.9.02",
+      "grade": 9,
+      "topic": "Elektrolitlar va noelektrolitlar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.9.03",
+      "grade": 9,
+      "topic": "Kislota, ishqor va tuzlarning dissotsiatsiyalanishi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.9.04",
+      "grade": 9,
+      "topic": "Kuchli va kuchsiz elektrolitlar. Dissotsiatsiyalanish darajasi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.9.05",
+      "grade": 9,
+      "topic": "Ion almashinish reaksiyalari",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "PROVENANCE_DEBT",
+          "category": "PROVENANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "reuse renderer ionic-precipitation for practice.trainer.9.05.planned",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.9.06",
+      "grade": 9,
+      "topic": "Tuzlarning gidrolizi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 1,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 1,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "PROVENANCE_DEBT",
+          "category": "PROVENANCE"
+        }
+      ],
+      "nextTechnicalOpportunity": "extend the existing model-based renderer (more modeled records reviewed by a chemist)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.9.07",
+      "grade": 9,
+      "topic": "Uglerod guruhidagi elementlarning umumiy tavsifi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "PROVENANCE_DEBT",
+          "category": "PROVENANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "reuse renderer ionic-precipitation for practice.experiment.9.4",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.9.08",
+      "grade": 9,
+      "topic": "Uglerodning allotropiyasi va xossalari",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.9.09",
+      "grade": 9,
+      "topic": "Uglerodning eng muhim birikmalari",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "PROVENANCE_DEBT",
+          "category": "PROVENANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "reuse renderer ionic-precipitation for practice.experiment.9.4",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.9.10",
+      "grade": 9,
+      "topic": "Kremniy va silikat sanoati",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.9.11",
+      "grade": 9,
+      "topic": "Metallarning tarqalishi, olinishi va ishlatilishi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.9.12",
+      "grade": 9,
+      "topic": "Qotishmalar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.9.13",
+      "grade": 9,
+      "topic": "Metallarning fizik va kimyoviy xossalari",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.9.14",
+      "grade": 9,
+      "topic": "Metallar korroziyasi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.9.15",
+      "grade": 9,
+      "topic": "Elektroliz va uning amaliy ahamiyati",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0.667,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "assessment",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "ASSESSMENT_NOT_APPROVED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "PROVENANCE_DEBT",
+          "category": "PROVENANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "domain model electrolysis-model exists but is blocked (1 modeled record — black-swan FAIL (P1.7/P1.8))",
+      "nextHumanDependency": "chemistry + didactic review of the unit’s assessment items"
+    },
+    {
+      "learningUnitId": "lu.9.16",
+      "grade": 9,
+      "topic": "Ishqoriy metallar, natriy va kaliy birikmalari",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.9.17",
+      "grade": 9,
+      "topic": "Soda ishlab chiqarish",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.9.18",
+      "grade": 9,
+      "topic": "Kalsiy, magniy va suvning qattiqligi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.9.19",
+      "grade": 9,
+      "topic": "Alyuminiy va uning birikmalari",
+      "layers": {
+        "theory": 0.5,
+        "practice": 1,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 1,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "PROVENANCE_DEBT",
+          "category": "PROVENANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "extend the existing model-based renderer (more modeled records reviewed by a chemist)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.9.20",
+      "grade": 9,
+      "topic": "Mis, kumush va oltin",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.9.21",
+      "grade": 9,
+      "topic": "II guruh yonaki guruhcha elementlari",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "PROVENANCE_DEBT",
+          "category": "PROVENANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "reuse renderer ionic-precipitation for practice.experiment.9.16",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.9.22",
+      "grade": 9,
+      "topic": "Xrom va uning II, III, VI valentli birikmalari",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.9.23",
+      "grade": 9,
+      "topic": "Marganes",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model manganese-redox-model through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.9.24",
+      "grade": 9,
+      "topic": "Temir va eng muhim birikmalari",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.9.25",
+      "grade": 9,
+      "topic": "Cho‘yan va po‘lat ishlab chiqarish",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.9.26",
+      "grade": 9,
+      "topic": "Kimyoviy ishlab chiqarish va atmosfera-gidrosferani muhofaza qilish",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.01",
+      "grade": 10,
+      "topic": "Organik kimyo tarixi va organik birikmalarning o‘ziga xos xususiyatlari",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.02",
+      "grade": 10,
+      "topic": "Organik birikmalar tuzilish nazariyasi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.03",
+      "grade": 10,
+      "topic": "Uglerodning valentligi va oksidlanish darajasi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.04",
+      "grade": 10,
+      "topic": "Izomeriya va uning turlari",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.05",
+      "grade": 10,
+      "topic": "Organik birikmalarning sinflanishi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.06",
+      "grade": 10,
+      "topic": "Organik reaksiyalar turlari",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.07",
+      "grade": 10,
+      "topic": "Organik birikmalar nomenklaturasi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.08",
+      "grade": 10,
+      "topic": "Alkanlar va gomologik qator",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.09",
+      "grade": 10,
+      "topic": "Alkanlar izomeriyasi va nomlanishi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.10",
+      "grade": 10,
+      "topic": "Alkanlarning olinishi, xossalari va ishlatilishi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.11",
+      "grade": 10,
+      "topic": "Sikloalkanlar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.12",
+      "grade": 10,
+      "topic": "Alkenlar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.13",
+      "grade": 10,
+      "topic": "Alkadiyenlar, kauchuk va rezina",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.14",
+      "grade": 10,
+      "topic": "Alkinlar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.15",
+      "grade": 10,
+      "topic": "Aromatik uglevodorodlar va stirol",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.16",
+      "grade": 10,
+      "topic": "Tabiiy gaz, neftni qayta ishlash va toshko‘mir",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.17",
+      "grade": 10,
+      "topic": "Bir atomli spirtlar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.18",
+      "grade": 10,
+      "topic": "Ko‘p atomli spirtlar: etilenglikol va glitserin",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.19",
+      "grade": 10,
+      "topic": "Fenollar va aromatik spirtlar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.20",
+      "grade": 10,
+      "topic": "Oddiy efirlar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.21",
+      "grade": 10,
+      "topic": "Aldegidlar va ketonlar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.22",
+      "grade": 10,
+      "topic": "Karbon kislotalar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.23",
+      "grade": 10,
+      "topic": "Murakkab efirlar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.24",
+      "grade": 10,
+      "topic": "Yog‘lar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.25",
+      "grade": 10,
+      "topic": "Uglevodlar: mono-, di- va polisaxaridlar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.26",
+      "grade": 10,
+      "topic": "Tabiiy va sun’iy tolalar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.10.27",
+      "grade": 10,
+      "topic": "Organik sanoat, chiqindilar va qayta ishlash",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.11.01",
+      "grade": 11,
+      "topic": "Atom tuzilishi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model electron-configuration through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.11.02",
+      "grade": 11,
+      "topic": "Davriy qonun va D.I. Mendeleyev davriy sistemasi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.11.03",
+      "grade": 11,
+      "topic": "Atom tarkibi va yadro reaksiyalari",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model nuclear-equation through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.11.04",
+      "grade": 11,
+      "topic": "Kimyoviy bog‘lanish turlari va kristall panjaralar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.11.05",
+      "grade": 11,
+      "topic": "Modda miqdori",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.11.06",
+      "grade": 11,
+      "topic": "Avogadro qonuni va gazlar aralashmasi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model gas-laws through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.11.07",
+      "grade": 11,
+      "topic": "Ekvivalent",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.11.08",
+      "grade": 11,
+      "topic": "Mendeleyev-Klapeyron tenglamasi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model gas-laws through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.11.09",
+      "grade": 11,
+      "topic": "Kuchli va kuchsiz elektrolitlar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.11.10",
+      "grade": 11,
+      "topic": "Dissotsiatsiyalanish darajasi va ionli tenglamalar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "PROVENANCE_DEBT",
+          "category": "PROVENANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "reuse renderer ionic-precipitation for practice.trainer.11.10.planned",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.11.11",
+      "grade": 11,
+      "topic": "Tuzlar gidrolizi va eritma muhiti",
+      "layers": {
+        "theory": 0.5,
+        "practice": 1,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 1,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "PROVENANCE_DEBT",
+          "category": "PROVENANCE"
+        }
+      ],
+      "nextTechnicalOpportunity": "extend the existing model-based renderer (more modeled records reviewed by a chemist)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.11.12",
+      "grade": 11,
+      "topic": "Eritma va eruvchanlik",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.11.13",
+      "grade": 11,
+      "topic": "Foiz konsentratsiya",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.11.14",
+      "grade": 11,
+      "topic": "Molyar va normal konsentratsiya hamda bog‘lanishlar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model stoichiometry through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.11.15",
+      "grade": 11,
+      "topic": "Reaksiya tezligi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model kinetics-model through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.11.16",
+      "grade": 11,
+      "topic": "Bosim, hajm, harorat va katalizatorning reaksiya tezligiga ta’siri",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model kinetics-model through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.11.17",
+      "grade": 11,
+      "topic": "Qaytar va qaytmas reaksiyalar. Kimyoviy muvozanat",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.11.18",
+      "grade": 11,
+      "topic": "Kimyoviy muvozanatga ta’sir etuvchi omillar",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "UNTRANSLATED_ANSWER_TOKEN",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model equilibrium-model through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.11.19",
+      "grade": 11,
+      "topic": "Oksidlanish-qaytarilish reaksiyalarini yarim reaksiya usuli bilan tenglashtirish",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model redox-balancer through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.11.20",
+      "grade": 11,
+      "topic": "Redoks reaksiyalarining eritma muhitiga bog‘liqligi",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.333,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.333,
+        "governance": 0
+      },
+      "strongestLayer": "mastery",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model manganese-redox-model through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.11.21",
+      "grade": 11,
+      "topic": "Elektroliz: eritma va suyuqlanma",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "PROVENANCE_DEBT",
+          "category": "PROVENANCE"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "domain model electrolysis-model exists but is blocked (1 modeled record — black-swan FAIL (P1.7/P1.8))",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    },
+    {
+      "learningUnitId": "lu.11.22",
+      "grade": 11,
+      "topic": "Elektroliz qonunlari",
+      "layers": {
+        "theory": 0.5,
+        "practice": 0.667,
+        "assessment": 0,
+        "mastery": 0.5,
+        "interaction": 0.667,
+        "governance": 0
+      },
+      "strongestLayer": "interaction",
+      "weakestLayer": "governance",
+      "blockingGaps": [
+        {
+          "gap": "THEORY_MINIMAL",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "NO_MODEL_BASED_PRACTICE",
+          "category": "LEARNING_DEPTH"
+        },
+        {
+          "gap": "NO_ASSESSMENT",
+          "category": "LEARNING_CONTENT"
+        },
+        {
+          "gap": "MASTERY_UNREACHABLE",
+          "category": "LEARNING_OUTCOME"
+        },
+        {
+          "gap": "UNREVIEWED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "NOT_RELEASED",
+          "category": "GOVERNANCE"
+        },
+        {
+          "gap": "PROVENANCE_DEBT",
+          "category": "PROVENANCE"
+        },
+        {
+          "gap": "RAW_ID_LABELS",
+          "category": "LOCALIZATION"
+        },
+        {
+          "gap": "ACCESSIBILITY_UNVERIFIED",
+          "category": "ACCESSIBILITY"
+        }
+      ],
+      "nextTechnicalOpportunity": "expose domain model faraday-model through a model-based renderer (black-swan must hold)",
+      "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
+    }
+  ]
+}

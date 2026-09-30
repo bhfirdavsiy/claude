@@ -1,0 +1,169 @@
+{
+  "schema": "kimyolab.project-progress.v1",
+  "semantics": "Computed from the repository by scripts/learning-depth.ts. Every percentage has its formula (docs/roadmap/PROGRESS_MODEL.md). Not a marketing number.",
+  "foundationProgress": {
+    "percent": 90,
+    "formula": "passed foundation checks / all foundation checks",
+    "checks": [
+      {
+        "id": "canonical-routing",
+        "pass": true,
+        "detail": "1 unrouted activity (practice.simulation.10.4, DISABLED by design)"
+      },
+      {
+        "id": "readiness-compiles",
+        "pass": true,
+        "detail": "0 fatal readiness issue(s)"
+      },
+      {
+        "id": "renderer-registry",
+        "pass": true,
+        "detail": "3 registry capabilities"
+      },
+      {
+        "id": "chemistry-kb-gate",
+        "pass": true,
+        "detail": "KB gate PENDING"
+      },
+      {
+        "id": "pilot-gate",
+        "pass": true,
+        "detail": "pilot:status not FAIL"
+      },
+      {
+        "id": "review-workbench",
+        "pass": true,
+        "detail": "one offline human review workbench"
+      },
+      {
+        "id": "authoring-pipeline",
+        "pass": true,
+        "detail": "governed authoring (draft/preview/human apply)"
+      },
+      {
+        "id": "release-authority",
+        "pass": true,
+        "detail": "release register → build-time effective lifecycle (single authority)"
+      },
+      {
+        "id": "learner-can-succeed",
+        "pass": true,
+        "detail": "145/145 launchable activities can be completed through the real UI path"
+      },
+      {
+        "id": "no-crash-on-wrong-input",
+        "pass": false,
+        "detail": "1 activity crashes on an unexpected answer"
+      }
+    ]
+  },
+  "learningProductProgress": {
+    "percent": 11.688,
+    "formula": "Σ weight × component (equal weights 1/6)",
+    "weights": {
+      "learningCoverage": 0.16666666666666666,
+      "modelBasedInteraction": 0.16666666666666666,
+      "assessmentCoverage": 0.16666666666666666,
+      "governance": 0.16666666666666666,
+      "release": 0.16666666666666666,
+      "localization": 0.16666666666666666
+    },
+    "components": {
+      "learningCoverage": 31.876,
+      "modelBasedInteraction": 4.918,
+      "assessmentCoverage": 0,
+      "governance": 0,
+      "release": 0,
+      "localization": 33.333
+    }
+  },
+  "overallManagementEstimate": {
+    "percent": 43.013,
+    "formula": "0.4 × foundationProgress + 0.6 × learningProductProgress",
+    "weights": {
+      "foundation": 0.4,
+      "learningProduct": 0.6
+    },
+    "note": "a management composite; read the two progress numbers above first"
+  },
+  "dimensions": {
+    "foundation": {
+      "percent": 90,
+      "formula": "foundation checks"
+    },
+    "learningCoverage": {
+      "percent": 31.876,
+      "formula": "mean over units of (theory + practice + assessment levels)/3, levels normalized 0..1"
+    },
+    "modelBasedInteraction": {
+      "percent": 4.918,
+      "formula": "units with ≥1 MODEL_BASED activity the learner can complete / 122"
+    },
+    "assessmentCoverage": {
+      "percent": 0,
+      "formula": "units with an APPROVED (available) assessment / 122"
+    },
+    "governance": {
+      "percent": 0,
+      "formula": "(approved chemistry assertions + approved assessment items + content-approved activities) / (all of them)"
+    },
+    "release": {
+      "percent": 0,
+      "formula": "activities with a current human RELEASE decision / 146"
+    },
+    "localization": {
+      "percent": 33.333,
+      "formula": "mean over target locales (uz-Latn, uz-Cyrl, ru) of localized unit content / 122"
+    }
+  },
+  "whereWeStarted": {
+    "label": "P0: legacy KimyoLab content migrated into a validated content pack; no canonical runtime, readiness, review or release governance",
+    "milestone": "P0-INTEGRITY"
+  },
+  "whereWeAreNow": {
+    "milestone": "P2.0",
+    "foundationPercent": 90,
+    "learningProductPercent": 11.688,
+    "facts": [
+      "122 units, 146 activities",
+      "4 model-based activities in 6 units",
+      "5 assessment items (0 approved) in 1 unit",
+      "0 human approvals, 0 human releases, 0 pilot sign-offs",
+      "theory: 0 structured / 122"
+    ]
+  },
+  "completedMilestones": [
+    "P0-INTEGRITY",
+    "P1.0",
+    "P1.1",
+    "P1.2",
+    "P1.3",
+    "P1.4",
+    "P1.5",
+    "P1.6",
+    "P1.7",
+    "P1.8",
+    "P1.9"
+  ],
+  "currentMilestone": "P2.0 — learning depth & coverage baseline",
+  "nextMilestones": [
+    "P2.1 — first learning-depth work package (chosen by a person from reports/p2-work-packages.json)",
+    "human review round (workbench): chemistry A–C queues, lu.9.15 assessment",
+    "release decisions for the 27 pending activities"
+  ],
+  "remainingMajorWork": [
+    "assessment for 121 units (and review of lu.9.15)",
+    "structured theory for 122 units",
+    "model-based practice beyond 6 units",
+    "source provenance for 127 assertions",
+    "uz-Cyrl and ru localization",
+    "accessibility verification of 141 legacy activities",
+    "human review and release decisions"
+  ],
+  "uzSummary": [
+    "Platforma poydevori: 90% (9/10 tekshiruv o‘tdi).",
+    "O‘quv mahsuloti: 11.688%. 122 ta mavzudan 6 tasida model asosidagi amaliyot bor, 0 tasida tasdiqlangan test bor.",
+    "Nazariya: 122 ta mavzuning hammasida faqat qisqa xulosa bor (misol, xato tushunchalar va yakun yo‘q).",
+    "Inson qarorlari: 0 approval, 0 release, 0 pilot sign-off."
+  ]
+}
