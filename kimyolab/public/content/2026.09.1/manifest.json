@@ -6,7 +6,7 @@
   "assessmentVersion": "0.0.0",
   "scoringVersion": "0.0.0",
   "createdAt": "2026-09-22T00:00:00.000Z",
-  "checksum": "fac33b3af0eda424b7ee03ccfab0aa66f036cc2d6caa589cbc57475fb16b1098",
+  "checksum": "9c7aa90941c72f68123b5eeff72ac72e986ced2babb848b78b56a6178a8995f6",
   "compatibility": {
     "minAppVersion": "20.1.0"
   },
@@ -237,6 +237,11 @@
       "path": "theory-activities.json",
       "checksum": "ed96e578f9414524c812c2cb64773124821f2c8e621cd5ad9daacfd8cd91f398",
       "size": 193632
+    },
+    {
+      "path": "theory-structured.json",
+      "checksum": "4f807020de554be08cf5b39dc1d32a2b0e0910b2dad9c0f743d590b9882beb32",
+      "size": 87
     }
   ]
 }

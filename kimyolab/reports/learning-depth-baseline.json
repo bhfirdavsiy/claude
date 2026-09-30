@@ -22692,8 +22692,8 @@
       "examples": []
     },
     "hardcodedUzbekUi": {
-      "files": 21,
-      "literals": 156,
+      "files": 22,
+      "literals": 158,
       "byFile": [
         {
           "file": "src/app/bootstrap.ts",
@@ -22746,6 +22746,10 @@
         {
           "file": "src/features/search/render.ts",
           "uzbekLiterals": 4
+        },
+        {
+          "file": "src/features/theory/structured-render.ts",
+          "uzbekLiterals": 2
         },
         {
           "file": "src/features/worksheet/model.ts",

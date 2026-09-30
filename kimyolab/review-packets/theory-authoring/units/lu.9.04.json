@@ -1,0 +1,110 @@
+{
+  "schema": "kimyolab.theory-authoring-packet.v1",
+  "status": "AWAITING_HUMAN_AUTHOR",
+  "learningUnit": {
+    "id": "lu.9.04",
+    "grade": 9,
+    "title": "Kuchli va kuchsiz elektrolitlar. Dissotsiatsiyalanish darajasi",
+    "chapter": "II bob, 5-§, 26-28-betlar"
+  },
+  "learningOutcomes": [
+    "Kuchli/kuchsiz elektrolitni miqdoriy va vizual taqqoslash."
+  ],
+  "concepts": [
+    {
+      "id": "concept.c151",
+      "name": "α"
+    },
+    {
+      "id": "concept.c152",
+      "name": "kuchli va kuchsiz elektrolit"
+    }
+  ],
+  "prerequisiteConcepts": [],
+  "currentTheory": {
+    "theoryId": "theory.9.04",
+    "title": "Kuchli va kuchsiz elektrolitlar. Dissotsiatsiyalanish darajasi",
+    "depth": "MINIMAL",
+    "legacyBlocks": [
+      {
+        "type": "concept-summary",
+        "text": "α, kuchli va kuchsiz elektrolit"
+      },
+      {
+        "type": "legacy-mapping-note",
+        "text": "Kuchli/kuchsiz elektrolitni miqdoriy va vizual taqqoslash."
+      }
+    ],
+    "lifecycleStatus": "draft"
+  },
+  "currentProvenance": {
+    "unitSourceRefs": [
+      {
+        "id": "src.legacy.9.04",
+        "type": "internal",
+        "title": "II bob, 5-§, 26-28-betlar"
+      }
+    ],
+    "theorySourceRefs": [],
+    "note": "the legacy theory carries no registered source; every structured block must cite one"
+  },
+  "dependencies": {
+    "practiceActivities": [
+      "practice.simulation.9.04.planned"
+    ],
+    "assessmentItems": 0
+  },
+  "slots": {
+    "file": "content-src/theory-structured/theory.9.04.json",
+    "schema": "kimyolab.structured-theory.v1",
+    "explanation": {
+      "text": null,
+      "minChars": 300,
+      "sourceRefs": [],
+      "authoredBy": null,
+      "reviewStatus": "draft"
+    },
+    "workedExamples": [
+      {
+        "problem": null,
+        "solutionSteps": [],
+        "answer": null,
+        "sourceRefs": [],
+        "authoredBy": null,
+        "reviewStatus": "draft"
+      }
+    ],
+    "misconceptions": [
+      {
+        "statement": null,
+        "correction": null,
+        "sourceRefs": [],
+        "authoredBy": null,
+        "reviewStatus": "draft"
+      }
+    ],
+    "summary": {
+      "points": [],
+      "sourceRefs": [],
+      "authoredBy": null,
+      "reviewStatus": "draft"
+    }
+  },
+  "sourceRequirements": {
+    "acceptableCategories": [
+      "CURRICULUM",
+      "TEXTBOOK",
+      "OFFICIAL_STANDARD",
+      "AUTHORITATIVE_REFERENCE"
+    ],
+    "rule": "every block cites ≥1 registered source (content-src/source-registry.json) of an acceptable category; register new textbooks/standards through a reviewed PR (docs/governance/SOURCE_POLICY.md)"
+  },
+  "reviewChecklist": [
+    "explanation ≥300 characters, school level, consistent with the cited source",
+    "worked example: problem, numbered solution steps and answer are chemically correct and match the source",
+    "misconception: a real, documented learner misconception with a correct explanation (not invented)",
+    "summary points restate the explanation without new claims",
+    "every block cites a registered acceptable source; no placeholder text",
+    "chemistry review and didactic review by two different people; approvals are hash-pinned to the reviewed text"
+  ]
+}

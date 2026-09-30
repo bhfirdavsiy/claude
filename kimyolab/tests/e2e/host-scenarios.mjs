@@ -81,6 +81,12 @@ export const SCENARIOS = [
     await expect(page.locator('#app-main')).toContainText('Amaliyot');
     return {practiceLinks: await stableCount(page, page.locator('#app-main a[data-kl-route^="/practice/"]'))};
   }},
+  {id: 'theory-guide', title: 'theory (P2.3): the same theory content and depth in both hosts', async run(page, host) {
+    await host.open(page, '/learn/lu.9.06/guide');
+    const theory = page.locator('[data-theory-depth]');
+    await expect(theory).toBeVisible();
+    return {depth: await theory.getAttribute('data-theory-depth'), text: (await theory.innerText()).trim(), heading: (await page.locator('#theory-title').textContent())?.trim()};
+  }},
   {id: 'atom-builder', title: 'Atom Builder 7.07', async run(page, host) {
     await host.open(page, '/practice/practice.simulation.7.07.planned?lu=lu.7.07');
     for (const [particle, n] of [['proton', 6], ['neytron', 8], ['elektron', 6]]) {

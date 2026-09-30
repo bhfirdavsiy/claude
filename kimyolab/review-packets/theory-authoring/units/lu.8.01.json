@@ -1,0 +1,127 @@
+{
+  "schema": "kimyolab.theory-authoring-packet.v1",
+  "status": "AWAITING_HUMAN_AUTHOR",
+  "learningUnit": {
+    "id": "lu.8.01",
+    "grade": 8,
+    "title": "Dastlabki kimyoviy tushunchalar va noorganik birikmalarning asosiy sinflari",
+    "chapter": "I bob, 1-2-§"
+  },
+  "learningOutcomes": [
+    "Takrorlash mavzusi keng; 8.6 gidroksidlarning xossalariga amaliy misol beradi."
+  ],
+  "concepts": [
+    {
+      "id": "concept.c075",
+      "name": "Valentlik"
+    },
+    {
+      "id": "concept.c076",
+      "name": "mol"
+    },
+    {
+      "id": "concept.c058",
+      "name": "oksid"
+    },
+    {
+      "id": "concept.c077",
+      "name": "asos"
+    },
+    {
+      "id": "concept.c078",
+      "name": "kislota"
+    },
+    {
+      "id": "concept.c079",
+      "name": "tuz"
+    }
+  ],
+  "prerequisiteConcepts": [],
+  "currentTheory": {
+    "theoryId": "theory.8.01",
+    "title": "Dastlabki kimyoviy tushunchalar va noorganik birikmalarning asosiy sinflari",
+    "depth": "MINIMAL",
+    "legacyBlocks": [
+      {
+        "type": "concept-summary",
+        "text": "Valentlik, mol, oksid, asos, kislota, tuz"
+      },
+      {
+        "type": "legacy-mapping-note",
+        "text": "Takrorlash mavzusi keng; 8.6 gidroksidlarning xossalariga amaliy misol beradi."
+      }
+    ],
+    "lifecycleStatus": "draft"
+  },
+  "currentProvenance": {
+    "unitSourceRefs": [
+      {
+        "id": "src.legacy.8.01",
+        "type": "internal",
+        "title": "I bob, 1-2-§"
+      }
+    ],
+    "theorySourceRefs": [],
+    "note": "the legacy theory carries no registered source; every structured block must cite one"
+  },
+  "dependencies": {
+    "practiceActivities": [
+      "practice.trainer.8.01.planned",
+      "practice.experiment.8.6"
+    ],
+    "assessmentItems": 0
+  },
+  "slots": {
+    "file": "content-src/theory-structured/theory.8.01.json",
+    "schema": "kimyolab.structured-theory.v1",
+    "explanation": {
+      "text": null,
+      "minChars": 300,
+      "sourceRefs": [],
+      "authoredBy": null,
+      "reviewStatus": "draft"
+    },
+    "workedExamples": [
+      {
+        "problem": null,
+        "solutionSteps": [],
+        "answer": null,
+        "sourceRefs": [],
+        "authoredBy": null,
+        "reviewStatus": "draft"
+      }
+    ],
+    "misconceptions": [
+      {
+        "statement": null,
+        "correction": null,
+        "sourceRefs": [],
+        "authoredBy": null,
+        "reviewStatus": "draft"
+      }
+    ],
+    "summary": {
+      "points": [],
+      "sourceRefs": [],
+      "authoredBy": null,
+      "reviewStatus": "draft"
+    }
+  },
+  "sourceRequirements": {
+    "acceptableCategories": [
+      "CURRICULUM",
+      "TEXTBOOK",
+      "OFFICIAL_STANDARD",
+      "AUTHORITATIVE_REFERENCE"
+    ],
+    "rule": "every block cites ≥1 registered source (content-src/source-registry.json) of an acceptable category; register new textbooks/standards through a reviewed PR (docs/governance/SOURCE_POLICY.md)"
+  },
+  "reviewChecklist": [
+    "explanation ≥300 characters, school level, consistent with the cited source",
+    "worked example: problem, numbered solution steps and answer are chemically correct and match the source",
+    "misconception: a real, documented learner misconception with a correct explanation (not invented)",
+    "summary points restate the explanation without new claims",
+    "every block cites a registered acceptable source; no placeholder text",
+    "chemistry review and didactic review by two different people; approvals are hash-pinned to the reviewed text"
+  ]
+}

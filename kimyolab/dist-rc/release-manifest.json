@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-09-30T14:02:16.696Z",
+  "createdAt": "2026-09-30T16:32:40.121Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -17,8 +17,8 @@
     {
       "path": "app-preview/app/content-client.js",
       "sourcePath": "public/app-preview/app/content-client.js",
-      "checksum": "5ff5839c477d837b71908364e81d960e78360a97e7bb640c1a17a2d33f483a59",
-      "size": 21901
+      "checksum": "bfd7d870a11a07b9c349e6fdeaa8ec945f2d55c33d2d9521a4f3e65cde2833a9",
+      "size": 22269
     },
     {
       "path": "app-preview/app/host.js",
@@ -309,6 +309,12 @@
       "size": 466
     },
     {
+      "path": "app-preview/domain/theory/structured-theory.js",
+      "sourcePath": "public/app-preview/domain/theory/structured-theory.js",
+      "checksum": "b7035f6c23fc185f30f36c4ebd668a7c05bc4963dc64890fae3d1d07465399aa",
+      "size": 8501
+    },
+    {
       "path": "app-preview/engines/calculation/engine.js",
       "sourcePath": "public/app-preview/engines/calculation/engine.js",
       "checksum": "04e6b66b2bc5d1fc5dcb2c4331fc1a4de76da6ec31c399849aec8937dd56e34a",
@@ -395,14 +401,14 @@
     {
       "path": "app-preview/features/learning-hub/model.js",
       "sourcePath": "public/app-preview/features/learning-hub/model.js",
-      "checksum": "34e1aa352a334d3a0abefc5b96386c295e84d0fb0a1f797fd444f437d738a44e",
-      "size": 5964
+      "checksum": "3f3fe0e452fa9040ac7611a812ec278b637b6aa2548b2bd5f4e1c4749e6354a2",
+      "size": 6463
     },
     {
       "path": "app-preview/features/learning-hub/render.js",
       "sourcePath": "public/app-preview/features/learning-hub/render.js",
-      "checksum": "271aa8a236407658b927469145011bbd7a6a024693ac142e84ea1ef41542adf1",
-      "size": 16362
+      "checksum": "bc6225b645e3a6be3599d27d1485782224ea16f756e0c7fbaaa05603857f9f29",
+      "size": 16786
     },
     {
       "path": "app-preview/features/localization/element-names.js",
@@ -493,6 +499,18 @@
       "sourcePath": "public/app-preview/features/search/render.js",
       "checksum": "4d81d45ba95e2ccafec587f77e1dbce9d123bc91b134ee6a0daa48b6fd6d4e45",
       "size": 1755
+    },
+    {
+      "path": "app-preview/features/theory/structured-render.js",
+      "sourcePath": "public/app-preview/features/theory/structured-render.js",
+      "checksum": "50f741f6730a8e1b590e8e5be709e82540a79ac5fc7b31e587c740827e54d548",
+      "size": 3822
+    },
+    {
+      "path": "app-preview/features/theory/view.js",
+      "sourcePath": "public/app-preview/features/theory/view.js",
+      "checksum": "2e0d84d320605b231667274ee48717760ca9e3da5f4027a5be1ae0dcb9032286",
+      "size": 2730
     },
     {
       "path": "app-preview/features/worksheet/model.js",
@@ -929,8 +947,8 @@
     {
       "path": "app-preview/ui/tokens/kimyolab.css",
       "sourcePath": "public/app-preview/ui/tokens/kimyolab.css",
-      "checksum": "e0c0de10f5a2be8f35c0a71d3a9bf79b4f6668d5c24fd755f78d3663d836adac",
-      "size": 29760
+      "checksum": "b891f2aadf9d4e373f17ad016ee82c000b43242c21c470377f1d8b6575e3edf5",
+      "size": 30621
     },
     {
       "path": "assets/brand/kimyolab-logo.webp",
@@ -1205,8 +1223,8 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "d672675ab2107f28da02af211b8eb5a6204c084736bf6666c808e432b7e7b5a2",
-      "size": 7693
+      "checksum": "de75d51b97eb09f6205ca23488788546c5f759e21deda00b4e403cdf5da13975",
+      "size": 7849
     },
     {
       "path": "content/2026.09.1/mapping-links.json",
@@ -1227,9 +1245,15 @@
       "size": 193632
     },
     {
+      "path": "content/2026.09.1/theory-structured.json",
+      "sourcePath": "public/content/2026.09.1/theory-structured.json",
+      "checksum": "4f807020de554be08cf5b39dc1d32a2b0e0910b2dad9c0f743d590b9882beb32",
+      "size": 87
+    },
+    {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "5f52759dda1315fee527635189b94c9c800449d2c7c4d0b09f3e9df39c7ba915",
+      "checksum": "02251e2dac3978eb1f086a1106880e0728c607067c95292211391561207541b8",
       "size": 158
     },
     {

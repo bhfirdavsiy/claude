@@ -1,0 +1,118 @@
+{
+  "schema": "kimyolab.theory-authoring-packet.v1",
+  "status": "AWAITING_HUMAN_AUTHOR",
+  "learningUnit": {
+    "id": "lu.8.08",
+    "grade": 8,
+    "title": "Elementni davriy sistemadagi o‘rni va atom tuzilishiga qarab tavsiflash",
+    "chapter": "II bob, 13-§, 51-62-betlar"
+  },
+  "learningOutcomes": [
+    "Davriy o‘rin va atom tuzilishini birlashtiradi."
+  ],
+  "concepts": [
+    {
+      "id": "concept.c095",
+      "name": "Guruh"
+    },
+    {
+      "id": "concept.c084",
+      "name": "davr"
+    },
+    {
+      "id": "concept.c096",
+      "name": "konfiguratsiya"
+    },
+    {
+      "id": "concept.c097",
+      "name": "xossa"
+    }
+  ],
+  "prerequisiteConcepts": [],
+  "currentTheory": {
+    "theoryId": "theory.8.08",
+    "title": "Elementni davriy sistemadagi o‘rni va atom tuzilishiga qarab tavsiflash",
+    "depth": "MINIMAL",
+    "legacyBlocks": [
+      {
+        "type": "concept-summary",
+        "text": "Guruh, davr, konfiguratsiya, xossa"
+      },
+      {
+        "type": "legacy-mapping-note",
+        "text": "Davriy o‘rin va atom tuzilishini birlashtiradi."
+      }
+    ],
+    "lifecycleStatus": "draft"
+  },
+  "currentProvenance": {
+    "unitSourceRefs": [
+      {
+        "id": "src.legacy.8.08",
+        "type": "internal",
+        "title": "II bob, 13-§, 51-62-betlar"
+      }
+    ],
+    "theorySourceRefs": [],
+    "note": "the legacy theory carries no registered source; every structured block must cite one"
+  },
+  "dependencies": {
+    "practiceActivities": [
+      "practice.trainer.8.08.planned"
+    ],
+    "assessmentItems": 0
+  },
+  "slots": {
+    "file": "content-src/theory-structured/theory.8.08.json",
+    "schema": "kimyolab.structured-theory.v1",
+    "explanation": {
+      "text": null,
+      "minChars": 300,
+      "sourceRefs": [],
+      "authoredBy": null,
+      "reviewStatus": "draft"
+    },
+    "workedExamples": [
+      {
+        "problem": null,
+        "solutionSteps": [],
+        "answer": null,
+        "sourceRefs": [],
+        "authoredBy": null,
+        "reviewStatus": "draft"
+      }
+    ],
+    "misconceptions": [
+      {
+        "statement": null,
+        "correction": null,
+        "sourceRefs": [],
+        "authoredBy": null,
+        "reviewStatus": "draft"
+      }
+    ],
+    "summary": {
+      "points": [],
+      "sourceRefs": [],
+      "authoredBy": null,
+      "reviewStatus": "draft"
+    }
+  },
+  "sourceRequirements": {
+    "acceptableCategories": [
+      "CURRICULUM",
+      "TEXTBOOK",
+      "OFFICIAL_STANDARD",
+      "AUTHORITATIVE_REFERENCE"
+    ],
+    "rule": "every block cites ≥1 registered source (content-src/source-registry.json) of an acceptable category; register new textbooks/standards through a reviewed PR (docs/governance/SOURCE_POLICY.md)"
+  },
+  "reviewChecklist": [
+    "explanation ≥300 characters, school level, consistent with the cited source",
+    "worked example: problem, numbered solution steps and answer are chemically correct and match the source",
+    "misconception: a real, documented learner misconception with a correct explanation (not invented)",
+    "summary points restate the explanation without new claims",
+    "every block cites a registered acceptable source; no placeholder text",
+    "chemistry review and didactic review by two different people; approvals are hash-pinned to the reviewed text"
+  ]
+}

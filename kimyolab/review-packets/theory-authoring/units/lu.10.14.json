@@ -1,0 +1,114 @@
+{
+  "schema": "kimyolab.theory-authoring-packet.v1",
+  "status": "AWAITING_HUMAN_AUTHOR",
+  "learningUnit": {
+    "id": "lu.10.14",
+    "grade": 10,
+    "title": "Alkinlar",
+    "chapter": "II bob, 2.13-2.14, 72-76-betlar"
+  },
+  "learningOutcomes": [
+    "Katalogda maxsus alkin amaliyoti yo‘q."
+  ],
+  "concepts": [
+    {
+      "id": "concept.c252",
+      "name": "Uchbog'"
+    },
+    {
+      "id": "concept.c253",
+      "name": "asetilen"
+    },
+    {
+      "id": "concept.c248",
+      "name": "birikish"
+    }
+  ],
+  "prerequisiteConcepts": [],
+  "currentTheory": {
+    "theoryId": "theory.10.14",
+    "title": "Alkinlar",
+    "depth": "MINIMAL",
+    "legacyBlocks": [
+      {
+        "type": "concept-summary",
+        "text": "Uchbog‘, asetilen, birikish"
+      },
+      {
+        "type": "legacy-mapping-note",
+        "text": "Katalogda maxsus alkin amaliyoti yo‘q."
+      }
+    ],
+    "lifecycleStatus": "draft"
+  },
+  "currentProvenance": {
+    "unitSourceRefs": [
+      {
+        "id": "src.legacy.10.14",
+        "type": "internal",
+        "title": "II bob, 2.13-2.14, 72-76-betlar"
+      }
+    ],
+    "theorySourceRefs": [],
+    "note": "the legacy theory carries no registered source; every structured block must cite one"
+  },
+  "dependencies": {
+    "practiceActivities": [
+      "practice.simulation.10.14.planned"
+    ],
+    "assessmentItems": 0
+  },
+  "slots": {
+    "file": "content-src/theory-structured/theory.10.14.json",
+    "schema": "kimyolab.structured-theory.v1",
+    "explanation": {
+      "text": null,
+      "minChars": 300,
+      "sourceRefs": [],
+      "authoredBy": null,
+      "reviewStatus": "draft"
+    },
+    "workedExamples": [
+      {
+        "problem": null,
+        "solutionSteps": [],
+        "answer": null,
+        "sourceRefs": [],
+        "authoredBy": null,
+        "reviewStatus": "draft"
+      }
+    ],
+    "misconceptions": [
+      {
+        "statement": null,
+        "correction": null,
+        "sourceRefs": [],
+        "authoredBy": null,
+        "reviewStatus": "draft"
+      }
+    ],
+    "summary": {
+      "points": [],
+      "sourceRefs": [],
+      "authoredBy": null,
+      "reviewStatus": "draft"
+    }
+  },
+  "sourceRequirements": {
+    "acceptableCategories": [
+      "CURRICULUM",
+      "TEXTBOOK",
+      "OFFICIAL_STANDARD",
+      "AUTHORITATIVE_REFERENCE"
+    ],
+    "rule": "every block cites ≥1 registered source (content-src/source-registry.json) of an acceptable category; register new textbooks/standards through a reviewed PR (docs/governance/SOURCE_POLICY.md)"
+  },
+  "reviewChecklist": [
+    "explanation ≥300 characters, school level, consistent with the cited source",
+    "worked example: problem, numbered solution steps and answer are chemically correct and match the source",
+    "misconception: a real, documented learner misconception with a correct explanation (not invented)",
+    "summary points restate the explanation without new claims",
+    "every block cites a registered acceptable source; no placeholder text",
+    "chemistry review and didactic review by two different people; approvals are hash-pinned to the reviewed text"
+  ]
+}

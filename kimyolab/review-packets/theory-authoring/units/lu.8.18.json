@@ -1,0 +1,128 @@
+{
+  "schema": "kimyolab.theory-authoring-packet.v1",
+  "status": "AWAITING_HUMAN_AUTHOR",
+  "learningUnit": {
+    "id": "lu.8.18",
+    "grade": 8,
+    "title": "Kislorod guruhchasi va oltingugurt birikmalari",
+    "chapter": "V bob, 29-32-§, 130-140-betlar"
+  },
+  "learningOutcomes": [
+    "8.2 tajribaviy masalalar, 8.12 namuna va 8.13 sulfat sifat reaksiyasi mavzuni bog‘laydi."
+  ],
+  "concepts": [
+    {
+      "id": "concept.c120",
+      "name": "O"
+    },
+    {
+      "id": "concept.c121",
+      "name": "S"
+    },
+    {
+      "id": "concept.c122",
+      "name": "H2S"
+    },
+    {
+      "id": "concept.c123",
+      "name": "SO2"
+    },
+    {
+      "id": "concept.c124",
+      "name": "SO3"
+    },
+    {
+      "id": "concept.c125",
+      "name": "H2SO4"
+    }
+  ],
+  "prerequisiteConcepts": [],
+  "currentTheory": {
+    "theoryId": "theory.8.18",
+    "title": "Kislorod guruhchasi va oltingugurt birikmalari",
+    "depth": "MINIMAL",
+    "legacyBlocks": [
+      {
+        "type": "concept-summary",
+        "text": "O, S, H2S, SO2, SO3, H2SO4"
+      },
+      {
+        "type": "legacy-mapping-note",
+        "text": "8.2 tajribaviy masalalar, 8.12 namuna va 8.13 sulfat sifat reaksiyasi mavzuni bog‘laydi."
+      }
+    ],
+    "lifecycleStatus": "draft"
+  },
+  "currentProvenance": {
+    "unitSourceRefs": [
+      {
+        "id": "src.legacy.8.18",
+        "type": "internal",
+        "title": "V bob, 29-32-§, 130-140-betlar"
+      }
+    ],
+    "theorySourceRefs": [],
+    "note": "the legacy theory carries no registered source; every structured block must cite one"
+  },
+  "dependencies": {
+    "practiceActivities": [
+      "practice.experiment.8.2",
+      "practice.experiment.8.12",
+      "practice.experiment.8.13"
+    ],
+    "assessmentItems": 0
+  },
+  "slots": {
+    "file": "content-src/theory-structured/theory.8.18.json",
+    "schema": "kimyolab.structured-theory.v1",
+    "explanation": {
+      "text": null,
+      "minChars": 300,
+      "sourceRefs": [],
+      "authoredBy": null,
+      "reviewStatus": "draft"
+    },
+    "workedExamples": [
+      {
+        "problem": null,
+        "solutionSteps": [],
+        "answer": null,
+        "sourceRefs": [],
+        "authoredBy": null,
+        "reviewStatus": "draft"
+      }
+    ],
+    "misconceptions": [
+      {
+        "statement": null,
+        "correction": null,
+        "sourceRefs": [],
+        "authoredBy": null,
+        "reviewStatus": "draft"
+      }
+    ],
+    "summary": {
+      "points": [],
+      "sourceRefs": [],
+      "authoredBy": null,
+      "reviewStatus": "draft"
+    }
+  },
+  "sourceRequirements": {
+    "acceptableCategories": [
+      "CURRICULUM",
+      "TEXTBOOK",
+      "OFFICIAL_STANDARD",
+      "AUTHORITATIVE_REFERENCE"
+    ],
+    "rule": "every block cites ≥1 registered source (content-src/source-registry.json) of an acceptable category; register new textbooks/standards through a reviewed PR (docs/governance/SOURCE_POLICY.md)"
+  },
+  "reviewChecklist": [
+    "explanation ≥300 characters, school level, consistent with the cited source",
+    "worked example: problem, numbered solution steps and answer are chemically correct and match the source",
+    "misconception: a real, documented learner misconception with a correct explanation (not invented)",
+    "summary points restate the explanation without new claims",
+    "every block cites a registered acceptable source; no placeholder text",
+    "chemistry review and didactic review by two different people; approvals are hash-pinned to the reviewed text"
+  ]
+}

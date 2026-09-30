@@ -12,6 +12,7 @@ import { sha256Hex, utf8 } from '../domain/content/sha256.js';
 import { EXECUTION_PLAN_PACK_PATH, resolveExecutionPlan } from '../runtime/practice-router/execution-plan.js';
 import { READINESS_PACK_PATH, launchDecision, readinessMessage, resolveReadiness, READINESS_PACK_SCHEMA,                                                                          } from '../domain/readiness/readiness.js';
 import { ASSESSMENT_KEY_PACK_PATH, ASSESSMENT_PROMPT_PACK_PATH, isApproved, validateKeyPack, validatePromptPack,                                           } from '../domain/assessment/model.js';
+import { STRUCTURED_THEORY_PACK_PATH } from '../domain/theory/structured-theory.js';
 
                                                                                                                                                        
 
@@ -129,6 +130,8 @@ export class ContentClient {
     const grade=Number(match[1]);
     const version=await this.version();
     const prefix=`${this.baseUrl}/${version}`;
+    // P2.3: the structured theory pack is optional for older packs (absent → MINIMAL); when listed, it is integrity-checked
+    const structuredTheory=this.files.has(STRUCTURED_THEORY_PACK_PATH)?await this.packJson(version,STRUCTURED_THEORY_PACK_PATH):undefined;
     const [units,theories,practices,mappings,concepts,externalRaw,assessmentPrompts,readinessPack]=await Promise.all([
       this.packJson(version,`learning-units/grade-${grade}.json`),
       this.packJson(version,`theory-activities.json`),
@@ -139,7 +142,7 @@ export class ContentClient {
       this.packJson(version,ASSESSMENT_PROMPT_PACK_PATH),
       this.packJson(version,READINESS_PACK_PATH),
     ]);
-    try{return buildLearningHubModel(learningUnitId,{units,theories,practices,mappings,concepts,externalLabs:bindingsForLearningUnit(validateExternalLabBindings(externalRaw),learningUnitId),assessmentPrompts,readiness:readinessPack});}
+    try{return buildLearningHubModel(learningUnitId,{units,theories,practices,mappings,concepts,externalLabs:bindingsForLearningUnit(validateExternalLabBindings(externalRaw),learningUnitId),assessmentPrompts,readiness:readinessPack,structuredTheory});}
     catch(error){
       const code=error instanceof Error?error.message.split(':')[0]:'CONTENT_MODEL_ERROR';
       throw new ContentLoadError(code,{resource:learningUnitId});

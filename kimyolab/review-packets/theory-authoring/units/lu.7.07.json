@@ -1,0 +1,122 @@
+{
+  "schema": "kimyolab.theory-authoring-packet.v1",
+  "status": "AWAITING_HUMAN_AUTHOR",
+  "learningUnit": {
+    "id": "lu.7.07",
+    "grade": 7,
+    "title": "Atom va uning tuzilishi: proton, neytron, elektron",
+    "chapter": "II bob, 2-mavzu"
+  },
+  "learningOutcomes": [
+    "Nazariya katalogida ko‘zda tutilgan konstruktiv faoliyat; laboratoriya shart emas."
+  ],
+  "concepts": [
+    {
+      "id": "concept.c019",
+      "name": "Yadro"
+    },
+    {
+      "id": "concept.c020",
+      "name": "proton"
+    },
+    {
+      "id": "concept.c021",
+      "name": "neytron"
+    },
+    {
+      "id": "concept.c022",
+      "name": "elektron"
+    },
+    {
+      "id": "concept.c023",
+      "name": "zaryad"
+    }
+  ],
+  "prerequisiteConcepts": [],
+  "currentTheory": {
+    "theoryId": "theory.7.07",
+    "title": "Atom va uning tuzilishi: proton, neytron, elektron",
+    "depth": "MINIMAL",
+    "legacyBlocks": [
+      {
+        "type": "concept-summary",
+        "text": "Yadro, proton, neytron, elektron, zaryad"
+      },
+      {
+        "type": "legacy-mapping-note",
+        "text": "Nazariya katalogida ko‘zda tutilgan konstruktiv faoliyat; laboratoriya shart emas."
+      }
+    ],
+    "lifecycleStatus": "draft"
+  },
+  "currentProvenance": {
+    "unitSourceRefs": [
+      {
+        "id": "src.legacy.7.07",
+        "type": "internal",
+        "title": "II bob, 2-mavzu"
+      }
+    ],
+    "theorySourceRefs": [],
+    "note": "the legacy theory carries no registered source; every structured block must cite one"
+  },
+  "dependencies": {
+    "practiceActivities": [
+      "practice.simulation.7.07.planned"
+    ],
+    "assessmentItems": 0
+  },
+  "slots": {
+    "file": "content-src/theory-structured/theory.7.07.json",
+    "schema": "kimyolab.structured-theory.v1",
+    "explanation": {
+      "text": null,
+      "minChars": 300,
+      "sourceRefs": [],
+      "authoredBy": null,
+      "reviewStatus": "draft"
+    },
+    "workedExamples": [
+      {
+        "problem": null,
+        "solutionSteps": [],
+        "answer": null,
+        "sourceRefs": [],
+        "authoredBy": null,
+        "reviewStatus": "draft"
+      }
+    ],
+    "misconceptions": [
+      {
+        "statement": null,
+        "correction": null,
+        "sourceRefs": [],
+        "authoredBy": null,
+        "reviewStatus": "draft"
+      }
+    ],
+    "summary": {
+      "points": [],
+      "sourceRefs": [],
+      "authoredBy": null,
+      "reviewStatus": "draft"
+    }
+  },
+  "sourceRequirements": {
+    "acceptableCategories": [
+      "CURRICULUM",
+      "TEXTBOOK",
+      "OFFICIAL_STANDARD",
+      "AUTHORITATIVE_REFERENCE"
+    ],
+    "rule": "every block cites ≥1 registered source (content-src/source-registry.json) of an acceptable category; register new textbooks/standards through a reviewed PR (docs/governance/SOURCE_POLICY.md)"
+  },
+  "reviewChecklist": [
+    "explanation ≥300 characters, school level, consistent with the cited source",
+    "worked example: problem, numbered solution steps and answer are chemically correct and match the source",
+    "misconception: a real, documented learner misconception with a correct explanation (not invented)",
+    "summary points restate the explanation without new claims",
+    "every block cites a registered acceptable source; no placeholder text",
+    "chemistry review and didactic review by two different people; approvals are hash-pinned to the reviewed text"
+  ]
+}

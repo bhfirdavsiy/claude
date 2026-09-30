@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "typecheck:next": "node scripts/typecheck-ratchet.mjs",
     "schema:validate": "node scripts/validate-schemas.ts",
-    "content:validate": "node scripts/validate-content.ts && node scripts/validate-external-labs.ts && node scripts/learning-readiness.ts && node scripts/pending-triage.ts && node scripts/pilot-status.ts && node scripts/renderer-foundation-readiness.ts && node scripts/renderer-reports.ts && node scripts/review.ts status && node scripts/learner-interaction.ts && node scripts/learning-depth.ts",
+    "content:validate": "node scripts/validate-content.ts && node scripts/validate-external-labs.ts && node scripts/learning-readiness.ts && node scripts/pending-triage.ts && node scripts/pilot-status.ts && node scripts/renderer-foundation-readiness.ts && node scripts/renderer-reports.ts && node scripts/review.ts status && node scripts/learner-interaction.ts && node scripts/theory-authoring.ts && node scripts/learning-depth.ts",
     "chemistry:validate": "node --experimental-strip-types scripts/validate-chemistry.ts && node --experimental-strip-types scripts/chemistry-kb.ts",
     "test": "node --test --test-concurrency=1 tests/*.test.mjs",
     "test:integration": "node --test --test-concurrency=1 tests/integration/*.test.mjs",
@@ -119,7 +119,8 @@
     "authoring:apply": "node --experimental-strip-types scripts/authoring.ts apply",
     "learning:depth": "node --experimental-strip-types scripts/learning-depth.ts",
     "learner:interaction": "node --experimental-strip-types scripts/learner-interaction.ts",
-    "host:readiness": "node --experimental-strip-types scripts/host-readiness.ts"
+    "host:readiness": "node --experimental-strip-types scripts/host-readiness.ts",
+    "theory:authoring": "node --experimental-strip-types scripts/theory-authoring.ts"
   },
   "devDependencies": {
     "@playwright/test": "1.56.1",

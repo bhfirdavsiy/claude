@@ -10,6 +10,8 @@ import { READINESS_PACK_PATH } from '../src/domain/readiness/readiness.ts';
 import { compileReadiness } from './lib/readiness-compile.ts';
 import { parseElementNameCatalog, parseInteractionCatalog, parseSpeciesNameCatalog } from '../src/features/localization/element-names.ts';
 import { readReleasePointer, writeReleasePointerAtomic } from './release-pointer-io.ts';
+import { structuredTheoryPack } from './lib/structured-theory.ts';
+import { STRUCTURED_THEORY_PACK_PATH } from '../src/domain/theory/structured-theory.ts';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const source = path.join(root, 'content-src');
@@ -57,6 +59,8 @@ for (const name of ['concepts.json','theory-activities.json','practice-activitie
   copy(path.join(source, name), path.join(packRoot, name));
 }
 copy(path.join(source, 'aliases.yaml'), path.join(packRoot, 'aliases.yaml'));
+// P2.3: structured theory — malformed authored entries fail the build; only complete, sourced entries ship
+writeJson(path.join(packRoot, STRUCTURED_THEORY_PACK_PATH), structuredTheoryPack(root));
 
 // P1.1 (C3): the authored bank (content-src/assessment-items.json) is never shipped as-is. The pack
 // carries a learner-facing prompt layer and a separate answer-key layer that a deployment can withhold.

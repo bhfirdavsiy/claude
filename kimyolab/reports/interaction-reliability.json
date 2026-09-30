@@ -87,9 +87,9 @@
     "catalog": "content-src/locales/uz-latn/learner-interaction.json",
     "hardcodedUzbekLiterals": {
       "before": 174,
-      "after": 156,
+      "after": 158,
       "filesBefore": 23,
-      "filesAfter": 21,
+      "filesAfter": 22,
       "migrated": {
         "src/features/practice/render.ts": 12,
         "src/features/practice/ui-model.ts": 6
@@ -146,6 +146,10 @@
         {
           "file": "src/features/search/render.ts",
           "uzbekLiterals": 4
+        },
+        {
+          "file": "src/features/theory/structured-render.ts",
+          "uzbekLiterals": 2
         },
         {
           "file": "src/features/worksheet/model.ts",
