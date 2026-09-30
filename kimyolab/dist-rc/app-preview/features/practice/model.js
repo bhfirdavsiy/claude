@@ -1,7 +1,7 @@
                                                                     
                                                                                            
                                                                                    
-                                                                         
+                                                                                            
 
                                            
             
@@ -23,7 +23,7 @@
                             
                                                                                                       
                                                                                                        
-                                                   
+                                                                                    
              
                     
                                                                          
@@ -35,6 +35,8 @@
                      
                                                                                          
                    
+                                                                                  
+                             
     
  
 
@@ -58,6 +60,8 @@ export function buildPracticePageModel(input
                 
                    
                  
+                           
+                                   
                                    
  )                          {
   return {
@@ -83,7 +87,7 @@ export function buildPracticePageModel(input
     scoringVersion:input.scoringVersion,
     ...(input.curriculumVersion?{curriculumVersion:input.curriculumVersion}:{}),
     legacyContent:structuredClone((input.activity       ).legacyContent??{}),
-    ...(input.elementNames?{localization:{elementNames:input.elementNames}}:{}),
+    ...(input.elementNames||input.speciesNames?{localization:{...(input.elementNames?{elementNames:input.elementNames}:{}),...(input.speciesNames?{speciesNames:input.speciesNames}:{})}}:{}),
     chemistry:{
       reactions:structuredClone(input.reactions),
       solutionRules:structuredClone(input.solutionRules),
@@ -94,6 +98,7 @@ export function buildPracticePageModel(input
       kinetics:input.kinetics===undefined?undefined:structuredClone(input.kinetics),
       equilibrium:input.equilibrium===undefined?undefined:structuredClone(input.equilibrium),
       species:input.species===undefined?undefined:structuredClone(input.species),
+      conditionVocabulary:input.conditionVocabulary===undefined?undefined:structuredClone(input.conditionVocabulary),
     },
   };
 }

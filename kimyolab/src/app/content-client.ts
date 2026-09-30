@@ -2,7 +2,7 @@ import { evaluateContentPackCompatibility } from '../runtime/compatibility/conte
 import { APP_COMPATIBILITY } from './app-version.ts';
 import { buildLearningHubModel, type LearningHubModel } from '../features/learning-hub/model.ts';
 import { buildPracticePageModel, type StudentPracticePageModel } from '../features/practice/model.ts';
-import { DEFAULT_LOCALE, elementNamesPackPath, parseElementNameCatalog } from '../features/localization/element-names.ts';
+import { DEFAULT_LOCALE, elementNamesPackPath, parseElementNameCatalog, parseSpeciesNameCatalog, speciesNamesPackPath } from '../features/localization/element-names.ts';
 import {validateExternalLabBindings,bindingsForLearningUnit} from '../integrations/external-labs/registry.ts';
 import type {ExternalLabBinding} from '../integrations/external-labs/types.ts';
 import type {LabCatalogModel} from '../features/labs/model.ts';
@@ -150,7 +150,7 @@ export class ContentClient {
     const prefix=`${this.baseUrl}/${version}`;
     // P1.1 (D8): routing is read from the compiled execution plan — never guessed from which config file
     // happens to contain the activity. Only the plan's own config source is loaded.
-    const [packManifest,practices,mappings,planPack,reactions,solutionRules,hydrolysis,electrolysis,manganeseRedox,organic,kinetics,equilibrium,species]=await Promise.all([
+    const [packManifest,practices,mappings,planPack,reactions,solutionRules,hydrolysis,electrolysis,manganeseRedox,organic,kinetics,equilibrium,species,conditionVocabulary]=await Promise.all([
       Promise.resolve(this.manifestCache),
       this.packJson(version,`practice-activities.json`),
       this.packJson(version,`mapping-links.json`),
@@ -164,6 +164,7 @@ export class ContentClient {
       this.packJson(version,`chemistry/kinetics.json`),
       this.packJson(version,`chemistry/equilibrium.json`),
       this.packJson(version,`chemistry/species.json`),
+      this.packJson(version,`chemistry/condition-vocabulary.json`),
     ]);
     const activity=practices.find((x:any)=>x.id===practiceActivityId);
     if(!activity) throw new ContentLoadError('PRACTICE_ACTIVITY_NOT_FOUND',{resource:practiceActivityId});
@@ -176,9 +177,11 @@ export class ContentClient {
     catch(error){throw new ContentLoadError(error instanceof Error&&error.message==='EXECUTION_PLAN_NOT_FOUND'?'PRACTICE_CONFIG_NOT_FOUND':'EXECUTION_PLAN_INVALID',{resource:practiceActivityId});}
     const configs=await this.packJson(version,`activity-configs/${executionPlan.configSource}.json`);
     // localized element names: presentation text shipped as content (P1.4 closeout); invalid → fail closed
-    let elementNames;
+    let elementNames,speciesNames;
     try{elementNames=parseElementNameCatalog(await this.packJson(version,elementNamesPackPath(DEFAULT_LOCALE)));}
     catch(error){throw error instanceof ContentLoadError?error:new ContentLoadError('LOCALIZATION_INVALID',{resource:elementNamesPackPath(DEFAULT_LOCALE)});}
+    try{speciesNames=parseSpeciesNameCatalog(await this.packJson(version,speciesNamesPackPath(DEFAULT_LOCALE)));}
+    catch(error){throw error instanceof ContentLoadError?error:new ContentLoadError('LOCALIZATION_INVALID',{resource:speciesNamesPackPath(DEFAULT_LOCALE)});}
     const referenceConfig=configs?.[practiceActivityId];
     if(!referenceConfig) throw new ContentLoadError('PRACTICE_CONFIG_NOT_FOUND',{resource:practiceActivityId});
     const mapping=mappings.find((x:any)=>x.practiceActivityId===practiceActivityId&&x.role==='primary')
@@ -194,7 +197,7 @@ export class ContentClient {
       schemaVersion:String(packManifest.schemaVersion??'0'),
       scoringVersion:String(packManifest.scoringVersion??'0'),
       ...(packManifest.curriculumVersion?{curriculumVersion:String(packManifest.curriculumVersion)}:{}),
-      reactions,solutionRules,hydrolysis,electrolysis,manganeseRedox,organic,kinetics,equilibrium,species,elementNames,
+      reactions,solutionRules,hydrolysis,electrolysis,manganeseRedox,organic,kinetics,equilibrium,species,conditionVocabulary,elementNames,speciesNames,
     });
   }
 

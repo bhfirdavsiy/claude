@@ -1,6 +1,7 @@
                                                                                   
 import {ReactionMatcher} from '../../domain/chemistry/reaction-matcher.js';
 import {SpeciesRegistry} from '../../domain/chemistry/species-registry.js';
+import {parseConditionVocabulary} from '../../domain/chemistry/condition-vocabulary.js';
 import {IonicEngine} from '../../domain/chemistry/ionic-engine.js';
 import {createReferenceSliceRouter, loadReferenceSliceRegistry} from '../../runtime/reference-slices/index.js';
 import {loadBeta1ConfigRegistry} from '../../runtime/beta1/config.js';
@@ -87,11 +88,12 @@ export class ReferencePracticeSession {
       });
     } else if(runtime==='reference-slice'){
       const registry=loadReferenceSliceRegistry({[model.id]:config});
-      const reactionMatcher=ReactionMatcher.from(model.chemistry.reactions       );
+      const conditionVocabulary=model.chemistry.conditionVocabulary?parseConditionVocabulary(model.chemistry.conditionVocabulary):undefined;
+      const reactionMatcher=ReactionMatcher.from(model.chemistry.reactions       ,conditionVocabulary?{vocabulary:conditionVocabulary}:{});
       const ionicEngine=IonicEngine.from({reactions:model.chemistry.reactions       ,rules:model.chemistry.solutionRules       });
       const speciesRegistry=Array.isArray(model.chemistry.species)?SpeciesRegistry.from(model.chemistry.species       ):undefined;
       this.router=createReferenceSliceRouter({
-        registry,reactionMatcher,ionicEngine,...(speciesRegistry?{speciesRegistry}:{}),
+        registry,reactionMatcher,ionicEngine,...(speciesRegistry?{speciesRegistry}:{}),...(conditionVocabulary?{conditionVocabulary}:{}),
         contentVersion:model.contentVersion,
         scoringVersion:model.scoringVersion,
         now,

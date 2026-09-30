@@ -12,7 +12,7 @@
     "typecheck:next": "node scripts/typecheck-ratchet.mjs",
     "schema:validate": "node scripts/validate-schemas.ts",
     "content:validate": "node scripts/validate-content.ts && node scripts/validate-external-labs.ts && node scripts/learning-readiness.ts && node scripts/pending-triage.ts && node scripts/pilot-status.ts && node scripts/renderer-foundation-readiness.ts && node scripts/renderer-reports.ts",
-    "chemistry:validate": "node --experimental-strip-types scripts/validate-chemistry.ts",
+    "chemistry:validate": "node --experimental-strip-types scripts/validate-chemistry.ts && node --experimental-strip-types scripts/chemistry-kb.ts",
     "test": "node --test --test-concurrency=1 tests/*.test.mjs",
     "test:integration": "node --test --test-concurrency=1 tests/integration/*.test.mjs",
     "test:e2e": "playwright test -c playwright.config.mjs",
@@ -107,7 +107,9 @@
     "pilot:status": "node scripts/pilot-status.ts",
     "pending:triage": "node scripts/pending-triage.ts",
     "renderer:readiness": "node scripts/renderer-foundation-readiness.ts",
-    "renderer:reports": "node scripts/renderer-reports.ts"
+    "renderer:reports": "node scripts/renderer-reports.ts",
+    "chemistry:kb": "node --experimental-strip-types scripts/chemistry-kb.ts",
+    "chemistry:review-import": "node --experimental-strip-types scripts/chemistry-review/import.ts"
   },
   "devDependencies": {
     "@playwright/test": "1.56.1",

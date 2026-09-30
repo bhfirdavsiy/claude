@@ -68,7 +68,7 @@ function mount(root            ,host             ,context                     ) 
 
   function update(result        ){
     // an input that is not an atom result throws: the host's error boundary then fails closed
-    const m                  =toAtomRendererModel(result,context.elementName);
+    const m                  =toAtomRendererModel(result,(symbol)=>context.localize?.(`element.${symbol}`)??symbol);
     goal.textContent=`Maqsad: ${m.goal.isotopeLabel} — ${m.goal.summary}`;
     for(const p of PARTICLE_ORDER){ counts[p] .textContent=String(m[p]); minus[p] .disabled=m[p]===0; }
     cells.element .textContent=m.construction==='element'&&m.symbol?(m.elementName&&m.elementName!==m.symbol?`${m.symbol} — ${m.elementName}`:m.symbol):NO_ELEMENT_YET_TEXT;

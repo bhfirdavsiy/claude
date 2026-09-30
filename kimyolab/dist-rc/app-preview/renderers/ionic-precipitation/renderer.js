@@ -85,9 +85,9 @@ function mount(root            ,host             ,context                     ) 
   let optionsBuilt=false;
   function update(result        ){
     // an input that is not an ionic result throws: the host's error boundary then fails closed
-    const m                                =toIonicPrecipitationRendererModel(result);
+    const m                                =toIonicPrecipitationRendererModel(result,context.localize);
     if(!optionsBuilt){
-      for(const slot of ['A','B']         ) for(const r of m.reagents) selects[slot].append(el('option',{text:r.label,attrs:{value:r.id,'data-reagent':r.id}}));
+      for(const slot of ['A','B']         ) for(const r of m.reagents) selects[slot].append(el('option',{text:r.name?`${r.label} — ${r.name}`:r.label,attrs:{value:r.id,'data-reagent':r.id}}));
       optionsBuilt=true;
     }
     selects.A.value=m.selectedA??''; selects.B.value=m.selectedB??'';
@@ -98,7 +98,7 @@ function mount(root            ,host             ,context                     ) 
     eqHelp.textContent=m.equation.syntaxHelp;
     eqResult.dataset.result=m.equation.lastResult?(m.equation.lastResult.correct?'correct':'incorrect'):'none';
     eqResult.textContent=m.rejection??(m.equation.lastResult?.text??'');
-    const label=(id            )=>m.reagents.find(r=>r.id===id)?.label??'—';
+    const label=(id            )=>{ const r=m.reagents.find(x=>x.id===id); return r?(r.name?`${r.label} (${r.name})`:r.label):'—'; };
     cells.reagents .textContent=`${label(m.selectedA)} va ${label(m.selectedB)}`;
     cells.observation .textContent=m.observation?m.observation.text:'—';
     cells.equation .textContent=m.equation.solved?'✓ To‘g‘ri yozilgan':m.equation.lastResult?'✗ Noto‘g‘ri':'—';

@@ -14,7 +14,9 @@ export type Observation =
  | {type:'no-visible-change'};
 export interface QuantityRange {min?:Quantity;max?:Quantity}
 export interface ConcentrationRule {speciesId:string;min?:Quantity;max?:Quantity}
-export interface ReactionConditions {temperatureRange?:{min?:number;max?:number;unit:'C'|'K'};solvent?:string;medium?:'acidic'|'basic'|'neutral';catalystIds?:string[];pressureRange?:QuantityRange;concentrationRules?:ConcentrationRule[];lightRequired?:boolean;electricalCurrent?:boolean;tags?:string[]}
+export interface ReactionConditions {temperatureRange?:{min?:number;max?:number;unit:'C'|'K'};solvent?:string;medium?:'acidic'|'basic'|'neutral';catalystIds?:string[];pressureRange?:QuantityRange;concentrationRules?:ConcentrationRule[];lightRequired?:boolean;electricalCurrent?:boolean;tags?:string[];
+  /** P1.7: structured ACTUAL conditions of a situation (condition-vocabulary dimensions); never set on KB records */
+  dimensions?:Record<string,string>}
 export interface ReactionSpeciesRef {formula:string;phase?:Phase;coefficient?:number}
 export interface ApprovalRecord {status:'pending'|'approved'|'rejected';reviewerId:string;reviewerRole:string;reviewedVersion:string;reviewedHash:string;reviewedAt:string;notes?:string}
 export interface ReactionRecord {id:string;reactants:ReactionSpeciesRef[];products:ReactionSpeciesRef[];conditions:ReactionConditions;direction:'forward'|'reversible';reactionType:string;molecularEquation:string;observations:Observation[];safety:string[];curriculumRefs:string[];sourceRefs:SourceRef[];version:string}

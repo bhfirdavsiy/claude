@@ -1,0 +1,192 @@
+{
+  "schema": "kimyolab.chemistry-kb-coverage.v1",
+  "assertions": {
+    "total": 134,
+    "approved": 0,
+    "pending": 134,
+    "stale": 0,
+    "rejected": 0,
+    "missingSources": 30,
+    "byCategory": {
+      "reaction": {
+        "total": 28,
+        "approved": 0,
+        "pending": 28,
+        "stale": 0,
+        "rejected": 0
+      },
+      "no-reaction": {
+        "total": 0,
+        "approved": 0,
+        "pending": 0,
+        "stale": 0,
+        "rejected": 0
+      },
+      "condition": {
+        "total": 20,
+        "approved": 0,
+        "pending": 20,
+        "stale": 0,
+        "rejected": 0
+      },
+      "observation": {
+        "total": 28,
+        "approved": 0,
+        "pending": 28,
+        "stale": 0,
+        "rejected": 0
+      },
+      "solubility": {
+        "total": 20,
+        "approved": 0,
+        "pending": 20,
+        "stale": 0,
+        "rejected": 0
+      },
+      "hydrolysis": {
+        "total": 4,
+        "approved": 0,
+        "pending": 4,
+        "stale": 0,
+        "rejected": 0
+      },
+      "indicator": {
+        "total": 3,
+        "approved": 0,
+        "pending": 3,
+        "stale": 0,
+        "rejected": 0
+      },
+      "species-name": {
+        "total": 30,
+        "approved": 0,
+        "pending": 30,
+        "stale": 0,
+        "rejected": 0
+      },
+      "electrolysis": {
+        "total": 1,
+        "approved": 0,
+        "pending": 1,
+        "stale": 0,
+        "rejected": 0
+      }
+    }
+  },
+  "reactions": {
+    "total": 28,
+    "modeledReactions": 28,
+    "modeledNoReaction": 0,
+    "conditionDependent": 11,
+    "notReviewed": 28,
+    "netIonicDerivable": 5,
+    "observationReviewRequired": [
+      "rxn.h2-combustion",
+      "rxn.nacl-h2so4",
+      "rxn.naoh-hcl",
+      "rxn.znoh2-hcl",
+      "rxn.cl2-kbr",
+      "rxn.br2-ki"
+    ]
+  },
+  "ionic": {
+    "shelves": [
+      {
+        "activityId": "practice.experiment.8.1",
+        "pairs": 21,
+        "MODELED_REACTION": 3,
+        "MODELED_NO_REACTION": 0,
+        "CONDITION_DEPENDENT": 1,
+        "NOT_MODELED": 17,
+        "classified": 21,
+        "unclassified": 0,
+        "reactionCandidates": 3,
+        "noReactionCandidates": 7,
+        "unclassifiableCandidates": 7
+      }
+    ],
+    "totals": {
+      "pairs": 21,
+      "MODELED_REACTION": 3,
+      "MODELED_NO_REACTION": 0,
+      "CONDITION_DEPENDENT": 1,
+      "NOT_MODELED": 17
+    },
+    "classifiedShare": "100% (every pair has a class; unknown is shown as NOT_MODELED, never hidden)"
+  },
+  "hydrolysis": {
+    "salts": 4,
+    "indicatorMediaCovered": 3,
+    "indicatorMedia": 3,
+    "classificationReviewSeparateFromIndicator": true
+  },
+  "electrolysis": {
+    "records": 1,
+    "distinctOutcomes": 1,
+    "rendererStartGate": "NOT_READY"
+  },
+  "localization": {
+    "speciesNames": 10,
+    "elementNames": 20,
+    "reviewStatus": {
+      "species": "pending",
+      "elements": "pending"
+    }
+  },
+  "pilotImpact": [
+    {
+      "learningUnitId": "lu.9.15",
+      "primaryActivity": "practice.experiment.9.10",
+      "chemistryAssertions": 1,
+      "pendingChemistryAssertions": 1,
+      "categories": [
+        "electrolysis"
+      ],
+      "pilotStatus": "CONTENT_REVIEW_PENDING",
+      "technical": "TECHNICAL_PASS",
+      "effectOfP17": "none on status — P1.7 adds review structure and gates; it approves nothing and signs nothing off",
+      "signoffByAgent": false
+    },
+    {
+      "learningUnitId": "lu.7.11",
+      "primaryActivity": "practice.trainer.7.4",
+      "chemistryAssertions": 0,
+      "pendingChemistryAssertions": 0,
+      "categories": [],
+      "pilotStatus": "CONTENT_REVIEW_PENDING",
+      "technical": "TECHNICAL_PASS",
+      "effectOfP17": "none on status — P1.7 adds review structure and gates; it approves nothing and signs nothing off",
+      "signoffByAgent": false
+    },
+    {
+      "learningUnitId": "lu.7.12",
+      "primaryActivity": "practice.calculation.7.5",
+      "chemistryAssertions": 0,
+      "pendingChemistryAssertions": 0,
+      "categories": [],
+      "pilotStatus": "CONTENT_REVIEW_PENDING",
+      "technical": "TECHNICAL_PASS",
+      "effectOfP17": "none on status — P1.7 adds review structure and gates; it approves nothing and signs nothing off",
+      "signoffByAgent": false
+    },
+    {
+      "learningUnitId": "lu.7.07",
+      "primaryActivity": "practice.simulation.7.07.planned",
+      "chemistryAssertions": 20,
+      "pendingChemistryAssertions": 20,
+      "categories": [
+        "species-name"
+      ],
+      "pilotStatus": "CONTENT_REVIEW_PENDING",
+      "technical": "TECHNICAL_PASS",
+      "effectOfP17": "none on status — P1.7 adds review structure and gates; it approves nothing and signs nothing off",
+      "signoffByAgent": false
+    }
+  ],
+  "globalStrictEnforcement": false,
+  "gate": {
+    "status": "PENDING",
+    "fail": 0,
+    "pending": 165
+  }
+}

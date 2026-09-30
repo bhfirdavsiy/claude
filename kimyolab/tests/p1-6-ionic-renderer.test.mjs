@@ -249,7 +249,9 @@ test('registry: three capabilities, no capability-specific branch in the core, p
     assert.doesNotMatch(src(f).replace(/\/\*[\s\S]*?\*\/|\/\/.*$/gm,''),/'(atom-builder|hydrolysis-medium|ionic-precipitation)'/,`${f}: no branch on a capability id`);
   // the mount context did not grow for the third renderer; practiceType is the page's engine family
   const ctx=src('src/renderers/contract.ts').match(/interface RendererMountContext \{([\s\S]*?)\n\}/)[1];
-  assert.deepEqual([...ctx.matchAll(/^\s*(\w+)\??:/gm)].map(m=>m[1]),['title','goal','elementName','practiceType']);
+  // P1.7: the element-specific `elementName` mapper became ONE generic content-backed `localize(key)` (element and
+  // species names) — the context still has four fields; it did not grow with the third renderer or with P1.7.
+  assert.deepEqual([...ctx.matchAll(/^\s*(\w+)\??:/gm)].map(m=>m[1]),['title','goal','localize','practiceType']);
   assert.deepEqual(commandFor('experiment',{type:'mix'}),{kind:'experiment-action',action:{type:'mix'}});
   assert.throws(()=>commandFor('trainer',{type:'mix'}),/RENDERER_PRACTICE_TYPE_UNSUPPORTED/);
   // one readiness path for all three

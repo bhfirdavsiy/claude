@@ -1,0 +1,3366 @@
+{
+  "schema": "kimyolab.chemistry-kb-assertions.v1",
+  "assertions": [
+    {
+      "id": "condition-context:solution-mixing",
+      "category": "condition",
+      "claim": "Two school reagent solutions mixed in a test tube at room temperature (acids are dilute, no heating, no flame).",
+      "data": {
+        "temperature": "room",
+        "acid-concentration": "dilute",
+        "ignition": "absent"
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.1"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "0afdf86c9d4c5484051f0b1dc71ec4b61d7cc075b26b2f850958fb5f12f45085",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition-term:concentrated acid",
+      "category": "condition",
+      "claim": "“concentrated acid” = acid-concentration: concentrated",
+      "data": {
+        "dimension": "acid-concentration",
+        "value": "concentrated"
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "2d047f80063a402bbd43eed02d033a5a7dcfe409d7744c1b2eb8e1da0a96a0db",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition-term:dilute acid",
+      "category": "condition",
+      "claim": "“dilute acid” = acid-concentration: dilute",
+      "data": {
+        "dimension": "acid-concentration",
+        "value": "dilute"
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.10"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "935dd11de9e413057226afe92cec81a274366ac69f3476a7fb1e593a52f5cc08",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition-term:gentle heating",
+      "category": "condition",
+      "claim": "“gentle heating” = temperature: gently-heated",
+      "data": {
+        "dimension": "temperature",
+        "value": "gently-heated"
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9",
+        "practice.experiment.8.14"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "aa4661e55217fdb21bbac10e002e28d136c143fc9b9314bf09223410122a4da3",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition-term:heating",
+      "category": "condition",
+      "claim": "“heating” = temperature: heated",
+      "data": {
+        "dimension": "temperature",
+        "value": "heated"
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "1ca42c12960f6b1a4ebcd061ff3921398e370eb4bb44de5dcd572ba9c2f2833b",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition-term:ignition",
+      "category": "condition",
+      "claim": "“ignition” = ignition: present",
+      "data": {
+        "dimension": "ignition",
+        "value": "present"
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "639ad80b9ecfc7ef18a8e546a7d6331767fc0f6df88f9412656c51ceb8ca5dbe",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition-term:oxygen-excess",
+      "category": "condition",
+      "claim": "“oxygen-excess” = oxygen-supply: excess",
+      "data": {
+        "dimension": "oxygen-supply",
+        "value": "excess"
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "14153351e6b4ec19865b7d6a86fc729c453dcd5daa467cb64a1746a12b792e2e",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition-term:oxygen-limited",
+      "category": "condition",
+      "claim": "“oxygen-limited” = oxygen-supply: limited",
+      "data": {
+        "dimension": "oxygen-supply",
+        "value": "limited"
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "68666f133c6936c040605dd6e4a8440c10af35b5fc14505c8fca6024b16b1842",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition-term:strong heating",
+      "category": "condition",
+      "claim": "“strong heating” = temperature: strongly-heated",
+      "data": {
+        "dimension": "temperature",
+        "value": "strongly-heated"
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "b81fa242cf6ac30e8b880730b1a457d6f7130c9587e7b7f160e9d0ae8cd37bce",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition:rxn.c-combustion",
+      "category": "condition",
+      "claim": "rxn.c-combustion talab qiladi: oxygen-excess, ignition",
+      "data": {
+        "tags": [
+          "oxygen-excess",
+          "ignition"
+        ],
+        "dimensions": {
+          "oxygen-supply": "excess",
+          "ignition": "present"
+        }
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "a02d049dce99ed68136479da35a79b0bb8b066933b0cce11f897b99b87a72689",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition:rxn.c-combustion-limited",
+      "category": "condition",
+      "claim": "rxn.c-combustion-limited talab qiladi: oxygen-limited, ignition",
+      "data": {
+        "tags": [
+          "oxygen-limited",
+          "ignition"
+        ],
+        "dimensions": {
+          "oxygen-supply": "limited",
+          "ignition": "present"
+        }
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "80180d5adceccb429db01c1690278bf678c66fd17017c1024ca81240a0c6c0d6",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition:rxn.fe-combustion",
+      "category": "condition",
+      "claim": "rxn.fe-combustion talab qiladi: strong heating",
+      "data": {
+        "tags": [
+          "strong heating"
+        ],
+        "dimensions": {
+          "temperature": "strongly-heated"
+        }
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "08c406ac7d59ab7f910c1dc326a0f26b185d2f98677101c0e31b98d9d4433cbe",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition:rxn.h2-combustion",
+      "category": "condition",
+      "claim": "rxn.h2-combustion talab qiladi: ignition",
+      "data": {
+        "tags": [
+          "ignition"
+        ],
+        "dimensions": {
+          "ignition": "present"
+        }
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "7c89472822fdd1a151b26e2b5faa8d02de7f688526817c70a09e4c2bb6a94a97",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition:rxn.h2-cuo",
+      "category": "condition",
+      "claim": "rxn.h2-cuo talab qiladi: heating",
+      "data": {
+        "tags": [
+          "heating"
+        ],
+        "dimensions": {
+          "temperature": "heated"
+        }
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "e1e99c41f75a2214d74876f4c61665ec874bb1bb776bbfe68c727eab61340cbd",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition:rxn.mg-h2so4",
+      "category": "condition",
+      "claim": "rxn.mg-h2so4 talab qiladi: dilute acid",
+      "data": {
+        "tags": [
+          "dilute acid"
+        ],
+        "dimensions": {
+          "acid-concentration": "dilute"
+        }
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.10"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "ae3245daa6464cc20ba8b55363c276764c312d6e26518276aef94980579d0282",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition:rxn.nacl-h2so4",
+      "category": "condition",
+      "claim": "rxn.nacl-h2so4 talab qiladi: concentrated acid, gentle heating",
+      "data": {
+        "tags": [
+          "concentrated acid",
+          "gentle heating"
+        ],
+        "dimensions": {
+          "acid-concentration": "concentrated",
+          "temperature": "gently-heated"
+        }
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "e6da9fcc8a66f9d7b667203206375a8d213e18797a9ab8276211a9ce9bca249c",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition:rxn.nh4cl-caoh2",
+      "category": "condition",
+      "claim": "rxn.nh4cl-caoh2 talab qiladi: gentle heating",
+      "data": {
+        "tags": [
+          "gentle heating"
+        ],
+        "dimensions": {
+          "temperature": "gently-heated"
+        }
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.14"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "c3f5f5638a3a735e34fb689f7e4d3fbbeb8fae5c16776f376c1dd8084faedb14",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition:rxn.p-combustion",
+      "category": "condition",
+      "claim": "rxn.p-combustion talab qiladi: ignition",
+      "data": {
+        "tags": [
+          "ignition"
+        ],
+        "dimensions": {
+          "ignition": "present"
+        }
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "7c89472822fdd1a151b26e2b5faa8d02de7f688526817c70a09e4c2bb6a94a97",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition:rxn.s-combustion",
+      "category": "condition",
+      "claim": "rxn.s-combustion talab qiladi: ignition",
+      "data": {
+        "tags": [
+          "ignition"
+        ],
+        "dimensions": {
+          "ignition": "present"
+        }
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "7c89472822fdd1a151b26e2b5faa8d02de7f688526817c70a09e4c2bb6a94a97",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition:rxn.zn-h2so4",
+      "category": "condition",
+      "claim": "rxn.zn-h2so4 talab qiladi: dilute acid",
+      "data": {
+        "tags": [
+          "dilute acid"
+        ],
+        "dimensions": {
+          "acid-concentration": "dilute"
+        }
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "ae3245daa6464cc20ba8b55363c276764c312d6e26518276aef94980579d0282",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "dissociation:AgNO3",
+      "category": "solubility",
+      "claim": "AgNO3 → Ag+ + NO3^-",
+      "data": {
+        "formula": "AgNO3",
+        "ions": [
+          {
+            "formula": "Ag+",
+            "coefficient": 1
+          },
+          {
+            "formula": "NO3^-",
+            "coefficient": 1
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.1",
+        "practice.experiment.8.8",
+        "practice.experiment.8.9",
+        "practice.trainer.11.10.planned",
+        "practice.trainer.9.05.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "2098cdf7cc74d428173ea1d8fda31d54cc22116a86e9d484b5f27276430f88f5",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "dissociation:BaCl2",
+      "category": "solubility",
+      "claim": "BaCl2 → Ba2+ + 2Cl-",
+      "data": {
+        "formula": "BaCl2",
+        "ions": [
+          {
+            "formula": "Ba2+",
+            "coefficient": 1
+          },
+          {
+            "formula": "Cl-",
+            "coefficient": 2
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "1ee182d484b0e4ac1dababe49fee6315529aec11dc72c204a5d39dd21ae790fd",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "dissociation:CaCl2",
+      "category": "solubility",
+      "claim": "CaCl2 → Ca2+ + 2Cl-",
+      "data": {
+        "formula": "CaCl2",
+        "ions": [
+          {
+            "formula": "Ca2+",
+            "coefficient": 1
+          },
+          {
+            "formula": "Cl-",
+            "coefficient": 2
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9",
+        "practice.experiment.8.14",
+        "practice.experiment.9.4"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "3369d588d2fef737516e268a67f030a9525363d874a8b1cc0d3337ed749d570c",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "dissociation:H2SO4",
+      "category": "solubility",
+      "claim": "H2SO4 → 2H+ + SO4^2-",
+      "data": {
+        "formula": "H2SO4",
+        "ions": [
+          {
+            "formula": "H+",
+            "coefficient": 2
+          },
+          {
+            "formula": "SO4^2-",
+            "coefficient": 1
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.10",
+        "practice.experiment.7.9"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "81b24baa0fd173e838fe5c4cec0311518f1c2969de7f2204fd0450f38fb8f17e",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "dissociation:HCl",
+      "category": "solubility",
+      "claim": "HCl → H+ + Cl-",
+      "data": {
+        "formula": "HCl",
+        "ions": [
+          {
+            "formula": "H+",
+            "coefficient": 1
+          },
+          {
+            "formula": "Cl-",
+            "coefficient": 1
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.10",
+        "practice.experiment.7.9",
+        "practice.experiment.8.14",
+        "practice.experiment.8.6",
+        "practice.experiment.9.16",
+        "practice.experiment.9.4"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "f6ef5095247899ea77c1aedaa1c0037c00213736ce87ad2baf41f246331d8a45",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "dissociation:Na2CO3",
+      "category": "solubility",
+      "claim": "Na2CO3 → 2Na+ + CO3^2-",
+      "data": {
+        "formula": "Na2CO3",
+        "ions": [
+          {
+            "formula": "Na+",
+            "coefficient": 2
+          },
+          {
+            "formula": "CO3^2-",
+            "coefficient": 1
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "d3bcd6961c804d340b28046eba1bede89c5a6f536f878c59a3c70ec00a7bbab6",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "dissociation:Na2SO4",
+      "category": "solubility",
+      "claim": "Na2SO4 → 2Na+ + SO4^2-",
+      "data": {
+        "formula": "Na2SO4",
+        "ions": [
+          {
+            "formula": "Na+",
+            "coefficient": 2
+          },
+          {
+            "formula": "SO4^2-",
+            "coefficient": 1
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "f2e3beca05ac9d021a4b3c3a33a2f9e53a1c1de0fa840123479be674ba10c94e",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "dissociation:NaCl",
+      "category": "solubility",
+      "claim": "NaCl → Na+ + Cl-",
+      "data": {
+        "formula": "NaCl",
+        "ions": [
+          {
+            "formula": "Na+",
+            "coefficient": 1
+          },
+          {
+            "formula": "Cl-",
+            "coefficient": 1
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9",
+        "practice.experiment.8.1",
+        "practice.experiment.8.6",
+        "practice.experiment.8.8",
+        "practice.experiment.8.9",
+        "practice.experiment.9.16",
+        "practice.trainer.11.10.planned",
+        "practice.trainer.9.05.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "42599d5d8e9a9ccf0b5e66d9750c5879e9f291fbfa8ca03d710cfa3c586519ef",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "dissociation:NaNO3",
+      "category": "solubility",
+      "claim": "NaNO3 → Na+ + NO3^-",
+      "data": {
+        "formula": "NaNO3",
+        "ions": [
+          {
+            "formula": "Na+",
+            "coefficient": 1
+          },
+          {
+            "formula": "NO3^-",
+            "coefficient": 1
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.1",
+        "practice.experiment.8.8",
+        "practice.experiment.8.9",
+        "practice.trainer.11.10.planned",
+        "practice.trainer.9.05.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "ca5076202d700c42292fc504bcd63f07af5024b94f62557177e6cc119146e597",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "dissociation:NaOH",
+      "category": "solubility",
+      "claim": "NaOH → Na+ + OH-",
+      "data": {
+        "formula": "NaOH",
+        "ions": [
+          {
+            "formula": "Na+",
+            "coefficient": 1
+          },
+          {
+            "formula": "OH-",
+            "coefficient": 1
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9",
+        "practice.experiment.8.6",
+        "practice.experiment.9.16"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "4f7ff8bf0f29031eabe0ee5bf27d0ca5753c7c3140d5634d000b10ccaa162738",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "dissociation:NH4Cl",
+      "category": "solubility",
+      "claim": "NH4Cl → NH4+ + Cl-",
+      "data": {
+        "formula": "NH4Cl",
+        "ions": [
+          {
+            "formula": "NH4+",
+            "coefficient": 1
+          },
+          {
+            "formula": "Cl-",
+            "coefficient": 1
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.14"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "fa88afd742745a9396ca3e4410339b45fcc9da227572b7dd6f0680fc8eff5700",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "dissociation:ZnCl2",
+      "category": "solubility",
+      "claim": "ZnCl2 → Zn2+ + 2Cl-",
+      "data": {
+        "formula": "ZnCl2",
+        "ions": [
+          {
+            "formula": "Zn2+",
+            "coefficient": 1
+          },
+          {
+            "formula": "Cl-",
+            "coefficient": 2
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.10",
+        "practice.experiment.8.6",
+        "practice.experiment.9.16"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "db73ff27d9a83d65b137e3673bce8e0f6bc7f2d56ab92134d74542b948f5723d",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "electrolysis:CuCl2|aq|inert",
+      "category": "electrolysis",
+      "claim": "CuCl2(aq), inert elektrod: katod Cu, anod Cl2",
+      "data": {
+        "electrolyte": "CuCl2",
+        "phase": "aq",
+        "electrode": "inert",
+        "cathode": {
+          "product": "Cu",
+          "observation": "Copper-colored deposit forms at the cathode."
+        },
+        "anode": {
+          "product": "Cl2",
+          "observation": "Gas is evolved at the anode; this virtual model does not instruct direct smelling."
+        }
+      },
+      "sourceRefs": [
+        "src.legacy.9.10"
+      ],
+      "affectedActivities": [
+        "practice.experiment.11.2",
+        "practice.experiment.9.10"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "29b8f4ea757a5b4116fb299de8eef63a195d6c437dd7c54281bba01ee91ce42e",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "element-name:Al",
+      "category": "species-name",
+      "claim": "Al — Alyuminiy",
+      "data": {
+        "symbol": "Al",
+        "name": "Alyuminiy",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "5597844b82e3b36495fbb3541794acba85768a65f10e23e3c53a990d2776fb39",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "element-name:Ar",
+      "category": "species-name",
+      "claim": "Ar — Argon",
+      "data": {
+        "symbol": "Ar",
+        "name": "Argon",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "6db2ef9a701be97f703404e9f0945a5e6d0521c5aa8a435d5a3655f67f01da18",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "element-name:B",
+      "category": "species-name",
+      "claim": "B — Bor",
+      "data": {
+        "symbol": "B",
+        "name": "Bor",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "ae83dfe036352a416bdae6de497b745f7c47ebcc0eab7a566b0ced389ce1d470",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "element-name:Be",
+      "category": "species-name",
+      "claim": "Be — Berilliy",
+      "data": {
+        "symbol": "Be",
+        "name": "Berilliy",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "a17ed8573179eaeef2b7113932cff5eb5ced3efce86dcf5457a7c6951ccba0b1",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "element-name:C",
+      "category": "species-name",
+      "claim": "C — Uglerod",
+      "data": {
+        "symbol": "C",
+        "name": "Uglerod",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "44fb91c396d661896129454afc1f1fb400ab9fdd2a2448b590ab1feb5142a718",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "element-name:Ca",
+      "category": "species-name",
+      "claim": "Ca — Kalsiy",
+      "data": {
+        "symbol": "Ca",
+        "name": "Kalsiy",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "d7a1ed8f3f178f5132ec8363e46489d31038ace9f82e7810a84049e2dd4f8e3a",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "element-name:Cl",
+      "category": "species-name",
+      "claim": "Cl — Xlor",
+      "data": {
+        "symbol": "Cl",
+        "name": "Xlor",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "1d25e8a924188e9960ea6f6773f8b4c646a801153e0c8c7b6d41ea799313d2ca",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "element-name:F",
+      "category": "species-name",
+      "claim": "F — Ftor",
+      "data": {
+        "symbol": "F",
+        "name": "Ftor",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "e371559f9a9b1d90769a8cdd43409381e14bf9381e38fc2de73cdccef9b146f0",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "element-name:H",
+      "category": "species-name",
+      "claim": "H — Vodorod",
+      "data": {
+        "symbol": "H",
+        "name": "Vodorod",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "6ae10af57873082f2171c8432778cf307228893fc2f18d52a4705a75549584a7",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "element-name:He",
+      "category": "species-name",
+      "claim": "He — Geliy",
+      "data": {
+        "symbol": "He",
+        "name": "Geliy",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "e1a9300329aedb8f64bd69fc41c2e561449fd5174ca3aa5df4755b3b1282fe5b",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "element-name:K",
+      "category": "species-name",
+      "claim": "K — Kaliy",
+      "data": {
+        "symbol": "K",
+        "name": "Kaliy",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "491986093b97bb15d4988e8e63b8bc24b24d54caeaaf3b1cb94f1215b93a2380",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "element-name:Li",
+      "category": "species-name",
+      "claim": "Li — Litiy",
+      "data": {
+        "symbol": "Li",
+        "name": "Litiy",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "172f899c8798f1b9b14fe8c35cf699e9aac5df2ab476c876a0af7d496907d9df",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "element-name:Mg",
+      "category": "species-name",
+      "claim": "Mg — Magniy",
+      "data": {
+        "symbol": "Mg",
+        "name": "Magniy",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "9d0a82a8f32d7830a974fe2bb751da0b701c5e76ce20f6617f99d42452be855b",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "element-name:N",
+      "category": "species-name",
+      "claim": "N — Azot",
+      "data": {
+        "symbol": "N",
+        "name": "Azot",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "f599582a48a0617e4ebeeb960e603201f3edc344f79fdeafdd95fcfd65c1260a",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "element-name:Na",
+      "category": "species-name",
+      "claim": "Na — Natriy",
+      "data": {
+        "symbol": "Na",
+        "name": "Natriy",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "90581b9b70f6a0555b264b926e3fec9d5818c8b3cd64c580860b92e62002efae",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "element-name:Ne",
+      "category": "species-name",
+      "claim": "Ne — Neon",
+      "data": {
+        "symbol": "Ne",
+        "name": "Neon",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "10fdb9d9877d30ab08a7364bfd7ed9f33aae16c6e844d8f99ea84120196b3a8f",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "element-name:O",
+      "category": "species-name",
+      "claim": "O — Kislorod",
+      "data": {
+        "symbol": "O",
+        "name": "Kislorod",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "f177e83077e3426bd08e490120ab99a71a5e3ed1721d1fb945f6772f7cf5614f",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "element-name:P",
+      "category": "species-name",
+      "claim": "P — Fosfor",
+      "data": {
+        "symbol": "P",
+        "name": "Fosfor",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "48fe52d0936fc99c274d6e875bc156d595b767d88e1173706c2e5cc860fdb20a",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "element-name:S",
+      "category": "species-name",
+      "claim": "S — Oltingugurt",
+      "data": {
+        "symbol": "S",
+        "name": "Oltingugurt",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "671855a29f96d22a15300953188afb882a1c5bdc1a1af49dc697a9e08dffbd5b",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "element-name:Si",
+      "category": "species-name",
+      "claim": "Si — Kremniy",
+      "data": {
+        "symbol": "Si",
+        "name": "Kremniy",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "8cbc2b4cb997872454c5a7297f9347f5ec6f7ef3e5629a65506b04714d48ebe8",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "hydrolysis:AlCl3",
+      "category": "hydrolysis",
+      "claim": "AlCl3 eritmasi: acidic",
+      "data": {
+        "salt": "AlCl3",
+        "medium": "acidic",
+        "explanation": "Aluminium(III) salt solution is modeled as acidic in the curriculum-bounded hydrolysis set."
+      },
+      "sourceRefs": [
+        "src.curriculum.9.06"
+      ],
+      "affectedActivities": [
+        "practice.experiment.9.14",
+        "practice.simulation.11.11.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "30824fc4fb7ddd9fb38dbdbfcc66dee188e9ff8c394fc5aec01f9a09ae36cb8b",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "hydrolysis:Na2CO3",
+      "category": "hydrolysis",
+      "claim": "Na2CO3 eritmasi: basic",
+      "data": {
+        "salt": "Na2CO3",
+        "medium": "basic",
+        "explanation": "Carbonate hydrolysis is modeled as producing a basic solution in the curriculum-bounded set."
+      },
+      "sourceRefs": [
+        "src.curriculum.9.06"
+      ],
+      "affectedActivities": [
+        "practice.experiment.9.14",
+        "practice.simulation.11.11.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "22a3cbdbe4549313cd6e80411de1bb724b4493b356ef32c4b79895d14f03de90",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "hydrolysis:NaCl",
+      "category": "hydrolysis",
+      "claim": "NaCl eritmasi: neutral",
+      "data": {
+        "salt": "NaCl",
+        "medium": "neutral",
+        "explanation": "A salt of a strong acid and strong base is modeled as approximately neutral in this school-level set."
+      },
+      "sourceRefs": [
+        "src.curriculum.9.06"
+      ],
+      "affectedActivities": [
+        "practice.experiment.9.14",
+        "practice.simulation.11.11.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "e8e7791fb568abdb4cef6d190de537cac9ab26cbfeb8e3d5770fb2ac39340cf2",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "hydrolysis:NH4Cl",
+      "category": "hydrolysis",
+      "claim": "NH4Cl eritmasi: acidic",
+      "data": {
+        "salt": "NH4Cl",
+        "medium": "acidic",
+        "explanation": "Ammonium salt hydrolysis is modeled as acidic in this school-level set."
+      },
+      "sourceRefs": [
+        "src.curriculum.9.06"
+      ],
+      "affectedActivities": [
+        "practice.experiment.9.14",
+        "practice.simulation.11.11.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "8347a10f9e9e70d38104659976843b0e44581ef004a93e40bf0129bd8dbdce1a",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "indicator:litmus:acidic",
+      "category": "indicator",
+      "claim": "litmus: acidic muhitda red",
+      "data": {
+        "indicator": "litmus",
+        "medium": "acidic",
+        "color": "red"
+      },
+      "sourceRefs": [
+        "src.curriculum.9.06"
+      ],
+      "affectedActivities": [
+        "practice.experiment.9.14",
+        "practice.simulation.11.11.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "61df5b50b4334594f45bdd83276ae1e102b33f16beec277ca75c1e604737affb",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "indicator:litmus:basic",
+      "category": "indicator",
+      "claim": "litmus: basic muhitda blue",
+      "data": {
+        "indicator": "litmus",
+        "medium": "basic",
+        "color": "blue"
+      },
+      "sourceRefs": [
+        "src.curriculum.9.06"
+      ],
+      "affectedActivities": [
+        "practice.experiment.9.14",
+        "practice.simulation.11.11.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "21a3a99d76fa156993560c84d21864e6dfcbbd3a8a660c0255f1b793ae91d62d",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "indicator:litmus:neutral",
+      "category": "indicator",
+      "claim": "litmus: neutral muhitda violet",
+      "data": {
+        "indicator": "litmus",
+        "medium": "neutral",
+        "color": "violet"
+      },
+      "sourceRefs": [
+        "src.curriculum.9.06"
+      ],
+      "affectedActivities": [
+        "practice.experiment.9.14",
+        "practice.simulation.11.11.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "3d2d3998343a0c2f6cd81c56e61227d1ca93f5eeee4084a0f3015c7e7a6eed8b",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "insoluble:AgBr",
+      "category": "solubility",
+      "claim": "AgBr suvda erimaydi (cho‘kma)",
+      "data": {
+        "formula": "AgBr"
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.8"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "33e675a404591687e4aac7a2a976f4dc63cb5f9103fb5682f49699dfc5b07134",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "insoluble:AgCl",
+      "category": "solubility",
+      "claim": "AgCl suvda erimaydi (cho‘kma)",
+      "data": {
+        "formula": "AgCl"
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.1",
+        "practice.experiment.8.8",
+        "practice.experiment.8.9",
+        "practice.trainer.11.10.planned",
+        "practice.trainer.9.05.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "63071d8813c6b31de1eb4ed1980a73d920762622289fb926819df5f3bade5bc9",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "insoluble:AgI",
+      "category": "solubility",
+      "claim": "AgI suvda erimaydi (cho‘kma)",
+      "data": {
+        "formula": "AgI"
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.8"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "317268c8b8a0f50a6c1807d21a12b005022bb226ba35625498d7a40ace9fadc7",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "insoluble:BaSO4",
+      "category": "solubility",
+      "claim": "BaSO4 suvda erimaydi (cho‘kma)",
+      "data": {
+        "formula": "BaSO4"
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "b29223aa8298bdb2d227ef76a354bc0fb9f918147fc12de0b08ed4bd88895f9d",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "insoluble:Ca3(PO4)2",
+      "category": "solubility",
+      "claim": "Ca3(PO4)2 suvda erimaydi (cho‘kma)",
+      "data": {
+        "formula": "Ca3(PO4)2"
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "06997f3bf4f33b7d4ca111e8e1c889d142ebab0333b2067193abad03d213e324",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "insoluble:CuS",
+      "category": "solubility",
+      "claim": "CuS suvda erimaydi (cho‘kma)",
+      "data": {
+        "formula": "CuS"
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "d6cb1198683aa1f57b958ee6654df6910fb6fedfaeb49560915609bd842d4520",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "insoluble:Zn(OH)2",
+      "category": "solubility",
+      "claim": "Zn(OH)2 suvda erimaydi (cho‘kma)",
+      "data": {
+        "formula": "Zn(OH)2"
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.6",
+        "practice.experiment.9.16"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "210d869e6513a944b7a504987992850f5ba65069246c29b9cf134447e4f671c1",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "insoluble:ZnS",
+      "category": "solubility",
+      "claim": "ZnS suvda erimaydi (cho‘kma)",
+      "data": {
+        "formula": "ZnS"
+      },
+      "sourceRefs": [
+        "src.school.solution-rules"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "2d30c5bf27dd68367fc2e946aa2b2250cc511ddbfb7c393b22647d1edce5cc3c",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.agno3-nabr",
+      "category": "observation",
+      "claim": "rxn.agno3-nabr: [{\"type\":\"precipitate\",\"color\":\"yellow\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "precipitate",
+            "color": "yellow"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.8"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "864ea03debfdf69e8a0edebabae7aaa3ecf32b322a8a2388649180b3f6b57d91",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.agno3-nacl",
+      "category": "observation",
+      "claim": "rxn.agno3-nacl: [{\"type\":\"precipitate\",\"color\":\"white\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "precipitate",
+            "color": "white"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.1",
+        "practice.experiment.8.8",
+        "practice.experiment.8.9",
+        "practice.trainer.11.10.planned",
+        "practice.trainer.9.05.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "28ce4fd9020c7018132361c19cd18ad800426f588560f1d73df47d60370f84d9",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.agno3-nai",
+      "category": "observation",
+      "claim": "rxn.agno3-nai: [{\"type\":\"precipitate\",\"color\":\"yellow\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "precipitate",
+            "color": "yellow"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.8"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "864ea03debfdf69e8a0edebabae7aaa3ecf32b322a8a2388649180b3f6b57d91",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.bacl2-h2so4",
+      "category": "observation",
+      "claim": "rxn.bacl2-h2so4: [{\"type\":\"precipitate\",\"color\":\"white\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "precipitate",
+            "color": "white"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "28ce4fd9020c7018132361c19cd18ad800426f588560f1d73df47d60370f84d9",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.br2-ki",
+      "category": "observation",
+      "claim": "rxn.br2-ki: [{\"type\":\"color-change\",\"to\":\"changed\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "color-change",
+            "to": "changed"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.10"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "6111b2260db19b4db1292ece2b0f867f69872d28647901231859b2718b71417b",
+      "flags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_NONSPECIFIC: colour change without a stated colour"
+      ],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.c-combustion",
+      "category": "observation",
+      "claim": "rxn.c-combustion: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.c-combustion.observation\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "gas",
+            "descriptionKey": "rxn.c-combustion.observation"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "df01349c96b3b18e827b3e571ddff677a963d788cc22b08899717d17a9e2d42b",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.c-combustion-limited",
+      "category": "observation",
+      "claim": "rxn.c-combustion-limited: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.c-combustion-limited.observation\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "gas",
+            "descriptionKey": "rxn.c-combustion-limited.observation"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "b14249fee27757fd2174ec79b3f9a4590cd253c3329881ea655b5629bbe820c6",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.caco3-hcl",
+      "category": "observation",
+      "claim": "rxn.caco3-hcl: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.caco3-hcl.observation\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "gas",
+            "descriptionKey": "rxn.caco3-hcl.observation"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9",
+        "practice.experiment.9.4"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "7abb8ee6f3e52c4471f78928a9af21465b0cdf65301b987eb591b77dc21fc97c",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.cao-water",
+      "category": "observation",
+      "claim": "rxn.cao-water: [{\"type\":\"temperature-change\",\"direction\":\"up\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "temperature-change",
+            "direction": "up"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.11"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "d84b34901ada2ebccbcbc9eeba6b5f808c5d11d6bc290d778fc5ff953b9a8e02",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.cl2-kbr",
+      "category": "observation",
+      "claim": "rxn.cl2-kbr: [{\"type\":\"color-change\",\"to\":\"changed\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "color-change",
+            "to": "changed"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.10"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "6111b2260db19b4db1292ece2b0f867f69872d28647901231859b2718b71417b",
+      "flags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_NONSPECIFIC: colour change without a stated colour"
+      ],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.co2-water",
+      "category": "observation",
+      "claim": "rxn.co2-water: [{\"type\":\"no-visible-change\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "no-visible-change"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.11"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.cuo-hcl",
+      "category": "observation",
+      "claim": "rxn.cuo-hcl: [{\"type\":\"no-visible-change\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "no-visible-change"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.cuso4-na2s",
+      "category": "observation",
+      "claim": "rxn.cuso4-na2s: [{\"type\":\"precipitate\",\"color\":\"black\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "precipitate",
+            "color": "black"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "2eb20d73f80b846deb0c5fb879bfd406052a885031c058db45a5f8735ad1312c",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.fe-combustion",
+      "category": "observation",
+      "claim": "rxn.fe-combustion: [{\"type\":\"no-visible-change\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "no-visible-change"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.h2-combustion",
+      "category": "observation",
+      "claim": "rxn.h2-combustion: [{\"type\":\"color-change\",\"to\":\"changed\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "color-change",
+            "to": "changed"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "6111b2260db19b4db1292ece2b0f867f69872d28647901231859b2718b71417b",
+      "flags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_NONSPECIFIC: colour change without a stated colour"
+      ],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.h2-cuo",
+      "category": "observation",
+      "claim": "rxn.h2-cuo: [{\"type\":\"no-visible-change\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "no-visible-change"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.mg-h2so4",
+      "category": "observation",
+      "claim": "rxn.mg-h2so4: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.mg-h2so4.observation\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "gas",
+            "descriptionKey": "rxn.mg-h2so4.observation"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.10"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "1e996b31833c3305ea52ac91aeccee145fa7c612465ef8d29f0d24809da66b93",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.na2s-hcl",
+      "category": "observation",
+      "claim": "rxn.na2s-hcl: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.na2s-hcl.observation\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "gas",
+            "descriptionKey": "rxn.na2s-hcl.observation"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "c82e233fa4f200dee39d7ec22e5b80819584137555cb4d3a464a9ed42cdc427d",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.nacl-h2so4",
+      "category": "observation",
+      "claim": "rxn.nacl-h2so4: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.nacl-h2so4.observation\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "gas",
+            "descriptionKey": "rxn.nacl-h2so4.observation"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "0f03806f43e6d13239b0b4c6c117f58eebb571f3a45b924acbf7307f2076f0b2",
+      "flags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_PRODUCT_MISMATCH: gas observed but no product is a gas"
+      ],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.naoh-hcl",
+      "category": "observation",
+      "claim": "rxn.naoh-hcl: [{\"type\":\"color-change\",\"to\":\"changed\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "color-change",
+            "to": "changed"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "6111b2260db19b4db1292ece2b0f867f69872d28647901231859b2718b71417b",
+      "flags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_NONSPECIFIC: colour change without a stated colour"
+      ],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.nh3-hcl",
+      "category": "observation",
+      "claim": "rxn.nh3-hcl: [{\"type\":\"no-visible-change\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "no-visible-change"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.14"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.nh4cl-caoh2",
+      "category": "observation",
+      "claim": "rxn.nh4cl-caoh2: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.nh4cl-caoh2.observation\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "gas",
+            "descriptionKey": "rxn.nh4cl-caoh2.observation"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.14"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "1ffa40c60fa4fba65b72f649e0923fa8eda6f49e3c1ce9949c2d4cc7279fb97e",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.p-combustion",
+      "category": "observation",
+      "claim": "rxn.p-combustion: [{\"type\":\"no-visible-change\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "no-visible-change"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.s-combustion",
+      "category": "observation",
+      "claim": "rxn.s-combustion: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.s-combustion.observation\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "gas",
+            "descriptionKey": "rxn.s-combustion.observation"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "10b14380fa8810564e221d2daff0774d0b02cfe148182e6a8dcfe2cc4fda8473",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.zn-h2so4",
+      "category": "observation",
+      "claim": "rxn.zn-h2so4: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.zn-h2so4.observation\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "gas",
+            "descriptionKey": "rxn.zn-h2so4.observation"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "596cca75de8027716005635c5b9f58df3885b374021cbf8ab90a8a7d1cfb74d7",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.zn-hcl",
+      "category": "observation",
+      "claim": "rxn.zn-hcl: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.zn-hcl.observation\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "gas",
+            "descriptionKey": "rxn.zn-hcl.observation"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.10"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "0ac51f6cdb5927430535190283a7bf8a2dcdc840fb20ab0b07077a3715a7ce62",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.zncl2-naoh",
+      "category": "observation",
+      "claim": "rxn.zncl2-naoh: [{\"type\":\"precipitate\",\"color\":\"white\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "precipitate",
+            "color": "white"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.6",
+        "practice.experiment.9.16"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "28ce4fd9020c7018132361c19cd18ad800426f588560f1d73df47d60370f84d9",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.znoh2-hcl",
+      "category": "observation",
+      "claim": "rxn.znoh2-hcl: [{\"type\":\"precipitate\",\"color\":\"white\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "precipitate",
+            "color": "white"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.6",
+        "practice.experiment.9.16"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "28ce4fd9020c7018132361c19cd18ad800426f588560f1d73df47d60370f84d9",
+      "flags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_PRODUCT_MISMATCH: precipitate observed but no product is insoluble (solubility rules) or solid"
+      ],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.agno3-nabr",
+      "category": "reaction",
+      "claim": "AgNO3 + NaBr → AgBr + NaNO3",
+      "data": {
+        "reactants": [
+          {
+            "formula": "AgNO3"
+          },
+          {
+            "formula": "NaBr"
+          }
+        ],
+        "products": [
+          {
+            "formula": "AgBr"
+          },
+          {
+            "formula": "NaNO3"
+          }
+        ],
+        "reactionType": "precipitation",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.8"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "2f6dd9c04167c14352029ef7f9c88cf68fc70ffb6865903fc785be103c4bf875",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.agno3-nacl",
+      "category": "reaction",
+      "claim": "AgNO3 + NaCl → AgCl + NaNO3",
+      "data": {
+        "reactants": [
+          {
+            "formula": "AgNO3",
+            "phase": "aq"
+          },
+          {
+            "formula": "NaCl",
+            "phase": "aq"
+          }
+        ],
+        "products": [
+          {
+            "formula": "AgCl",
+            "phase": "s"
+          },
+          {
+            "formula": "NaNO3",
+            "phase": "aq"
+          }
+        ],
+        "reactionType": "precipitation",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.1",
+        "practice.experiment.8.8",
+        "practice.experiment.8.9",
+        "practice.trainer.11.10.planned",
+        "practice.trainer.9.05.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "0a144f1f693e3e5596d6b2cdbf529d26a694cce5868a898eb5c8bf0bf85137bd",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.agno3-nai",
+      "category": "reaction",
+      "claim": "AgNO3 + NaI → AgI + NaNO3",
+      "data": {
+        "reactants": [
+          {
+            "formula": "AgNO3"
+          },
+          {
+            "formula": "NaI"
+          }
+        ],
+        "products": [
+          {
+            "formula": "AgI"
+          },
+          {
+            "formula": "NaNO3"
+          }
+        ],
+        "reactionType": "precipitation",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.8"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "1140fcd5777519698b8fd781de8722923dbe204049a821d776a196190816dd0d",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.bacl2-h2so4",
+      "category": "reaction",
+      "claim": "BaCl2 + H2SO4 → BaSO4 + 2HCl",
+      "data": {
+        "reactants": [
+          {
+            "formula": "BaCl2"
+          },
+          {
+            "formula": "H2SO4"
+          }
+        ],
+        "products": [
+          {
+            "formula": "BaSO4"
+          },
+          {
+            "formula": "HCl"
+          }
+        ],
+        "reactionType": "precipitation",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "9ae3af8a1529f89df89e3f2c9fc5325af254547888c726f6e6ef341d0587ce3f",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.br2-ki",
+      "category": "reaction",
+      "claim": "Br2 + 2KI → 2KBr + I2",
+      "data": {
+        "reactants": [
+          {
+            "formula": "Br2"
+          },
+          {
+            "formula": "KI"
+          }
+        ],
+        "products": [
+          {
+            "formula": "KBr"
+          },
+          {
+            "formula": "I2"
+          }
+        ],
+        "reactionType": "redox",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.10"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "bae6fd137662c002cea02737f63499a0357f243ead233e2929706b775ce7dd16",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.c-combustion",
+      "category": "reaction",
+      "claim": "C + O2 → CO2",
+      "data": {
+        "reactants": [
+          {
+            "formula": "C"
+          },
+          {
+            "formula": "O2"
+          }
+        ],
+        "products": [
+          {
+            "formula": "CO2"
+          }
+        ],
+        "reactionType": "combustion",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "66ceda2138644554ba8f54d44be8565df09f14cb53b1cbf375d650233559c5af",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.c-combustion-limited",
+      "category": "reaction",
+      "claim": "2C + O2 → 2CO",
+      "data": {
+        "reactants": [
+          {
+            "formula": "C"
+          },
+          {
+            "formula": "O2"
+          }
+        ],
+        "products": [
+          {
+            "formula": "CO"
+          }
+        ],
+        "reactionType": "combustion",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "98378b1852fa5e9c84b2d93898423619d5795feb3c19a63702de3e6c4ac62e91",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.caco3-hcl",
+      "category": "reaction",
+      "claim": "CaCO3 + 2HCl → CaCl2 + H2O + CO2",
+      "data": {
+        "reactants": [
+          {
+            "formula": "CaCO3"
+          },
+          {
+            "formula": "HCl"
+          }
+        ],
+        "products": [
+          {
+            "formula": "CaCl2"
+          },
+          {
+            "formula": "H2O"
+          },
+          {
+            "formula": "CO2"
+          }
+        ],
+        "reactionType": "gas_evolution",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9",
+        "practice.experiment.9.4"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "670e374c4f38d690b2a76c3a727b5fb138b42f2d613d4910ab69b41193053694",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.cao-water",
+      "category": "reaction",
+      "claim": "CaO + H2O → Ca(OH)2",
+      "data": {
+        "reactants": [
+          {
+            "formula": "CaO"
+          },
+          {
+            "formula": "H2O"
+          }
+        ],
+        "products": [
+          {
+            "formula": "Ca(OH)2"
+          }
+        ],
+        "reactionType": "combination",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.11"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "c413b15762a78ddce2e21dac15c5dc6cbd52a2dbae5d149afc7d43f8b5980184",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.cl2-kbr",
+      "category": "reaction",
+      "claim": "Cl2 + 2KBr → 2KCl + Br2",
+      "data": {
+        "reactants": [
+          {
+            "formula": "Cl2"
+          },
+          {
+            "formula": "KBr"
+          }
+        ],
+        "products": [
+          {
+            "formula": "KCl"
+          },
+          {
+            "formula": "Br2"
+          }
+        ],
+        "reactionType": "redox",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.10"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "925606d40bfb2bff930f7d6f25ffed20c432c79758d10ac3469d64a54b705a4c",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.co2-water",
+      "category": "reaction",
+      "claim": "CO2 + H2O ⇌ H2CO3",
+      "data": {
+        "reactants": [
+          {
+            "formula": "CO2"
+          },
+          {
+            "formula": "H2O"
+          }
+        ],
+        "products": [
+          {
+            "formula": "H2CO3"
+          }
+        ],
+        "reactionType": "equilibrium",
+        "direction": "reversible"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.11"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "e09dddd47599b2428ebea7df2d3acd3c0af826347613bd5392f2f0dfde60401e",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.cuo-hcl",
+      "category": "reaction",
+      "claim": "CuO + 2HCl → CuCl2 + H2O",
+      "data": {
+        "reactants": [
+          {
+            "formula": "CuO"
+          },
+          {
+            "formula": "HCl"
+          }
+        ],
+        "products": [
+          {
+            "formula": "CuCl2"
+          },
+          {
+            "formula": "H2O"
+          }
+        ],
+        "reactionType": "acid_base",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "c07c6e0b10e27d42cd827869f6cb936dc772b76631bf9d0f062dcb1250ff8711",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.cuso4-na2s",
+      "category": "reaction",
+      "claim": "CuSO4 + Na2S → CuS + Na2SO4",
+      "data": {
+        "reactants": [
+          {
+            "formula": "CuSO4"
+          },
+          {
+            "formula": "Na2S"
+          }
+        ],
+        "products": [
+          {
+            "formula": "CuS"
+          },
+          {
+            "formula": "Na2SO4"
+          }
+        ],
+        "reactionType": "precipitation",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "3de39a3c8cb7e9c84d7d1769627a8c58997ede4ce709d0a2c35542a767d4b13c",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.fe-combustion",
+      "category": "reaction",
+      "claim": "3Fe + 2O2 → Fe3O4",
+      "data": {
+        "reactants": [
+          {
+            "formula": "Fe"
+          },
+          {
+            "formula": "O2"
+          }
+        ],
+        "products": [
+          {
+            "formula": "Fe3O4"
+          }
+        ],
+        "reactionType": "redox",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "2938f9cd1e044ef3f329af3b1231d258940d96b6c199c95ba01f4f0cb3364be9",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.h2-combustion",
+      "category": "reaction",
+      "claim": "2H2 + O2 → 2H2O",
+      "data": {
+        "reactants": [
+          {
+            "formula": "H2"
+          },
+          {
+            "formula": "O2"
+          }
+        ],
+        "products": [
+          {
+            "formula": "H2O"
+          }
+        ],
+        "reactionType": "combustion",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "bb6fcddaa95681ec17d28887a9562d54a80d6e1e7cd19fe9478af1e3dabbcd70",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.h2-cuo",
+      "category": "reaction",
+      "claim": "H2 + CuO → Cu + H2O",
+      "data": {
+        "reactants": [
+          {
+            "formula": "H2"
+          },
+          {
+            "formula": "CuO"
+          }
+        ],
+        "products": [
+          {
+            "formula": "Cu"
+          },
+          {
+            "formula": "H2O"
+          }
+        ],
+        "reactionType": "redox",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "6727d2d118c44218717330fe2a4b11bc36bbdc2116933beeeaea6af638b9caf4",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.mg-h2so4",
+      "category": "reaction",
+      "claim": "Mg + H2SO4 → MgSO4 + H2",
+      "data": {
+        "reactants": [
+          {
+            "formula": "Mg"
+          },
+          {
+            "formula": "H2SO4"
+          }
+        ],
+        "products": [
+          {
+            "formula": "MgSO4"
+          },
+          {
+            "formula": "H2"
+          }
+        ],
+        "reactionType": "single_displacement",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.10"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "5820da22b5a3622e76f61f4e0f3ac3b44b41bda55b446371529509347d6c89a3",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.na2s-hcl",
+      "category": "reaction",
+      "claim": "Na2S + 2HCl → H2S + 2NaCl",
+      "data": {
+        "reactants": [
+          {
+            "formula": "Na2S"
+          },
+          {
+            "formula": "HCl"
+          }
+        ],
+        "products": [
+          {
+            "formula": "H2S"
+          },
+          {
+            "formula": "NaCl"
+          }
+        ],
+        "reactionType": "gas_evolution",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "9d0e3cefade852bcc45f33b026225b883ab3f635e4bf602f11c3d46c11529979",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.nacl-h2so4",
+      "category": "reaction",
+      "claim": "NaCl + H2SO4 → NaHSO4 + HCl",
+      "data": {
+        "reactants": [
+          {
+            "formula": "NaCl"
+          },
+          {
+            "formula": "H2SO4"
+          }
+        ],
+        "products": [
+          {
+            "formula": "NaHSO4"
+          },
+          {
+            "formula": "HCl"
+          }
+        ],
+        "reactionType": "gas_evolution",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "d7f6463ba9122c09afabb91dd28d4da94b4e1a99024e95df80864aedce26821d",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.naoh-hcl",
+      "category": "reaction",
+      "claim": "NaOH + HCl → NaCl + H2O",
+      "data": {
+        "reactants": [
+          {
+            "formula": "NaOH"
+          },
+          {
+            "formula": "HCl"
+          }
+        ],
+        "products": [
+          {
+            "formula": "NaCl"
+          },
+          {
+            "formula": "H2O"
+          }
+        ],
+        "reactionType": "neutralization",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "93857b0f9320bc1034f6533926a819ccc5e3934b30e1d6cc5e1893c0d91ad9b7",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.nh3-hcl",
+      "category": "reaction",
+      "claim": "NH3 + HCl → NH4Cl",
+      "data": {
+        "reactants": [
+          {
+            "formula": "NH3"
+          },
+          {
+            "formula": "HCl"
+          }
+        ],
+        "products": [
+          {
+            "formula": "NH4Cl"
+          }
+        ],
+        "reactionType": "combination",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.14"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "2dfdff30c8647e8002ce96f7decba2a57b12c30949f362beab44db1dc7a864a8",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.nh4cl-caoh2",
+      "category": "reaction",
+      "claim": "2NH4Cl + Ca(OH)2 → 2NH3 + CaCl2 + 2H2O",
+      "data": {
+        "reactants": [
+          {
+            "formula": "NH4Cl"
+          },
+          {
+            "formula": "Ca(OH)2"
+          }
+        ],
+        "products": [
+          {
+            "formula": "NH3"
+          },
+          {
+            "formula": "CaCl2"
+          },
+          {
+            "formula": "H2O"
+          }
+        ],
+        "reactionType": "gas_evolution",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.14"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "dbb96203805c49e8ac1a1bd42a164dd1ed41519210b7ee4af9677dbb4f75bb4c",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.p-combustion",
+      "category": "reaction",
+      "claim": "4P + 5O2 → 2P2O5",
+      "data": {
+        "reactants": [
+          {
+            "formula": "P"
+          },
+          {
+            "formula": "O2"
+          }
+        ],
+        "products": [
+          {
+            "formula": "P2O5"
+          }
+        ],
+        "reactionType": "combustion",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "b5159c653bd640dab67c8cffea84137a937e5e686d6a651f5ca25c99cc479144",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.s-combustion",
+      "category": "reaction",
+      "claim": "S + O2 → SO2",
+      "data": {
+        "reactants": [
+          {
+            "formula": "S"
+          },
+          {
+            "formula": "O2"
+          }
+        ],
+        "products": [
+          {
+            "formula": "SO2"
+          }
+        ],
+        "reactionType": "combustion",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "9b210554bf998985f70aac6db1194bafee5cecbe131917a554bb0084b544693d",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.zn-h2so4",
+      "category": "reaction",
+      "claim": "Zn + H2SO4 → ZnSO4 + H2",
+      "data": {
+        "reactants": [
+          {
+            "formula": "Zn"
+          },
+          {
+            "formula": "H2SO4"
+          }
+        ],
+        "products": [
+          {
+            "formula": "ZnSO4"
+          },
+          {
+            "formula": "H2"
+          }
+        ],
+        "reactionType": "single_displacement",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "8ee0d84f8c9cc5e8fe45c3a3d8e1e8519d1800e64fed83a91ffb7bdddb408a9b",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.zn-hcl",
+      "category": "reaction",
+      "claim": "Zn + 2HCl → ZnCl2 + H2",
+      "data": {
+        "reactants": [
+          {
+            "formula": "Zn"
+          },
+          {
+            "formula": "HCl"
+          }
+        ],
+        "products": [
+          {
+            "formula": "ZnCl2"
+          },
+          {
+            "formula": "H2"
+          }
+        ],
+        "reactionType": "single_displacement",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.10"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "02a117e6cb683c14ccd614a8f93608d50896665f77e8ce249923f5c8e505454b",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.zncl2-naoh",
+      "category": "reaction",
+      "claim": "ZnCl2 + 2NaOH → Zn(OH)2 + 2NaCl",
+      "data": {
+        "reactants": [
+          {
+            "formula": "ZnCl2"
+          },
+          {
+            "formula": "NaOH"
+          }
+        ],
+        "products": [
+          {
+            "formula": "Zn(OH)2"
+          },
+          {
+            "formula": "NaCl"
+          }
+        ],
+        "reactionType": "precipitation",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.6",
+        "practice.experiment.9.16"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "24b6fe8cd35a6e5b11a07e86fe8587cc8f0ec940c568d6a211a5a2b3da31f015",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.znoh2-hcl",
+      "category": "reaction",
+      "claim": "Zn(OH)2 + 2HCl → ZnCl2 + 2H2O",
+      "data": {
+        "reactants": [
+          {
+            "formula": "Zn(OH)2"
+          },
+          {
+            "formula": "HCl"
+          }
+        ],
+        "products": [
+          {
+            "formula": "ZnCl2"
+          },
+          {
+            "formula": "H2O"
+          }
+        ],
+        "reactionType": "acid_base",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.6",
+        "practice.experiment.9.16"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "e7d5f2294b1921ee0ed9a1746b78759cc858dde045e4250e7f2656dbdc17161a",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "species-name:species.agno3.name",
+      "category": "species-name",
+      "claim": "AgNO3 — kumush nitrat",
+      "data": {
+        "nameKey": "species.agno3.name",
+        "speciesId": "species.agno3",
+        "formula": "AgNO3",
+        "name": "kumush nitrat",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.experiment.8.1"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "bdeac3988739d75fd4924de2afbab96775f2bca09a309c4f5a0a27bc24462755",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "species-name:species.alcl3.name",
+      "category": "species-name",
+      "claim": "AlCl3 — alyuminiy xlorid",
+      "data": {
+        "nameKey": "species.alcl3.name",
+        "speciesId": "species.alcl3",
+        "formula": "AlCl3",
+        "name": "alyuminiy xlorid",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.experiment.9.14"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "edae77ed22ce690d824ac281da4ba6e461bd44ea89662e2a3215de44fe5682f7",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "species-name:species.bacl2.name",
+      "category": "species-name",
+      "claim": "BaCl2 — bariy xlorid",
+      "data": {
+        "nameKey": "species.bacl2.name",
+        "speciesId": "species.bacl2",
+        "formula": "BaCl2",
+        "name": "bariy xlorid",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.experiment.8.1"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "d137ff603cc64b357a64e7f75561e20beb205ec17846123a35a031a4da440f07",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "species-name:species.h2so4.name",
+      "category": "species-name",
+      "claim": "H2SO4 — sulfat kislota",
+      "data": {
+        "nameKey": "species.h2so4.name",
+        "speciesId": "species.h2so4",
+        "formula": "H2SO4",
+        "name": "sulfat kislota",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.experiment.8.1"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "56da57e283f479c8b23fd5d7d23fdcadbed9295fdf10d0a6258cc944d1d2573e",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "species-name:species.na2co3.name",
+      "category": "species-name",
+      "claim": "Na2CO3 — natriy karbonat",
+      "data": {
+        "nameKey": "species.na2co3.name",
+        "speciesId": "species.na2co3",
+        "formula": "Na2CO3",
+        "name": "natriy karbonat",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "9d4b395f1fdfc99f5e6759ac9bd32ab9451491041a80d27b06a3c14f058c4a13",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "species-name:species.nacl.name",
+      "category": "species-name",
+      "claim": "NaCl — natriy xlorid",
+      "data": {
+        "nameKey": "species.nacl.name",
+        "speciesId": "species.nacl",
+        "formula": "NaCl",
+        "name": "natriy xlorid",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.experiment.8.1"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "a2a43c3699698812900956dd5c1f7c73aad7336d095454d07b94b0e71825b0c2",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "species-name:species.nano3.name",
+      "category": "species-name",
+      "claim": "NaNO3 — natriy nitrat",
+      "data": {
+        "nameKey": "species.nano3.name",
+        "speciesId": "species.nano3",
+        "formula": "NaNO3",
+        "name": "natriy nitrat",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.experiment.8.1"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "94e05fd7c5e08d708540dbffeeb71875bd9efca5dd4fc1e270f31192cc24899f",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "species-name:species.naoh.name",
+      "category": "species-name",
+      "claim": "NaOH — natriy gidroksid",
+      "data": {
+        "nameKey": "species.naoh.name",
+        "speciesId": "species.naoh",
+        "formula": "NaOH",
+        "name": "natriy gidroksid",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.experiment.8.1"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "5ad9bdd1d1b108078dc63b8577b719e48b8dc3ac7409970141517db55025940a",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "species-name:species.nh4cl.name",
+      "category": "species-name",
+      "claim": "NH4Cl — ammoniy xlorid",
+      "data": {
+        "nameKey": "species.nh4cl.name",
+        "speciesId": "species.nh4cl",
+        "formula": "NH4Cl",
+        "name": "ammoniy xlorid",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.simulation.11.11.planned"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "e02aa868f21467b80242e24a29b6674fcf13cf596946e6559db67e118c162baf",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "species-name:species.zncl2.name",
+      "category": "species-name",
+      "claim": "ZnCl2 — rux xlorid",
+      "data": {
+        "nameKey": "species.zncl2.name",
+        "speciesId": "species.zncl2",
+        "formula": "ZnCl2",
+        "name": "rux xlorid",
+        "locale": "uz-Latn"
+      },
+      "sourceRefs": [],
+      "affectedActivities": [
+        "practice.experiment.8.1"
+      ],
+      "reviewStatus": "pending",
+      "currentHash": "7f78ee8f104a1f2267db5fd40e4b6089393da3871a3604a166650778cec15daa",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    }
+  ]
+}

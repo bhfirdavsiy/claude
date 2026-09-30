@@ -1,0 +1,530 @@
+{
+  "schema": "kimyolab.chemistry-kb-candidates.v1",
+  "candidates": [
+    {
+      "pair": "AgNO3 + BaCl2",
+      "reagents": [
+        "species.agno3",
+        "species.bacl2"
+      ],
+      "class": "NOT_MODELED",
+      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
+      "activitiesAffected": [
+        "practice.experiment.8.1"
+      ],
+      "candidate": {
+        "kind": "reaction-candidate",
+        "basis": "solubility rules list AgCl as insoluble",
+        "swaps": [
+          {
+            "ions": "Ba2+ + NO3^-",
+            "formula": null,
+            "water": false
+          },
+          {
+            "ions": "Ag+ + Cl-",
+            "formula": "AgCl",
+            "water": false
+          }
+        ]
+      },
+      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+    },
+    {
+      "pair": "AgNO3 + H2SO4",
+      "reagents": [
+        "species.agno3",
+        "species.h2so4"
+      ],
+      "class": "NOT_MODELED",
+      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
+      "activitiesAffected": [
+        "practice.experiment.8.1"
+      ],
+      "candidate": {
+        "kind": "unclassifiable",
+        "basis": "the solubility rules do not cover every ion-swap product",
+        "swaps": [
+          {
+            "ions": "H+ + NO3^-",
+            "formula": null,
+            "water": false
+          },
+          {
+            "ions": "Ag+ + SO4^2-",
+            "formula": null,
+            "water": false
+          }
+        ]
+      },
+      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+    },
+    {
+      "pair": "AgNO3 + ZnCl2",
+      "reagents": [
+        "species.agno3",
+        "species.zncl2"
+      ],
+      "class": "NOT_MODELED",
+      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
+      "activitiesAffected": [
+        "practice.experiment.8.1"
+      ],
+      "candidate": {
+        "kind": "reaction-candidate",
+        "basis": "solubility rules list AgCl as insoluble",
+        "swaps": [
+          {
+            "ions": "Zn2+ + NO3^-",
+            "formula": null,
+            "water": false
+          },
+          {
+            "ions": "Ag+ + Cl-",
+            "formula": "AgCl",
+            "water": false
+          }
+        ]
+      },
+      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+    },
+    {
+      "pair": "AgNO3 + NaOH",
+      "reagents": [
+        "species.agno3",
+        "species.naoh"
+      ],
+      "class": "NOT_MODELED",
+      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
+      "activitiesAffected": [
+        "practice.experiment.8.1"
+      ],
+      "candidate": {
+        "kind": "unclassifiable",
+        "basis": "the solubility rules do not cover every ion-swap product",
+        "swaps": [
+          {
+            "ions": "Na+ + NO3^-",
+            "formula": "NaNO3",
+            "water": false
+          },
+          {
+            "ions": "Ag+ + OH-",
+            "formula": null,
+            "water": false
+          }
+        ]
+      },
+      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+    },
+    {
+      "pair": "AgNO3 + NaNO3",
+      "reagents": [
+        "species.agno3",
+        "species.nano3"
+      ],
+      "class": "NOT_MODELED",
+      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
+      "activitiesAffected": [
+        "practice.experiment.8.1"
+      ],
+      "candidate": {
+        "kind": "no-reaction-candidate",
+        "basis": "every ion-swap product is listed as soluble (dissociation rules)",
+        "swaps": [
+          {
+            "ions": "Na+ + NO3^-",
+            "formula": "NaNO3",
+            "water": false
+          },
+          {
+            "ions": "Ag+ + NO3^-",
+            "formula": "AgNO3",
+            "water": false
+          }
+        ]
+      },
+      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+    },
+    {
+      "pair": "NaCl + BaCl2",
+      "reagents": [
+        "species.nacl",
+        "species.bacl2"
+      ],
+      "class": "NOT_MODELED",
+      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
+      "activitiesAffected": [
+        "practice.experiment.8.1"
+      ],
+      "candidate": {
+        "kind": "no-reaction-candidate",
+        "basis": "every ion-swap product is listed as soluble (dissociation rules)",
+        "swaps": [
+          {
+            "ions": "Ba2+ + Cl-",
+            "formula": "BaCl2",
+            "water": false
+          },
+          {
+            "ions": "Na+ + Cl-",
+            "formula": "NaCl",
+            "water": false
+          }
+        ]
+      },
+      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+    },
+    {
+      "pair": "NaCl + H2SO4",
+      "reagents": [
+        "species.nacl",
+        "species.h2so4"
+      ],
+      "class": "CONDITION_DEPENDENT",
+      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
+      "activitiesAffected": [
+        "practice.experiment.8.1"
+      ],
+      "candidate": null,
+      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+    },
+    {
+      "pair": "NaCl + ZnCl2",
+      "reagents": [
+        "species.nacl",
+        "species.zncl2"
+      ],
+      "class": "NOT_MODELED",
+      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
+      "activitiesAffected": [
+        "practice.experiment.8.1"
+      ],
+      "candidate": {
+        "kind": "no-reaction-candidate",
+        "basis": "every ion-swap product is listed as soluble (dissociation rules)",
+        "swaps": [
+          {
+            "ions": "Zn2+ + Cl-",
+            "formula": "ZnCl2",
+            "water": false
+          },
+          {
+            "ions": "Na+ + Cl-",
+            "formula": "NaCl",
+            "water": false
+          }
+        ]
+      },
+      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+    },
+    {
+      "pair": "NaCl + NaOH",
+      "reagents": [
+        "species.nacl",
+        "species.naoh"
+      ],
+      "class": "NOT_MODELED",
+      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
+      "activitiesAffected": [
+        "practice.experiment.8.1"
+      ],
+      "candidate": {
+        "kind": "no-reaction-candidate",
+        "basis": "every ion-swap product is listed as soluble (dissociation rules)",
+        "swaps": [
+          {
+            "ions": "Na+ + Cl-",
+            "formula": "NaCl",
+            "water": false
+          },
+          {
+            "ions": "Na+ + OH-",
+            "formula": "NaOH",
+            "water": false
+          }
+        ]
+      },
+      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+    },
+    {
+      "pair": "NaCl + NaNO3",
+      "reagents": [
+        "species.nacl",
+        "species.nano3"
+      ],
+      "class": "NOT_MODELED",
+      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
+      "activitiesAffected": [
+        "practice.experiment.8.1"
+      ],
+      "candidate": {
+        "kind": "no-reaction-candidate",
+        "basis": "every ion-swap product is listed as soluble (dissociation rules)",
+        "swaps": [
+          {
+            "ions": "Na+ + Cl-",
+            "formula": "NaCl",
+            "water": false
+          },
+          {
+            "ions": "Na+ + NO3^-",
+            "formula": "NaNO3",
+            "water": false
+          }
+        ]
+      },
+      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+    },
+    {
+      "pair": "BaCl2 + ZnCl2",
+      "reagents": [
+        "species.bacl2",
+        "species.zncl2"
+      ],
+      "class": "NOT_MODELED",
+      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
+      "activitiesAffected": [
+        "practice.experiment.8.1"
+      ],
+      "candidate": {
+        "kind": "no-reaction-candidate",
+        "basis": "every ion-swap product is listed as soluble (dissociation rules)",
+        "swaps": [
+          {
+            "ions": "Zn2+ + Cl-",
+            "formula": "ZnCl2",
+            "water": false
+          },
+          {
+            "ions": "Ba2+ + Cl-",
+            "formula": "BaCl2",
+            "water": false
+          }
+        ]
+      },
+      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+    },
+    {
+      "pair": "BaCl2 + NaOH",
+      "reagents": [
+        "species.bacl2",
+        "species.naoh"
+      ],
+      "class": "NOT_MODELED",
+      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
+      "activitiesAffected": [
+        "practice.experiment.8.1"
+      ],
+      "candidate": {
+        "kind": "unclassifiable",
+        "basis": "the solubility rules do not cover every ion-swap product",
+        "swaps": [
+          {
+            "ions": "Na+ + Cl-",
+            "formula": "NaCl",
+            "water": false
+          },
+          {
+            "ions": "Ba2+ + OH-",
+            "formula": null,
+            "water": false
+          }
+        ]
+      },
+      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+    },
+    {
+      "pair": "BaCl2 + NaNO3",
+      "reagents": [
+        "species.bacl2",
+        "species.nano3"
+      ],
+      "class": "NOT_MODELED",
+      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
+      "activitiesAffected": [
+        "practice.experiment.8.1"
+      ],
+      "candidate": {
+        "kind": "unclassifiable",
+        "basis": "the solubility rules do not cover every ion-swap product",
+        "swaps": [
+          {
+            "ions": "Na+ + Cl-",
+            "formula": "NaCl",
+            "water": false
+          },
+          {
+            "ions": "Ba2+ + NO3^-",
+            "formula": null,
+            "water": false
+          }
+        ]
+      },
+      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+    },
+    {
+      "pair": "H2SO4 + ZnCl2",
+      "reagents": [
+        "species.h2so4",
+        "species.zncl2"
+      ],
+      "class": "NOT_MODELED",
+      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
+      "activitiesAffected": [
+        "practice.experiment.8.1"
+      ],
+      "candidate": {
+        "kind": "unclassifiable",
+        "basis": "the solubility rules do not cover every ion-swap product",
+        "swaps": [
+          {
+            "ions": "Zn2+ + SO4^2-",
+            "formula": null,
+            "water": false
+          },
+          {
+            "ions": "H+ + Cl-",
+            "formula": "HCl",
+            "water": false
+          }
+        ]
+      },
+      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+    },
+    {
+      "pair": "H2SO4 + NaOH",
+      "reagents": [
+        "species.h2so4",
+        "species.naoh"
+      ],
+      "class": "NOT_MODELED",
+      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
+      "activitiesAffected": [
+        "practice.experiment.8.1"
+      ],
+      "candidate": {
+        "kind": "reaction-candidate",
+        "basis": "H+ and OH- would form water",
+        "swaps": [
+          {
+            "ions": "Na+ + SO4^2-",
+            "formula": "Na2SO4",
+            "water": false
+          },
+          {
+            "ions": "H+ + OH-",
+            "formula": "H2O",
+            "water": true
+          }
+        ]
+      },
+      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+    },
+    {
+      "pair": "H2SO4 + NaNO3",
+      "reagents": [
+        "species.h2so4",
+        "species.nano3"
+      ],
+      "class": "NOT_MODELED",
+      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
+      "activitiesAffected": [
+        "practice.experiment.8.1"
+      ],
+      "candidate": {
+        "kind": "unclassifiable",
+        "basis": "the solubility rules do not cover every ion-swap product",
+        "swaps": [
+          {
+            "ions": "Na+ + SO4^2-",
+            "formula": "Na2SO4",
+            "water": false
+          },
+          {
+            "ions": "H+ + NO3^-",
+            "formula": null,
+            "water": false
+          }
+        ]
+      },
+      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+    },
+    {
+      "pair": "ZnCl2 + NaNO3",
+      "reagents": [
+        "species.zncl2",
+        "species.nano3"
+      ],
+      "class": "NOT_MODELED",
+      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
+      "activitiesAffected": [
+        "practice.experiment.8.1"
+      ],
+      "candidate": {
+        "kind": "unclassifiable",
+        "basis": "the solubility rules do not cover every ion-swap product",
+        "swaps": [
+          {
+            "ions": "Na+ + Cl-",
+            "formula": "NaCl",
+            "water": false
+          },
+          {
+            "ions": "Zn2+ + NO3^-",
+            "formula": null,
+            "water": false
+          }
+        ]
+      },
+      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+    },
+    {
+      "pair": "NaOH + NaNO3",
+      "reagents": [
+        "species.naoh",
+        "species.nano3"
+      ],
+      "class": "NOT_MODELED",
+      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
+      "activitiesAffected": [
+        "practice.experiment.8.1"
+      ],
+      "candidate": {
+        "kind": "no-reaction-candidate",
+        "basis": "every ion-swap product is listed as soluble (dissociation rules)",
+        "swaps": [
+          {
+            "ions": "Na+ + OH-",
+            "formula": "NaOH",
+            "water": false
+          },
+          {
+            "ions": "Na+ + NO3^-",
+            "formula": "NaNO3",
+            "water": false
+          }
+        ]
+      },
+      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+    }
+  ]
+}

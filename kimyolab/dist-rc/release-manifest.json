@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-09-30T07:26:05.628Z",
+  "createdAt": "2026-09-30T07:46:58.568Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -17,8 +17,8 @@
     {
       "path": "app-preview/app/content-client.js",
       "sourcePath": "public/app-preview/app/content-client.js",
-      "checksum": "41262d65f7174c06ba0efcfa2f860cf3790d720780da932f576a91b6e32b5e0c",
-      "size": 20789
+      "checksum": "b12cfcafabf4cc645fa38c76dff135a9f23508e35a324ae6ae82d78911526ebb",
+      "size": 21242
     },
     {
       "path": "app-preview/app/routes.js",
@@ -55,6 +55,12 @@
       "sourcePath": "public/app-preview/domain/chemistry/atom.js",
       "checksum": "212da1a1eabc2c8c39817973dcfc72590083ce267b31e9305b61f6313778e4e9",
       "size": 3231
+    },
+    {
+      "path": "app-preview/domain/chemistry/condition-vocabulary.js",
+      "sourcePath": "public/app-preview/domain/chemistry/condition-vocabulary.js",
+      "checksum": "a2a5697bcf38c1a03ed722466d9bc96b46bd92b24263af497a8c1f4ad67514ff",
+      "size": 2962
     },
     {
       "path": "app-preview/domain/chemistry/electrolysis-model.js",
@@ -113,8 +119,8 @@
     {
       "path": "app-preview/domain/chemistry/ionic-engine.js",
       "sourcePath": "public/app-preview/domain/chemistry/ionic-engine.js",
-      "checksum": "2b977e10bdbbee1ad37189823b8fda19d67169e59e79a0d5b6dbd81a97c6e87a",
-      "size": 2822
+      "checksum": "d2afe547d849c5666d873966b96773f3ab9f2bae807e8e0283f7256a0a485aee",
+      "size": 4107
     },
     {
       "path": "app-preview/domain/chemistry/ionic-equation.js",
@@ -125,8 +131,14 @@
     {
       "path": "app-preview/domain/chemistry/ionic-mixing.js",
       "sourcePath": "public/app-preview/domain/chemistry/ionic-mixing.js",
-      "checksum": "d82536dc0035eb99aac1c1c5e83d3c07b46009fb111e63eefe163544f6a55536",
-      "size": 8953
+      "checksum": "3024a31f41b7721c358c2e908429fb08195494d96a58052556436f163ac07748",
+      "size": 9494
+    },
+    {
+      "path": "app-preview/domain/chemistry/kb-review.js",
+      "sourcePath": "public/app-preview/domain/chemistry/kb-review.js",
+      "checksum": "a356c8d7124bcc0706e63ad3f807f0ac9c55ce91c1e791a241d90a0168d5b2f0",
+      "size": 4544
     },
     {
       "path": "app-preview/domain/chemistry/kinetics-model.js",
@@ -173,8 +185,8 @@
     {
       "path": "app-preview/domain/chemistry/reaction-matcher.js",
       "sourcePath": "public/app-preview/domain/chemistry/reaction-matcher.js",
-      "checksum": "886154fe0059805d9747cf27797d31f326636f536e9af4fba822e1ddfa266cc8",
-      "size": 6091
+      "checksum": "4c68728ab5835e01afb8db475bb53d220fc9616d1875bf5857929d4d4ca77aca",
+      "size": 7031
     },
     {
       "path": "app-preview/domain/chemistry/redox-balancer.js",
@@ -197,8 +209,8 @@
     {
       "path": "app-preview/domain/chemistry/types.js",
       "sourcePath": "public/app-preview/domain/chemistry/types.js",
-      "checksum": "884313d55e7ed6ea5694dc83e637772c9758aa5095a72ac30338b6606c42ee15",
-      "size": 2173
+      "checksum": "f3a97663c6c963dbcddea5aaafa661e8beedccd380318582ebb7531e97cda61b",
+      "size": 2328
     },
     {
       "path": "app-preview/domain/content/checksum.js",
@@ -371,20 +383,20 @@
     {
       "path": "app-preview/features/localization/element-names.js",
       "sourcePath": "public/app-preview/features/localization/element-names.js",
-      "checksum": "722460694cb4201362f48e6c85b548315d3f9cbacda18f4f3198d46f12c5dff7",
-      "size": 2361
+      "checksum": "a6b46367f7df67c2d29e2cda9bce5da5b0af81f17c21e964be626f8d806e9814",
+      "size": 4339
     },
     {
       "path": "app-preview/features/practice/host.js",
       "sourcePath": "public/app-preview/features/practice/host.js",
-      "checksum": "7fd0d0f0659508704586b49b319bc66ca0c363d66eaf247d675b4302c2ef16de",
-      "size": 5593
+      "checksum": "9d953540c108806312d1de8a6d3c92c20f38caed77bc30c4f5918abf87fdc5fe",
+      "size": 5572
     },
     {
       "path": "app-preview/features/practice/model.js",
       "sourcePath": "public/app-preview/features/practice/model.js",
-      "checksum": "7083157880219a26eb8b9cd6957d7cc3216bbe1d1c95e4414ba78966dc4e4cfd",
-      "size": 4343
+      "checksum": "a66dd105d094a4c6142c3feeace2a6565663dfd0ba78ec8cb40607134a2d7329",
+      "size": 4800
     },
     {
       "path": "app-preview/features/practice/render.js",
@@ -395,8 +407,8 @@
     {
       "path": "app-preview/features/practice/session.js",
       "sourcePath": "public/app-preview/features/practice/session.js",
-      "checksum": "56afe8bdf142765948524426291bcca7519056e36a34b2aac8fe4239105aa540",
-      "size": 8155
+      "checksum": "e84ab3bbed5e9f1d2c1884a67c6be4a057c23f6155959f9eaac069b6c5c28277",
+      "size": 8491
     },
     {
       "path": "app-preview/features/practice/ui-model.js",
@@ -515,8 +527,8 @@
     {
       "path": "app-preview/renderers/atom-builder/renderer.js",
       "sourcePath": "public/app-preview/renderers/atom-builder/renderer.js",
-      "checksum": "41906621c480ae0849c4dd706522331b3d39fcfeedaa8483fac057ef61c95c2f",
-      "size": 5682
+      "checksum": "02b5a5d3d62bde459866f16b0a137cfcf7fc91a36b0af61d37f5ab054dd57020",
+      "size": 5720
     },
     {
       "path": "app-preview/renderers/catalog.js",
@@ -527,8 +539,8 @@
     {
       "path": "app-preview/renderers/contract.js",
       "sourcePath": "public/app-preview/renderers/contract.js",
-      "checksum": "92ae7f7a7ab382765536e86088513eed29dca81f27071d82edac74593acfdc55",
-      "size": 3684
+      "checksum": "6dc5c416dbbe8a941f172d3131d20ab13414a6914468699a56b730c8917d41a3",
+      "size": 3803
     },
     {
       "path": "app-preview/renderers/hydrolysis-medium/renderer-model.js",
@@ -557,14 +569,14 @@
     {
       "path": "app-preview/renderers/ionic-precipitation/renderer-model.js",
       "sourcePath": "public/app-preview/renderers/ionic-precipitation/renderer-model.js",
-      "checksum": "4f2ca8fd50a64aeadf95062362748ff7cc62bf637b38a83a39b302a458c4e267",
-      "size": 7176
+      "checksum": "c2826d46d1b830c304b3b2b171393b005567a92d8075a31859c32fb5985cdcbb",
+      "size": 7376
     },
     {
       "path": "app-preview/renderers/ionic-precipitation/renderer.js",
       "sourcePath": "public/app-preview/renderers/ionic-precipitation/renderer.js",
-      "checksum": "31663629e7a46c3b0a932ab940e8aa270437529087c36721ab5bdcdb99b0c729",
-      "size": 7494
+      "checksum": "0bfcbd9e06cee4e787ae1055fb7e4faf0978ca7b4a55a1f6221108d545926b64",
+      "size": 7602
     },
     {
       "path": "app-preview/renderers/registry.js",
@@ -809,8 +821,8 @@
     {
       "path": "app-preview/runtime/reference-slices/experiment-adapter.js",
       "sourcePath": "public/app-preview/runtime/reference-slices/experiment-adapter.js",
-      "checksum": "1eabac7259beb5b4be433b9d79a3f9e504585a2be96ad1e891e076f6de88fd29",
-      "size": 6297
+      "checksum": "fcfdad85160d37882e703d400eb3e1be7118ac2760082b0b0daac4330f37010a",
+      "size": 6692
     },
     {
       "path": "app-preview/runtime/reference-slices/hydrolysis-practice.js",
@@ -821,8 +833,8 @@
     {
       "path": "app-preview/runtime/reference-slices/index.js",
       "sourcePath": "public/app-preview/runtime/reference-slices/index.js",
-      "checksum": "ef5a7e3c06f9e8fa09a0788edbb238d02fdab2ba948cf3cc23f86cef5a297871",
-      "size": 1979
+      "checksum": "0780426f8ce22a2ee2880c5e899cc611db6657565913f0737ea41c912ed1cf0d",
+      "size": 2192
     },
     {
       "path": "app-preview/runtime/reference-slices/ionic-practice.js",
@@ -961,6 +973,12 @@
       "sourcePath": "public/content/2026.09.1/assessment/prompts.json",
       "checksum": "fbc78848d528780175b6d469ec1f67252ac121d222cba15810cb013b39766f0a",
       "size": 4128
+    },
+    {
+      "path": "content/2026.09.1/chemistry/condition-vocabulary.json",
+      "sourcePath": "public/content/2026.09.1/chemistry/condition-vocabulary.json",
+      "checksum": "b6d463b39f67c580826689a3c747949f51bcff298d0f4873b22cf01c22d8b19e",
+      "size": 1443
     },
     {
       "path": "content/2026.09.1/chemistry/constants.json",
@@ -1113,10 +1131,16 @@
       "size": 793
     },
     {
+      "path": "content/2026.09.1/locales/uz-latn/chemistry-species.json",
+      "sourcePath": "public/content/2026.09.1/locales/uz-latn/chemistry-species.json",
+      "checksum": "e702971d77b027d6363aaad58161e62b28d76ab6a347e53d3cc8f6218a00a93e",
+      "size": 955
+    },
+    {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "c3e6af07aa514052152846a34328fa4e5d2153cbb263f553a8e7e6e8d3d13395",
-      "size": 7000
+      "checksum": "d57563e931e94e60319c84a54e734056667185340d8b5f3b15dc8be54adb4de8",
+      "size": 7344
     },
     {
       "path": "content/2026.09.1/mapping-links.json",
@@ -1139,7 +1163,7 @@
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "e7a4d71a3f2119da6851d0851c97ddbb97df6fdb2fd0e0d12fa23dee4db5cb1c",
+      "checksum": "5bb38e79df629baf482df1994ccac6a34f72013a22e72f5bef3f102bde746f47",
       "size": 158
     },
     {

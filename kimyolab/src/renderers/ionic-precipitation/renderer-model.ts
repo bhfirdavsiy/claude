@@ -12,7 +12,8 @@ export type ReactionState='not-mixed'|'modeled-reaction'|'modeled-no-reaction'|'
 
 export interface IonicPrecipitationRendererModel {
   schema:typeof IONIC_RENDERER_MODEL_SCHEMA;
-  reagents:Array<{id:string;label:string}>;
+  /** label: formula typography; name: localized species name (content, review pending) or null */
+  reagents:Array<{id:string;label:string;name:string|null}>;
   selectedA:string|null;
   selectedB:string|null;
   canMix:boolean;
@@ -72,7 +73,7 @@ function isState(x:any):x is IonicMixingState{
 }
 
 /** The canonical converter: engine result → IonicPrecipitationRendererModel. Throws on a non-ionic result. */
-export function toIonicPrecipitationRendererModel(result:unknown):IonicPrecipitationRendererModel{
+export function toIonicPrecipitationRendererModel(result:unknown,localize:(key:string)=>string|null=()=>null):IonicPrecipitationRendererModel{
   const r=result as {finalState?:{ionic?:unknown};evidence?:unknown[]};
   const s=r?.finalState?.ionic;
   if(!isState(s)) throw new Error('IONIC_RENDERER_MODEL_INPUT_INVALID');
@@ -96,7 +97,7 @@ export function toIonicPrecipitationRendererModel(result:unknown):IonicPrecipita
   ].filter(Boolean);
   return {
     schema:IONIC_RENDERER_MODEL_SCHEMA,
-    reagents:s.reagents.map(x=>({id:x.speciesId,label:formulaLabel(x.formula)})),
+    reagents:s.reagents.map(x=>({id:x.speciesId,label:formulaLabel(x.formula),name:x.nameKey?localize(x.nameKey):null})),
     selectedA:s.selected.A,selectedB:s.selected.B,
     canMix:Boolean(s.selected.A&&s.selected.B&&s.selected.A!==s.selected.B&&!c),
     reactionState,observation,

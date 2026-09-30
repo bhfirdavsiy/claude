@@ -53,8 +53,11 @@ export interface RendererInstance {
 export interface RendererMountContext {
   title:string;
   goal:string;
-  /** localized element display name for a symbol (content-backed presentation mapper); defaults to the symbol */
-  elementName?:(symbol:string)=>string;
+  /**
+   * Localized display text for a key (content-backed; P1.7 generalised the P1.4 `elementName` mapper): element
+   * names (`element.<Symbol>`) and species names (the species' `nameKey`). null → show the symbol/formula.
+   */
+  localize?:(key:string)=>string|null;
   /**
    * Engine family of the page (P1.5; required since the P1.6 audit). Generic page context: it selects the
    * command kind of the existing PracticeCommand contract (see renderers/intent.ts), nothing renderer-specific.
