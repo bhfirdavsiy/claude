@@ -68,7 +68,11 @@ test('progress resume follows the learning cycle instead of synthetic activity-s
 test('practice completion offers a direct transition into reinforcement',()=>{
   const render=fs.readFileSync(path.join(root,'src/features/practice/render.ts'),'utf8');
   const model=fs.readFileSync(path.join(root,'src/features/practice/ui-model.ts'),'utf8');
-  assert.match(render,/Mustahkamlashga o‘tish/);
+  // P2.1 changed this assertion: the link text moved from a render.ts literal into the learner-interaction catalog
+  // (ADR-P2-002); the renderer still appends the reinforcement link on completion, now via the `ui.next` key.
+  assert.match(render,/link\(t\.ui\('ui\.next'\),`\/learn\/\$\{page\.learningUnit\.id\}\/quiz`/);
+  const catalog=JSON.parse(fs.readFileSync(path.join(root,'content-src/locales/uz-latn/learner-interaction.json'),'utf8')).labels;
+  assert.equal(catalog['ui.next'],'Mustahkamlashga o‘tish');
   assert.match(model,/\/practice`/);
 });
 

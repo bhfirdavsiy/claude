@@ -26,7 +26,9 @@ const PILOT_PRACTICES = [
     learningUnitId: 'lu.7.12', activityId: 'practice.calculation.7.5',
     solve: async (page) => {
       // H2SO4: 2·1, 1·32, 4·16, Mr = 98 — typed into each step form
-      for (const [label, value] of [['h contribution', '2'], ['s contribution', '32'], ['o contribution', '64'], ['total', '98']]) {
+      // P2.1: the step fields were labelled with their raw ids ("h contribution"); they now carry the localized labels
+      // of the learner-interaction catalog (step.<id>) — same fields, same values, readable names
+      for (const [label, value] of [['Vodorod hissasi', '2'], ['Oltingugurt hissasi', '32'], ['Kislorod hissasi', '64'], ['Jami (Mr)', '98']]) {
         const input = page.getByLabel(label, {exact: true});
         await input.fill(value); await input.press('Enter');
         await expect(page.locator('.kl-feedback').first()).not.toHaveText('');

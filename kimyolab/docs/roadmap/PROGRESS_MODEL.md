@@ -54,3 +54,12 @@ Each dimension is an ordered enum. Its normalized level is `index / (count − 1
 ## 5. Work packages
 
 `reports/p2-work-packages.json` lists each package's facts: affected units and activities, dependencies, blockers, machine work and human work. **There is no priority score.** A person chooses the order.
+
+## 6. P2.1 — interaction measurement (ADR-P2-002)
+
+- **A choice UI is not a model.** Turning a closed-domain field into labelled options changes neither `depth` nor `modelBasedInteraction`: a STATIC_CHECK stays STATIC_CHECK.
+- **Untranslated answer token.** A field counts when the learner must TYPE an identifier-like token. It does not count when:
+  - the field is a choice;
+  - the value is a generic trainer's authored `acceptedAnswers` (Uzbek learner answers).
+- **Raw-id label.** A label counts as raw when it matches the P2.0 id-like rule, or when it is exactly the id or its mechanical humanization (`replaceAll('-',' ')`, camelCase split).
+- `reports/interaction-reliability.json` compares with the P2.0 baseline it cites (commit `41029a7`). It never edits that baseline.

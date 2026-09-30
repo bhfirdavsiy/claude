@@ -1,7 +1,7 @@
                                                                     
                                                                                            
                                                                                    
-                                                                                            
+                                                                                                               
 
                                            
             
@@ -23,7 +23,7 @@
                             
                                                                                                       
                                                                                                        
-                                                                                    
+                                                                                                                    
              
                     
                                                                          
@@ -63,6 +63,7 @@ export function buildPracticePageModel(input
                            
                                    
                                    
+                                  
  )                          {
   return {
     id:input.activity.id,
@@ -87,7 +88,7 @@ export function buildPracticePageModel(input
     scoringVersion:input.scoringVersion,
     ...(input.curriculumVersion?{curriculumVersion:input.curriculumVersion}:{}),
     legacyContent:structuredClone((input.activity       ).legacyContent??{}),
-    ...(input.elementNames||input.speciesNames?{localization:{...(input.elementNames?{elementNames:input.elementNames}:{}),...(input.speciesNames?{speciesNames:input.speciesNames}:{})}}:{}),
+    ...(input.elementNames||input.speciesNames||input.interaction?{localization:{...(input.elementNames?{elementNames:input.elementNames}:{}),...(input.speciesNames?{speciesNames:input.speciesNames}:{}),...(input.interaction?{interaction:input.interaction}:{})}}:{}),
     chemistry:{
       reactions:structuredClone(input.reactions),
       solutionRules:structuredClone(input.solutionRules),

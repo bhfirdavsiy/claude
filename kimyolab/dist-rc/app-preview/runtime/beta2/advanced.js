@@ -1,3 +1,4 @@
+import {LEARNER_INPUT_INVALID} from '../shared/learner-input.js';
                                                                                  
                                                                         
                                                                                                  
@@ -62,6 +63,9 @@ export function createBeta2AdvancedRouter(o        )                            
     const config=o.registry[activity.id];if(!config||config.capability!=='manganese-redox-simulation')throw new Error(`BETA2_ADVANCED_CONFIG_MISSING:${activity.id}`);
     const actions=context.inputs[activity.id]?.simulationActions??[];const medium=(actions.findLast?.((x    )=>x.field==='medium')??[...actions].reverse().find((x    )=>x.field==='medium'))?.value                             ;
     if(!medium)return {evidence:[],serializedState:JSON.stringify({medium:null})};
+    // P2.1: a medium the model does not know is a LEARNER input problem (typo, other language, empty), never a crash —
+    // a controlled `invalid` outcome in the engines' existing shape; throwing stays reserved for config/invariant faults
+    if(!o.manganeseModel.media().includes(medium)) return {evidence:[],serializedState:JSON.stringify({medium,rejected:LEARNER_INPUT_INVALID}),outcomes:[{status:'invalid',code:LEARNER_INPUT_INVALID,feedbackKey:'simulation.input-invalid'}]}       ;
     const model=o.manganeseModel.resolve(medium);const achieved=medium===config.targetMedium;
     const evidence                     ={...meta(activity,config,o),id:`${activity.id}.manganese.${medium}`,score:achieved?1:0,evidenceClass:'practice-observation',type:'construction',targetId:`manganese-${config.targetMedium}`,achieved,independenceKey:`${activity.id}:manganese`};
     return {evidence:[evidence],serializedState:JSON.stringify({medium,model}),model}       ;

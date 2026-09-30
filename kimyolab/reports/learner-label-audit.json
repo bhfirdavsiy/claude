@@ -1,0 +1,4425 @@
+{
+  "schema": "kimyolab.learner-label-audit.v1",
+  "semantics": "Every learner-facing label that is keyed by an id. source: locale (learner-interaction catalog), content (authored label), fallback (numbered generic label; gap LOCALIZATION_MISSING). rawIdLearnerFacing: the label is the id or its mechanical humanization (must be 0).",
+  "counts": {
+    "labels": 441,
+    "rawIdLearnerFacing": 0,
+    "localizationMissing": 0,
+    "bySource": {
+      "content": 180,
+      "locale": 261
+    }
+  },
+  "labels": [
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.1",
+      "learningUnitId": "lu.7.01",
+      "label": "Laboratoriya idishlari bilan tanishing: probirka, kolba, stakan, voronka, pipetka, chinni hovoncha va dastacha, tigel, qoshiqcha yoki shpatel, bug‘latish kosachasi, Byuxner voronkasi vazifalarini farqlang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.1",
+      "learningUnitId": "lu.7.01",
+      "label": "Laboratoriya shtativining taglik, sterjen, qisqich, halqa va tutqich qismlarini ko‘rib chiqing. Probirkani qisqich bilan ehtiyotkor mahkamlang; stakanni to‘rli taglikka, chinni idish yoki tigelni halqaga joylashtiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.1",
+      "learningUnitId": "lu.7.01",
+      "label": "Spirt lampaning rezervuar, disk, pilik va qalpoqcha qismlarini tekshiring. Lampani yarmigacha spirt bilan to‘ldiring, pilikni joylashtiring va yoqing. Ish tugagach, alangani qalpoqcha bilan o‘chiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.4",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.1",
+      "learningUnitId": "lu.7.01",
+      "label": "Probirkadagi moddani qizdirishda probirkani qiya tuting, og‘zini o‘zingizga va yoningizdagi kishilarga qaratmang. Avval probirkaning barcha qismini, keyin modda turgan joyni qizdiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.5",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.1",
+      "learningUnitId": "lu.7.01",
+      "label": "Gaz gorelkasida gaz va havo oqimini sozlang, gugurtni yon tomondan yaqinlashtiring va alangani ishga moslang. Ish tugagach, gaz jo‘mragini yoping.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.6",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.1",
+      "learningUnitId": "lu.7.01",
+      "label": "Elektr isitgichdan foydalanishda probirkani isitgichga joylashtiring va jarayonni himoya ekrani ortidan kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "selectApparatus",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.2",
+      "learningUnitId": "lu.7.03",
+      "label": "Jihozlarni tanlash",
+      "source": "locale",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "addWater",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.2",
+      "learningUnitId": "lu.7.03",
+      "label": "Suv qo‘shish",
+      "source": "locale",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "addMixture",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.2",
+      "learningUnitId": "lu.7.03",
+      "label": "Aralashmani qo‘shish",
+      "source": "locale",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "mix",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.2",
+      "learningUnitId": "lu.7.03",
+      "label": "Aralashtirish",
+      "source": "locale",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "filter",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.2",
+      "learningUnitId": "lu.7.03",
+      "label": "Filtrlash",
+      "source": "locale",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "evaporate",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.2",
+      "learningUnitId": "lu.7.03",
+      "label": "Bug‘latish",
+      "source": "locale",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "observe",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.2",
+      "learningUnitId": "lu.7.03",
+      "label": "Kuzatish",
+      "source": "locale",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.3",
+      "learningUnitId": "lu.7.05",
+      "label": "Siyoh dog‘ini tozalashning 1-usuli: dog‘ ustiga oq tish pastasini surting, eski tish cho‘tkasi bilan aylana harakatda ishqalang va issiq suv bilan yuving.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.3",
+      "learningUnitId": "lu.7.05",
+      "label": "Siyoh dog‘ini tozalashning 2-usuli: dog‘ni spirt bilan namlang, biroz kuting, ishqalang va kir sovuni yoki idish yuvish vositasi bilan yuving.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.3",
+      "learningUnitId": "lu.7.05",
+      "label": "Ko‘mirning yonishini kuzatish: no‘xat kattaligidagi ko‘mir bo‘lagini qoshiqda qizdiring, cho‘g‘langan ko‘mirni chinni kosachaga tushiring va yonish jarayonini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.4",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.3",
+      "learningUnitId": "lu.7.05",
+      "label": "Temirning zanglashini taqqoslash uchun 4 ta stakan tayyorlang: 1-stakan — suv va mix; 2-stakan — suv, mix va osh tuzi; 3-stakan — suv, mix va mis plastinka; 4-stakan — suv, mix va rux plastinka. Vaqt o‘tishi bilan o‘zgarishlarni taqqoslang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "h-contribution",
+      "shownAs": "step",
+      "activityId": "practice.calculation.7.5",
+      "learningUnitId": "lu.7.12",
+      "label": "Vodorod hissasi",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "s-contribution",
+      "shownAs": "step",
+      "activityId": "practice.calculation.7.5",
+      "learningUnitId": "lu.7.12",
+      "label": "Oltingugurt hissasi",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "o-contribution",
+      "shownAs": "step",
+      "activityId": "practice.calculation.7.5",
+      "learningUnitId": "lu.7.12",
+      "label": "Kislorod hissasi",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "total",
+      "shownAs": "step",
+      "activityId": "practice.calculation.7.5",
+      "learningUnitId": "lu.7.12",
+      "label": "Jami (Mr)",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.6",
+      "learningUnitId": "lu.7.04",
+      "label": "100 ml suvni stakanga quying, keyin boshqa shakldagi 50 ml stakanga o‘tkazing va suyuqlik shaklining idishga moslashishini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.6",
+      "learningUnitId": "lu.7.04",
+      "label": "50 ml suvni chinni kosachada qizdiring va bug‘lanishni kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.6",
+      "learningUnitId": "lu.7.04",
+      "label": "Stakanga 3–4 bo‘lak muz soling va 5 daqiqadan keyingi o‘zgarishni qayd qiling.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.7",
+      "learningUnitId": "lu.7.19",
+      "label": "Spirt lampani yoqing va alangani to‘g‘ri o‘chiring. Alanganing pastki, o‘rta va yuqori qismlarini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.7",
+      "learningUnitId": "lu.7.19",
+      "label": "Kislorod olish uchun probirkaning 1/3 qismiga kaliy permanganat soling, gaz o‘tkazgichli apparatni yig‘ing va probirkani ehtiyotkor qizdiring. Kislorodni suvni siqib chiqarish usulida yig‘ing.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.7",
+      "learningUnitId": "lu.7.19",
+      "label": "Cho‘g‘langan ko‘mirni kislorodli idishga tushiring, yonishni kuzating, so‘ng ohakli suv solib chayqating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.4",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.7",
+      "learningUnitId": "lu.7.19",
+      "label": "Oltingugurtni temir qoshiqchada yondiring va kislorodli idishga tushiring. Kuzatuv va tenglamani qayd qiling.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.5",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.7",
+      "learningUnitId": "lu.7.19",
+      "label": "Spiral shakldagi temir simni qizdiring va tubiga qum solingan kislorodli idishga tushiring. Uchqunlanish va hosil bo‘lgan mahsulotni kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.8",
+      "learningUnitId": "lu.7.20",
+      "label": "Apparatga 2–3 bo‘lak metall soling, mahkam yoping va zichligini tekshiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.8",
+      "learningUnitId": "lu.7.20",
+      "label": "2–3 ml suyultirilgan kislota qo‘shing. Gaz ajralishini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.8",
+      "learningUnitId": "lu.7.20",
+      "label": "Vodorodni suv yoki havoni siqib chiqarish usulida yig‘ing.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.4",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.8",
+      "learningUnitId": "lu.7.20",
+      "label": "Gazning tozaligini kichik porsiyada tekshiring: sof vodorod sokin yonadi, havo bilan aralashma esa “paq” etib ovoz chiqaradi.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.5",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.8",
+      "learningUnitId": "lu.7.20",
+      "label": "Yonayotgan cho‘pni vodorodli idishga kiriting va alangani kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.6",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.8",
+      "learningUnitId": "lu.7.20",
+      "label": "Vodorodni yoqing, alanga ustida shisha plastinka tuting va hosil bo‘lgan suv tomchilarini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.7",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.8",
+      "learningUnitId": "lu.7.20",
+      "label": "Vodorod bilan sovun pufakchalarini hosil qilib, uning havodan yengil ekanini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.8",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.8",
+      "learningUnitId": "lu.7.20",
+      "label": "Vodorodni qizdirilgan CuO ustidan o‘tkazing. Qizil mis va suv hosil bo‘lishini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.9",
+      "learningUnitId": "lu.7.15",
+      "label": "NaCl ga H2SO4 ta’sir ettirib va ehtiyotkor qizdirib HCl gazini oling. Gazni suvga yuttirib xlorid kislota hosil qiling.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.9",
+      "learningUnitId": "lu.7.15",
+      "label": "Suv va HCl eritmalariga indikator tomizib ranglarni taqqoslang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.9",
+      "learningUnitId": "lu.7.15",
+      "label": "CuO namunasi ustiga taxminan 1 ml HCl qo‘shing, qora rangli oksidning erishini kuzating va tenglamani yozing.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.4",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.9",
+      "learningUnitId": "lu.7.15",
+      "label": "NaOH eritmasiga fenolftalein tomizing, so‘ng HCl ni tomchilab qo‘shing. Eritma rangsizlanishini kuzating va neytrallanish tenglamasini yozing.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.5",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.9",
+      "learningUnitId": "lu.7.15",
+      "label": "HCl eritmasiga CaCO3 yoki bo‘r qo‘shing. CO2 ajralishini kuzating va tenglamani yozing.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.10",
+      "learningUnitId": "lu.7.15",
+      "label": "Magniy ustiga suyultirilgan H2SO4 quying, ajralgan gazni yig‘ing va gugurt alangasi bilan tekshiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.10",
+      "learningUnitId": "lu.7.15",
+      "label": "Rux granulalari ustiga HCl quying. Reaksiyani kuzating, zarur bo‘lsa biroz qizdiring, gazni yig‘ing va tekshiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.10",
+      "learningUnitId": "lu.7.15",
+      "label": "Mis qirindilari ustiga suyultirilgan HCl quying. Qizdirilganda ham sezilarli o‘zgarish bo‘lmasligini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.4",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.10",
+      "learningUnitId": "lu.7.15",
+      "label": "Metallarning kislotalar bilan reaksiyaga kirishish qobiliyatini faollik qatori bilan izohlang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.11",
+      "learningUnitId": "lu.7.15",
+      "label": "Birinchi probirkaga CaO va suv soling. Oqartiruvchi suspenziya yoki ishqoriy muhit hosil bo‘lishini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.11",
+      "learningUnitId": "lu.7.15",
+      "label": "Ikkinchi probirkaga gazli mineral suv quying. U kislota muhitiga misol bo‘ladi.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.11",
+      "learningUnitId": "lu.7.15",
+      "label": "Uchinchi probirkaga distillangan suv quying.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.4",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.11",
+      "learningUnitId": "lu.7.15",
+      "label": "Uchala probirkaga indikator tomizib ranglarni taqqoslang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.5",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.11",
+      "learningUnitId": "lu.7.15",
+      "label": "CaO va suv reaksiyasi tenglamasini yozing va muhitlarning farqini tushuntiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.12",
+      "learningUnitId": "lu.7.02",
+      "label": "Tiniqlikni tekshirish: turli suv namunalarini silindrga quying va tagidagi matn ko‘rinishini taqqoslang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.12",
+      "learningUnitId": "lu.7.02",
+      "label": "Rangni taqqoslash: suvni sut yoki sharbat bilan solishtiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.12",
+      "learningUnitId": "lu.7.02",
+      "label": "Hidni tekshirish: suv namunalarini 40–50 °C gacha isitib, ehtiyotkor hidlab ko‘ring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.4",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.12",
+      "learningUnitId": "lu.7.02",
+      "label": "Erituvchanlikni tekshirish: shakar, tuz va qumning suvdagi xatti-harakatini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.5",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.12",
+      "learningUnitId": "lu.7.02",
+      "label": "Suvning agregat holatlarini taqqoslang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.13",
+      "learningUnitId": "lu.7.22",
+      "label": "Uch xil olma sharbatining kislotaliligini universal indikator yordamida taqqoslang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.13",
+      "learningUnitId": "lu.7.22",
+      "label": "Olma sharbatlari namunalarida mineral tarkibni tekshirish uchun darslikda berilgan reaktivni qo‘shing va o‘zgarishni kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.13",
+      "learningUnitId": "lu.7.22",
+      "label": "Vitamin mavjudligini darslikdagi ko‘rsatmaga asosan azot kislotasi bilan tekshiring, aralashtiring va rang o‘zgarishini taqqoslang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "traffic-no2",
+      "shownAs": "evidence",
+      "activityId": "practice.case.7.14",
+      "learningUnitId": "lu.7.18",
+      "label": "Transportdan NO₂ chiqishi",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "industry-so2",
+      "shownAs": "evidence",
+      "activityId": "practice.case.7.14",
+      "learningUnitId": "lu.7.18",
+      "label": "Sanoatdan SO₂ chiqishi",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "calm-weather",
+      "shownAs": "evidence",
+      "activityId": "practice.case.7.14",
+      "learningUnitId": "lu.7.18",
+      "label": "Shamolsiz ob-havo",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.2",
+      "learningUnitId": "lu.8.18",
+      "label": "Berilgan modda sulfat kislota ekanini tajriba yo‘li bilan isbotlang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.2",
+      "learningUnitId": "lu.8.18",
+      "label": "Suyultirilgan va konsentrlangan sulfat kislotaning rux metalliga ta’siri turlicha ekanini ko‘rsating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.2",
+      "learningUnitId": "lu.8.18",
+      "label": "Raqamlangan uch probirkadagi CaCl2, Na2S va K2SO4 tuzlarini aniqlang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.4",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.2",
+      "learningUnitId": "lu.8.18",
+      "label": "Alyuminiy sulfatdan alyuminiy xlorid olish mumkinligini tajriba bilan isbotlang va zarur tenglamalarni yozing.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.3",
+      "learningUnitId": "lu.8.22",
+      "label": "Apparatni darslikdagi sxema asosida yig‘ing.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.3",
+      "learningUnitId": "lu.8.22",
+      "label": "Teng hajmdagi NH4Cl kristallari va so‘ndirilgan ohak kukunini chinni hovonchada aralashtiring. Aralashmadan probirkaning 1/3 qismigacha solib ohista qizdiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.3",
+      "learningUnitId": "lu.8.22",
+      "label": "Ajralgan ammiakni og‘zi pastga qaratilgan probirkaga yig‘ing.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.4",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.3",
+      "learningUnitId": "lu.8.22",
+      "label": "Gaz to‘planganini ehtiyotkor hid bilan tekshiring, probirkani suvga botirib tiqinini oling. Suvning probirkaga to‘lishini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.5",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.3",
+      "learningUnitId": "lu.8.22",
+      "label": "Ammiakning suvli eritmasini qizil lakmus va fenolftalein bilan tekshiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.6",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.3",
+      "learningUnitId": "lu.8.22",
+      "label": "Ammiakning kislorodda yonishini kuzating, mahsulotlarni aniqlang, oksidlovchi va qaytaruvchini belgilang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.7",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.3",
+      "learningUnitId": "lu.8.22",
+      "label": "Ammiakni nitrat, xlorid va sulfat kislotalarga yaqinlashtiring. Nay uchi eritma sirtidan 5–6 mm baland turishi kerak. Xlorid kislota bilan oq tutun hosil bo‘lishini izohlang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.4",
+      "learningUnitId": "lu.8.23",
+      "label": "NH4Cl kristallari bilan ohak kukuni aralashmasini probirkaning 1/3 qismigacha soling, ohista qizdiring va olingan gazning ammiak ekanini isbotlang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.4",
+      "learningUnitId": "lu.8.23",
+      "label": "CuO, Cu(OH)2 va (CuOH)2CO3 dan HNO3 yordamida Cu(NO3)2 hosil qiling.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.4",
+      "learningUnitId": "lu.8.23",
+      "label": "Ammoniyli o‘g‘itlarni ishqoriy tuproqqa solish mumkin emasligini tajriba yo‘li bilan isbotlang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.4",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.4",
+      "learningUnitId": "lu.8.23",
+      "label": "Na2SO4, NH4NO3 va NaCl tuzlari solingan uch probirkani aniqlang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.5",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.4",
+      "learningUnitId": "lu.8.23",
+      "label": "H3PO4, H2SO4 va HCl kislotalari solingan probirkalarni tajriba yo‘li bilan farqlang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.5",
+      "learningUnitId": "lu.8.24",
+      "label": "1-variant: KNO3, NH4NO3 va superfosfat solingan probirkalarni aniqlang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.5",
+      "learningUnitId": "lu.8.24",
+      "label": "2-variant: berilgan o‘g‘itning KCl ekanini aniqlang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.5",
+      "learningUnitId": "lu.8.24",
+      "label": "3-variant: berilgan o‘g‘itning NH4Cl ekanini aniqlang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.4",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.5",
+      "learningUnitId": "lu.8.24",
+      "label": "4-variant: berilgan noma’lum mineral o‘g‘it nomini aniqlang va u haqida ma’lumot bering.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.6",
+      "learningUnitId": "lu.8.01",
+      "label": "Probirkaga 1–2 ml 5% NaOH eritmasi quying.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.6",
+      "learningUnitId": "lu.8.01",
+      "label": "Ustiga mo‘l miqdorda ZnCl2 eritmasidan qo‘shing.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.6",
+      "learningUnitId": "lu.8.01",
+      "label": "Hosil bo‘lgan cho‘kmani ikkita probirkaga bo‘ling.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.4",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.6",
+      "learningUnitId": "lu.8.01",
+      "label": "Bir probirkaga HCl, ikkinchisiga NaOH eritmasi qo‘shing va chayqating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.5",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.6",
+      "learningUnitId": "lu.8.01",
+      "label": "Shunga o‘xshash tajribani CuCl2 eritmasi bilan takrorlang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "substance",
+      "shownAs": "field",
+      "activityId": "practice.simulation.8.7",
+      "learningUnitId": "lu.8.10",
+      "label": "Modda",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "bondType",
+      "shownAs": "field",
+      "activityId": "practice.simulation.8.7",
+      "learningUnitId": "lu.8.10",
+      "label": "Bog‘lanish turi",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "lattice",
+      "shownAs": "field",
+      "activityId": "practice.simulation.8.7",
+      "learningUnitId": "lu.8.10",
+      "label": "Kristall panjara turi",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.8",
+      "learningUnitId": "lu.8.16",
+      "label": "Daftarga reagentlar jadvalini ko‘chiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.8",
+      "learningUnitId": "lu.8.16",
+      "label": "To‘rtta probirkaga mos ravishda HCl, NaCl, NaBr va NaI eritmalaridan 1–2 ml quying.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.8",
+      "learningUnitId": "lu.8.16",
+      "label": "Har biriga 3–4 tomchi AgNO3 eritmasi qo‘shing.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.4",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.8",
+      "learningUnitId": "lu.8.16",
+      "label": "Cho‘kmalar rangini kuzating, tenglamalarni yozing va jadvalni to‘ldiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.5",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.8",
+      "learningUnitId": "lu.8.16",
+      "label": "Kraxmal kleysteriga 1 tomchi yod eritmasi qo‘shib rang o‘zgarishini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.6",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.8",
+      "learningUnitId": "lu.8.16",
+      "label": "Kartoshka va non bo‘laklariga yod eritmasidan tomizing va natijani izohlang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.9",
+      "learningUnitId": "lu.8.16",
+      "label": "Maktab tajriba maydonidan olingan tuproqni suv bilan aralashtiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.9",
+      "learningUnitId": "lu.8.16",
+      "label": "Hosil bo‘lgan loyqa eritmani filtrlang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.9",
+      "learningUnitId": "lu.8.16",
+      "label": "Filtratda xlorid ioni borligini sifat reaksiyasi yordamida tekshiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.10",
+      "learningUnitId": "lu.8.14",
+      "label": "Jadvalni daftarga ko‘chiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.10",
+      "learningUnitId": "lu.8.14",
+      "label": "Ikki probirkaga NaBr va NaI eritmalaridan 3–4 ml quying. Har biriga 1–2 ml xlorli suv qo‘shing va o‘zgarishlarni kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.10",
+      "learningUnitId": "lu.8.14",
+      "label": "NaI eritmasiga bromli suv qo‘shing va o‘zgarishni kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.4",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.10",
+      "learningUnitId": "lu.8.14",
+      "label": "Ikki probirkadagi NaCl eritmasiga alohida-alohida bromli suv va yod eritmasi qo‘shing. O‘zgarish bo‘lmasligini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.11",
+      "learningUnitId": "lu.8.16",
+      "label": "Probirkaga 3–4 bo‘lak yod kristali soling va 1–2 ml suv qo‘shib aralashtiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.11",
+      "learningUnitId": "lu.8.16",
+      "label": "Yodning suvdagi eritmasiga 1–2 ml benzol qo‘shing, chayqating va tindiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.11",
+      "learningUnitId": "lu.8.16",
+      "label": "Suvli va benzol qatlamlarining rangini taqqoslang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.12",
+      "learningUnitId": "lu.8.15",
+      "label": "Oltingugurt, pirit, rux aldamasi va gips namunalarini ko‘zdan kechiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.12",
+      "learningUnitId": "lu.8.15",
+      "label": "Har bir namunani formula, nisbiy molekulyar massa, tashqi ko‘rinish va suvda eruvchanlik bo‘yicha jadvalga kiriting.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.13",
+      "learningUnitId": "lu.8.18",
+      "label": "To‘rtta probirkaga H2SO4, Na2SO4, CuSO4 va Al2(SO4)3 eritmalaridan 2–3 ml quying.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.13",
+      "learningUnitId": "lu.8.18",
+      "label": "Har biriga 1–2 ml BaCl2 eritmasi qo‘shing.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.13",
+      "learningUnitId": "lu.8.18",
+      "label": "Har bir probirkada hosil bo‘lgan o‘zgarishni kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.14",
+      "learningUnitId": "lu.8.22",
+      "label": "NH4Cl va so‘ndirilgan ohakning 1,5:1 massa nisbatidagi aralashmasini probirkaga soling va gaz o‘tkazgich nayli tiqin bilan yoping.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.14",
+      "learningUnitId": "lu.8.22",
+      "label": "Aralashmani biroz qizdiring va ajralgan gazni probirkalarga yig‘ing.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.14",
+      "learningUnitId": "lu.8.22",
+      "label": "Gaz bilan to‘lgan probirkani suvga botirib, suvning probirkaga kirishini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.4",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.14",
+      "learningUnitId": "lu.8.22",
+      "label": "Gaz oqimiga fenolftaleinli qog‘oz tuting.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.5",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.14",
+      "learningUnitId": "lu.8.22",
+      "label": "Gaz oqimiga HCl ga botirilgan shisha tayoqchani yaqinlashtiring va oq tutunni kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.15",
+      "learningUnitId": "lu.8.24",
+      "label": "O‘qituvchi bergan mineral o‘g‘it namunalarini diqqat bilan ko‘zdan kechiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.15",
+      "learningUnitId": "lu.8.24",
+      "label": "Har bir namuna uchun nomi, formulasi, nisbiy molekulyar massasi, tashqi ko‘rinishi va suvda eruvchanligini jadvalga yozing.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.1",
+      "learningUnitId": "lu.9.09",
+      "label": "Probirkaga bo‘r yoki marmar bo‘laklari soling va ozgina suyultirilgan HCl quying.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.1",
+      "learningUnitId": "lu.9.09",
+      "label": "Probirka og‘zini gaz o‘tkazgich nayli tiqin bilan berkiting.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.1",
+      "learningUnitId": "lu.9.09",
+      "label": "Gaz nayini 2–3 ml ohakli suv quyilgan probirkaga tushiring va hodisani kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.4",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.1",
+      "learningUnitId": "lu.9.09",
+      "label": "Gazni distillangan suvdan 1–2 daqiqa o‘tkazing, so‘ng olingan eritmaga ko‘k lakmus tomizing.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.5",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.1",
+      "learningUnitId": "lu.9.09",
+      "label": "NaOH eritmasiga fenolftalein qo‘shing va eritmadan CO2 o‘tkazing.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.6",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.1",
+      "learningUnitId": "lu.9.09",
+      "label": "10 g tuproqni suv bilan aralashtirib filtrlang. Tuproqdan 2–3 g ni HCl bilan tekshiring; filtratga AgNO3 qo‘shing, oq cho‘kmani filtrlab ikki qismga bo‘ling: biriga ammiak yoki suyultirilgan HCl qo‘shing, ikkinchisini qizdiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.2",
+      "learningUnitId": "lu.9.16",
+      "label": "NaCl, NaOH, Na2CO3 va NaNO3 solingan to‘rtta raqamlangan probirkani aniqlang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.2",
+      "learningUnitId": "lu.9.16",
+      "label": "KCl, K2CO3, CaCO3 va CaCl2 solingan to‘rtta raqamlangan probirkani aniqlang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.2",
+      "learningUnitId": "lu.9.16",
+      "label": "Ikki rangsiz eritmadan KOH va Ca(OH)2 ni farqlang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.4",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.2",
+      "learningUnitId": "lu.9.16",
+      "label": "Ca(OH)2 → CaCO3 → Ca(HCO3)2 → CaCO3 → CaCl2 o‘zgarishlarini amalga oshiruvchi reaksiyalarni tanlang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.5",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.2",
+      "learningUnitId": "lu.9.16",
+      "label": "Ohakli suvdan CO2 o‘tkazib loyqalantiring. Loyqalangan eritmani uch probirkaga bo‘lib: biriga ohakli suv, ikkinchisiga Na2CO3, uchinchisini qizdiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.3",
+      "learningUnitId": "lu.9.13",
+      "label": "NaOH, CaCO3, Al2(SO4)3 va FeCl3 berilgan to‘rtta raqamlangan probirkani kimyoviy tajribalar bilan aniqlang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.3",
+      "learningUnitId": "lu.9.13",
+      "label": "Misning suvda eruvchan tuzidan foydalanib CuO olish usullarini ko‘rsating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.3",
+      "learningUnitId": "lu.9.13",
+      "label": "Mavjud jihoz va reaktivlar yordamida ZnCl2 ni to‘rt xil usulda hosil qiling.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.4",
+      "learningUnitId": "lu.9.05",
+      "label": "Karbonat va gidrokarbonat namunalarini darslikdagi ko‘rsatma asosida reaktivlar bilan tekshiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.4",
+      "learningUnitId": "lu.9.05",
+      "label": "Karbonat ioniga xos CO2 ajralishi va ohakli suvning loyqalanishini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.4",
+      "learningUnitId": "lu.9.05",
+      "label": "Aylanish jarayonlarini molekulyar va ionli tenglamalar orqali ifodalang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.5",
+      "learningUnitId": "lu.9.10",
+      "label": "Berilgan tabiiy silikat namunalarini ko‘zdan kechiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.5",
+      "learningUnitId": "lu.9.10",
+      "label": "Tashqi ko‘rinishiga e’tibor bering va qattiqligini tekshiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.6",
+      "learningUnitId": "lu.9.07",
+      "label": "Turli shisha namunalarini va shishadan yasalgan buyumlarni ko‘zdan kechiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.7",
+      "learningUnitId": "lu.9.13",
+      "label": "Berilgan metall namunalarini ko‘zdan kechiring va nomlang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.7",
+      "learningUnitId": "lu.9.13",
+      "label": "Jadvaldan ularning suyuqlanish harorati va qattiqligini aniqlang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.7",
+      "learningUnitId": "lu.9.13",
+      "label": "Temir va mis plastinkalarning bir uchiga parafin qo‘ying, ikkinchi uchini gorelka alangasida qizdiring. Qaysi metallda parafin tezroq erishini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.8",
+      "learningUnitId": "lu.9.12",
+      "label": "Berilgan qotishma namunalarini ko‘zdan kechiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.8",
+      "learningUnitId": "lu.9.12",
+      "label": "Ularning qattiqligi va plastikligini tekshiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.8",
+      "learningUnitId": "lu.9.12",
+      "label": "Rangiga e’tibor bering.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.9",
+      "learningUnitId": "lu.9.05",
+      "label": "Birinchi probirkaga AgNO3, ikkinchisiga CuSO4, uchinchisiga Pb(NO3)2 eritmasidan 2–3 ml quying.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.9",
+      "learningUnitId": "lu.9.05",
+      "label": "Birinchi probirkaga mis simi, ikkinchisiga temir kukuni, uchinchisiga mis kukuni soling.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.9",
+      "learningUnitId": "lu.9.05",
+      "label": "Har bir probirkadagi o‘zgarishni kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "connectCurrent",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.10",
+      "learningUnitId": "lu.9.15",
+      "label": "Tokni ulash",
+      "source": "locale",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "observeCathode",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.10",
+      "learningUnitId": "lu.9.15",
+      "label": "Katodni kuzatish",
+      "source": "locale",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "observeAnode",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.10",
+      "learningUnitId": "lu.9.15",
+      "label": "Anodni kuzatish",
+      "source": "locale",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.11",
+      "learningUnitId": "lu.9.19",
+      "label": "Alyuminiy namunalarining kislota va ishqor eritmalaridagi xatti-harakatini darslik ko‘rsatmasiga muvofiq kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.11",
+      "learningUnitId": "lu.9.19",
+      "label": "Gaz ajralishi va metallning erishini taqqoslang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.12",
+      "learningUnitId": "lu.9.12",
+      "label": "Alyuminiy va uning qotishmalari namunalarini ko‘zdan kechiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.12",
+      "learningUnitId": "lu.9.12",
+      "label": "Tashqi ko‘rinish, yengillik va amaliy qo‘llanishini taqqoslang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.13",
+      "learningUnitId": "lu.9.05",
+      "label": "Alyuminiy tuzi eritmasiga ishqor qo‘shib Al(OH)3 cho‘kmasini oling.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.13",
+      "learningUnitId": "lu.9.05",
+      "label": "Cho‘kmani ikkiga bo‘ling.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.13",
+      "learningUnitId": "lu.9.05",
+      "label": "Bir qismiga kislota, ikkinchisiga ortiqcha ishqor qo‘shib erishini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.15",
+      "learningUnitId": "lu.9.05",
+      "label": "Cu2+ tuzi eritmasiga ishqor qo‘shib Cu(OH)2 cho‘kmasini oling.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.15",
+      "learningUnitId": "lu.9.05",
+      "label": "Cho‘kmaning rangini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.15",
+      "learningUnitId": "lu.9.05",
+      "label": "Kislota ta’sirini va qizdirilgandagi o‘zgarishni tekshiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.16",
+      "learningUnitId": "lu.9.05",
+      "label": "Zn2+ tuzi eritmasiga ishqor qo‘shib Zn(OH)2 cho‘kmasini oling.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.16",
+      "learningUnitId": "lu.9.05",
+      "label": "Cho‘kmani ikki qismga bo‘ling.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.16",
+      "learningUnitId": "lu.9.05",
+      "label": "Biriga kislota, ikkinchisiga ortiqcha ishqor qo‘shing va erishini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.17",
+      "learningUnitId": "lu.9.22",
+      "label": "Darslikda berilgan xrom birikmalari eritmalarining ranglarini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.17",
+      "learningUnitId": "lu.9.22",
+      "label": "Oksidlanish darajasi o‘zgarishiga mos rang o‘zgarishlarini taqqoslang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.18",
+      "learningUnitId": "lu.9.24",
+      "label": "Fe2+ tuzi eritmasiga ishqor qo‘shib Fe(OH)2 cho‘kmasini oling.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.18",
+      "learningUnitId": "lu.9.24",
+      "label": "Fe3+ tuzi eritmasiga ishqor qo‘shib Fe(OH)3 cho‘kmasini oling.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.18",
+      "learningUnitId": "lu.9.24",
+      "label": "Cho‘kmalar rangini va havoda Fe(OH)2 ning o‘zgarishini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.19",
+      "learningUnitId": "lu.9.24",
+      "label": "Temir(II) va temir(III) tuzlari eritmalariga darslikda ko‘rsatilgan sifat reaktivlarini qo‘shing.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.19",
+      "learningUnitId": "lu.9.24",
+      "label": "Hosil bo‘lgan rang va cho‘kmalarni taqqoslang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.19",
+      "learningUnitId": "lu.9.24",
+      "label": "Temir(III) uchun tiotsianat bilan rangli kompleks hosil bo‘lishini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.20",
+      "learningUnitId": "lu.9.12",
+      "label": "Cho‘yan va po‘lat namunalarini tashqi ko‘rinish bo‘yicha ko‘zdan kechiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.20",
+      "learningUnitId": "lu.9.12",
+      "label": "Ularning mexanik xossalarini taqqoslang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.9.20",
+      "learningUnitId": "lu.9.12",
+      "label": "Kichik namunalarga HCl ta’sirini kuzatib farqini qayd eting.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.1",
+      "learningUnitId": "lu.10.01",
+      "label": "Organik moddalar namunalarining tashqi ko‘rinishi, suvda eruvchanligi va zichligini taqqoslang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.1",
+      "learningUnitId": "lu.10.01",
+      "label": "Shisha plastinkaga suv, etanol va atsetondan tomizib, bug‘lanish tezligini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.1",
+      "learningUnitId": "lu.10.01",
+      "label": "Parafinni qizdirib suyuqlantiring, so‘ng sovutishda harorat o‘zgarishini termometr bilan qayd qiling va qotish grafigini tuzing.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.2",
+      "learningUnitId": "lu.10.01",
+      "label": "Tekshiriluvchi organik modda va CuO aralashmasini qizdiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.2",
+      "learningUnitId": "lu.10.01",
+      "label": "Hosil bo‘lgan gazni ohakli suvdan o‘tkazing. Ohakli suvning loyqalanishi uglerod mavjudligini ko‘rsatadi.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.2",
+      "learningUnitId": "lu.10.01",
+      "label": "Probirka devorida suv tomchilari hosil bo‘lishini kuzating. Bu vodorod mavjudligini ko‘rsatadi.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.4",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.2",
+      "learningUnitId": "lu.10.01",
+      "label": "Suvsiz CuSO4 ning rang o‘zgarishini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.5",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.2",
+      "learningUnitId": "lu.10.01",
+      "label": "Uglerodni aniqlashning ikkinchi usuli sifatida chinni kosachadagi oz miqdor shakarni qizdiring. Shakar qorayib, ko‘mir ajralishini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "generateEthene",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.3",
+      "learningUnitId": "lu.10.12",
+      "label": "Eten hosil qilish",
+      "source": "locale",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "addBromineWater",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.3",
+      "learningUnitId": "lu.10.12",
+      "label": "Bromli suv qo‘shish",
+      "source": "locale",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "record",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.3",
+      "learningUnitId": "lu.10.12",
+      "label": "Natijani yozish",
+      "source": "locale",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "prepareCuOH2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.5",
+      "learningUnitId": "lu.10.18",
+      "label": "Cu(OH)₂ tayyorlash",
+      "source": "locale",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "addGlycerol",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.5",
+      "learningUnitId": "lu.10.18",
+      "label": "Glitserin qo‘shish",
+      "source": "locale",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "record",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.5",
+      "learningUnitId": "lu.10.18",
+      "label": "Natijani yozish",
+      "source": "locale",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.6",
+      "learningUnitId": "lu.10.06",
+      "label": "Cu(OH)2 cho‘kmasiga glitserin qo‘shing va to‘q ko‘k eritma hosil bo‘lishini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.6",
+      "learningUnitId": "lu.10.06",
+      "label": "Yangi tayyorlangan Cu(OH)2 ga formalin qo‘shing va ehtiyotkor qizdiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.6",
+      "learningUnitId": "lu.10.06",
+      "label": "Rang va cho‘kma o‘zgarishlarini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.7",
+      "learningUnitId": "lu.10.06",
+      "label": "Hidli o‘simlik qismlarini suv bilan haydash moslamasiga joylashtiring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.7",
+      "learningUnitId": "lu.10.06",
+      "label": "Aralashmani qizdirib, bug‘ bilan efir moylarini ajrating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.7",
+      "learningUnitId": "lu.10.06",
+      "label": "Kondensatni yig‘ing va ajralgan hidli qatlamni kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.4",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.7",
+      "learningUnitId": "lu.10.06",
+      "label": "Gul barglaridan atir tayyorlash uchun darslikdagi ketma-ketlik asosida ekstraksiya va filtrlash ishlarini bajaring.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "mixFatAlkali",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.8",
+      "learningUnitId": "lu.10.24",
+      "label": "Yog‘ va ishqorni aralashtirish",
+      "source": "locale",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "heat",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.8",
+      "learningUnitId": "lu.10.24",
+      "label": "Qizdirish",
+      "source": "locale",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "observe",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.8",
+      "learningUnitId": "lu.10.24",
+      "label": "Kuzatish",
+      "source": "locale",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "addCuSO4",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.9",
+      "learningUnitId": "lu.10.25",
+      "label": "CuSO₄ eritmasini qo‘shish",
+      "source": "locale",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "addNaOH",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.9",
+      "learningUnitId": "lu.10.25",
+      "label": "NaOH eritmasini qo‘shish",
+      "source": "locale",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "heat",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.9",
+      "learningUnitId": "lu.10.25",
+      "label": "Qizdirish",
+      "source": "locale",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "observe",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.9",
+      "learningUnitId": "lu.10.25",
+      "label": "Kuzatish",
+      "source": "locale",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.10",
+      "learningUnitId": "lu.10.05",
+      "label": "Uch noma’lum namuna: sirka kislotasi, glitserin va glyukozani oling.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.10",
+      "learningUnitId": "lu.10.05",
+      "label": "Indikator yordamida kislotali namunani aniqlang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.10",
+      "learningUnitId": "lu.10.05",
+      "label": "Qolgan namunalarga yangi Cu(OH)2 qo‘shib to‘q ko‘k eritma hosil bo‘lishini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.4",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.10",
+      "learningUnitId": "lu.10.05",
+      "label": "Namunalarni qizdirib glyukozaga xos qaytaruvchanlik belgisi bilan glitserindan farqlang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "waste-stream",
+      "shownAs": "evidence",
+      "activityId": "practice.case.10.11",
+      "learningUnitId": "lu.10.27",
+      "label": "Chiqindi oqimi",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "recycling-rate",
+      "shownAs": "evidence",
+      "activityId": "practice.case.10.11",
+      "learningUnitId": "lu.10.27",
+      "label": "Qayta ishlash ulushi",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "energy-use",
+      "shownAs": "evidence",
+      "activityId": "practice.case.10.11",
+      "learningUnitId": "lu.10.27",
+      "label": "Energiya sarfi",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "connectCurrent",
+      "shownAs": "action",
+      "activityId": "practice.experiment.11.2",
+      "learningUnitId": "lu.11.21",
+      "label": "Tokni ulash",
+      "source": "locale",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "observeCathode",
+      "shownAs": "action",
+      "activityId": "practice.experiment.11.2",
+      "learningUnitId": "lu.11.21",
+      "label": "Katodni kuzatish",
+      "source": "locale",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "observeAnode",
+      "shownAs": "action",
+      "activityId": "practice.experiment.11.2",
+      "learningUnitId": "lu.11.21",
+      "label": "Anodni kuzatish",
+      "source": "locale",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "water-treatment",
+      "shownAs": "evidence",
+      "activityId": "practice.case.7.01.planned",
+      "learningUnitId": "lu.7.01",
+      "label": "Suvni tozalash",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "medicine",
+      "shownAs": "evidence",
+      "activityId": "practice.case.7.01.planned",
+      "learningUnitId": "lu.7.01",
+      "label": "Tibbiyot",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "materials",
+      "shownAs": "evidence",
+      "activityId": "practice.case.7.01.planned",
+      "learningUnitId": "lu.7.01",
+      "label": "Materiallar",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "property",
+      "shownAs": "field",
+      "activityId": "practice.simulation.7.02.planned",
+      "learningUnitId": "lu.7.02",
+      "label": "Xossa",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "classification",
+      "shownAs": "field",
+      "activityId": "practice.simulation.7.02.planned",
+      "learningUnitId": "lu.7.02",
+      "label": "Turkumi",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "scale",
+      "shownAs": "field",
+      "activityId": "practice.simulation.7.06.planned",
+      "learningUnitId": "lu.7.06",
+      "label": "Zarracha darajasi",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ratio-o-h",
+      "shownAs": "step",
+      "activityId": "practice.calculation.7.09.planned",
+      "learningUnitId": "lu.7.09",
+      "label": "Kislorod va vodorod massa nisbati",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "protons",
+      "shownAs": "field",
+      "activityId": "practice.simulation.7.10.planned",
+      "learningUnitId": "lu.7.10",
+      "label": "Protonlar soni",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "neutrons",
+      "shownAs": "field",
+      "activityId": "practice.simulation.7.10.planned",
+      "learningUnitId": "lu.7.10",
+      "label": "Neytronlar soni",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "label",
+      "shownAs": "field",
+      "activityId": "practice.simulation.7.10.planned",
+      "learningUnitId": "lu.7.10",
+      "label": "Nomlanishi",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "formula",
+      "shownAs": "field",
+      "activityId": "practice.simulation.7.13.planned",
+      "learningUnitId": "lu.7.13",
+      "label": "Formula",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "classification",
+      "shownAs": "field",
+      "activityId": "practice.simulation.7.13.planned",
+      "learningUnitId": "lu.7.13",
+      "label": "Turkumi",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "element",
+      "shownAs": "field",
+      "activityId": "practice.simulation.7.16.planned",
+      "learningUnitId": "lu.7.16",
+      "label": "Element",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "family",
+      "shownAs": "field",
+      "activityId": "practice.simulation.7.16.planned",
+      "learningUnitId": "lu.7.16",
+      "label": "Elementlar oilasi",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "element",
+      "shownAs": "field",
+      "activityId": "practice.simulation.7.17.planned",
+      "learningUnitId": "lu.7.17",
+      "label": "Element",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "group",
+      "shownAs": "field",
+      "activityId": "practice.simulation.7.17.planned",
+      "learningUnitId": "lu.7.17",
+      "label": "Guruh raqami",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "period",
+      "shownAs": "field",
+      "activityId": "practice.simulation.7.17.planned",
+      "learningUnitId": "lu.7.17",
+      "label": "Davr raqami",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "scientist",
+      "shownAs": "field",
+      "activityId": "practice.simulation.8.02.planned",
+      "learningUnitId": "lu.8.02",
+      "label": "Olim",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "system",
+      "shownAs": "field",
+      "activityId": "practice.simulation.8.02.planned",
+      "learningUnitId": "lu.8.02",
+      "label": "Tasniflash tizimi",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "comparison",
+      "shownAs": "field",
+      "activityId": "practice.simulation.8.03.planned",
+      "learningUnitId": "lu.8.03",
+      "label": "Taqqoslash",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "trend",
+      "shownAs": "field",
+      "activityId": "practice.simulation.8.03.planned",
+      "learningUnitId": "lu.8.03",
+      "label": "Qonuniyat",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "protons",
+      "shownAs": "field",
+      "activityId": "practice.simulation.8.04.planned",
+      "learningUnitId": "lu.8.04",
+      "label": "Protonlar soni",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "neutrons",
+      "shownAs": "field",
+      "activityId": "practice.simulation.8.04.planned",
+      "learningUnitId": "lu.8.04",
+      "label": "Neytronlar soni",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "pair",
+      "shownAs": "field",
+      "activityId": "practice.simulation.8.05.planned",
+      "learningUnitId": "lu.8.05",
+      "label": "Juftlik",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "relation",
+      "shownAs": "field",
+      "activityId": "practice.simulation.8.05.planned",
+      "learningUnitId": "lu.8.05",
+      "label": "O‘zaro munosabat",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "element",
+      "shownAs": "field",
+      "activityId": "practice.simulation.8.06.planned",
+      "learningUnitId": "lu.8.06",
+      "label": "Element",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "configuration",
+      "shownAs": "field",
+      "activityId": "practice.simulation.8.06.planned",
+      "learningUnitId": "lu.8.06",
+      "label": "Elektron konfiguratsiya",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "pair",
+      "shownAs": "field",
+      "activityId": "practice.simulation.8.09.planned",
+      "learningUnitId": "lu.8.09",
+      "label": "Juftlik",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "moreElectronegative",
+      "shownAs": "field",
+      "activityId": "practice.simulation.8.09.planned",
+      "learningUnitId": "lu.8.09",
+      "label": "Elektromanfiyligi kattaroq element",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.1",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.12.planned",
+      "learningUnitId": "lu.8.12",
+      "label": "Kristall panjara turini tanlang.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.2",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.12.planned",
+      "learningUnitId": "lu.8.12",
+      "label": "Modelni aylantirib zarrachalar joylashuvini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "step.3",
+      "shownAs": "action",
+      "activityId": "practice.experiment.8.12.planned",
+      "learningUnitId": "lu.8.12",
+      "label": "Bog‘lanish turi bilan panjara tuzilishi orasidagi bog‘lanishni qayd qiling.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "volume-2mol-stp",
+      "shownAs": "step",
+      "activityId": "practice.calculation.8.17.planned",
+      "learningUnitId": "lu.8.17",
+      "label": "2 mol gaz hajmi (n.sh.)",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "temperature",
+      "shownAs": "field",
+      "activityId": "practice.simulation.8.19.planned",
+      "learningUnitId": "lu.8.19",
+      "label": "Harorat",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "concentration",
+      "shownAs": "field",
+      "activityId": "practice.simulation.8.19.planned",
+      "learningUnitId": "lu.8.19",
+      "label": "Konsentratsiya",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "surface",
+      "shownAs": "field",
+      "activityId": "practice.simulation.8.19.planned",
+      "learningUnitId": "lu.8.19",
+      "label": "Sirt holati",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "rate",
+      "shownAs": "field",
+      "activityId": "practice.simulation.8.19.planned",
+      "learningUnitId": "lu.8.19",
+      "label": "Reaksiya tezligi",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "pressure",
+      "shownAs": "field",
+      "activityId": "practice.simulation.8.20.planned",
+      "learningUnitId": "lu.8.20",
+      "label": "Bosim",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "shift",
+      "shownAs": "field",
+      "activityId": "practice.simulation.8.20.planned",
+      "learningUnitId": "lu.8.20",
+      "label": "Muvozanat siljishi",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "so2-oxidation",
+      "shownAs": "evidence",
+      "activityId": "practice.case.8.21.planned",
+      "learningUnitId": "lu.8.21",
+      "label": "SO₂ ning oksidlanishi",
+      "source": "locale",
+      "category": "reaction",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "v2o5-catalyst",
+      "shownAs": "evidence",
+      "activityId": "practice.case.8.21.planned",
+      "learningUnitId": "lu.8.21",
+      "label": "V₂O₅ katalizatori",
+      "source": "locale",
+      "category": "reaction",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "so3-absorption",
+      "shownAs": "evidence",
+      "activityId": "practice.case.8.21.planned",
+      "learningUnitId": "lu.8.21",
+      "label": "SO₃ ning yuttirilishi",
+      "source": "locale",
+      "category": "reaction",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "mode",
+      "shownAs": "field",
+      "activityId": "practice.simulation.9.01.planned",
+      "learningUnitId": "lu.9.01",
+      "label": "Tahlil usuli",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "sample",
+      "shownAs": "field",
+      "activityId": "practice.simulation.9.02.planned",
+      "learningUnitId": "lu.9.02",
+      "label": "Namuna",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "conductivity",
+      "shownAs": "field",
+      "activityId": "practice.simulation.9.02.planned",
+      "learningUnitId": "lu.9.02",
+      "label": "Elektr o‘tkazuvchanlik",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "species",
+      "shownAs": "field",
+      "activityId": "practice.simulation.9.03.planned",
+      "learningUnitId": "lu.9.03",
+      "label": "Zarracha",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ions",
+      "shownAs": "field",
+      "activityId": "practice.simulation.9.03.planned",
+      "learningUnitId": "lu.9.03",
+      "label": "Ionlar",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "electrolyte",
+      "shownAs": "field",
+      "activityId": "practice.simulation.9.04.planned",
+      "learningUnitId": "lu.9.04",
+      "label": "Elektrolit",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "alpha",
+      "shownAs": "field",
+      "activityId": "practice.simulation.9.04.planned",
+      "learningUnitId": "lu.9.04",
+      "label": "Dissotsilanish darajasi (α)",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "element",
+      "shownAs": "field",
+      "activityId": "practice.simulation.9.07.planned",
+      "learningUnitId": "lu.9.07",
+      "label": "Element",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "property",
+      "shownAs": "field",
+      "activityId": "practice.simulation.9.07.planned",
+      "learningUnitId": "lu.9.07",
+      "label": "Xossa",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "allotrope",
+      "shownAs": "field",
+      "activityId": "practice.simulation.9.08.planned",
+      "learningUnitId": "lu.9.08",
+      "label": "Allotropik shakl",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "structure",
+      "shownAs": "field",
+      "activityId": "practice.simulation.9.08.planned",
+      "learningUnitId": "lu.9.08",
+      "label": "Tuzilishi",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ore-grade",
+      "shownAs": "evidence",
+      "activityId": "practice.case.9.11.planned",
+      "learningUnitId": "lu.9.11",
+      "label": "Rudadagi metall ulushi",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "metal-reactivity",
+      "shownAs": "evidence",
+      "activityId": "practice.case.9.11.planned",
+      "learningUnitId": "lu.9.11",
+      "label": "Metallning faolligi",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "energy-cost",
+      "shownAs": "evidence",
+      "activityId": "practice.case.9.11.planned",
+      "learningUnitId": "lu.9.11",
+      "label": "Energiya xarajati",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "water",
+      "shownAs": "evidence",
+      "activityId": "practice.case.9.14.planned",
+      "learningUnitId": "lu.9.14",
+      "label": "Suv",
+      "source": "locale",
+      "category": "species",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "oxygen",
+      "shownAs": "evidence",
+      "activityId": "practice.case.9.14.planned",
+      "learningUnitId": "lu.9.14",
+      "label": "Kislorod",
+      "source": "locale",
+      "category": "species",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "salt",
+      "shownAs": "evidence",
+      "activityId": "practice.case.9.14.planned",
+      "learningUnitId": "lu.9.14",
+      "label": "Tuz",
+      "source": "locale",
+      "category": "species",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "brine",
+      "shownAs": "evidence",
+      "activityId": "practice.case.9.17.planned",
+      "learningUnitId": "lu.9.17",
+      "label": "Tuzli eritma (namakob)",
+      "source": "locale",
+      "category": "species",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "limestone",
+      "shownAs": "evidence",
+      "activityId": "practice.case.9.17.planned",
+      "learningUnitId": "lu.9.17",
+      "label": "Ohaktosh",
+      "source": "locale",
+      "category": "species",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ammonia",
+      "shownAs": "evidence",
+      "activityId": "practice.case.9.17.planned",
+      "learningUnitId": "lu.9.17",
+      "label": "Ammiak",
+      "source": "locale",
+      "category": "species",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "medium",
+      "shownAs": "field",
+      "activityId": "practice.simulation.9.23.planned",
+      "learningUnitId": "lu.9.23",
+      "label": "Muhit",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "basic",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.9.23.planned",
+      "learningUnitId": "lu.9.23",
+      "label": "Ishqoriy muhit",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "acidic",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.9.23.planned",
+      "learningUnitId": "lu.9.23",
+      "label": "Kislotali muhit",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "neutral",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.9.23.planned",
+      "learningUnitId": "lu.9.23",
+      "label": "Neytral muhit",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "emission",
+      "shownAs": "evidence",
+      "activityId": "practice.case.9.26.planned",
+      "learningUnitId": "lu.9.26",
+      "label": "Chiqindi gazlar",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "wastewater",
+      "shownAs": "evidence",
+      "activityId": "practice.case.9.26.planned",
+      "learningUnitId": "lu.9.26",
+      "label": "Oqova suv",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "scrubber",
+      "shownAs": "evidence",
+      "activityId": "practice.case.9.26.planned",
+      "learningUnitId": "lu.9.26",
+      "label": "Gaz tozalagich (skrubber)",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "elimination",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.06.planned",
+      "learningUnitId": "lu.10.06",
+      "label": "Ajralish (eliminatsiya)",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "addition",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.06.planned",
+      "learningUnitId": "lu.10.06",
+      "label": "Birikish",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "polymerization",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.06.planned",
+      "learningUnitId": "lu.10.06",
+      "label": "Polimerlanish",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "qualitative-complexation",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.06.planned",
+      "learningUnitId": "lu.10.06",
+      "label": "Sifat reaksiyasi (kompleks hosil bo‘lishi)",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "qualitative-redox",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.06.planned",
+      "learningUnitId": "lu.10.06",
+      "label": "Sifat reaksiyasi (oksidlanish-qaytarilish)",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "saponification",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.06.planned",
+      "learningUnitId": "lu.10.06",
+      "label": "Sovunlanish",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "substitution",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.06.planned",
+      "learningUnitId": "lu.10.06",
+      "label": "O‘rin olish",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "2-methylpropane",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.07.planned",
+      "learningUnitId": "lu.10.07",
+      "label": "2-metilpropan",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "benzene",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.07.planned",
+      "learningUnitId": "lu.10.07",
+      "label": "benzol",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "buta-1,3-diene",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.07.planned",
+      "learningUnitId": "lu.10.07",
+      "label": "buta-1,3-dien",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "butane",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.07.planned",
+      "learningUnitId": "lu.10.07",
+      "label": "butan",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ethane",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.07.planned",
+      "learningUnitId": "lu.10.07",
+      "label": "etan",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ethanoic acid",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.07.planned",
+      "learningUnitId": "lu.10.07",
+      "label": "etan kislota",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ethanal",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.07.planned",
+      "learningUnitId": "lu.10.07",
+      "label": "etanal",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ethanol",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.07.planned",
+      "learningUnitId": "lu.10.07",
+      "label": "etanol",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ethene",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.07.planned",
+      "learningUnitId": "lu.10.07",
+      "label": "eten",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ethenylbenzene",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.07.planned",
+      "learningUnitId": "lu.10.07",
+      "label": "etenilbenzol",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ethyl ethanoate",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.07.planned",
+      "learningUnitId": "lu.10.07",
+      "label": "etiletanoat",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ethyne",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.07.planned",
+      "learningUnitId": "lu.10.07",
+      "label": "etin",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "glucose",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.07.planned",
+      "learningUnitId": "lu.10.07",
+      "label": "glyukoza",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "methane",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.07.planned",
+      "learningUnitId": "lu.10.07",
+      "label": "metan",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "methoxymethane",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.07.planned",
+      "learningUnitId": "lu.10.07",
+      "label": "metoksimetan",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "propane",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.07.planned",
+      "learningUnitId": "lu.10.07",
+      "label": "propan",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "propane-1,2,3-triol",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.07.planned",
+      "learningUnitId": "lu.10.07",
+      "label": "propan-1,2,3-triol",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "propanone",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.07.planned",
+      "learningUnitId": "lu.10.07",
+      "label": "propanon",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "cyclohexane",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.07.planned",
+      "learningUnitId": "lu.10.07",
+      "label": "siklogeksan",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "2-methylpropane",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.09.planned",
+      "learningUnitId": "lu.10.09",
+      "label": "2-metilpropan",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "benzene",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.09.planned",
+      "learningUnitId": "lu.10.09",
+      "label": "benzol",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "buta-1,3-diene",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.09.planned",
+      "learningUnitId": "lu.10.09",
+      "label": "buta-1,3-dien",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "butane",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.09.planned",
+      "learningUnitId": "lu.10.09",
+      "label": "butan",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ethane",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.09.planned",
+      "learningUnitId": "lu.10.09",
+      "label": "etan",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ethanoic acid",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.09.planned",
+      "learningUnitId": "lu.10.09",
+      "label": "etan kislota",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ethanal",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.09.planned",
+      "learningUnitId": "lu.10.09",
+      "label": "etanal",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ethanol",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.09.planned",
+      "learningUnitId": "lu.10.09",
+      "label": "etanol",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ethene",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.09.planned",
+      "learningUnitId": "lu.10.09",
+      "label": "eten",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ethenylbenzene",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.09.planned",
+      "learningUnitId": "lu.10.09",
+      "label": "etenilbenzol",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ethyl ethanoate",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.09.planned",
+      "learningUnitId": "lu.10.09",
+      "label": "etiletanoat",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ethyne",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.09.planned",
+      "learningUnitId": "lu.10.09",
+      "label": "etin",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "glucose",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.09.planned",
+      "learningUnitId": "lu.10.09",
+      "label": "glyukoza",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "methane",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.09.planned",
+      "learningUnitId": "lu.10.09",
+      "label": "metan",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "methoxymethane",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.09.planned",
+      "learningUnitId": "lu.10.09",
+      "label": "metoksimetan",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "propane",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.09.planned",
+      "learningUnitId": "lu.10.09",
+      "label": "propan",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "propane-1,2,3-triol",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.09.planned",
+      "learningUnitId": "lu.10.09",
+      "label": "propan-1,2,3-triol",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "propanone",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.09.planned",
+      "learningUnitId": "lu.10.09",
+      "label": "propanon",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "cyclohexane",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.09.planned",
+      "learningUnitId": "lu.10.09",
+      "label": "siklogeksan",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "product",
+      "shownAs": "field",
+      "activityId": "practice.simulation.10.10.planned",
+      "learningUnitId": "lu.10.10",
+      "label": "Mahsulot",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "1,2-dibromoethane",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.10.planned",
+      "learningUnitId": "lu.10.10",
+      "label": "1,2-dibrometan",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "brominated-addition-products",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.10.planned",
+      "learningUnitId": "lu.10.10",
+      "label": "Bromning birikish mahsulotlari",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ethene",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.10.planned",
+      "learningUnitId": "lu.10.10",
+      "label": "Eten",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "glycerol",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.10.planned",
+      "learningUnitId": "lu.10.10",
+      "label": "Glitserin",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "glycerol-copper-complex-bounded-model",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.10.planned",
+      "learningUnitId": "lu.10.10",
+      "label": "Glitserinning mis(II) bilan kompleksi",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "copper-i-oxide-bounded-model",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.10.planned",
+      "learningUnitId": "lu.10.10",
+      "label": "Mis(I) oksid",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "polybutadiene-repeat-unit",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.10.planned",
+      "learningUnitId": "lu.10.10",
+      "label": "Polibutadienning takrorlanuvchi bo‘g‘ini",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "polystyrene-repeat-unit",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.10.planned",
+      "learningUnitId": "lu.10.10",
+      "label": "Polistirolning takrorlanuvchi bo‘g‘ini",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "soap-salts",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.10.planned",
+      "learningUnitId": "lu.10.10",
+      "label": "Sovun (yog‘ kislotalarning tuzlari)",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "water",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.10.planned",
+      "learningUnitId": "lu.10.10",
+      "label": "Suv",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "hydrogen-chloride",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.10.planned",
+      "learningUnitId": "lu.10.10",
+      "label": "Vodorod xlorid",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "chloromethane",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.10.planned",
+      "learningUnitId": "lu.10.10",
+      "label": "Xlormetan",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ringSize",
+      "shownAs": "field",
+      "activityId": "practice.simulation.10.11.planned",
+      "learningUnitId": "lu.10.11",
+      "label": "Halqadagi uglerod atomlari soni",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "product",
+      "shownAs": "field",
+      "activityId": "practice.simulation.10.13.planned",
+      "learningUnitId": "lu.10.13",
+      "label": "Mahsulot",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "1,2-dibromoethane",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.13.planned",
+      "learningUnitId": "lu.10.13",
+      "label": "1,2-dibrometan",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "brominated-addition-products",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.13.planned",
+      "learningUnitId": "lu.10.13",
+      "label": "Bromning birikish mahsulotlari",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ethene",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.13.planned",
+      "learningUnitId": "lu.10.13",
+      "label": "Eten",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "glycerol",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.13.planned",
+      "learningUnitId": "lu.10.13",
+      "label": "Glitserin",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "glycerol-copper-complex-bounded-model",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.13.planned",
+      "learningUnitId": "lu.10.13",
+      "label": "Glitserinning mis(II) bilan kompleksi",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "copper-i-oxide-bounded-model",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.13.planned",
+      "learningUnitId": "lu.10.13",
+      "label": "Mis(I) oksid",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "polybutadiene-repeat-unit",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.13.planned",
+      "learningUnitId": "lu.10.13",
+      "label": "Polibutadienning takrorlanuvchi bo‘g‘ini",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "polystyrene-repeat-unit",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.13.planned",
+      "learningUnitId": "lu.10.13",
+      "label": "Polistirolning takrorlanuvchi bo‘g‘ini",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "soap-salts",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.13.planned",
+      "learningUnitId": "lu.10.13",
+      "label": "Sovun (yog‘ kislotalarning tuzlari)",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "water",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.13.planned",
+      "learningUnitId": "lu.10.13",
+      "label": "Suv",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "hydrogen-chloride",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.13.planned",
+      "learningUnitId": "lu.10.13",
+      "label": "Vodorod xlorid",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "chloromethane",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.13.planned",
+      "learningUnitId": "lu.10.13",
+      "label": "Xlormetan",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "product",
+      "shownAs": "field",
+      "activityId": "practice.simulation.10.14.planned",
+      "learningUnitId": "lu.10.14",
+      "label": "Mahsulot",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "1,2-dibromoethane",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.14.planned",
+      "learningUnitId": "lu.10.14",
+      "label": "1,2-dibrometan",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "brominated-addition-products",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.14.planned",
+      "learningUnitId": "lu.10.14",
+      "label": "Bromning birikish mahsulotlari",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ethene",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.14.planned",
+      "learningUnitId": "lu.10.14",
+      "label": "Eten",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "glycerol",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.14.planned",
+      "learningUnitId": "lu.10.14",
+      "label": "Glitserin",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "glycerol-copper-complex-bounded-model",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.14.planned",
+      "learningUnitId": "lu.10.14",
+      "label": "Glitserinning mis(II) bilan kompleksi",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "copper-i-oxide-bounded-model",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.14.planned",
+      "learningUnitId": "lu.10.14",
+      "label": "Mis(I) oksid",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "polybutadiene-repeat-unit",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.14.planned",
+      "learningUnitId": "lu.10.14",
+      "label": "Polibutadienning takrorlanuvchi bo‘g‘ini",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "polystyrene-repeat-unit",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.14.planned",
+      "learningUnitId": "lu.10.14",
+      "label": "Polistirolning takrorlanuvchi bo‘g‘ini",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "soap-salts",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.14.planned",
+      "learningUnitId": "lu.10.14",
+      "label": "Sovun (yog‘ kislotalarning tuzlari)",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "water",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.14.planned",
+      "learningUnitId": "lu.10.14",
+      "label": "Suv",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "hydrogen-chloride",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.14.planned",
+      "learningUnitId": "lu.10.14",
+      "label": "Vodorod xlorid",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "chloromethane",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.14.planned",
+      "learningUnitId": "lu.10.14",
+      "label": "Xlormetan",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "aromatic",
+      "shownAs": "field",
+      "activityId": "practice.simulation.10.15.planned",
+      "learningUnitId": "lu.10.15",
+      "label": "Modda aromatikmi?",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "true",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.15.planned",
+      "learningUnitId": "lu.10.15",
+      "label": "Ha",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "false",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.15.planned",
+      "learningUnitId": "lu.10.15",
+      "label": "Yo‘q",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "boiling-range",
+      "shownAs": "evidence",
+      "activityId": "practice.case.10.16.planned",
+      "learningUnitId": "lu.10.16",
+      "label": "Qaynash harorati oralig‘i",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "fraction-demand",
+      "shownAs": "evidence",
+      "activityId": "practice.case.10.16.planned",
+      "learningUnitId": "lu.10.16",
+      "label": "Fraksiyalarga talab",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "feedstock",
+      "shownAs": "evidence",
+      "activityId": "practice.case.10.16.planned",
+      "learningUnitId": "lu.10.16",
+      "label": "Xomashyo",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "class",
+      "shownAs": "field",
+      "activityId": "practice.simulation.10.20.planned",
+      "learningUnitId": "lu.10.20",
+      "label": "Birikmalar sinfi",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "aldehyde",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.20.planned",
+      "learningUnitId": "lu.10.20",
+      "label": "Aldegid",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "alkadiene",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.20.planned",
+      "learningUnitId": "lu.10.20",
+      "label": "Alkadien",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "alkane",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.20.planned",
+      "learningUnitId": "lu.10.20",
+      "label": "Alkan",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "alkene",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.20.planned",
+      "learningUnitId": "lu.10.20",
+      "label": "Alken",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "alkyne",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.20.planned",
+      "learningUnitId": "lu.10.20",
+      "label": "Alkin",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "aromatic-alkene",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.20.planned",
+      "learningUnitId": "lu.10.20",
+      "label": "Aromatik alken",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "aromatic-hydrocarbon",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.20.planned",
+      "learningUnitId": "lu.10.20",
+      "label": "Aromatik uglevodorod",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "monohydric-alcohol",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.20.planned",
+      "learningUnitId": "lu.10.20",
+      "label": "Bir atomli spirt",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "carboxylic-acid",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.20.planned",
+      "learningUnitId": "lu.10.20",
+      "label": "Karbon kislota",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ketone",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.20.planned",
+      "learningUnitId": "lu.10.20",
+      "label": "Keton",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "polyhydric-alcohol",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.20.planned",
+      "learningUnitId": "lu.10.20",
+      "label": "Ko‘p atomli spirt",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "monosaccharide",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.20.planned",
+      "learningUnitId": "lu.10.20",
+      "label": "Monosaxarid",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ester",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.20.planned",
+      "learningUnitId": "lu.10.20",
+      "label": "Murakkab efir",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ether",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.20.planned",
+      "learningUnitId": "lu.10.20",
+      "label": "Oddiy efir",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "cycloalkane",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.10.20.planned",
+      "learningUnitId": "lu.10.20",
+      "label": "Sikloalkan",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "configuration",
+      "shownAs": "field",
+      "activityId": "practice.simulation.11.01.planned",
+      "learningUnitId": "lu.11.01",
+      "label": "Elektron konfiguratsiya",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "largerAtomicRadius",
+      "shownAs": "field",
+      "activityId": "practice.simulation.11.02.planned",
+      "learningUnitId": "lu.11.02",
+      "label": "Atom radiusi kattaroq element",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "conserved",
+      "shownAs": "field",
+      "activityId": "practice.simulation.11.03.planned",
+      "learningUnitId": "lu.11.03",
+      "label": "Massa soni va zaryad saqlanadimi?",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "true",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.11.03.planned",
+      "learningUnitId": "lu.11.03",
+      "label": "Ha",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "false",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.11.03.planned",
+      "learningUnitId": "lu.11.03",
+      "label": "Yo‘q",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "lattice",
+      "shownAs": "field",
+      "activityId": "practice.simulation.11.04.planned",
+      "learningUnitId": "lu.11.04",
+      "label": "Kristall panjara turi",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "moles",
+      "shownAs": "step",
+      "activityId": "practice.calculation.11.05.planned",
+      "learningUnitId": "lu.11.05",
+      "label": "Modda miqdori",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "particles",
+      "shownAs": "step",
+      "activityId": "practice.calculation.11.05.planned",
+      "learningUnitId": "lu.11.05",
+      "label": "Zarrachalar soni",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "total-moles",
+      "shownAs": "step",
+      "activityId": "practice.calculation.11.06.planned",
+      "learningUnitId": "lu.11.06",
+      "label": "Umumiy modda miqdori",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "equivalent-mass",
+      "shownAs": "step",
+      "activityId": "practice.calculation.11.07.planned",
+      "learningUnitId": "lu.11.07",
+      "label": "Ekvivalent massa",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "pressure",
+      "shownAs": "step",
+      "activityId": "practice.calculation.11.08.planned",
+      "learningUnitId": "lu.11.08",
+      "label": "Bosim",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "strength",
+      "shownAs": "field",
+      "activityId": "practice.simulation.11.09.planned",
+      "learningUnitId": "lu.11.09",
+      "label": "Elektrolit kuchi",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "solubility",
+      "shownAs": "field",
+      "activityId": "practice.simulation.11.12.planned",
+      "learningUnitId": "lu.11.12",
+      "label": "Eruvchanlik",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "mass-percent",
+      "shownAs": "step",
+      "activityId": "practice.calculation.11.13.planned",
+      "learningUnitId": "lu.11.13",
+      "label": "Massa ulushi",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "normality",
+      "shownAs": "step",
+      "activityId": "practice.calculation.11.14.planned",
+      "learningUnitId": "lu.11.14",
+      "label": "Normal konsentratsiya",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "rate",
+      "shownAs": "field",
+      "activityId": "practice.simulation.11.15.planned",
+      "learningUnitId": "lu.11.15",
+      "label": "Reaksiya tezligi",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "effect",
+      "shownAs": "field",
+      "activityId": "practice.simulation.11.16.planned",
+      "learningUnitId": "lu.11.16",
+      "label": "Reaksiya tezligiga ta’siri",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "decrease",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.11.16.planned",
+      "learningUnitId": "lu.11.16",
+      "label": "Kamayadi",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "increase",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.11.16.planned",
+      "learningUnitId": "lu.11.16",
+      "label": "Ortadi",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "no-change",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.11.16.planned",
+      "learningUnitId": "lu.11.16",
+      "label": "O‘zgarmaydi",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "equilibrium",
+      "shownAs": "field",
+      "activityId": "practice.simulation.11.17.planned",
+      "learningUnitId": "lu.11.17",
+      "label": "Sistema muvozanat holatidami?",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "true",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.11.17.planned",
+      "learningUnitId": "lu.11.17",
+      "label": "Ha",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "false",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.11.17.planned",
+      "learningUnitId": "lu.11.17",
+      "label": "Yo‘q",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "shift",
+      "shownAs": "field",
+      "activityId": "practice.simulation.11.18.planned",
+      "learningUnitId": "lu.11.18",
+      "label": "Muvozanat siljishi",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "products",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.11.18.planned",
+      "learningUnitId": "lu.11.18",
+      "label": "Mahsulotlar tomonga",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "reactants",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.11.18.planned",
+      "learningUnitId": "lu.11.18",
+      "label": "Reaktantlar tomonga",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "no-shift",
+      "shownAs": "answer",
+      "activityId": "practice.simulation.11.18.planned",
+      "learningUnitId": "lu.11.18",
+      "label": "Siljimaydi",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "product",
+      "shownAs": "field",
+      "activityId": "practice.simulation.11.20.planned",
+      "learningUnitId": "lu.11.20",
+      "label": "Mahsulot",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "mass",
+      "shownAs": "step",
+      "activityId": "practice.calculation.11.22.planned",
+      "learningUnitId": "lu.11.22",
+      "label": "Massa",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "hardness",
+      "shownAs": "field",
+      "activityId": "practice.simulation.9.18.water-hardness",
+      "learningUnitId": "lu.9.18",
+      "label": "Qattiqlik turi",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "treatment",
+      "shownAs": "field",
+      "activityId": "practice.simulation.9.18.water-hardness",
+      "learningUnitId": "lu.9.18",
+      "label": "Yumshatish usuli",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "metal",
+      "shownAs": "field",
+      "activityId": "practice.simulation.9.20.cu-ag-au",
+      "learningUnitId": "lu.9.20",
+      "label": "Metall",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "reactivity",
+      "shownAs": "field",
+      "activityId": "practice.simulation.9.20.cu-ag-au",
+      "learningUnitId": "lu.9.20",
+      "label": "Faollik darajasi",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "use",
+      "shownAs": "field",
+      "activityId": "practice.simulation.9.20.cu-ag-au",
+      "learningUnitId": "lu.9.20",
+      "label": "Qo‘llanilishi",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "element",
+      "shownAs": "field",
+      "activityId": "practice.simulation.9.21.group12",
+      "learningUnitId": "lu.9.21",
+      "label": "Element",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "roomState",
+      "shownAs": "field",
+      "activityId": "practice.simulation.9.21.group12",
+      "learningUnitId": "lu.9.21",
+      "label": "Xona haroratidagi agregat holati",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "iron-ore",
+      "shownAs": "evidence",
+      "activityId": "practice.case.9.25.steel-process",
+      "learningUnitId": "lu.9.25",
+      "label": "Temir rudasi",
+      "source": "locale",
+      "category": "species",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "coke",
+      "shownAs": "evidence",
+      "activityId": "practice.case.9.25.steel-process",
+      "learningUnitId": "lu.9.25",
+      "label": "Koks",
+      "source": "locale",
+      "category": "species",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "carbon-content",
+      "shownAs": "evidence",
+      "activityId": "practice.case.9.25.steel-process",
+      "learningUnitId": "lu.9.25",
+      "label": "Uglerod miqdori",
+      "source": "locale",
+      "category": "concept",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "functionalGroup",
+      "shownAs": "field",
+      "activityId": "practice.simulation.10.17.monohydric-alcohols",
+      "learningUnitId": "lu.10.17",
+      "label": "Funksional guruh",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "class",
+      "shownAs": "field",
+      "activityId": "practice.simulation.10.17.monohydric-alcohols",
+      "learningUnitId": "lu.10.17",
+      "label": "Birikmalar sinfi",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "ohAttachedTo",
+      "shownAs": "field",
+      "activityId": "practice.simulation.10.19.phenols",
+      "learningUnitId": "lu.10.19",
+      "label": "OH guruhi birikkan qism",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "class",
+      "shownAs": "field",
+      "activityId": "practice.simulation.10.19.phenols",
+      "learningUnitId": "lu.10.19",
+      "label": "Birikmalar sinfi",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "carbonylPosition",
+      "shownAs": "field",
+      "activityId": "practice.simulation.10.21.carbonyls",
+      "learningUnitId": "lu.10.21",
+      "label": "Karbonil guruhning o‘rni",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "class",
+      "shownAs": "field",
+      "activityId": "practice.simulation.10.21.carbonyls",
+      "learningUnitId": "lu.10.21",
+      "label": "Birikmalar sinfi",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "selectAceticAcid",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.22.carboxylic-acid",
+      "learningUnitId": "lu.10.22",
+      "label": "Sirka kislotasi namunasini tanlang",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "addIndicator",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.22.carboxylic-acid",
+      "learningUnitId": "lu.10.22",
+      "label": "Indikator qo‘shing",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "addCarbonate",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.22.carboxylic-acid",
+      "learningUnitId": "lu.10.22",
+      "label": "Karbonat qo‘shing",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "record",
+      "shownAs": "action",
+      "activityId": "practice.experiment.10.22.carboxylic-acid",
+      "learningUnitId": "lu.10.22",
+      "label": "Kuzatuvni yozing",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "functionalGroup",
+      "shownAs": "field",
+      "activityId": "practice.simulation.10.23.esters",
+      "learningUnitId": "lu.10.23",
+      "label": "Funksional guruh",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "formula",
+      "shownAs": "field",
+      "activityId": "practice.simulation.10.02.structure-theory",
+      "learningUnitId": "lu.10.02",
+      "label": "Formula",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "isomerCount",
+      "shownAs": "field",
+      "activityId": "practice.simulation.10.04.isomerism",
+      "learningUnitId": "lu.10.04",
+      "label": "Izomerlar soni",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "formula",
+      "shownAs": "field",
+      "activityId": "practice.simulation.10.08.homologous-series",
+      "learningUnitId": "lu.10.08",
+      "label": "Formula",
+      "source": "locale",
+      "category": "internal config key",
+      "rawIdLearnerFacing": false
+    }
+  ]
+}

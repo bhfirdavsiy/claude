@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-09-30T12:31:08.719Z",
+  "createdAt": "2026-09-30T13:09:09.343Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -17,8 +17,8 @@
     {
       "path": "app-preview/app/content-client.js",
       "sourcePath": "public/app-preview/app/content-client.js",
-      "checksum": "b12cfcafabf4cc645fa38c76dff135a9f23508e35a324ae6ae82d78911526ebb",
-      "size": 21242
+      "checksum": "392e33371a09799259c675d700f588b27770fb349b0ef814ba0ac4c62f0c5b9a",
+      "size": 21693
     },
     {
       "path": "app-preview/app/routes.js",
@@ -83,8 +83,8 @@
     {
       "path": "app-preview/domain/chemistry/equilibrium-model.js",
       "sourcePath": "public/app-preview/domain/chemistry/equilibrium-model.js",
-      "checksum": "6b0324697273e8b316a11921300d55f0e59610fdf6b21673caa135b2026b34af",
-      "size": 1098
+      "checksum": "f10fbb009a90d3ed6148547c750d507501c7d6367006714ec4587bbd091f755f",
+      "size": 1265
     },
     {
       "path": "app-preview/domain/chemistry/faraday-model.js",
@@ -143,14 +143,14 @@
     {
       "path": "app-preview/domain/chemistry/kinetics-model.js",
       "sourcePath": "public/app-preview/domain/chemistry/kinetics-model.js",
-      "checksum": "78b51ad157f1db506135b518314ea7537a14a1e3890b6ccc9499b31c45a42dde",
-      "size": 1361
+      "checksum": "69b408daadb507436d72914e33c04a00c54431b6dab6a2f881066db7dcda8ff7",
+      "size": 1525
     },
     {
       "path": "app-preview/domain/chemistry/manganese-redox-model.js",
       "sourcePath": "public/app-preview/domain/chemistry/manganese-redox-model.js",
-      "checksum": "c7ad39f649b12b00cc79cffff98f1ed116a6c2f322c0ec93092fe901126dd8d8",
-      "size": 1034
+      "checksum": "a3c8b3704aa7bc20842a8d85de343a601e9feaf7d4360365257620bad080f7a8",
+      "size": 1219
     },
     {
       "path": "app-preview/domain/chemistry/nuclear-equation.js",
@@ -401,8 +401,20 @@
     {
       "path": "app-preview/features/localization/element-names.js",
       "sourcePath": "public/app-preview/features/localization/element-names.js",
-      "checksum": "a6b46367f7df67c2d29e2cda9bce5da5b0af81f17c21e964be626f8d806e9814",
-      "size": 4339
+      "checksum": "fb60d021c5fba5a2b7d2bb0b519f47dee8a2107cb56a8eb0d9ca2e3061d357ec",
+      "size": 7252
+    },
+    {
+      "path": "app-preview/features/practice/answer-domain.js",
+      "sourcePath": "public/app-preview/features/practice/answer-domain.js",
+      "checksum": "f770f267b9b6b4b89bab24da05c9c7cdef468bd333db81fb0b2bf73f66fe0727",
+      "size": 4198
+    },
+    {
+      "path": "app-preview/features/practice/form-question.js",
+      "sourcePath": "public/app-preview/features/practice/form-question.js",
+      "checksum": "a2cb7b4fc7a41bd0867540224379be38209bd956e1e9bd73a4e57d5fccf74a09",
+      "size": 4466
     },
     {
       "path": "app-preview/features/practice/host.js",
@@ -413,14 +425,14 @@
     {
       "path": "app-preview/features/practice/model.js",
       "sourcePath": "public/app-preview/features/practice/model.js",
-      "checksum": "a66dd105d094a4c6142c3feeace2a6565663dfd0ba78ec8cb40607134a2d7329",
-      "size": 4800
+      "checksum": "7dca7ca3b6fcf05067900e7f554e8e474a2e4aea998d46fe6c4dd677986bbcc1",
+      "size": 4963
     },
     {
       "path": "app-preview/features/practice/render.js",
       "sourcePath": "public/app-preview/features/practice/render.js",
-      "checksum": "e2dd2a94339bc81d74d52878aa6c932c50d755a0cb5efcc4df81b54577102246",
-      "size": 10204
+      "checksum": "64cb4da2cc7dc4866aa37ef8b90b5f3e9160291c37f5c7888b032083c344a222",
+      "size": 12727
     },
     {
       "path": "app-preview/features/practice/session.js",
@@ -431,8 +443,8 @@
     {
       "path": "app-preview/features/practice/ui-model.js",
       "sourcePath": "public/app-preview/features/practice/ui-model.js",
-      "checksum": "53dd245eeaa0cf8a7534848a9c4a4c01f03d6344157abd361ab1b0cd29e4904d",
-      "size": 5089
+      "checksum": "5cd13fe6484f22ddb83caceece8cabe0062d2f77e26032bcf4077a9745b6f603",
+      "size": 6014
     },
     {
       "path": "app-preview/features/progress/liveness.js",
@@ -629,8 +641,8 @@
     {
       "path": "app-preview/runtime/beta2/advanced.js",
       "sourcePath": "public/app-preview/runtime/beta2/advanced.js",
-      "checksum": "5cc28e1963080616c205be2191efaad881c642c7fc43d3d0fdc9f08007c52c5e",
-      "size": 8786
+      "checksum": "61b07bd8c6c5239124f0446d65c1c216b90cc55edbc55aee708a51fecfb487ce",
+      "size": 9344
     },
     {
       "path": "app-preview/runtime/beta2/capability.js",
@@ -891,6 +903,12 @@
       "size": 1004
     },
     {
+      "path": "app-preview/runtime/shared/learner-input.js",
+      "sourcePath": "public/app-preview/runtime/shared/learner-input.js",
+      "checksum": "f75b68352c9ec50d7c1bf5661a0c8ae4f57c27f61cbdbe95a0d4c3161b8e5036",
+      "size": 1986
+    },
+    {
       "path": "app-preview/ui/components/dom.js",
       "sourcePath": "public/app-preview/ui/components/dom.js",
       "checksum": "73bf57f5ac6e95824abd6a5f2d0af28bfe0d3561e78fd27cf79b7590b1a5dffb",
@@ -899,8 +917,8 @@
     {
       "path": "app-preview/ui/tokens/kimyolab.css",
       "sourcePath": "public/app-preview/ui/tokens/kimyolab.css",
-      "checksum": "be36db04e54517bb1538f0352ec5b6ed4a5bd5c411d2e93722d1cbc8dd5bfc46",
-      "size": 28445
+      "checksum": "a62bbb9b2079defc5dc1035fd628a11bdb411eb8cb2f202890f70c6b4aee42aa",
+      "size": 29120
     },
     {
       "path": "assets/home/results.png",
@@ -1155,6 +1173,12 @@
       "size": 955
     },
     {
+      "path": "content/2026.09.1/locales/uz-latn/learner-interaction.json",
+      "sourcePath": "public/content/2026.09.1/locales/uz-latn/learner-interaction.json",
+      "checksum": "4877351325c9e141f83e808c7246aa35d73192a2e6ea7e4a6ec62e8fabccbc8f",
+      "size": 12315
+    },
+    {
       "path": "content/2026.09.1/locales/uz-latn/name-provenance.json",
       "sourcePath": "public/content/2026.09.1/locales/uz-latn/name-provenance.json",
       "checksum": "724dd064c9c229750e19d26bf9c7bc4490fb8ede30cef727f88156edc28f6fc0",
@@ -1163,8 +1187,8 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "96f3190c1a5c2494be3d9f0daec5e588edc1704c8d97f134d80ef30db0ae2965",
-      "size": 7516
+      "checksum": "d672675ab2107f28da02af211b8eb5a6204c084736bf6666c808e432b7e7b5a2",
+      "size": 7693
     },
     {
       "path": "content/2026.09.1/mapping-links.json",
@@ -1187,7 +1211,7 @@
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "79896949ad58467bc9d7bc5f9692f0d9964accef18a21e666d266f55529012c7",
+      "checksum": "5f52759dda1315fee527635189b94c9c800449d2c7c4d0b09f3e9df39c7ba915",
       "size": 158
     },
     {

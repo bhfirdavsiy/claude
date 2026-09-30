@@ -103,17 +103,21 @@ test('classification: form checks are STATIC_CHECK, procedural clicks are not GU
   assert.ok(ready.filter(a=>a.depth==='STATIC_CHECK').length>ready.length/2);
 });
 
-test('CAN_SUCCEED through the real UI path; a crash on unexpected input is reported (not hidden, not fixed here)',()=>{
+test('CAN_SUCCEED through the real UI path; a crash on unexpected input is reported (not hidden)',()=>{
   const b=reports.baseline;
   const launchable=b.activities.filter(a=>a.canSucceed!=='NOT_LAUNCHABLE');
   assert.equal(launchable.length,145); assert.ok(launchable.every(a=>a.canSucceed==='CAN_SUCCEED'));
   assert.deepEqual(b.activities.filter(a=>a.canSucceed==='NOT_LAUNCHABLE').map(a=>a.activityId),['practice.simulation.10.4']);
   assert.ok(['config','engine-expected','renderer-intents'].includes(launchable[0].answerSource));
+  // P2.1 changed this assertion: P2.0 recorded the 9.23 crash (THROWS MANGANESE_MEDIUM_NOT_MODELED) and asserted it was
+  // reported, not fixed. P2.1 fixed it (LEARNER_INPUT_INVALID outcome, tests/p2-1-learner-interaction.test.mjs), so the
+  // same probe now finds no crash and the foundation check passes; the check itself and its wiring are unchanged.
   const crash=b.activities.filter(a=>String(a.wrongInput).startsWith('THROWS'));
-  assert.deepEqual(crash.map(a=>a.activityId),['practice.simulation.9.23.planned']);
+  assert.deepEqual(crash.map(a=>a.activityId),[]);
   const check=reports.progress.foundationProgress.checks.find(c=>c.id==='no-crash-on-wrong-input');
-  assert.equal(check.pass,false,'the finding lowers foundation progress instead of being hidden');
-  assert.ok(reports.workPackages.packages.find(p=>p.id==='wp.lab-repair').facts.crashOnWrongInput.includes('practice.simulation.9.23.planned'));
+  assert.equal(check.pass,true,'the probe still runs; a new crash would fail this check');
+  assert.deepEqual(reports.workPackages.packages.find(p=>p.id==='wp.lab-repair').facts.crashOnWrongInput,[]);
+  assert.equal(b.activities.find(a=>a.activityId==='practice.simulation.9.23.planned').wrongInput,'FEEDBACK');
 });
 
 // ------------------------------------------------------------------ theory / assessment / mastery
@@ -156,8 +160,12 @@ test('labs, accessibility and localization are measured, not assumed',()=>{
   assert.equal(legacy.length,141); assert.ok(legacy.every(a=>a.accessibility.keyboard==='UNKNOWN'),'legacy accessibility is never assumed PASS');
   assert.equal(b.accessibility.keyboard.verified,4);
   assert.deepEqual(b.localization.learningUnitTitles,{'uz-Latn':122,'uz-Cyrl':0,ru:0});
-  assert.ok(b.localization.rawIdLabels.activities>0&&b.localization.untranslatedAnswerTokens.activities>0);
-  assert.ok(b.activities.find(a=>a.activityId==='practice.calculation.11.05.planned').localization.rawIdLabels.includes('moles'));
+  // P2.1 changed this assertion: P2.0 measured raw-id labels (e.g. "moles" on 11.05) and typed internal tokens as a
+  // gap. P2.1 replaced the labels with the learner-interaction catalog and closed domains with choices: raw-id labels
+  // are now 0; the remaining typed tokens are the fields without an option set (OPTION_SET_MISSING), still > 0.
+  assert.equal(b.localization.rawIdLabels.activities,0);
+  assert.ok(b.localization.untranslatedAnswerTokens.activities>0,'the remaining OPTION_SET_MISSING fields stay measured');
+  assert.deepEqual(b.activities.find(a=>a.activityId==='practice.calculation.11.05.planned').localization.rawIdLabels,[]);
 });
 
 // ------------------------------------------------------------------ governance vs provenance vs learning

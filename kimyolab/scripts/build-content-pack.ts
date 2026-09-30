@@ -8,7 +8,7 @@ import { ASSESSMENT_KEY_PACK_PATH, ASSESSMENT_PROMPT_PACK_PATH, splitAssessmentB
 import { deriveItemLifecycle } from '../src/domain/assessment/governance.ts';
 import { READINESS_PACK_PATH } from '../src/domain/readiness/readiness.ts';
 import { compileReadiness } from './lib/readiness-compile.ts';
-import { parseElementNameCatalog, parseSpeciesNameCatalog } from '../src/features/localization/element-names.ts';
+import { parseElementNameCatalog, parseInteractionCatalog, parseSpeciesNameCatalog } from '../src/features/localization/element-names.ts';
 import { readReleasePointer, writeReleasePointerAtomic } from './release-pointer-io.ts';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -130,6 +130,10 @@ if (fs.existsSync(localeSource)) {
       if (entry.name === 'chemistry-elements.json') {
         const catalog = parseElementNameCatalog(JSON.parse(fs.readFileSync(from, 'utf8')));
         if (catalog.locale.toLowerCase() !== locale.name) throw new Error(`ELEMENT_NAMES_INVALID:locale:${catalog.locale}`);
+      }
+      if (entry.name === 'learner-interaction.json') {
+        const catalog = parseInteractionCatalog(JSON.parse(fs.readFileSync(from, 'utf8')));
+        if (catalog.locale.toLowerCase() !== locale.name) throw new Error(`INTERACTION_TEXT_INVALID:locale:${catalog.locale}`);
       }
       if (entry.name === 'chemistry-species.json') {
         const catalog = parseSpeciesNameCatalog(JSON.parse(fs.readFileSync(from, 'utf8')));

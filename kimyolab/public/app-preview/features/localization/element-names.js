@@ -50,13 +50,39 @@ export function parseSpeciesNameCatalog(raw        )                   {
   return Object.freeze({locale:r.locale,names:Object.freeze(names)});
 }
 
+// ------------------------------------------------------------------ P2.1: learner-interaction text
+
+export const INTERACTION_SCHEMA='kimyolab.locale.learner-interaction.v1';
+export const interactionPackPath=(locale       )=>`locales/${locale.toLowerCase()}/learner-interaction.json`;
+/** Namespaces of learner-interaction keys: shared UI strings, field/step/evidence/action labels, answer-choice labels. */
+export const INTERACTION_KEY=/^(ui|field|step|evidence|action|answer)\.\S(?:.*\S)?$/;
+/** The shared interaction strings every legacy practice page needs; the build refuses a catalog without them. */
+export const REQUIRED_UI_KEYS=['ui.submit','ui.apply','ui.retry','ui.choose','ui.correct','ui.incorrect','ui.observation','ui.continue','ui.not-modeled','ui.input-invalid','ui.complete','ui.error','ui.save-failed','ui.answer','ui.formula','ui.model','ui.exercise','ui.formula-trainer','ui.next','ui.do','ui.done','ui.step-fallback','ui.evidence-fallback','ui.option-fallback','ui.empty','ui.formula-prompt','ui.hint-fallback','ui.case-title','ui.case-legend','ui.case-decision','ui.case-justification','ui.case-reflection','ui.case-submit','ui.lab-stage','ui.lab-title','ui.lab-start','ui.lab-steps','ui.lab-equipment','ui.lab-materials','ui.lab-safety','ui.net-ionic','ui.obs-done','ui.obs-recorded','ui.obs-precipitate','ui.obs-precipitate-color','ui.obs-gas','ui.obs-color','ui.obs-heat-up','ui.obs-heat','ui.obs-none','ui.obs-state','ui.obs-generic','ui.back','ui.kicker','ui.calculation']         ;
+                                                                                             
+
+/** Display text only: a label never carries a canonical token's meaning into the domain (presentation maps back). */
+export function parseInteractionCatalog(raw        )                   {
+  const r=raw                                                     ;
+  if(!r||r.schema!==INTERACTION_SCHEMA||typeof r.locale!=='string'||!r.locale) throw new Error('INTERACTION_TEXT_INVALID:schema');
+  if(!r.labels||typeof r.labels!=='object'||Array.isArray(r.labels)) throw new Error('INTERACTION_TEXT_INVALID:labels');
+  const labels                      ={};
+  for(const [key,text] of Object.entries(r.labels                          )){
+    if(!INTERACTION_KEY.test(key)) throw new Error(`INTERACTION_TEXT_INVALID:key:${key}`);
+    if(typeof text!=='string'||!text.trim()) throw new Error(`INTERACTION_TEXT_INVALID:text:${key}`);
+    labels[key]=text;
+  }
+  for(const key of REQUIRED_UI_KEYS) if(!Object.prototype.hasOwnProperty.call(labels,key)) throw new Error(`INTERACTION_TEXT_INVALID:missing:${key}`);
+  return Object.freeze({locale:r.locale,labels:Object.freeze(labels)});
+}
+
 /** A localization key → display text, or null when there is none (the caller then shows the formula/symbol).
- *  Keys: `element.<Symbol>` (element names) and species `nameKey`s (`species.<id>.name`). */
+ *  Keys: `element.<Symbol>` (element names), species `nameKey`s (`species.<id>.name`) and (P2.1) learner-interaction
+ *  keys (`ui.*`, `field.*`, `step.*`, `evidence.*`, `action.*`, `answer.<domain>.<value>`). */
                                                
-export function createLocalizer(catalogs                                                                              )         {
-  const el=catalogs?.elementNames?.names??{}, sp=catalogs?.speciesNames?.names??{};
+export function createLocalizer(catalogs                                                                                                              )         {
+  const el=catalogs?.elementNames?.names??{}, sp=catalogs?.speciesNames?.names??{}, ix=catalogs?.interaction?.labels??{};
   const own=(o                                ,k       )=>Object.prototype.hasOwnProperty.call(o,k)?o[k] :null;
-  return (key)=>key.startsWith('element.')?own(el,key.slice('element.'.length)):own(sp,key);
+  return (key)=>key.startsWith('element.')?own(el,key.slice('element.'.length)):key.startsWith('species.')?own(sp,key):own(ix,key);
 }
 
 export function elementNameMapper(catalog                             )                  {
