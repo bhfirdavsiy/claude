@@ -14,11 +14,13 @@ export function readJson(root:string,rel:string){return JSON.parse(fs.readFileSy
 const DEMAND_CHECKLIST=['Kimyoviy jihatdan to‘g‘ri javob faqat bitta','Distraktorlar kimyoviy jihatdan noto‘g‘ri, lekin mantiqli','Terminlar o‘quv dasturiga mos','Formula/belgilar to‘g‘ri yozilgan'];
 const LANGUAGE_CHECKLIST=['Savol o‘zbek tilida aniq va bir ma’noli','Variantlar uzunligi va uslubi bir xil','To‘g‘ri javobga ishora (clue) yo‘q','Izoh o‘quvchi uchun tushunarli'];
 
-export function renderPacket(item:any,unit:any,itemHash:string):string{
+export function renderPacket(item:any,unit:any,itemHash:string,conceptName:(id:string)=>string=(id)=>id):string{
   const outcome=(id:string)=>{const m=/#o([0-9]+)$/.exec(id);return m?unit?.learningOutcomes?.[Number(m[1])-1]??'(topilmadi)':'(noto‘g‘ri id)';};
+  const distractors=item.options.filter((o:any)=>o.id!==item.correctOptionId);
   const lines=[
     `# Assessment review packet — ${item.id}`,'',
-    '> Faqat reviewer uchun. To‘g‘ri javob shu hujjatda ko‘rinadi — o‘quvchi pack’i bilan aralashtirmang.','',
+    '> Faqat reviewer uchun. To‘g‘ri javob shu hujjatda ko‘rinadi — o‘quvchi pack’i bilan aralashtirmang.',
+    '> Bu paket **approval emas**: u faqat qaror qabul qilish uchun ko‘rinish. Qaror register orqali import qilinadi.','',
     '| Maydon | Qiymat |','|---|---|',
     `| itemId | \`${item.id}\` |`,
     `| LearningUnit | \`${item.learningUnitId}\` — ${unit?.title??'?'} |`,
@@ -30,15 +32,25 @@ export function renderPacket(item:any,unit:any,itemHash:string):string{
     ...item.options.map((o:any)=>`- **${o.id}.** ${o.text}${o.id===item.correctOptionId?'  ← to‘g‘ri javob':''}`),'',
     `**To‘g‘ri javob:** ${item.correctOptionId}`,'',`**Izoh:** ${item.explanation}`,'',
     '## Bog‘lanishlar','',
-    `- Konseptlar: ${item.conceptIds.map((c:string)=>`\`${c}\``).join(', ')}`,
-    `- Taklif qilingan outcome: ${(item.outcomeIds??[]).map((o:string)=>`\`${o}\` — “${outcome(o)}”`).join('; ')||'yo‘q'}`,'',
+    `- Konseptlar: ${item.conceptIds.map((c:string)=>`\`${c}\` (${conceptName(c)})`).join(', ')}`,
+    `- Taklif qilingan outcome: ${(item.outcomeIds??[]).map((o:string)=>`\`${o}\` — “${outcome(o)}”`).join('; ')||'yo‘q'}`,
+    '- Konsept va outcome bog‘lanishi agent/muallif **taklifi**: didactic reviewer `outcomeDecision` bilan tasdiqlaydi yoki rad etadi.','',
     '## Reviewer to‘ldiradi','',
+    '### Kimyoviy aniqlik (chemistry reviewer)','',...DEMAND_CHECKLIST.map(c=>`- [ ] ${c}`),'',
+    '### Didaktik maqsad (didactic reviewer)','',
     '- Cognitive demand (eslash / tushunish / qo‘llash / tahlil): ____',
     '- Maqsad qilingan misconception: ____',
-    '- Outcome bog‘lanishi to‘g‘rimi? (ha / yo‘q, izoh): ____','',
-    '### Kimyoviy to‘g‘rilik (chemistry reviewer)','',...DEMAND_CHECKLIST.map(c=>`- [ ] ${c}`),'',
+    '- Outcome bog‘lanishi to‘g‘rimi? (confirm / reject / change_required, izoh): ____','',
+    '### Qiyinchilik','',
+    '- [ ] oson   - [ ] o‘rta   - [ ] qiyin   — izoh: ____','',
+    '### Chalg‘ituvchi variantlar sifati','',
+    '| Variant | Matn | Mantiqli, lekin kimyoviy noto‘g‘ri? | Izoh |','|---|---|---|---|',
+    ...distractors.map((o:any)=>`| ${o.id} | ${o.text} | ha / yo‘q | |`),'',
     '### Til va didaktika (didactic reviewer)','',...LANGUAGE_CHECKLIST.map(c=>`- [ ] ${c}`),'',
     '## Qaror','',
+    '| Rol | Reviewer decision | outcomeDecision | Reviewer (shaxs) | Sana | Reviewer comment |','|---|---|---|---|---|---|',
+    '| chemistry | approved / rejected / changes_requested | — | | | |',
+    '| didactic | approved / rejected / changes_requested | confirm / reject / change_required | | | |','',
     'Qaror `review-register.template.json` nusxasida yoziladi (rol bo‘yicha alohida qator):',
     '`decision` (approved | rejected | changes_requested), `reviewerId` (shaxs, avtomatlashtirish emas), `reviewedAt` (ISO), `comment`.',
     'Didactic reviewer qo‘shimcha ravishda `outcomeDecision` (confirm | reject | change_required) yozadi — outcome bog‘lanishi faqat taklif.',
@@ -51,6 +63,8 @@ export function renderPacket(item:any,unit:any,itemHash:string):string{
 export function buildPackets(root:string){
   const bank=readJson(root,'content-src/assessment-items.json');
   const units=readJson(root,'content-src/learning-units.json');
+  const conceptsRaw=readJson(root,'content-src/concepts.json');
+  const conceptById=new Map((Array.isArray(conceptsRaw)?conceptsRaw:conceptsRaw.concepts??[]).map((c:any)=>[c.id,c.name]));
   const dir=path.join(root,PACKET_DIR);
   fs.mkdirSync(dir,{recursive:true});
   const rows:any[]=[];
@@ -59,7 +73,7 @@ export function buildPackets(root:string){
     const unit=units.find((u:any)=>u.id===item.learningUnitId);
     const hash=assessmentItemHash(item);
     const rel=`${PACKET_DIR}/${item.id}.md`;
-    const body=renderPacket(item,unit,hash);
+    const body=renderPacket(item,unit,hash,(id)=>String(conceptById.get(id)??'nomi topilmadi'));
     fs.writeFileSync(path.join(root,rel),body,'utf8');
     for(const role of REVIEW_ROLES) rows.push({itemId:item.id,role,decision:null,reviewerId:null,reviewerRole:role,reviewedAt:null,itemHash:hash,itemVersion:item.version,evidence:{packet:rel,packetSha256:sha256(body)},...(role==='didactic'?{outcomeDecision:null}:{}),comment:''});
   }

@@ -1,0 +1,720 @@
+{
+  "schema": "kimyolab.pilot-acceptance.v1",
+  "semantics": "technical = machine checks only; finalPilotStatus combines them with human decisions. PILOT_READY requires a person's sign-off on the current basisHash — machine checks alone never produce it.",
+  "gate": "PENDING",
+  "pilotLearningUnitIds": [
+    "lu.9.15",
+    "lu.7.11",
+    "lu.7.12",
+    "lu.7.07"
+  ],
+  "counts": {
+    "PILOT_BLOCKED": 0,
+    "CONTENT_REVIEW_PENDING": 4,
+    "SIGNOFF_PENDING": 0,
+    "PILOT_READY": 0
+  },
+  "signoffRecords": 0,
+  "rows": [
+    {
+      "learningUnitId": "lu.9.15",
+      "title": "Elektroliz va uning amaliy ahamiyati",
+      "grade": 9,
+      "pilotReason": "Only unit with objective assessment items (5, review pending) and a released beta2-advanced electrolysis experiment; exercises the pending-assessment fallback and the approved-assessment path.",
+      "goldenSlice": "assessment",
+      "primaryPractice": "practice.experiment.9.10",
+      "summary": {
+        "route": {
+          "verdict": "PASS",
+          "detail": "practice.experiment.9.10 → experiment/beta2-advanced via beta2-advanced"
+        },
+        "runtimeReadiness": {
+          "verdict": "PASS",
+          "detail": "runtime READY, enforcement strict"
+        },
+        "chemistryModel": {
+          "verdict": "PENDING",
+          "detail": "electrolysis model resolves CuCl2(aq, inert): cathode Cu, anode Cl2 (1 modeled electrolyte(s)) | chemistry review of the activity and of the electrolysis model record (reviewStatus pending)"
+        },
+        "conceptMapping": {
+          "verdict": "PASS",
+          "detail": "practice concept concept.c185 is one of the 5 mapped unit concepts"
+        },
+        "outcomeMapping": {
+          "verdict": "PENDING",
+          "detail": "5 items: outcome + concept mapping, key and explanation valid | outcome mapping decisions: pending×5 (the proposed mapping is not final until a didactic reviewer confirms it)"
+        },
+        "assessmentAvailability": {
+          "verdict": "PENDING",
+          "detail": "PENDING"
+        },
+        "assessmentApproval": {
+          "verdict": "PENDING",
+          "detail": "0/5 items APPROVED by two independent reviewers on the current hash; availability PENDING | 0 review record(s), none stale"
+        },
+        "practiceE2E": {
+          "verdict": "PASS",
+          "detail": "browser command path (3 command(s)): complete=true, evidence=5, invalid=0, outside-unit=0 | tests/e2e/pilot-practice.spec.mjs"
+        },
+        "masteryUX": {
+          "verdict": "PASS",
+          "detail": "pilot unit with a launchable primary practice shows the mastery band | assessment PENDING: best possible band DEVELOPING (MASTERED unreachable without an approved assessment) | tests/e2e/assessment-runtime.spec.mjs, tests/e2e/pilot-learning.spec.mjs, tests/e2e/pilot-practice.spec.mjs"
+        },
+        "accessibility": {
+          "verdict": "PASS",
+          "detail": "declared: keyboard, step-alternative, observation-text; labels, text state, keyboard controls (human accessibility review is part of content.activity-review)"
+        },
+        "versionCompatibility": {
+          "verdict": "PASS",
+          "detail": "config 1.0.0 vs engine range ^1.0.0; activity 2026.09.1 vs pack 2026.09.1; readiness kimyolab.activity-readiness.v2"
+        }
+      },
+      "technical": "TECHNICAL_PASS",
+      "dimensions": {
+        "technical": "PASS",
+        "content": "PENDING",
+        "assessment": "PENDING",
+        "mastery": "PASS",
+        "ux": "PASS"
+      },
+      "signoff": "NONE",
+      "finalPilotStatus": "CONTENT_REVIEW_PENDING",
+      "blockers": [],
+      "pendingHuman": [
+        "content.activity-review: human review of practice.experiment.9.10: REVIEW_PENDING (technical, didactic, accessibility, chemistry pending)",
+        "content.chemistry-review: chemistry review of the activity and of the electrolysis model record (reviewStatus pending)",
+        "assessment.dual-review: 0/5 items APPROVED by two independent reviewers on the current hash; availability PENDING",
+        "assessment.outcome-review: outcome mapping decisions: pending×5 (the proposed mapping is not final until a didactic reviewer confirms it)"
+      ],
+      "basisHash": "82ee1264ffb5a973ea716f2c7333a7ff2abc2ab0259662411cf5c5abbeb257a6",
+      "checks": [
+        {
+          "id": "assessment.dual-review",
+          "dimension": "assessment",
+          "kind": "human",
+          "verdict": "PENDING",
+          "detail": "0/5 items APPROVED by two independent reviewers on the current hash; availability PENDING"
+        },
+        {
+          "id": "assessment.item-integrity",
+          "dimension": "assessment",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "5 items: outcome + concept mapping, key and explanation valid"
+        },
+        {
+          "id": "assessment.outcome-review",
+          "dimension": "assessment",
+          "kind": "human",
+          "verdict": "PENDING",
+          "detail": "outcome mapping decisions: pending×5 (the proposed mapping is not final until a didactic reviewer confirms it)"
+        },
+        {
+          "id": "assessment.stale-reviews",
+          "dimension": "assessment",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "0 review record(s), none stale"
+        },
+        {
+          "id": "content.activity-review",
+          "dimension": "content",
+          "kind": "human",
+          "verdict": "PENDING",
+          "detail": "human review of practice.experiment.9.10: REVIEW_PENDING (technical, didactic, accessibility, chemistry pending)"
+        },
+        {
+          "id": "content.chemistry-review",
+          "dimension": "content",
+          "kind": "human",
+          "verdict": "PENDING",
+          "detail": "chemistry review of the activity and of the electrolysis model record (reviewStatus pending)"
+        },
+        {
+          "id": "mastery.eligible",
+          "dimension": "mastery",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "pilot unit with a launchable primary practice shows the mastery band"
+        },
+        {
+          "id": "mastery.no-false-mastery",
+          "dimension": "mastery",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "assessment PENDING: best possible band DEVELOPING (MASTERED unreachable without an approved assessment)"
+        },
+        {
+          "id": "technical.chemistry-model",
+          "dimension": "technical",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "electrolysis model resolves CuCl2(aq, inert): cathode Cu, anode Cl2 (1 modeled electrolyte(s))"
+        },
+        {
+          "id": "technical.concept-mapping",
+          "dimension": "technical",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "practice concept concept.c185 is one of the 5 mapped unit concepts"
+        },
+        {
+          "id": "technical.practice-headless",
+          "dimension": "technical",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "browser command path (3 command(s)): complete=true, evidence=5, invalid=0, outside-unit=0"
+        },
+        {
+          "id": "technical.route",
+          "dimension": "technical",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "practice.experiment.9.10 → experiment/beta2-advanced via beta2-advanced"
+        },
+        {
+          "id": "technical.runtime-readiness",
+          "dimension": "technical",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "runtime READY, enforcement strict"
+        },
+        {
+          "id": "technical.version-compatibility",
+          "dimension": "technical",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "config 1.0.0 vs engine range ^1.0.0; activity 2026.09.1 vs pack 2026.09.1; readiness kimyolab.activity-readiness.v2"
+        },
+        {
+          "id": "ux.accessibility-profile",
+          "dimension": "ux",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "declared: keyboard, step-alternative, observation-text; labels, text state, keyboard controls (human accessibility review is part of content.activity-review)"
+        },
+        {
+          "id": "ux.mastery-e2e",
+          "dimension": "ux",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "tests/e2e/assessment-runtime.spec.mjs, tests/e2e/pilot-learning.spec.mjs, tests/e2e/pilot-practice.spec.mjs"
+        },
+        {
+          "id": "ux.practice-e2e",
+          "dimension": "ux",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "tests/e2e/pilot-practice.spec.mjs"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.11",
+      "title": "Kimyoviy formula va valentlik",
+      "grade": 7,
+      "pilotReason": "Released reference-slice trainer (practice.trainer.7.4) with an ionic/valency chemistry model and existing browser coverage.",
+      "goldenSlice": null,
+      "primaryPractice": "practice.trainer.7.4",
+      "summary": {
+        "route": {
+          "verdict": "PASS",
+          "detail": "practice.trainer.7.4 → trainer/reference-slice via reference-slices"
+        },
+        "runtimeReadiness": {
+          "verdict": "PASS",
+          "detail": "runtime READY, enforcement strict"
+        },
+        "chemistryModel": {
+          "verdict": "PASS",
+          "detail": "valency Al(3)/O(2) → Al2O3; config expects Al2O3 | governance marks chemistry review not_applicable although the config encodes chemistry facts — recommendation: the pilot owner decides whether a chemistry reviewer must confirm them"
+        },
+        "conceptMapping": {
+          "verdict": "PASS",
+          "detail": "practice concept concept.c031 is one of the 3 mapped unit concepts"
+        },
+        "outcomeMapping": {
+          "verdict": "NOT_APPLICABLE",
+          "detail": "no assessment items"
+        },
+        "assessmentAvailability": {
+          "verdict": "NOT_APPLICABLE",
+          "detail": "NONE"
+        },
+        "assessmentApproval": {
+          "verdict": "NOT_APPLICABLE",
+          "detail": "no assessment items"
+        },
+        "practiceE2E": {
+          "verdict": "PASS",
+          "detail": "browser command path (1 command(s)): complete=true, evidence=1, invalid=0, outside-unit=0 | tests/e2e/canonical-runtime.spec.mjs, tests/e2e/integrity-release.spec.mjs"
+        },
+        "masteryUX": {
+          "verdict": "PASS",
+          "detail": "pilot unit with a launchable primary practice shows the mastery band | assessment NONE: best possible band DEVELOPING (MASTERED unreachable without an approved assessment) | tests/e2e/pilot-learning.spec.mjs"
+        },
+        "accessibility": {
+          "verdict": "PASS",
+          "detail": "declared: keyboard, specific-feedback; labels, text state, keyboard controls (human accessibility review is part of content.activity-review)"
+        },
+        "versionCompatibility": {
+          "verdict": "PASS",
+          "detail": "config 1.0.0 vs engine range ^1.0.0; activity 2026.09.1 vs pack 2026.09.1; readiness kimyolab.activity-readiness.v2"
+        }
+      },
+      "technical": "TECHNICAL_PASS",
+      "dimensions": {
+        "technical": "PASS",
+        "content": "PENDING",
+        "assessment": "NOT_APPLICABLE",
+        "mastery": "PASS",
+        "ux": "PASS"
+      },
+      "signoff": "NONE",
+      "finalPilotStatus": "CONTENT_REVIEW_PENDING",
+      "blockers": [],
+      "pendingHuman": [
+        "content.activity-review: human review of practice.trainer.7.4: REVIEW_PENDING (technical, didactic, accessibility pending)"
+      ],
+      "basisHash": "8a5140c299b00377a69a3110b75ecf5edd12a10790de4df19d90782938b1a909",
+      "checks": [
+        {
+          "id": "assessment.availability",
+          "dimension": "assessment",
+          "kind": "human",
+          "verdict": "NOT_APPLICABLE",
+          "detail": "no objective assessment for this unit — the pilot covers runtime, readiness, practice and the no-assessment mastery UX; none is generated"
+        },
+        {
+          "id": "content.activity-review",
+          "dimension": "content",
+          "kind": "human",
+          "verdict": "PENDING",
+          "detail": "human review of practice.trainer.7.4: REVIEW_PENDING (technical, didactic, accessibility pending)"
+        },
+        {
+          "id": "content.chemistry-review",
+          "dimension": "content",
+          "kind": "human",
+          "verdict": "NOT_APPLICABLE",
+          "detail": "governance marks chemistry review not_applicable although the config encodes chemistry facts — recommendation: the pilot owner decides whether a chemistry reviewer must confirm them"
+        },
+        {
+          "id": "mastery.eligible",
+          "dimension": "mastery",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "pilot unit with a launchable primary practice shows the mastery band"
+        },
+        {
+          "id": "mastery.no-false-mastery",
+          "dimension": "mastery",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "assessment NONE: best possible band DEVELOPING (MASTERED unreachable without an approved assessment)"
+        },
+        {
+          "id": "technical.chemistry-model",
+          "dimension": "technical",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "valency Al(3)/O(2) → Al2O3; config expects Al2O3"
+        },
+        {
+          "id": "technical.concept-mapping",
+          "dimension": "technical",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "practice concept concept.c031 is one of the 3 mapped unit concepts"
+        },
+        {
+          "id": "technical.practice-headless",
+          "dimension": "technical",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "browser command path (1 command(s)): complete=true, evidence=1, invalid=0, outside-unit=0"
+        },
+        {
+          "id": "technical.route",
+          "dimension": "technical",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "practice.trainer.7.4 → trainer/reference-slice via reference-slices"
+        },
+        {
+          "id": "technical.runtime-readiness",
+          "dimension": "technical",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "runtime READY, enforcement strict"
+        },
+        {
+          "id": "technical.version-compatibility",
+          "dimension": "technical",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "config 1.0.0 vs engine range ^1.0.0; activity 2026.09.1 vs pack 2026.09.1; readiness kimyolab.activity-readiness.v2"
+        },
+        {
+          "id": "ux.accessibility-profile",
+          "dimension": "ux",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "declared: keyboard, specific-feedback; labels, text state, keyboard controls (human accessibility review is part of content.activity-review)"
+        },
+        {
+          "id": "ux.mastery-e2e",
+          "dimension": "ux",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "tests/e2e/pilot-learning.spec.mjs"
+        },
+        {
+          "id": "ux.practice-e2e",
+          "dimension": "ux",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "tests/e2e/canonical-runtime.spec.mjs, tests/e2e/integrity-release.spec.mjs"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.12",
+      "title": "Molekula va nisbiy molekulyar massa",
+      "grade": 7,
+      "pilotReason": "Released reference-slice calculation (practice.calculation.7.5) with a deterministic calculation engine and existing 10-command attempt coverage.",
+      "goldenSlice": null,
+      "primaryPractice": "practice.calculation.7.5",
+      "summary": {
+        "route": {
+          "verdict": "PASS",
+          "detail": "practice.calculation.7.5 → calculation/reference-slice via reference-slices"
+        },
+        "runtimeReadiness": {
+          "verdict": "PASS",
+          "detail": "runtime READY, enforcement strict"
+        },
+        "chemistryModel": {
+          "verdict": "PASS",
+          "detail": "H2SO4: every step recomputed from the formula and atomic masses (Mr=98) | governance marks chemistry review not_applicable although the config encodes chemistry facts — recommendation: the pilot owner decides whether a chemistry reviewer must confirm them"
+        },
+        "conceptMapping": {
+          "verdict": "PASS",
+          "detail": "practice concept concept.c034 is one of the 3 mapped unit concepts"
+        },
+        "outcomeMapping": {
+          "verdict": "NOT_APPLICABLE",
+          "detail": "no assessment items"
+        },
+        "assessmentAvailability": {
+          "verdict": "NOT_APPLICABLE",
+          "detail": "NONE"
+        },
+        "assessmentApproval": {
+          "verdict": "NOT_APPLICABLE",
+          "detail": "no assessment items"
+        },
+        "practiceE2E": {
+          "verdict": "PASS",
+          "detail": "browser command path (4 command(s)): complete=true, evidence=4, invalid=0, outside-unit=0 | tests/e2e/pilot-practice.spec.mjs"
+        },
+        "masteryUX": {
+          "verdict": "PASS",
+          "detail": "pilot unit with a launchable primary practice shows the mastery band | assessment NONE: best possible band DEVELOPING (MASTERED unreachable without an approved assessment) | tests/e2e/pilot-practice.spec.mjs"
+        },
+        "accessibility": {
+          "verdict": "PASS",
+          "detail": "declared: keyboard, step-validation; labels, text state, keyboard controls (human accessibility review is part of content.activity-review)"
+        },
+        "versionCompatibility": {
+          "verdict": "PASS",
+          "detail": "config 1.0.0 vs engine range ^1.0.0; activity 2026.09.1 vs pack 2026.09.1; readiness kimyolab.activity-readiness.v2"
+        }
+      },
+      "technical": "TECHNICAL_PASS",
+      "dimensions": {
+        "technical": "PASS",
+        "content": "PENDING",
+        "assessment": "NOT_APPLICABLE",
+        "mastery": "PASS",
+        "ux": "PASS"
+      },
+      "signoff": "NONE",
+      "finalPilotStatus": "CONTENT_REVIEW_PENDING",
+      "blockers": [],
+      "pendingHuman": [
+        "content.activity-review: human review of practice.calculation.7.5: REVIEW_PENDING (technical, didactic, accessibility pending)"
+      ],
+      "basisHash": "6b21220857698679652a7477273b128441321c1c3eaef6509c3451b254f28d09",
+      "checks": [
+        {
+          "id": "assessment.availability",
+          "dimension": "assessment",
+          "kind": "human",
+          "verdict": "NOT_APPLICABLE",
+          "detail": "no objective assessment for this unit — the pilot covers runtime, readiness, practice and the no-assessment mastery UX; none is generated"
+        },
+        {
+          "id": "content.activity-review",
+          "dimension": "content",
+          "kind": "human",
+          "verdict": "PENDING",
+          "detail": "human review of practice.calculation.7.5: REVIEW_PENDING (technical, didactic, accessibility pending)"
+        },
+        {
+          "id": "content.chemistry-review",
+          "dimension": "content",
+          "kind": "human",
+          "verdict": "NOT_APPLICABLE",
+          "detail": "governance marks chemistry review not_applicable although the config encodes chemistry facts — recommendation: the pilot owner decides whether a chemistry reviewer must confirm them"
+        },
+        {
+          "id": "mastery.eligible",
+          "dimension": "mastery",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "pilot unit with a launchable primary practice shows the mastery band"
+        },
+        {
+          "id": "mastery.no-false-mastery",
+          "dimension": "mastery",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "assessment NONE: best possible band DEVELOPING (MASTERED unreachable without an approved assessment)"
+        },
+        {
+          "id": "technical.chemistry-model",
+          "dimension": "technical",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "H2SO4: every step recomputed from the formula and atomic masses (Mr=98)"
+        },
+        {
+          "id": "technical.concept-mapping",
+          "dimension": "technical",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "practice concept concept.c034 is one of the 3 mapped unit concepts"
+        },
+        {
+          "id": "technical.practice-headless",
+          "dimension": "technical",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "browser command path (4 command(s)): complete=true, evidence=4, invalid=0, outside-unit=0"
+        },
+        {
+          "id": "technical.route",
+          "dimension": "technical",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "practice.calculation.7.5 → calculation/reference-slice via reference-slices"
+        },
+        {
+          "id": "technical.runtime-readiness",
+          "dimension": "technical",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "runtime READY, enforcement strict"
+        },
+        {
+          "id": "technical.version-compatibility",
+          "dimension": "technical",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "config 1.0.0 vs engine range ^1.0.0; activity 2026.09.1 vs pack 2026.09.1; readiness kimyolab.activity-readiness.v2"
+        },
+        {
+          "id": "ux.accessibility-profile",
+          "dimension": "ux",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "declared: keyboard, step-validation; labels, text state, keyboard controls (human accessibility review is part of content.activity-review)"
+        },
+        {
+          "id": "ux.mastery-e2e",
+          "dimension": "ux",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "tests/e2e/pilot-practice.spec.mjs"
+        },
+        {
+          "id": "ux.practice-e2e",
+          "dimension": "ux",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "tests/e2e/pilot-practice.spec.mjs"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.07",
+      "title": "Atom va uning tuzilishi: proton, neytron, elektron",
+      "grade": 7,
+      "pilotReason": "Released reference-slice simulation (practice.simulation.7.07.planned, lifecycle ready) — a third engine type.",
+      "goldenSlice": null,
+      "primaryPractice": "practice.simulation.7.07.planned",
+      "summary": {
+        "route": {
+          "verdict": "PASS",
+          "detail": "practice.simulation.7.07.planned → simulation/reference-slice via reference-slices"
+        },
+        "runtimeReadiness": {
+          "verdict": "PASS",
+          "detail": "runtime READY, enforcement strict"
+        },
+        "chemistryModel": {
+          "verdict": "PASS",
+          "detail": "target C-14: p=6, n=8, e=6 (neutral atom, mass number = p+n); the engine derives the element from Z | governance marks chemistry review not_applicable although the config encodes chemistry facts — recommendation: the pilot owner decides whether a chemistry reviewer must confirm them"
+        },
+        "conceptMapping": {
+          "verdict": "PASS",
+          "detail": "practice concept concept.c019 is one of the 5 mapped unit concepts"
+        },
+        "outcomeMapping": {
+          "verdict": "NOT_APPLICABLE",
+          "detail": "no assessment items"
+        },
+        "assessmentAvailability": {
+          "verdict": "NOT_APPLICABLE",
+          "detail": "NONE"
+        },
+        "assessmentApproval": {
+          "verdict": "NOT_APPLICABLE",
+          "detail": "no assessment items"
+        },
+        "practiceE2E": {
+          "verdict": "PASS",
+          "detail": "browser command path (20 command(s)): complete=true, evidence=1, invalid=0, outside-unit=0 | tests/e2e/pilot-practice.spec.mjs"
+        },
+        "masteryUX": {
+          "verdict": "PASS",
+          "detail": "pilot unit with a launchable primary practice shows the mastery band | assessment NONE: best possible band DEVELOPING (MASTERED unreachable without an approved assessment) | tests/e2e/pilot-practice.spec.mjs"
+        },
+        "accessibility": {
+          "verdict": "PASS",
+          "detail": "declared: keyboard, textual-state; labels, text state, keyboard controls (human accessibility review is part of content.activity-review)"
+        },
+        "versionCompatibility": {
+          "verdict": "PASS",
+          "detail": "config 1.0.0 vs engine range ^1.0.0; activity 2026.09.1 vs pack 2026.09.1; readiness kimyolab.activity-readiness.v2"
+        }
+      },
+      "technical": "TECHNICAL_PASS",
+      "dimensions": {
+        "technical": "PASS",
+        "content": "PENDING",
+        "assessment": "NOT_APPLICABLE",
+        "mastery": "PASS",
+        "ux": "PASS"
+      },
+      "signoff": "NONE",
+      "finalPilotStatus": "CONTENT_REVIEW_PENDING",
+      "blockers": [],
+      "pendingHuman": [
+        "content.activity-review: human review of practice.simulation.7.07.planned: REVIEW_PENDING (technical, didactic, accessibility pending)"
+      ],
+      "basisHash": "e06e449b893ffd6a736e9cfb5ee8f49e14c48f3067d6580582ebbd83713d6bb1",
+      "checks": [
+        {
+          "id": "assessment.availability",
+          "dimension": "assessment",
+          "kind": "human",
+          "verdict": "NOT_APPLICABLE",
+          "detail": "no objective assessment for this unit — the pilot covers runtime, readiness, practice and the no-assessment mastery UX; none is generated"
+        },
+        {
+          "id": "content.activity-review",
+          "dimension": "content",
+          "kind": "human",
+          "verdict": "PENDING",
+          "detail": "human review of practice.simulation.7.07.planned: REVIEW_PENDING (technical, didactic, accessibility pending)"
+        },
+        {
+          "id": "content.chemistry-review",
+          "dimension": "content",
+          "kind": "human",
+          "verdict": "NOT_APPLICABLE",
+          "detail": "governance marks chemistry review not_applicable although the config encodes chemistry facts — recommendation: the pilot owner decides whether a chemistry reviewer must confirm them"
+        },
+        {
+          "id": "mastery.eligible",
+          "dimension": "mastery",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "pilot unit with a launchable primary practice shows the mastery band"
+        },
+        {
+          "id": "mastery.no-false-mastery",
+          "dimension": "mastery",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "assessment NONE: best possible band DEVELOPING (MASTERED unreachable without an approved assessment)"
+        },
+        {
+          "id": "technical.chemistry-model",
+          "dimension": "technical",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "target C-14: p=6, n=8, e=6 (neutral atom, mass number = p+n); the engine derives the element from Z"
+        },
+        {
+          "id": "technical.concept-mapping",
+          "dimension": "technical",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "practice concept concept.c019 is one of the 5 mapped unit concepts"
+        },
+        {
+          "id": "technical.practice-headless",
+          "dimension": "technical",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "browser command path (20 command(s)): complete=true, evidence=1, invalid=0, outside-unit=0"
+        },
+        {
+          "id": "technical.route",
+          "dimension": "technical",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "practice.simulation.7.07.planned → simulation/reference-slice via reference-slices"
+        },
+        {
+          "id": "technical.runtime-readiness",
+          "dimension": "technical",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "runtime READY, enforcement strict"
+        },
+        {
+          "id": "technical.version-compatibility",
+          "dimension": "technical",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "config 1.0.0 vs engine range ^1.0.0; activity 2026.09.1 vs pack 2026.09.1; readiness kimyolab.activity-readiness.v2"
+        },
+        {
+          "id": "ux.accessibility-profile",
+          "dimension": "ux",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "declared: keyboard, textual-state; labels, text state, keyboard controls (human accessibility review is part of content.activity-review)"
+        },
+        {
+          "id": "ux.mastery-e2e",
+          "dimension": "ux",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "tests/e2e/pilot-practice.spec.mjs"
+        },
+        {
+          "id": "ux.practice-e2e",
+          "dimension": "ux",
+          "kind": "machine",
+          "verdict": "PASS",
+          "detail": "tests/e2e/pilot-practice.spec.mjs"
+        }
+      ]
+    }
+  ]
+}

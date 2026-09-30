@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-09-30T02:14:39.188Z",
+  "createdAt": "2026-09-30T02:39:51.156Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -225,6 +225,12 @@
       "size": 6410
     },
     {
+      "path": "app-preview/domain/pilot/acceptance.js",
+      "sourcePath": "public/app-preview/domain/pilot/acceptance.js",
+      "checksum": "1f4b4b2289ef8991c0b7e4cd2e2149a8dce1191ba7fe382dce60331363b737c5",
+      "size": 4802
+    },
+    {
       "path": "app-preview/domain/readiness/readiness.js",
       "sourcePath": "public/app-preview/domain/readiness/readiness.js",
       "checksum": "d0fe1a183a05e1510f5ae91882e8d2d6cb58ab4ac48e2b57ae49ec261407934c",
@@ -371,8 +377,8 @@
     {
       "path": "app-preview/features/progress/model.js",
       "sourcePath": "public/app-preview/features/progress/model.js",
-      "checksum": "2364112c4632e6ad96d555e3fe2b102a5ab33eecb6e81162e7ef5945dc23f863",
-      "size": 1947
+      "checksum": "ed4930201124b3b63ddb4bf73cf8d61d758ee58e719fa6252cd485d54cf9371a",
+      "size": 2283
     },
     {
       "path": "app-preview/features/progress/render.js",
@@ -485,8 +491,8 @@
     {
       "path": "app-preview/runtime/beta2/advanced.js",
       "sourcePath": "public/app-preview/runtime/beta2/advanced.js",
-      "checksum": "f2b25b674754a24211180c7bc2bc972a68c8d907c5370c3249ec6b31ab748ec2",
-      "size": 8762
+      "checksum": "78f79625a99411dd2442361a2d4c8042b5d6ae44b9a40271d30d817f3d8ffd2f",
+      "size": 8923
     },
     {
       "path": "app-preview/runtime/beta2/capability.js",
@@ -503,8 +509,8 @@
     {
       "path": "app-preview/runtime/beta2/organic.js",
       "sourcePath": "public/app-preview/runtime/beta2/organic.js",
-      "checksum": "073777621e32d9a733d950a21c12284119863bcb1ef00b5c279721f06875175e",
-      "size": 7226
+      "checksum": "c3dd7d09e56db221c48dbd99aece0bb7cbc24d2e082cf3046dff2402d5f3f38a",
+      "size": 7332
     },
     {
       "path": "app-preview/runtime/beta2/readiness.js",
@@ -515,8 +521,8 @@
     {
       "path": "app-preview/runtime/beta3/advanced.js",
       "sourcePath": "public/app-preview/runtime/beta3/advanced.js",
-      "checksum": "dcd7f18a5f9cc2401cc54591e3de1a024c1c9e1911af3ffc1714445fc9b43374",
-      "size": 9742
+      "checksum": "a66bc1709462e34ce275a8a2ba5183a5ed31308789f8c6f699deadd34a85d2e1",
+      "size": 9877
     },
     {
       "path": "app-preview/runtime/beta3/index.js",

@@ -1,0 +1,1870 @@
+{
+  "schema": "kimyolab.pending-activity-triage.v1",
+  "semantics": "Triage of every runtime-PENDING activity. Reasons are derived from repository facts only; no status was changed. pending → ready requires a recorded release decision by a person (and, for release governance, human approvals).",
+  "total": 27,
+  "learningUnitsAffected": 33,
+  "byReason": {
+    "ROUTE_READY_BUT_LIFECYCLE_PENDING": 27,
+    "CONTENT_NOT_RELEASED": 27,
+    "REVIEW_MISSING": 27,
+    "ACCESSIBILITY_PROFILE_MISSING": 27,
+    "CHEMISTRY_GROUNDING_PARTIAL": 0,
+    "ENGINE_CAPABILITY_MISSING": 0,
+    "CONFIG_INCOMPLETE": 0,
+    "INTENTIONALLY_DEFERRED": 0
+  },
+  "notObserved": [
+    "CHEMISTRY_GROUNDING_PARTIAL",
+    "ENGINE_CAPABILITY_MISSING",
+    "CONFIG_INCOMPLETE",
+    "INTENTIONALLY_DEFERRED"
+  ],
+  "byEngine": {
+    "experiment": 27
+  },
+  "byConfigSource": {
+    "guided-labs": 27
+  },
+  "byGuidedLabStatus": {
+    "DOMAIN_MODEL_BASELINED": 8,
+    "PROCEDURAL_GUIDED": 8,
+    "REACTION_KB_PARTIAL": 11
+  },
+  "byDependency": {
+    "accessibility authoring + human review + release decision": 27
+  },
+  "globalStrictEnforcement": {
+    "enabled": false,
+    "note": "Stays OFF: enabling it would close these activities in the units listed; decide per activity after review and release."
+  },
+  "rows": [
+    {
+      "activityId": "practice.experiment.10.10",
+      "title": "Organik birikmalarni xos reaksiyalar asosida aniqlash",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.10.05",
+          "role": "supporting"
+        },
+        {
+          "learningUnitId": "lu.10.06",
+          "role": "supporting"
+        },
+        {
+          "learningUnitId": "lu.10.10",
+          "role": "supporting"
+        },
+        {
+          "learningUnitId": "lu.10.21",
+          "role": "supporting"
+        },
+        {
+          "learningUnitId": "lu.10.19",
+          "role": "supporting"
+        },
+        {
+          "learningUnitId": "lu.10.22",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        10
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "DOMAIN_MODEL_BASELINED",
+        "hardeningStatus": "CHEMISTRY_BASELINED_DOMAIN",
+        "groundedSteps": 3,
+        "totalSteps": 4,
+        "chemistryTargetSteps": 3,
+        "chemistryTargetsGrounded": 3,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.10.2",
+      "title": "Organik birikmalar tarkibini tahlil qilish",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.10.01",
+          "role": "supporting"
+        },
+        {
+          "learningUnitId": "lu.10.02",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        10
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "DOMAIN_MODEL_BASELINED",
+        "hardeningStatus": "CHEMISTRY_BASELINED_DOMAIN",
+        "groundedSteps": 4,
+        "totalSteps": 5,
+        "chemistryTargetSteps": 4,
+        "chemistryTargetsGrounded": 4,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.10.6",
+      "title": "Spirtlar va aldegidlarga xos reaksiyalar",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.10.06",
+          "role": "supporting"
+        },
+        {
+          "learningUnitId": "lu.10.17",
+          "role": "supporting"
+        },
+        {
+          "learningUnitId": "lu.10.21",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        10
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "DOMAIN_MODEL_BASELINED",
+        "hardeningStatus": "CHEMISTRY_BASELINED_DOMAIN",
+        "groundedSteps": 2,
+        "totalSteps": 3,
+        "chemistryTargetSteps": 2,
+        "chemistryTargetsGrounded": 2,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.10.7",
+      "title": "O‘simliklar tarkibidagi murakkab efirlar",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.10.06",
+          "role": "supporting"
+        },
+        {
+          "learningUnitId": "lu.10.23",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        10
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "PROCEDURAL_GUIDED",
+        "hardeningStatus": "GUIDED_PROTOCOL",
+        "groundedSteps": 0,
+        "totalSteps": 4,
+        "chemistryTargetSteps": 0,
+        "chemistryTargetsGrounded": 0,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.1",
+      "title": "Laboratoriya shtativi, spirt lampa, gaz gorelkalari va elektr isitgich bilan ishlash",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.7.01",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        7
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "PROCEDURAL_GUIDED",
+        "hardeningStatus": "GUIDED_PROTOCOL",
+        "groundedSteps": 0,
+        "totalSteps": 6,
+        "chemistryTargetSteps": 0,
+        "chemistryTargetsGrounded": 0,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.10",
+      "title": "Kislotalarning metallar bilan o‘zaro ta’siri",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.7.15",
+          "role": "supporting"
+        },
+        {
+          "learningUnitId": "lu.7.20",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        7
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "REACTION_KB_PARTIAL",
+        "hardeningStatus": "CHEMISTRY_BASELINED_REACTION",
+        "groundedSteps": 3,
+        "totalSteps": 4,
+        "chemistryTargetSteps": 3,
+        "chemistryTargetsGrounded": 3,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.11",
+      "title": "Suvning oksidlar bilan o‘zaro ta’siri",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.7.15",
+          "role": "supporting"
+        },
+        {
+          "learningUnitId": "lu.7.21",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        7
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "REACTION_KB_PARTIAL",
+        "hardeningStatus": "CHEMISTRY_BASELINED_REACTION",
+        "groundedSteps": 3,
+        "totalSteps": 5,
+        "chemistryTargetSteps": 3,
+        "chemistryTargetsGrounded": 3,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.12",
+      "title": "Suvning fizik xossalarini o‘rganish",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.7.02",
+          "role": "supporting"
+        },
+        {
+          "learningUnitId": "lu.7.04",
+          "role": "supporting"
+        },
+        {
+          "learningUnitId": "lu.7.21",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        7
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "PROCEDURAL_GUIDED",
+        "hardeningStatus": "GUIDED_PROTOCOL",
+        "groundedSteps": 0,
+        "totalSteps": 5,
+        "chemistryTargetSteps": 0,
+        "chemistryTargetsGrounded": 0,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.9",
+      "title": "Kislotalarning olinishi va xossalari",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.7.15",
+          "role": "supporting"
+        },
+        {
+          "learningUnitId": "lu.7.20",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        7
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "REACTION_KB_PARTIAL",
+        "hardeningStatus": "CHEMISTRY_BASELINED_REACTION",
+        "groundedSteps": 5,
+        "totalSteps": 5,
+        "chemistryTargetSteps": 5,
+        "chemistryTargetsGrounded": 5,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.10",
+      "title": "Galogenlarning birikmalar eritmalaridan bir-birini siqib chiqarishi",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.8.14",
+          "role": "supporting"
+        },
+        {
+          "learningUnitId": "lu.8.16",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        8
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "REACTION_KB_PARTIAL",
+        "hardeningStatus": "CHEMISTRY_BASELINED_REACTION",
+        "groundedSteps": 3,
+        "totalSteps": 4,
+        "chemistryTargetSteps": 3,
+        "chemistryTargetsGrounded": 3,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.11",
+      "title": "Galogenlarning suvda va organik erituvchilarda erishi",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.8.16",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        8
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "PROCEDURAL_GUIDED",
+        "hardeningStatus": "GUIDED_PROTOCOL",
+        "groundedSteps": 0,
+        "totalSteps": 3,
+        "chemistryTargetSteps": 0,
+        "chemistryTargetsGrounded": 0,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.13",
+      "title": "Turli eritmalarda sulfat ioni borligini aniqlash",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.8.18",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        8
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "REACTION_KB_PARTIAL",
+        "hardeningStatus": "CHEMISTRY_BASELINED_REACTION",
+        "groundedSteps": 1,
+        "totalSteps": 3,
+        "chemistryTargetSteps": 1,
+        "chemistryTargetsGrounded": 1,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.14",
+      "title": "Ammoniy tuziga so‘ndirilgan ohak ta’sir ettirib ammiak olish",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.8.22",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        8
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "REACTION_KB_PARTIAL",
+        "hardeningStatus": "CHEMISTRY_BASELINED_REACTION",
+        "groundedSteps": 4,
+        "totalSteps": 5,
+        "chemistryTargetSteps": 4,
+        "chemistryTargetsGrounded": 4,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.15",
+      "title": "Mineral o‘g‘itlar namunalari bilan tanishish",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.8.24",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        8
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "PROCEDURAL_GUIDED",
+        "hardeningStatus": "GUIDED_PROTOCOL",
+        "groundedSteps": 0,
+        "totalSteps": 2,
+        "chemistryTargetSteps": 0,
+        "chemistryTargetsGrounded": 0,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.6",
+      "title": "Rux gidroksidning olinishi, unga kislota va ishqor ta’siri",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.8.01",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        8
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "REACTION_KB_PARTIAL",
+        "hardeningStatus": "CHEMISTRY_BASELINED_REACTION",
+        "groundedSteps": 3,
+        "totalSteps": 5,
+        "chemistryTargetSteps": 3,
+        "chemistryTargetsGrounded": 3,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.8",
+      "title": "Xlorid kislota, galogenidlar va yod uchun sifat reaksiyalari",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.8.16",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        8
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "REACTION_KB_PARTIAL",
+        "hardeningStatus": "CHEMISTRY_BASELINED_REACTION",
+        "groundedSteps": 3,
+        "totalSteps": 6,
+        "chemistryTargetSteps": 3,
+        "chemistryTargetsGrounded": 3,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.9",
+      "title": "Tuproq eritmasi tarkibida xloridlar borligini aniqlash",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.8.16",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        8
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "REACTION_KB_PARTIAL",
+        "hardeningStatus": "CHEMISTRY_BASELINED_REACTION",
+        "groundedSteps": 1,
+        "totalSteps": 3,
+        "chemistryTargetSteps": 1,
+        "chemistryTargetsGrounded": 1,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.12",
+      "title": "Alyuminiy namunalari va qotishmalari bilan tanishish",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.9.12",
+          "role": "supporting"
+        },
+        {
+          "learningUnitId": "lu.9.19",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        9
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "PROCEDURAL_GUIDED",
+        "hardeningStatus": "GUIDED_PROTOCOL",
+        "groundedSteps": 0,
+        "totalSteps": 2,
+        "chemistryTargetSteps": 0,
+        "chemistryTargetsGrounded": 0,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.13",
+      "title": "Alyuminiy gidroksidni olish va uning xossalari",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.9.05",
+          "role": "supporting"
+        },
+        {
+          "learningUnitId": "lu.9.19",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        9
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "DOMAIN_MODEL_BASELINED",
+        "hardeningStatus": "CHEMISTRY_BASELINED_DOMAIN",
+        "groundedSteps": 2,
+        "totalSteps": 3,
+        "chemistryTargetSteps": 2,
+        "chemistryTargetsGrounded": 2,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.15",
+      "title": "Mis(II)-gidroksidni olish va xossalarini tekshirish",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.9.05",
+          "role": "supporting"
+        },
+        {
+          "learningUnitId": "lu.9.20",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        9
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "DOMAIN_MODEL_BASELINED",
+        "hardeningStatus": "CHEMISTRY_BASELINED_DOMAIN",
+        "groundedSteps": 2,
+        "totalSteps": 3,
+        "chemistryTargetSteps": 2,
+        "chemistryTargetsGrounded": 2,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.16",
+      "title": "Rux gidroksidni olish va amfoter xossalarini tekshirish",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.9.05",
+          "role": "supporting"
+        },
+        {
+          "learningUnitId": "lu.9.21",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        9
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "REACTION_KB_PARTIAL",
+        "hardeningStatus": "CHEMISTRY_BASELINED_REACTION",
+        "groundedSteps": 2,
+        "totalSteps": 3,
+        "chemistryTargetSteps": 2,
+        "chemistryTargetsGrounded": 2,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.19",
+      "title": "Temir(II) va temir(III) tuzlarini aniqlash",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.9.24",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        9
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "DOMAIN_MODEL_BASELINED",
+        "hardeningStatus": "CHEMISTRY_BASELINED_DOMAIN",
+        "groundedSteps": 2,
+        "totalSteps": 3,
+        "chemistryTargetSteps": 2,
+        "chemistryTargetsGrounded": 2,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.20",
+      "title": "Cho‘yan va po‘lat namunalari bilan tanishish",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.9.12",
+          "role": "supporting"
+        },
+        {
+          "learningUnitId": "lu.9.25",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        9
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "DOMAIN_MODEL_BASELINED",
+        "hardeningStatus": "CHEMISTRY_BASELINED_DOMAIN",
+        "groundedSteps": 2,
+        "totalSteps": 3,
+        "chemistryTargetSteps": 2,
+        "chemistryTargetsGrounded": 2,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.4",
+      "title": "Karbonatlar va gidrokarbonatlarning xossalari hamda o‘zaro aylanishi",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.9.05",
+          "role": "supporting"
+        },
+        {
+          "learningUnitId": "lu.9.07",
+          "role": "supporting"
+        },
+        {
+          "learningUnitId": "lu.9.09",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        9
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "REACTION_KB_PARTIAL",
+        "hardeningStatus": "CHEMISTRY_BASELINED_REACTION",
+        "groundedSteps": 1,
+        "totalSteps": 3,
+        "chemistryTargetSteps": 1,
+        "chemistryTargetsGrounded": 1,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.6",
+      "title": "Shisha turlari va shishadan yasalgan mahsulotlar bilan tanishish",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.9.07",
+          "role": "supporting"
+        },
+        {
+          "learningUnitId": "lu.9.10",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        9
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "PROCEDURAL_GUIDED",
+        "hardeningStatus": "GUIDED_PROTOCOL",
+        "groundedSteps": 0,
+        "totalSteps": 1,
+        "chemistryTargetSteps": 0,
+        "chemistryTargetsGrounded": 0,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.7",
+      "title": "Metallar namunalari va issiqlik o‘tkazuvchanligini ko‘zdan kechirish",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.9.13",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        9
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "PROCEDURAL_GUIDED",
+        "hardeningStatus": "GUIDED_PROTOCOL",
+        "groundedSteps": 0,
+        "totalSteps": 3,
+        "chemistryTargetSteps": 0,
+        "chemistryTargetsGrounded": 0,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.9",
+      "title": "Tuz eritmalari bilan metallarning o‘zaro ta’siri",
+      "learningUnits": [
+        {
+          "learningUnitId": "lu.9.05",
+          "role": "supporting"
+        },
+        {
+          "learningUnitId": "lu.9.13",
+          "role": "supporting"
+        },
+        {
+          "learningUnitId": "lu.9.20",
+          "role": "supporting"
+        }
+      ],
+      "grades": [
+        9
+      ],
+      "engine": "experiment",
+      "lifecycle": "planned",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "runtimePlan": {
+        "runtime": "generic",
+        "configSource": "guided-labs",
+        "capability": "generic.experiment"
+      },
+      "interaction": {
+        "guidedLabStatus": "DOMAIN_MODEL_BASELINED",
+        "hardeningStatus": "CHEMISTRY_BASELINED_DOMAIN",
+        "groundedSteps": 1,
+        "totalSteps": 3,
+        "chemistryTargetSteps": 1,
+        "chemistryTargetsGrounded": 1,
+        "readiness": "guided-protocol",
+        "virtualOnly": true
+      },
+      "whyPending": [
+        "ROUTE_READY_BUT_LIFECYCLE_PENDING",
+        "CONTENT_NOT_RELEASED",
+        "REVIEW_MISSING",
+        "ACCESSIBILITY_PROFILE_MISSING"
+      ],
+      "whatIsMissing": [
+        "a recorded release decision (content-src/activity-overrides.json lifecycleStatus) by the content owner",
+        "human review: technical, didactic, accessibility, chemistry",
+        "an accessibility profile (keyboard / text alternatives) for the activity"
+      ],
+      "technicalFix": true,
+      "contentReview": [
+        "technical",
+        "didactic",
+        "accessibility",
+        "chemistry"
+      ],
+      "releaseDecision": "NONE_RECORDED",
+      "dependencyCategory": "accessibility authoring + human review + release decision",
+      "recommendedNextAction": [
+        "author the accessibility profile (and check the guided-step UI with keyboard/screen reader)",
+        "technical + didactic + accessibility + chemistry review by people",
+        "explicit release decision by the content owner (activity-overrides) — never automatic"
+      ],
+      "evidence": [
+        "content-src/practice-activities.json (lifecycleStatus, approvals, accessibilityProfile)",
+        "content-src/activity-overrides.json (release decisions)",
+        "content-src/activity-configs/guided-labs.json",
+        "reports/guided-lab-triage.json",
+        "reports/guided-lab-hardening.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,376 @@
+{
+  "schema": "kimyolab.renderer-foundation-readiness.v1",
+  "semantics": "Analysis only (P1.3 §29–40). No renderer code exists. rank = recommended order for the first reference renderers, by pedagogical value, model depth, data, accessibility and reuse; null = not a first candidate (see blockers).",
+  "startGate": {
+    "p12Merged": true,
+    "canonicalRuntimeStable": true,
+    "canonicalRoutingStable": true,
+    "readinessStable": true,
+    "rendererContractApproved": false,
+    "goldenSliceTechnicallyValid": "lu.9.15 technically valid after the P1.3 completion fix (pilot:status TECHNICAL_PASS); human assessment approval is a separate product sign-off blocker",
+    "canStartImplementation": false,
+    "reason": "the renderer contract (docs/plans/p1.4-renderer-foundation-contract.md) needs an explicit approval decision first"
+  },
+  "rows": [
+    {
+      "candidate": "atom-builder",
+      "title": "Atom tuzilishi konstruktori (p/n/e → element, izotop, zaryad)",
+      "rank": 1,
+      "leadActivityId": "practice.simulation.7.07.planned",
+      "readyActivities": 1,
+      "activities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "learningUnits": [
+        "lu.7.07"
+      ],
+      "domainModel": "StatefulSimulationEngine reducer (derive: Z → element, A = p+n, charge = p−e); electronConfiguration(Z≤36) in src/domain/chemistry",
+      "modelData": [],
+      "domainModelReady?": true,
+      "engineReady?": true,
+      "contentReady?": true,
+      "interactionModelReady?": true,
+      "accessibilityPlan?": "text summary of the derived state (element, A, charge) announced via aria-live; buttons with explicit labels; no colour-only cues; reduced motion = no particle animation",
+      "assessmentLinkage?": "none — mastery for these units cannot reach MASTERED until an approved assessment exists",
+      "learnerUiPath": {
+        "verdict": "CAN_SUCCEED",
+        "detail": "controls 20; complete=true; positive evidence=true"
+      },
+      "assessment": {
+        "pedagogicalValue": "high — every learner action changes a derived chemical identity (element, isotope, ion); core 7th-grade concept",
+        "currentLimitation": "text state only (\"p=6, n=8, e=6; C-14\"); element table limited to Z≤18 inside the adapter; no shell/orbital view",
+        "engineMaturity": "mature: pure reducer, serialize/restore, construction evidence",
+        "interactionDepth": "real model-based: arbitrary particle combinations → derived state (not a fixed path)",
+        "accessibilityComplexity": "low — the state is naturally textual; +/- buttons are keyboard operable",
+        "reusePotential": "high — ions, isotopes, electron configuration (lu.8.x), atomic-orbital model (practice.simulation.11.01)",
+        "blackSwan": "PASS — model-based: the renderer only draws state the reducer derived; no canned sequence",
+        "accessibilityPlan": "text summary of the derived state (element, A, charge) announced via aria-live; buttons with explicit labels; no colour-only cues; reduced motion = no particle animation",
+        "dependencies": [
+          "RendererModel for AtomState",
+          "move the element table to src/domain/chemistry (single source of Z → symbol)"
+        ]
+      },
+      "dependencies": [
+        "RendererModel for AtomState",
+        "move the element table to src/domain/chemistry (single source of Z → symbol)"
+      ],
+      "blockers": []
+    },
+    {
+      "candidate": "ionic-precipitation",
+      "title": "Ion almashinish / cho‘kma tajribasi (reagentlar → reaksiya, kuzatuv, net-ion tenglama)",
+      "rank": 2,
+      "leadActivityId": "practice.experiment.8.1",
+      "readyActivities": 1,
+      "activities": [
+        "practice.experiment.8.1"
+      ],
+      "learningUnits": [
+        "lu.8.14",
+        "lu.8.16"
+      ],
+      "domainModel": "ReactionMatcher + IonicEngine (reaction KB, observations, net ionic equation)",
+      "modelData": [
+        {
+          "file": "content-src/chemistry/reactions.json",
+          "records": 28
+        },
+        {
+          "file": "content-src/chemistry/solubility.json",
+          "records": 20
+        }
+      ],
+      "domainModelReady?": true,
+      "engineReady?": true,
+      "contentReady?": true,
+      "interactionModelReady?": false,
+      "accessibilityPlan?": "observation text for every visual change (precipitate colour + \"cho‘kma\"), equation field with plain-text syntax and error text, keyboard-only reagent selection, reduced motion = instant state",
+      "assessmentLinkage?": "none — mastery for these units cannot reach MASTERED until an approved assessment exists",
+      "learnerUiPath": {
+        "verdict": "CAN_SUCCEED",
+        "detail": "controls 5; complete=true; positive evidence=true"
+      },
+      "assessment": {
+        "pedagogicalValue": "high — predict/observe/explain on precipitation; net-ionic equation checked by the IonicEngine",
+        "currentLimitation": "the UI adds the configured reagents in a fixed order; the adapter already accepts learner-chosen reactants (action.payload.reactants) but the UI never offers the choice → today it is a guided sequence",
+        "engineMaturity": "mature: ExperimentEngine with dependencies, ReactionMatcher fail-closed on unmodeled reactions",
+        "interactionDepth": "model-capable but not yet exposed: with reagent choice, any modeled pair yields its own observation; unmodeled pairs are refused (no invented chemistry)",
+        "accessibilityComplexity": "medium — observations must have text equivalents (colour of precipitate), equation input needs a sub/superscript-free syntax",
+        "reusePotential": "high — the 28-reaction KB serves 8th/9th-grade reaction experiments and the qualitative tests",
+        "blackSwan": "RISK today (fixed reagent sequence = scripted); PASS once the renderer lets the learner choose reagents and shows only what the matcher returns",
+        "accessibilityPlan": "observation text for every visual change (precipitate colour + \"cho‘kma\"), equation field with plain-text syntax and error text, keyboard-only reagent selection, reduced motion = instant state",
+        "dependencies": [
+          "RendererModel for ExperimentState + matched reaction",
+          "reagent-choice intent in the renderer contract (no chemistry in the renderer)"
+        ]
+      },
+      "dependencies": [
+        "RendererModel for ExperimentState + matched reaction",
+        "reagent-choice intent in the renderer contract (no chemistry in the renderer)"
+      ],
+      "blockers": [
+        "black-swan risk: learner choice not yet exposed"
+      ]
+    },
+    {
+      "candidate": "hydrolysis-medium",
+      "title": "Tuz gidrolizi: tuz tanlash → muhitni bashorat qilish → indikator",
+      "rank": 3,
+      "leadActivityId": "practice.experiment.9.14",
+      "readyActivities": 2,
+      "activities": [
+        "practice.experiment.9.14",
+        "practice.simulation.11.11.planned"
+      ],
+      "learningUnits": [
+        "lu.11.11",
+        "lu.9.06",
+        "lu.9.19"
+      ],
+      "domainModel": "HydrolysisModel.classify(salt) → acidic/basic/neutral",
+      "modelData": [
+        {
+          "file": "content-src/chemistry/hydrolysis.json",
+          "records": 4
+        }
+      ],
+      "domainModelReady?": true,
+      "engineReady?": true,
+      "contentReady?": true,
+      "interactionModelReady?": false,
+      "accessibilityPlan?": "salt and medium as labelled radio groups, indicator result as text (\"muhit: kislotali\"), no colour-only feedback",
+      "assessmentLinkage?": "none — mastery for these units cannot reach MASTERED until an approved assessment exists",
+      "learnerUiPath": {
+        "verdict": "CANNOT_SUCCEED",
+        "detail": "controls 3; complete=false; positive evidence=false"
+      },
+      "assessment": {
+        "pedagogicalValue": "high — a genuine prediction (medium) that the model confirms or refutes",
+        "currentLimitation": "BROKEN in the browser: the UI sends selectSalt/recordMedium without the salt or the medium, so the learner can never succeed (score 0 on every attempt); only 4 salts are modeled",
+        "engineMaturity": "model small but fail-closed (unmodeled salt → not modeled)",
+        "interactionDepth": "model-based decision once inputs reach the model; limited by 4 records",
+        "accessibilityComplexity": "medium — indicator colour needs a text/label equivalent",
+        "reusePotential": "medium — practice.simulation.11.11 (beta3 hydrolysis) uses the same model",
+        "blackSwan": "PASS in the domain (learner choice → model verdict); FAIL in the current UI (no input reaches the model)",
+        "accessibilityPlan": "salt and medium as labelled radio groups, indicator result as text (\"muhit: kislotali\"), no colour-only feedback",
+        "dependencies": [
+          "fix the UI command payload (P1.4 renderer or a targeted bugfix)",
+          "more modeled salts reviewed by a chemist"
+        ]
+      },
+      "dependencies": [
+        "fix the UI command payload (P1.4 renderer or a targeted bugfix)",
+        "more modeled salts reviewed by a chemist"
+      ],
+      "blockers": [
+        "learner UI path: CANNOT_SUCCEED (controls 3; complete=false; positive evidence=false)"
+      ]
+    },
+    {
+      "candidate": "electrolysis",
+      "title": "Elektroliz (golden assessment slice lu.9.15)",
+      "rank": null,
+      "leadActivityId": "practice.experiment.9.10",
+      "readyActivities": 2,
+      "activities": [
+        "practice.experiment.11.2",
+        "practice.experiment.9.10"
+      ],
+      "learningUnits": [
+        "lu.11.21",
+        "lu.11.22",
+        "lu.9.15"
+      ],
+      "domainModel": "ElectrolysisModel.resolve(electrolyte, phase, electrode)",
+      "modelData": [
+        {
+          "file": "content-src/chemistry/electrolysis.json",
+          "records": 1
+        }
+      ],
+      "domainModelReady?": true,
+      "engineReady?": true,
+      "contentReady?": false,
+      "interactionModelReady?": false,
+      "accessibilityPlan?": "observation text per electrode, keyboard step controls (already present)",
+      "assessmentLinkage?": "objective items exist (review pending)",
+      "learnerUiPath": {
+        "verdict": "CAN_SUCCEED",
+        "detail": "controls 3; complete=true; positive evidence=true"
+      },
+      "assessment": {
+        "pedagogicalValue": "high — the only unit with objective assessment items (golden assessment slice)",
+        "currentLimitation": "one modeled electrolyte (CuCl2, inert electrodes); three fixed clicks produce fixed observations — the learner makes no chemical decision",
+        "engineMaturity": "model API is sound but the data holds a single record (review pending)",
+        "interactionDepth": "canned: input → the same predetermined outcome",
+        "accessibilityComplexity": "medium",
+        "reusePotential": "medium once more electrolytes/electrodes are modeled and reviewed",
+        "blackSwan": "FAIL today — any renderer would animate a fixed script; must not be called a simulation until learner choices reach a model with more than one record",
+        "accessibilityPlan": "observation text per electrode, keyboard step controls (already present)",
+        "dependencies": [
+          "more electrolysis records (aq/l, inert/active) reviewed by a chemist"
+        ]
+      },
+      "dependencies": [
+        "more electrolysis records (aq/l, inert/active) reviewed by a chemist"
+      ],
+      "blockers": [
+        "chemistry data too small for exploration: content-src/chemistry/electrolysis.json=1",
+        "black-swan: would be canned animation, not a model-based simulation"
+      ]
+    },
+    {
+      "candidate": "single-field-simulations",
+      "title": "Bitta maydonli “simulyatsiya”lar (beta1/beta2-safe/beta3 simulation)",
+      "rank": null,
+      "leadActivityId": "practice.simulation.7.02.planned",
+      "readyActivities": 48,
+      "activities": [
+        "practice.simulation.10.02.structure-theory",
+        "practice.simulation.10.04.isomerism",
+        "practice.simulation.10.08.homologous-series",
+        "practice.simulation.10.10.planned",
+        "practice.simulation.10.11.planned",
+        "practice.simulation.10.13.planned",
+        "practice.simulation.10.14.planned",
+        "practice.simulation.10.15.planned",
+        "practice.simulation.10.17.monohydric-alcohols",
+        "practice.simulation.10.19.phenols",
+        "practice.simulation.10.20.planned",
+        "practice.simulation.10.21.carbonyls",
+        "practice.simulation.10.23.esters",
+        "practice.simulation.11.01.planned",
+        "practice.simulation.11.02.planned",
+        "practice.simulation.11.03.planned",
+        "practice.simulation.11.04.planned",
+        "practice.simulation.11.09.planned",
+        "practice.simulation.11.12.planned",
+        "practice.simulation.11.15.planned",
+        "practice.simulation.11.16.planned",
+        "practice.simulation.11.17.planned",
+        "practice.simulation.11.18.planned",
+        "practice.simulation.11.20.planned",
+        "practice.simulation.7.02.planned",
+        "practice.simulation.7.06.planned",
+        "practice.simulation.7.10.planned",
+        "practice.simulation.7.13.planned",
+        "practice.simulation.7.16.planned",
+        "practice.simulation.7.17.planned",
+        "practice.simulation.8.02.planned",
+        "practice.simulation.8.03.planned",
+        "practice.simulation.8.04.planned",
+        "practice.simulation.8.05.planned",
+        "practice.simulation.8.06.planned",
+        "practice.simulation.8.09.planned",
+        "practice.simulation.8.19.planned",
+        "practice.simulation.8.20.planned",
+        "practice.simulation.8.7",
+        "practice.simulation.9.01.planned",
+        "practice.simulation.9.02.planned",
+        "practice.simulation.9.03.planned",
+        "practice.simulation.9.04.planned",
+        "practice.simulation.9.07.planned",
+        "practice.simulation.9.08.planned",
+        "practice.simulation.9.18.water-hardness",
+        "practice.simulation.9.20.cu-ag-au",
+        "practice.simulation.9.21.group12"
+      ],
+      "learningUnits": [
+        "lu.10.02",
+        "lu.10.04",
+        "lu.10.08",
+        "lu.10.10",
+        "lu.10.11",
+        "lu.10.13",
+        "lu.10.14",
+        "lu.10.15",
+        "lu.10.17",
+        "lu.10.19",
+        "lu.10.20",
+        "lu.10.21",
+        "lu.10.23",
+        "lu.11.01",
+        "lu.11.02",
+        "lu.11.03",
+        "lu.11.04",
+        "lu.11.09",
+        "lu.11.12",
+        "lu.11.15",
+        "lu.11.16",
+        "lu.11.17",
+        "lu.11.18",
+        "lu.11.20",
+        "lu.7.02",
+        "lu.7.06",
+        "lu.7.10",
+        "lu.7.13",
+        "lu.7.16",
+        "lu.7.17",
+        "lu.8.02",
+        "lu.8.03",
+        "lu.8.04",
+        "lu.8.05",
+        "lu.8.06",
+        "lu.8.09",
+        "lu.8.10",
+        "lu.8.11",
+        "lu.8.12",
+        "lu.8.19",
+        "lu.8.20",
+        "lu.9.01",
+        "lu.9.02",
+        "lu.9.03",
+        "lu.9.04",
+        "lu.9.07",
+        "lu.9.08",
+        "lu.9.18",
+        "lu.9.20",
+        "lu.9.21"
+      ],
+      "domainModel": "value compared with a config value or a small model (see modelData for the record counts)",
+      "modelData": [
+        {
+          "file": "content-src/chemistry/kinetics.json",
+          "records": 3
+        },
+        {
+          "file": "content-src/chemistry/equilibrium.json",
+          "records": 2
+        },
+        {
+          "file": "content-src/chemistry/organic.json",
+          "records": 28
+        }
+      ],
+      "domainModelReady?": false,
+      "engineReady?": true,
+      "contentReady?": true,
+      "interactionModelReady?": false,
+      "accessibilityPlan?": "n/a until a state model exists",
+      "assessmentLinkage?": "none — mastery for these units cannot reach MASTERED until an approved assessment exists",
+      "learnerUiPath": {
+        "verdict": "NOT_EVALUATED",
+        "detail": "one config value per task; no single derivable input for the family"
+      },
+      "assessment": {
+        "pedagogicalValue": "varies",
+        "currentLimitation": "the learner types one value into a form field; the “simulation” has no manipulable state",
+        "engineMaturity": "uniform but shallow",
+        "interactionDepth": "form answer check, not a simulation",
+        "accessibilityComplexity": "low",
+        "reusePotential": "low as renderer targets until a state model exists per task",
+        "blackSwan": "FAIL — a visual layer here would be decoration over a form answer",
+        "accessibilityPlan": "n/a until a state model exists",
+        "dependencies": [
+          "per-task state models (kinetics, equilibrium) before any renderer work"
+        ]
+      },
+      "dependencies": [
+        "per-task state models (kinetics, equilibrium) before any renderer work"
+      ],
+      "blockers": [
+        "black-swan: would be canned animation, not a model-based simulation"
+      ]
+    }
+  ]
+}
