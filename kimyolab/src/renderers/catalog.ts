@@ -21,4 +21,13 @@ export const HYDROLYSIS_MEDIUM_CAPABILITY:RendererCapability=Object.freeze({
   accessibility:Object.freeze({keyboard:true,nonColorCues:true,screenReaderSummary:true,reducedMotion:'static',nonVisualAlternative:'text-state'} as const),
 }) as RendererCapability;
 
-export const RENDERER_CATALOG:readonly RendererCapability[]=Object.freeze([ATOM_BUILDER_CAPABILITY,HYDROLYSIS_MEDIUM_CAPABILITY]);
+/** P1.6: ionic precipitation — the learner chooses two reagents, mixes them and writes the net ionic equation. */
+export const IONIC_PRECIPITATION_CAPABILITY:RendererCapability=Object.freeze({
+  id:'ionic-precipitation',
+  version:'1.0.0',
+  rendererModelSchema:'kimyolab.renderer.ionic-precipitation.v1',
+  intents:Object.freeze(['experiment-action'] as const),
+  accessibility:Object.freeze({keyboard:true,nonColorCues:true,screenReaderSummary:true,reducedMotion:'static',nonVisualAlternative:'text-state'} as const),
+}) as RendererCapability;
+
+export const RENDERER_CATALOG:readonly RendererCapability[]=Object.freeze([ATOM_BUILDER_CAPABILITY,HYDROLYSIS_MEDIUM_CAPABILITY,IONIC_PRECIPITATION_CAPABILITY]);

@@ -1,5 +1,6 @@
                                                                                   
 import {ReactionMatcher} from '../../domain/chemistry/reaction-matcher.js';
+import {SpeciesRegistry} from '../../domain/chemistry/species-registry.js';
 import {IonicEngine} from '../../domain/chemistry/ionic-engine.js';
 import {createReferenceSliceRouter, loadReferenceSliceRegistry} from '../../runtime/reference-slices/index.js';
 import {loadBeta1ConfigRegistry} from '../../runtime/beta1/config.js';
@@ -88,8 +89,9 @@ export class ReferencePracticeSession {
       const registry=loadReferenceSliceRegistry({[model.id]:config});
       const reactionMatcher=ReactionMatcher.from(model.chemistry.reactions       );
       const ionicEngine=IonicEngine.from({reactions:model.chemistry.reactions       ,rules:model.chemistry.solutionRules       });
+      const speciesRegistry=Array.isArray(model.chemistry.species)?SpeciesRegistry.from(model.chemistry.species       ):undefined;
       this.router=createReferenceSliceRouter({
-        registry,reactionMatcher,ionicEngine,
+        registry,reactionMatcher,ionicEngine,...(speciesRegistry?{speciesRegistry}:{}),
         contentVersion:model.contentVersion,
         scoringVersion:model.scoringVersion,
         now,

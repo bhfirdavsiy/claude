@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-09-30T05:11:43.335Z",
+  "createdAt": "2026-09-30T07:26:05.628Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -17,8 +17,8 @@
     {
       "path": "app-preview/app/content-client.js",
       "sourcePath": "public/app-preview/app/content-client.js",
-      "checksum": "e1d78b5a25ac47d8942d62e81128d331109750e789c898251f933fb4a32d088e",
-      "size": 20718
+      "checksum": "41262d65f7174c06ba0efcfa2f860cf3790d720780da932f576a91b6e32b5e0c",
+      "size": 20789
     },
     {
       "path": "app-preview/app/routes.js",
@@ -117,6 +117,18 @@
       "size": 2822
     },
     {
+      "path": "app-preview/domain/chemistry/ionic-equation.js",
+      "sourcePath": "public/app-preview/domain/chemistry/ionic-equation.js",
+      "checksum": "0f4196cf75cd8164d4c3301ba26549ff7783c0cd56fbd4783dc6ed1892f03113",
+      "size": 5441
+    },
+    {
+      "path": "app-preview/domain/chemistry/ionic-mixing.js",
+      "sourcePath": "public/app-preview/domain/chemistry/ionic-mixing.js",
+      "checksum": "d82536dc0035eb99aac1c1c5e83d3c07b46009fb111e63eefe163544f6a55536",
+      "size": 8953
+    },
+    {
       "path": "app-preview/domain/chemistry/kinetics-model.js",
       "sourcePath": "public/app-preview/domain/chemistry/kinetics-model.js",
       "checksum": "78b51ad157f1db506135b518314ea7537a14a1e3890b6ccc9499b31c45a42dde",
@@ -161,8 +173,8 @@
     {
       "path": "app-preview/domain/chemistry/reaction-matcher.js",
       "sourcePath": "public/app-preview/domain/chemistry/reaction-matcher.js",
-      "checksum": "05976b1285e7db7104c3c8cd5d73a0267fb68a433608254d1c17d3e6b88524ed",
-      "size": 2416
+      "checksum": "886154fe0059805d9747cf27797d31f326636f536e9af4fba822e1ddfa266cc8",
+      "size": 6091
     },
     {
       "path": "app-preview/domain/chemistry/redox-balancer.js",
@@ -371,8 +383,8 @@
     {
       "path": "app-preview/features/practice/model.js",
       "sourcePath": "public/app-preview/features/practice/model.js",
-      "checksum": "dfe1be898096dd4eb6d06560a749135e02e04a6fd0114d663a2a1bc23f84de28",
-      "size": 4133
+      "checksum": "7083157880219a26eb8b9cd6957d7cc3216bbe1d1c95e4414ba78966dc4e4cfd",
+      "size": 4343
     },
     {
       "path": "app-preview/features/practice/render.js",
@@ -383,8 +395,8 @@
     {
       "path": "app-preview/features/practice/session.js",
       "sourcePath": "public/app-preview/features/practice/session.js",
-      "checksum": "f61e392248014a54c86330f54eb7fda0c56462e06bb61c81914457323b8d79b2",
-      "size": 7906
+      "checksum": "56afe8bdf142765948524426291bcca7519056e36a34b2aac8fe4239105aa540",
+      "size": 8155
     },
     {
       "path": "app-preview/features/practice/ui-model.js",
@@ -509,14 +521,14 @@
     {
       "path": "app-preview/renderers/catalog.js",
       "sourcePath": "public/app-preview/renderers/catalog.js",
-      "checksum": "3e59e6ce4946cb75071ce9af107f41653be11a4dfaa0491727c94226533c624d",
-      "size": 1559
+      "checksum": "6d1af5e7ffea094b7eecc7880282bcdce9f557f876a42c82cc98880b268cba8d",
+      "size": 2140
     },
     {
       "path": "app-preview/renderers/contract.js",
       "sourcePath": "public/app-preview/renderers/contract.js",
-      "checksum": "09920e0f48df1ab97cd777d699a7c86606080dd841c05b7acc5bca8643a72568",
-      "size": 3563
+      "checksum": "92ae7f7a7ab382765536e86088513eed29dca81f27071d82edac74593acfdc55",
+      "size": 3684
     },
     {
       "path": "app-preview/renderers/hydrolysis-medium/renderer-model.js",
@@ -527,14 +539,32 @@
     {
       "path": "app-preview/renderers/hydrolysis-medium/renderer.js",
       "sourcePath": "public/app-preview/renderers/hydrolysis-medium/renderer.js",
-      "checksum": "1bfffcb93e9663fae61e6ede359c67d3fd07c09b745c28cba0900cfee0a6e626",
-      "size": 8161
+      "checksum": "ae3a6eb62a23cf3c8ed83ff41f42875b08b17aa22f46481bf0b484dd65bc694d",
+      "size": 8114
     },
     {
       "path": "app-preview/renderers/index.js",
       "sourcePath": "public/app-preview/renderers/index.js",
-      "checksum": "184bb6443413d00c808ca8291fbada096311639f639a84e7cb15197c8adfc61e",
-      "size": 615
+      "checksum": "1b0220249b130b45024c54ab0b674391042ca344a70696579e42b565439ba3d4",
+      "size": 742
+    },
+    {
+      "path": "app-preview/renderers/intent.js",
+      "sourcePath": "public/app-preview/renderers/intent.js",
+      "checksum": "a5a1384551ed121da8a98d8e0e552ca585e4d0bd3925b3800f514febb6185f8f",
+      "size": 989
+    },
+    {
+      "path": "app-preview/renderers/ionic-precipitation/renderer-model.js",
+      "sourcePath": "public/app-preview/renderers/ionic-precipitation/renderer-model.js",
+      "checksum": "4f2ca8fd50a64aeadf95062362748ff7cc62bf637b38a83a39b302a458c4e267",
+      "size": 7176
+    },
+    {
+      "path": "app-preview/renderers/ionic-precipitation/renderer.js",
+      "sourcePath": "public/app-preview/renderers/ionic-precipitation/renderer.js",
+      "checksum": "31663629e7a46c3b0a932ab940e8aa270437529087c36721ab5bdcdb99b0c729",
+      "size": 7494
     },
     {
       "path": "app-preview/renderers/registry.js",
@@ -551,8 +581,8 @@
     {
       "path": "app-preview/runtime/beta1/index.js",
       "sourcePath": "public/app-preview/runtime/beta1/index.js",
-      "checksum": "ddda9ceb58b4f6853326bea93f05113b97b51672f6e345f9a99cdc3e4d364942",
-      "size": 1632
+      "checksum": "c928556baa66012b2d7d5aea053f1dbb159210f0f1089902130447115301da95",
+      "size": 1830
     },
     {
       "path": "app-preview/runtime/beta1/readiness.js",
@@ -641,8 +671,8 @@
     {
       "path": "app-preview/runtime/evidence/types.js",
       "sourcePath": "public/app-preview/runtime/evidence/types.js",
-      "checksum": "43d3dba5d1a5cbec807477a24d59e00dc81fddb58c2dc1abf634076dc5cf2bb3",
-      "size": 12420
+      "checksum": "47a86da66dc5f8565f125f269277d1301ff2fde487e06f925f81d3d2fa5f35ea",
+      "size": 14249
     },
     {
       "path": "app-preview/runtime/governance/approvals.js",
@@ -779,8 +809,8 @@
     {
       "path": "app-preview/runtime/reference-slices/experiment-adapter.js",
       "sourcePath": "public/app-preview/runtime/reference-slices/experiment-adapter.js",
-      "checksum": "9b2b28f269c2c4b7b4f7e0736f6280aadd5166626d7e6d60056cfbbfb2329ac6",
-      "size": 5469
+      "checksum": "1eabac7259beb5b4be433b9d79a3f9e504585a2be96ad1e891e076f6de88fd29",
+      "size": 6297
     },
     {
       "path": "app-preview/runtime/reference-slices/hydrolysis-practice.js",
@@ -791,8 +821,14 @@
     {
       "path": "app-preview/runtime/reference-slices/index.js",
       "sourcePath": "public/app-preview/runtime/reference-slices/index.js",
-      "checksum": "541cb1df14862d55e9afbf9f589a81f91e5429c6af789d0f7f0b606a3cc99701",
-      "size": 1798
+      "checksum": "ef5a7e3c06f9e8fa09a0788edbb238d02fdab2ba948cf3cc23f86cef5a297871",
+      "size": 1979
+    },
+    {
+      "path": "app-preview/runtime/reference-slices/ionic-practice.js",
+      "sourcePath": "public/app-preview/runtime/reference-slices/ionic-practice.js",
+      "checksum": "8b11e5709975949a688a3dc0b4154489df52ca73d80520b2dfea5c1e4d4ac632",
+      "size": 3027
     },
     {
       "path": "app-preview/runtime/reference-slices/repository.js",
@@ -833,8 +869,8 @@
     {
       "path": "app-preview/ui/tokens/kimyolab.css",
       "sourcePath": "public/app-preview/ui/tokens/kimyolab.css",
-      "checksum": "beef7b5989eeadbf9007b909628f3fb4bf92c1bdcfbb0e4cdf898f56f0853c07",
-      "size": 26812
+      "checksum": "be36db04e54517bb1538f0352ec5b6ed4a5bd5c411d2e93722d1cbc8dd5bfc46",
+      "size": 28445
     },
     {
       "path": "assets/home/results.png",
@@ -899,8 +935,8 @@
     {
       "path": "content/2026.09.1/activity-configs/reference-slices.json",
       "sourcePath": "public/content/2026.09.1/activity-configs/reference-slices.json",
-      "checksum": "2dd891d34ab28afb3bddc1f3e339ab20514f686d302cd043739833d2406d44ed",
-      "size": 4973
+      "checksum": "0b5ebca97b976b92e3050fa59b8e04683671b475bd70eee4b2546ef47e1dde15",
+      "size": 4095
     },
     {
       "path": "content/2026.09.1/activity-readiness.json",
@@ -1025,8 +1061,8 @@
     {
       "path": "content/2026.09.1/execution-plans.json",
       "sourcePath": "public/content/2026.09.1/execution-plans.json",
-      "checksum": "3dc2187ffa95f895f73ff431a62c5f2208486b06e8cee4e126cddeb31c608f27",
-      "size": 34298
+      "checksum": "c0debd72666f3b5a20c5420676abe20ce822b59d8bdd8a4028aa5c4648fbcd6b",
+      "size": 34409
     },
     {
       "path": "content/2026.09.1/external-lab-bindings.json",
@@ -1079,7 +1115,7 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "021d25de014a8c6f0a39fb72dd87fdbac447eac03e8c92b7af0e2fbea5af5434",
+      "checksum": "c3e6af07aa514052152846a34328fa4e5d2153cbb263f553a8e7e6e8d3d13395",
       "size": 7000
     },
     {
@@ -1103,7 +1139,7 @@
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "7ea1e2cfd91eb50c8b8678592cf51ef16bbbec3dddc815dbbb728fd1fdec76f5",
+      "checksum": "e7a4d71a3f2119da6851d0851c97ddbb97df6fdb2fd0e0d12fa23dee4db5cb1c",
       "size": 158
     },
     {

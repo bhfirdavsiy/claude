@@ -10,6 +10,7 @@
 import type {PracticeCommand} from '../../features/practice/session.ts';
 import {el,clear} from '../../ui/components/dom.ts';
 import {HYDROLYSIS_MEDIUM_CAPABILITY} from '../catalog.ts';
+import {commandFor} from '../intent.ts';
 import type {RendererHost,RendererImplementation,RendererInstance,RendererMountContext} from '../contract.ts';
 import {toHydrolysisRendererModel,type HydrolysisRendererModel} from './renderer-model.ts';
 
@@ -20,7 +21,7 @@ export type HydrolysisIntentAction=
 
 /** Typed intents in the existing command contract: experiment pages send experiment-action, simulation pages simulation-action. */
 export function hydrolysisIntent(action:HydrolysisIntentAction,practiceType:RendererMountContext['practiceType']='experiment'):PracticeCommand{
-  return practiceType==='simulation'?{kind:'simulation-action',action:{...action}}:{kind:'experiment-action',action:{...action}};
+  return commandFor(practiceType,action);
 }
 
 let instances=0;

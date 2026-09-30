@@ -63,13 +63,8 @@ test('trainer, calculation and case sessions use the verified engine adapters',a
 
 test('reactive experiment session uses ReactionMatcher and IonicEngine rather than UI chemistry guesses',async()=>{
   const s=await session('practice.experiment.8.1');
-  for(const action of [
-    {type:'selectApparatus'},
-    {type:'addNaCl'},
-    {type:'addAgNO3'},
-    {type:'observe'},
-    {type:'record',payload:{netIonicEquation:'Ag+ + Cl- → AgCl(s)'}},
-  ]) await s.apply({kind:'experiment-action',action});
+  // P1.6: the learner chooses the reagents; the fixed addNaCl → addAgNO3 script no longer exists (ADR-P1-007)
+  for(const action of [{type:'selectReagent',payload:{slot:'A',speciesId:'species.agno3'}},{type:'selectReagent',payload:{slot:'B',speciesId:'species.nacl'}},{type:'mix'},{type:'writeEquation',payload:{equation:'Ag+ + Cl- → AgCl(s)'}}]) await s.apply({kind:'experiment-action',action});
   const result=await s.result();
   assert.equal(result.finalState.status,'complete');
   assert.ok(result.evidence.some(e=>e.type==='observation'&&e.observation.type==='precipitate'));

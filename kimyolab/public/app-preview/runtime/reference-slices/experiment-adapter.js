@@ -1,6 +1,8 @@
                                                                       
                                                                                   
                                                                           
+                                                                                  
+import { ionicPracticeResult } from './ionic-practice.js';
                                                                                                              
 import { ExperimentEngine } from '../../engines/experiment/engine.js';
                                                                                                                                
@@ -11,6 +13,7 @@ import { ExperimentEngine } from '../../engines/experiment/engine.js';
                                   
                                   
                           
+                                   
                         
                         
                  
@@ -63,6 +66,12 @@ export function createExperimentSliceAdapter(o        )                         
     async run(activity,context){
       const config=o.registry[activity.id];
       if(!config||config.type!=='experiment') throw new Error(`REFERENCE_SLICE_CONFIG_MISSING:${activity.id}`);
+      // P1.6: a reagent shelf means the learner CHOOSES the reagents (ionic-mixing.ts); the former fixed scenario
+      // (addNaCl → addAgNO3 → observe → record) added the configured reagents in a scripted order.
+      if(Array.isArray(config.reagentShelf)){
+        if(!o.speciesRegistry) throw new Error('IONIC_SPECIES_DATA_MISSING');
+        return ionicPracticeResult({domain:{species:o.speciesRegistry,matcher:o.reactionMatcher,ionic:o.ionicEngine},shelf:config.reagentShelf,targetReactionId:config.reactionId,actions:context.inputs[activity.id]?.actions??[],meta:metadata(activity,config,o)});
+      }
       const scenario=stepScenario(config);
       let matchedReaction    ;
       const evaluator=(_state    ,action          ,step               )                       =>{
@@ -70,7 +79,7 @@ export function createExperimentSliceAdapter(o        )                         
 
         if(config.reactionId && action.type==='addAgNO3'){
           const reactants=(action.payload?.reactants         )??config.reactants;
-          const match=o.reactionMatcher.match({reactants});
+          const match=o.reactionMatcher.match({reactants,conditionPolicy:'filter-by-query'});
           if(!match.modeled) return {status:'invalid',code:match.code,feedbackKey:`chemistry.${match.code.toLowerCase()}`};
           matchedReaction=match.reaction;
         }

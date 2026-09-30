@@ -150,7 +150,7 @@ export class ContentClient {
     const prefix=`${this.baseUrl}/${version}`;
     // P1.1 (D8): routing is read from the compiled execution plan — never guessed from which config file
     // happens to contain the activity. Only the plan's own config source is loaded.
-    const [packManifest,practices,mappings,planPack,reactions,solutionRules,hydrolysis,electrolysis,manganeseRedox,organic,kinetics,equilibrium]=await Promise.all([
+    const [packManifest,practices,mappings,planPack,reactions,solutionRules,hydrolysis,electrolysis,manganeseRedox,organic,kinetics,equilibrium,species]=await Promise.all([
       Promise.resolve(this.manifestCache),
       this.packJson(version,`practice-activities.json`),
       this.packJson(version,`mapping-links.json`),
@@ -163,6 +163,7 @@ export class ContentClient {
       this.packJson(version,`chemistry/organic.json`),
       this.packJson(version,`chemistry/kinetics.json`),
       this.packJson(version,`chemistry/equilibrium.json`),
+      this.packJson(version,`chemistry/species.json`),
     ]);
     const activity=practices.find((x:any)=>x.id===practiceActivityId);
     if(!activity) throw new ContentLoadError('PRACTICE_ACTIVITY_NOT_FOUND',{resource:practiceActivityId});
@@ -193,7 +194,7 @@ export class ContentClient {
       schemaVersion:String(packManifest.schemaVersion??'0'),
       scoringVersion:String(packManifest.scoringVersion??'0'),
       ...(packManifest.curriculumVersion?{curriculumVersion:String(packManifest.curriculumVersion)}:{}),
-      reactions,solutionRules,hydrolysis,electrolysis,manganeseRedox,organic,kinetics,equilibrium,elementNames,
+      reactions,solutionRules,hydrolysis,electrolysis,manganeseRedox,organic,kinetics,equilibrium,species,elementNames,
     });
   }
 

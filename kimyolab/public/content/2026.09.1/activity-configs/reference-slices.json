@@ -169,61 +169,10 @@
   "practice.experiment.8.1": {
     "sliceId": "slice.8.16.chloride-precipitation",
     "type": "experiment",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "conceptId": "concept.c114",
     "reactionId": "rxn.agno3-nacl",
-    "reactants": [
-      {
-        "formula": "AgNO3",
-        "phase": "aq"
-      },
-      {
-        "formula": "NaCl",
-        "phase": "aq"
-      }
-    ],
-    "scenario": {
-      "id": "scenario.8.16.chloride-precipitation",
-      "steps": [
-        {
-          "id": "apparatus",
-          "dependencies": [],
-          "mode": "required",
-          "actionType": "selectApparatus"
-        },
-        {
-          "id": "nacl",
-          "dependencies": [
-            "apparatus"
-          ],
-          "mode": "required",
-          "actionType": "addNaCl"
-        },
-        {
-          "id": "agno3",
-          "dependencies": [
-            "nacl"
-          ],
-          "mode": "required",
-          "actionType": "addAgNO3"
-        },
-        {
-          "id": "observe",
-          "dependencies": [
-            "agno3"
-          ],
-          "mode": "required",
-          "actionType": "observe"
-        },
-        {
-          "id": "record",
-          "dependencies": [
-            "observe"
-          ],
-          "mode": "required",
-          "actionType": "record"
-        }
-      ]
-    }
+    "reagentShelf": ["species.agno3", "species.nacl", "species.bacl2", "species.h2so4", "species.zncl2", "species.naoh", "species.nano3"],
+    "rendererRequirement": {"capability": "ionic-precipitation", "range": "^1.0.0"}
   }
 }

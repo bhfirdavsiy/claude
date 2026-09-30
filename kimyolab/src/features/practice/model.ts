@@ -33,6 +33,8 @@ export interface StudentPracticePageModel {
     organic?:any;
     kinetics?:any;
     equilibrium?:any;
+    /** P1.6: species registry data (reagent identities for the ionic mixing practice) */
+    species?:any[];
   };
 }
 
@@ -55,6 +57,7 @@ export function buildPracticePageModel(input:{
   organic?:any;
   kinetics?:any;
   equilibrium?:any;
+  species?:any[];
   elementNames?:ElementNameCatalog;
 }):StudentPracticePageModel {
   return {
@@ -90,6 +93,7 @@ export function buildPracticePageModel(input:{
       organic:input.organic===undefined?undefined:structuredClone(input.organic),
       kinetics:input.kinetics===undefined?undefined:structuredClone(input.kinetics),
       equilibrium:input.equilibrium===undefined?undefined:structuredClone(input.equilibrium),
+      species:input.species===undefined?undefined:structuredClone(input.species),
     },
   };
 }

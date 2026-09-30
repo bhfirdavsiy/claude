@@ -1,6 +1,7 @@
                                                                       
                                                                                   
                                                                           
+                                                                                  
                                                                                                    
 import { createReferenceSliceRouter } from '../reference-slices/index.js';
                                                        
@@ -14,6 +15,7 @@ export function createBeta1Router(options
                                     
                                   
                           
+                                   
                         
                         
                  
@@ -22,6 +24,7 @@ export function createBeta1Router(options
     registry:options.referenceRegistry,
     reactionMatcher:options.reactionMatcher,
     ionicEngine:options.ionicEngine,
+    ...(options.speciesRegistry?{speciesRegistry:options.speciesRegistry}:{}),
     contentVersion:options.contentVersion,
     scoringVersion:options.scoringVersion,
     now:options.now,

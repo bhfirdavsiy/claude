@@ -6,7 +6,7 @@
   "assessmentVersion": "0.0.0",
   "scoringVersion": "0.0.0",
   "createdAt": "2026-09-22T00:00:00.000Z",
-  "checksum": "435e69f55515871faf97b0f05d6cb156188b74b73a8e4050b489b6693b217ee1",
+  "checksum": "a553fcd6edaa73686be2fc0ab9a028ebdb94fc9e2d9c9d1d8c6d549ef61f87ea",
   "compatibility": {
     "minAppVersion": "20.1.0"
   },
@@ -55,8 +55,8 @@
     },
     {
       "path": "activity-configs/reference-slices.json",
-      "checksum": "2dd891d34ab28afb3bddc1f3e339ab20514f686d302cd043739833d2406d44ed",
-      "size": 4973
+      "checksum": "0b5ebca97b976b92e3050fa59b8e04683671b475bd70eee4b2546ef47e1dde15",
+      "size": 4095
     },
     {
       "path": "activity-readiness.json",
@@ -160,8 +160,8 @@
     },
     {
       "path": "execution-plans.json",
-      "checksum": "3dc2187ffa95f895f73ff431a62c5f2208486b06e8cee4e126cddeb31c608f27",
-      "size": 34298
+      "checksum": "c0debd72666f3b5a20c5420676abe20ce822b59d8bdd8a4028aa5c4648fbcd6b",
+      "size": 34409
     },
     {
       "path": "external-lab-bindings.json",

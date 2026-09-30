@@ -6,6 +6,7 @@ import { IndexedDbProgressStore } from '../src/runtime/progress/indexeddb-store.
 import { createFakeIndexedDb } from './helpers/fake-indexeddb.mjs';
 import { ReactionMatcher } from '../src/domain/chemistry/reaction-matcher.ts';
 import { IonicEngine } from '../src/domain/chemistry/ionic-engine.ts';
+import { SpeciesRegistry } from '../src/domain/chemistry/species-registry.ts';
 import { createCanonicalContentRepository, createReferenceSliceRouter, loadReferenceSliceRegistry } from '../src/runtime/reference-slices/index.ts';
 
 const read=(p)=>JSON.parse(fs.readFileSync(new URL(`../${p}`,import.meta.url),'utf8'));
@@ -30,7 +31,9 @@ const runs={
     {stepId:'h-contribution',value:2,unit:'relative-mass'},{stepId:'s-contribution',value:32,unit:'relative-mass'},
     {stepId:'o-contribution',value:64,unit:'relative-mass'},{stepId:'total',value:98,unit:'relative-mass'}]}},
   'lu.7.18':{activityId:'practice.case.7.14',input:{case:{evidenceIds:['traffic-no2','calm-weather'],decision:'Prioritize transport emission reduction',justification:'NO2 evidence is highest near traffic and calm weather limits dispersion, so transport is a supported source hypothesis.',reflection:'Review later.'}}},
-  'lu.8.16':{activityId:'practice.experiment.8.1',input:{actions:[{type:'selectApparatus'},{type:'addNaCl'},{type:'addAgNO3'},{type:'observe'},{type:'record',payload:{netIonicEquation:'Ag+ + Cl- → AgCl(s)'}}]}},
+  // P1.6: the learner chooses the reagents (the scripted addNaCl → addAgNO3 → observe → record sequence was
+  // replaced by reagent choice → mix → equation; see ADR-P1-007)
+  'lu.8.16':{activityId:'practice.experiment.8.1',input:{actions:[{type:'selectReagent',payload:{slot:'A',speciesId:'species.agno3'}},{type:'selectReagent',payload:{slot:'B',speciesId:'species.nacl'}},{type:'mix'},{type:'writeEquation',payload:{equation:'Ag+ + Cl- → AgCl(s)'}}]}},
 };
 
 function assessmentEvidence(unit){
@@ -48,7 +51,7 @@ for(const [learningUnitId,fixture] of Object.entries(runs)){
     assert.ok(repo.getTheoryActivity(mapping.theoryActivityId));
     assert.equal(repo.getPracticeActivity(fixture.activityId).lifecycleStatus,'ready');
 
-    const router=createReferenceSliceRouter({registry,reactionMatcher:matcher,ionicEngine:ionic,contentVersion:'2026.09.1',scoringVersion:'1.0.0',now:()=>at});
+    const router=createReferenceSliceRouter({registry,reactionMatcher:matcher,ionicEngine:ionic,speciesRegistry:SpeciesRegistry.from(read('content-src/chemistry/species.json')),contentVersion:'2026.09.1',scoringVersion:'1.0.0',now:()=>at});
     const factory=createFakeIndexedDb();
     const store=new IndexedDbProgressStore(factory,`phase5-${learningUnitId}`);
     const runner=new LearningRunner({

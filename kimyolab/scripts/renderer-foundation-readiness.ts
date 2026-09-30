@@ -15,6 +15,7 @@ import {IonicEngine} from '../src/domain/chemistry/ionic-engine.ts';
 import {isPracticeResultComplete} from '../src/runtime/learning-orchestrator/selectors.ts';
 import {atomIntent} from '../src/renderers/atom-builder/renderer.ts';
 import {hydrolysisIntent} from '../src/renderers/hydrolysis-medium/renderer.ts';
+import {ionicIntent} from '../src/renderers/ionic-precipitation/renderer.ts';
 import {HydrolysisModel} from '../src/domain/chemistry/hydrolysis-model.ts';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
@@ -46,7 +47,8 @@ const CANDIDATES:CandidateSpec[]=[
   {
     id:'ionic-precipitation',title:'Ion almashinish / cho‘kma tajribasi (reagentlar → reaksiya, kuzatuv, net-ion tenglama)',leadActivityId:'practice.experiment.8.1',
     family:(s,c)=>s==='reference-slices'&&c.sliceId==='slice.8.16.chloride-precipitation',modelData:['content-src/chemistry/reactions.json','content-src/chemistry/solubility.json'],domainModel:'ReactionMatcher + IonicEngine (reaction KB, observations, net ionic equation)',
-    assessment:{pedagogicalValue:'high — predict/observe/explain on precipitation; net-ionic equation checked by the IonicEngine',currentLimitation:'the UI adds the configured reagents in a fixed order; the adapter already accepts learner-chosen reactants (action.payload.reactants) but the UI never offers the choice → today it is a guided sequence',engineMaturity:'mature: ExperimentEngine with dependencies, ReactionMatcher fail-closed on unmodeled reactions',interactionDepth:'model-capable but not yet exposed: with reagent choice, any modeled pair yields its own observation; unmodeled pairs are refused (no invented chemistry)',accessibilityComplexity:'medium — observations must have text equivalents (colour of precipitate), equation input needs a sub/superscript-free syntax',reusePotential:'high — the 28-reaction KB serves 8th/9th-grade reaction experiments and the qualitative tests',blackSwan:'RISK today (fixed reagent sequence = scripted); PASS once the renderer lets the learner choose reagents and shows only what the matcher returns',accessibilityPlan:'observation text for every visual change (precipitate colour + "cho‘kma"), equation field with plain-text syntax and error text, keyboard-only reagent selection, reduced motion = instant state',dependencies:['RendererModel for ExperimentState + matched reaction','reagent-choice intent in the renderer contract (no chemistry in the renderer)']},
+    assessment:{pedagogicalValue:'high — predict/observe/explain on precipitation; net-ionic equation checked by the IonicEngine',currentLimitation:'P1.6: fixed — the learner chooses two reagents from a content shelf, the ReactionMatcher decides; only 3 of the 21 shelf pairs are modeled (reactions.json, review pending) and the KB has no explicit no-reaction records yet',engineMaturity:'mature: ReactionMatcher fail-closed on unmodeled pairs, IonicEngine net ionic equation, order-insensitive equation comparison',interactionDepth:'model-based: any shelf pair → modeled reaction / explicit no-reaction / not modeled (never guessed as "no reaction")',accessibilityComplexity:'medium — observations must have text equivalents (colour of precipitate), equation input needs a sub/superscript-free syntax',reusePotential:'high — the 28-reaction KB serves 8th/9th-grade reaction experiments and the qualitative tests',blackSwan:'PASS — different pairs give different domain results; unmodeled pairs fail closed; no fixed reagent script',accessibilityPlan:'observation text for every visual change (precipitate colour + "cho‘kma"), equation field with plain-text syntax and error text, keyboard-only reagent selection, reduced motion = instant state',dependencies:['more modeled pairs and explicit no-reaction records reviewed by a chemist']},
+    implemented:'P1.6 — RendererRegistry capability ionic-precipitation@1.0.0 (src/renderers/ionic-precipitation)',
     rank:2,
   },
   {
@@ -84,6 +86,14 @@ async function uiPathCanSucceed(client:ContentClient,activityId:string){
       // P1.5: the intents the hydrolysis renderer emits — choose the target salt, predict (the domain's medium), reveal
       const medium=(HydrolysisModel.from(model.chemistry.hydrolysis).classify(c.salt) as any).medium;
       commands=[{type:'selectSalt',payload:{salt:c.salt}},{type:'predictMedium',payload:{medium}},{type:'addIndicator'}].map(a=>hydrolysisIntent(a as any,model.type));
+    }
+    else if(capability==='ionic-precipitation'){
+      // P1.6: the intents the ionic renderer emits — choose the target reaction's reagents, mix, write the equation
+      // (the reagents of the target come from the KB record; the equation from IonicEngine)
+      const rx=model.chemistry.reactions.find((x:any)=>x.id===c.reactionId);
+      const bySpecies=(f:string)=>(model.chemistry.species??[]).find((x:any)=>x.formula===f)?.id;
+      const equation=IonicEngine.from({reactions:model.chemistry.reactions,rules:model.chemistry.solutionRules}).netIonicEquation(c.reactionId).equation;
+      commands=[{type:'selectReagent',payload:{slot:'A',speciesId:bySpecies(rx.reactants[0].formula)}},{type:'selectReagent',payload:{slot:'B',speciesId:bySpecies(rx.reactants[1].formula)}},{type:'mix'},{type:'writeEquation',payload:{equation}}].map(a=>ionicIntent(a as any,model.type));
     }
     else return {verdict:'NOT_EVALUATED',detail:'no intent script for this capability'};
   }

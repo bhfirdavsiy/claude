@@ -169,7 +169,8 @@ test('renderer foundation report: facts from code, black-swan honesty, only the 
   assert.equal(report.startGate.canStartImplementation,true);
   // P1.5: hydrolysis-medium is the second approved reference renderer. The old invariant ("only atom-builder")
   // described the P1.4 scope; ionic precipitation and electrolysis are still NOT implemented.
-  assert.deepEqual(report.rows.filter(r=>r.implemented).map(r=>r.candidate),['atom-builder','hydrolysis-medium'],'no other renderer was implemented');
+  // P1.6: ionic-precipitation is the third approved reference renderer (electrolysis is still NOT implemented)
+  assert.deepEqual(report.rows.filter(r=>r.implemented).map(r=>r.candidate),['atom-builder','ionic-precipitation','hydrolysis-medium'],'no other renderer was implemented');
   const by=Object.fromEntries(report.rows.map(r=>[r.candidate,r]));
   assert.deepEqual(report.rows.filter(r=>r.rank).sort((a,b)=>a.rank-b.rank).map(r=>r.candidate),['atom-builder','ionic-precipitation','hydrolysis-medium']);
   assert.equal(by['atom-builder'].learnerUiPath.verdict,'CAN_SUCCEED');
@@ -178,7 +179,7 @@ test('renderer foundation report: facts from code, black-swan honesty, only the 
   assert.equal(by['hydrolysis-medium'].learnerUiPath.verdict,'CAN_SUCCEED','the renderer passes the salt/medium to the model');
   assert.equal(by.electrolysis.modelData[0].records,1);
   assert.ok(by.electrolysis.blockers.some(b=>/canned animation/.test(b)),'a one-record model must not be called a simulation');
-  assert.deepEqual(fs.readdirSync(path.join(root,'src/renderers')).filter(f=>fs.statSync(path.join(root,'src/renderers',f)).isDirectory()).sort(),['atom-builder','hydrolysis-medium'],'no ionic/electrolysis renderer exists');
+  assert.deepEqual(fs.readdirSync(path.join(root,'src/renderers')).filter(f=>fs.statSync(path.join(root,'src/renderers',f)).isDirectory()).sort(),['atom-builder','hydrolysis-medium','ionic-precipitation'],'no electrolysis renderer exists');
 });
 
 // ------------------------------------------------------------------ completion fix (found by pilot:status)

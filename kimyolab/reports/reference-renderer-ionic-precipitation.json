@@ -1,0 +1,138 @@
+{
+  "schema": "kimyolab.reference-renderer-ionic-precipitation.v1",
+  "capability": "ionic-precipitation@1.0.0",
+  "status": "PASS",
+  "checks": {
+    "modelBased": true,
+    "learnerChoice": true,
+    "unmodeledFailClosed": true,
+    "equationValidation": true,
+    "expectedEquationHidden": true,
+    "evidenceParity": true
+  },
+  "modelBased": true,
+  "availableReagents": [
+    {
+      "speciesId": "species.agno3",
+      "label": "AgNO₃"
+    },
+    {
+      "speciesId": "species.nacl",
+      "label": "NaCl"
+    },
+    {
+      "speciesId": "species.bacl2",
+      "label": "BaCl₂"
+    },
+    {
+      "speciesId": "species.h2so4",
+      "label": "H₂SO₄"
+    },
+    {
+      "speciesId": "species.zncl2",
+      "label": "ZnCl₂"
+    },
+    {
+      "speciesId": "species.naoh",
+      "label": "NaOH"
+    },
+    {
+      "speciesId": "species.nano3",
+      "label": "NaNO₃"
+    }
+  ],
+  "modeledPairs": [
+    {
+      "reagents": [
+        "species.agno3",
+        "species.nacl"
+      ],
+      "outcome": "reaction",
+      "reactionId": "rxn.agno3-nacl",
+      "observation": "AgNO₃ + NaCl: Oq cho‘kma hosil bo‘ldi."
+    },
+    {
+      "reagents": [
+        "species.bacl2",
+        "species.h2so4"
+      ],
+      "outcome": "reaction",
+      "reactionId": "rxn.bacl2-h2so4",
+      "observation": "BaCl₂ + H₂SO₄: Oq cho‘kma hosil bo‘ldi."
+    },
+    {
+      "reagents": [
+        "species.zncl2",
+        "species.naoh"
+      ],
+      "outcome": "reaction",
+      "reactionId": "rxn.zncl2-naoh",
+      "observation": "ZnCl₂ + NaOH: Oq cho‘kma hosil bo‘ldi."
+    }
+  ],
+  "modeledNoReactionPairs": 0,
+  "notModeledPairs": 18,
+  "distinctOutcomes": 3,
+  "learnerChoice": {
+    "availableReagents": 7,
+    "pairs": 21,
+    "choiceChangesOutcome": true,
+    "fixedScript": false
+  },
+  "unmodeledFailClosed": true,
+  "equationValidation": {
+    "authority": "IonicEngine.netIonicEquation + compareNetIonic",
+    "canonicalAccepted": true,
+    "reorderedAccepted": true,
+    "wrongRejectedAsEvidence": true,
+    "syntaxErrorNotEvidence": true
+  },
+  "evidenceParity": {
+    "claim": "for every shelf pair: renderer state = ReactionMatcher outcome; one observation evidence per modeled pair, none for an unmodeled pair",
+    "equal": true
+  },
+  "domainSource": [
+    "src/domain/chemistry/ionic-mixing.ts",
+    "src/domain/chemistry/reaction-matcher.ts",
+    "src/domain/chemistry/ionic-engine.ts",
+    "src/domain/chemistry/ionic-equation.ts",
+    "content-src/chemistry/reactions.json",
+    "content-src/chemistry/solubility.json",
+    "content-src/chemistry/species.json"
+  ],
+  "converter": "src/renderers/ionic-precipitation/renderer-model.ts#toIonicPrecipitationRendererModel",
+  "rendererModelSchema": "kimyolab.renderer.ionic-precipitation.v1",
+  "intents": {
+    "kinds": [
+      "experiment-action"
+    ],
+    "shape": {
+      "kind": "experiment-action",
+      "action": {
+        "type": "selectReagent",
+        "payload": {
+          "slot": "A",
+          "speciesId": "species.agno3"
+        }
+      }
+    }
+  },
+  "accessibility": {
+    "keyboard": true,
+    "nonColorCues": true,
+    "screenReaderSummary": true,
+    "reducedMotion": "static",
+    "nonVisualAlternative": "text-state",
+    "keyboardE2E": {
+      "spec": "tests/e2e/renderer-ionic.spec.mjs",
+      "present": true,
+      "keyboardOnly": true
+    }
+  },
+  "knownLimitations": [
+    "only 3 of the 21 shelf pairs are modeled in reactions.json (review pending); the others fail closed as \"not modeled\"",
+    "the KB has no explicit no-reaction records yet: the domain supports them (reactionType \"no-reaction\"), no data asserts one",
+    "the shelf holds only solution reagents with dissociation rules (IonicEngine can compute their net ionic equation)",
+    "phases in the learner equation are optional; a coefficient multiple (2Ag+ + 2Cl- → 2AgCl) is not the net equation"
+  ]
+}

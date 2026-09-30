@@ -3,10 +3,12 @@
 import {RendererRegistry} from './registry.js';
 import {atomBuilderRenderer} from './atom-builder/renderer.js';
 import {hydrolysisMediumRenderer} from './hydrolysis-medium/renderer.js';
+import {ionicPrecipitationRenderer} from './ionic-precipitation/renderer.js';
 
 export function createDefaultRendererRegistry()                 {
   const registry=new RendererRegistry();
   registry.register(atomBuilderRenderer);
   registry.register(hydrolysisMediumRenderer);
+  registry.register(ionicPrecipitationRenderer);
   return registry;
 }

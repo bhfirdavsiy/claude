@@ -1,6 +1,7 @@
 import type { PracticeActivity } from '../../domain/content/types.ts';
 import type { ReactionMatcher } from '../../domain/chemistry/reaction-matcher.ts';
 import type { IonicEngine } from '../../domain/chemistry/ionic-engine.ts';
+import type { SpeciesRegistry } from '../../domain/chemistry/species-registry.ts';
 import type { ReferenceSliceContext, ReferenceSliceRegistry } from '../reference-slices/config.ts';
 import { createReferenceSliceRouter } from '../reference-slices/index.ts';
 import type { Beta1ConfigRegistry } from './config.ts';
@@ -14,6 +15,7 @@ export function createBeta1Router(options:{
   beta1Registry:Beta1ConfigRegistry;
   reactionMatcher:ReactionMatcher;
   ionicEngine:IonicEngine;
+  speciesRegistry?:SpeciesRegistry;
   contentVersion:string;
   scoringVersion:string;
   now:()=>string;
@@ -22,6 +24,7 @@ export function createBeta1Router(options:{
     registry:options.referenceRegistry,
     reactionMatcher:options.reactionMatcher,
     ionicEngine:options.ionicEngine,
+    ...(options.speciesRegistry?{speciesRegistry:options.speciesRegistry}:{}),
     contentVersion:options.contentVersion,
     scoringVersion:options.scoringVersion,
     now:options.now,

@@ -46,6 +46,27 @@
         "practice.simulation.11.11.planned"
       ],
       "status": "ACTIVE"
+    },
+    {
+      "capability": "ionic-precipitation",
+      "rendererVersion": "1.0.0",
+      "rendererModelSchema": "kimyolab.renderer.ionic-precipitation.v1",
+      "intents": [
+        "experiment-action"
+      ],
+      "implementation": "src/renderers/ionic-precipitation/renderer.ts",
+      "implementationExists": true,
+      "accessibility": {
+        "keyboard": true,
+        "nonColorCues": true,
+        "screenReaderSummary": true,
+        "reducedMotion": "static",
+        "nonVisualAlternative": "text-state"
+      },
+      "compatibleActivities": [
+        "practice.experiment.8.1"
+      ],
+      "status": "ACTIVE"
     }
   ]
 }
