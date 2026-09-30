@@ -23,6 +23,7 @@ import {isPracticeResultComplete} from '../src/runtime/learning-orchestrator/sel
 import {ContentClient} from '../src/app/content-client.ts';
 import {ReferencePracticeSession} from '../src/features/practice/session.ts';
 import {buildPracticeUiModel} from '../src/features/practice/ui-model.ts';
+import {atomIntent} from '../src/renderers/atom-builder/renderer.ts';
 import {derivePilotStatus,pilotBasis,pilotGate,type PilotCheck,type PilotSignoffRecord,type SignoffState,type CheckVerdict} from '../src/domain/pilot/acceptance.ts';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
@@ -59,7 +60,8 @@ function satisfiesCaret(range:string,version:string){
  */
 function solutionCommands(model:any):{commands:any[];chemistry:{verdict:CheckVerdict;detail:string}}{
   const c=model.referenceConfig;
-  const ui=buildPracticeUiModel(model);
+  // P1.4: a registry-rendered activity has no legacy UI model; its renderer's intents are the browser path
+  const ui:any=model.executionPlan.rendererRequirement?{kind:'registry'}:buildPracticeUiModel(model);
   if(model.type==='trainer'&&model.executionPlan.runtime==='reference-slice'){
     const derived=formulaFromValency(c.elementA,c.valencyA,c.elementB,c.valencyB);
     const same=parseFormula(derived).normalized===parseFormula(c.expectedFormula).normalized;
@@ -78,8 +80,8 @@ function solutionCommands(model:any):{commands:any[];chemistry:{verdict:CheckVer
   if(model.type==='simulation'&&model.executionPlan.runtime==='reference-slice'){
     const t=c.target;
     const consistent=t.electrons===t.protons&&t.isotope===`${t.element}-${t.protons+t.neutrons}`;
-    const commands=(['protons','neutrons','electrons'] as const).flatMap(p=>Array.from({length:t[p]},()=>({kind:'simulation-action',action:{particle:p,delta:1}})));
-    return {commands,chemistry:{verdict:consistent?'PASS':'FAIL',detail:`target ${t.isotope}: p=${t.protons}, n=${t.neutrons}, e=${t.electrons} (neutral atom, mass number = p+n); the engine derives the element from Z`}};
+    const commands=(['protons','neutrons','electrons'] as const).flatMap(p=>Array.from({length:t[p]},()=>atomIntent(p,1)));
+    return {commands,chemistry:{verdict:consistent?'PASS':'FAIL',detail:`target ${t.isotope}: p=${t.protons}, n=${t.neutrons}, e=${t.electrons} (neutral atom, mass number = p+n); the domain atom model derives the element from Z (atom-builder renderer intents)`}};
   }
   if(model.type==='experiment'&&ui.kind==='experiment'){
     let chemistry:{verdict:CheckVerdict;detail:string}={verdict:'NOT_APPLICABLE',detail:'procedural experiment'};
@@ -88,7 +90,7 @@ function solutionCommands(model:any):{commands:any[];chemistry:{verdict:CheckVer
       const r=ElectrolysisModel.from(data).resolve(c.query);
       chemistry=r.modeled?{verdict:'PASS',detail:`electrolysis model resolves ${c.query.electrolyte}(${c.query.phase}, ${c.query.electrode}): cathode ${r.cathode.product}, anode ${r.anode.product} (${data.records.length} modeled electrolyte(s))`}:{verdict:'FAIL',detail:`electrolysis model does not cover ${JSON.stringify(c.query)}`};
     }
-    return {commands:ui.controls.map(x=>({kind:'experiment-action',action:{type:x.action}})),chemistry};
+    return {commands:ui.controls.map((x:any)=>({kind:'experiment-action',action:{type:x.action}})),chemistry};
   }
   return {commands:[],chemistry:{verdict:'FAIL',detail:`no pilot check for ${model.type}/${model.executionPlan.runtime}`}};
 }

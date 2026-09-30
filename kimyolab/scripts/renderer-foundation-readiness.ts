@@ -13,6 +13,7 @@ import {ReferencePracticeSession} from '../src/features/practice/session.ts';
 import {buildPracticeUiModel} from '../src/features/practice/ui-model.ts';
 import {IonicEngine} from '../src/domain/chemistry/ionic-engine.ts';
 import {isPracticeResultComplete} from '../src/runtime/learning-orchestrator/selectors.ts';
+import {atomIntent} from '../src/renderers/atom-builder/renderer.ts';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 export const RENDERER_REPORT_FILE='reports/renderer-foundation-readiness.json';
@@ -27,6 +28,8 @@ interface CandidateSpec {
   /** Authored judgement (reasons in the P1.4 contract document). */
   assessment:{pedagogicalValue:string;currentLimitation:string;engineMaturity:string;interactionDepth:string;accessibilityComplexity:string;reusePotential:string;blackSwan:string;accessibilityPlan:string;dependencies:string[]};
   rank:number|null;
+  /** set when a registered reference renderer exists for this candidate */
+  implemented?:string;
   /** false when no single correct input can be derived for the family (different task per activity). */
   evaluateUiPath?:boolean;
 }
@@ -35,8 +38,8 @@ const CANDIDATES:CandidateSpec[]=[
   {
     id:'atom-builder',title:'Atom tuzilishi konstruktori (p/n/e → element, izotop, zaryad)',leadActivityId:'practice.simulation.7.07.planned',
     family:(s,c)=>s==='reference-slices'&&c.sliceId==='slice.7.07.atom-builder',modelData:[],domainModel:'StatefulSimulationEngine reducer (derive: Z → element, A = p+n, charge = p−e); electronConfiguration(Z≤36) in src/domain/chemistry',
-    assessment:{pedagogicalValue:'high — every learner action changes a derived chemical identity (element, isotope, ion); core 7th-grade concept',currentLimitation:'text state only ("p=6, n=8, e=6; C-14"); element table limited to Z≤18 inside the adapter; no shell/orbital view',engineMaturity:'mature: pure reducer, serialize/restore, construction evidence',interactionDepth:'real model-based: arbitrary particle combinations → derived state (not a fixed path)',accessibilityComplexity:'low — the state is naturally textual; +/- buttons are keyboard operable',reusePotential:'high — ions, isotopes, electron configuration (lu.8.x), atomic-orbital model (practice.simulation.11.01)',blackSwan:'PASS — model-based: the renderer only draws state the reducer derived; no canned sequence',accessibilityPlan:'text summary of the derived state (element, A, charge) announced via aria-live; buttons with explicit labels; no colour-only cues; reduced motion = no particle animation',dependencies:['RendererModel for AtomState','move the element table to src/domain/chemistry (single source of Z → symbol)']},
-    rank:1,
+    assessment:{pedagogicalValue:'high — every learner action changes a derived chemical identity (element, isotope, ion); core 7th-grade concept',currentLimitation:'P1.4: element data moved to the domain periodic table (Z 1–118, Uzbek names Z≤20); DOM + text-state renderer only — no shell/orbital view yet',engineMaturity:'mature: pure reducer, serialize/restore, construction evidence',interactionDepth:'real model-based: arbitrary particle combinations → derived state (not a fixed path)',accessibilityComplexity:'low — the state is naturally textual; +/- buttons are keyboard operable',reusePotential:'high — ions, isotopes, electron configuration (lu.8.x), atomic-orbital model (practice.simulation.11.01)',blackSwan:'PASS — model-based: the renderer only draws state the reducer derived; no canned sequence',accessibilityPlan:'text summary of the derived state (element, A, charge) announced via aria-live; buttons with explicit labels; no colour-only cues; reduced motion = no particle animation',dependencies:[]},
+    rank:1,implemented:'P1.4 — RendererRegistry capability atom-builder@1.0.0 (src/renderers/atom-builder)',
   },
   {
     id:'ionic-precipitation',title:'Ion almashinish / cho‘kma tajribasi (reagentlar → reaksiya, kuzatuv, net-ion tenglama)',leadActivityId:'practice.experiment.8.1',
@@ -67,10 +70,14 @@ const CANDIDATES:CandidateSpec[]=[
 async function uiPathCanSucceed(client:ContentClient,activityId:string){
   let model:any;
   try{ model=await client.loadPractice(activityId); }catch(e:any){ return {verdict:'NOT_LAUNCHABLE',detail:String(e?.code??e?.message)}; }
-  const ui:any=buildPracticeUiModel(model);
   const c=model.referenceConfig;
   let commands:any[]=[];
-  if(ui.kind==='simulation'&&ui.mode==='atom') commands=(['protons','neutrons','electrons'] as const).flatMap(p=>Array.from({length:c.target[p]},()=>({kind:'simulation-action',action:{particle:p,delta:1}})));
+  // P1.4: a registry-rendered activity is driven by the intents its renderer emits (not the legacy UI model)
+  const ui:any=model.executionPlan.rendererRequirement?{kind:'registry'}:buildPracticeUiModel(model);
+  if(ui.kind==='registry'){
+    if(model.executionPlan.rendererRequirement.capability!=='atom-builder') return {verdict:'NOT_EVALUATED',detail:'no intent script for this capability'};
+    commands=(['protons','neutrons','electrons'] as const).flatMap(p=>Array.from({length:c.target[p]},()=>atomIntent(p,1)));
+  }
   else if(ui.kind==='experiment'){
     const equation=c.reactionId?IonicEngine.from({reactions:model.chemistry.reactions,rules:model.chemistry.solutionRules}).netIonicEquation(c.reactionId).equation:'';
     // exactly what the rendered controls can send: an action type, plus the equation text field when shown
@@ -111,7 +118,7 @@ export async function buildRendererReadiness(base=root){
       ...(lead&&!(lead.accessibilityProfile??[]).length?['lead activity has no accessibility profile']:[]),
     ];
     rows.push({
-      candidate:spec.id,title:spec.title,rank:spec.rank,leadActivityId:spec.leadActivityId,
+      candidate:spec.id,title:spec.title,rank:spec.rank,implemented:spec.implemented??null,leadActivityId:spec.leadActivityId,
       readyActivities:activities.length,activities,learningUnits:[...new Set(units)].sort(),
       domainModel:spec.domainModel,modelData:records,
       'domainModelReady?':domainModelReady,'engineReady?':engineReady,'contentReady?':contentReady,'interactionModelReady?':interactionModelReady,
@@ -128,10 +135,10 @@ export async function buildRendererReadiness(base=root){
     semantics:'Analysis only (P1.3 §29–40). No renderer code exists. rank = recommended order for the first reference renderers, by pedagogical value, model depth, data, accessibility and reuse; null = not a first candidate (see blockers).',
     startGate:{
       p12Merged:true,canonicalRuntimeStable:true,canonicalRoutingStable:true,readinessStable:true,
-      rendererContractApproved:false,
+      rendererContractApproved:true,
       goldenSliceTechnicallyValid:'lu.9.15 technically valid after the P1.3 completion fix (pilot:status TECHNICAL_PASS); human assessment approval is a separate product sign-off blocker',
-      canStartImplementation:false,
-      reason:'the renderer contract (docs/plans/p1.4-renderer-foundation-contract.md) needs an explicit approval decision first',
+      canStartImplementation:true,
+      reason:'contract approved for P1.4 implementation (technical decision; not an assessment approval or pilot sign-off). P1.4 implements the atom-builder reference renderer only.',
     },
     rows,
   };

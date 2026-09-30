@@ -247,7 +247,7 @@
         },
         "practiceE2E": {
           "verdict": "PASS",
-          "detail": "browser command path (1 command(s)): complete=true, evidence=1, invalid=0, outside-unit=0 | tests/e2e/canonical-runtime.spec.mjs, tests/e2e/integrity-release.spec.mjs"
+          "detail": "browser command path (1 command(s)): complete=true, evidence=1, invalid=0, outside-unit=0 | tests/e2e/canonical-runtime.spec.mjs, tests/e2e/integrity-release.spec.mjs, tests/e2e/renderer-atom.spec.mjs"
         },
         "masteryUX": {
           "verdict": "PASS",
@@ -374,7 +374,7 @@
           "dimension": "ux",
           "kind": "machine",
           "verdict": "PASS",
-          "detail": "tests/e2e/canonical-runtime.spec.mjs, tests/e2e/integrity-release.spec.mjs"
+          "detail": "tests/e2e/canonical-runtime.spec.mjs, tests/e2e/integrity-release.spec.mjs, tests/e2e/renderer-atom.spec.mjs"
         }
       ]
     },
@@ -565,7 +565,7 @@
         },
         "chemistryModel": {
           "verdict": "PASS",
-          "detail": "target C-14: p=6, n=8, e=6 (neutral atom, mass number = p+n); the engine derives the element from Z | governance marks chemistry review not_applicable although the config encodes chemistry facts — recommendation: the pilot owner decides whether a chemistry reviewer must confirm them"
+          "detail": "target C-14: p=6, n=8, e=6 (neutral atom, mass number = p+n); the domain atom model derives the element from Z (atom-builder renderer intents) | governance marks chemistry review not_applicable although the config encodes chemistry facts — recommendation: the pilot owner decides whether a chemistry reviewer must confirm them"
         },
         "conceptMapping": {
           "verdict": "PASS",
@@ -585,7 +585,7 @@
         },
         "practiceE2E": {
           "verdict": "PASS",
-          "detail": "browser command path (20 command(s)): complete=true, evidence=1, invalid=0, outside-unit=0 | tests/e2e/pilot-practice.spec.mjs"
+          "detail": "browser command path (20 command(s)): complete=true, evidence=1, invalid=0, outside-unit=0 | tests/e2e/pilot-practice.spec.mjs, tests/e2e/renderer-atom.spec.mjs"
         },
         "masteryUX": {
           "verdict": "PASS",
@@ -656,7 +656,7 @@
           "dimension": "technical",
           "kind": "machine",
           "verdict": "PASS",
-          "detail": "target C-14: p=6, n=8, e=6 (neutral atom, mass number = p+n); the engine derives the element from Z"
+          "detail": "target C-14: p=6, n=8, e=6 (neutral atom, mass number = p+n); the domain atom model derives the element from Z (atom-builder renderer intents)"
         },
         {
           "id": "technical.concept-mapping",
@@ -712,7 +712,7 @@
           "dimension": "ux",
           "kind": "machine",
           "verdict": "PASS",
-          "detail": "tests/e2e/pilot-practice.spec.mjs"
+          "detail": "tests/e2e/pilot-practice.spec.mjs, tests/e2e/renderer-atom.spec.mjs"
         }
       ]
     }

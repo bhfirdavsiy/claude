@@ -1,0 +1,28 @@
+{
+  "schema": "kimyolab.renderer-registry.v1",
+  "semantics": "Resolution key = capability id + compatible version (semver range). Activity ids never select a renderer. Accessibility is a registration gate.",
+  "catalogMatchesRegistry": true,
+  "renderers": [
+    {
+      "capability": "atom-builder",
+      "rendererVersion": "1.0.0",
+      "rendererModelSchema": "kimyolab.renderer.atom-state.v1",
+      "intents": [
+        "simulation-action"
+      ],
+      "implementation": "src/renderers/atom-builder/renderer.ts",
+      "implementationExists": true,
+      "accessibility": {
+        "keyboard": true,
+        "nonColorCues": true,
+        "screenReaderSummary": true,
+        "reducedMotion": "static",
+        "nonVisualAlternative": "text-state"
+      },
+      "compatibleActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "status": "ACTIVE"
+    }
+  ]
+}

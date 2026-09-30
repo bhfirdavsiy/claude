@@ -1,0 +1,121 @@
+{
+  "schema": "kimyolab.reference-renderer-atom.v1",
+  "capability": "atom-builder@1.0.0",
+  "modelBased": true,
+  "blackSwan": {
+    "claim": "different p/n/e → different domain state → different renderer model",
+    "probes": [
+      {
+        "counts": {
+          "protons": 6,
+          "neutrons": 8,
+          "electrons": 6
+        },
+        "domain": {
+          "element": "C",
+          "isotope": "C-14",
+          "charge": 0
+        },
+        "renderer": {
+          "isotopeLabel": "Uglerod-14",
+          "chargeLabel": "neytral atom",
+          "accessibleSummary": "Uglerod-14. Neytral atom. 6 proton. 8 neytron. 6 elektron."
+        }
+      },
+      {
+        "counts": {
+          "protons": 11,
+          "neutrons": 12,
+          "electrons": 10
+        },
+        "domain": {
+          "element": "Na",
+          "isotope": "Na-23",
+          "charge": 1
+        },
+        "renderer": {
+          "isotopeLabel": "Natriy-23",
+          "chargeLabel": "musbat ion (+1)",
+          "accessibleSummary": "Natriy-23. Musbat ion (+1). 11 proton. 12 neytron. 10 elektron."
+        }
+      },
+      {
+        "counts": {
+          "protons": 8,
+          "neutrons": 8,
+          "electrons": 10
+        },
+        "domain": {
+          "element": "O",
+          "isotope": "O-16",
+          "charge": -2
+        },
+        "renderer": {
+          "isotopeLabel": "Kislorod-16",
+          "chargeLabel": "manfiy ion (−2)",
+          "accessibleSummary": "Kislorod-16. Manfiy ion (−2). 8 proton. 8 neytron. 10 elektron."
+        }
+      },
+      {
+        "counts": {
+          "protons": 6,
+          "neutrons": 6,
+          "electrons": 6
+        },
+        "domain": {
+          "element": "C",
+          "isotope": "C-12",
+          "charge": 0
+        },
+        "renderer": {
+          "isotopeLabel": "Uglerod-12",
+          "chargeLabel": "neytral atom",
+          "accessibleSummary": "Uglerod-12. Neytral atom. 6 proton. 6 neytron. 6 elektron."
+        }
+      }
+    ],
+    "distinctRendererModels": true
+  },
+  "domainSource": [
+    "src/domain/chemistry/periodic-table.ts",
+    "src/domain/chemistry/atom.ts"
+  ],
+  "converter": "src/renderers/atom-builder/renderer-model.ts#toAtomRendererModel",
+  "rendererModelSchema": "kimyolab.renderer.atom-state.v1",
+  "intents": {
+    "kinds": [
+      "simulation-action"
+    ],
+    "shape": {
+      "kind": "simulation-action",
+      "action": {
+        "particle": "protons",
+        "delta": 1
+      }
+    }
+  },
+  "accessibility": {
+    "keyboard": true,
+    "nonColorCues": true,
+    "screenReaderSummary": true,
+    "reducedMotion": "static",
+    "nonVisualAlternative": "text-state"
+  },
+  "keyboardE2E": {
+    "spec": "tests/e2e/renderer-atom.spec.mjs",
+    "keyboardOnly": true,
+    "present": true
+  },
+  "evidenceParity": {
+    "baseline": "tests/fixtures/atom-legacy-baseline.json (recorded from the pre-P1.4 code on main f45659e)",
+    "equal": true,
+    "completedAtStep": 21,
+    "sequenceLength": 22
+  },
+  "knownLimitations": [
+    "element names are Uzbek school names for Z ≤ 20; beyond that the symbol is shown",
+    "no shell/orbital view (electron configuration exists in the domain but is not drawn)",
+    "intents are ±1 per particle (the pre-P1.4 command contract); no direct numeric entry",
+    "evidence targetId comes from the content config target (unchanged, for parity)"
+  ]
+}

@@ -8,7 +8,7 @@ const sourceRoot=path.join(root,'src');
 const outRoot=path.join(root,'public/app-preview');
 fs.rmSync(outRoot,{recursive:true,force:true});
 
-const roots=['app','features','ui','domain','runtime','engines','integrations'];
+const roots=['app','features','ui','domain','runtime','engines','integrations','renderers'];
 function copyTree(relative:string){
   const dir=path.join(sourceRoot,relative);
   for(const entry of fs.readdirSync(dir,{withFileTypes:true})){

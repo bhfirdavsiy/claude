@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-09-30T02:39:51.156Z",
+  "createdAt": "2026-09-30T04:03:20.569Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -11,8 +11,8 @@
     {
       "path": "app-preview/app/bootstrap.js",
       "sourcePath": "public/app-preview/app/bootstrap.js",
-      "checksum": "2a24b03a5577655fa3ca84f296e4fce255caca1b5e8da25bacbcaf702a54e9e8",
-      "size": 9434
+      "checksum": "cd39068f302a83cadfe66e7d5c7b8a34821ebd3c29f836a7154ae875302a29b9",
+      "size": 9775
     },
     {
       "path": "app-preview/app/content-client.js",
@@ -51,6 +51,12 @@
       "size": 1837
     },
     {
+      "path": "app-preview/domain/chemistry/atom.js",
+      "sourcePath": "public/app-preview/domain/chemistry/atom.js",
+      "checksum": "295fb3a73b25381bd1494597692ad1e0b41dd6f346240ab84de290f408f66301",
+      "size": 2834
+    },
+    {
       "path": "app-preview/domain/chemistry/electrolysis-model.js",
       "sourcePath": "public/app-preview/domain/chemistry/electrolysis-model.js",
       "checksum": "4122bd8ad885c4564a18b677787d19b2e93730ab73c9fd5764612e5e6d80939d",
@@ -83,8 +89,8 @@
     {
       "path": "app-preview/domain/chemistry/formula-parser.js",
       "sourcePath": "public/app-preview/domain/chemistry/formula-parser.js",
-      "checksum": "b0be8f776f95fcee7d06de50e1464a53cb8bc919f846a4d6e46674a357f66d39",
-      "size": 5281
+      "checksum": "8896b830b6909cf18f29536a9b067316181fdca85a4443128501909000c1fb66",
+      "size": 4996
     },
     {
       "path": "app-preview/domain/chemistry/gas-laws.js",
@@ -127,6 +133,12 @@
       "sourcePath": "public/app-preview/domain/chemistry/organic-knowledge.js",
       "checksum": "4651ac86d2c71cf58ff24529bc942ec948d3df9708eaa87f44d5f0f8407c004b",
       "size": 4092
+    },
+    {
+      "path": "app-preview/domain/chemistry/periodic-table.js",
+      "sourcePath": "public/app-preview/domain/chemistry/periodic-table.js",
+      "checksum": "6a9f3f750e751e34d8d5fec7ce2803003991645e0ddcff607908abe268a73204",
+      "size": 1691
     },
     {
       "path": "app-preview/domain/chemistry/quantity.js",
@@ -233,8 +245,8 @@
     {
       "path": "app-preview/domain/readiness/readiness.js",
       "sourcePath": "public/app-preview/domain/readiness/readiness.js",
-      "checksum": "d0fe1a183a05e1510f5ae91882e8d2d6cb58ab4ac48e2b57ae49ec261407934c",
-      "size": 7858
+      "checksum": "2c548dfff73d0af639d814e029a09f48334645a465ada7daa65ebfae057b936e",
+      "size": 8473
     },
     {
       "path": "app-preview/domain/readiness/unit-readiness.js",
@@ -339,6 +351,12 @@
       "size": 16362
     },
     {
+      "path": "app-preview/features/practice/host.js",
+      "sourcePath": "public/app-preview/features/practice/host.js",
+      "checksum": "150f3f825bc88923ae43420c08d2df4b9ca4f0233c1665c5c3b0171a6f8cbe7a",
+      "size": 3458
+    },
+    {
       "path": "app-preview/features/practice/model.js",
       "sourcePath": "public/app-preview/features/practice/model.js",
       "checksum": "638ba5a5cc550cb3c1dce8872495e12b4a1e5613be96e0b134e299d0fd93815e",
@@ -347,8 +365,8 @@
     {
       "path": "app-preview/features/practice/render.js",
       "sourcePath": "public/app-preview/features/practice/render.js",
-      "checksum": "6fc9e9546586875971acb366a59f0a377402e323cb6e466c8e6917d8908de738",
-      "size": 11048
+      "checksum": "e2dd2a94339bc81d74d52878aa6c932c50d755a0cb5efcc4df81b54577102246",
+      "size": 10204
     },
     {
       "path": "app-preview/features/practice/session.js",
@@ -359,8 +377,8 @@
     {
       "path": "app-preview/features/practice/ui-model.js",
       "sourcePath": "public/app-preview/features/practice/ui-model.js",
-      "checksum": "2ab75720e2f730e712978a000ad092e85b7008f6ad5827e286754ea730a2449f",
-      "size": 5216
+      "checksum": "6f9db3209818249981fdb40df1da96f44788602495a6534d9952d948e70505dd",
+      "size": 5160
     },
     {
       "path": "app-preview/features/progress/liveness.js",
@@ -465,6 +483,42 @@
       "size": 2905
     },
     {
+      "path": "app-preview/renderers/atom-builder/renderer-model.js",
+      "sourcePath": "public/app-preview/renderers/atom-builder/renderer-model.js",
+      "checksum": "e5caa2f3a13c847bad7c42b0bc801690f2f27cbad71eb43aa39f44faac6cb9ee",
+      "size": 3496
+    },
+    {
+      "path": "app-preview/renderers/atom-builder/renderer.js",
+      "sourcePath": "public/app-preview/renderers/atom-builder/renderer.js",
+      "checksum": "be2de469fa493ba66d680e6ef995083a59b2471ca7c3647ad7624f913279bc07",
+      "size": 5578
+    },
+    {
+      "path": "app-preview/renderers/catalog.js",
+      "sourcePath": "public/app-preview/renderers/catalog.js",
+      "checksum": "b7205a02f31513b8bffe0d1063584d703959e757d9f0e9afda3a6b74aa2dd45f",
+      "size": 890
+    },
+    {
+      "path": "app-preview/renderers/contract.js",
+      "sourcePath": "public/app-preview/renderers/contract.js",
+      "checksum": "3c9ffcf0726b9f8f309dd191b77ef47d1397e3642a730abed32dc7ecb97e5274",
+      "size": 3063
+    },
+    {
+      "path": "app-preview/renderers/index.js",
+      "sourcePath": "public/app-preview/renderers/index.js",
+      "checksum": "62c063b93d68e8fc0f8ba44be2fa01ce084dabfe854d8e57e2e2d70e778264cc",
+      "size": 494
+    },
+    {
+      "path": "app-preview/renderers/registry.js",
+      "sourcePath": "public/app-preview/renderers/registry.js",
+      "checksum": "706e5e676d773db4b040176bdcc3df37f175e57d476ece070c06e33ce1ab5dc1",
+      "size": 3565
+    },
+    {
       "path": "app-preview/runtime/beta1/config.js",
       "sourcePath": "public/app-preview/runtime/beta1/config.js",
       "checksum": "0eea95f84c2325d2c8ad5c078683d6ec2ab1977d839120899eb5fd670fbfe3f1",
@@ -545,14 +599,20 @@
     {
       "path": "app-preview/runtime/compatibility/content-pack.js",
       "sourcePath": "public/app-preview/runtime/compatibility/content-pack.js",
-      "checksum": "2adf224a829a07ab1bf5e644cf92df236537ace13228c08297bf3e3f35a72691",
-      "size": 2291
+      "checksum": "0749e00d14c23952d57713fea9602fafc5de73dcb336b3ebbfb15bcb11ba425b",
+      "size": 2298
     },
     {
       "path": "app-preview/runtime/compatibility/release-pointer.js",
       "sourcePath": "public/app-preview/runtime/compatibility/release-pointer.js",
       "checksum": "44039977906c349f98514d4f3368274bfaf98c5a1646336ed10dc552782d8b11",
       "size": 1052
+    },
+    {
+      "path": "app-preview/runtime/compatibility/version-range.js",
+      "sourcePath": "public/app-preview/runtime/compatibility/version-range.js",
+      "checksum": "844f8b99d03d52cfa9d8a531e9137e1f20780d91188bf2f7025e72126f9c4a9f",
+      "size": 1580
     },
     {
       "path": "app-preview/runtime/evidence/types.js",
@@ -629,8 +689,8 @@
     {
       "path": "app-preview/runtime/practice-router/execution-plan.js",
       "sourcePath": "public/app-preview/runtime/practice-router/execution-plan.js",
-      "checksum": "a04ae15ace23179de41130d45787b7c75f3c12c668acf78c9408cac15ad0ee55",
-      "size": 9517
+      "checksum": "3a01833ef589cf32182335ac99f9610a13d3a4ae2c4f8f368c85a455e8543f4d",
+      "size": 10634
     },
     {
       "path": "app-preview/runtime/practice-router/router.js",
@@ -713,8 +773,8 @@
     {
       "path": "app-preview/runtime/reference-slices/simulation-adapter.js",
       "sourcePath": "public/app-preview/runtime/reference-slices/simulation-adapter.js",
-      "checksum": "57e4b9681ab70dc8d24fd6336a7aca6b7ba0f50e6618fbbbc766e4051d787b34",
-      "size": 3490
+      "checksum": "cd942f7c1bbf10f6b00acd09d57f475f6a6094efe3bf1ba535d14fa2fc8fb2bb",
+      "size": 2867
     },
     {
       "path": "app-preview/runtime/reference-slices/trainer-adapter.js",
@@ -743,8 +803,8 @@
     {
       "path": "app-preview/ui/tokens/kimyolab.css",
       "sourcePath": "public/app-preview/ui/tokens/kimyolab.css",
-      "checksum": "9dd508a1594b79f7375a3f3e617d066d89f97e85f7641d44b2bfc21cf05ac87b",
-      "size": 24508
+      "checksum": "8f48085434312d9428fd513c57807bf47dda8c63f2ec113f3bbd41c7379ffb72",
+      "size": 25353
     },
     {
       "path": "assets/home/results.png",
@@ -809,8 +869,8 @@
     {
       "path": "content/2026.09.1/activity-configs/reference-slices.json",
       "sourcePath": "public/content/2026.09.1/activity-configs/reference-slices.json",
-      "checksum": "ee72446662c00373e04fe9959f02612620eb6964ff0ca00ad55f77429bb516f0",
-      "size": 4877
+      "checksum": "2dd891d34ab28afb3bddc1f3e339ab20514f686d302cd043739833d2406d44ed",
+      "size": 4973
     },
     {
       "path": "content/2026.09.1/activity-readiness.json",
@@ -935,8 +995,8 @@
     {
       "path": "content/2026.09.1/execution-plans.json",
       "sourcePath": "public/content/2026.09.1/execution-plans.json",
-      "checksum": "b7a2341d6cc6097ef283d06de5f2cb488bd98445342d12c8163d68ee42459060",
-      "size": 33976
+      "checksum": "f2ca48235adb343cebd2a2b44907f89842f12869cd9161705c789c612bc90d71",
+      "size": 34080
     },
     {
       "path": "content/2026.09.1/external-lab-bindings.json",
@@ -983,7 +1043,7 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "885040ee93c0593aadf5ff364b143d763e40f146db1d5ebbf5b2b051de012efa",
+      "checksum": "03e5cd04cf600cd6ff7c8d5fe8dd25c4302549b67aec588fa3505e0aea57d31f",
       "size": 6824
     },
     {
@@ -1007,7 +1067,7 @@
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "1cf59c4d31a9707405dcab499aa0f455c456929a473e7293e9ea2d6a1260f4a9",
+      "checksum": "7169551405b6642ddaa7a6ab9866407454da8181ceca81a4fe8c3915dc72af76",
       "size": 158
     },
     {

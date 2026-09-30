@@ -4,6 +4,14 @@ import {effectiveApprovalState} from '../../src/runtime/governance/approvals.ts'
 import {deriveActivityReadiness,READINESS_PACK_SCHEMA,type LearningActivityReadiness,type ReadinessPack} from '../../src/domain/readiness/readiness.ts';
 import type {UnitReadiness} from '../../src/domain/readiness/unit-readiness.ts';
 import {deriveItemLifecycle,type AssessmentReviewRecord} from '../../src/domain/assessment/governance.ts';
+import {RENDERER_CATALOG} from '../../src/renderers/catalog.ts';
+import {selectCapability} from '../../src/renderers/registry.ts';
+import type {RendererRequirement} from '../../src/renderers/contract.ts';
+
+/** P1.4: is a registered renderer (per the catalog) compatible with the requirement? Same rule as the runtime registry. */
+export function rendererAvailable(requirement:RendererRequirement):boolean{
+  try{ selectCapability(RENDERER_CATALOG.map(capability=>({capability})),requirement); return true; }catch{ return false; }
+}
 
 export interface ReadinessSources {
   activities:any[];
@@ -45,7 +53,8 @@ export function compileReadiness(src:ReadinessSources):{pack:ReadinessPack&{unit
   const activities:LearningActivityReadiness[]=src.activities.map((a:any)=>{
     const route=deriveActivityExecutionPlan(a,configs);
     const review=reviewStateOf(a);
-    return deriveActivityReadiness({id:a.id,lifecycleStatus:a.lifecycleStatus,reviewPending:review.pending,reviewRejected:review.rejected},route.ok?{ok:true}:{ok:false,code:route.error.code},strictActivities.has(a.id)?'strict':'observe');
+    const requirement=route.ok?route.plan.rendererRequirement:undefined;
+    return deriveActivityReadiness({id:a.id,lifecycleStatus:a.lifecycleStatus,reviewPending:review.pending,reviewRejected:review.rejected},route.ok?{ok:true}:{ok:false,code:route.error.code},strictActivities.has(a.id)?'strict':'observe',requirement?{required:true,available:rendererAvailable(requirement)}:{required:false});
   }).sort((x:LearningActivityReadiness,y:LearningActivityReadiness)=>x.activityId.localeCompare(y.activityId));
   // pilot units must launch their primary practice under strict enforcement
   for(const id of pilotIds){

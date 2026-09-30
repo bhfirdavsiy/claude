@@ -1,0 +1,158 @@
+{
+  "activityId": "practice.simulation.7.07.planned",
+  "sequence": [
+    [
+      "protons",
+      1
+    ],
+    [
+      "electrons",
+      1
+    ],
+    [
+      "electrons",
+      1
+    ],
+    [
+      "electrons",
+      -1
+    ],
+    [
+      "protons",
+      1
+    ],
+    [
+      "protons",
+      1
+    ],
+    [
+      "protons",
+      1
+    ],
+    [
+      "protons",
+      1
+    ],
+    [
+      "protons",
+      1
+    ],
+    [
+      "neutrons",
+      1
+    ],
+    [
+      "neutrons",
+      1
+    ],
+    [
+      "neutrons",
+      1
+    ],
+    [
+      "neutrons",
+      1
+    ],
+    [
+      "neutrons",
+      1
+    ],
+    [
+      "neutrons",
+      1
+    ],
+    [
+      "neutrons",
+      1
+    ],
+    [
+      "neutrons",
+      1
+    ],
+    [
+      "electrons",
+      1
+    ],
+    [
+      "electrons",
+      1
+    ],
+    [
+      "electrons",
+      1
+    ],
+    [
+      "electrons",
+      1
+    ],
+    [
+      "electrons",
+      1
+    ]
+  ],
+  "result": {
+    "evidence": [
+      {
+        "conceptId": "concept.c019",
+        "activityId": "practice.simulation.7.07.planned",
+        "activityVersion": "1.0.0",
+        "contentVersion": "2026.09.1",
+        "scoringVersion": "0.0.0",
+        "score": 1,
+        "evidenceClass": "practice-observation",
+        "type": "construction",
+        "targetId": "C-14",
+        "achieved": true,
+        "independenceKey": "practice.simulation.7.07.planned:construction",
+        "id": "practice.simulation.7.07.planned.construction.C-14"
+      }
+    ],
+    "score": [
+      1
+    ],
+    "finalState": {
+      "protons": 6,
+      "neutrons": 8,
+      "electrons": 6,
+      "atomicNumber": 6,
+      "massNumber": 14,
+      "charge": 0,
+      "element": "C",
+      "isotope": "C-14"
+    }
+  },
+  "completedAtStep": 21,
+  "attempts": [
+    {
+      "activityId": "practice.simulation.7.07.planned",
+      "learningUnitId": "lu.7.07",
+      "status": "completed",
+      "attemptType": "practice"
+    }
+  ],
+  "evidence": [
+    {
+      "conceptId": "concept.c019",
+      "activityId": "practice.simulation.7.07.planned",
+      "activityVersion": "1.0.0",
+      "contentVersion": "2026.09.1",
+      "scoringVersion": "0.0.0",
+      "score": 1,
+      "evidenceClass": "practice-observation",
+      "type": "construction",
+      "targetId": "C-14",
+      "achieved": true,
+      "independenceKey": "practice.simulation.7.07.planned:construction",
+      "sourceEvidenceId": "practice.simulation.7.07.planned.construction.C-14",
+      "learningUnitId": "lu.7.07",
+      "correctness": "correct",
+      "curriculumVersion": "2026.09"
+    }
+  ],
+  "progress": [
+    {
+      "learningUnitId": "lu.7.07",
+      "status": "practice_complete"
+    }
+  ]
+}

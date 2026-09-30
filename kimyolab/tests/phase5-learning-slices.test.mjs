@@ -19,7 +19,9 @@ test('7.07 Atom Builder derives Carbon-14 and emits construction evidence',async
   const result=await adapter.run(item,{inputs:{[item.id]:{simulationActions:[
     {particle:'protons',delta:6}, {particle:'neutrons',delta:8}, {particle:'electrons',delta:6}
   ]}}});
-  assert.deepEqual(result.finalState,{protons:6,neutrons:8,electrons:6,atomicNumber:6,massNumber:14,charge:0,element:'C',isotope:'C-14'});
+  // P1.4: the state now comes from the canonical domain model, which also carries the element's school name for
+  // the renderer (elementName); every pre-P1.4 key keeps its value (evidence parity: tests/fixtures/atom-legacy-baseline.json).
+  assert.deepEqual(result.finalState,{protons:6,neutrons:8,electrons:6,atomicNumber:6,massNumber:14,charge:0,element:'C',elementName:'Uglerod',isotope:'C-14'});
   assert.ok(result.evidence.some(e=>e.type==='construction'&&e.achieved));
   const restored=await adapter.restore(item,result.serializedState);
   assert.deepEqual(restored,result.finalState);

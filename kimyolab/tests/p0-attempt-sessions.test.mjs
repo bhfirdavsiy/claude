@@ -79,6 +79,9 @@ test('the browser practice route records through a per-page attempt session',()=
   const bootstrap=fs.readFileSync(path.join(root,'src/app/bootstrap.ts'),'utf8');
   // P1.0: the per-page session is opened with the engine and every command goes through it
   // (the behavioural contract "N commands = 1 attempt" is tested in tests/p1-orchestrator-contract.test.mjs).
-  assert.match(bootstrap,/const attemptSession=progressService\.beginPracticeSession\(page,new ReferencePracticeSession\(page\)\);/);
+  // (P1.4: the engine instance is named, because the renderer host also reads `current()` from the SAME engine;
+  //  the invariant — one engine per page, opened in the attempt session — is unchanged.)
+  assert.match(bootstrap,/const practiceEngine=new ReferencePracticeSession\(page\);/);
+  assert.match(bootstrap,/const attemptSession=progressService\.beginPracticeSession\(page,practiceEngine\);/);
   assert.match(bootstrap,/progressService\.applyPracticeCommand\(attemptSession,command\)/);
 });

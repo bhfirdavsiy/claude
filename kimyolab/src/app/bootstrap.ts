@@ -2,7 +2,8 @@ import { parseAppRoute } from './routes.ts';
 import { ContentClient, contentErrorMessage } from './content-client.ts';
 import { renderHome } from '../features/home/render.ts';
 import { renderError, renderLearningGuide, renderLearningPracticeStage, renderLearningQuiz, renderLoading, renderNotFound } from '../features/learning-hub/render.ts';
-import {renderPractice} from '../features/practice/render.ts';
+import {renderPracticePage} from '../features/practice/host.ts';
+import {createDefaultRendererRegistry} from '../renderers/index.ts';
 import {ReferencePracticeSession} from '../features/practice/session.ts';
 import {BrowserProgressService,type PracticeAttemptSession} from '../features/progress/service.ts';
 import type {AssessmentSessionState} from '../runtime/learning-orchestrator/types.ts';
@@ -22,6 +23,7 @@ const client=new ContentClient({baseUrl:'/content'});
 // The canonical evaluator reads prompts+keys through this source only at submission time (P1.1 C2/C3).
 const progressService=new BrowserProgressService((globalThis as any).indexedDB,undefined,{assessmentContent:{loadAssessmentForEvaluation:(learningUnitId)=>client.loadAssessmentForEvaluation(learningUnitId)}});
 const standalone=(globalThis as any).__KIMYOLAB_STANDALONE__===true;
+const rendererRegistry=createDefaultRendererRegistry();
 
 function currentLocation(){
   if(!standalone) return {pathname:location.pathname,searchParams:new URLSearchParams(location.search)};
@@ -65,9 +67,11 @@ async function renderCurrent(){
   if(route.name==='practice'){
     renderLoading(main);
     try{const page=await client.loadPractice(route.practiceActivityId);progressService.setVersionPolicy(await client.getEvidenceCompatibility());// One opened practice page = one attempt: commands go UI → orchestrator → engine → evidence boundary.
-      const attemptSession=progressService.beginPracticeSession(page,new ReferencePracticeSession(page));activePractice=attemptSession;
+      const practiceEngine=new ReferencePracticeSession(page);
+      const attemptSession=progressService.beginPracticeSession(page,practiceEngine);activePractice=attemptSession;
       let persistError:unknown;
-      renderPractice(main,page,{apply:async(command)=>{const out=await progressService.applyPracticeCommand(attemptSession,command);persistError=out.persistError;return out.result;}},async()=>{if(persistError)throw persistError;});}
+      // P1.4 strangler seam: a rendererRequirement → RendererRegistry; otherwise the legacy practice renderer.
+      renderPracticePage(main,page,{apply:async(command)=>{const out=await progressService.applyPracticeCommand(attemptSession,command);persistError=out.persistError;return out.result;},current:()=>practiceEngine.result()},rendererRegistry,async()=>{if(persistError)throw persistError;});}
     catch(error){renderError(main,contentErrorMessage(error,'Faoliyatni yuklab bo‘lmadi.'));}
     return;
   }

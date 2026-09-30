@@ -23,12 +23,16 @@ async function load(id){return new ContentClient({fetchImpl,baseUrl:'/content'})
 
 
 test('practice UI model exposes type-specific student controls without engine metadata',async()=>{
+  const sim7=await load('practice.simulation.7.07.planned');
   const experiment=buildPracticeUiModel(await load('practice.experiment.7.2'));
   assert.equal(experiment.kind,'experiment');
   assert.deepEqual(experiment.controls.map(x=>x.action),['selectApparatus','addWater','addMixture','mix','filter','evaporate','observe']);
-  const sim=buildPracticeUiModel(await load('practice.simulation.7.07.planned'));
+  // P1.4: the atom builder is drawn by the RendererRegistry (rendererRequirement atom-builder@^1); its legacy
+  // 'atom' UI model computed the goal label (element-(p+n)) in the presentation layer, so it was removed and
+  // the legacy model now refuses the activity instead of silently drawing a generic form.
+  assert.throws(()=>buildPracticeUiModel(sim7),/RENDERER_REQUIRED/);
+  const sim=buildPracticeUiModel(await load('practice.simulation.9.01.planned'));
   assert.equal(sim.kind,'simulation');
-  assert.deepEqual(sim.particles,['protons','neutrons','electrons']);
   const trainer=buildPracticeUiModel(await load('practice.trainer.7.4'));
   assert.equal(trainer.expectedInput,'formula');
   const calc=buildPracticeUiModel(await load('practice.calculation.7.5'));

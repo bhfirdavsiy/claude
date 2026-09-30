@@ -37,11 +37,12 @@ const PILOT_PRACTICES = [
     learningUnitId: 'lu.7.07', activityId: 'practice.simulation.7.07.planned',
     solve: async (page) => {
       // C-14: 6 protons, 8 neutrons, 6 electrons — with the keyboard, one particle at a time
-      for (const [particle, n] of [['protons', 6], ['neutrons', 8], ['electrons', 6]]) {
-        const button = page.getByRole('button', {name: `${particle} qo‘shish`});
+      // (P1.4: the atom is drawn by the RendererRegistry's atom-builder renderer)
+      for (const [particle, n] of [['proton', 6], ['neytron', 8], ['elektron', 6]]) {
+        const button = page.getByRole('button', {name: `Bitta ${particle} qo‘shish`});
         for (let i = 0; i < n; i += 1) { await button.focus(); await page.keyboard.press('Enter'); }
       }
-      await expect(page.locator('.kl-sim-state')).toContainText('C-14');
+      await expect(page.locator('.kl-atom__state [data-field="isotope"]')).toHaveText('Uglerod-14');
     },
   },
   {

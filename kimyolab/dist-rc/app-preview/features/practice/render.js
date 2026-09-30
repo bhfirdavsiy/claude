@@ -76,10 +76,6 @@ export function renderPractice(root            ,page                         ,se
     });
     layout.append(stage,panel); card.append(layout);
   } else if(model.kind==='simulation'){
-    if(model.mode==='atom'){
-      card.append(el('h2',{text:`Atom konstruktori — maqsad ${model.targetLabel}`})); const state=el('p',{className:'kl-sim-state',text:'p=0, n=0, e=0'}); card.append(state);
-      for(const particle of model.particles){const row=el('div',{className:'kl-particle-row'}); row.append(el('span',{text:particle})); for(const delta of [-1,1]){const b=el('button',{className:'kl-button kl-button--secondary',text:delta>0?'+':'−',attrs:{type:'button','aria-label':`${particle} ${delta>0?'qo‘shish':'ayirish'}`}});b.addEventListener('click',()=>void run({kind:'simulation-action',action:{particle,delta}}).then(r=>{if(r?.finalState)state.textContent=`p=${r.finalState.protons}, n=${r.finalState.neutrons}, e=${r.finalState.electrons}; ${r.finalState.isotope}`;}));row.append(b);}card.append(row);}
-    } else {
       card.append(el('h2',{text:'Interaktiv model'}));
       for(const control of model.controls){
         const form=el('form',{className:'kl-form kl-simulation-control'});
@@ -89,7 +85,6 @@ export function renderPractice(root            ,page                         ,se
         form.addEventListener('submit',e=>{e.preventDefault();const raw=input.value;const value=control.valueType==='number'?Number(raw):control.valueType==='boolean'?raw==='true':raw;void run({kind:'simulation-action',action:{field:control.field,value}});});
         card.append(form);
       }
-    }
   } else if(model.kind==='trainer'){
     card.append(el('h2',{text:model.expectedInput==='formula'?'Formula trenajyori':'Mashq'}),el('p',{text:model.prompt})); const form=el('form',{className:'kl-form'}); const label=el('label',{className:'kl-field'});label.append(el('span',{text:model.expectedInput==='formula'?'Formula':'Javob'}));const input=el('input',{attrs:{name:'answer',required:'','autocomplete':'off'}});label.append(input);const b=el('button',{className:'kl-button kl-button--primary',text:'Tekshirish',attrs:{type:'submit'}});form.append(label,b);form.addEventListener('submit',e=>{e.preventDefault();void run({kind:'trainer-answer',answer:input.value});});card.append(form);
   } else if(model.kind==='calculation'){
