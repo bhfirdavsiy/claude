@@ -33,7 +33,8 @@ export type ReadinessReason=
   |'ASSESSMENT_NOT_AVAILABLE'
   |'OUTCOME_MAPPING_MISSING'
   |'CHEMISTRY_REVIEW_REQUIRED'
-  |'CONTENT_VERSION_INCOMPATIBLE';
+  |'CONTENT_VERSION_INCOMPATIBLE'
+  |'RENDERER_UNAVAILABLE';
 
 /** Enforcement per activity: `strict` (pilot) launches only READY; `observe` keeps pre-P1.2 behaviour. */
 export type ReadinessEnforcement='strict'|'observe';
@@ -62,15 +63,22 @@ export interface ReadinessInputActivity {
   reviewRejected?:string[];
 }
 
+/**
+ * P1.4: renderer availability. `required:false` — the activity has no rendererRequirement (legacy renderer);
+ * `required:true` — the plan names a capability and the build checked it against the renderer catalog.
+ */
+export type RendererAvailability={required:false}|{required:true;available:boolean};
+
 /** Pure derivation. `route` is the build-time routing verdict for the activity. */
-export function deriveActivityReadiness(activity:ReadinessInputActivity,route:{ok:true}|{ok:false;code:string},enforcement:ReadinessEnforcement):LearningActivityReadiness{
+export function deriveActivityReadiness(activity:ReadinessInputActivity,route:{ok:true}|{ok:false;code:string},enforcement:ReadinessEnforcement,renderer:RendererAvailability={required:false}):LearningActivityReadiness{
   const reasons:ReadinessReason[]=[];
   let status:RuntimeReadiness;
   const released=activity.lifecycleStatus==='ready';
   if(!route.ok){
     if(route.code==='ROUTE_NONE'&&!released){status='DISABLED';reasons.push('ROUTE_NONE');}
     else{status='BLOCKED';reasons.push(route.code==='ROUTE_NONE'?'ROUTE_NONE':'ROUTE_INVALID');}
-  }else if(!released){status='PENDING';reasons.push('ACTIVITY_NOT_RELEASED');}
+  }else if(renderer.required&&!renderer.available){status='BLOCKED';reasons.push('RENDERER_UNAVAILABLE');}
+  else if(!released){status='PENDING';reasons.push('ACTIVITY_NOT_RELEASED');}
   else status='READY';
   const rejected=activity.reviewRejected??[];
   const notApproved=[...activity.reviewPending,...rejected];
@@ -129,11 +137,12 @@ export const READINESS_MESSAGES:Readonly<Record<ReadinessReason,string>>=Object.
   OUTCOME_MAPPING_MISSING:'Bu mavzu bo‘yicha test hali tayyorlanmoqda.',
   CHEMISTRY_REVIEW_REQUIRED:'Kimyoviy mazmun mutaxassis tekshiruvida.',
   CONTENT_VERSION_INCOMPATIBLE:'Ushbu mavzu yangilangan. Yangi versiya bo‘yicha qisqa tekshiruv kerak.',
+  RENDERER_UNAVAILABLE:'Bu faoliyatni hozircha ko‘rsatib bo‘lmaydi. Keyinroq urinib ko‘ring.',
 });
 
 export function readinessMessage(reasons:ReadinessReason[]):string{
   // The first blocking reason explains the state; review reasons are informational.
-  const order:ReadinessReason[]=['ROUTE_INVALID','ROUTE_NONE','ACTIVITY_NOT_RELEASED','CONTENT_VERSION_INCOMPATIBLE','ASSESSMENT_REVIEW_PENDING','ASSESSMENT_NOT_AVAILABLE','OUTCOME_MAPPING_MISSING','CHEMISTRY_REVIEW_REQUIRED','ACTIVITY_REVIEW_PENDING'];
+  const order:ReadinessReason[]=['ROUTE_INVALID','ROUTE_NONE','RENDERER_UNAVAILABLE','ACTIVITY_NOT_RELEASED','CONTENT_VERSION_INCOMPATIBLE','ASSESSMENT_REVIEW_PENDING','ASSESSMENT_NOT_AVAILABLE','OUTCOME_MAPPING_MISSING','CHEMISTRY_REVIEW_REQUIRED','ACTIVITY_REVIEW_PENDING'];
   const first=order.find(r=>reasons.includes(r));
   return first?READINESS_MESSAGES[first]:READINESS_MESSAGES.ROUTE_INVALID;
 }

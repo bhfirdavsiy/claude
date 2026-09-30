@@ -6,7 +6,6 @@ const ACTION_LABELS                      ={
 
                              
                                                                                                                                                                                       
-                                                                                                                  
                                                                                                                                                                
                                                                                                                          
                                                                                                                                   
@@ -36,11 +35,11 @@ export function buildPracticeUiModel(model                         )            
     return {...common,...experimentMeta,kind:'experiment',controls:(c.scenario?.steps??[]).map((s    )=>({action:String(s.actionType),label:model.executionPlan.runtime!=='reference-slice'?String(s.label??s.actionType):(ACTION_LABELS[String(s.actionType)]??String(s.actionType)),requiresEquation:model.executionPlan.runtime==='reference-slice'&&s.actionType==='record'}))};
   }
   if(model.type==='simulation'){
-    if(model.executionPlan.runtime!=='reference-slice'){
-      const fields=model.executionPlan.runtime==='beta2-organic'?[String(c.field??c.property??'value')]:model.executionPlan.runtime==='beta2-advanced'&&model.executionPlan.capability==='manganese-redox-simulation'?['medium']:model.executionPlan.runtime==='beta3-advanced'?[String(c.field??'value')]:(c.controls??[]);
-      return {...common,kind:'simulation',mode:'generic',controls:fields.map((field       )=>{const value=c.initialState?.[field]??c.expected;const booleanTask=c.task==='nuclear-conservation'||c.task==='equal-rates';const numberTask=typeof value==='number'||c.task==='reaction-rate';return {field:String(field),label:String(field).replaceAll('-',' '),valueType:booleanTask?'boolean':numberTask?'number':typeof value==='boolean'?'boolean':'text'};})};
-    }
-    return {...common,kind:'simulation',mode:'atom',particles:['protons','neutrons','electrons'],targetLabel:`${c.target?.element??''}-${c.target?.protons+c.target?.neutrons||''}`};
+    // P1.4: the reference-slice atom builder is drawn by the RendererRegistry (src/renderers/atom-builder) —
+    // its former 'atom' form (with a UI-side "element-(p+n)" goal label) was removed from this legacy model.
+    if(model.executionPlan.rendererRequirement) throw new Error('RENDERER_REQUIRED');
+    const fields=model.executionPlan.runtime==='beta2-organic'?[String(c.field??c.property??'value')]:model.executionPlan.runtime==='beta2-advanced'&&model.executionPlan.capability==='manganese-redox-simulation'?['medium']:model.executionPlan.runtime==='beta3-advanced'?[String(c.field??'value')]:(c.controls??[]);
+    return {...common,kind:'simulation',mode:'generic',controls:fields.map((field       )=>{const value=c.initialState?.[field]??c.expected;const booleanTask=c.task==='nuclear-conservation'||c.task==='equal-rates';const numberTask=typeof value==='number'||c.task==='reaction-rate';return {field:String(field),label:String(field).replaceAll('-',' '),valueType:booleanTask?'boolean':numberTask?'number':typeof value==='boolean'?'boolean':'text'};})};
   }
   if(model.type==='trainer'){
     if(model.executionPlan.runtime!=='reference-slice') return {...common,kind:'trainer',expectedInput:'text',prompt:String(c.prompt??model.goal),hints:(c.hints??[]).map((h       )=>String(h))};

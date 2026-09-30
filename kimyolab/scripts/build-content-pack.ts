@@ -8,6 +8,7 @@ import { ASSESSMENT_KEY_PACK_PATH, ASSESSMENT_PROMPT_PACK_PATH, splitAssessmentB
 import { deriveItemLifecycle } from '../src/domain/assessment/governance.ts';
 import { READINESS_PACK_PATH } from '../src/domain/readiness/readiness.ts';
 import { compileReadiness } from './lib/readiness-compile.ts';
+import { parseElementNameCatalog } from '../src/features/localization/element-names.ts';
 import { readReleasePointer, writeReleasePointerAtomic } from './release-pointer-io.ts';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -115,6 +116,24 @@ if (fs.existsSync(chemistrySource)) {
   fs.mkdirSync(chemistryTarget, { recursive: true });
   for (const entry of fs.readdirSync(chemistrySource, { withFileTypes: true })) {
     if (entry.isFile()) copy(path.join(chemistrySource, entry.name), path.join(chemistryTarget, entry.name));
+  }
+}
+
+// P1.4 closeout: localized display text (element names, …) ships as content. Every locale file is validated
+// (keys must be real element symbols) before it is copied — an invalid file fails the build.
+const localeSource = path.join(source, 'locales');
+if (fs.existsSync(localeSource)) {
+  for (const locale of fs.readdirSync(localeSource, { withFileTypes: true }).filter((d) => d.isDirectory())) {
+    const dir = path.join(localeSource, locale.name);
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true }).filter((e) => e.isFile() && e.name.endsWith('.json'))) {
+      const from = path.join(dir, entry.name);
+      if (entry.name === 'chemistry-elements.json') {
+        const catalog = parseElementNameCatalog(JSON.parse(fs.readFileSync(from, 'utf8')));
+        if (catalog.locale.toLowerCase() !== locale.name) throw new Error(`ELEMENT_NAMES_INVALID:locale:${catalog.locale}`);
+      }
+      fs.mkdirSync(path.join(packRoot, 'locales', locale.name), { recursive: true });
+      copy(from, path.join(packRoot, 'locales', locale.name, entry.name));
+    }
   }
 }
 

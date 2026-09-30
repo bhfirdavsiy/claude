@@ -6,16 +6,17 @@
     "canonicalRuntimeStable": true,
     "canonicalRoutingStable": true,
     "readinessStable": true,
-    "rendererContractApproved": false,
+    "rendererContractApproved": true,
     "goldenSliceTechnicallyValid": "lu.9.15 technically valid after the P1.3 completion fix (pilot:status TECHNICAL_PASS); human assessment approval is a separate product sign-off blocker",
-    "canStartImplementation": false,
-    "reason": "the renderer contract (docs/plans/p1.4-renderer-foundation-contract.md) needs an explicit approval decision first"
+    "canStartImplementation": true,
+    "reason": "contract approved for P1.4 implementation (technical decision; not an assessment approval or pilot sign-off). P1.4 implements the atom-builder reference renderer only."
   },
   "rows": [
     {
       "candidate": "atom-builder",
       "title": "Atom tuzilishi konstruktori (p/n/e → element, izotop, zaryad)",
       "rank": 1,
+      "implemented": "P1.4 — RendererRegistry capability atom-builder@1.0.0 (src/renderers/atom-builder)",
       "leadActivityId": "practice.simulation.7.07.planned",
       "readyActivities": 1,
       "activities": [
@@ -38,28 +39,23 @@
       },
       "assessment": {
         "pedagogicalValue": "high — every learner action changes a derived chemical identity (element, isotope, ion); core 7th-grade concept",
-        "currentLimitation": "text state only (\"p=6, n=8, e=6; C-14\"); element table limited to Z≤18 inside the adapter; no shell/orbital view",
+        "currentLimitation": "P1.4: element data moved to the domain periodic table (Z 1–118, Uzbek names Z≤20); DOM + text-state renderer only — no shell/orbital view yet",
         "engineMaturity": "mature: pure reducer, serialize/restore, construction evidence",
         "interactionDepth": "real model-based: arbitrary particle combinations → derived state (not a fixed path)",
         "accessibilityComplexity": "low — the state is naturally textual; +/- buttons are keyboard operable",
         "reusePotential": "high — ions, isotopes, electron configuration (lu.8.x), atomic-orbital model (practice.simulation.11.01)",
         "blackSwan": "PASS — model-based: the renderer only draws state the reducer derived; no canned sequence",
         "accessibilityPlan": "text summary of the derived state (element, A, charge) announced via aria-live; buttons with explicit labels; no colour-only cues; reduced motion = no particle animation",
-        "dependencies": [
-          "RendererModel for AtomState",
-          "move the element table to src/domain/chemistry (single source of Z → symbol)"
-        ]
+        "dependencies": []
       },
-      "dependencies": [
-        "RendererModel for AtomState",
-        "move the element table to src/domain/chemistry (single source of Z → symbol)"
-      ],
+      "dependencies": [],
       "blockers": []
     },
     {
       "candidate": "ionic-precipitation",
       "title": "Ion almashinish / cho‘kma tajribasi (reagentlar → reaksiya, kuzatuv, net-ion tenglama)",
       "rank": 2,
+      "implemented": null,
       "leadActivityId": "practice.experiment.8.1",
       "readyActivities": 1,
       "activities": [
@@ -116,6 +112,7 @@
       "candidate": "hydrolysis-medium",
       "title": "Tuz gidrolizi: tuz tanlash → muhitni bashorat qilish → indikator",
       "rank": 3,
+      "implemented": null,
       "leadActivityId": "practice.experiment.9.14",
       "readyActivities": 2,
       "activities": [
@@ -170,6 +167,7 @@
       "candidate": "electrolysis",
       "title": "Elektroliz (golden assessment slice lu.9.15)",
       "rank": null,
+      "implemented": null,
       "leadActivityId": "practice.experiment.9.10",
       "readyActivities": 2,
       "activities": [
@@ -223,6 +221,7 @@
       "candidate": "single-field-simulations",
       "title": "Bitta maydonli “simulyatsiya”lar (beta1/beta2-safe/beta3 simulation)",
       "rank": null,
+      "implemented": null,
       "leadActivityId": "practice.simulation.7.02.planned",
       "readyActivities": 48,
       "activities": [

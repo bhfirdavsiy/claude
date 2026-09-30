@@ -140,3 +140,5 @@ body{background:#fff;color:var(--kl-navy)}
 .kl-mastery--developing{border-style:solid}
 .kl-mastery--not_started{border-style:dotted}
 .kl-progress-card__lesson{font-weight:500}
+/* P1.4 atom-builder reference renderer — static by design (no motion); status uses text + shape, never colour only */
+.kl-atom__goal{font-weight:700}.kl-atom__count{display:inline-block;min-width:2.5ch;text-align:center;font-size:1.2rem;font-weight:800}.kl-atom__state{width:100%;border-collapse:collapse;margin-top:1rem}.kl-atom__state caption{text-align:left;font-weight:800;padding-bottom:.4rem}.kl-atom__state th,.kl-atom__state td{text-align:left;padding:.45rem .6rem;border-bottom:1px solid var(--kl-border)}.kl-atom__goal-state{margin-top:1rem;padding:.75rem 1rem;border:2px dashed var(--kl-border);border-radius:var(--kl-radius-sm);font-weight:700}.kl-atom__goal-state[data-goal="reached"]{border-style:solid}.kl-atom__summary{margin-top:.75rem;padding:.75rem 1rem;background:var(--kl-surface-soft);border-radius:var(--kl-radius-sm)}

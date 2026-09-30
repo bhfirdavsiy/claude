@@ -75,6 +75,10 @@
       "electrons": 6,
       "element": "C",
       "isotope": "C-14"
+    },
+    "rendererRequirement": {
+      "capability": "atom-builder",
+      "range": "^1.0.0"
     }
   },
   "practice.trainer.7.4": {

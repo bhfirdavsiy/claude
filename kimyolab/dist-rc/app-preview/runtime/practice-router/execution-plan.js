@@ -12,6 +12,8 @@
 import {BETA2_ADVANCED_CAPABILITIES} from '../beta2/advanced.js';
 import {BETA2_ORGANIC_CAPABILITIES} from '../beta2/organic.js';
 import {BETA3_ADVANCED_TASKS} from '../beta3/advanced.js';
+import {isVersionRange} from '../compatibility/version-range.js';
+                                                                     
 
                                          
 /** Engine families with their own interpreter of a config (one factory per runtime in the browser session). */
@@ -28,6 +30,11 @@ import {BETA3_ADVANCED_TASKS} from '../beta3/advanced.js';
                                                                                                                  
                             
                        
+     
+                                                                                                          
+                                                                                                  
+     
+                                           
  
 
 export const EXECUTION_PLAN_PACK_PATH='execution-plans.json';
@@ -98,7 +105,13 @@ export function deriveActivityExecutionPlan(activity                        ,con
   const runtime=CONFIG_SOURCES[configSource];
   const capability=capabilityOf(runtime,engine,config);
   if(!capability.ok) return fail(capability.code,capability.detail);
-  return {ok:true,plan:{activityId:activity.id,engine,runtime,capability:capability.capability,configSource,configVersion:config.version}};
+  const plan                      ={activityId:activity.id,engine,runtime,capability:capability.capability,configSource,configVersion:config.version};
+  if(config.rendererRequirement!==undefined){
+    const r=config.rendererRequirement;
+    if(!isRendererRequirement(r)) return fail('CONFIG_INVALID',`${configSource}: rendererRequirement needs {capability, range}`);
+    plan.rendererRequirement={capability:r.capability,range:r.range};
+  }
+  return {ok:true,plan};
 }
 
                                     
@@ -148,6 +161,11 @@ export function compileExecutionPlans(activities                                
   return {pack:{schema:EXECUTION_PLAN_SCHEMA,plans},report:{total:activities.length,ready,pending,disabled,errors,byRuntime},fatal};
 }
 
+export function isRendererRequirement(r        )                         {
+  const x=r                       ;
+  return Boolean(x)&&typeof x==='object'&&text(x.capability)&&isVersionRange(x.range)&&Object.keys(x).every(k=>k==='capability'||k==='range');
+}
+
 /** Runtime lookup: the plan is read, never derived. Unknown or malformed → fail closed. */
 export function resolveExecutionPlan(pack        ,activityId       )                      {
   const p=pack                     ;
@@ -156,5 +174,6 @@ export function resolveExecutionPlan(pack        ,activityId       )            
   if(matches.length!==1) throw new Error(matches.length?'EXECUTION_PLAN_CONFLICT':'EXECUTION_PLAN_NOT_FOUND');
   const plan=matches[0] ;
   if(!ENGINES.has(plan.engine)||!(plan.configSource in CONFIG_SOURCES)||CONFIG_SOURCES[plan.configSource]!==plan.runtime||!text(plan.capability)) throw new Error('EXECUTION_PLAN_INVALID');
+  if(plan.rendererRequirement!==undefined&&!isRendererRequirement(plan.rendererRequirement)) throw new Error('EXECUTION_PLAN_INVALID');
   return plan;
 }

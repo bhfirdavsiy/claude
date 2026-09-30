@@ -5,6 +5,7 @@ import path from 'node:path';
 import {createRequire} from 'node:module';
 
 const require=createRequire(import.meta.url);
+import {ELEMENT_SYMBOL_SET} from '../../src/domain/chemistry/periodic-table.ts';
 const ts=require('typescript');
 
 /** Store operations that change learner state. Only the persistence boundary may call them. */
@@ -22,7 +23,17 @@ const NO_PERSISTENCE_IMPORTS=[/^src\/features\/[^/]+\/render\.ts$/,/^src\/featur
 const FORBIDDEN_IMPORT_TARGETS=[/runtime\/progress\/indexeddb-store\.ts$/,/runtime\/progress\/reducer\.ts$/,/runtime\/progress\/migrations\.ts$/];
 
 /** Presentation layers (render/UI models/bootstrap) — they may see AssessmentPrompt, never AssessmentKey (P1.1 C3). */
-const PRESENTATION=[/^src\/features\//,/^src\/app\/bootstrap\.ts$/];
+const PRESENTATION=[/^src\/features\//,/^src\/app\/bootstrap\.ts$/,/^src\/renderers\//];
+/** P1.4 renderer package: draws RendererModels and emits intents — no persistence, mastery, readiness or chemistry. */
+const RENDERER=/^src\/renderers\//;
+const RENDERER_FORBIDDEN_IMPORTS:Array<[RegExp,string]>=[
+  [/^src\/runtime\/(progress|learning-orchestrator|evidence)\/|^src\/features\/progress\//,'RENDERER_IMPORTS_PERSISTENCE'],
+  [/^src\/domain\/mastery\//,'RENDERER_IMPORTS_MASTERY'],
+  [/^src\/domain\/(readiness|assessment|pilot)\/|^src\/runtime\/governance\//,'RENDERER_DERIVES_READINESS'],
+  [/^src\/domain\/chemistry\/|^src\/engines\/|^src\/runtime\/(reference-slices|beta1|beta2|beta3)\//,'CHEMISTRY_DOMAIN_IMPORTED_IN_RENDERER'],
+];
+const PARTICLE_FIELDS=new Set(['protons','neutrons','electrons']);
+const DERIVED_ATOM_FIELDS=new Set(['atomicNumber','massNumber','charge']);
 /** Answer-key layer and evaluator: owned by the domain + orchestrator + content source only. */
 export const ASSESSMENT_KEY_NAMES=new Set(['AssessmentKey','AssessmentKeyPack','validateKeyPack','ASSESSMENT_KEY_PACK_PATH','evaluateAssessment','evaluationToEvidenceDrafts','correctOptionId']);
 
@@ -70,6 +81,11 @@ export function checkSource(rel:string,source:string):GuardViolation[]{
       const target=resolve(node.moduleSpecifier.text);
       const typeOnly=Boolean(node.importClause?.isTypeOnly);
       const bindings=node.importClause?.namedBindings;
+      if(RENDERER.test(rel)&&!typeOnly){
+        const valueBindings=!bindings||!ts.isNamedImports(bindings)||Boolean(node.importClause?.name)||bindings.elements.some((e:any)=>!e.isTypeOnly);
+        const hit=RENDERER_FORBIDDEN_IMPORTS.find(([re])=>re.test(target));
+        if(hit&&valueBindings) out.push({file:rel,line:line(node),rule:hit[1],detail:target});
+      }
       if(noPersistenceImports&&!typeOnly&&isForbiddenTarget(target)){
         const allTypes=bindings&&ts.isNamedImports(bindings)&&!node.importClause?.name&&bindings.elements.every((e:any)=>e.isTypeOnly);
         if(!allTypes) out.push({file:rel,line:line(node),rule:'LAYER_IMPORTS_PERSISTENCE',detail:target});
@@ -130,6 +146,21 @@ export function checkSource(rel:string,source:string):GuardViolation[]{
       const activityLiteral=(n:any)=>n&&(ts.isStringLiteral(n)||ts.isNoSubstitutionTemplateLiteral(n))&&/^practice\./.test(n.text);
       if(ts.isSwitchStatement(node)&&idLike(node.expression)&&node.caseBlock.clauses.some((c:any)=>ts.isCaseClause(c)&&activityLiteral(c.expression))) out.push({file:rel,line:line(node),rule:'RENDERER_SELECTED_BY_ACTIVITY_ID',detail:'switch over a concrete activity id'});
       if(ts.isBinaryExpression(node)&&[ts.SyntaxKind.EqualsEqualsEqualsToken,ts.SyntaxKind.ExclamationEqualsEqualsToken,ts.SyntaxKind.EqualsEqualsToken].includes(node.operatorToken.kind)&&((idLike(node.left)&&activityLiteral(node.right))||(idLike(node.right)&&activityLiteral(node.left)))) out.push({file:rel,line:line(node),rule:'RENDERER_SELECTED_BY_ACTIVITY_ID',detail:'comparison with a concrete activity id'});
+    }
+    // ---- P1.4: renderers display chemistry, they never compute it (Z, A, charge) or carry an element table
+    if(RENDERER.test(rel)){
+      const particleRef=(n:any)=>n&&((ts.isPropertyAccessExpression(n)&&PARTICLE_FIELDS.has(n.name.text))||(ts.isIdentifier(n)&&PARTICLE_FIELDS.has(n.text))||(ts.isElementAccessExpression(n)&&n.argumentExpression&&ts.isStringLiteral(n.argumentExpression)&&PARTICLE_FIELDS.has(n.argumentExpression.text)));
+      if(ts.isBinaryExpression(node)&&[ts.SyntaxKind.PlusToken,ts.SyntaxKind.MinusToken].includes(node.operatorToken.kind)&&(particleRef(node.left)||particleRef(node.right)))
+        out.push({file:rel,line:line(node),rule:'CHEMISTRY_COMPUTED_IN_RENDERER',detail:node.getText(sf).slice(0,60)});
+      const derivedName=(n:any)=>n&&ts.isIdentifier(n)&&DERIVED_ATOM_FIELDS.has(n.text)?n.text:undefined;
+      const passthrough=(init:any,name:string)=>init&&ts.isPropertyAccessExpression(init)&&init.name.text===name;
+      if(ts.isPropertyAssignment(node)){const name=derivedName(node.name);if(name&&!passthrough(node.initializer,name)) out.push({file:rel,line:line(node),rule:'CHEMISTRY_COMPUTED_IN_RENDERER',detail:`${name} must come from the domain model`});}
+      if(ts.isVariableDeclaration(node)&&derivedName(node.name)&&node.initializer&&!passthrough(node.initializer,node.name.text)) out.push({file:rel,line:line(node),rule:'CHEMISTRY_COMPUTED_IN_RENDERER',detail:`${node.name.text} must come from the domain model`});
+      if((ts.isArrayLiteralExpression(node)||ts.isObjectLiteralExpression(node))){
+        const values=ts.isArrayLiteralExpression(node)?node.elements:node.properties.map((p:any)=>p.initializer).filter(Boolean);
+        const symbols=values.filter((v:any)=>ts.isStringLiteral(v)&&ELEMENT_SYMBOL_SET.has(v.text)&&v.text.length<=2&&/^[A-Z]/.test(v.text));
+        if(symbols.length>=3) out.push({file:rel,line:line(node),rule:'CHEMISTRY_COMPUTED_IN_RENDERER',detail:'element table in a renderer (the domain periodic table is the only source)'});
+      }
     }
     // ---- calls: resolve aliases before checking boundary / mastery functions
     if(ts.isCallExpression(node)){

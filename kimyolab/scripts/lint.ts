@@ -39,7 +39,7 @@ for(const file of srcFiles){
 // Generated browser preview must be exactly what the current src/ produces.
 const previewRoot=path.join(root,'public','app-preview');
 const expected=new Map<string,string>();
-for(const dir of ['app','features','ui','domain','runtime','engines','integrations']){
+for(const dir of ['app','features','ui','domain','runtime','engines','integrations','renderers']){
   for(const file of walk(path.join(root,'src',dir),f=>f.endsWith('.ts')||f.endsWith('.css'))){
     const r=path.relative(path.join(root,'src'),file).split(path.sep).join('/');
     const text=fs.readFileSync(file,'utf8');

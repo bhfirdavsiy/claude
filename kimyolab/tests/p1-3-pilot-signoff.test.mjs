@@ -159,19 +159,22 @@ test('pending triage covers exactly the runtime-PENDING activities, from facts o
 
 // ------------------------------------------------------------------ renderer foundation (analysis only)
 
-test('renderer foundation report: facts from code, black-swan honesty, no renderer code, start gate closed',async()=>{
+// P1.4 update: the P1.3 invariants "start gate closed" and "no renderer code" held only until the contract
+// decision. The contract was approved for P1.4 implementation, so the gate is open and exactly ONE renderer
+// (atom-builder) exists; the honesty checks (hydrolysis CANNOT_SUCCEED, electrolysis canned) must still hold.
+test('renderer foundation report: facts from code, black-swan honesty, only the atom-builder is implemented',async()=>{
   const report=await buildRendererReadiness();
   assert.deepEqual(committed(RENDERER_REPORT_FILE),report,'run npm run renderer:readiness');
-  assert.equal(report.startGate.canStartImplementation,false);
+  assert.equal(report.startGate.rendererContractApproved,true);
+  assert.equal(report.startGate.canStartImplementation,true);
+  assert.deepEqual(report.rows.filter(r=>r.implemented).map(r=>r.candidate),['atom-builder'],'no other renderer was implemented');
   const by=Object.fromEntries(report.rows.map(r=>[r.candidate,r]));
   assert.deepEqual(report.rows.filter(r=>r.rank).sort((a,b)=>a.rank-b.rank).map(r=>r.candidate),['atom-builder','ionic-precipitation','hydrolysis-medium']);
   assert.equal(by['atom-builder'].learnerUiPath.verdict,'CAN_SUCCEED');
   assert.equal(by['hydrolysis-medium'].learnerUiPath.verdict,'CANNOT_SUCCEED','the current UI cannot pass the salt/medium to the model');
   assert.equal(by.electrolysis.modelData[0].records,1);
   assert.ok(by.electrolysis.blockers.some(b=>/canned animation/.test(b)),'a one-record model must not be called a simulation');
-  assert.equal(fs.existsSync(path.join(root,'src/renderers')),false,'no RendererRegistry / renderer code yet');
-  const code=fs.readdirSync(path.join(root,'src'),{recursive:true}).filter(f=>String(f).endsWith('.ts')).map(f=>fs.readFileSync(path.join(root,'src',String(f)),'utf8')).join('\n');
-  assert.doesNotMatch(code,/RendererRegistry/);
+  assert.deepEqual(fs.readdirSync(path.join(root,'src/renderers')).filter(f=>fs.statSync(path.join(root,'src/renderers',f)).isDirectory()),['atom-builder'],'only the atom-builder renderer exists (no ionic/hydrolysis/electrolysis renderer)');
 });
 
 // ------------------------------------------------------------------ completion fix (found by pilot:status)

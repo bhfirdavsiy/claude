@@ -1,6 +1,7 @@
 import type {PracticeActivity} from '../../domain/content/types.ts';
 import type {ActivityExecutionPlan} from '../../runtime/practice-router/execution-plan.ts';
 import type {LearningActivityReadiness} from '../../domain/readiness/readiness.ts';
+import type {ElementNameCatalog} from '../localization/element-names.ts';
 
 export interface StudentPracticePageModel {
   id:string;
@@ -21,6 +22,8 @@ export interface StudentPracticePageModel {
   scoringVersion:string;
   curriculumVersion?:string;
   legacyContent?:{equipment?:string;materials?:string;safety?:string;steps?:string[];tasks?:string[]};
+  /** localized display text for the page (P1.4 closeout) — presentation only, never chemistry input */
+  localization?:{elementNames?:ElementNameCatalog};
   chemistry:{
     reactions:any[];
     solutionRules:{version:string;dissociation:any[];insoluble:string[]};
@@ -52,6 +55,7 @@ export function buildPracticePageModel(input:{
   organic?:any;
   kinetics?:any;
   equilibrium?:any;
+  elementNames?:ElementNameCatalog;
 }):StudentPracticePageModel {
   return {
     id:input.activity.id,
@@ -76,6 +80,7 @@ export function buildPracticePageModel(input:{
     scoringVersion:input.scoringVersion,
     ...(input.curriculumVersion?{curriculumVersion:input.curriculumVersion}:{}),
     legacyContent:structuredClone((input.activity as any).legacyContent??{}),
+    ...(input.elementNames?{localization:{elementNames:input.elementNames}}:{}),
     chemistry:{
       reactions:structuredClone(input.reactions),
       solutionRules:structuredClone(input.solutionRules),

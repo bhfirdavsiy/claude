@@ -26,7 +26,7 @@ function numericVersion(value       )         {
   return parts.every(Number.isFinite)?parts:[Number.NaN];
 }
 
-function compareVersion(a       ,b       )       {
+export function compareVersion(a       ,b       )       {
   const left=numericVersion(a), right=numericVersion(b);
   if(Number.isNaN(left[0])||Number.isNaN(right[0])) return a.localeCompare(b,undefined,{numeric:true});
   const length=Math.max(left.length,right.length);
