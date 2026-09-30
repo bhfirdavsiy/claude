@@ -1,0 +1,168 @@
+{
+  "schema": "kimyolab.human-review-status.v1",
+  "semantics": "Derived from the human registers only. Tooling decides nothing: 0 decisions means nobody has reviewed yet, which is PENDING — not a CI failure.",
+  "humanDecisionsImported": {
+    "chemistry": 0,
+    "chemistryCandidates": 0,
+    "assessment": 0,
+    "pilotSignoffs": 0,
+    "total": 0
+  },
+  "chemistry": {
+    "total": 134,
+    "pending": 134,
+    "approved": 0,
+    "rejected": 0,
+    "changeRequired": 0,
+    "stale": 0,
+    "flagged": [
+      "observation:rxn.br2-ki",
+      "observation:rxn.cl2-kbr",
+      "observation:rxn.h2-combustion",
+      "observation:rxn.nacl-h2so4",
+      "observation:rxn.naoh-hcl",
+      "observation:rxn.znoh2-hcl"
+    ],
+    "priorityQueue": {
+      "A": {
+        "label": "A — kimyoviy anomaliyalar (kuzatuv flaglari)",
+        "total": 6,
+        "pending": 6,
+        "ids": [
+          "observation:rxn.br2-ki",
+          "observation:rxn.cl2-kbr",
+          "observation:rxn.h2-combustion",
+          "observation:rxn.nacl-h2so4",
+          "observation:rxn.naoh-hcl",
+          "observation:rxn.znoh2-hcl"
+        ]
+      },
+      "B": {
+        "label": "B — asosiy modellar (indikator, sharoit lug‘ati, gidroliz, ion reaksiya maqsadlari)",
+        "total": 28,
+        "pending": 28,
+        "ids": [
+          "condition-context:solution-mixing",
+          "condition-term:concentrated acid",
+          "condition-term:dilute acid",
+          "condition-term:gentle heating",
+          "condition-term:heating",
+          "condition-term:ignition",
+          "condition-term:oxygen-excess",
+          "condition-term:oxygen-limited",
+          "condition-term:strong heating",
+          "condition:rxn.c-combustion",
+          "condition:rxn.c-combustion-limited",
+          "condition:rxn.fe-combustion",
+          "condition:rxn.h2-combustion",
+          "condition:rxn.h2-cuo",
+          "condition:rxn.mg-h2so4",
+          "condition:rxn.nacl-h2so4",
+          "condition:rxn.nh4cl-caoh2",
+          "condition:rxn.p-combustion",
+          "condition:rxn.s-combustion",
+          "condition:rxn.zn-h2so4",
+          "hydrolysis:AlCl3",
+          "hydrolysis:Na2CO3",
+          "hydrolysis:NaCl",
+          "hydrolysis:NH4Cl",
+          "indicator:litmus:acidic",
+          "indicator:litmus:basic",
+          "indicator:litmus:neutral",
+          "reaction:rxn.agno3-nacl"
+        ]
+      },
+      "C": {
+        "label": "C — golden slice (lu.9.15 elektroliz yozuvi)",
+        "total": 1,
+        "pending": 1,
+        "ids": [
+          "electrolysis:CuCl2|aq|inert"
+        ]
+      },
+      "D": {
+        "label": "D — terminologiya (element va modda nomlari)",
+        "total": 30,
+        "pending": 30,
+        "ids": [
+          "element-name:Al",
+          "element-name:Ar",
+          "element-name:B",
+          "element-name:Be",
+          "element-name:C",
+          "element-name:Ca",
+          "element-name:Cl",
+          "element-name:F",
+          "element-name:H",
+          "element-name:He",
+          "element-name:K",
+          "element-name:Li",
+          "element-name:Mg",
+          "element-name:N",
+          "element-name:Na",
+          "element-name:Ne",
+          "element-name:O",
+          "element-name:P",
+          "element-name:S",
+          "element-name:Si",
+          "species-name:species.agno3.name",
+          "species-name:species.alcl3.name",
+          "species-name:species.bacl2.name",
+          "species-name:species.h2so4.name",
+          "species-name:species.na2co3.name",
+          "species-name:species.nacl.name",
+          "species-name:species.nano3.name",
+          "species-name:species.naoh.name",
+          "species-name:species.nh4cl.name",
+          "species-name:species.zncl2.name"
+        ]
+      },
+      "E": {
+        "label": "E — qolgan assertion’lar",
+        "total": 69,
+        "pending": 69
+      }
+    }
+  },
+  "chemistryCandidates": {
+    "total": 18,
+    "pending": 18,
+    "acceptedForAuthoring": 0,
+    "rejected": 0,
+    "needsEvidence": 0,
+    "stale": 0,
+    "canonical": 0
+  },
+  "assessment": {
+    "total": 5,
+    "chemistryApproved": 0,
+    "didacticApproved": 0,
+    "outcomeConfirmed": 0,
+    "fullyApproved": 0,
+    "mappingReviewRequired": [
+      "q.9.15.01",
+      "q.9.15.02",
+      "q.9.15.04"
+    ]
+  },
+  "activities": {
+    "total": 146,
+    "contentApproved": 0,
+    "contentReviewPending": 146,
+    "contentRejected": 0,
+    "runtimePending": 27,
+    "reviewSurface": "Beta activity approvals (existing beta registers → npm run beta:approvals:import)"
+  },
+  "pilot": {
+    "units": 4,
+    "pendingSignoff": 4,
+    "signedOff": 0,
+    "statuses": {
+      "lu.9.15": "CONTENT_REVIEW_PENDING",
+      "lu.7.11": "CONTENT_REVIEW_PENDING",
+      "lu.7.12": "CONTENT_REVIEW_PENDING",
+      "lu.7.07": "CONTENT_REVIEW_PENDING"
+    }
+  },
+  "globalStrictEnforcement": false
+}

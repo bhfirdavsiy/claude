@@ -25,6 +25,16 @@ import {ReferencePracticeSession} from '../src/features/practice/session.ts';
 import {buildPracticeUiModel} from '../src/features/practice/ui-model.ts';
 import {atomIntent} from '../src/renderers/atom-builder/renderer.ts';
 import {derivePilotStatus,pilotBasis,pilotGate,type PilotCheck,type PilotSignoffRecord,type SignoffState,type CheckVerdict} from '../src/domain/pilot/acceptance.ts';
+import {loadKb,buildAssertions} from './lib/chemistry-kb.ts';
+import {parseReviewRegister,reviewStateOf,type ReviewState} from '../src/domain/chemistry/kb-review.ts';
+
+/** P1.8: effective review state of every chemistry KB assertion (from the human register, current hash). */
+export function chemistryAssertionStates(base:string):(assertionId:string)=>ReviewState|undefined{
+  const kb=loadKb(base);
+  const reg=parseReviewRegister(kb.register);
+  const states=new Map(buildAssertions(kb).map(a=>[a.id,reviewStateOf(a,reg.records).state]));
+  return (id)=>states.get(id);
+}
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 export const SIGNOFF_FILE='content-src/pilot-signoffs.json';
@@ -110,7 +120,7 @@ export function signoffState(records:PilotSignoffRecord[],learningUnitId:string,
   return last.decision==='signed_off'?'CURRENT':'REJECTED';
 }
 
-export async function evaluatePilot(options:{base?:string;sources?:ReadinessSources;signoffs?:PilotSignoffRecord[]}={}){
+export async function evaluatePilot(options:{base?:string;sources?:ReadinessSources;signoffs?:PilotSignoffRecord[];chemistryState?:(assertionId:string)=>ReviewState|undefined}={}){
   const base=options.base??root;
   const src=options.sources??loadSources(base);
   const signoffs=options.signoffs??(JSON.parse(fs.readFileSync(path.join(base,SIGNOFF_FILE),'utf8')).records??[]);
@@ -121,6 +131,7 @@ export async function evaluatePilot(options:{base?:string;sources?:ReadinessSour
   const packManifest=JSON.parse(fs.readFileSync(path.join(base,'public/content',pointer.activeVersion,'manifest.json'),'utf8'));
   const shippedReadiness=JSON.parse(fs.readFileSync(path.join(base,'public/content',pointer.activeVersion,READINESS_PACK_PATH),'utf8'));
   const client=new ContentClient({fetchImpl:diskFetch(base) as any,baseUrl:'/content'});
+  const chemistryState=options.chemistryState??chemistryAssertionStates(base);
   const rows:any[]=[];
   for(const {id:lu,reason} of src.pilot.learningUnits as Array<{id:string;reason?:string}>){
     const unit=src.units.find((u:any)=>u.id===lu);
@@ -166,8 +177,16 @@ export async function evaluatePilot(options:{base?:string;sources?:ReadinessSour
     // ---------------------------------------------------------------- content (human)
     add('content.activity-review','content','human',readiness.content==='APPROVED'?'PASS':readiness.content==='REJECTED'?'FAIL':'PENDING',`human review of ${activity.id}: ${readiness.content}${readiness.content==='APPROVED'?'':` (technical, didactic, accessibility${activity.approvals?.chemistry==='not_applicable'?'':', chemistry'} pending)`}`);
     const chemistryApplies=activity.approvals?.chemistry!=='not_applicable';
-    add('content.chemistry-review','content','human',!chemistryApplies?'NOT_APPLICABLE':readiness.reasons.includes('CHEMISTRY_REVIEW_REQUIRED')?'PENDING':'PASS',
-      chemistryApplies?`chemistry review of the activity${route.ok&&route.plan.runtime==='beta2-advanced'?' and of the electrolysis model record (reviewStatus pending)':''}`:'governance marks chemistry review not_applicable although the config encodes chemistry facts — recommendation: the pilot owner decides whether a chemistry reviewer must confirm them');
+    // P1.8: an electrolysis practice also relies on the chemistry KB record it resolves — that record's own human
+    // review (content-src/chemistry-reviews.json, current hash) is part of this check, not just the activity's.
+    // A stale KB approval waits for re-review here (PENDING); the chemistry KB gate itself FAILs it (APPROVAL_STALE).
+    const cfg:any=route.ok?(configs as any)[route.plan.configSource][activity.id]:undefined;
+    const kbAssertion=route.ok&&route.plan.runtime==='beta2-advanced'&&cfg?.capability==='electrolysis-experiment'&&cfg?.query?`electrolysis:${cfg.query.electrolyte}|${cfg.query.phase}|${cfg.query.electrode}`:null;
+    const activityChemistry=readiness.reasons.includes('CHEMISTRY_REVIEW_REQUIRED')?'pending':'approved';
+    const kbState=kbAssertion?chemistryState(kbAssertion)??'unknown':null;
+    const chemistryVerdict:CheckVerdict=!chemistryApplies?'NOT_APPLICABLE':kbState==='unknown'?'FAIL':activityChemistry==='approved'&&(kbState===null||kbState==='approved')?'PASS':'PENDING';
+    add('content.chemistry-review','content','human',chemistryVerdict,
+      chemistryApplies?`chemistry review of the activity (${activityChemistry})${kbAssertion?` and of the chemistry KB assertion ${kbAssertion} (${kbState})`:''}`:'governance marks chemistry review not_applicable although the config encodes chemistry facts — recommendation: the pilot owner decides whether a chemistry reviewer must confirm them');
     // ---------------------------------------------------------------- assessment
     const items=verdicts.filter((v:any)=>v.item.learningUnitId===lu&&v.verdict.lifecycle!=='RETIRED');
     const availability=unitReadiness?.assessment.status??'NONE';

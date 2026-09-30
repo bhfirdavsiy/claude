@@ -1,0 +1,7 @@
+{
+  "schema": "kimyolab.review-change-queue.v1",
+  "semantics": "Items a PERSON sent back (reject / change_required / changes_requested, or an outcome mapping not confirmed) on the current hash. Input for the next AUTHORING task — no tool edits the content from here; after an author changes it, the new hash needs a new review.",
+  "sourceContentMutated": false,
+  "entries": [],
+  "count": 0
+}

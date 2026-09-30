@@ -60,6 +60,8 @@ export function validateReviewRecord(r    )         {
   if(r?.reviewerRole!=='chemistry') issues.push(`CHEM_REVIEW_ROLE_INVALID:${id}`);
   if(typeof r?.reviewedAt!=='string'||Number.isNaN(Date.parse(r.reviewedAt))) issues.push(`CHEM_REVIEW_DATE_INVALID:${id}`);
   if(r?.decision!=='approve'&&!(typeof r?.comment==='string'&&r.comment.trim())) issues.push(`CHEM_REVIEW_COMMENT_REQUIRED:${id}`);
+  // P1.8: an extra field (e.g. `status: approved`) is refused — the record is exactly what a reviewer decides
+  for(const f of unknownFields(r,CHEMISTRY_DECISION_FIELDS)) issues.push(`CHEM_REVIEW_FIELD_NOT_ALLOWED:${id}:${f}`);
   return issues;
 }
 
@@ -76,4 +78,67 @@ export function reviewStateOf(a                   ,records                      
   if(!latest) return {state:'pending'};
   if(latest.assertionHash!==a.hash) return {state:'stale',record:latest};
   return {state:latest.decision==='approve'?'approved':latest.decision==='reject'?'rejected':'change_required',record:latest};
+}
+
+// ------------------------------------------------------------------ P1.8: decision-file integrity + candidates
+
+/** The only fields a chemistry decision may carry. Anything else (e.g. `status`, `approved`, `lifecycle`) is a
+ *  tampering attempt or a misuse and is refused, never silently dropped. */
+export const CHEMISTRY_DECISION_FIELDS                  =['assertionId','assertionHash','decision','reviewerId','reviewerRole','reviewedAt','comment'];
+export function unknownFields(record        ,allowed                  )         {
+  if(!record||typeof record!=='object'||Array.isArray(record)) return [];
+  return Object.keys(record).filter(k=>!allowed.includes(k)).sort();
+}
+
+/**
+ * Review CANDIDATES (P1.7 candidates.json: pairs the solubility rules suggest might react / not react) are not
+ * assertions of the knowledge base. A reviewer's decision on one is AUTHORING TRIAGE — it never adds a reaction or
+ * a no-reaction record; an accepted candidate still has to be authored as content and then reviewed as an assertion.
+ */
+export const CANDIDATE_REVIEW_REGISTER_SCHEMA='kimyolab.chemistry-candidate-reviews.v1';
+                                                                                         
+export const CANDIDATE_DECISIONS                             =['accept_for_authoring','reject_candidate','needs_evidence'];
+export const CANDIDATE_DECISION_FIELDS                  =['candidateId','candidateHash','decision','reviewerId','reviewerRole','reviewedAt','comment'];
+                                        
+                     
+                       
+                             
+                    
+                           
+                    
+                  
+ 
+
+/** The hash covers what the reviewer judged: the reagent pair and the derived suggestion. */
+export function candidateHash(c                                               )       {
+  return createHash('sha256').update(stable({reagents:[...c.reagents].sort(),candidate:c.candidate})).digest('hex');
+}
+
+export function validateCandidateRecord(r    )         {
+  const issues         =[];
+  const id=r?.candidateId??'?';
+  if(!r||typeof r.candidateId!=='string'||!r.candidateId) issues.push('CANDIDATE_REVIEW_ID_MISSING');
+  if(typeof r?.candidateHash!=='string'||!/^[a-f0-9]{64}$/.test(r.candidateHash)) issues.push(`CANDIDATE_REVIEW_HASH_INVALID:${id}`);
+  if(!CANDIDATE_DECISIONS.includes(r?.decision)) issues.push(`CANDIDATE_REVIEW_DECISION_INVALID:${id}`);
+  if(typeof r?.reviewerId!=='string'||!r.reviewerId.trim()) issues.push(`CANDIDATE_REVIEW_REVIEWER_MISSING:${id}`);
+  else if(AUTOMATION_IDENTITY.test(r.reviewerId)) issues.push(`CANDIDATE_REVIEW_REVIEWER_NOT_HUMAN:${id}`);
+  if(r?.reviewerRole!=='chemistry') issues.push(`CANDIDATE_REVIEW_ROLE_INVALID:${id}`);
+  if(typeof r?.reviewedAt!=='string'||Number.isNaN(Date.parse(r.reviewedAt))) issues.push(`CANDIDATE_REVIEW_DATE_INVALID:${id}`);
+  if(r?.decision!=='accept_for_authoring'&&!(typeof r?.comment==='string'&&r.comment.trim())) issues.push(`CANDIDATE_REVIEW_COMMENT_REQUIRED:${id}`);
+  for(const f of unknownFields(r,CANDIDATE_DECISION_FIELDS)) issues.push(`CANDIDATE_REVIEW_FIELD_NOT_ALLOWED:${id}:${f}`);
+  return issues;
+}
+
+export function parseCandidateRegister(raw    )                                                  {
+  if(!raw||raw.schema!==CANDIDATE_REVIEW_REGISTER_SCHEMA||!Array.isArray(raw.records)) return {records:[],issues:['CANDIDATE_REVIEW_REGISTER_INVALID']};
+  const issues=raw.records.flatMap((r    )=>validateCandidateRecord(r));
+  return {records:issues.length?[]:raw.records,issues};
+}
+
+/** Latest human decision on a candidate, against its CURRENT hash (an outdated one is `stale`). */
+export function candidateStateOf(c                        ,records                                 )                                                                          {
+  const latest=records.filter(r=>r.candidateId===c.id).sort((x,y)=>Date.parse(x.reviewedAt)-Date.parse(y.reviewedAt)).at(-1);
+  if(!latest) return {state:'pending'};
+  if(latest.candidateHash!==c.hash) return {state:'stale',record:latest};
+  return {state:latest.decision,record:latest};
 }

@@ -1,0 +1,65 @@
+{
+  "schema": "kimyolab.golden-slice-dependencies.v1",
+  "learningUnitId": "lu.9.15",
+  "primaryPractice": "practice.experiment.9.10",
+  "pilotStatus": "CONTENT_REVIEW_PENDING",
+  "dependencies": [
+    {
+      "id": "practice-technical",
+      "kind": "machine",
+      "status": "PASS",
+      "detail": "TECHNICAL_PASS; route practice.experiment.9.10 → experiment/beta2-advanced via beta2-advanced"
+    },
+    {
+      "id": "renderer-path",
+      "kind": "machine",
+      "status": "PASS",
+      "detail": "legacy beta2-advanced experiment UI (browser E2E: tests/e2e/pilot-practice.spec.mjs); an electrolysis registry renderer is NOT_STARTED (P1.7 scope ban) — start gate NOT_READY"
+    },
+    {
+      "id": "activity-content-review",
+      "kind": "human",
+      "status": "PENDING",
+      "detail": "human review of practice.experiment.9.10: REVIEW_PENDING (technical, didactic, accessibility, chemistry pending)"
+    },
+    {
+      "id": "electrolysis-chemistry-review",
+      "kind": "human",
+      "status": "PENDING",
+      "detail": "electrolysis:CuCl2|aq|inert: pending"
+    },
+    {
+      "id": "assessment-chemistry-review",
+      "kind": "human",
+      "status": "PENDING",
+      "detail": "0/5 items approved by a chemistry reviewer on the current hash"
+    },
+    {
+      "id": "assessment-didactic-review",
+      "kind": "human",
+      "status": "PENDING",
+      "detail": "0/5 items approved by a didactic reviewer on the current hash (a different person from the chemistry reviewer)"
+    },
+    {
+      "id": "outcome-mapping",
+      "kind": "human",
+      "status": "PENDING",
+      "detail": "0/5 outcome mappings confirmed; MAPPING_REVIEW_REQUIRED: q.9.15.01, q.9.15.02, q.9.15.04"
+    },
+    {
+      "id": "pilot-owner-signoff",
+      "kind": "human",
+      "status": "PENDING",
+      "detail": "sign-off NONE (possible only once every other dependency passes: status CONTENT_REVIEW_PENDING)"
+    }
+  ],
+  "pending": [
+    "activity-content-review",
+    "electrolysis-chemistry-review",
+    "assessment-chemistry-review",
+    "assessment-didactic-review",
+    "outcome-mapping",
+    "pilot-owner-signoff"
+  ],
+  "masteredReachable": false
+}

@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
-import {assessmentItemHash,validateReviewRecord,REVIEW_REGISTER_SCHEMA,REVIEW_ROLES,type AssessmentReviewRecord} from '../../src/domain/assessment/governance.ts';
+import {assessmentItemHash,validateReviewRecord,REVIEW_REGISTER_SCHEMA,REVIEW_ROLES,ASSESSMENT_REVIEW_FIELDS,type AssessmentReviewRecord} from '../../src/domain/assessment/governance.ts';
 
 export const PACKET_DIR='review-packets/assessment-pilot';
 export const TEMPLATE_FILE=`${PACKET_DIR}/review-register.template.json`;
@@ -91,6 +91,8 @@ export function validateRegister(root:string,register:any):{rows:AssessmentRevie
   const rows:AssessmentReviewRecord[]=[];
   for(const raw of register.records){
     if(raw?.decision===null||raw?.decision===undefined) continue;           // not reviewed — skipped, never defaulted
+    // P1.8: extra fields (e.g. `lifecycle: APPROVED`) are refused rather than silently dropped
+    for(const f of Object.keys(raw??{}).filter(k=>!ASSESSMENT_REVIEW_FIELDS.includes(k))) issues.push(`REVIEW_FIELD_NOT_ALLOWED:${raw.itemId}:${f}`);
     const record={itemId:raw.itemId,role:raw.role,decision:raw.decision,reviewerId:raw.reviewerId,reviewerRole:raw.reviewerRole,reviewedAt:raw.reviewedAt,itemHash:raw.itemHash,itemVersion:raw.itemVersion,evidence:raw.evidence,...(raw.outcomeDecision!=null?{outcomeDecision:raw.outcomeDecision}:{}),...(raw.comment?{comment:String(raw.comment)}:{})} as AssessmentReviewRecord;
     const own=validateReviewRecord(record);
     issues.push(...own);
@@ -103,6 +105,17 @@ export function validateRegister(root:string,register:any):{rows:AssessmentRevie
     else if(sha256(fs.readFileSync(packet))!==record.evidence.packetSha256) issues.push(`REVIEW_PACKET_CHANGED:${record.itemId}`);
     if(Date.parse(record.reviewedAt)>Date.now()+5*60*1000) issues.push(`REVIEW_TIMESTAMP_IN_FUTURE:${record.itemId}`);
     if(!own.length) rows.push(record);
+  }
+  // P1.8: one file must say one thing per item and role; and one person never approves both roles of an item
+  // (the lifecycle already refuses such an approval — the import now refuses to record it at all)
+  const byKey=new Map<string,string>();
+  for(const r of rows){ const k=`${r.itemId}|${r.role}`, v=JSON.stringify([r.decision,r.reviewerId,r.outcomeDecision??null]); if(byKey.has(k)&&byKey.get(k)!==v) issues.push(`REVIEW_CONFLICT:${r.itemId}:${r.role}`); byKey.set(k,v); }
+  const existing:AssessmentReviewRecord[]=fs.existsSync(path.join(root,REGISTER_FILE))?(readJson(root,REGISTER_FILE).records??[]):[];
+  const person=(s:string)=>s.trim().toLowerCase();
+  for(const r of rows.filter(x=>x.decision==='approved')){
+    const other=r.role==='chemistry'?'didactic':'chemistry';
+    const hash=r.itemHash;
+    if([...rows,...existing].some(x=>x.itemId===r.itemId&&x.role===other&&x.decision==='approved'&&x.itemHash===hash&&person(x.reviewerId)===person(r.reviewerId))) issues.push(`REVIEW_DUAL_ROLE_SAME_REVIEWER:${r.itemId}`);
   }
   return {rows,issues:[...new Set(issues)]};
 }

@@ -2,6 +2,17 @@
 
 Bu papkadagi fayllar approval'ni avtomatik bermaydi. Reviewer qarorini aniq version va SHA-256 review hash bilan bog'laydi.
 
+## 0. Human Review Workbench (P1.8)
+`reviewer-workspace.html` — yagona offline workbench. Tablari: Kimyo KB, Kimyo nomzodlari, Assessment, Pilot sign-off, Global gates, Beta.
+1. Reviewer ID va rolni kiriting (`chemistry`, `didactic` yoki `pilot-owner`). Automation identity qabul qilinmaydi.
+2. Qaror bering. Rad etish yoki o‘zgartirish so‘rash uchun izoh majburiy.
+3. “Qarorlarni eksport qilish” bosing va faylni `review-output/`ga qo‘ying.
+4. `npm run review:validate -- review-output/<fayl>.json`: import oldidan ko‘rinish, hech narsa yozmaydi.
+5. `npm run review:import -- review-output/<fayl>.json`: faqat inson ishga tushiradi, CI yoki agent muhitida rad etiladi.
+6. `npm run review:build`.
+
+Pilot sign-off import qilinmaydi: pilot owner uni `content-src/pilot-signoffs.json`ga PR orqali qo‘shadi. Nomzodlar (`CANDIDATE — NOT PART OF CANONICAL KB`) bo‘yicha qaror bilimlar bazasiga hech narsa qo‘shmaydi. Electrolysis kengaytirish brief’i: `electrolysis-expansion/` (PROPOSED / NEEDS REVIEW).
+
 ## 1. Chemistry reviewer — CHEM-033
 1. `CHEM-033-review-package.md`ni ko'rib chiqing.
 2. `CHEM-033-approval-template.json`ni nusxalang.

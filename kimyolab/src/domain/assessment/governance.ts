@@ -42,8 +42,22 @@ export interface AssessmentReviewRecord {
 
 export interface AssessmentReviewRegister { schema:typeof REVIEW_REGISTER_SCHEMA; records:AssessmentReviewRecord[] }
 
-/** Identities that denote automation. An approval must come from a person (P1.2 §13). */
-export const AUTOMATION_IDENTITY=/(^|[^a-z])(ai|bot|claude|gpt|llm|agent|automation|autoapprove|script|ci|github-actions)([^a-z]|$)/i;
+/** Identities that denote automation. An approval must come from a person (P1.2 §13). P1.8 adds the names of
+ *  common AI assistants and repository bots (e.g. “ChatGPT”, “Codex”) — the name check stays one layer only. */
+export const AUTOMATION_IDENTITY=/(^|[^a-z])(ai|bot|claude|gpt|chatgpt|openai|anthropic|codex|copilot|gemini|llm|agent|automation|autoapprove|script|ci|github-actions|dependabot|renovate)([^a-z]|$)/i;
+
+/**
+ * P1.8 defence in depth: the identity check above is a name check, so the review IMPORT commands additionally
+ * refuse to run in an automation context (a CI runner or an AI coding agent session announce themselves through
+ * their environment). This is not the authority — the authority is that a person runs the import and the register
+ * change is reviewed in a pull request — but it keeps an agent or a workflow from filing decisions by accident.
+ */
+export const AUTOMATION_ENV_MARKERS:readonly string[]=['CI','GITHUB_ACTIONS','AI_AGENT','CLAUDECODE','CLAUDE_CODE_SESSION_ID','CODEX_SANDBOX','CURSOR_AGENT'];
+export function automationContext(env:Record<string,string|undefined>):string[]{
+  return AUTOMATION_ENV_MARKERS.filter(k=>{const v=env[k];return typeof v==='string'&&v!==''&&v!=='0'&&v.toLowerCase()!=='false';});
+}
+/** The only fields a filled assessment review row may carry (P1.8: anything else is refused, never dropped). */
+export const ASSESSMENT_REVIEW_FIELDS:readonly string[]=['itemId','role','decision','reviewerId','reviewerRole','reviewedAt','itemHash','itemVersion','evidence','outcomeDecision','comment'];
 
 function stable(value:unknown):string{
   if(Array.isArray(value)) return `[${value.map(stable).join(',')}]`;
