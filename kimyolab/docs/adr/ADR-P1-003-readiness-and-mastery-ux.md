@@ -126,3 +126,26 @@ Parallel taksonomiya yaratilmadi. Outcome — `LearningUnit.learningOutcomes[n-1
 - D9 (configurable learning-cycle), server-side evaluation, reviewer’ning insonligini kriptografik tasdiqlash.
 - Pilot’dan tashqari unit’larda mastery UX yo‘q.
 - 5 ta item inson review’ini kutmoqda.
+
+## Addendum — P1.2 closeout: ikki readiness o‘lchami
+
+`LearningActivityReadiness` endi ikki mustaqil o‘lchamga ega. Yagona `status` so‘zi yo‘q.
+
+| O‘lcham | Qiymatlar | Manba | Nimani hal qiladi |
+|---|---|---|---|
+| `runtime` | `READY`/`PENDING`/`DISABLED`/`BLOCKED` | lifecycle + execution plan | launch (strict/observe) |
+| `content` | `APPROVED`/`REVIEW_PENDING`/`REJECTED` | hash-pinned inson approval’lari (`effectiveApprovalState`) | release governance; `REJECTED` → launch yo‘q |
+
+- **Nega `REVIEW_PENDING` practice launch’ni bloklamaydi.**
+  - Katalogdagi 146 activity’ning hammasi review kutmoqda. Bloklash butun ilovani yopardi.
+  - Practice faqat practice evidence yaratadi. `MASTERED` esa **APPROVED objective assessment**ni talab qiladi.
+  - Shu sabab review’dan o‘tmagan practice o‘quvchiga “o‘zlashtirilgan” holatini bera olmaydi.
+- **Objective assessment uchun** inson `APPROVED` qarori majburiy. Pending item:
+  - ko‘rsatilmaydi;
+  - attempt ham, evidence ham yaratmaydi;
+  - reflection fallback ishlaydi.
+- **`isReleaseReady(r)`** = `runtime READY ∧ content APPROVED`. Faqat hisobot uchun, launch gate emas.
+- **Assessment governance (qo‘shimcha).**
+  - Chemistry va didactic approval’ni **ikki xil shaxs** beradi. Bir odam ikkala rolda ko‘rib chiqishi mumkin, lekin bitta item uchun ikkalasini tasdiqlay olmaydi.
+  - Didactic reviewer outcome mapping bo‘yicha `confirm`/`reject`/`change_required` qarorini beradi.
+  - Tasdiqdan boshqa har qanday qaror izoh talab qiladi.

@@ -41,6 +41,8 @@ export function renderPacket(item:any,unit:any,itemHash:string):string{
     '## Qaror','',
     'Qaror `review-register.template.json` nusxasida yoziladi (rol bo‘yicha alohida qator):',
     '`decision` (approved | rejected | changes_requested), `reviewerId` (shaxs, avtomatlashtirish emas), `reviewedAt` (ISO), `comment`.',
+    'Didactic reviewer qo‘shimcha ravishda `outcomeDecision` (confirm | reject | change_required) yozadi — outcome bog‘lanishi faqat taklif.',
+    'Tasdiqdan boshqa har qanday qaror uchun `comment` majburiy. Chemistry va didactic tasdig‘ini ikki xil shaxs beradi.',
     'Import: `npm run assessment:review:import -- <to‘ldirilgan-register.json>`.','',
   ];
   return lines.join('\n');
@@ -59,7 +61,7 @@ export function buildPackets(root:string){
     const rel=`${PACKET_DIR}/${item.id}.md`;
     const body=renderPacket(item,unit,hash);
     fs.writeFileSync(path.join(root,rel),body,'utf8');
-    for(const role of REVIEW_ROLES) rows.push({itemId:item.id,role,decision:null,reviewerId:null,reviewerRole:role,reviewedAt:null,itemHash:hash,itemVersion:item.version,evidence:{packet:rel,packetSha256:sha256(body)},comment:''});
+    for(const role of REVIEW_ROLES) rows.push({itemId:item.id,role,decision:null,reviewerId:null,reviewerRole:role,reviewedAt:null,itemHash:hash,itemVersion:item.version,evidence:{packet:rel,packetSha256:sha256(body)},...(role==='didactic'?{outcomeDecision:null}:{}),comment:''});
   }
   const template={schema:REVIEW_REGISTER_SCHEMA,instructions:'Copy this file, fill decision/reviewerId/reviewedAt/comment per row for the rows YOU reviewed, leave others null, then run npm run assessment:review:import -- <file>.',records:rows};
   fs.writeFileSync(path.join(root,TEMPLATE_FILE),`${JSON.stringify(template,null,2)}\n`,'utf8');
@@ -75,7 +77,7 @@ export function validateRegister(root:string,register:any):{rows:AssessmentRevie
   const rows:AssessmentReviewRecord[]=[];
   for(const raw of register.records){
     if(raw?.decision===null||raw?.decision===undefined) continue;           // not reviewed — skipped, never defaulted
-    const record={itemId:raw.itemId,role:raw.role,decision:raw.decision,reviewerId:raw.reviewerId,reviewerRole:raw.reviewerRole,reviewedAt:raw.reviewedAt,itemHash:raw.itemHash,itemVersion:raw.itemVersion,evidence:raw.evidence,...(raw.comment?{comment:String(raw.comment)}:{})} as AssessmentReviewRecord;
+    const record={itemId:raw.itemId,role:raw.role,decision:raw.decision,reviewerId:raw.reviewerId,reviewerRole:raw.reviewerRole,reviewedAt:raw.reviewedAt,itemHash:raw.itemHash,itemVersion:raw.itemVersion,evidence:raw.evidence,...(raw.outcomeDecision!=null?{outcomeDecision:raw.outcomeDecision}:{}),...(raw.comment?{comment:String(raw.comment)}:{})} as AssessmentReviewRecord;
     const own=validateReviewRecord(record);
     issues.push(...own);
     const item:any=byId.get(record.itemId);
@@ -85,7 +87,6 @@ export function validateRegister(root:string,register:any):{rows:AssessmentRevie
     const packet=path.join(root,String(record.evidence?.packet??''));
     if(!record.evidence?.packet||!fs.existsSync(packet)) issues.push(`REVIEW_PACKET_MISSING:${record.itemId}`);
     else if(sha256(fs.readFileSync(packet))!==record.evidence.packetSha256) issues.push(`REVIEW_PACKET_CHANGED:${record.itemId}`);
-    if(record.decision!=='approved'&&!record.comment) issues.push(`REVIEW_COMMENT_REQUIRED:${record.itemId}:${record.role}`);
     if(Date.parse(record.reviewedAt)>Date.now()+5*60*1000) issues.push(`REVIEW_TIMESTAMP_IN_FUTURE:${record.itemId}`);
     if(!own.length) rows.push(record);
   }

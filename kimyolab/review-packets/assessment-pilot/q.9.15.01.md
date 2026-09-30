@@ -55,4 +55,6 @@ Elektroliz jarayonida katodda qaysi jarayon sodir bo‘ladi?
 
 Qaror `review-register.template.json` nusxasida yoziladi (rol bo‘yicha alohida qator):
 `decision` (approved | rejected | changes_requested), `reviewerId` (shaxs, avtomatlashtirish emas), `reviewedAt` (ISO), `comment`.
+Didactic reviewer qo‘shimcha ravishda `outcomeDecision` (confirm | reject | change_required) yozadi — outcome bog‘lanishi faqat taklif.
+Tasdiqdan boshqa har qanday qaror uchun `comment` majburiy. Chemistry va didactic tasdig‘ini ikki xil shaxs beradi.
 Import: `npm run assessment:review:import -- <to‘ldirilgan-register.json>`.

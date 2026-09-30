@@ -27,7 +27,10 @@ test('lifecycle: pending by default; APPROVED needs chemistry+didactic human rec
   const item=bank.items[0];
   assert.equal(deriveItemLifecycle(item,[],ctx).lifecycle,'REVIEW_PENDING');
   const hash=assessmentItemHash(item);
-  const rec=(role,extra={})=>({itemId:item.id,role,decision:'approved',reviewerId:`reviewer.${role}`,reviewerRole:role,reviewedAt:'2026-09-30T09:00:00.000Z',itemHash:hash,itemVersion:item.version,evidence:{packet:'p.md',packetSha256:'a'.repeat(64)},...extra});
+  // P1.2 closeout: a didactic record must carry the reviewer's outcome-mapping decision (the mapping was only an
+  // agent proposal), so the helper adds `outcomeDecision:'confirm'` for that role. Previously a didactic approval
+  // silently confirmed the proposed outcome — that was the wrong invariant (see p1-2-closeout.test.mjs).
+  const rec=(role,extra={})=>({itemId:item.id,role,decision:'approved',reviewerId:`reviewer.${role}`,reviewerRole:role,reviewedAt:'2026-09-30T09:00:00.000Z',itemHash:hash,itemVersion:item.version,evidence:{packet:'p.md',packetSha256:'a'.repeat(64)},...(role==='didactic'?{outcomeDecision:'confirm'}:{}),...extra});
   assert.equal(deriveItemLifecycle(item,[rec('chemistry')],ctx).lifecycle,'REVIEW_PENDING','one role is not enough');
   assert.equal(deriveItemLifecycle(item,[rec('chemistry'),rec('didactic')],ctx).lifecycle,'APPROVED');
   // editing the item invalidates the approval (hash)
@@ -40,7 +43,9 @@ test('lifecycle: pending by default; APPROVED needs chemistry+didactic human rec
   assert.ok(deriveItemLifecycle({...item,outcomeIds:['lu.9.15#o9']},[rec('chemistry'),rec('didactic')],ctx).reasons.includes('OUTCOME_MAPPING_INVALID'));
   assert.ok(deriveItemLifecycle({...item,conceptIds:['concept.c001']},[rec('chemistry'),rec('didactic')],ctx).reasons.includes('CONCEPT_MAPPING_INVALID'));
   // a later "changes_requested" supersedes an earlier approval
-  assert.equal(deriveItemLifecycle(item,[rec('chemistry'),rec('didactic'),rec('didactic',{decision:'changes_requested',reviewedAt:'2026-10-01T09:00:00.000Z'})],ctx).lifecycle,'REVIEW_PENDING');
+  // (P1.2 closeout: a non-approval must now carry a comment to be a valid record — the importer and the
+  // learning:readiness gate both reject a comment-less one — so the superseding record states its reason.)
+  assert.equal(deriveItemLifecycle(item,[rec('chemistry'),rec('didactic'),rec('didactic',{decision:'changes_requested',comment:'Izohni aniqlashtiring.',reviewedAt:'2026-10-01T09:00:00.000Z'})],ctx).lifecycle,'REVIEW_PENDING');
   assert.equal(deriveItemLifecycle({...item,lifecycle:'RETIRED'},[],ctx).lifecycle,'RETIRED');
 });
 
@@ -85,7 +90,7 @@ test('import requires identity, decision, timestamp and evidence; automation, st
   assert.throws(()=>importRegister(dir,{...template,records:[human(first,{reviewerId:'gpt-4'})]}),/ASSESSMENT_REVIEW_IMPORT_REJECTED/);
   assert.deepEqual(JSON.parse(fs.readFileSync(path.join(dir,REGISTER_FILE),'utf8')).records,[],'a rejected import writes nothing');
   // a valid human decision is appended; re-import is idempotent; nothing existing is rewritten
-  const ok={...template,records:[human(first),human(second,{reviewerId:'aziz.rahimov'})]};
+  const ok={...template,records:[human(first),human(second,{reviewerId:'aziz.rahimov',outcomeDecision:'confirm'})]};   // two different people; didactic confirms the outcome
   assert.deepEqual(importRegister(dir,ok),{imported:2,skippedUnreviewed:0});
   assert.deepEqual(importRegister(dir,ok),{imported:0,skippedUnreviewed:0});
   const records=JSON.parse(fs.readFileSync(path.join(dir,REGISTER_FILE),'utf8')).records;

@@ -19,24 +19,24 @@ const RAW_CODE=/\b[A-Z][A-Z0-9]+(_[A-Z0-9]+)+\b/;
 
 test('derivation: READY / PENDING / DISABLED / BLOCKED with reasons; review pending is reported, not launch-deciding',()=>{
   const r=(lifecycleStatus,route,reviewPending=[])=>deriveActivityReadiness({id:'a',lifecycleStatus,reviewPending},route,'strict');
-  assert.equal(r('ready',{ok:true}).status,'READY');
+  assert.equal(r('ready',{ok:true}).runtime,'READY');
   assert.deepEqual(r('planned',{ok:true}).reasons,['ACTIVITY_NOT_RELEASED']);
-  assert.equal(r('planned',{ok:true}).status,'PENDING');
-  assert.equal(r('planned',{ok:false,code:'ROUTE_NONE'}).status,'DISABLED');
-  assert.equal(r('ready',{ok:false,code:'ROUTE_NONE'}).status,'BLOCKED','a released activity without a route is an inconsistency');
-  assert.equal(r('ready',{ok:false,code:'ROUTE_CONFLICT'}).status,'BLOCKED');
+  assert.equal(r('planned',{ok:true}).runtime,'PENDING');
+  assert.equal(r('planned',{ok:false,code:'ROUTE_NONE'}).runtime,'DISABLED');
+  assert.equal(r('ready',{ok:false,code:'ROUTE_NONE'}).runtime,'BLOCKED','a released activity without a route is an inconsistency');
+  assert.equal(r('ready',{ok:false,code:'ROUTE_CONFLICT'}).runtime,'BLOCKED');
   const reviewed=r('ready',{ok:true},['didactic','chemistry']);
-  assert.equal(reviewed.status,'READY');
+  assert.equal(reviewed.runtime,'READY');
   assert.deepEqual(reviewed.reasons,['ACTIVITY_REVIEW_PENDING','CHEMISTRY_REVIEW_REQUIRED']);
-  assert.equal(reviewed.releaseReady,false);
+  assert.equal(reviewed.content,'REVIEW_PENDING','runtime READY does not mean approved by people');
 });
 
 test('launch gate is fail-closed: strict launches only READY; observe keeps legacy PENDING; DISABLED/BLOCKED/unknown never',()=>{
-  const base={activityId:'a',reasons:[],releaseReady:false};
-  assert.equal(launchDecision({...base,status:'READY',enforcement:'strict'}).allowed,true);
-  assert.equal(launchDecision({...base,status:'PENDING',enforcement:'strict'}).allowed,false);
-  assert.equal(launchDecision({...base,status:'PENDING',enforcement:'observe'}).allowed,true);
-  for(const status of ['DISABLED','BLOCKED']) for(const enforcement of ['strict','observe']) assert.equal(launchDecision({...base,status,enforcement}).allowed,false,`${status}/${enforcement}`);
+  const base={activityId:'a',reasons:[],content:'REVIEW_PENDING'};
+  assert.equal(launchDecision({...base,runtime:'READY',enforcement:'strict'}).allowed,true);
+  assert.equal(launchDecision({...base,runtime:'PENDING',enforcement:'strict'}).allowed,false);
+  assert.equal(launchDecision({...base,runtime:'PENDING',enforcement:'observe'}).allowed,true);
+  for(const runtime of ['DISABLED','BLOCKED']) for(const enforcement of ['strict','observe']) assert.equal(launchDecision({...base,runtime,enforcement}).allowed,false,`${runtime}/${enforcement}`);
   assert.equal(launchDecision(undefined).allowed,false);
 });
 
@@ -53,12 +53,12 @@ test('regression over all 146 activities: READY → accessible, PENDING → not 
   assert.equal(shipped.activities.length,146);
   for(const r of shipped.activities){
     const strict={...r,enforcement:'strict'};
-    if(r.status==='READY'){
+    if(r.runtime==='READY'){
       assert.equal(launchDecision(strict).allowed,true,r.activityId);
       const model=await client.loadPractice(r.activityId);
-      assert.equal(model.readiness.status,'READY');
+      assert.equal(model.readiness.runtime,'READY');
       assert.doesNotThrow(()=>new ReferencePracticeSession(model),r.activityId);
-    }else if(r.status==='PENDING'){
+    }else if(r.runtime==='PENDING'){
       assert.equal(launchDecision(strict).allowed,false,r.activityId);
     }else{
       assert.equal(launchDecision(strict).allowed,false,r.activityId);
@@ -68,12 +68,12 @@ test('regression over all 146 activities: READY → accessible, PENDING → not 
   }
   // the pilot's strict activities are all READY; nothing outside the pilot is strict
   const strict=shipped.activities.filter(a=>a.enforcement==='strict');
-  assert.deepEqual(strict.map(a=>a.status),strict.map(()=>'READY'));
+  assert.deepEqual(strict.map(a=>a.runtime),strict.map(()=>'READY'));
   assert.equal(strict.length,4);
 });
 
 test('a PENDING activity under strict enforcement is refused at every layer with a localized reason',async()=>{
-  const pending=shipped.activities.find(a=>a.status==='PENDING');
+  const pending=shipped.activities.find(a=>a.runtime==='PENDING');
   const fetchImpl=memoryPackFetch({'activity-readiness.json':(p)=>({...p,activities:p.activities.map(a=>a.activityId===pending.activityId?{...a,enforcement:'strict'}:a)})});
   const client=new ContentClient({fetchImpl,baseUrl:'/content'});
   const error=await client.loadPractice(pending.activityId).catch(e=>e);
@@ -92,7 +92,7 @@ test('a PENDING activity under strict enforcement is refused at every layer with
 });
 
 test('learning hub: a refused supporting activity has no launch link, only a localized reason',async()=>{
-  const unit=JSON.parse(fs.readFileSync(path.join(root,'content-src/mapping-links.json'),'utf8')).find(m=>m.role==='supporting'&&shipped.activities.find(a=>a.activityId===m.practiceActivityId)?.status==='PENDING');
+  const unit=JSON.parse(fs.readFileSync(path.join(root,'content-src/mapping-links.json'),'utf8')).find(m=>m.role==='supporting'&&shipped.activities.find(a=>a.activityId===m.practiceActivityId)?.runtime==='PENDING');
   const fetchImpl=memoryPackFetch({'activity-readiness.json':(p)=>({...p,activities:p.activities.map(a=>a.activityId===unit.practiceActivityId?{...a,enforcement:'strict'}:a)})});
   const hub=await new ContentClient({fetchImpl,baseUrl:'/content'}).loadLearningHub(unit.learningUnitId);
   const card=hub.supportingPractices.find(p=>p.id===unit.practiceActivityId);

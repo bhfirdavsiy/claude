@@ -103,7 +103,7 @@ export class ReferencePracticeSession {
       conceptIds:[String(config.conceptId)],prerequisiteConceptIds:[],
       // P1.2: no synthesized 'ready'. The student model carries no governance fields (P0 invariant), so the
       // lifecycle is DERIVED from canonical readiness; the router's gate uses the readiness itself.
-      lifecycleStatus:model.readiness.status==='READY'?'ready':'planned',approvals:{}       ,accessibilityProfile:[...model.accessibility],
+      lifecycleStatus:model.readiness.runtime==='READY'?'ready':'planned',approvals:{}       ,accessibilityProfile:[...model.accessibility],
       engineCompatibility:{engine:model.type,range:'*'},sourceRefs:[],legacyIds:[],version:String(config.version??'1.0.0'),
     };
     this.context={inputs:{[model.id]:{}}};

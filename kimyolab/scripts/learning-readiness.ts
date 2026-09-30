@@ -5,7 +5,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {compileReadiness,itemVerdicts,type ReadinessSources} from './lib/readiness-compile.ts';
 import {validateReviewRecord,assessmentItemHash} from '../src/domain/assessment/governance.ts';
-import {launchDecision} from '../src/domain/readiness/readiness.ts';
+import {launchDecision,isReleaseReady} from '../src/domain/readiness/readiness.ts';
 import {CONFIG_SOURCE_NAMES} from '../src/runtime/practice-router/execution-plan.ts';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
@@ -49,18 +49,22 @@ export function evaluateLearningReadiness(src:ReadinessSources,shippedPack?:unkn
 export function buildReports(src:ReadinessSources,result:ReturnType<typeof evaluateLearningReadiness>){
   const {pack,verdicts}=result;
   const byId=new Map(src.activities.map((a:any)=>[a.id,a]));
-  const count=(rows:any[])=>({total:rows.length,ready:rows.filter(r=>r.status==='READY').length,pending:rows.filter(r=>r.status==='PENDING').length,disabled:rows.filter(r=>r.status==='DISABLED').length,blocked:rows.filter(r=>r.status==='BLOCKED').length});
+  // runtime dimension only — "ready" here means technically launchable, NOT approved by people
+  const count=(rows:any[])=>({total:rows.length,ready:rows.filter(r=>r.runtime==='READY').length,pending:rows.filter(r=>r.runtime==='PENDING').length,disabled:rows.filter(r=>r.runtime==='DISABLED').length,blocked:rows.filter(r=>r.runtime==='BLOCKED').length});
+  const contentCount=(rows:any[])=>({approved:rows.filter(r=>r.content==='APPROVED').length,reviewPending:rows.filter(r=>r.content==='REVIEW_PENDING').length,rejected:rows.filter(r=>r.content==='REJECTED').length});
   const group=(key:(a:any)=>string)=>{const out:Record<string,any>={};for(const r of pack.activities){const k=key(byId.get(r.activityId));(out[k]??=[]).push(r);}return Object.fromEntries(Object.entries(out).sort().map(([k,v])=>[k,count(v as any[])]));};
   const unitOf=new Map<string,any[]>();
   for(const m of src.mappings){const r=pack.activities.find(a=>a.activityId===m.practiceActivityId);if(r)(unitOf.get(m.learningUnitId)??unitOf.set(m.learningUnitId,[]).get(m.learningUnitId)!).push({...r,role:m.role});}
-  const unitState=(u:any)=>{const rows=unitOf.get(u.id)??[];const primary=rows.find(r=>r.role==='primary');if(!primary||primary.status!=='READY')return 'blocked';return rows.every(r=>r.status==='READY')?'fully_ready':'partially_ready';};
+  const unitState=(u:any)=>{const rows=unitOf.get(u.id)??[];const primary=rows.find(r=>r.role==='primary');if(!primary||primary.runtime!=='READY')return 'blocked';return rows.every(r=>r.runtime==='READY')?'fully_ready':'partially_ready';};
   const byUnit=Object.fromEntries(src.units.map((u:any)=>[u.id,{state:unitState(u),...count(unitOf.get(u.id)??[])}]));
   const states=Object.values(byUnit).map((x:any)=>x.state);
   // what global strict enforcement WOULD do today (decision input — not enabled)
-  const wouldBlock=pack.activities.filter(a=>a.status!=='READY'&&launchDecision({...a,enforcement:'strict'}).allowed===false&&launchDecision(a).allowed);
+  const wouldBlock=pack.activities.filter(a=>a.runtime!=='READY'&&launchDecision({...a,enforcement:'strict'}).allowed===false&&launchDecision(a).allowed);
   const unitsLosingSupporting=new Set(src.mappings.filter((m:any)=>wouldBlock.some(a=>a.activityId===m.practiceActivityId)).map((m:any)=>m.learningUnitId));
   const impact={
+    semantics:'activities/byGrade/byEngine/units count the RUNTIME dimension (technically launchable). Human content approval is the separate `content` dimension; runtime READY never implies APPROVED.',
     activities:count(pack.activities),
+    content:{...contentCount(pack.activities),runtimeReadyButNotApproved:pack.activities.filter(a=>a.runtime==='READY'&&a.content!=='APPROVED').length,releaseReady:pack.activities.filter(isReleaseReady).length},
     byGrade:group(a=>`grade-${String(a.id).match(/\.(7|8|9|10|11)\./)?.[1]??'?'}`),
     byEngine:group(a=>a.type),
     units:{total:src.units.length,fullyReady:states.filter(s=>s==='fully_ready').length,partiallyReady:states.filter(s=>s==='partially_ready').length,blocked:states.filter(s=>s==='blocked').length},
@@ -72,7 +76,7 @@ export function buildReports(src:ReadinessSources,result:ReturnType<typeof evalu
       learningUnitsAffected:unitsLosingSupporting.size,
       decision:'NOT enabled globally: it would hide currently launchable (pending, observe-mode) supporting activities in many units; C4 is enforced strictly only in the pilot.',
     },
-    pilot:{learningUnitIds:pack.pilotLearningUnitIds,strictActivities:pack.activities.filter(a=>a.enforcement==='strict').map(a=>({activityId:a.activityId,status:a.status}))},
+    pilot:{learningUnitIds:pack.pilotLearningUnitIds,strictActivities:pack.activities.filter(a=>a.enforcement==='strict').map(a=>({activityId:a.activityId,runtime:a.runtime,content:a.content}))},
   };
   const lifecycle=(l:string)=>verdicts.filter((v:any)=>v.verdict.lifecycle===l).length;
   const assessment={
@@ -88,7 +92,7 @@ export function buildReports(src:ReadinessSources,result:ReturnType<typeof evalu
     itemsWithProvenance:src.bank.items.filter((i:any)=>i.provenance).length,
     bankVersion:src.bank.version,
   };
-  const readyPrimary=new Set(src.units.filter((u:any)=>{const p=(unitOf.get(u.id)??[]).find(r=>r.role==='primary');return p?.status==='READY';}).map((u:any)=>u.id));
+  const readyPrimary=new Set(src.units.filter((u:any)=>{const p=(unitOf.get(u.id)??[]).find(r=>r.role==='primary');return p?.runtime==='READY';}).map((u:any)=>u.id));
   const mastery={
     totalLU:src.units.length,
     LUWithMasteryEvidenceSource:readyPrimary.size,
@@ -109,8 +113,8 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
   const shippedFile=path.join(root,'public/content',pointer.activeVersion,'activity-readiness.json');
   const result=evaluateLearningReadiness(src,fs.existsSync(shippedFile)?JSON.parse(fs.readFileSync(shippedFile,'utf8')):undefined);
   const reports=buildReports(src,result);
-  const generatedAt=new Date().toISOString();
-  const write=(rel:string,body:unknown)=>fs.writeFileSync(path.join(root,rel),`${JSON.stringify({generatedAt,...(body as object)},null,2)}\n`,'utf8');
+  // Deterministic: no timestamp, so an unchanged catalogue produces no diff on every verify.
+  const write=(rel:string,body:unknown)=>fs.writeFileSync(path.join(root,rel),`${JSON.stringify(body,null,2)}\n`,'utf8');
   write('reports/readiness-enforcement-impact.json',reports.impact);
   write('reports/assessment-runtime-readiness.json',reports.assessment);
   write('reports/mastery-ux-coverage.json',reports.mastery);

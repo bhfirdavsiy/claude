@@ -1,11 +1,18 @@
 {
-  "generatedAt": "2026-09-29T17:14:27.091Z",
+  "semantics": "activities/byGrade/byEngine/units count the RUNTIME dimension (technically launchable). Human content approval is the separate `content` dimension; runtime READY never implies APPROVED.",
   "activities": {
     "total": 146,
     "ready": 118,
     "pending": 27,
     "disabled": 1,
     "blocked": 0
+  },
+  "content": {
+    "approved": 0,
+    "reviewPending": 146,
+    "rejected": 0,
+    "runtimeReadyButNotApproved": 118,
+    "releaseReady": 0
   },
   "byGrade": {
     "grade-10": {
@@ -1110,19 +1117,23 @@
     "strictActivities": [
       {
         "activityId": "practice.calculation.7.5",
-        "status": "READY"
+        "runtime": "READY",
+        "content": "REVIEW_PENDING"
       },
       {
         "activityId": "practice.experiment.9.10",
-        "status": "READY"
+        "runtime": "READY",
+        "content": "REVIEW_PENDING"
       },
       {
         "activityId": "practice.simulation.7.07.planned",
-        "status": "READY"
+        "runtime": "READY",
+        "content": "REVIEW_PENDING"
       },
       {
         "activityId": "practice.trainer.7.4",
-        "status": "READY"
+        "runtime": "READY",
+        "content": "REVIEW_PENDING"
       }
     ]
   }

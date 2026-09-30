@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-09-29T17:21:15.272Z",
+  "createdAt": "2026-09-30T02:14:39.188Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -35,8 +35,8 @@
     {
       "path": "app-preview/domain/assessment/governance.js",
       "sourcePath": "public/app-preview/domain/assessment/governance.js",
-      "checksum": "b84fc00795365c18baa0328a6b3dd3c29e1228405855aa259b330f7bf023d993",
-      "size": 5965
+      "checksum": "04d8d62f82df92a5d6056660cb3aad68408d0334cb229b5ed8b66d316456c395",
+      "size": 7953
     },
     {
       "path": "app-preview/domain/assessment/model.js",
@@ -227,8 +227,8 @@
     {
       "path": "app-preview/domain/readiness/readiness.js",
       "sourcePath": "public/app-preview/domain/readiness/readiness.js",
-      "checksum": "49e46839265ed5ed7ac252f683b7b509bd4938bb2e6ddba746bf34031d53fd69",
-      "size": 6059
+      "checksum": "d0fe1a183a05e1510f5ae91882e8d2d6cb58ab4ac48e2b57ae49ec261407934c",
+      "size": 7858
     },
     {
       "path": "app-preview/domain/readiness/unit-readiness.js",
@@ -347,8 +347,8 @@
     {
       "path": "app-preview/features/practice/session.js",
       "sourcePath": "public/app-preview/features/practice/session.js",
-      "checksum": "25151579ea99ac6103966aa5cc90db9aff3a1dbc32037927cf7129abcde00293",
-      "size": 7905
+      "checksum": "f61e392248014a54c86330f54eb7fda0c56462e06bb61c81914457323b8d79b2",
+      "size": 7906
     },
     {
       "path": "app-preview/features/practice/ui-model.js",
@@ -809,8 +809,8 @@
     {
       "path": "content/2026.09.1/activity-readiness.json",
       "sourcePath": "public/content/2026.09.1/activity-readiness.json",
-      "checksum": "61eec94cf899d19dc6a716007c19f861a0516ae0a3b1841f1e084c1e5a603c11",
-      "size": 58030
+      "checksum": "bda98723c5461a6c9e42a75c831223dae307837097f9c5424d932322ac8988a0",
+      "size": 59052
     },
     {
       "path": "content/2026.09.1/aliases.yaml",
@@ -977,7 +977,7 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "0a5ec384266cad486fefed6f54b5e05369b39f5741d5f24f9f4878820ab025e2",
+      "checksum": "885040ee93c0593aadf5ff364b143d763e40f146db1d5ebbf5b2b051de012efa",
       "size": 6824
     },
     {
@@ -1001,7 +1001,7 @@
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "13a026e3a6e31e6ca5ac776ab97b253e9c02517fe1b6f1278be2c0099bd02077",
+      "checksum": "1cf59c4d31a9707405dcab499aa0f455c456929a473e7293e9ea2d6a1260f4a9",
       "size": 158
     },
     {

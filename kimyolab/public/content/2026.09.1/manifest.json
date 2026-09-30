@@ -6,7 +6,7 @@
   "assessmentVersion": "0.0.0",
   "scoringVersion": "0.0.0",
   "createdAt": "2026-09-22T00:00:00.000Z",
-  "checksum": "c330a76ea64c41ee2fbe493f579a6ca5f1f1e3b2323e72f66edb7905cda1deff",
+  "checksum": "a460619b9f93bdbbf6a4f716c004f53811da366be231e0359dcafcd85ddfca3c",
   "compatibility": {
     "minAppVersion": "20.1.0"
   },
@@ -60,8 +60,8 @@
     },
     {
       "path": "activity-readiness.json",
-      "checksum": "61eec94cf899d19dc6a716007c19f861a0516ae0a3b1841f1e084c1e5a603c11",
-      "size": 58030
+      "checksum": "bda98723c5461a6c9e42a75c831223dae307837097f9c5424d932322ac8988a0",
+      "size": 59052
     },
     {
       "path": "aliases.yaml",

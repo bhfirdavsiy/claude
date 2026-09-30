@@ -1,20 +1,28 @@
-// LearningActivityReadiness (P1.2) — the ONE runtime readiness authority for practice activities.
+// LearningActivityReadiness (P1.2, split into two dimensions in the P1.2 closeout) — the ONE readiness
+// authority for practice activities. It has two INDEPENDENT dimensions and they are never merged into one word:
 //
-// It consolidates the inputs the earlier models already used (lifecycleStatus, the compiled
-// ActivityExecutionPlan, human approvals via effectiveApprovalState) into a single status + reasons:
-//
+// runtime — can the platform launch it? (lifecycleStatus + the compiled ActivityExecutionPlan)
 //   READY     — released (lifecycle `ready`) with exactly one valid execution plan → may launch
-//   PENDING   — valid plan but not released (planned / in review)             → strict: not launched
+//   PENDING   — valid plan but not released (planned)                          → strict: not launched
 //   DISABLED  — no valid execution plan                                       → never launched
 //   BLOCKED   — inconsistent content (released but unroutable / invalid)     → never launched
 //
-// Human review of an activity (technical/didactic/accessibility/chemistry) is RELEASE governance: it is
-// reported as a reason (`ACTIVITY_REVIEW_PENDING`) and gates `releaseReady`, but it does not decide runtime
-// launch — every activity in the current catalogue is still awaiting human review (see the impact report).
+// content — have people approved it? (human approval records via effectiveApprovalState, hash-pinned)
+//   APPROVED        — every required human review (technical, didactic, accessibility, chemistry if
+//                     applicable) approved THIS version/hash
+//   REVIEW_PENDING  — at least one required review is missing or was invalidated by a content change
+//   REJECTED        — at least one reviewer rejected it
+//
+// runtime READY ≠ content APPROVED. A practice activity may be launchable while its human review is pending:
+// practice produces practice evidence only and can never make a unit "mastered" on its own (that needs an
+// APPROVED objective assessment — ADR-P1-003 §4, ADR-P1-004 §1). Objective assessment is different: it is
+// shown to learners only when the items are APPROVED by people (unit-readiness.ts, assessment governance).
 
 import type {UnitReadiness} from './unit-readiness.ts';
 
-export type ReadinessStatus='READY'|'PENDING'|'DISABLED'|'BLOCKED';
+export type RuntimeReadiness='READY'|'PENDING'|'DISABLED'|'BLOCKED';
+/** Aggregate of the existing per-role ApprovalStatus (pending/approved/rejected) — not a new taxonomy. */
+export type ContentApprovalState='APPROVED'|'REVIEW_PENDING'|'REJECTED';
 
 export type ReadinessReason=
   |'ACTIVITY_NOT_RELEASED'
@@ -32,52 +40,67 @@ export type ReadinessEnforcement='strict'|'observe';
 
 export interface LearningActivityReadiness {
   activityId:string;
-  status:ReadinessStatus;
+  /** Technical launchability. Says NOTHING about human approval. */
+  runtime:RuntimeReadiness;
+  /** Human content approval. Says NOTHING about launchability. */
+  content:ContentApprovalState;
   reasons:ReadinessReason[];
   enforcement:ReadinessEnforcement;
-  /** READY and every human approval is in place (release governance view, reported only). */
-  releaseReady:boolean;
+}
+
+/** Release-governance view: launchable AND approved by people. Reported only; never used as a launch gate. */
+export function isReleaseReady(r:Pick<LearningActivityReadiness,'runtime'|'content'>):boolean{
+  return r.runtime==='READY'&&r.content==='APPROVED';
 }
 
 export interface ReadinessInputActivity {
   id:string;
   lifecycleStatus:string;
-  /** Result of effectiveApprovalState: which human reviews are still missing. */
+  /** Result of effectiveApprovalState: which human reviews are still missing (or invalidated). */
   reviewPending:string[];
+  /** Result of effectiveApprovalState: which human reviews rejected the current version. */
+  reviewRejected?:string[];
 }
 
 /** Pure derivation. `route` is the build-time routing verdict for the activity. */
 export function deriveActivityReadiness(activity:ReadinessInputActivity,route:{ok:true}|{ok:false;code:string},enforcement:ReadinessEnforcement):LearningActivityReadiness{
   const reasons:ReadinessReason[]=[];
-  let status:ReadinessStatus;
+  let status:RuntimeReadiness;
   const released=activity.lifecycleStatus==='ready';
   if(!route.ok){
     if(route.code==='ROUTE_NONE'&&!released){status='DISABLED';reasons.push('ROUTE_NONE');}
     else{status='BLOCKED';reasons.push(route.code==='ROUTE_NONE'?'ROUTE_NONE':'ROUTE_INVALID');}
   }else if(!released){status='PENDING';reasons.push('ACTIVITY_NOT_RELEASED');}
   else status='READY';
-  if(activity.reviewPending.length){
+  const rejected=activity.reviewRejected??[];
+  const notApproved=[...activity.reviewPending,...rejected];
+  if(notApproved.length){
     reasons.push('ACTIVITY_REVIEW_PENDING');
-    if(activity.reviewPending.includes('chemistry')) reasons.push('CHEMISTRY_REVIEW_REQUIRED');
+    if(notApproved.includes('chemistry')) reasons.push('CHEMISTRY_REVIEW_REQUIRED');
   }
-  return {activityId:activity.id,status,reasons,enforcement,releaseReady:status==='READY'&&activity.reviewPending.length===0};
+  const content:ContentApprovalState=rejected.length?'REJECTED':activity.reviewPending.length?'REVIEW_PENDING':'APPROVED';
+  return {activityId:activity.id,runtime:status,content,reasons,enforcement};
 }
 
-export type LaunchDecision={allowed:true}|{allowed:false;status:ReadinessStatus;reasons:ReadinessReason[]};
+export type LaunchDecision={allowed:true}|{allowed:false;runtime:RuntimeReadiness;reasons:ReadinessReason[]};
 
 /**
- * The launch gate. Fail closed: DISABLED/BLOCKED never launch; PENDING launches only under `observe`
- * (legacy behaviour outside the pilot, reported in the impact analysis); unknown readiness never launches.
+ * The launch gate — decided by the RUNTIME dimension. The content dimension is release governance, with one
+ * exception: content REJECTED by a human reviewer never launches (a pending review does not block practice).
+ * Fail closed: DISABLED/BLOCKED never launch; PENDING launches only under `observe` (legacy behaviour outside
+ * the pilot, reported in the impact analysis); unknown readiness never launches.
  */
 export function launchDecision(readiness:LearningActivityReadiness|undefined):LaunchDecision{
-  if(!readiness) return {allowed:false,status:'BLOCKED',reasons:['ROUTE_INVALID']};
-  if(readiness.status==='READY') return {allowed:true};
-  if(readiness.status==='PENDING'&&readiness.enforcement==='observe') return {allowed:true};
-  return {allowed:false,status:readiness.status,reasons:readiness.reasons};
+  if(!readiness) return {allowed:false,runtime:'BLOCKED',reasons:['ROUTE_INVALID']};
+  // the one place content decides: a person explicitly REJECTED this version → it is not shown to learners
+  if(readiness.content==='REJECTED') return {allowed:false,runtime:readiness.runtime,reasons:readiness.reasons};
+  if(readiness.runtime==='READY') return {allowed:true};
+  if(readiness.runtime==='PENDING'&&readiness.enforcement==='observe') return {allowed:true};
+  return {allowed:false,runtime:readiness.runtime,reasons:readiness.reasons};
 }
 
 export const READINESS_PACK_PATH='activity-readiness.json';
-export const READINESS_PACK_SCHEMA='kimyolab.activity-readiness.v1';
+export const READINESS_PACK_SCHEMA='kimyolab.activity-readiness.v2';
 
 export interface ReadinessPack {
   schema:typeof READINESS_PACK_SCHEMA;

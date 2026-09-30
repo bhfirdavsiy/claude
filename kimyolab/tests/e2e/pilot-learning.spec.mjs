@@ -21,7 +21,7 @@ test.beforeAll(async () => {
     const readiness = JSON.parse(fs.readFileSync(readinessFile, 'utf8'));
     for (const unit of readiness.units) if (unit.learningUnitId === 'lu.9.15') unit.assessment = {status: 'AVAILABLE', reasons: []};
     // strict enforcement for one pending activity, to prove the URL cannot bypass the gate
-    const pending = readiness.activities.find((a) => a.status === 'PENDING');
+    const pending = readiness.activities.find((a) => a.runtime === 'PENDING');
     pending.enforcement = 'strict';
     readiness.strictPendingForTest = pending.activityId;
     fs.writeFileSync(readinessFile, `${JSON.stringify(readiness, null, 2)}\n`);
@@ -73,6 +73,9 @@ test('pilot LU end-to-end: theory → practice → reflection → mastery → pr
   await mastery.locator('summary').focus(); await page.keyboard.press('Enter');
   await expect(mastery.locator('details')).toHaveAttribute('open', '');
   await expect(mastery.locator('li').filter({hasText: 'test'}).first()).toBeVisible();
+  // P1.2 closeout copy audit: without an assessment the learner is told mastery cannot be confirmed yet
+  await expect(mastery.locator('li').filter({hasText: 'baholash (test) hali mavjud emas'})).toHaveCount(1);
+  await expect(card).not.toContainText('O‘zlashtirilgan');
   const text = await card.innerText();
   expect(text).not.toMatch(/%|\d+[.,]\d+/);
   expect(text).not.toMatch(RAW_CODE);

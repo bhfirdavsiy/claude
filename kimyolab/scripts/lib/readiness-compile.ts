@@ -15,13 +15,15 @@ export interface ReadinessSources {
   pilot:{learningUnits:Array<{id:string}>};
 }
 
-export function reviewPendingOf(activity:any):string[]{
+/** Human review state of an activity (hash-pinned via effectiveApprovalState): roles not yet approved, and roles that rejected it. */
+export function reviewStateOf(activity:any):{pending:string[];rejected:string[]}{
   const a=effectiveApprovalState(activity);
-  const pending:string[]=[];
-  for(const role of ['technical','didactic','accessibility'] as const) if(a[role].status!=='approved') pending.push(role);
-  if(a.chemistry!=='not_applicable'&&a.chemistry.status!=='approved') pending.push('chemistry');
-  return pending;
+  const pending:string[]=[];const rejected:string[]=[];
+  const roles=[...(['technical','didactic','accessibility'] as const).map(r=>[r,a[r]] as const),...(a.chemistry==='not_applicable'?[]:[['chemistry',a.chemistry] as const])];
+  for(const [role,record] of roles){ if(record.status==='rejected') rejected.push(role); else if(record.status!=='approved') pending.push(role); }
+  return {pending,rejected};
 }
+export function reviewPendingOf(activity:any):string[]{ const s=reviewStateOf(activity); return [...s.pending,...s.rejected]; }
 
 export function itemVerdicts(src:ReadinessSources){
   const unitById=new Map(src.units.map((u:any)=>[u.id,u]));
@@ -42,13 +44,14 @@ export function compileReadiness(src:ReadinessSources):{pack:ReadinessPack&{unit
   for(const e of routeFatal) fatal.push(`ROUTING_${e.code}:${e.activityId}`);
   const activities:LearningActivityReadiness[]=src.activities.map((a:any)=>{
     const route=deriveActivityExecutionPlan(a,configs);
-    return deriveActivityReadiness({id:a.id,lifecycleStatus:a.lifecycleStatus,reviewPending:reviewPendingOf(a)},route.ok?{ok:true}:{ok:false,code:route.error.code},strictActivities.has(a.id)?'strict':'observe');
+    const review=reviewStateOf(a);
+    return deriveActivityReadiness({id:a.id,lifecycleStatus:a.lifecycleStatus,reviewPending:review.pending,reviewRejected:review.rejected},route.ok?{ok:true}:{ok:false,code:route.error.code},strictActivities.has(a.id)?'strict':'observe');
   }).sort((x:LearningActivityReadiness,y:LearningActivityReadiness)=>x.activityId.localeCompare(y.activityId));
   // pilot units must launch their primary practice under strict enforcement
   for(const id of pilotIds){
     const primary=src.mappings.find((m:any)=>m.learningUnitId===id&&m.role==='primary');
     const r=activities.find(a=>a.activityId===primary?.practiceActivityId);
-    if(!r||r.status!=='READY') fatal.push(`PILOT_PRIMARY_NOT_READY:${id}`);
+    if(!r||r.runtime!=='READY') fatal.push(`PILOT_PRIMARY_NOT_READY:${id}`);
   }
   const verdicts=itemVerdicts(src);
   const units:UnitReadiness[]=src.units.map((u:any)=>{
