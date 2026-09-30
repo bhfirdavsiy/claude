@@ -25,6 +25,7 @@ import {ContentClient} from '../src/app/content-client.ts';
 import {buildPracticeUiModel} from '../src/features/practice/ui-model.ts';
 import {runAtomParity,ATOM_ACTIVITY} from './helpers/atom-parity.mjs';
 import {memoryPackFetch} from './helpers/memory-pack.mjs';
+import {elementNameMapper,parseElementNameCatalog} from '../src/features/localization/element-names.ts';
 
 const root=fileURLToPath(new URL('..',import.meta.url));
 const committed=(rel)=>JSON.parse(fs.readFileSync(path.join(root,rel),'utf8'));
@@ -41,7 +42,9 @@ test('registry: valid registration resolves by capability id + compatible versio
   registry.register(impl(cap({version:'1.4.0'})));
   registry.register(impl(cap({version:'2.0.0'})));
   assert.equal(registry.resolve({capability:'atom-builder',range:'^1.0.0'}).capability.version,'1.4.0','highest compatible version');
-  assert.equal(registry.resolve({capability:'atom-builder',range:'>=2 <3'}).capability.version,'2.0.0');
+  // P1.4 closeout: comparators now need full MAJOR.MINOR.PATCH versions. The old invariant ('>=2 <3' is a valid
+  // range) was wrong: partial versions were accepted without a documented meaning (see version-range.ts).
+  assert.equal(registry.resolve({capability:'atom-builder',range:'>=2.0.0 <3.0.0'}).capability.version,'2.0.0');
   assert.equal(registry.resolve({capability:'atom-builder',range:'1.0.0'}).capability.version,'1.0.0');
 });
 
@@ -98,8 +101,11 @@ test('version ranges: exact, caret, comparator sets, wildcard; unparsable never 
   assert.ok(satisfiesVersionRange('1.9.3','^1.2.0'));
   assert.ok(!satisfiesVersionRange('1.1.9','^1.2.0'));
   assert.ok(!satisfiesVersionRange('2.0.0','^1.0.0'));
-  assert.ok(satisfiesVersionRange('1.5.0','>=1 <2'));
-  assert.ok(!satisfiesVersionRange('2.0.0','>=1 <2'));
+  // P1.4 closeout: '>=1 <2' (partial versions) is outside the documented subset and now fails closed — the old
+  // invariant accepted an undocumented form. Full versions express the same range.
+  assert.ok(satisfiesVersionRange('1.5.0','>=1.0.0 <2.0.0'));
+  assert.ok(!satisfiesVersionRange('2.0.0','>=1.0.0 <2.0.0'));
+  assert.ok(!satisfiesVersionRange('1.5.0','>=1 <2'));
   assert.ok(satisfiesVersionRange('3.1.4','*'));
   assert.ok(!satisfiesVersionRange('1.0.0','~1.0.0'));
   assert.ok(!satisfiesVersionRange('x','^1.0.0'));
@@ -137,8 +143,9 @@ test('renderer readiness: a required but unavailable/incompatible renderer makes
 
 test('periodic table: one domain source (formula parser and atom model both read it)',()=>{
   assert.equal(ELEMENT_SYMBOLS.length,118);
-  assert.deepEqual([elementByAtomicNumber(6),elementByAtomicNumber(11),elementByAtomicNumber(8)].map(e=>[e.symbol,e.nameUz]),[['C','Uglerod'],['Na','Natriy'],['O','Kislorod']]);
-  assert.equal(elementByAtomicNumber(26).nameUz,'Fe','beyond Z=20 the symbol is the name');
+  // P1.4 closeout: the domain holds identity only (Z + symbol). The old invariant (nameUz in ElementInfo) was
+  // wrong — localized names are presentation text and now live in content-src/locales (see p1-4-closeout tests).
+  assert.deepEqual([elementByAtomicNumber(6),elementByAtomicNumber(11),elementByAtomicNumber(8)],[{atomicNumber:6,symbol:'C'},{atomicNumber:11,symbol:'Na'},{atomicNumber:8,symbol:'O'}]);
   assert.equal(elementByAtomicNumber(0),undefined);assert.equal(elementByAtomicNumber(119),undefined);
   assert.equal(parseFormula('Og').normalized,'Og');
   // no second element table anywhere in src/
@@ -151,13 +158,15 @@ test('periodic table: one domain source (formula parser and atom model both read
 
 test('AtomState: Z, A, charge, element and isotope come from the domain; invalid states fail closed',()=>{
   const c14=deriveAtomState({protons:6,neutrons:8,electrons:6});
-  assert.deepEqual(c14,{protons:6,neutrons:8,electrons:6,atomicNumber:6,massNumber:14,charge:0,element:'C',elementName:'Uglerod',isotope:'C-14'});
+  // P1.4 closeout: elementName left the domain state (localization), and Z = 0 is an explicit construction state.
+  // The old invariant (a localized name inside AtomState) mixed presentation into chemistry truth.
+  assert.deepEqual(c14,{construction:'element',protons:6,neutrons:8,electrons:6,atomicNumber:6,massNumber:14,charge:0,element:'C',isotope:'C-14'});
   const na=deriveAtomState({protons:11,neutrons:12,electrons:10});
   assert.deepEqual([na.element,na.massNumber,na.charge,na.isotope],['Na',23,1,'Na-23']);
   const o=deriveAtomState({protons:8,neutrons:8,electrons:10});
   assert.deepEqual([o.element,o.massNumber,o.charge,o.isotope],['O',16,-2,'O-16']);
   const empty=deriveAtomState({protons:0,neutrons:2,electrons:1});
-  assert.deepEqual([empty.element,empty.elementName,empty.isotope,empty.charge],[null,null,null,-1],'Z = 0 has no element (never "Z0")');
+  assert.deepEqual([empty.construction,empty.element,empty.isotope,empty.charge],['noElementYet',null,null,-1],'Z = 0 is the explicit noElementYet state (never "Z0")');
   for(const bad of [{protons:-1,neutrons:0,electrons:0},{protons:1,neutrons:-2,electrons:0},{protons:1,neutrons:0,electrons:-1},{protons:1.5,neutrons:0,electrons:0},{protons:1,neutrons:0}])
     assert.throws(()=>deriveAtomState(bad),/ATOM_PARTICLES_INVALID/,JSON.stringify(bad));
   assert.throws(()=>deriveAtomState({protons:119,neutrons:0,electrons:0}),/ATOM_ATOMIC_NUMBER_UNSUPPORTED/);
@@ -171,14 +180,15 @@ test('AtomState: Z, A, charge, element and isotope come from the domain; invalid
 test('AtomState → AtomRendererModel through the one canonical converter; serializable; different atoms → different models',()=>{
   const goal=deriveAtomState({protons:6,neutrons:8,electrons:6});
   const evidence=[{type:'construction',achieved:true,targetId:'C-14'}];
-  const m=toAtomRendererModel({finalState:goal,goal,evidence});
+  const names=elementNameMapper(parseElementNameCatalog(committed('content-src/locales/uz-latn/chemistry-elements.json')));
+  const m=toAtomRendererModel({finalState:goal,goal,evidence},names);
   assert.equal(m.schema,ATOM_RENDERER_MODEL_SCHEMA);
   assert.deepEqual([m.symbol,m.isotopeLabel,m.chargeLabel,m.chargeIcon,m.goalReached],['C','Uglerod-14','neytral atom','○',true]);
   assert.equal(m.accessibleSummary,'Uglerod-14. Neytral atom. 6 proton. 8 neytron. 6 elektron. Maqsadga yetildi.');
   assert.deepEqual(JSON.parse(JSON.stringify(m)),m,'plain JSON — serializable');
-  const na=toAtomRendererModel({finalState:deriveAtomState({protons:11,neutrons:12,electrons:10}),goal,evidence:[]});
+  const na=toAtomRendererModel({finalState:deriveAtomState({protons:11,neutrons:12,electrons:10}),goal,evidence:[]},names);
   assert.deepEqual([na.isotopeLabel,na.chargeLabel,na.chargeIcon,na.goalReached],['Natriy-23','musbat ion (+1)','⊕',false]);
-  const o=toAtomRendererModel({finalState:deriveAtomState({protons:8,neutrons:8,electrons:10}),goal,evidence:[]});
+  const o=toAtomRendererModel({finalState:deriveAtomState({protons:8,neutrons:8,electrons:10}),goal,evidence:[]},names);
   assert.equal(o.accessibleSummary,'Kislorod-16. Manfiy ion (−2). 8 proton. 8 neytron. 10 elektron.');
   assert.equal(new Set([m,na,o].map(x=>JSON.stringify(x))).size,3,'black-swan: model-based, not canned');
   // goalReached comes from the engine verdict — equal counts without the evidence do not count as reached

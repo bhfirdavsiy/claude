@@ -49,9 +49,17 @@ export interface RendererInstance {
   destroy():void;
 }
 
+/** Page context handed to a renderer at mount: display text only (never chemistry input). */
+export interface RendererMountContext {
+  title:string;
+  goal:string;
+  /** localized element display name for a symbol (content-backed presentation mapper); defaults to the symbol */
+  elementName?:(symbol:string)=>string;
+}
+
 export interface RendererImplementation {
   capability:RendererCapability;
-  mount(root:HTMLElement,host:RendererHost,context:{title:string;goal:string}):RendererInstance;
+  mount(root:HTMLElement,host:RendererHost,context:RendererMountContext):RendererInstance;
 }
 
 /** Machine codes of renderer resolution. They are logged, never shown to the learner. */

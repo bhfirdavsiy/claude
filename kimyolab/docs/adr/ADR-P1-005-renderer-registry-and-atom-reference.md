@@ -120,3 +120,61 @@ atom-builder e’lonlari **real**, E2E bilan tekshirilgan:
 - **hydrolysis:** UI yo‘li hanuz `CANNOT_SUCCEED`, hisobotlarda ochiq ko‘rinadi.
 - **electrolysis:** 1 yozuvli model, renderer yozish canned animatsiya bo‘lardi.
 - **Boshqalar:** WebGL/Canvas/3D, D9, assessment kengaytirish, server-side evaluation, global readiness.
+
+## Addendum — P1.4 closeout (merge oldidan audit blockerlar)
+
+### A1. Kimyoviy identifikatsiya va lokalizatsiya qilingan matn ajratildi
+
+- `src/domain/chemistry/periodic-table.ts` endi faqat **Z + IUPAC belgi** saqlaydi. `nameUz` va `NAMES_UZ` olib tashlandi.
+- O‘zbekcha element nomlari content: `content-src/locales/uz-latn/chemistry-elements.json`.
+  - `reviewStatus: pending`.
+  - Pack’ga `locales/uz-latn/…` sifatida ko‘chiriladi. Pack yo‘llari manifest qoidasi bo‘yicha kichik harfda; BCP 47 teg `uz-Latn` faylning ichida saqlanadi.
+  - Build vaqtida validatsiya qilinadi: har kalit haqiqiy element belgisi, har qiymat bo‘sh bo‘lmagan matn. Aks holda build yiqiladi.
+- Yangi parallel i18n tizimi yaratilmadi. Mavjud arxitektura kengaytirildi:
+  - pack fayli;
+  - `ContentClient.loadPractice` uni yuklaydi va `page.localization.elementNames` ga qo‘yadi (noto‘g‘ri fayl → `LOCALIZATION_INVALID`, fail-closed);
+  - host uni yagona tasdiqlangan presentation mapper (`src/features/localization/element-names.ts#elementNameMapper`) orqali renderer mount context’iga beradi.
+- Nomlar **CHEM-033 review surface**’iga kiradi (`chemistryReviewSurface` → `content-src/locales/**`), shuning uchun `expertReviewHash` ularni qamraydi. Hash o‘zgardi, lekin chemistry approval baribir `pending` edi: hech narsa bekor bo‘lmadi, hech narsa tasdiqlanmadi.
+
+**Nega 118 ta belgi kodda qoladi?**
+- Belgi — kimyoviy identifikatsiya: IUPAC tomonidan qat’iy belgilangan, tilga bog‘liq emas.
+- Formula parser, atom modeli va evidence belgilarga tayanadi. Ularni content’ga ko‘chirish domain haqiqatini tahrirlanadigan faylga bog‘lardi va har pack build’ida domain xulqi o‘zgarishi mumkin bo‘lardi.
+- Nom esa tilga bog‘liq, review qilinadigan matn. Shuning uchun u content’da.
+
+### A2. `AtomRendererModel` domain’dan nom olmaydi
+
+- `AtomState.elementName` olib tashlandi.
+- Converter `toAtomRendererModel(result, elementName?)` belgini domain’dan, nomni mapper’dan oladi. Mapper bo‘lmasa belgining o‘zi ko‘rsatiladi.
+- Formula parser faqat `ELEMENT_SYMBOL_SET` ga tayanadi. Regression test: nomi bo‘lmagan element (`Fe`, `Og`) ham parse qilinadi, lokal nom esa formula emas.
+
+### A3. Z = 0 — aniq oraliq holat
+
+- `AtomState.construction: 'noElementYet' | 'element'`.
+- Matn: “Element hali tanlanmagan: yadroga proton qo‘shing.” Avvalgi “element aniqlanmagan” iborasi noma’lum element degan taassurot berardi.
+
+### A4. Version range: hujjatlangan kichik subset, npm-semver emas
+
+- Versiya qat’iy `MAJOR.MINOR.PATCH`: boshida nol yo‘q, pre-release va build metadata yo‘q.
+- Range shakllari: `*`, aniq versiya, `^X.Y.Z` (X ≥ 1), yoki 1–2 ta comparator bitta probel bilan.
+- Qo‘llab-quvvatlanmaydi va rad etiladi (fail-closed):
+  - `^0.x` (npm semantikasi boshqacha, taxmin qilinmaydi);
+  - `||`, `~`, `x`;
+  - qisman versiya (`>=1 <2`);
+  - hyphen range;
+  - atrofdagi yoki ketma-ket probel.
+- `isVersionRange` va `satisfiesVersionRange` bitta parser’dan foydalanadi.
+- Bir nechta mos versiya bo‘lsa, eng kattasi raqamli taqqoslash bilan tanlanadi (`1.10.0 > 1.9.0`).
+
+### A5. Build ⇔ runtime parity
+
+- Property test ~3 000 talab (seed’li generator + qo‘lda yozilgan holatlar) uchun “build mos deydi ⇔ runtime `resolve` muvaffaqiyatli” tengligini tekshiradi.
+- To‘liq `compileReadiness` bilan ham tekshiriladi: READY ⇔ resolve.
+
+### A6. Host error boundary
+
+- Har chizishni host boshqaradi: har engine natijasidan keyin `instance.update`.
+- Renderer mount paytida yoki keyin exception tashlasa:
+  - stage lokalizatsiya qilingan alert bilan almashtiriladi;
+  - keyingi intent’lar rad etiladi (`RENDERER_FAILED`);
+  - legacy renderer’ga fallback yo‘q.
+- Attempt va evidence’ga tegilmaydi: orchestrator yozgan narsa (maqsadga yetgan evidence ham) saqlanib qoladi. Hech narsa rollback qilinmaydi va qo‘shilmaydi.

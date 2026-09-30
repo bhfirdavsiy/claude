@@ -2,6 +2,7 @@ import { evaluateContentPackCompatibility } from '../runtime/compatibility/conte
 import { APP_COMPATIBILITY } from './app-version.ts';
 import { buildLearningHubModel, type LearningHubModel } from '../features/learning-hub/model.ts';
 import { buildPracticePageModel, type StudentPracticePageModel } from '../features/practice/model.ts';
+import { DEFAULT_LOCALE, elementNamesPackPath, parseElementNameCatalog } from '../features/localization/element-names.ts';
 import {validateExternalLabBindings,bindingsForLearningUnit} from '../integrations/external-labs/registry.ts';
 import type {ExternalLabBinding} from '../integrations/external-labs/types.ts';
 import type {LabCatalogModel} from '../features/labs/model.ts';
@@ -173,6 +174,10 @@ export class ContentClient {
     try{executionPlan=resolveExecutionPlan(planPack,practiceActivityId);}
     catch(error){throw new ContentLoadError(error instanceof Error&&error.message==='EXECUTION_PLAN_NOT_FOUND'?'PRACTICE_CONFIG_NOT_FOUND':'EXECUTION_PLAN_INVALID',{resource:practiceActivityId});}
     const configs=await this.packJson(version,`activity-configs/${executionPlan.configSource}.json`);
+    // localized element names: presentation text shipped as content (P1.4 closeout); invalid → fail closed
+    let elementNames;
+    try{elementNames=parseElementNameCatalog(await this.packJson(version,elementNamesPackPath(DEFAULT_LOCALE)));}
+    catch(error){throw error instanceof ContentLoadError?error:new ContentLoadError('LOCALIZATION_INVALID',{resource:elementNamesPackPath(DEFAULT_LOCALE)});}
     const referenceConfig=configs?.[practiceActivityId];
     if(!referenceConfig) throw new ContentLoadError('PRACTICE_CONFIG_NOT_FOUND',{resource:practiceActivityId});
     const mapping=mappings.find((x:any)=>x.practiceActivityId===practiceActivityId&&x.role==='primary')
@@ -188,7 +193,7 @@ export class ContentClient {
       schemaVersion:String(packManifest.schemaVersion??'0'),
       scoringVersion:String(packManifest.scoringVersion??'0'),
       ...(packManifest.curriculumVersion?{curriculumVersion:String(packManifest.curriculumVersion)}:{}),
-      reactions,solutionRules,hydrolysis,electrolysis,manganeseRedox,organic,kinetics,equilibrium,
+      reactions,solutionRules,hydrolysis,electrolysis,manganeseRedox,organic,kinetics,equilibrium,elementNames,
     });
   }
 

@@ -4,8 +4,10 @@
 //   atomicNumber = protons   massNumber = protons + neutrons   charge = protons − electrons
 //
 // Fail closed: particle counts must be non-negative integers (ATOM_PARTICLES_INVALID) and the atomic number
-// must be a known element or 0 (ATOM_ATOMIC_NUMBER_UNSUPPORTED). Z = 0 is the empty starting state of the
-// builder: it has no element and no isotope (never a made-up "Z0").
+// must be a known element or 0 (ATOM_ATOMIC_NUMBER_UNSUPPORTED). Z = 0 is an explicit intermediate CONSTRUCTION
+// state of the builder (construction: 'noElementYet'): no proton has been placed yet, so there is no element and
+// no isotope (never a made-up "Z0", and never an "unknown element" — nothing is unknown, it is just not built).
+// The state carries chemical identity only (symbol); localized names are presentation (P1.4 closeout).
 import {elementByAtomicNumber,MAX_ATOMIC_NUMBER} from './periodic-table.js';
 
                                                       
@@ -13,14 +15,16 @@ export const PARTICLES                    =['protons','neutrons','electrons'];
 
                                                                                      
 
+/** 'noElementYet': Z = 0, the builder has not placed a proton yet; 'element': Z ≥ 1 identifies an element. */
+                                                      
+
                                                    
+                                
                       
                     
                 
                                             
                       
-                                                                
-                          
                                          
                       
  
@@ -39,8 +43,9 @@ export function deriveAtomState(counts               )          {
   if(atomicNumber!==0&&!element) throw new Error(`ATOM_ATOMIC_NUMBER_UNSUPPORTED:${atomicNumber}`);
   const massNumber=protons+neutrons;
   return {
+    construction:element?'element':'noElementYet',
     protons,neutrons,electrons,atomicNumber,massNumber,charge:protons-electrons,
-    element:element?.symbol??null,elementName:element?.nameUz??null,
+    element:element?.symbol??null,
     isotope:element?`${element.symbol}-${massNumber}`:null,
   };
 }

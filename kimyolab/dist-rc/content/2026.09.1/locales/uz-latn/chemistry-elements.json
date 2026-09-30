@@ -1,0 +1,28 @@
+{
+  "schema": "kimyolab.locale.chemistry-elements.v1",
+  "locale": "uz-Latn",
+  "reviewStatus": "pending",
+  "note": "Maktab kimyosidagi o‘zbekcha (lotin) element nomlari. Kalit — element belgisi (domain: src/domain/chemistry/periodic-table.ts). Ro‘yxatda yo‘q element uchun UI belgining o‘zini ko‘rsatadi. Chemistry reviewer ko‘rib chiqadi (CHEM-033 review surface).",
+  "names": {
+    "H": "Vodorod",
+    "He": "Geliy",
+    "Li": "Litiy",
+    "Be": "Berilliy",
+    "B": "Bor",
+    "C": "Uglerod",
+    "N": "Azot",
+    "O": "Kislorod",
+    "F": "Ftor",
+    "Ne": "Neon",
+    "Na": "Natriy",
+    "Mg": "Magniy",
+    "Al": "Alyuminiy",
+    "Si": "Kremniy",
+    "P": "Fosfor",
+    "S": "Oltingugurt",
+    "Cl": "Xlor",
+    "Ar": "Argon",
+    "K": "Kaliy",
+    "Ca": "Kalsiy"
+  }
+}

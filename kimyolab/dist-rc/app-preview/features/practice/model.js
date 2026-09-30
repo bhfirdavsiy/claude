@@ -1,6 +1,7 @@
                                                                     
                                                                                            
                                                                                    
+                                                                         
 
                                            
             
@@ -21,6 +22,8 @@
                         
                             
                                                                                                       
+                                                                                                       
+                                                   
              
                     
                                                                          
@@ -52,6 +55,7 @@ export function buildPracticePageModel(input
                
                 
                    
+                                   
  )                          {
   return {
     id:input.activity.id,
@@ -76,6 +80,7 @@ export function buildPracticePageModel(input
     scoringVersion:input.scoringVersion,
     ...(input.curriculumVersion?{curriculumVersion:input.curriculumVersion}:{}),
     legacyContent:structuredClone((input.activity       ).legacyContent??{}),
+    ...(input.elementNames?{localization:{elementNames:input.elementNames}}:{}),
     chemistry:{
       reactions:structuredClone(input.reactions),
       solutionRules:structuredClone(input.solutionRules),

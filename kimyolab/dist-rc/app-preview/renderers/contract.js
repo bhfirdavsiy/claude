@@ -49,9 +49,17 @@
                  
  
 
+/** Page context handed to a renderer at mount: display text only (never chemistry input). */
+                                       
+               
+              
+                                                                                                                 
+                                       
+ 
+
                                          
                                 
-                                                                                                
+                                                                                          
  
 
 /** Machine codes of renderer resolution. They are logged, never shown to the learner. */

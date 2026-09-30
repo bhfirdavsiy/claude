@@ -15,6 +15,7 @@ import {atomIntent} from '../src/renderers/atom-builder/renderer.ts';
 import {toAtomRendererModel,ATOM_RENDERER_MODEL_SCHEMA} from '../src/renderers/atom-builder/renderer-model.ts';
 import {deriveAtomState} from '../src/domain/chemistry/atom.ts';
 import {runAtomParity} from '../tests/helpers/atom-parity.mjs';
+import {elementNameMapper,parseElementNameCatalog} from '../src/features/localization/element-names.ts';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 export const REGISTRY_REPORT='reports/renderer-registry.json';
@@ -75,9 +76,13 @@ export function buildMigrationReport(base=root){
 
 export async function buildAtomReport(base=root){
   const target=deriveAtomState({protons:6,neutrons:8,electrons:6});
+  // display names come from the localization content (as in the app), never from the domain
+  const localeFile='content-src/locales/uz-latn/chemistry-elements.json';
+  const localeRaw=JSON.parse(fs.readFileSync(path.join(base,localeFile),'utf8'));
+  const names=elementNameMapper(parseElementNameCatalog(localeRaw));
   const probes=[[6,8,6],[11,12,10],[8,8,10],[6,6,6]].map(([p,n,e])=>{
     const state=deriveAtomState({protons:p!,neutrons:n!,electrons:e!});
-    const model=toAtomRendererModel({finalState:state,goal:target,evidence:[]});
+    const model=toAtomRendererModel({finalState:state,goal:target,evidence:[]},names);
     return {counts:{protons:p,neutrons:n,electrons:e},domain:{element:state.element,isotope:state.isotope,charge:state.charge},renderer:{isotopeLabel:model.isotopeLabel,chargeLabel:model.chargeLabel,accessibleSummary:model.accessibleSummary}};
   });
   const distinct=new Set(probes.map(p=>JSON.stringify(p.renderer))).size===probes.length;
@@ -93,6 +98,7 @@ export async function buildAtomReport(base=root){
     modelBased:distinct,
     blackSwan:{claim:'different p/n/e → different domain state → different renderer model',probes,distinctRendererModels:distinct},
     domainSource:['src/domain/chemistry/periodic-table.ts','src/domain/chemistry/atom.ts'],
+    localization:{elementNames:localeFile,mapper:'src/features/localization/element-names.ts#elementNameMapper',reviewSurface:'CHEM-033',reviewStatus:String(localeRaw.reviewStatus)},
     converter:'src/renderers/atom-builder/renderer-model.ts#toAtomRendererModel',
     rendererModelSchema:ATOM_RENDERER_MODEL_SCHEMA,
     intents:{kinds:cap.intents,shape:atomIntent('protons',1)},

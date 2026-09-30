@@ -40,7 +40,10 @@ test('atom-builder: registry renderer, keyboard only, live summary, text+shape c
   await expect(atom).toBeVisible();
   await expect(page.locator('.kl-simulation-control, .kl-sim-state')).toHaveCount(0);   // not the legacy form
   const summary = atom.locator('[role="status"][aria-live="polite"]');
-  await expect(summary).toHaveText(/Hali proton yo‘q/);
+  // P1.4 closeout: Z = 0 is the explicit noElementYet construction step. The old copy ("element aniqlanmagan")
+  // implied an unknown element, which was misleading — nothing is unknown, the learner has not placed a proton yet.
+  await expect(summary).toHaveText(/^Element hali tanlanmagan: yadroga proton qo‘shing\./);
+  await expect(atom.locator('[data-field="element"]')).toHaveText('Element hali tanlanmagan: yadroga proton qo‘shing.');
   await expect(atom.locator('.kl-atom__goal')).toContainText('Maqsad: Uglerod-14');
 
   // the same learner sequence as the recorded pre-P1.4 baseline, one key press per particle

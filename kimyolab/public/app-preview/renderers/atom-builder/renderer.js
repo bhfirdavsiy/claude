@@ -8,8 +8,8 @@
                                                              
 import {el,clear} from '../../ui/components/dom.js';
 import {ATOM_BUILDER_CAPABILITY} from '../catalog.js';
-                                                                                         
-import {toAtomRendererModel,                      } from './renderer-model.js';
+                                                                                                              
+import {toAtomRendererModel,NO_ELEMENT_YET_TEXT,                      } from './renderer-model.js';
 
 const PARTICLE_LABELS                                                          =Object.freeze({
   protons:{title:'Protonlar',singular:'proton'},
@@ -23,7 +23,7 @@ export function atomIntent(particle         ,delta     )                {
   return {kind:'simulation-action',action:{particle,delta}};
 }
 
-function mount(root            ,host             ,context                           )                 {
+function mount(root            ,host             ,context                     )                 {
   clear(root);
   const card=el('section',{className:'kl-card kl-atom',attrs:{'data-renderer':`${ATOM_BUILDER_CAPABILITY.id}@${ATOM_BUILDER_CAPABILITY.version}`,'aria-labelledby':'kl-atom-title'}});
   const title=el('h2',{text:'Atom konstruktori',attrs:{id:'kl-atom-title'}});
@@ -33,9 +33,10 @@ function mount(root            ,host             ,context                       
   const minus                                            ={};
   // intents are applied strictly in order (fast keyboard repeats are queued, never dropped or interleaved)
   let queue              =Promise.resolve();
+  // the host draws every engine result through update() (and fails closed if a draw throws)
   const send=(particle         ,delta     )=>{
     queue=queue.then(async()=>{
-      try{ update(await host.dispatch(atomIntent(particle,delta))); }
+      try{ await host.dispatch(atomIntent(particle,delta)); }
       catch{ status.textContent='Amalni bajarib bo‘lmadi. Qaytadan urinib ko‘ring.'; }
     });
   };
@@ -66,11 +67,11 @@ function mount(root            ,host             ,context                       
   root.append(card);
 
   function update(result        ){
-    let m                  ;
-    try{ m=toAtomRendererModel(result); }catch{ status.textContent='Atom holatini ko‘rsatib bo‘lmadi.'; return; }
+    // an input that is not an atom result throws: the host's error boundary then fails closed
+    const m                  =toAtomRendererModel(result,context.elementName);
     goal.textContent=`Maqsad: ${m.goal.isotopeLabel} — ${m.goal.summary}`;
     for(const p of PARTICLE_ORDER){ counts[p] .textContent=String(m[p]); minus[p] .disabled=m[p]===0; }
-    cells.element .textContent=m.symbol?`${m.symbol} — ${m.elementName}`:'aniqlanmagan (proton yo‘q)';
+    cells.element .textContent=m.construction==='element'&&m.symbol?(m.elementName&&m.elementName!==m.symbol?`${m.symbol} — ${m.elementName}`:m.symbol):NO_ELEMENT_YET_TEXT;
     cells.atomicNumber .textContent=String(m.atomicNumber);
     cells.massNumber .textContent=String(m.massNumber);
     cells.charge .textContent=`${m.chargeIcon} ${m.chargeLabel}`;
@@ -80,7 +81,6 @@ function mount(root            ,host             ,context                       
     status.textContent=m.accessibleSummary;
     card.dataset.model=JSON.stringify(m);
   }
-  void host.current().then(update).catch(()=>{ status.textContent='Atom holatini ko‘rsatib bo‘lmadi.'; });
   return {update,destroy:()=>clear(root)};
 }
 

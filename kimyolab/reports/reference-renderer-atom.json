@@ -80,6 +80,12 @@
     "src/domain/chemistry/periodic-table.ts",
     "src/domain/chemistry/atom.ts"
   ],
+  "localization": {
+    "elementNames": "content-src/locales/uz-latn/chemistry-elements.json",
+    "mapper": "src/features/localization/element-names.ts#elementNameMapper",
+    "reviewSurface": "CHEM-033",
+    "reviewStatus": "pending"
+  },
   "converter": "src/renderers/atom-builder/renderer-model.ts#toAtomRendererModel",
   "rendererModelSchema": "kimyolab.renderer.atom-state.v1",
   "intents": {

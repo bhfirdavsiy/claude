@@ -24,6 +24,8 @@ function chemistryReviewSurface(root:string){
   const files=[
     ...listJsonFiles(root,'content-src/chemistry'),
     ...listJsonFiles(root,'content-src/activity-configs'),
+    // P1.4 closeout: localized chemistry terminology (element names) is reviewed with the chemistry data
+    ...listJsonFiles(root,'content-src/locales'),
   ].sort();
   return {
     schema:'kimyolab.chemistry-review-surface.v2',

@@ -6,7 +6,7 @@
   "assessmentVersion": "0.0.0",
   "scoringVersion": "0.0.0",
   "createdAt": "2026-09-22T00:00:00.000Z",
-  "checksum": "28150d0144997da5c3c81e51b0391e9c5ef795146f08b2a5f123bfd73b3431e1",
+  "checksum": "d770087efcb7d9f583a24dfb0c2f92c823d09770561eaac92e37fee822be8d9d",
   "compatibility": {
     "minAppVersion": "20.1.0"
   },
@@ -197,6 +197,11 @@
       "path": "learning-units/grade-9.json",
       "checksum": "a3f6707da4a0216f086886e97f54c32343e6a9776fa669ffdd39241d763382db",
       "size": 16898
+    },
+    {
+      "path": "locales/uz-latn/chemistry-elements.json",
+      "checksum": "f3f3e25646aa3e3b2d3163db93d1da0a32e2728fcf18de08e37cb68ce2321cdb",
+      "size": 793
     },
     {
       "path": "mapping-links.json",

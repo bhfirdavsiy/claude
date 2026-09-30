@@ -1,7 +1,7 @@
 // RendererRegistry (P1.4 §12). Resolution key: capability id + compatible version — never an activity id.
 // Fail closed: duplicate registration, missing accessibility commitments, and unmatched requirements are
 // errors; there is no first-match-wins and no silent fallback to a generic form.
-import {satisfiesVersionRange,isVersion,isVersionRange} from '../runtime/compatibility/version-range.ts';
+import {satisfiesVersionRange,isVersion,isVersionRange,compareVersions} from '../runtime/compatibility/version-range.ts';
 import {RendererError,type RendererCapability,type RendererImplementation,type RendererRequirement} from './contract.ts';
 
 const REDUCED_MOTION=new Set(['static','reduced']);
@@ -31,7 +31,7 @@ export function selectCapability<T extends {capability:RendererCapability}>(entr
   validateRequirement(requirement);
   const matches=entries.filter(e=>e.capability.id===requirement.capability&&satisfiesVersionRange(e.capability.version,requirement.range));
   if(!matches.length) throw new RendererError('RENDERER_UNAVAILABLE',`${requirement.capability}@${requirement.range}`);
-  return [...matches].sort((a,b)=>b.capability.version.localeCompare(a.capability.version,undefined,{numeric:true}))[0]!;
+  return [...matches].sort((a,b)=>compareVersions(b.capability.version,a.capability.version))[0]!;
 }
 
 export class RendererRegistry {

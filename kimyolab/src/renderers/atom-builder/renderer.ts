@@ -8,8 +8,8 @@ import type {PracticeCommand} from '../../features/practice/session.ts';
 import type {Particle} from '../../domain/chemistry/atom.ts';
 import {el,clear} from '../../ui/components/dom.ts';
 import {ATOM_BUILDER_CAPABILITY} from '../catalog.ts';
-import type {RendererHost,RendererImplementation,RendererInstance} from '../contract.ts';
-import {toAtomRendererModel,type AtomRendererModel} from './renderer-model.ts';
+import type {RendererHost,RendererImplementation,RendererInstance,RendererMountContext} from '../contract.ts';
+import {toAtomRendererModel,NO_ELEMENT_YET_TEXT,type AtomRendererModel} from './renderer-model.ts';
 
 const PARTICLE_LABELS:Readonly<Record<Particle,{title:string;singular:string}>>=Object.freeze({
   protons:{title:'Protonlar',singular:'proton'},
@@ -23,7 +23,7 @@ export function atomIntent(particle:Particle,delta:1|-1):PracticeCommand{
   return {kind:'simulation-action',action:{particle,delta}};
 }
 
-function mount(root:HTMLElement,host:RendererHost,context:{title:string;goal:string}):RendererInstance{
+function mount(root:HTMLElement,host:RendererHost,context:RendererMountContext):RendererInstance{
   clear(root);
   const card=el('section',{className:'kl-card kl-atom',attrs:{'data-renderer':`${ATOM_BUILDER_CAPABILITY.id}@${ATOM_BUILDER_CAPABILITY.version}`,'aria-labelledby':'kl-atom-title'}});
   const title=el('h2',{text:'Atom konstruktori',attrs:{id:'kl-atom-title'}});
@@ -33,9 +33,10 @@ function mount(root:HTMLElement,host:RendererHost,context:{title:string;goal:str
   const minus:Partial<Record<Particle,HTMLButtonElement>>={};
   // intents are applied strictly in order (fast keyboard repeats are queued, never dropped or interleaved)
   let queue:Promise<void>=Promise.resolve();
+  // the host draws every engine result through update() (and fails closed if a draw throws)
   const send=(particle:Particle,delta:1|-1)=>{
     queue=queue.then(async()=>{
-      try{ update(await host.dispatch(atomIntent(particle,delta))); }
+      try{ await host.dispatch(atomIntent(particle,delta)); }
       catch{ status.textContent='Amalni bajarib bo‘lmadi. Qaytadan urinib ko‘ring.'; }
     });
   };
@@ -66,11 +67,11 @@ function mount(root:HTMLElement,host:RendererHost,context:{title:string;goal:str
   root.append(card);
 
   function update(result:unknown){
-    let m:AtomRendererModel;
-    try{ m=toAtomRendererModel(result); }catch{ status.textContent='Atom holatini ko‘rsatib bo‘lmadi.'; return; }
+    // an input that is not an atom result throws: the host's error boundary then fails closed
+    const m:AtomRendererModel=toAtomRendererModel(result,context.elementName);
     goal.textContent=`Maqsad: ${m.goal.isotopeLabel} — ${m.goal.summary}`;
     for(const p of PARTICLE_ORDER){ counts[p]!.textContent=String(m[p]); minus[p]!.disabled=m[p]===0; }
-    cells.element!.textContent=m.symbol?`${m.symbol} — ${m.elementName}`:'aniqlanmagan (proton yo‘q)';
+    cells.element!.textContent=m.construction==='element'&&m.symbol?(m.elementName&&m.elementName!==m.symbol?`${m.symbol} — ${m.elementName}`:m.symbol):NO_ELEMENT_YET_TEXT;
     cells.atomicNumber!.textContent=String(m.atomicNumber);
     cells.massNumber!.textContent=String(m.massNumber);
     cells.charge!.textContent=`${m.chargeIcon} ${m.chargeLabel}`;
@@ -80,7 +81,6 @@ function mount(root:HTMLElement,host:RendererHost,context:{title:string;goal:str
     status.textContent=m.accessibleSummary;
     card.dataset.model=JSON.stringify(m);
   }
-  void host.current().then(update).catch(()=>{ status.textContent='Atom holatini ko‘rsatib bo‘lmadi.'; });
   return {update,destroy:()=>clear(root)};
 }
 
