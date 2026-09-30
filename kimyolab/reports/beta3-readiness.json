@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-29T17:18:23.390Z",
+  "generatedAt": "2026-09-30T05:12:16.220Z",
   "totalLearningUnits": 22,
   "technicalReady": 22,
   "releaseReady": 0,
   "technicalErrors": 0,
-  "pendingApprovals": 67,
+  "pendingApprovals": 68,
   "blocked": {
     "total": 0,
     "byDisposition": {
@@ -165,7 +165,8 @@
       "approvalPending": [
         "technical",
         "didactic",
-        "accessibility"
+        "accessibility",
+        "chemistry"
       ]
     },
     {

@@ -17,7 +17,7 @@ export function hydrolysisPracticeResult(input:{model:HydrolysisModel;targetSalt
   const state=evaluateHydrolysisTrials(input.model,input.targetSalt,input.actions);
   const id=input.meta.activityId;
   const trials:HydrolysisPredictionEvidence[]=state.trials.map(t=>({
-    ...input.meta,id:`${id}.hydrolysis.trial.${t.n}`,
+    ...input.meta,id:`${id}.hydrolysis.trial.${t.n}`,answerKind:'hydrolysis-prediction',
     score:t.correct&&t.predictedBeforeReveal?1:0,evidenceClass:'practice-observation',type:'answer',
     questionId:`hydrolysis-medium:${t.selectedSalt}`,correct:t.correct,response:t.predictedMedium,
     selectedSalt:t.selectedSalt,predictedMedium:t.predictedMedium,actualMedium:t.actualMedium,predictedBeforeReveal:t.predictedBeforeReveal,

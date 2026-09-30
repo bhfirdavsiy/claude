@@ -49,7 +49,10 @@ test('domain audit: the modeled salts come from content, ≥2 distinct outcomes,
   assert.ok(DATA.records.every(r=>r.reviewStatus==='pending'),'no chemistry approval by tooling');
   assert.equal(DATA.indicator.reviewStatus,'pending');
   for(const m of ['acidic','basic','neutral']) assert.equal(model.indicatorColor(m).modeled,true);
-  assert.throws(()=>HydrolysisModel.from({...DATA,indicator:{...DATA.indicator,colors:{acidic:'red'}}}),/HYDROLYSIS_INDICATOR_INVALID/);
+  // P1.5 closeout: a partial colour map loads (the missing medium fails closed at reveal — p1-5-closeout); a
+  // structurally invalid block is rejected. The old expectation (partial map = invalid) conflated the two.
+  assert.throws(()=>HydrolysisModel.from({...DATA,indicator:{...DATA.indicator,colors:{acidic:'not-a-colour'}}}),/HYDROLYSIS_INDICATOR_INVALID/);
+  assert.equal(HydrolysisModel.from({...DATA,indicator:{...DATA.indicator,colors:{acidic:'red'}}}).indicatorColor('basic').modeled,false);
   assert.equal(HydrolysisModel.from({records:DATA.records}).indicatorColor('acidic').modeled,false,'no indicator content → no invented colour');
 });
 
@@ -67,11 +70,15 @@ test('trial: a prediction AFTER the reveal is recorded but never credited; a wro
   assert.deepEqual([late.trials[0].correct,late.trials[0].predictedBeforeReveal],[true,false]);
   const wrong=evaluateHydrolysisTrials(model,'AlCl3',[sel('AlCl3'),pred('basic'),reveal]);
   assert.deepEqual([wrong.achieved,wrong.trials[0].correct,wrong.trials[0].actualMedium],[false,false,'acidic']);
-  // after a recorded trial the prediction is locked; a new selection opens a new trial (evidence 2)
+  // after a recorded trial the prediction is locked
   const locked=evaluateHydrolysisTrials(model,'AlCl3',[sel('AlCl3'),pred('basic'),reveal,pred('acidic')]);
   assert.equal(locked.rejected,'HYDROLYSIS_PREDICTION_LOCKED'); assert.equal(locked.trials.length,1); assert.equal(locked.achieved,false);
+  // P1.5 closeout: re-selecting a salt whose medium was already revealed would only copy the answer — it is
+  // rejected (the old expectation "a new selection of the same salt opens a credited trial" allowed that copy)
   const again=evaluateHydrolysisTrials(model,'AlCl3',[sel('AlCl3'),pred('basic'),reveal,sel('AlCl3'),pred('acidic'),reveal]);
-  assert.deepEqual(again.trials.map(t=>t.correct),[false,true]); assert.equal(again.achieved,true);
+  assert.deepEqual(again.trials.map(t=>t.correct),[false]); assert.equal(again.achieved,false);
+  const next=evaluateHydrolysisTrials(model,'AlCl3',[sel('Na2CO3'),pred('acidic'),reveal,sel('AlCl3'),pred('acidic'),reveal]);
+  assert.deepEqual(next.trials.map(t=>t.correct),[false,true]); assert.equal(next.achieved,true,'a different salt is a new trial');
   // other salts are exploration: a correct prediction on another salt does not complete the target task
   const other=evaluateHydrolysisTrials(model,'AlCl3',[sel('Na2CO3'),pred('basic'),reveal]);
   assert.deepEqual([other.trials[0].correct,other.achieved],[true,false]);
@@ -207,10 +214,13 @@ test('renderer flow (mini DOM): indicator only after a prediction, locked after 
     const status=q('[role="status"]');
     assert.equal(status.getAttribute('aria-live'),'polite');
     assert.match(status.textContent,/Indikator \(lakmus\) qizil tusga o‘tdi\. Muhit kislotali\./);
-    // a new trial: choose the salt again, predict, reveal → goal reached
-    await pick('[data-salt="NaCl"]'); await pick('[data-salt="AlCl3"]');
-    await pick('[data-medium="acidic"]'); q('[data-action="add-indicator"]').click(); await settle();
-    assert.equal(q('.kl-hydro__goal-state').dataset.goal,'reached');
+    // P1.5 closeout: the tried salt cannot be chosen again in this attempt; another salt is a new trial
+    await pick('[data-salt="NaCl"]');
+    assert.equal(q('[data-salt="AlCl3"]').disabled,true,'AlCl3 was tried in this attempt');
+    assert.match(q('[data-salt="AlCl3"]').parentNode.textContent,/sinab ko‘rilgan/);
+    await pick('[data-medium="neutral"]'); q('[data-action="add-indicator"]').click(); await settle();
+    assert.equal(q('.kl-hydro__feedback').dataset.result,'correct');
+    assert.equal(q('.kl-hydro__goal-state').dataset.goal,'pending','a correct trial on another salt does not reach the goal');
     assert.equal(dom.root.querySelectorAll('li').length,2,'two trials in the history');
   }finally{ dom.restore(); }
 });

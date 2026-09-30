@@ -961,7 +961,8 @@
       "runtime": "READY",
       "content": "REVIEW_PENDING",
       "reasons": [
-        "ACTIVITY_REVIEW_PENDING"
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
       ],
       "enforcement": "observe"
     },

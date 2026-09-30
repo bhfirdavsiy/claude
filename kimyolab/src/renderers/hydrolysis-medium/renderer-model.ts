@@ -12,7 +12,8 @@ export type HydrolysisStep='chooseSalt'|'predict'|'reveal'|'observed';
 
 export interface HydrolysisRendererModel {
   schema:typeof HYDROLYSIS_RENDERER_MODEL_SCHEMA;
-  salts:Array<{id:string;label:string;selected:boolean}>;
+  /** tried: this salt's medium was already revealed in this attempt (domain) — it cannot be chosen again */
+  salts:Array<{id:string;label:string;selected:boolean;tried:boolean}>;
   target:{id:string;label:string};
   media:Array<{id:HydrolysisMedium;label:string;selected:boolean}>;
   step:HydrolysisStep;
@@ -36,6 +37,7 @@ const INDICATOR_WORD:Readonly<Record<string,string>>=Object.freeze({litmus:'lakm
 const REJECTION_TEXT:Readonly<Record<HydrolysisRejection,string>>=Object.freeze({
   HYDROLYSIS_NOT_MODELED:'Bu tuz modelda yo‘q, shuning uchun uni sinab bo‘lmaydi.',
   HYDROLYSIS_NO_SALT:'Avval tuzni tanlang.',
+  HYDROLYSIS_ALREADY_TRIED:'Bu tuz shu urinishda sinab ko‘rilgan. Qayta sinash uchun yangi urinishni boshlang.',
   HYDROLYSIS_PREDICTION_LOCKED:'Indikator qo‘shilgandan keyin bashoratni o‘zgartirib bo‘lmaydi. Yangi sinov uchun tuzni qayta tanlang.',
   HYDROLYSIS_ACTION_INVALID:'Bu amalni bajarib bo‘lmadi.',
   HYDROLYSIS_INDICATOR_NOT_MODELED:'Indikator ma’lumoti modelda yo‘q, natijani ko‘rsatib bo‘lmaydi.',
@@ -47,7 +49,7 @@ export const formulaLabel=(f:string)=>f.replace(/\d/g,d=>SUB[Number(d)]!);
 const isMedium=(m:unknown):m is HydrolysisMedium=>m==='acidic'||m==='basic'||m==='neutral';
 function isState(x:any):x is HydrolysisTrialState{
   return x&&Array.isArray(x.salts)&&x.salts.every((s:unknown)=>typeof s==='string')&&typeof x.targetSalt==='string'&&x.current&&typeof x.current.revealed==='boolean'
-    &&Array.isArray(x.trials)&&typeof x.achieved==='boolean'&&(x.current.predictedMedium===null||isMedium(x.current.predictedMedium));
+    &&Array.isArray(x.trials)&&Array.isArray(x.triedSalts)&&typeof x.achieved==='boolean'&&(x.current.predictedMedium===null||isMedium(x.current.predictedMedium));
 }
 
 /** The canonical converter: engine result → HydrolysisRendererModel. Throws on a result that is not a hydrolysis result. */
@@ -66,7 +68,7 @@ export function toHydrolysisRendererModel(result:unknown):HydrolysisRendererMode
     ?{result:'late' as const,text:`Bashorat indikatordan keyin qilindi: sinov yozildi, lekin baholanmaydi. Kuzatuv — ${MEDIUM_WORD[trial.actualMedium]} muhit.`}
     :trial.correct
       ?{result:'correct' as const,text:`Bashoratingiz to‘g‘ri: muhit ${MEDIUM_WORD[trial.actualMedium]}.`}
-      :{result:'incorrect' as const,text:`Bashoratingiz noto‘g‘ri: siz “${MEDIUM_WORD[trial.predictedMedium]}” dedingiz, kuzatuv esa ${MEDIUM_WORD[trial.actualMedium]} muhitni ko‘rsatdi. Boshqa tuzni yoki shu tuzni qayta sinab ko‘ring.`}):null;
+      :{result:'incorrect' as const,text:`Bashoratingiz noto‘g‘ri: siz “${MEDIUM_WORD[trial.predictedMedium]}” dedingiz, kuzatuv esa ${MEDIUM_WORD[trial.actualMedium]} muhitni ko‘rsatdi. Boshqa tuzni sinab ko‘ring yoki yangi urinishni boshlang.`}):null;
   const step:HydrolysisStep=!c.selectedSalt?'chooseSalt':c.revealed?'observed':c.predictedMedium?'reveal':'predict';
   const goalReached=(Array.isArray(r.evidence)?r.evidence:[]).some((e:any)=>e?.type==='construction'&&e.achieved===true);
   const target={id:s.targetSalt,label:formulaLabel(s.targetSalt)};
@@ -81,7 +83,7 @@ export function toHydrolysisRendererModel(result:unknown):HydrolysisRendererMode
   ].filter(Boolean);
   return {
     schema:HYDROLYSIS_RENDERER_MODEL_SCHEMA,
-    salts:s.salts.map(id=>({id,label:formulaLabel(id),selected:id===c.selectedSalt})),
+    salts:s.salts.map(id=>({id,label:formulaLabel(id),selected:id===c.selectedSalt,tried:s.triedSalts.includes(id)})),
     target,
     media:MEDIUM_ORDER.map(id=>({id,label:MEDIUM_TITLE[id],selected:id===c.predictedMedium})),
     step,

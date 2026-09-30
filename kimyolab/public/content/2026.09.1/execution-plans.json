@@ -503,7 +503,7 @@
       "runtime": "beta2-advanced",
       "capability": "hydrolysis-experiment",
       "configSource": "beta2-advanced",
-      "configVersion": "1.0.0",
+      "configVersion": "2.0.0",
       "rendererRequirement": {
         "capability": "hydrolysis-medium",
         "range": "^1.0.0"
@@ -771,7 +771,7 @@
       "runtime": "beta3-advanced",
       "capability": "hydrolysis",
       "configSource": "beta3-advanced",
-      "configVersion": "1.0.0",
+      "configVersion": "2.0.0",
       "rendererRequirement": {
         "capability": "hydrolysis-medium",
         "range": "^1.0.0"

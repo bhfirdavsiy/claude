@@ -6,7 +6,7 @@
   "assessmentVersion": "0.0.0",
   "scoringVersion": "0.0.0",
   "createdAt": "2026-09-22T00:00:00.000Z",
-  "checksum": "51824564c934bd5b4c21b3166227229c4c71dd20e349e5f61045ebbb65b9ded3",
+  "checksum": "435e69f55515871faf97b0f05d6cb156188b74b73a8e4050b489b6693b217ee1",
   "compatibility": {
     "minAppVersion": "20.1.0"
   },
@@ -25,7 +25,7 @@
     },
     {
       "path": "activity-configs/beta2-advanced.json",
-      "checksum": "ef6543787aafea6fefb267a9990f6040cb8a6b281b6e354453fcd6f79c460cf9",
+      "checksum": "d5d51340625749481a4cc4980a1a330166c60777bfd066d44e0c048eaa903628",
       "size": 1021
     },
     {
@@ -40,7 +40,7 @@
     },
     {
       "path": "activity-configs/beta3-advanced.json",
-      "checksum": "f1f3cbeb4e67da0326ecaaf3e7fe8d9b3ce5cbb530ff56a4e1d771a67b994fae",
+      "checksum": "91f5e27cbd2c3e71fd5c864414a8fecda36cd958d20a9bf75354888bbc330e7f",
       "size": 6015
     },
     {
@@ -60,8 +60,8 @@
     },
     {
       "path": "activity-readiness.json",
-      "checksum": "bda98723c5461a6c9e42a75c831223dae307837097f9c5424d932322ac8988a0",
-      "size": 59052
+      "checksum": "5749c7a0bd5f7b371e9aeacc481c3dea07fef87666de3a9e5ea2b195fc8034de",
+      "size": 59089
     },
     {
       "path": "aliases.yaml",
@@ -160,7 +160,7 @@
     },
     {
       "path": "execution-plans.json",
-      "checksum": "0a6f304baba067571d4cbb5cca44d8e4905cccec13dfb0e5e893f89ceca9e2c1",
+      "checksum": "3dc2187ffa95f895f73ff431a62c5f2208486b06e8cee4e126cddeb31c608f27",
       "size": 34298
     },
     {
@@ -210,8 +210,8 @@
     },
     {
       "path": "practice-activities.json",
-      "checksum": "4d0ca029e92247262c980aadd52ab531274b7826006ad5782d52534f152cf003",
-      "size": 310909
+      "checksum": "6d69e2c2cb8ee454b8f022ad1ed1a4aba9f6ad080f654383df69f4bbfca3b5a4",
+      "size": 311097
     },
     {
       "path": "theory-activities.json",

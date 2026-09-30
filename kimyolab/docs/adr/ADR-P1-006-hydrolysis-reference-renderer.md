@@ -92,3 +92,59 @@ Regression test birinchi yozildi va alohida commit qilindi: `tests/p1-5-hydrolys
 - WebGL / 3D, to‘liq periodik jadval renderer’i.
 - Global readiness.
 - Assessment auto-approval, D9, server-side assessment.
+
+## Addendum — P1.5 closeout (merge oldidan semantik audit)
+
+### C1. “Yangi kimyo yo‘q” da’vosi tuzatildi (Variant A)
+- Hydrolysis **klassifikatsiyasi** (4 tuz → muhit) yangi emas.
+- Lekin **indikator kuzatuvi ma’lumoti** (lakmus: kislotali → qizil, ishqoriy → ko‘k, neytral → binafsha) P1.5 da qo‘shildi. Bu yangi chemistry/content assertion.
+- U `reviewStatus: pending` va CHEM-033 review surface’ida. Test: bitta rang o‘zgarsa `expertReviewHash` o‘zgaradi.
+- Oldindan review qilingan kanonik manba topilmadi (Variant B mumkin emas). Dublikat truth yaratilmadi: rang faqat `hydrolysis.json` da.
+
+### C2. Indikator rangi kimning authority’si?
+Zanjir: `content (hydrolysis.json.indicator)` → `HydrolysisModel.indicatorColor` → domain observation `{medium, indicator, color}` → `HydrolysisRendererModel` → renderer.
+- Renderer va converter faqat **rang ID → so‘z** (`red` → “qizil”) ni biladi. “kislotali → qizil” mapping’i ularda yo‘q.
+- Test content’dagi rangni `yellow` ga almashtiradi, va renderer “sariq” ko‘rsatadi.
+
+### C3. Indikator validatsiyasi
+`validateIndicator`:
+- `id`, `colors`, `explanation`, `sourceRefs` va `reviewStatus` (`pending` | `approved`) majburiy;
+- noma’lum muhit kaliti yoki noma’lum rang ID → `HYDROLYSIS_INDICATOR_INVALID:<field>`.
+
+Rangi yo‘q muhit load’da xato emas. Uni ochish `HYDROLYSIS_INDICATOR_NOT_MODELED` bilan fail-closed bo‘ladi: kuzatuv ham, trial ham yo‘q.
+
+`chemistry:validate` `hydrolysisIndicator` qamrovini (`modeledMedia`, `missingMedia`) hisobotga yozadi va bo‘shliq bo‘lsa yiqiladi.
+
+### C4. 11.11 semantik o‘zgarishi va versiyalash
+| | Eski (P1.5 gacha) | Yangi |
+|---|---|---|
+| Kiritish | o‘quvchi muhitni **yozadi** (erkin matn) | tuz tanlash → bashorat → indikator |
+| Baholash | yozilgan qiymat = kutilgan qiymat | indikatordan **oldingi** bashorat = domain muhiti |
+| Kuzatuv | yo‘q | domain’dan (indikator rangi) |
+
+- **Xulosa:** ikki model pedagogik jihatdan **ekvivalent emas**. Yangisi kuzatuv va predict-before-reveal talab qiladi.
+- **Qaror:**
+  - 9.14 va 11.11 config versiyasi `1.0.0 → 2.0.0`. Bu evidence’dagi `activityVersion`.
+  - 11.11 construction evidence yangi identitet oldi: `…​.hydrolysis`, `targetId: hydrolysis-NH4Cl-trial`. Eski `…​.beta3.medium` / `hydrolysis:medium` evidence yangisi bilan bir xil scoring context deb ko‘rsatilmaydi.
+  - Global `scoringVersion` o‘zgartirilmadi, chunki u butun pack’ning boshqa activity’lariga ham tegardi.
+- **Mastery:** mastery konsept darajasida hisoblanadi. Eski evidence (agar biror brauzerda bo‘lsa) konsept evidence’i sifatida qoladi, lekin provenance (`activityVersion`, `targetId`) bilan farqlanadi.
+- **Eski evidence bormi?** 11.11 pilot emas. Server-side evidence yo‘q (faqat lokal IndexedDB). Production/pilot evidence topilmadi.
+- **11.11 endi hydrolysis va indikator content’iga bog‘liq.** Shuning uchun `approvals.chemistry: not_applicable → pending` qilindi. Bu review talabini **kuchaytiradi**, approval yaratmaydi. Readiness: `CHEMISTRY_REVIEW_REQUIRED` qo‘shildi, sonlar o‘zgarmadi (118/27/1).
+- **Renderer qo‘shildi ≠ release:** test 9.14/11.11 readiness yozuvlari `rendererRequirement` bilan va usiz aynan bir xil ekanini tekshiradi (`REVIEW_PENDING`, `isReleaseReady=false`).
+
+### C5. Evidence subtype
+- Aniq discriminator: `answerKind: 'hydrolysis-prediction'`. Yangi ierarxiya yaratilmadi (`AnswerEvidence` ichida).
+- Validator rad etadi:
+  - `answerKind` siz hydrolysis maydonlari (oddiy answer tasodifan `selectedSalt` olsa);
+  - qisman yozuv;
+  - noma’lum `answerKind`.
+- `rescoreEvidence` kech bashoratni versiya siyosati bo‘yicha qayta hisoblashda ham credit qilmaydi. Bu audit’da topilgan haqiqiy xato edi: avval `correct ? 1 : 0` qaytarardi.
+
+### C6. Identitet, kech bashorat, ko‘p trial
+- **Identitet:** engine ID `…​.hydrolysis.trial.{n}` retry’da takrorlanadi, lekin persistence har yozuvga yangi UUID beradi va uni `attemptId` ga bog‘laydi (`sourceEvidenceId` iz sifatida qoladi). Append-only (test).
+- **Kech bashorat:** yoziladi, `score 0`, tugallanmaydi, rescore ham 0.
+- **Ko‘p trial (inflation):** bitta urinishda **har tuzga bitta trial**. Muhiti ochilgan tuzni qayta tanlash `HYDROLYSIS_ALREADY_TRIED` bilan rad etiladi, chunki bu faqat javobni ko‘chirish bo‘lardi.
+  - Urinishdagi trial soni ≤ modellashtirilgan tuzlar soni.
+  - Target’da xato qilingan bo‘lsa, faqat yangi urinish (retry).
+  - Mastery trial ballarining o‘rtachasini oladi. Takrorlash bonus bermaydi, `independenceKey` bitta.
+- **Target invariant:** boshqa tuz bo‘yicha to‘g‘ri trial `score 1` oladi (haqiqiy bashorat), lekin activity’ni **tugallamaydi** (test: 3 ta tuz).

@@ -46,12 +46,14 @@ function mount(root            ,host             ,context                     ) 
   const mediumSet=el('fieldset',{className:'kl-hydro__group'});
   mediumSet.append(el('legend',{text:'2. Muhitni oldindan ayting'}));
   const saltInputs=new Map                         ();
+  const saltTags=new Map                    ();
   const mediumInputs=new Map                         ();
   const radio=(name       ,value       ,label       ,data                      ,onPick         )=>{
     const input=el('input',{attrs:{type:'radio',name,value,...data}});
     input.addEventListener('change',()=>{ if(input.checked) onPick(); });
-    const l=el('label',{className:'kl-hydro__option'}); l.append(input,el('span',{text:label}));
-    return {input,label:l};
+    const tag=el('span',{className:'kl-hydro__tag'});
+    const l=el('label',{className:'kl-hydro__option'}); l.append(input,el('span',{text:label}),tag);
+    return {input,label:l,tag};
   };
   const reveal=el('button',{className:'kl-button kl-button--primary',text:'3. Indikator qo‘shish',attrs:{type:'button','data-action':'add-indicator'}});
   reveal.addEventListener('click',()=>send({type:'addIndicator'}));
@@ -80,8 +82,11 @@ function mount(root            ,host             ,context                     ) 
     goal.textContent=`Maqsad: ${m.target.label} eritmasi muhitini oldindan ayting va indikator bilan tekshiring.`;
     for(const s of m.salts){
       let input=saltInputs.get(s.id);
-      if(!input){ const r=radio(`${uid}-salt`,s.id,s.label,{'data-salt':s.id},()=>send({type:'selectSalt',payload:{salt:s.id}})); saltSet.append(r.label); saltInputs.set(s.id,r.input); input=r.input; }
+      if(!input){ const r=radio(`${uid}-salt`,s.id,s.label,{'data-salt':s.id},()=>send({type:'selectSalt',payload:{salt:s.id}})); saltSet.append(r.label); saltInputs.set(s.id,r.input); input=r.input; saltTags.set(s.id,r.tag); }
       input.checked=s.selected;
+      // a salt tried in this attempt stays visible (checked while it is the current one) but cannot be picked again
+      input.disabled=s.tried&&!s.selected;
+      saltTags.get(s.id) .textContent=s.tried?' (sinab ko‘rilgan)':'';
     }
     for(const md of m.media){
       let input=mediumInputs.get(md.id);

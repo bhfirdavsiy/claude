@@ -5,6 +5,7 @@ import { parseFormula } from '../src/domain/chemistry/formula-parser.ts';
 import { balanceSpecies } from '../src/domain/chemistry/equation-balancer.ts';
 import { SpeciesRegistry } from '../src/domain/chemistry/species-registry.ts';
 import { ReactionMatcher } from '../src/domain/chemistry/reaction-matcher.ts';
+import { HydrolysisModel, indicatorCoverage } from '../src/domain/chemistry/hydrolysis-model.ts';
 import {evaluateExternalApproval} from './approval-evidence.ts';
 import {buildStableSignoffTargets} from './stable-signoff-targets.ts';
 
@@ -42,6 +43,12 @@ for(const m of schoolModels.models??[]){
   for(const ref of m?.sourceRefs??[]) if(!schoolSourceIds.has(ref)) sourceErrors++;
 }
 
+// P1.5 closeout: hydrolysis records + indicator block (the indicator colours are chemistry content, review pending)
+const hydrolysis=JSON.parse(fs.readFileSync(path.join(chem,'hydrolysis.json'),'utf8'));
+let hydrolysisErrors=0;
+try{HydrolysisModel.from(hydrolysis);}catch{hydrolysisErrors++;}
+const coverage=indicatorCoverage(hydrolysis.indicator);
+if(!hydrolysis.indicator||coverage.missing.length) hydrolysisErrors++;
 const target=buildStableSignoffTargets(root).targets['CHEM-033'];
 let approvalRecord:any=undefined;
 try{approvalRecord=JSON.parse(fs.readFileSync(path.join(root,'reports/chemistry-expert-approval.json'),'utf8'));}catch{}
@@ -57,6 +64,9 @@ const report={
   schoolLabModelRecords:(schoolModels.models??[]).length,
   schoolLabModelErrors:schoolModelErrors,
   unknownReactionPolicy:'REACTION_NOT_MODELED',
+  hydrolysisRecords:(hydrolysis.records??[]).length,
+  hydrolysisIndicator:{id:hydrolysis.indicator?.id??null,modeledMedia:coverage.modeled,missingMedia:coverage.missing,reviewStatus:hydrolysis.indicator?.reviewStatus??null},
+  hydrolysisErrors,
   expertApproval:effectiveApproval.status,
   expertApprovalValid:effectiveApproval.valid,
   expertApprovalReason:effectiveApproval.reason,
@@ -68,4 +78,4 @@ const report={
 fs.mkdirSync(path.join(root,'reports'),{recursive:true});
 fs.writeFileSync(path.join(root,'reports/chemistry-validation.json'),JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify(report));
-if(formulaErrors||reactionBalanceErrors||referenceErrors||sourceErrors||schoolModelErrors)process.exitCode=1;
+if(formulaErrors||reactionBalanceErrors||referenceErrors||sourceErrors||schoolModelErrors||hydrolysisErrors)process.exitCode=1;
