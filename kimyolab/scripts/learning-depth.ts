@@ -15,6 +15,24 @@ import {deriveAuthoringTasks} from './lib/authoring.ts';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 export const DEPTH_REPORTS={baseline:'reports/learning-depth-baseline.json',summary:'reports/learning-depth-summary.json',gapMap:'reports/learning-unit-gap-map.json',progress:'reports/project-progress.json',workPackages:'reports/p2-work-packages.json'};
 /** Published weights (docs/roadmap/PROGRESS_MODEL.md). Changing one is a reviewed change to this file AND the doc. */
+/** The technical milestones in order, with their names. A milestone is DELIVERED when its kill-critic review exists
+ *  in docs/reviews/; the latest delivered one is the CURRENT stage (the stage this report describes), every earlier one
+ *  is COMPLETED, and the NEXT technical milestone is the first roadmap entry after the current one. */
+export const ROADMAP:ReadonlyArray<{id:string;label:string}>=[
+  {id:'P2.0',label:'learning depth & coverage baseline'},
+  {id:'P2.1',label:'learner interaction reliability & usability'},
+  {id:'P2.2',label:'portal-safe single product host foundation'},
+  {id:'P3',label:'raqamlitalim.trm.uz portal deployment'},
+];
+const milestoneOrder=(a:string,b:string)=>a.localeCompare(b,undefined,{numeric:true});
+export function milestoneState(base:string){
+  const delivered=fs.readdirSync(path.join(base,'docs/reviews')).filter(f=>/-kill-critic\.md$/.test(f)).map(f=>f.replace('-kill-critic.md','').toUpperCase()).sort(milestoneOrder);
+  const current=delivered.at(-1)!;
+  const label=(id:string)=>ROADMAP.find(r=>r.id===id)?.label;
+  const next=ROADMAP.filter(r=>milestoneOrder(r.id,current)>0).slice(0,1).map(r=>`${r.id} — ${r.label}`);
+  return {completed:['P0-INTEGRITY',...delivered.slice(0,-1)],current,currentLabel:label(current)?`${current} — ${label(current)}`:current,next};
+}
+
 export const WEIGHTS={learningProduct:{learningCoverage:1/6,modelBasedInteraction:1/6,assessmentCoverage:1/6,governance:1/6,release:1/6,localization:1/6},overall:{foundation:0.4,learningProduct:0.6}};
 const round=(x:number)=>Math.round(x*1000)/1000;
 
@@ -131,9 +149,7 @@ export async function buildDepthReports(base=root){
   };
   const learningProduct=Object.entries(WEIGHTS.learningProduct).reduce((s,[k,w])=>s+w*(comp as any)[k],0);
   const overall=WEIGHTS.overall.foundation*foundation+WEIGHTS.overall.learningProduct*learningProduct;
-  const CURRENT='P2.0';
-  // completed = every phase with a kill-critic review in the repository, except the one in progress
-  const milestones=fs.readdirSync(path.join(base,'docs/reviews')).filter(f=>/-kill-critic\.md$/.test(f)).map(f=>f.replace('-kill-critic.md','').toUpperCase()).filter(m=>m!==CURRENT).sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
+  const ms=milestoneState(base);
   const P=(x:number)=>round(x*100);
   const progress={
     schema:'kimyolab.project-progress.v1',
@@ -151,10 +167,10 @@ export async function buildDepthReports(base=root){
       localization:{percent:P(comp.localization),formula:'mean over target locales (uz-Latn, uz-Cyrl, ru) of localized unit content / 122'},
     },
     whereWeStarted:{label:'P0: legacy KimyoLab content migrated into a validated content pack; no canonical runtime, readiness, review or release governance',milestone:'P0-INTEGRITY'},
-    whereWeAreNow:{milestone:'P2.0',foundationPercent:P(foundation),learningProductPercent:P(learningProduct),facts:[`${n} units, ${A.length} activities`,`${summary.practiceCoverage.activitiesByDepth.MODEL_BASED??0} model-based activities in ${modelLUs.length} units`,`${items} assessment items (0 approved) in ${summary.assessmentCoverage.learningUnitsWithItems} unit`,`0 human approvals, 0 human releases, 0 pilot sign-offs`,`theory: ${summary.theoryCoverage.structured.count} structured / ${n}`]},
-    completedMilestones:['P0-INTEGRITY',...milestones],
-    currentMilestone:'P2.0 — learning depth & coverage baseline',
-    nextMilestones:['P2.1 — first learning-depth work package (chosen by a person from reports/p2-work-packages.json)','human review round (workbench): chemistry A–C queues, lu.9.15 assessment','release decisions for the 27 pending activities'],
+    whereWeAreNow:{milestone:ms.current,foundationPercent:P(foundation),learningProductPercent:P(learningProduct),facts:[`${n} units, ${A.length} activities`,`${summary.practiceCoverage.activitiesByDepth.MODEL_BASED??0} model-based activities in ${modelLUs.length} units`,`${items} assessment items (0 approved) in ${summary.assessmentCoverage.learningUnitsWithItems} unit`,`0 human approvals, 0 human releases, 0 pilot sign-offs`,`theory: ${summary.theoryCoverage.structured.count} structured / ${n}`]},
+    completedMilestones:ms.completed,
+    currentMilestone:ms.currentLabel,
+    nextMilestones:[...ms.next,'human review round (workbench): chemistry A–C queues, lu.9.15 assessment','release decisions for the 27 pending activities'],
     remainingMajorWork:['assessment for 121 units (and review of lu.9.15)','structured theory for 122 units','model-based practice beyond 6 units','source provenance for 127 assertions','uz-Cyrl and ru localization','accessibility verification of 141 legacy activities','human review and release decisions'],
     uzSummary:[
       `Platforma poydevori: ${P(foundation)}% (${foundationChecks.filter(c=>c.pass).length}/${foundationChecks.length} tekshiruv o‘tdi).`,
@@ -181,7 +197,7 @@ export async function buildDepthReports(base=root){
     {id:'wp.lab-repair',category:'lab repair',affectedLearningUnits:luOf([...staticLabs,...crash]),affectedActivities:[...staticLabs,...crash],facts:{proceduralLabsWithoutDomainState:staticLabs.length,crashOnWrongInput:crash,cannotSucceed:d.labs.cannotSucceed},dependencies:['reaction/model grounding of lab steps (P1 guided-lab hardening pattern)'],machineWork:['ground procedural steps in the reaction KB / models','fail-closed feedback instead of an exception on unexpected input'],humanWork:['chemistry review of grounded steps'],blockers:[]},
     {id:'wp.theory-enrichment',category:'theory enrichment',affectedLearningUnits:U.filter(u=>u.dimensions.theory!=='STRUCTURED').map(u=>u.learningUnitId),affectedActivities:[],facts:{minimal:U.filter(u=>u.dimensions.theory==='MINIMAL').length,withWorkedExample:U.filter(u=>u.theory.checks.workedExample).length,withMisconception:U.filter(u=>u.theory.checks.misconception).length},dependencies:['theory block schema (worked example, misconception, summary)'],machineWork:['theory block schema + validation'],humanWork:['author explanations, worked examples, misconceptions, summaries','didactic review'],blockers:[]},
     {id:'wp.accessibility',category:'accessibility',affectedLearningUnits:luOf(legacyUnknownA11y),affectedActivities:legacyUnknownA11y,facts:{verified:4,unknown:legacyUnknownA11y.length},dependencies:[],machineWork:['keyboard/screen-reader E2E for the legacy practice UI families (experiment, form simulation, trainer, calculation, case)'],humanWork:['accessibility review'],blockers:[]},
-    {id:'wp.localization',category:'localization',affectedLearningUnits:luOf(rawIds),affectedActivities:rawIds,facts:{targets:['uz-Latn','uz-Cyrl','ru'],contentLocales:['uz-Latn'],rawIdLabelActivities:d.localization.rawIdLabels.activities,untranslatedAnswerTokenActivities:d.localization.untranslatedAnswerTokens.activities,hardcodedUzbekUiLiterals:d.localization.hardcodedUzbekUi.literals},dependencies:['locale architecture decision (content packs per locale)'],machineWork:['label catalog for control/step ids','answer-choice UI instead of typed tokens','UI string catalog'],humanWork:['uz-Cyrl and ru translation','terminology review'],blockers:[]},
+    {id:'wp.localization',category:'localization',affectedLearningUnits:luOf(rawIds),affectedActivities:rawIds,facts:{targets:['uz-Latn','uz-Cyrl','ru'],contentLocales:['uz-Latn'],rawIdLabelActivities:d.localization.rawIdLabels.activities,untranslatedAnswerTokenActivities:d.localization.untranslatedAnswerTokens.activities,hardcodedUzbekUiLiterals:d.localization.hardcodedUzbekUi.literals},dependencies:['locale architecture decision (content packs per locale)'],machineWork:['P2.1 done: label catalog, choice UI for closed domains, shared UI string catalog','choice UI for the remaining token fields once option sets exist'],humanWork:['author option sets for the OPTION_SET_MISSING fields (reports/learner-answer-input-audit.json)','review the uz-Latn learner-interaction catalog','uz-Cyrl and ru translation','terminology review'],blockers:d.localization.untranslatedAnswerTokens.activities?['OPTION_SET_MISSING: only the target token exists in the repository']:[]},
     {id:'wp.human-review',category:'human review',affectedLearningUnits:U.map(u=>u.learningUnitId),affectedActivities:A.map(x=>x.activityId),facts:{chemistryAssertionsPending:d.chemistry.assertions-d.chemistry.approved,assessmentItemsPending:items-approvedItems,activitiesContentPending:A.filter(x=>x.content!=='APPROVED').length,releaseDecisionsMissing:releaseStatus.totals.decisionMissing,pilotSignoffsPending:4},dependencies:['provenance (approvals without an acceptable source do not count)'],machineWork:[],humanWork:['workbench review rounds','release decisions','pilot sign-offs'],blockers:['0 human decisions so far']},
     {id:'wp.provenance',category:'provenance',affectedLearningUnits:U.filter(u=>u.provenanceDebt.assertionsWithoutAcceptableSource>0).map(u=>u.learningUnitId),affectedActivities:[],facts:{assertionsWithoutAcceptableSource:d.chemistry.provenanceDebt,addSourceTasks:tasks.filter(t=>t.action==='add-source').length,note:'PROVENANCE DEBT — sources to register and cite; the learning content exists'},dependencies:['source registry reclassification with evidence (reviewed PR)'],machineWork:[],humanWork:['register textbooks/standards/glossary','cite them via add-source drafts'],blockers:[]},
   ];

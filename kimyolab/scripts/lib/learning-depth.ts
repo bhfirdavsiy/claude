@@ -15,6 +15,7 @@ import {buildMasteryView} from '../../src/domain/mastery/view.ts';
 import {ContentClient} from '../../src/app/content-client.ts';
 import {ReferencePracticeSession} from '../../src/features/practice/session.ts';
 import {buildPracticeUiModel} from '../../src/features/practice/ui-model.ts';
+import {answerValue} from '../../src/features/practice/form-question.ts';
 import {isPracticeResultComplete} from '../../src/runtime/learning-orchestrator/selectors.ts';
 import {diskFetch} from '../pilot-status.ts';
 import {uiPathCanSucceed} from '../renderer-foundation-readiness.ts';
@@ -108,6 +109,17 @@ async function legacyCanSucceed(model:any):Promise<{verdict:string;detail:string
   else if(ui.kind==='trainer') commands=[{kind:'trainer-answer',answer:String(c.acceptedAnswers?.[0]??c.expectedFormula??'')}];
   else if(ui.kind==='calculation') commands=ui.steps.map((s:any)=>({kind:'calculation-response',response:{stepId:s.id,value:Number((c.steps??[]).find((x:any)=>x.id===s.id)?.value??0),unit:s.unit}}));
   else if(ui.kind==='case') commands=[{kind:'case-submit',value:{evidenceIds:(c.allowedEvidenceIds??[]).slice(0,c.minEvidenceSelections??1),decision:(c.decisionKeywords??[]).join(' '),justification:[...(c.scientificKeywords??[]),...(c.reasoningKeywords??[])].join(' ')}}];
+  // P2.1: a closed-domain field is a CHOICE — the learner can only send one of its options, so the solver must find
+  // the answer among the rendered choices (a missing option = CANNOT_SUCCEED) and send it the way the form does
+  const questionOf=(cmd:any)=>ui.kind==='simulation'?ui.controls.find((x:any)=>x.field===cmd.action?.field)?.question:ui.kind==='trainer'?ui.question:undefined;
+  const viaForm=(cmds:any[])=>cmds.map((cmd:any)=>{
+    const q=questionOf(cmd); if(q?.input?.kind!=='choice') return cmd;
+    const raw=cmd.kind==='trainer-answer'?cmd.answer:cmd.action.value;
+    const i=q.input.choices.findIndex((ch:any)=>ch.value===String(raw));
+    const value=answerValue(q,String(i));
+    return cmd.kind==='trainer-answer'?{...cmd,answer:value===null?'':String(value)}:{...cmd,action:{...cmd.action,value:value??''}};
+  });
+  commands=viaForm(commands);
   let r:any;
   try{ r=await run(commands); }catch(e:any){ return {verdict:'ERROR',detail:String(e?.message),answerSource:source}; }
   if(!ok(r)){
@@ -117,6 +129,7 @@ async function legacyCanSucceed(model:any):Promise<{verdict:string;detail:string
       if(ui.kind==='simulation') commands=ui.controls.map((x:any)=>({kind:'simulation-action',action:{field:x.field,value:coerce(exp,x.valueType)}}));
       else if(ui.kind==='trainer') commands=[{kind:'trainer-answer',answer:String(exp)}];
       else if(ui.kind==='calculation'&&exp&&typeof exp==='object') commands=[{kind:'calculation-response',response:{stepId:exp.stepId,value:exp.value,unit:exp.unit}}];
+      commands=viaForm(commands);
       try{ r=await run(commands); }catch(e:any){ return {verdict:'ERROR',detail:String(e?.message),answerSource:source}; }
     }
   }
@@ -129,7 +142,9 @@ async function legacyCanSucceed(model:any):Promise<{verdict:string;detail:string
   }
   // the value the learner must TYPE: an ASCII identifier-like token (e.g. "acidic", "forward") in a free-text field
   // means an Uzbek learner has to guess an untranslated code word
-  const typed=commands.map((x:any)=>x.action?.value??x.answer).filter((v:any)=>typeof v==='string');
+  // P2.1: a generic trainer's acceptedAnswers are authored Uzbek LEARNER answers ("asos"/"ishqor"), not internal codes
+  const authoredAnswers=ui.kind==='trainer'&&Array.isArray(c.acceptedAnswers);
+  const typed=commands.filter((x:any)=>questionOf(x)?.input?.kind!=='choice'&&!(authoredAnswers&&x.kind==='trainer-answer')).map((x:any)=>x.action?.value??x.answer).filter((v:any)=>typeof v==='string');
   const tokenAnswer=typed.find((v:string)=>/^[a-z][a-z_-]{2,}$/.test(v)&&v!=='true'&&v!=='false')??null;
   return {verdict:ok(r)?'CAN_SUCCEED':'CANNOT_SUCCEED',detail:`${ui.kind}: ${commands.length} command(s); complete=${Boolean(r)&&isPracticeResultComplete(model.type,r)}`,answerSource:source,wrongInput,tokenAnswer};
 }
@@ -171,12 +186,15 @@ function uiLabelDebt(model:any){
   const ui:any=model.executionPlan.rendererRequirement?null:buildPracticeUiModel(model);
   if(!ui) return {rawIdLabels:[],englishOnlyLabels:[]};
   const labels:string[]=ui.kind==='experiment'?ui.controls.map((c:any)=>c.label):ui.kind==='simulation'?ui.controls.map((c:any)=>c.label):ui.kind==='calculation'?ui.steps.map((s:any)=>s.label):ui.kind==='case'?ui.evidenceOptions.map((o:any)=>o.label):[];
-  const raw=labels.filter(l=>ID_LIKE.test(l)||/\bstep \d+\b|guided step/.test(l));
+  // P2.1: in addition to the P2.0 rule, a label that is exactly an id or its mechanical humanization is a raw id
+  const ids:string[]=ui.kind==='experiment'?ui.controls.map((c:any)=>c.action):ui.kind==='simulation'?ui.controls.map((c:any)=>c.field):ui.kind==='calculation'?ui.steps.map((s:any)=>s.id):ui.kind==='case'?ui.evidenceOptions.map((o:any)=>o.id):[];
+  const derived=new Set(ids.flatMap(id=>[id,id.replaceAll('-',' '),id.replace(/([A-Z])/g,' $1').trim()]));
+  const raw=labels.filter(l=>ID_LIKE.test(l)||/\bstep \d+\b|guided step/.test(l)||derived.has(l));
   const english=labels.filter(l=>/^[A-Za-z ]+$/.test(l)&&/\b(the|add|select|record|observe|mix|heat|filter|rate|field|value|step)\b/i.test(l));
-  return {rawIdLabels:uniq(raw),englishOnlyLabels:uniq(english)};
+  return {rawIdLabels:uniq(raw),englishOnlyLabels:uniq(english),localizationMissing:uniq(ui.localizationMissing??[])};
 }
 
-function hardcodedUzbek(root:string){
+export function hardcodedUzbek(root:string){
   const dirs=['src/features','src/app','src/renderers'];
   const files:string[]=[];
   for(const d of dirs){ const walk=(p:string)=>{ for(const e of fs.readdirSync(path.join(root,p),{withFileTypes:true})){ const rel=`${p}/${e.name}`; if(e.isDirectory()) walk(rel); else if(rel.endsWith('.ts')) files.push(rel); } }; if(fs.existsSync(path.join(root,d))) walk(d); }

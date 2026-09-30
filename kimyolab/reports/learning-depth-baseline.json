@@ -13266,11 +13266,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "moles",
-          "particles"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -13322,10 +13320,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "total moles"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -13379,10 +13376,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "equivalent mass"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -13434,10 +13430,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "pressure"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -13494,10 +13489,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "mass percent"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -13549,10 +13543,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "normality"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -13610,10 +13603,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "mass"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -13671,10 +13663,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "ratio o h"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -13727,13 +13718,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "h contribution",
-          "s contribution",
-          "o contribution",
-          "total"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -13786,10 +13773,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "volume 2mol stp"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -13840,14 +13826,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "waste stream",
-          "recycling rate",
-          "energy use"
-        ],
-        "englishOnlyLabels": [
-          "recycling rate"
-        ]
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -13902,12 +13883,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "boiling range",
-          "fraction demand",
-          "feedstock"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -13962,12 +13940,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "water treatment",
-          "medicine",
-          "materials"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -14024,12 +13999,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "traffic no2",
-          "industry so2",
-          "calm weather"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -14086,12 +14058,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "so2 oxidation",
-          "v2o5 catalyst",
-          "so3 absorption"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -14146,12 +14115,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "ore grade",
-          "metal reactivity",
-          "energy cost"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -14206,12 +14172,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "water",
-          "oxygen",
-          "salt"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -14266,12 +14229,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "brine",
-          "limestone",
-          "ammonia"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -14326,12 +14286,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "iron ore",
-          "coke",
-          "carbon content"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -14386,12 +14343,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "emission",
-          "wastewater",
-          "scrubber"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -14449,7 +14403,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -14504,7 +14459,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "CHEMISTRY_BASELINED_DOMAIN",
       "configKeys": [
@@ -14558,7 +14514,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "CHEMISTRY_BASELINED_DOMAIN",
       "configKeys": [
@@ -14615,7 +14572,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -14672,9 +14630,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": [
-          "add Bromine Water"
-        ]
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -14732,9 +14689,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": [
-          "add Glycerol"
-        ]
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -14787,7 +14743,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "CHEMISTRY_BASELINED_DOMAIN",
       "configKeys": [
@@ -14841,7 +14798,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "GUIDED_PROTOCOL",
       "configKeys": [
@@ -14900,13 +14858,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "heat"
-        ],
-        "englishOnlyLabels": [
-          "mix Fat Alkali",
-          "heat"
-        ]
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -14963,13 +14917,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "heat"
-        ],
-        "englishOnlyLabels": [
-          "add Na O H",
-          "heat"
-        ]
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -15027,10 +14977,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": [
-          "observe Cathode",
-          "observe Anode"
-        ]
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -15081,7 +15029,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "GUIDED_PROTOCOL",
       "configKeys": [
@@ -15137,7 +15086,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "CHEMISTRY_BASELINED_REACTION",
       "configKeys": [
@@ -15193,7 +15143,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "CHEMISTRY_BASELINED_REACTION",
       "configKeys": [
@@ -15248,7 +15199,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "GUIDED_PROTOCOL",
       "configKeys": [
@@ -15305,7 +15257,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -15360,7 +15313,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -15415,7 +15369,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -15471,7 +15426,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -15527,7 +15483,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -15582,7 +15539,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -15635,7 +15593,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "CHEMISTRY_BASELINED_REACTION",
       "configKeys": [
@@ -15746,7 +15705,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "CHEMISTRY_BASELINED_REACTION",
       "configKeys": [
@@ -15799,7 +15759,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "GUIDED_PROTOCOL",
       "configKeys": [
@@ -15857,7 +15818,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -15911,7 +15873,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -15961,7 +15924,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "CHEMISTRY_BASELINED_REACTION",
       "configKeys": [
@@ -16016,7 +15980,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "CHEMISTRY_BASELINED_REACTION",
       "configKeys": [
@@ -16069,7 +16034,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "GUIDED_PROTOCOL",
       "configKeys": [
@@ -16127,7 +16093,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -16181,7 +16148,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -16236,7 +16204,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -16290,7 +16259,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -16342,7 +16312,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "CHEMISTRY_BASELINED_REACTION",
       "configKeys": [
@@ -16397,7 +16368,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "CHEMISTRY_BASELINED_REACTION",
       "configKeys": [
@@ -16452,7 +16424,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "CHEMISTRY_BASELINED_REACTION",
       "configKeys": [
@@ -16510,7 +16483,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -16566,10 +16540,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": [
-          "observe Cathode",
-          "observe Anode"
-        ]
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -16622,7 +16594,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -16673,7 +16646,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "GUIDED_PROTOCOL",
       "configKeys": [
@@ -16727,7 +16701,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "CHEMISTRY_BASELINED_DOMAIN",
       "configKeys": [
@@ -16837,7 +16812,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "CHEMISTRY_BASELINED_DOMAIN",
       "configKeys": [
@@ -16893,7 +16869,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "CHEMISTRY_BASELINED_REACTION",
       "configKeys": [
@@ -16950,7 +16927,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -17005,7 +16983,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -17055,7 +17034,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "CHEMISTRY_BASELINED_DOMAIN",
       "configKeys": [
@@ -17114,7 +17094,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -17165,7 +17146,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "CHEMISTRY_BASELINED_DOMAIN",
       "configKeys": [
@@ -17224,7 +17206,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -17278,7 +17261,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "CHEMISTRY_BASELINED_REACTION",
       "configKeys": [
@@ -17336,7 +17320,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -17387,7 +17372,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "GUIDED_PROTOCOL",
       "configKeys": [
@@ -17440,7 +17426,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "GUIDED_PROTOCOL",
       "configKeys": [
@@ -17497,7 +17484,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -17549,7 +17537,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": "CHEMISTRY_BASELINED_DOMAIN",
       "configKeys": [
@@ -17606,10 +17595,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "formula"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -17666,7 +17654,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -17721,10 +17710,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "formula"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -17756,7 +17744,7 @@
       "canSucceedDetail": "simulation: 1 command(s); complete=true",
       "answerSource": "engine-expected",
       "wrongInput": "FEEDBACK",
-      "expectsUntranslatedToken": "chloromethane",
+      "expectsUntranslatedToken": null,
       "modules": [
         "organic-knowledge"
       ],
@@ -17780,10 +17768,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "product"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -17840,7 +17827,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -17872,7 +17860,7 @@
       "canSucceedDetail": "simulation: 1 command(s); complete=true",
       "answerSource": "engine-expected",
       "wrongInput": "FEEDBACK",
-      "expectsUntranslatedToken": "polybutadiene-repeat-unit",
+      "expectsUntranslatedToken": null,
       "modules": [
         "organic-knowledge"
       ],
@@ -17896,10 +17884,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "product"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -17931,7 +17918,7 @@
       "canSucceedDetail": "simulation: 1 command(s); complete=true",
       "answerSource": "engine-expected",
       "wrongInput": "FEEDBACK",
-      "expectsUntranslatedToken": "brominated-addition-products",
+      "expectsUntranslatedToken": null,
       "modules": [
         "organic-knowledge"
       ],
@@ -17955,10 +17942,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "product"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -18014,10 +18000,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "aromatic"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -18071,10 +18056,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "class"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -18127,10 +18111,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "class"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -18161,7 +18144,7 @@
       "canSucceedDetail": "simulation: 1 command(s); complete=true",
       "answerSource": "engine-expected",
       "wrongInput": "FEEDBACK",
-      "expectsUntranslatedToken": "ether",
+      "expectsUntranslatedToken": null,
       "modules": [
         "organic-knowledge"
       ],
@@ -18185,10 +18168,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "class"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -18242,10 +18224,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "class"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -18299,7 +18280,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -18383,10 +18365,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "configuration"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -18440,7 +18421,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -18496,10 +18478,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "conserved"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -18553,10 +18534,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "lattice"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -18610,10 +18590,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "strength"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -18723,10 +18702,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "solubility"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -18782,12 +18760,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "rate"
-        ],
-        "englishOnlyLabels": [
-          "rate"
-        ]
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -18820,7 +18795,7 @@
       "canSucceedDetail": "simulation: 1 command(s); complete=true",
       "answerSource": "engine-expected",
       "wrongInput": "FEEDBACK",
-      "expectsUntranslatedToken": "increase",
+      "expectsUntranslatedToken": null,
       "modules": [
         "kinetics-model"
       ],
@@ -18844,10 +18819,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "effect"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -18901,10 +18875,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "equilibrium"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -18936,7 +18909,7 @@
       "canSucceedDetail": "simulation: 1 command(s); complete=true",
       "answerSource": "engine-expected",
       "wrongInput": "FEEDBACK",
-      "expectsUntranslatedToken": "products",
+      "expectsUntranslatedToken": null,
       "modules": [
         "equilibrium-model"
       ],
@@ -18960,10 +18933,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "shift"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -19019,10 +18991,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "product"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -19075,11 +19046,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "property",
-          "classification"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -19132,10 +19101,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "scale"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -19241,12 +19209,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "protons",
-          "neutrons",
-          "label"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -19299,11 +19264,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "formula",
-          "classification"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -19356,11 +19319,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "element",
-          "family"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -19413,12 +19374,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "element",
-          "group",
-          "period"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -19471,11 +19429,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "scientist",
-          "system"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -19528,11 +19484,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "comparison",
-          "trend"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -19585,11 +19539,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "protons",
-          "neutrons"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -19642,11 +19594,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "pair",
-          "relation"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -19699,11 +19649,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "element",
-          "configuration"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -19756,10 +19704,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "pair"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -19812,15 +19759,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "temperature",
-          "concentration",
-          "surface",
-          "rate"
-        ],
-        "englishOnlyLabels": [
-          "rate"
-        ]
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -19873,11 +19814,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "pressure",
-          "shift"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -19932,11 +19871,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "substance",
-          "lattice"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -19989,10 +19926,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "mode"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -20045,11 +19981,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "sample",
-          "conductivity"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -20102,11 +20036,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "species",
-          "ions"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -20159,11 +20091,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "electrolyte",
-          "alpha"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -20216,11 +20146,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "element",
-          "property"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -20273,11 +20201,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "allotrope",
-          "structure"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -20330,11 +20256,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "hardness",
-          "treatment"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -20387,12 +20311,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "metal",
-          "reactivity",
-          "use"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -20445,10 +20366,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "element"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -20478,8 +20398,8 @@
       "canSucceed": "CAN_SUCCEED",
       "canSucceedDetail": "simulation: 1 command(s); complete=true",
       "answerSource": "config",
-      "wrongInput": "THROWS:MANGANESE_MEDIUM_NOT_MODELED",
-      "expectsUntranslatedToken": "acidic",
+      "wrongInput": "FEEDBACK",
+      "expectsUntranslatedToken": null,
       "modules": [
         "manganese-redox-model"
       ],
@@ -20503,10 +20423,9 @@
         ]
       },
       "localization": {
-        "rawIdLabels": [
-          "medium"
-        ],
-        "englishOnlyLabels": []
+        "rawIdLabels": [],
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -20560,7 +20479,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -20591,7 +20511,7 @@
       "canSucceedDetail": "trainer: 1 command(s); complete=true",
       "answerSource": "config",
       "wrongInput": "FEEDBACK",
-      "expectsUntranslatedToken": "spirt",
+      "expectsUntranslatedToken": null,
       "modules": [],
       "blackSwan": null,
       "steps": 0,
@@ -20614,7 +20534,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -20645,7 +20566,7 @@
       "canSucceedDetail": "trainer: 1 command(s); complete=true",
       "answerSource": "engine-expected",
       "wrongInput": "FEEDBACK",
-      "expectsUntranslatedToken": "addition",
+      "expectsUntranslatedToken": null,
       "modules": [
         "organic-knowledge"
       ],
@@ -20670,7 +20591,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -20700,7 +20622,7 @@
       "canSucceedDetail": "trainer: 1 command(s); complete=true",
       "answerSource": "engine-expected",
       "wrongInput": "FEEDBACK",
-      "expectsUntranslatedToken": "butane",
+      "expectsUntranslatedToken": null,
       "modules": [
         "organic-knowledge"
       ],
@@ -20725,7 +20647,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -20781,7 +20704,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -20812,7 +20736,7 @@
       "canSucceedDetail": "trainer: 1 command(s); complete=true",
       "answerSource": "config",
       "wrongInput": "FEEDBACK",
-      "expectsUntranslatedToken": "tabiiy",
+      "expectsUntranslatedToken": null,
       "modules": [],
       "blackSwan": null,
       "steps": 0,
@@ -20835,7 +20759,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -20891,7 +20816,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -20947,7 +20873,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -21003,7 +20930,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -21057,7 +20985,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -21113,7 +21042,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -21148,7 +21078,7 @@
       "canSucceedDetail": "trainer: 1 command(s); complete=true",
       "answerSource": "config",
       "wrongInput": "FEEDBACK",
-      "expectsUntranslatedToken": "asos",
+      "expectsUntranslatedToken": null,
       "modules": [],
       "blackSwan": null,
       "steps": 0,
@@ -21171,7 +21101,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -21225,7 +21156,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -21279,7 +21211,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -21333,7 +21266,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -21387,7 +21321,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -21443,7 +21378,8 @@
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": []
+        "englishOnlyLabels": [],
+        "localizationMissing": []
       },
       "hardening": null,
       "configKeys": [
@@ -22699,6 +22635,7 @@
       "uz-Latn": [
         "chemistry-elements.json",
         "chemistry-species.json",
+        "learner-interaction.json",
         "name-provenance.json"
       ],
       "uz-Cyrl": [],
@@ -22710,56 +22647,12 @@
       "ru": 0
     },
     "rawIdLabels": {
-      "activities": 67,
-      "examples": [
-        {
-          "activityId": "practice.calculation.11.05.planned",
-          "labels": [
-            "moles",
-            "particles"
-          ]
-        },
-        {
-          "activityId": "practice.calculation.11.06.planned",
-          "labels": [
-            "total moles"
-          ]
-        },
-        {
-          "activityId": "practice.calculation.11.07.planned",
-          "labels": [
-            "equivalent mass"
-          ]
-        },
-        {
-          "activityId": "practice.calculation.11.08.planned",
-          "labels": [
-            "pressure"
-          ]
-        },
-        {
-          "activityId": "practice.calculation.11.13.planned",
-          "labels": [
-            "mass percent"
-          ]
-        }
-      ]
+      "activities": 0,
+      "examples": []
     },
     "untranslatedAnswerTokens": {
-      "activities": 35,
+      "activities": 23,
       "examples": [
-        {
-          "activityId": "practice.simulation.10.10.planned",
-          "expected": "chloromethane"
-        },
-        {
-          "activityId": "practice.simulation.10.13.planned",
-          "expected": "polybutadiene-repeat-unit"
-        },
-        {
-          "activityId": "practice.simulation.10.14.planned",
-          "expected": "brominated-addition-products"
-        },
         {
           "activityId": "practice.simulation.10.17.monohydric-alcohols",
           "expected": "monohydric-alcohol"
@@ -22769,59 +22662,38 @@
           "expected": "aromatic-ring"
         },
         {
-          "activityId": "practice.simulation.10.20.planned",
-          "expected": "ether"
-        },
-        {
           "activityId": "practice.simulation.10.21.carbonyls",
           "expected": "internal"
         },
         {
           "activityId": "practice.simulation.11.04.planned",
           "expected": "ionic-lattice"
+        },
+        {
+          "activityId": "practice.simulation.11.09.planned",
+          "expected": "strong"
+        },
+        {
+          "activityId": "practice.simulation.7.02.planned",
+          "expected": "density"
+        },
+        {
+          "activityId": "practice.simulation.7.06.planned",
+          "expected": "atom"
+        },
+        {
+          "activityId": "practice.simulation.7.10.planned",
+          "expected": "isotope"
         }
       ]
     },
     "englishOnlyLabels": {
-      "activities": 9,
-      "examples": [
-        {
-          "activityId": "practice.case.10.11",
-          "labels": [
-            "recycling rate"
-          ]
-        },
-        {
-          "activityId": "practice.experiment.10.3",
-          "labels": [
-            "add Bromine Water"
-          ]
-        },
-        {
-          "activityId": "practice.experiment.10.5",
-          "labels": [
-            "add Glycerol"
-          ]
-        },
-        {
-          "activityId": "practice.experiment.10.8",
-          "labels": [
-            "mix Fat Alkali",
-            "heat"
-          ]
-        },
-        {
-          "activityId": "practice.experiment.10.9",
-          "labels": [
-            "add Na O H",
-            "heat"
-          ]
-        }
-      ]
+      "activities": 0,
+      "examples": []
     },
     "hardcodedUzbekUi": {
-      "files": 23,
-      "literals": 174,
+      "files": 21,
+      "literals": 156,
       "byFile": [
         {
           "file": "src/app/bootstrap.ts",
@@ -22858,14 +22730,6 @@
         {
           "file": "src/features/practice/host.ts",
           "uzbekLiterals": 4
-        },
-        {
-          "file": "src/features/practice/render.ts",
-          "uzbekLiterals": 12
-        },
-        {
-          "file": "src/features/practice/ui-model.ts",
-          "uzbekLiterals": 6
         },
         {
           "file": "src/features/progress/mastery-render.ts",

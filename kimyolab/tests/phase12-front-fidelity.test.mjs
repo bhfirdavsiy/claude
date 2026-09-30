@@ -28,8 +28,13 @@ test('experiment renderer has a tangible virtual-lab workspace',()=>{
   const render=read('src/features/practice/render.ts');
   assert.match(render,/kl-experiment-stage/);
   assert.match(render,/kl-experiment-vessel/);
-  assert.match(render,/Tajriba bosqichlari/);
-  assert.match(render,/Xavfsizlik:/);
+  // P2.1 changed this assertion: the shared practice strings moved from render.ts literals into the learner-interaction
+  // catalog (ADR-P2-002). The renderer references the keys; the same learner-facing text lives in the catalog.
+  assert.match(render,/'ui\.lab-steps'/);
+  assert.match(render,/'ui\.lab-safety'/);
+  const catalog=JSON.parse(read('content-src/locales/uz-latn/learner-interaction.json')).labels;
+  assert.equal(catalog['ui.lab-steps'],'Tajriba bosqichlari');
+  assert.match(catalog['ui.lab-safety'],/^Xavfsizlik:/);
 });
 
 

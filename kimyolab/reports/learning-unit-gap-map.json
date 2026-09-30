@@ -10,10 +10,9 @@
     "NO_GUIDED_OR_MODEL_PRACTICE": 85,
     "NO_MODEL_BASED_PRACTICE": 31,
     "PROVENANCE_DEBT": 19,
-    "RAW_ID_LABELS": 74,
     "THEORY_MINIMAL": 122,
     "UNREVIEWED": 122,
-    "UNTRANSLATED_ANSWER_TOKEN": 37
+    "UNTRANSLATED_ANSWER_TOKEN": 25
   },
   "gapCountsByCategory": {
     "ACCESSIBILITY": 119,
@@ -21,7 +20,7 @@
     "LEARNING_CONTENT": 243,
     "LEARNING_DEPTH": 116,
     "LEARNING_OUTCOME": 122,
-    "LOCALIZATION": 111,
+    "LOCALIZATION": 25,
     "PROVENANCE": 19
   },
   "units": [
@@ -65,15 +64,11 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -117,10 +112,6 @@
         },
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
-          "category": "LOCALIZATION"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
           "category": "LOCALIZATION"
         },
         {
@@ -316,10 +307,6 @@
           "category": "LOCALIZATION"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
@@ -457,15 +444,11 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -509,10 +492,6 @@
         },
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
-          "category": "LOCALIZATION"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
           "category": "LOCALIZATION"
         },
         {
@@ -610,10 +589,6 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
@@ -665,10 +640,6 @@
           "category": "LOCALIZATION"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
@@ -714,10 +685,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
         },
         {
           "gap": "ACCESSIBILITY_UNVERIFIED",
@@ -822,10 +789,6 @@
           "category": "LOCALIZATION"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
@@ -873,15 +836,11 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -924,15 +883,11 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -1077,10 +1032,6 @@
           "category": "PROVENANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
@@ -1175,15 +1126,11 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -1228,10 +1175,6 @@
         {
           "gap": "PROVENANCE_DEBT",
           "category": "PROVENANCE"
-        },
-        {
-          "gap": "UNTRANSLATED_ANSWER_TOKEN",
-          "category": "LOCALIZATION"
         },
         {
           "gap": "ACCESSIBILITY_UNVERIFIED",
@@ -1282,10 +1225,6 @@
         },
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
-          "category": "LOCALIZATION"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
           "category": "LOCALIZATION"
         },
         {
@@ -1340,10 +1279,6 @@
           "category": "LOCALIZATION"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
@@ -1391,15 +1326,11 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -1443,10 +1374,6 @@
         },
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
-          "category": "LOCALIZATION"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
           "category": "LOCALIZATION"
         },
         {
@@ -1497,15 +1424,11 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -1642,15 +1565,11 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -1694,10 +1613,6 @@
         },
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
-          "category": "LOCALIZATION"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
           "category": "LOCALIZATION"
         },
         {
@@ -1752,10 +1667,6 @@
           "category": "LOCALIZATION"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
@@ -1804,10 +1715,6 @@
         },
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
-          "category": "LOCALIZATION"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
           "category": "LOCALIZATION"
         },
         {
@@ -2046,15 +1953,11 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -2148,10 +2051,6 @@
           "category": "LOCALIZATION"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
@@ -2203,10 +2102,6 @@
           "category": "LOCALIZATION"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
@@ -2254,15 +2149,11 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -2454,10 +2345,6 @@
           "category": "LOCALIZATION"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
@@ -2509,10 +2396,6 @@
           "category": "LOCALIZATION"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
@@ -2560,15 +2443,11 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -2611,15 +2490,11 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -2764,10 +2639,6 @@
           "category": "LOCALIZATION"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
@@ -2816,10 +2687,6 @@
         },
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
-          "category": "LOCALIZATION"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
           "category": "LOCALIZATION"
         },
         {
@@ -2968,15 +2835,11 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -3113,15 +2976,11 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -3262,15 +3121,11 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -3314,10 +3169,6 @@
         },
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
-          "category": "LOCALIZATION"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
           "category": "LOCALIZATION"
         },
         {
@@ -3419,10 +3270,6 @@
           "category": "LOCALIZATION"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
@@ -3475,10 +3322,6 @@
         },
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
-          "category": "LOCALIZATION"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
           "category": "LOCALIZATION"
         },
         {
@@ -3576,14 +3419,6 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "UNTRANSLATED_ANSWER_TOKEN",
-          "category": "LOCALIZATION"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
@@ -3678,15 +3513,11 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -3729,15 +3560,11 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -3825,10 +3652,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
         },
         {
           "gap": "ACCESSIBILITY_UNVERIFIED",
@@ -3972,15 +3795,11 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "UNTRANSLATED_ANSWER_TOKEN",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -4021,14 +3840,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "UNTRANSLATED_ANSWER_TOKEN",
-          "category": "LOCALIZATION"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
         },
         {
           "gap": "ACCESSIBILITY_UNVERIFIED",
@@ -4078,10 +3889,6 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "UNTRANSLATED_ANSWER_TOKEN",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
@@ -4127,10 +3934,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
         },
         {
           "gap": "ACCESSIBILITY_UNVERIFIED",
@@ -4225,14 +4028,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "UNTRANSLATED_ANSWER_TOKEN",
-          "category": "LOCALIZATION"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
         },
         {
           "gap": "ACCESSIBILITY_UNVERIFIED",
@@ -4376,14 +4171,6 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "UNTRANSLATED_ANSWER_TOKEN",
-          "category": "LOCALIZATION"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
@@ -4429,14 +4216,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "UNTRANSLATED_ANSWER_TOKEN",
-          "category": "LOCALIZATION"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
         },
         {
           "gap": "ACCESSIBILITY_UNVERIFIED",
@@ -4486,10 +4265,6 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
@@ -4537,15 +4312,11 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -4589,10 +4360,6 @@
         },
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
-          "category": "LOCALIZATION"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
           "category": "LOCALIZATION"
         },
         {
@@ -4694,10 +4461,6 @@
           "category": "LOCALIZATION"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
@@ -4743,14 +4506,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "UNTRANSLATED_ANSWER_TOKEN",
-          "category": "LOCALIZATION"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
         },
         {
           "gap": "ACCESSIBILITY_UNVERIFIED",
@@ -4801,10 +4556,6 @@
         },
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
-          "category": "LOCALIZATION"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
           "category": "LOCALIZATION"
         },
         {
@@ -4949,10 +4700,6 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
@@ -4998,10 +4745,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
         },
         {
           "gap": "ACCESSIBILITY_UNVERIFIED",
@@ -5051,19 +4794,11 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "UNTRANSLATED_ANSWER_TOKEN",
-          "category": "LOCALIZATION"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -5106,15 +4841,11 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -5155,10 +4886,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
         },
         {
           "gap": "ACCESSIBILITY_UNVERIFIED",
@@ -5255,10 +4982,6 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
@@ -5310,10 +5033,6 @@
           "category": "LOCALIZATION"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
@@ -5361,15 +5080,11 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -5410,10 +5125,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
         },
         {
           "gap": "ACCESSIBILITY_UNVERIFIED",
@@ -5463,15 +5174,11 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -5512,10 +5219,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
         },
         {
           "gap": "ACCESSIBILITY_UNVERIFIED",
@@ -5566,10 +5269,6 @@
         },
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
-          "category": "LOCALIZATION"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
           "category": "LOCALIZATION"
         },
         {
@@ -5714,15 +5413,11 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -5765,15 +5460,11 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -5814,10 +5505,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
         },
         {
           "gap": "ACCESSIBILITY_UNVERIFIED",
@@ -5867,10 +5554,6 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
@@ -5916,14 +5599,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "UNTRANSLATED_ANSWER_TOKEN",
-          "category": "LOCALIZATION"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
         },
         {
           "gap": "ACCESSIBILITY_UNVERIFIED",
@@ -5973,15 +5648,11 @@
           "category": "GOVERNANCE"
         },
         {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
-        },
-        {
           "gap": "ACCESSIBILITY_UNVERIFIED",
           "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
+      "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -6022,14 +5693,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "UNTRANSLATED_ANSWER_TOKEN",
-          "category": "LOCALIZATION"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
         },
         {
           "gap": "ACCESSIBILITY_UNVERIFIED",
@@ -6124,10 +5787,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
         },
         {
           "gap": "ACCESSIBILITY_UNVERIFIED",
@@ -6230,10 +5889,6 @@
         {
           "gap": "PROVENANCE_DEBT",
           "category": "PROVENANCE"
-        },
-        {
-          "gap": "RAW_ID_LABELS",
-          "category": "LOCALIZATION"
         },
         {
           "gap": "ACCESSIBILITY_UNVERIFIED",

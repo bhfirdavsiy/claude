@@ -1,7 +1,7 @@
 import type {PracticeActivity} from '../../domain/content/types.ts';
 import type {ActivityExecutionPlan} from '../../runtime/practice-router/execution-plan.ts';
 import type {LearningActivityReadiness} from '../../domain/readiness/readiness.ts';
-import type {ElementNameCatalog,SpeciesNameCatalog} from '../localization/element-names.ts';
+import type {ElementNameCatalog,SpeciesNameCatalog,InteractionCatalog} from '../localization/element-names.ts';
 
 export interface StudentPracticePageModel {
   id:string;
@@ -23,7 +23,7 @@ export interface StudentPracticePageModel {
   curriculumVersion?:string;
   legacyContent?:{equipment?:string;materials?:string;safety?:string;steps?:string[];tasks?:string[]};
   /** localized display text for the page (P1.4 closeout) — presentation only, never chemistry input */
-  localization?:{elementNames?:ElementNameCatalog;speciesNames?:SpeciesNameCatalog};
+  localization?:{elementNames?:ElementNameCatalog;speciesNames?:SpeciesNameCatalog;interaction?:InteractionCatalog};
   chemistry:{
     reactions:any[];
     solutionRules:{version:string;dissociation:any[];insoluble:string[]};
@@ -63,6 +63,7 @@ export function buildPracticePageModel(input:{
   conditionVocabulary?:any;
   elementNames?:ElementNameCatalog;
   speciesNames?:SpeciesNameCatalog;
+  interaction?:InteractionCatalog;
 }):StudentPracticePageModel {
   return {
     id:input.activity.id,
@@ -87,7 +88,7 @@ export function buildPracticePageModel(input:{
     scoringVersion:input.scoringVersion,
     ...(input.curriculumVersion?{curriculumVersion:input.curriculumVersion}:{}),
     legacyContent:structuredClone((input.activity as any).legacyContent??{}),
-    ...(input.elementNames||input.speciesNames?{localization:{...(input.elementNames?{elementNames:input.elementNames}:{}),...(input.speciesNames?{speciesNames:input.speciesNames}:{})}}:{}),
+    ...(input.elementNames||input.speciesNames||input.interaction?{localization:{...(input.elementNames?{elementNames:input.elementNames}:{}),...(input.speciesNames?{speciesNames:input.speciesNames}:{}),...(input.interaction?{interaction:input.interaction}:{})}}:{}),
     chemistry:{
       reactions:structuredClone(input.reactions),
       solutionRules:structuredClone(input.solutionRules),

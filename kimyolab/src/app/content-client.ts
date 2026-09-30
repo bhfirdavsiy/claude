@@ -2,7 +2,7 @@ import { evaluateContentPackCompatibility } from '../runtime/compatibility/conte
 import { APP_COMPATIBILITY } from './app-version.ts';
 import { buildLearningHubModel, type LearningHubModel } from '../features/learning-hub/model.ts';
 import { buildPracticePageModel, type StudentPracticePageModel } from '../features/practice/model.ts';
-import { DEFAULT_LOCALE, elementNamesPackPath, parseElementNameCatalog, parseSpeciesNameCatalog, speciesNamesPackPath } from '../features/localization/element-names.ts';
+import { DEFAULT_LOCALE, elementNamesPackPath, interactionPackPath, parseElementNameCatalog, parseInteractionCatalog, parseSpeciesNameCatalog, speciesNamesPackPath } from '../features/localization/element-names.ts';
 import {validateExternalLabBindings,bindingsForLearningUnit} from '../integrations/external-labs/registry.ts';
 import type {ExternalLabBinding} from '../integrations/external-labs/types.ts';
 import type {LabCatalogModel} from '../features/labs/model.ts';
@@ -182,6 +182,10 @@ export class ContentClient {
     catch(error){throw error instanceof ContentLoadError?error:new ContentLoadError('LOCALIZATION_INVALID',{resource:elementNamesPackPath(DEFAULT_LOCALE)});}
     try{speciesNames=parseSpeciesNameCatalog(await this.packJson(version,speciesNamesPackPath(DEFAULT_LOCALE)));}
     catch(error){throw error instanceof ContentLoadError?error:new ContentLoadError('LOCALIZATION_INVALID',{resource:speciesNamesPackPath(DEFAULT_LOCALE)});}
+    // P2.1: learner-interaction text (labels, choice names, shared strings) — same fail-closed rule
+    let interaction;
+    try{interaction=parseInteractionCatalog(await this.packJson(version,interactionPackPath(DEFAULT_LOCALE)));}
+    catch(error){throw error instanceof ContentLoadError?error:new ContentLoadError('LOCALIZATION_INVALID',{resource:interactionPackPath(DEFAULT_LOCALE)});}
     const referenceConfig=configs?.[practiceActivityId];
     if(!referenceConfig) throw new ContentLoadError('PRACTICE_CONFIG_NOT_FOUND',{resource:practiceActivityId});
     const mapping=mappings.find((x:any)=>x.practiceActivityId===practiceActivityId&&x.role==='primary')
@@ -197,7 +201,7 @@ export class ContentClient {
       schemaVersion:String(packManifest.schemaVersion??'0'),
       scoringVersion:String(packManifest.scoringVersion??'0'),
       ...(packManifest.curriculumVersion?{curriculumVersion:String(packManifest.curriculumVersion)}:{}),
-      reactions,solutionRules,hydrolysis,electrolysis,manganeseRedox,organic,kinetics,equilibrium,species,conditionVocabulary,elementNames,speciesNames,
+      reactions,solutionRules,hydrolysis,electrolysis,manganeseRedox,organic,kinetics,equilibrium,species,conditionVocabulary,elementNames,speciesNames,interaction,
     });
   }
 
