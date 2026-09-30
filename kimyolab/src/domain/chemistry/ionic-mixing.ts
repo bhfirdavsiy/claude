@@ -16,7 +16,7 @@
 //                    REACTION_CONDITION_REQUIRED: ambiguous). This is a model
 //                    coverage gap: no observation is invented, it is never reported as "no reaction" and it is
 //                    not chemistry evidence about the learner.
-import type {Observation} from './types.ts';
+import type {Observation,ReactionConditions} from './types.ts';
 import type {IonicEngine} from './ionic-engine.ts';
 import {classifyMatch,type ReactionMatcher} from './reaction-matcher.ts';
 import type {SpeciesRegistry} from './species-registry.ts';
@@ -32,7 +32,8 @@ export type IonicRejection=
   | 'REAGENT_NOT_AVAILABLE'|'MIX_INCOMPLETE'|'MIX_SAME_REAGENT'
   | 'EQUATION_NO_REACTION'|'EQUATION_SYNTAX'|'EQUATION_ALREADY_SOLVED'|'EQUATION_UNCHANGED'|'IONIC_ACTION_INVALID';
 
-export interface Reagent { speciesId:string; formula:string }
+/** nameKey: the species' localization key (display name lives in locale content, never in the domain) */
+export interface Reagent { speciesId:string; formula:string; nameKey:string|null }
 export type MixOutcome='reaction'|'no-reaction'|'not-modeled';
 export interface MixResult {
   n:number;
@@ -66,7 +67,12 @@ export interface IonicMixingState {
   achieved:boolean;
 }
 
-export interface IonicDomain { species:SpeciesRegistry; matcher:ReactionMatcher; ionic:IonicEngine }
+export interface IonicDomain {
+  species:SpeciesRegistry; matcher:ReactionMatcher; ionic:IonicEngine;
+  /** P1.7: the actual conditions of mixing two solutions (condition vocabulary context 'solution-mixing'); absent →
+   *  no condition is assumed to hold (strict: any record with a requirement does not apply) */
+  mixingConditions?:ReactionConditions;
+}
 
 /** Validates the shelf and the target against the domain (content errors fail closed). */
 export function resolveShelf(d:IonicDomain,speciesIds:readonly string[],targetReactionId:string):Reagent[]{
@@ -75,14 +81,14 @@ export function resolveShelf(d:IonicDomain,speciesIds:readonly string[],targetRe
     const s=d.species.byId(id);
     if(!s) throw new Error(`IONIC_SHELF_INVALID:${id}`);
     if(!d.ionic.dissociate(s.formula).modeled) throw new Error(`IONIC_SHELF_NOT_SOLUTION:${id}`);
-    return {speciesId:id,formula:s.formula};
+    return {speciesId:id,formula:s.formula,nameKey:typeof (s as any).nameKey==='string'?(s as any).nameKey:null};
   });
   if(new Set(reagents.map(r=>r.speciesId)).size!==reagents.length) throw new Error('IONIC_SHELF_INVALID:duplicate');
   // the target reaction must be modeled, a real reaction, and reachable from the shelf
   let expected:string;
   try{ expected=d.ionic.netIonicEquation(targetReactionId).equation; }catch{ throw new Error(`IONIC_TARGET_INVALID:${targetReactionId}`); }
   if(!expected) throw new Error(`IONIC_TARGET_INVALID:${targetReactionId}`);
-  const reachable=reagents.some(a=>reagents.some(b=>a!==b&&(()=>{const m=d.matcher.match({reactants:[{formula:a.formula,phase:'aq'},{formula:b.formula,phase:'aq'}],conditionPolicy:'require-record-conditions'});return m.modeled&&m.reaction.id===targetReactionId;})()));
+  const reachable=reagents.some(a=>reagents.some(b=>a!==b&&(()=>{const m=d.matcher.match({reactants:[{formula:a.formula,phase:'aq'},{formula:b.formula,phase:'aq'}],conditions:d.mixingConditions??{},conditionPolicy:'require-record-conditions'});return m.modeled&&m.reaction.id===targetReactionId;})()));
   if(!reachable) throw new Error(`IONIC_TARGET_UNREACHABLE:${targetReactionId}`);
   return reagents;
 }
@@ -114,7 +120,7 @@ export function evaluateIonicMixing(d:IonicDomain,input:{shelf:readonly string[]
       const A=byId.get(selected.A)!, B=byId.get(selected.B)!;
       // mixing two solutions at room temperature: records that need heating, concentrated acid, current or light
       // do not apply (REACTION_CONDITIONS_NOT_MET → not modeled for this situation)
-      const m=d.matcher.match({reactants:[{formula:A.formula,phase:'aq'},{formula:B.formula,phase:'aq'}],conditionPolicy:'require-record-conditions'});
+      const m=d.matcher.match({reactants:[{formula:A.formula,phase:'aq'},{formula:B.formula,phase:'aq'}],conditions:d.mixingConditions??{},conditionPolicy:'require-record-conditions'});
       const cls=classifyMatch(m);
       const result:MixResult=m.modeled
         ?{n:mixes.length+1,reagents:[A.speciesId,B.speciesId],outcome:cls==='MODELED_NO_REACTION'?'no-reaction':'reaction',reactionId:m.reaction.id,observations:(m.reaction.observations??[]).map(o=>({...o})),coverageCode:null}

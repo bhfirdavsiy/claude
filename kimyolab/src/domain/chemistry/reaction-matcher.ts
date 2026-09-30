@@ -1,4 +1,5 @@
 import type { Phase, ReactionConditions, ReactionRecord, ReactionSpeciesRef } from './types.ts';
+import {dimensionsOf,type ConditionVocabulary} from './condition-vocabulary.ts';
 export type ReactantQuery=string|{formula:string;phase?:Phase};
 export type ReactionMatchResult={modeled:true;reaction:ReactionRecord}|{modeled:false;code:'REACTION_NOT_MODELED'|'REACTION_CONDITION_REQUIRED'|'REACTION_CONDITIONS_NOT_MET'};
 
@@ -38,9 +39,17 @@ export const isNoReaction=(r:ReactionRecord)=>r.reactionType===NO_REACTION_TYPE;
  * solvent (equal), catalystIds (each present), temperatureRange / pressureRange / concentrationRules (the actual
  * conditions must state the same value — no range arithmetic is guessed).
  */
-export function requirementsMet(r:ReactionConditions|undefined,actual:ReactionConditions|undefined):boolean{
+export function requirementsMet(r:ReactionConditions|undefined,actual:ReactionConditions|undefined,vocabulary?:ConditionVocabulary):boolean{
   const a=actual??{};
-  if((r?.tags??[]).some(t=>!(a.tags??[]).includes(t)))return false;
+  if(vocabulary){
+    // P1.7: tags are compared by MEANING (dimension = value) through the reviewed condition vocabulary. An unknown
+    // or self-conflicting record tag is never guessed: the requirement is not met (and the chemistry gate FAILs).
+    const req=dimensionsOf(r?.tags??[],vocabulary);
+    if(req.unknown.length||req.conflicts.length)return false;
+    const have={...(a.dimensions??{}),...dimensionsOf(a.tags??[],vocabulary).dimensions};
+    if(Object.entries(req.dimensions).some(([d,v])=>have[d]!==v))return false;
+  }
+  else if((r?.tags??[]).some(t=>!(a.tags??[]).includes(t)))return false;
   if(r?.lightRequired!==undefined&&Boolean(a.lightRequired)!==r.lightRequired)return false;
   if(r?.electricalCurrent!==undefined&&Boolean(a.electricalCurrent)!==r.electricalCurrent)return false;
   if(r?.medium!==undefined&&r.medium!==a.medium)return false;
@@ -69,8 +78,10 @@ export function classifyMatch(m:ReactionMatchResult):MatchClass{
 
 export class ReactionMatcher{
   #records:ReactionRecord[];
-  private constructor(records:ReactionRecord[]){this.#records=records.map(r=>Object.freeze({...r}))}
-  static from(records:ReactionRecord[]){
+  #vocabulary:ConditionVocabulary|undefined;
+  private constructor(records:ReactionRecord[],vocabulary?:ConditionVocabulary){this.#records=records.map(r=>Object.freeze({...r}));this.#vocabulary=vocabulary}
+  /** `vocabulary` (P1.7): structured meaning of condition tags for 'require-record-conditions'. */
+  static from(records:ReactionRecord[],options:{vocabulary?:ConditionVocabulary}={}){
     const ids=new Set<string>();
     for(const r of records){
       if(ids.has(r.id))throw new Error('REACTION_DUPLICATE_ID');ids.add(r.id);
@@ -80,7 +91,7 @@ export class ReactionMatcher{
       if(isNoReaction(r)){ if(r.products?.length||!(r.observations??[]).every(o=>o.type==='no-visible-change'))throw new Error('REACTION_INVALID'); }
       else if(!r.products?.length)throw new Error('REACTION_INVALID');
     }
-    return new ReactionMatcher(records);
+    return new ReactionMatcher(records,options.vocabulary);
   }
   match(query:{reactants:ReactantQuery[];conditions?:ReactionConditions;conditionPolicy:ConditionPolicy}):ReactionMatchResult{
     if(query?.conditionPolicy!=='filter-by-query'&&query?.conditionPolicy!=='require-record-conditions') throw new Error('REACTION_MATCH_POLICY_REQUIRED');
@@ -89,7 +100,7 @@ export class ReactionMatcher{
       if(query.conditions)candidates=candidates.filter(r=>conditionMatch(query.conditions,r.conditions));
     }else{
       const before=candidates.length;
-      candidates=candidates.filter(r=>requirementsMet(r.conditions,query.conditions));
+      candidates=candidates.filter(r=>requirementsMet(r.conditions,query.conditions,this.#vocabulary));
       if(before&&!candidates.length)return {modeled:false,code:'REACTION_CONDITIONS_NOT_MET'};
     }
     if(!candidates.length)return {modeled:false,code:'REACTION_NOT_MODELED'};

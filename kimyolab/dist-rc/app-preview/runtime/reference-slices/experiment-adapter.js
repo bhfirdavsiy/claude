@@ -2,6 +2,7 @@
                                                                                   
                                                                           
                                                                                   
+                                                                                          
 import { ionicPracticeResult } from './ionic-practice.js';
                                                                                                              
 import { ExperimentEngine } from '../../engines/experiment/engine.js';
@@ -14,6 +15,7 @@ import { ExperimentEngine } from '../../engines/experiment/engine.js';
                                   
                           
                                    
+                                           
                         
                         
                  
@@ -70,7 +72,9 @@ export function createExperimentSliceAdapter(o        )                         
       // (addNaCl → addAgNO3 → observe → record) added the configured reagents in a scripted order.
       if(Array.isArray(config.reagentShelf)){
         if(!o.speciesRegistry) throw new Error('IONIC_SPECIES_DATA_MISSING');
-        return ionicPracticeResult({domain:{species:o.speciesRegistry,matcher:o.reactionMatcher,ionic:o.ionicEngine},shelf:config.reagentShelf,targetReactionId:config.reactionId,actions:context.inputs[activity.id]?.actions??[],meta:metadata(activity,config,o)});
+        // the actual conditions of the mix come from the reviewed vocabulary context; without it nothing is assumed
+        const mixing=o.conditionVocabulary?.contexts['solution-mixing'];
+        return ionicPracticeResult({domain:{species:o.speciesRegistry,matcher:o.reactionMatcher,ionic:o.ionicEngine,...(mixing?{mixingConditions:{dimensions:{...mixing.dimensions}}}:{})},shelf:config.reagentShelf,targetReactionId:config.reactionId,actions:context.inputs[activity.id]?.actions??[],meta:metadata(activity,config,o)});
       }
       const scenario=stepScenario(config);
       let matchedReaction    ;

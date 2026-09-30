@@ -1,0 +1,66 @@
+{
+  "schema": "kimyolab.electrolysis-model-readiness.v1",
+  "records": [
+    {
+      "electrolyte": "CuCl2",
+      "phase": "aq",
+      "electrode": "inert",
+      "cathode": {
+        "product": "Cu",
+        "observation": "Copper-colored deposit forms at the cathode."
+      },
+      "anode": {
+        "product": "Cl2",
+        "observation": "Gas is evolved at the anode; this virtual model does not instruct direct smelling."
+      },
+      "sourceRefs": [
+        "src.legacy.9.10"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [
+        "practice.experiment.11.2",
+        "practice.experiment.9.10"
+      ]
+    }
+  ],
+  "recordCount": 1,
+  "dimensions": {
+    "phase": {
+      "values": [
+        "aq",
+        "l"
+      ],
+      "covered": [
+        "aq"
+      ]
+    },
+    "electrode": {
+      "values": [
+        "inert",
+        "active"
+      ],
+      "covered": [
+        "inert"
+      ]
+    },
+    "cation": {
+      "covered": [
+        "Cu"
+      ]
+    },
+    "anion": {
+      "covered": [
+        "Cl2"
+      ]
+    }
+  },
+  "distinctOutcomes": 1,
+  "rendererStartGate": {
+    "rule": "≥ 2 independent learner choices with ≥ 2 modeled values each, and ≥ 3 distinct modeled cathode/anode outcomes (smallest non-canned 2×2 design)",
+    "rationale": "black-swan: with fewer, every learner path ends in the same observation — a canned animation, not a simulation (P1.3 renderer foundation)",
+    "learnerChoicesWithTwoValues": [],
+    "distinctOutcomes": 1,
+    "status": "NOT_READY"
+  },
+  "renderer": "NOT_STARTED (P1.7 scope ban)"
+}

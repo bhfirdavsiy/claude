@@ -18,7 +18,7 @@ import {readinessMessage} from '../../domain/readiness/readiness.js';
 import {el,clear,link} from '../../ui/components/dom.js';
                                                                   
                                                                   
-import {elementNameMapper} from '../localization/element-names.js';
+import {createLocalizer} from '../localization/element-names.js';
 
 /** Learner text when a mounted renderer fails (no raw error, no fallback). */
 export const RENDERER_FAILED_MESSAGE='Bu faoliyatni ko‘rsatishda xatolik yuz berdi. Sahifani yangilab, qaytadan urinib ko‘ring.';
@@ -89,7 +89,7 @@ export function renderPracticePage(root            ,page                        
         return result;
       },
       current:()=>port.current(),
-    },{title:page.title,goal:page.goal,practiceType:page.type,elementName:elementNameMapper(page.localization?.elementNames)});
+    },{title:page.title,goal:page.goal,practiceType:page.type,localize:createLocalizer(page.localization)});
   }catch{ failClosed(); return 'registry'; }
   void port.current().then(draw,()=>failClosed());
   return 'registry';

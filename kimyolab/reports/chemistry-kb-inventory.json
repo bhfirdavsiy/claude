@@ -1,0 +1,1213 @@
+{
+  "schema": "kimyolab.chemistry-kb-inventory.v1",
+  "counts": {
+    "species": 84,
+    "reactions": 28,
+    "solubilityRecords": {
+      "dissociation": 12,
+      "insoluble": 8
+    },
+    "hydrolysisSalts": 4,
+    "electrolysisRecords": 1,
+    "conditionedReactions": 11,
+    "explicitNoReactionRecords": 0,
+    "assertions": 134,
+    "reviewed": 0,
+    "pending": 134,
+    "rejected": 0,
+    "stale": 0,
+    "sourceBacked": 104,
+    "missingSource": 30
+  },
+  "reactions": [
+    {
+      "reactionId": "rxn.h2-combustion",
+      "reactants": [
+        "H2",
+        "O2"
+      ],
+      "products": [
+        "H2O"
+      ],
+      "reactionType": "combustion",
+      "conditions": {
+        "tags": [
+          "ignition"
+        ],
+        "dimensions": {
+          "ignition": "present"
+        }
+      },
+      "observation": [
+        {
+          "type": "color-change",
+          "to": "changed"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "H2",
+        "O2"
+      ],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_NONSPECIFIC: colour change without a stated colour"
+      ]
+    },
+    {
+      "reactionId": "rxn.c-combustion",
+      "reactants": [
+        "C",
+        "O2"
+      ],
+      "products": [
+        "CO2"
+      ],
+      "reactionType": "combustion",
+      "conditions": {
+        "tags": [
+          "oxygen-excess",
+          "ignition"
+        ],
+        "dimensions": {
+          "oxygen-supply": "excess",
+          "ignition": "present"
+        }
+      },
+      "observation": [
+        {
+          "type": "gas",
+          "descriptionKey": "rxn.c-combustion.observation"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "C",
+        "O2",
+        "CO2"
+      ],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.s-combustion",
+      "reactants": [
+        "S",
+        "O2"
+      ],
+      "products": [
+        "SO2"
+      ],
+      "reactionType": "combustion",
+      "conditions": {
+        "tags": [
+          "ignition"
+        ],
+        "dimensions": {
+          "ignition": "present"
+        }
+      },
+      "observation": [
+        {
+          "type": "gas",
+          "descriptionKey": "rxn.s-combustion.observation"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "S",
+        "O2",
+        "SO2"
+      ],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.fe-combustion",
+      "reactants": [
+        "Fe",
+        "O2"
+      ],
+      "products": [
+        "Fe3O4"
+      ],
+      "reactionType": "redox",
+      "conditions": {
+        "tags": [
+          "strong heating"
+        ],
+        "dimensions": {
+          "temperature": "strongly-heated"
+        }
+      },
+      "observation": [
+        {
+          "type": "no-visible-change"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "Fe",
+        "O2",
+        "Fe3O4"
+      ],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.zn-hcl",
+      "reactants": [
+        "Zn",
+        "HCl"
+      ],
+      "products": [
+        "ZnCl2",
+        "H2"
+      ],
+      "reactionType": "single_displacement",
+      "conditions": {
+        "tags": [],
+        "dimensions": {}
+      },
+      "observation": [
+        {
+          "type": "gas",
+          "descriptionKey": "rxn.zn-hcl.observation"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "Zn",
+        "H2"
+      ],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [
+        "practice.experiment.7.10"
+      ],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.zn-h2so4",
+      "reactants": [
+        "Zn",
+        "H2SO4"
+      ],
+      "products": [
+        "ZnSO4",
+        "H2"
+      ],
+      "reactionType": "single_displacement",
+      "conditions": {
+        "tags": [
+          "dilute acid"
+        ],
+        "dimensions": {
+          "acid-concentration": "dilute"
+        }
+      },
+      "observation": [
+        {
+          "type": "gas",
+          "descriptionKey": "rxn.zn-h2so4.observation"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "Zn",
+        "ZnSO4",
+        "H2"
+      ],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.mg-h2so4",
+      "reactants": [
+        "Mg",
+        "H2SO4"
+      ],
+      "products": [
+        "MgSO4",
+        "H2"
+      ],
+      "reactionType": "single_displacement",
+      "conditions": {
+        "tags": [
+          "dilute acid"
+        ],
+        "dimensions": {
+          "acid-concentration": "dilute"
+        }
+      },
+      "observation": [
+        {
+          "type": "gas",
+          "descriptionKey": "rxn.mg-h2so4.observation"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "Mg",
+        "MgSO4",
+        "H2"
+      ],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [
+        "practice.experiment.7.10"
+      ],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.h2-cuo",
+      "reactants": [
+        "H2",
+        "CuO"
+      ],
+      "products": [
+        "Cu",
+        "H2O"
+      ],
+      "reactionType": "redox",
+      "conditions": {
+        "tags": [
+          "heating"
+        ],
+        "dimensions": {
+          "temperature": "heated"
+        }
+      },
+      "observation": [
+        {
+          "type": "no-visible-change"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "H2",
+        "CuO",
+        "Cu"
+      ],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.nacl-h2so4",
+      "reactants": [
+        "NaCl",
+        "H2SO4"
+      ],
+      "products": [
+        "NaHSO4",
+        "HCl"
+      ],
+      "reactionType": "gas_evolution",
+      "conditions": {
+        "tags": [
+          "concentrated acid",
+          "gentle heating"
+        ],
+        "dimensions": {
+          "acid-concentration": "concentrated",
+          "temperature": "gently-heated"
+        }
+      },
+      "observation": [
+        {
+          "type": "gas",
+          "descriptionKey": "rxn.nacl-h2so4.observation"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "NaHSO4"
+      ],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [
+        "practice.experiment.7.9"
+      ],
+      "observationFlags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_PRODUCT_MISMATCH: gas observed but no product is a gas"
+      ]
+    },
+    {
+      "reactionId": "rxn.cuo-hcl",
+      "reactants": [
+        "CuO",
+        "HCl"
+      ],
+      "products": [
+        "CuCl2",
+        "H2O"
+      ],
+      "reactionType": "acid_base",
+      "conditions": {
+        "tags": [],
+        "dimensions": {}
+      },
+      "observation": [
+        {
+          "type": "no-visible-change"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "CuO",
+        "CuCl2"
+      ],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [
+        "practice.experiment.7.9"
+      ],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.naoh-hcl",
+      "reactants": [
+        "NaOH",
+        "HCl"
+      ],
+      "products": [
+        "NaCl",
+        "H2O"
+      ],
+      "reactionType": "neutralization",
+      "conditions": {
+        "tags": [],
+        "dimensions": {}
+      },
+      "observation": [
+        {
+          "type": "color-change",
+          "to": "changed"
+        }
+      ],
+      "netIonicDerivable": true,
+      "netIonicUnsupported": [],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [
+        "practice.experiment.7.9"
+      ],
+      "observationFlags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_NONSPECIFIC: colour change without a stated colour"
+      ]
+    },
+    {
+      "reactionId": "rxn.caco3-hcl",
+      "reactants": [
+        "CaCO3",
+        "HCl"
+      ],
+      "products": [
+        "CaCl2",
+        "H2O",
+        "CO2"
+      ],
+      "reactionType": "gas_evolution",
+      "conditions": {
+        "tags": [],
+        "dimensions": {}
+      },
+      "observation": [
+        {
+          "type": "gas",
+          "descriptionKey": "rxn.caco3-hcl.observation"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "CaCO3",
+        "CO2"
+      ],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [
+        "practice.experiment.7.9",
+        "practice.experiment.9.4"
+      ],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.cao-water",
+      "reactants": [
+        "CaO",
+        "H2O"
+      ],
+      "products": [
+        "Ca(OH)2"
+      ],
+      "reactionType": "combination",
+      "conditions": {
+        "tags": [],
+        "dimensions": {}
+      },
+      "observation": [
+        {
+          "type": "temperature-change",
+          "direction": "up"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "CaO",
+        "Ca(OH)2"
+      ],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [
+        "practice.experiment.7.11"
+      ],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.co2-water",
+      "reactants": [
+        "CO2",
+        "H2O"
+      ],
+      "products": [
+        "H2CO3"
+      ],
+      "reactionType": "equilibrium",
+      "conditions": {
+        "tags": [],
+        "dimensions": {}
+      },
+      "observation": [
+        {
+          "type": "no-visible-change"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "CO2",
+        "H2CO3"
+      ],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [
+        "practice.experiment.7.11"
+      ],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.zncl2-naoh",
+      "reactants": [
+        "ZnCl2",
+        "NaOH"
+      ],
+      "products": [
+        "Zn(OH)2",
+        "NaCl"
+      ],
+      "reactionType": "precipitation",
+      "conditions": {
+        "tags": [],
+        "dimensions": {}
+      },
+      "observation": [
+        {
+          "type": "precipitate",
+          "color": "white"
+        }
+      ],
+      "netIonicDerivable": true,
+      "netIonicUnsupported": [],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [
+        "practice.experiment.8.6",
+        "practice.experiment.9.16"
+      ],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.znoh2-hcl",
+      "reactants": [
+        "Zn(OH)2",
+        "HCl"
+      ],
+      "products": [
+        "ZnCl2",
+        "H2O"
+      ],
+      "reactionType": "acid_base",
+      "conditions": {
+        "tags": [],
+        "dimensions": {}
+      },
+      "observation": [
+        {
+          "type": "precipitate",
+          "color": "white"
+        }
+      ],
+      "netIonicDerivable": true,
+      "netIonicUnsupported": [],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [
+        "practice.experiment.8.6",
+        "practice.experiment.9.16"
+      ],
+      "observationFlags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_PRODUCT_MISMATCH: precipitate observed but no product is insoluble (solubility rules) or solid"
+      ]
+    },
+    {
+      "reactionId": "rxn.agno3-nacl",
+      "reactants": [
+        "AgNO3",
+        "NaCl"
+      ],
+      "products": [
+        "AgCl",
+        "NaNO3"
+      ],
+      "reactionType": "precipitation",
+      "conditions": {
+        "tags": [],
+        "dimensions": {}
+      },
+      "observation": [
+        {
+          "type": "precipitate",
+          "color": "white"
+        }
+      ],
+      "netIonicDerivable": true,
+      "netIonicUnsupported": [],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [
+        "practice.experiment.8.1",
+        "practice.experiment.8.8",
+        "practice.experiment.8.9",
+        "practice.trainer.11.10.planned",
+        "practice.trainer.9.05.planned"
+      ],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.agno3-nabr",
+      "reactants": [
+        "AgNO3",
+        "NaBr"
+      ],
+      "products": [
+        "AgBr",
+        "NaNO3"
+      ],
+      "reactionType": "precipitation",
+      "conditions": {
+        "tags": [],
+        "dimensions": {}
+      },
+      "observation": [
+        {
+          "type": "precipitate",
+          "color": "yellow"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "NaBr"
+      ],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [
+        "practice.experiment.8.8"
+      ],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.agno3-nai",
+      "reactants": [
+        "AgNO3",
+        "NaI"
+      ],
+      "products": [
+        "AgI",
+        "NaNO3"
+      ],
+      "reactionType": "precipitation",
+      "conditions": {
+        "tags": [],
+        "dimensions": {}
+      },
+      "observation": [
+        {
+          "type": "precipitate",
+          "color": "yellow"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "NaI"
+      ],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [
+        "practice.experiment.8.8"
+      ],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.cl2-kbr",
+      "reactants": [
+        "Cl2",
+        "KBr"
+      ],
+      "products": [
+        "KCl",
+        "Br2"
+      ],
+      "reactionType": "redox",
+      "conditions": {
+        "tags": [],
+        "dimensions": {}
+      },
+      "observation": [
+        {
+          "type": "color-change",
+          "to": "changed"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "Cl2",
+        "KBr",
+        "KCl",
+        "Br2"
+      ],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [
+        "practice.experiment.8.10"
+      ],
+      "observationFlags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_NONSPECIFIC: colour change without a stated colour"
+      ]
+    },
+    {
+      "reactionId": "rxn.br2-ki",
+      "reactants": [
+        "Br2",
+        "KI"
+      ],
+      "products": [
+        "KBr",
+        "I2"
+      ],
+      "reactionType": "redox",
+      "conditions": {
+        "tags": [],
+        "dimensions": {}
+      },
+      "observation": [
+        {
+          "type": "color-change",
+          "to": "changed"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "Br2",
+        "KI",
+        "KBr",
+        "I2"
+      ],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [
+        "practice.experiment.8.10"
+      ],
+      "observationFlags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_NONSPECIFIC: colour change without a stated colour"
+      ]
+    },
+    {
+      "reactionId": "rxn.bacl2-h2so4",
+      "reactants": [
+        "BaCl2",
+        "H2SO4"
+      ],
+      "products": [
+        "BaSO4",
+        "HCl"
+      ],
+      "reactionType": "precipitation",
+      "conditions": {
+        "tags": [],
+        "dimensions": {}
+      },
+      "observation": [
+        {
+          "type": "precipitate",
+          "color": "white"
+        }
+      ],
+      "netIonicDerivable": true,
+      "netIonicUnsupported": [],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.nh4cl-caoh2",
+      "reactants": [
+        "NH4Cl",
+        "Ca(OH)2"
+      ],
+      "products": [
+        "NH3",
+        "CaCl2",
+        "H2O"
+      ],
+      "reactionType": "gas_evolution",
+      "conditions": {
+        "tags": [
+          "gentle heating"
+        ],
+        "dimensions": {
+          "temperature": "gently-heated"
+        }
+      },
+      "observation": [
+        {
+          "type": "gas",
+          "descriptionKey": "rxn.nh4cl-caoh2.observation"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "Ca(OH)2",
+        "NH3"
+      ],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [
+        "practice.experiment.8.14"
+      ],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.nh3-hcl",
+      "reactants": [
+        "NH3",
+        "HCl"
+      ],
+      "products": [
+        "NH4Cl"
+      ],
+      "reactionType": "combination",
+      "conditions": {
+        "tags": [],
+        "dimensions": {}
+      },
+      "observation": [
+        {
+          "type": "no-visible-change"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "NH3"
+      ],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [
+        "practice.experiment.8.14"
+      ],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.na2s-hcl",
+      "reactants": [
+        "Na2S",
+        "HCl"
+      ],
+      "products": [
+        "H2S",
+        "NaCl"
+      ],
+      "reactionType": "gas_evolution",
+      "conditions": {
+        "tags": [],
+        "dimensions": {}
+      },
+      "observation": [
+        {
+          "type": "gas",
+          "descriptionKey": "rxn.na2s-hcl.observation"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "Na2S",
+        "H2S"
+      ],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.cuso4-na2s",
+      "reactants": [
+        "CuSO4",
+        "Na2S"
+      ],
+      "products": [
+        "CuS",
+        "Na2SO4"
+      ],
+      "reactionType": "precipitation",
+      "conditions": {
+        "tags": [],
+        "dimensions": {}
+      },
+      "observation": [
+        {
+          "type": "precipitate",
+          "color": "black"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "CuSO4",
+        "Na2S"
+      ],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.p-combustion",
+      "reactants": [
+        "P",
+        "O2"
+      ],
+      "products": [
+        "P2O5"
+      ],
+      "reactionType": "combustion",
+      "conditions": {
+        "tags": [
+          "ignition"
+        ],
+        "dimensions": {
+          "ignition": "present"
+        }
+      },
+      "observation": [
+        {
+          "type": "no-visible-change"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "P",
+        "O2",
+        "P2O5"
+      ],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.c-combustion-limited",
+      "reactants": [
+        "C",
+        "O2"
+      ],
+      "products": [
+        "CO"
+      ],
+      "reactionType": "combustion",
+      "conditions": {
+        "tags": [
+          "oxygen-limited",
+          "ignition"
+        ],
+        "dimensions": {
+          "oxygen-supply": "limited",
+          "ignition": "present"
+        }
+      },
+      "observation": [
+        {
+          "type": "gas",
+          "descriptionKey": "rxn.c-combustion-limited.observation"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "C",
+        "O2",
+        "CO"
+      ],
+      "sourceRefs": [
+        "src.beta1.migration"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": []
+    }
+  ],
+  "speciesIdentity": {
+    "registered": 84,
+    "formulasUnique": true,
+    "unregisteredIons": []
+  },
+  "gate": {
+    "status": "PENDING",
+    "fail": [],
+    "pending": [
+      "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.br2-ki",
+      "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.cl2-kbr",
+      "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.h2-combustion",
+      "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.nacl-h2so4",
+      "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.naoh-hcl",
+      "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.znoh2-hcl",
+      "LOCALIZATION_PENDING",
+      "NET_IONIC_UNSUPPORTED:rxn.agno3-nabr:NaBr",
+      "NET_IONIC_UNSUPPORTED:rxn.agno3-nai:NaI",
+      "NET_IONIC_UNSUPPORTED:rxn.br2-ki:Br2,KI,KBr,I2",
+      "NET_IONIC_UNSUPPORTED:rxn.c-combustion-limited:C,O2,CO",
+      "NET_IONIC_UNSUPPORTED:rxn.c-combustion:C,O2,CO2",
+      "NET_IONIC_UNSUPPORTED:rxn.caco3-hcl:CaCO3,CO2",
+      "NET_IONIC_UNSUPPORTED:rxn.cao-water:CaO,Ca(OH)2",
+      "NET_IONIC_UNSUPPORTED:rxn.cl2-kbr:Cl2,KBr,KCl,Br2",
+      "NET_IONIC_UNSUPPORTED:rxn.co2-water:CO2,H2CO3",
+      "NET_IONIC_UNSUPPORTED:rxn.cuo-hcl:CuO,CuCl2",
+      "NET_IONIC_UNSUPPORTED:rxn.cuso4-na2s:CuSO4,Na2S",
+      "NET_IONIC_UNSUPPORTED:rxn.fe-combustion:Fe,O2,Fe3O4",
+      "NET_IONIC_UNSUPPORTED:rxn.h2-combustion:H2,O2",
+      "NET_IONIC_UNSUPPORTED:rxn.h2-cuo:H2,CuO,Cu",
+      "NET_IONIC_UNSUPPORTED:rxn.mg-h2so4:Mg,MgSO4,H2",
+      "NET_IONIC_UNSUPPORTED:rxn.na2s-hcl:Na2S,H2S",
+      "NET_IONIC_UNSUPPORTED:rxn.nacl-h2so4:NaHSO4",
+      "NET_IONIC_UNSUPPORTED:rxn.nh3-hcl:NH3",
+      "NET_IONIC_UNSUPPORTED:rxn.nh4cl-caoh2:Ca(OH)2,NH3",
+      "NET_IONIC_UNSUPPORTED:rxn.p-combustion:P,O2,P2O5",
+      "NET_IONIC_UNSUPPORTED:rxn.s-combustion:S,O2,SO2",
+      "NET_IONIC_UNSUPPORTED:rxn.zn-h2so4:Zn,ZnSO4,H2",
+      "NET_IONIC_UNSUPPORTED:rxn.zn-hcl:Zn,H2",
+      "NO_REACTION_RECORDS_MISSING",
+      "REVIEW_PENDING:condition-context:solution-mixing",
+      "REVIEW_PENDING:condition-term:concentrated acid",
+      "REVIEW_PENDING:condition-term:dilute acid",
+      "REVIEW_PENDING:condition-term:gentle heating",
+      "REVIEW_PENDING:condition-term:heating",
+      "REVIEW_PENDING:condition-term:ignition",
+      "REVIEW_PENDING:condition-term:oxygen-excess",
+      "REVIEW_PENDING:condition-term:oxygen-limited",
+      "REVIEW_PENDING:condition-term:strong heating",
+      "REVIEW_PENDING:condition:rxn.c-combustion",
+      "REVIEW_PENDING:condition:rxn.c-combustion-limited",
+      "REVIEW_PENDING:condition:rxn.fe-combustion",
+      "REVIEW_PENDING:condition:rxn.h2-combustion",
+      "REVIEW_PENDING:condition:rxn.h2-cuo",
+      "REVIEW_PENDING:condition:rxn.mg-h2so4",
+      "REVIEW_PENDING:condition:rxn.nacl-h2so4",
+      "REVIEW_PENDING:condition:rxn.nh4cl-caoh2",
+      "REVIEW_PENDING:condition:rxn.p-combustion",
+      "REVIEW_PENDING:condition:rxn.s-combustion",
+      "REVIEW_PENDING:condition:rxn.zn-h2so4",
+      "REVIEW_PENDING:dissociation:AgNO3",
+      "REVIEW_PENDING:dissociation:BaCl2",
+      "REVIEW_PENDING:dissociation:CaCl2",
+      "REVIEW_PENDING:dissociation:H2SO4",
+      "REVIEW_PENDING:dissociation:HCl",
+      "REVIEW_PENDING:dissociation:NH4Cl",
+      "REVIEW_PENDING:dissociation:Na2CO3",
+      "REVIEW_PENDING:dissociation:Na2SO4",
+      "REVIEW_PENDING:dissociation:NaCl",
+      "REVIEW_PENDING:dissociation:NaNO3",
+      "REVIEW_PENDING:dissociation:NaOH",
+      "REVIEW_PENDING:dissociation:ZnCl2",
+      "REVIEW_PENDING:electrolysis:CuCl2|aq|inert",
+      "REVIEW_PENDING:element-name:Al",
+      "REVIEW_PENDING:element-name:Ar",
+      "REVIEW_PENDING:element-name:B",
+      "REVIEW_PENDING:element-name:Be",
+      "REVIEW_PENDING:element-name:C",
+      "REVIEW_PENDING:element-name:Ca",
+      "REVIEW_PENDING:element-name:Cl",
+      "REVIEW_PENDING:element-name:F",
+      "REVIEW_PENDING:element-name:H",
+      "REVIEW_PENDING:element-name:He",
+      "REVIEW_PENDING:element-name:K",
+      "REVIEW_PENDING:element-name:Li",
+      "REVIEW_PENDING:element-name:Mg",
+      "REVIEW_PENDING:element-name:N",
+      "REVIEW_PENDING:element-name:Na",
+      "REVIEW_PENDING:element-name:Ne",
+      "REVIEW_PENDING:element-name:O",
+      "REVIEW_PENDING:element-name:P",
+      "REVIEW_PENDING:element-name:S",
+      "REVIEW_PENDING:element-name:Si",
+      "REVIEW_PENDING:hydrolysis:AlCl3",
+      "REVIEW_PENDING:hydrolysis:NH4Cl",
+      "REVIEW_PENDING:hydrolysis:Na2CO3",
+      "REVIEW_PENDING:hydrolysis:NaCl",
+      "REVIEW_PENDING:indicator:litmus:acidic",
+      "REVIEW_PENDING:indicator:litmus:basic",
+      "REVIEW_PENDING:indicator:litmus:neutral",
+      "REVIEW_PENDING:insoluble:AgBr",
+      "REVIEW_PENDING:insoluble:AgCl",
+      "REVIEW_PENDING:insoluble:AgI",
+      "REVIEW_PENDING:insoluble:BaSO4",
+      "REVIEW_PENDING:insoluble:Ca3(PO4)2",
+      "REVIEW_PENDING:insoluble:CuS",
+      "REVIEW_PENDING:insoluble:Zn(OH)2",
+      "REVIEW_PENDING:insoluble:ZnS",
+      "REVIEW_PENDING:observation:rxn.agno3-nabr",
+      "REVIEW_PENDING:observation:rxn.agno3-nacl",
+      "REVIEW_PENDING:observation:rxn.agno3-nai",
+      "REVIEW_PENDING:observation:rxn.bacl2-h2so4",
+      "REVIEW_PENDING:observation:rxn.br2-ki",
+      "REVIEW_PENDING:observation:rxn.c-combustion",
+      "REVIEW_PENDING:observation:rxn.c-combustion-limited",
+      "REVIEW_PENDING:observation:rxn.caco3-hcl",
+      "REVIEW_PENDING:observation:rxn.cao-water",
+      "REVIEW_PENDING:observation:rxn.cl2-kbr",
+      "REVIEW_PENDING:observation:rxn.co2-water",
+      "REVIEW_PENDING:observation:rxn.cuo-hcl",
+      "REVIEW_PENDING:observation:rxn.cuso4-na2s",
+      "REVIEW_PENDING:observation:rxn.fe-combustion",
+      "REVIEW_PENDING:observation:rxn.h2-combustion",
+      "REVIEW_PENDING:observation:rxn.h2-cuo",
+      "REVIEW_PENDING:observation:rxn.mg-h2so4",
+      "REVIEW_PENDING:observation:rxn.na2s-hcl",
+      "REVIEW_PENDING:observation:rxn.nacl-h2so4",
+      "REVIEW_PENDING:observation:rxn.naoh-hcl",
+      "REVIEW_PENDING:observation:rxn.nh3-hcl",
+      "REVIEW_PENDING:observation:rxn.nh4cl-caoh2",
+      "REVIEW_PENDING:observation:rxn.p-combustion",
+      "REVIEW_PENDING:observation:rxn.s-combustion",
+      "REVIEW_PENDING:observation:rxn.zn-h2so4",
+      "REVIEW_PENDING:observation:rxn.zn-hcl",
+      "REVIEW_PENDING:observation:rxn.zncl2-naoh",
+      "REVIEW_PENDING:observation:rxn.znoh2-hcl",
+      "REVIEW_PENDING:reaction:rxn.agno3-nabr",
+      "REVIEW_PENDING:reaction:rxn.agno3-nacl",
+      "REVIEW_PENDING:reaction:rxn.agno3-nai",
+      "REVIEW_PENDING:reaction:rxn.bacl2-h2so4",
+      "REVIEW_PENDING:reaction:rxn.br2-ki",
+      "REVIEW_PENDING:reaction:rxn.c-combustion",
+      "REVIEW_PENDING:reaction:rxn.c-combustion-limited",
+      "REVIEW_PENDING:reaction:rxn.caco3-hcl",
+      "REVIEW_PENDING:reaction:rxn.cao-water",
+      "REVIEW_PENDING:reaction:rxn.cl2-kbr",
+      "REVIEW_PENDING:reaction:rxn.co2-water",
+      "REVIEW_PENDING:reaction:rxn.cuo-hcl",
+      "REVIEW_PENDING:reaction:rxn.cuso4-na2s",
+      "REVIEW_PENDING:reaction:rxn.fe-combustion",
+      "REVIEW_PENDING:reaction:rxn.h2-combustion",
+      "REVIEW_PENDING:reaction:rxn.h2-cuo",
+      "REVIEW_PENDING:reaction:rxn.mg-h2so4",
+      "REVIEW_PENDING:reaction:rxn.na2s-hcl",
+      "REVIEW_PENDING:reaction:rxn.nacl-h2so4",
+      "REVIEW_PENDING:reaction:rxn.naoh-hcl",
+      "REVIEW_PENDING:reaction:rxn.nh3-hcl",
+      "REVIEW_PENDING:reaction:rxn.nh4cl-caoh2",
+      "REVIEW_PENDING:reaction:rxn.p-combustion",
+      "REVIEW_PENDING:reaction:rxn.s-combustion",
+      "REVIEW_PENDING:reaction:rxn.zn-h2so4",
+      "REVIEW_PENDING:reaction:rxn.zn-hcl",
+      "REVIEW_PENDING:reaction:rxn.zncl2-naoh",
+      "REVIEW_PENDING:reaction:rxn.znoh2-hcl",
+      "REVIEW_PENDING:species-name:species.agno3.name",
+      "REVIEW_PENDING:species-name:species.alcl3.name",
+      "REVIEW_PENDING:species-name:species.bacl2.name",
+      "REVIEW_PENDING:species-name:species.h2so4.name",
+      "REVIEW_PENDING:species-name:species.na2co3.name",
+      "REVIEW_PENDING:species-name:species.nacl.name",
+      "REVIEW_PENDING:species-name:species.nano3.name",
+      "REVIEW_PENDING:species-name:species.naoh.name",
+      "REVIEW_PENDING:species-name:species.nh4cl.name",
+      "REVIEW_PENDING:species-name:species.zncl2.name"
+    ]
+  }
+}

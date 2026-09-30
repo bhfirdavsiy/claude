@@ -1,0 +1,624 @@
+{
+  "schema": "kimyolab.ionic-pair-coverage.v1",
+  "semantics": "MODELED_REACTION | MODELED_NO_REACTION | CONDITION_DEPENDENT (a record exists but needs other conditions) | NOT_MODELED (not yet reviewed — never \"no reaction\"). Candidates come from the solubility rules and are review suggestions only.",
+  "shelves": [
+    {
+      "activityId": "practice.experiment.8.1",
+      "targetReactionId": "rxn.agno3-nacl",
+      "reagents": [
+        "species.agno3",
+        "species.nacl",
+        "species.bacl2",
+        "species.h2so4",
+        "species.zncl2",
+        "species.naoh",
+        "species.nano3"
+      ],
+      "pairs": [
+        {
+          "reagents": [
+            "species.agno3",
+            "species.nacl"
+          ],
+          "formulas": [
+            "AgNO3",
+            "NaCl"
+          ],
+          "class": "MODELED_REACTION",
+          "reactionId": "rxn.agno3-nacl",
+          "coverageCode": null,
+          "currentBehavior": "modeled reaction shown",
+          "reviewDecisionRequired": false,
+          "candidate": null
+        },
+        {
+          "reagents": [
+            "species.agno3",
+            "species.bacl2"
+          ],
+          "formulas": [
+            "AgNO3",
+            "BaCl2"
+          ],
+          "class": "NOT_MODELED",
+          "reactionId": null,
+          "coverageCode": "REACTION_NOT_MODELED",
+          "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+          "reviewDecisionRequired": true,
+          "candidate": {
+            "kind": "reaction-candidate",
+            "basis": "solubility rules list AgCl as insoluble",
+            "swaps": [
+              {
+                "ions": "Ba2+ + NO3^-",
+                "formula": null,
+                "water": false
+              },
+              {
+                "ions": "Ag+ + Cl-",
+                "formula": "AgCl",
+                "water": false
+              }
+            ]
+          }
+        },
+        {
+          "reagents": [
+            "species.agno3",
+            "species.h2so4"
+          ],
+          "formulas": [
+            "AgNO3",
+            "H2SO4"
+          ],
+          "class": "NOT_MODELED",
+          "reactionId": null,
+          "coverageCode": "REACTION_NOT_MODELED",
+          "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+          "reviewDecisionRequired": true,
+          "candidate": {
+            "kind": "unclassifiable",
+            "basis": "the solubility rules do not cover every ion-swap product",
+            "swaps": [
+              {
+                "ions": "H+ + NO3^-",
+                "formula": null,
+                "water": false
+              },
+              {
+                "ions": "Ag+ + SO4^2-",
+                "formula": null,
+                "water": false
+              }
+            ]
+          }
+        },
+        {
+          "reagents": [
+            "species.agno3",
+            "species.zncl2"
+          ],
+          "formulas": [
+            "AgNO3",
+            "ZnCl2"
+          ],
+          "class": "NOT_MODELED",
+          "reactionId": null,
+          "coverageCode": "REACTION_NOT_MODELED",
+          "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+          "reviewDecisionRequired": true,
+          "candidate": {
+            "kind": "reaction-candidate",
+            "basis": "solubility rules list AgCl as insoluble",
+            "swaps": [
+              {
+                "ions": "Zn2+ + NO3^-",
+                "formula": null,
+                "water": false
+              },
+              {
+                "ions": "Ag+ + Cl-",
+                "formula": "AgCl",
+                "water": false
+              }
+            ]
+          }
+        },
+        {
+          "reagents": [
+            "species.agno3",
+            "species.naoh"
+          ],
+          "formulas": [
+            "AgNO3",
+            "NaOH"
+          ],
+          "class": "NOT_MODELED",
+          "reactionId": null,
+          "coverageCode": "REACTION_NOT_MODELED",
+          "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+          "reviewDecisionRequired": true,
+          "candidate": {
+            "kind": "unclassifiable",
+            "basis": "the solubility rules do not cover every ion-swap product",
+            "swaps": [
+              {
+                "ions": "Na+ + NO3^-",
+                "formula": "NaNO3",
+                "water": false
+              },
+              {
+                "ions": "Ag+ + OH-",
+                "formula": null,
+                "water": false
+              }
+            ]
+          }
+        },
+        {
+          "reagents": [
+            "species.agno3",
+            "species.nano3"
+          ],
+          "formulas": [
+            "AgNO3",
+            "NaNO3"
+          ],
+          "class": "NOT_MODELED",
+          "reactionId": null,
+          "coverageCode": "REACTION_NOT_MODELED",
+          "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+          "reviewDecisionRequired": true,
+          "candidate": {
+            "kind": "no-reaction-candidate",
+            "basis": "every ion-swap product is listed as soluble (dissociation rules)",
+            "swaps": [
+              {
+                "ions": "Na+ + NO3^-",
+                "formula": "NaNO3",
+                "water": false
+              },
+              {
+                "ions": "Ag+ + NO3^-",
+                "formula": "AgNO3",
+                "water": false
+              }
+            ]
+          }
+        },
+        {
+          "reagents": [
+            "species.nacl",
+            "species.bacl2"
+          ],
+          "formulas": [
+            "NaCl",
+            "BaCl2"
+          ],
+          "class": "NOT_MODELED",
+          "reactionId": null,
+          "coverageCode": "REACTION_NOT_MODELED",
+          "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+          "reviewDecisionRequired": true,
+          "candidate": {
+            "kind": "no-reaction-candidate",
+            "basis": "every ion-swap product is listed as soluble (dissociation rules)",
+            "swaps": [
+              {
+                "ions": "Ba2+ + Cl-",
+                "formula": "BaCl2",
+                "water": false
+              },
+              {
+                "ions": "Na+ + Cl-",
+                "formula": "NaCl",
+                "water": false
+              }
+            ]
+          }
+        },
+        {
+          "reagents": [
+            "species.nacl",
+            "species.h2so4"
+          ],
+          "formulas": [
+            "NaCl",
+            "H2SO4"
+          ],
+          "class": "CONDITION_DEPENDENT",
+          "reactionId": null,
+          "coverageCode": "REACTION_CONDITIONS_NOT_MET",
+          "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+          "reviewDecisionRequired": true,
+          "candidate": null
+        },
+        {
+          "reagents": [
+            "species.nacl",
+            "species.zncl2"
+          ],
+          "formulas": [
+            "NaCl",
+            "ZnCl2"
+          ],
+          "class": "NOT_MODELED",
+          "reactionId": null,
+          "coverageCode": "REACTION_NOT_MODELED",
+          "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+          "reviewDecisionRequired": true,
+          "candidate": {
+            "kind": "no-reaction-candidate",
+            "basis": "every ion-swap product is listed as soluble (dissociation rules)",
+            "swaps": [
+              {
+                "ions": "Zn2+ + Cl-",
+                "formula": "ZnCl2",
+                "water": false
+              },
+              {
+                "ions": "Na+ + Cl-",
+                "formula": "NaCl",
+                "water": false
+              }
+            ]
+          }
+        },
+        {
+          "reagents": [
+            "species.nacl",
+            "species.naoh"
+          ],
+          "formulas": [
+            "NaCl",
+            "NaOH"
+          ],
+          "class": "NOT_MODELED",
+          "reactionId": null,
+          "coverageCode": "REACTION_NOT_MODELED",
+          "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+          "reviewDecisionRequired": true,
+          "candidate": {
+            "kind": "no-reaction-candidate",
+            "basis": "every ion-swap product is listed as soluble (dissociation rules)",
+            "swaps": [
+              {
+                "ions": "Na+ + Cl-",
+                "formula": "NaCl",
+                "water": false
+              },
+              {
+                "ions": "Na+ + OH-",
+                "formula": "NaOH",
+                "water": false
+              }
+            ]
+          }
+        },
+        {
+          "reagents": [
+            "species.nacl",
+            "species.nano3"
+          ],
+          "formulas": [
+            "NaCl",
+            "NaNO3"
+          ],
+          "class": "NOT_MODELED",
+          "reactionId": null,
+          "coverageCode": "REACTION_NOT_MODELED",
+          "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+          "reviewDecisionRequired": true,
+          "candidate": {
+            "kind": "no-reaction-candidate",
+            "basis": "every ion-swap product is listed as soluble (dissociation rules)",
+            "swaps": [
+              {
+                "ions": "Na+ + Cl-",
+                "formula": "NaCl",
+                "water": false
+              },
+              {
+                "ions": "Na+ + NO3^-",
+                "formula": "NaNO3",
+                "water": false
+              }
+            ]
+          }
+        },
+        {
+          "reagents": [
+            "species.bacl2",
+            "species.h2so4"
+          ],
+          "formulas": [
+            "BaCl2",
+            "H2SO4"
+          ],
+          "class": "MODELED_REACTION",
+          "reactionId": "rxn.bacl2-h2so4",
+          "coverageCode": null,
+          "currentBehavior": "modeled reaction shown",
+          "reviewDecisionRequired": false,
+          "candidate": null
+        },
+        {
+          "reagents": [
+            "species.bacl2",
+            "species.zncl2"
+          ],
+          "formulas": [
+            "BaCl2",
+            "ZnCl2"
+          ],
+          "class": "NOT_MODELED",
+          "reactionId": null,
+          "coverageCode": "REACTION_NOT_MODELED",
+          "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+          "reviewDecisionRequired": true,
+          "candidate": {
+            "kind": "no-reaction-candidate",
+            "basis": "every ion-swap product is listed as soluble (dissociation rules)",
+            "swaps": [
+              {
+                "ions": "Zn2+ + Cl-",
+                "formula": "ZnCl2",
+                "water": false
+              },
+              {
+                "ions": "Ba2+ + Cl-",
+                "formula": "BaCl2",
+                "water": false
+              }
+            ]
+          }
+        },
+        {
+          "reagents": [
+            "species.bacl2",
+            "species.naoh"
+          ],
+          "formulas": [
+            "BaCl2",
+            "NaOH"
+          ],
+          "class": "NOT_MODELED",
+          "reactionId": null,
+          "coverageCode": "REACTION_NOT_MODELED",
+          "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+          "reviewDecisionRequired": true,
+          "candidate": {
+            "kind": "unclassifiable",
+            "basis": "the solubility rules do not cover every ion-swap product",
+            "swaps": [
+              {
+                "ions": "Na+ + Cl-",
+                "formula": "NaCl",
+                "water": false
+              },
+              {
+                "ions": "Ba2+ + OH-",
+                "formula": null,
+                "water": false
+              }
+            ]
+          }
+        },
+        {
+          "reagents": [
+            "species.bacl2",
+            "species.nano3"
+          ],
+          "formulas": [
+            "BaCl2",
+            "NaNO3"
+          ],
+          "class": "NOT_MODELED",
+          "reactionId": null,
+          "coverageCode": "REACTION_NOT_MODELED",
+          "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+          "reviewDecisionRequired": true,
+          "candidate": {
+            "kind": "unclassifiable",
+            "basis": "the solubility rules do not cover every ion-swap product",
+            "swaps": [
+              {
+                "ions": "Na+ + Cl-",
+                "formula": "NaCl",
+                "water": false
+              },
+              {
+                "ions": "Ba2+ + NO3^-",
+                "formula": null,
+                "water": false
+              }
+            ]
+          }
+        },
+        {
+          "reagents": [
+            "species.h2so4",
+            "species.zncl2"
+          ],
+          "formulas": [
+            "H2SO4",
+            "ZnCl2"
+          ],
+          "class": "NOT_MODELED",
+          "reactionId": null,
+          "coverageCode": "REACTION_NOT_MODELED",
+          "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+          "reviewDecisionRequired": true,
+          "candidate": {
+            "kind": "unclassifiable",
+            "basis": "the solubility rules do not cover every ion-swap product",
+            "swaps": [
+              {
+                "ions": "Zn2+ + SO4^2-",
+                "formula": null,
+                "water": false
+              },
+              {
+                "ions": "H+ + Cl-",
+                "formula": "HCl",
+                "water": false
+              }
+            ]
+          }
+        },
+        {
+          "reagents": [
+            "species.h2so4",
+            "species.naoh"
+          ],
+          "formulas": [
+            "H2SO4",
+            "NaOH"
+          ],
+          "class": "NOT_MODELED",
+          "reactionId": null,
+          "coverageCode": "REACTION_NOT_MODELED",
+          "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+          "reviewDecisionRequired": true,
+          "candidate": {
+            "kind": "reaction-candidate",
+            "basis": "H+ and OH- would form water",
+            "swaps": [
+              {
+                "ions": "Na+ + SO4^2-",
+                "formula": "Na2SO4",
+                "water": false
+              },
+              {
+                "ions": "H+ + OH-",
+                "formula": "H2O",
+                "water": true
+              }
+            ]
+          }
+        },
+        {
+          "reagents": [
+            "species.h2so4",
+            "species.nano3"
+          ],
+          "formulas": [
+            "H2SO4",
+            "NaNO3"
+          ],
+          "class": "NOT_MODELED",
+          "reactionId": null,
+          "coverageCode": "REACTION_NOT_MODELED",
+          "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+          "reviewDecisionRequired": true,
+          "candidate": {
+            "kind": "unclassifiable",
+            "basis": "the solubility rules do not cover every ion-swap product",
+            "swaps": [
+              {
+                "ions": "Na+ + SO4^2-",
+                "formula": "Na2SO4",
+                "water": false
+              },
+              {
+                "ions": "H+ + NO3^-",
+                "formula": null,
+                "water": false
+              }
+            ]
+          }
+        },
+        {
+          "reagents": [
+            "species.zncl2",
+            "species.naoh"
+          ],
+          "formulas": [
+            "ZnCl2",
+            "NaOH"
+          ],
+          "class": "MODELED_REACTION",
+          "reactionId": "rxn.zncl2-naoh",
+          "coverageCode": null,
+          "currentBehavior": "modeled reaction shown",
+          "reviewDecisionRequired": false,
+          "candidate": null
+        },
+        {
+          "reagents": [
+            "species.zncl2",
+            "species.nano3"
+          ],
+          "formulas": [
+            "ZnCl2",
+            "NaNO3"
+          ],
+          "class": "NOT_MODELED",
+          "reactionId": null,
+          "coverageCode": "REACTION_NOT_MODELED",
+          "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+          "reviewDecisionRequired": true,
+          "candidate": {
+            "kind": "unclassifiable",
+            "basis": "the solubility rules do not cover every ion-swap product",
+            "swaps": [
+              {
+                "ions": "Na+ + Cl-",
+                "formula": "NaCl",
+                "water": false
+              },
+              {
+                "ions": "Zn2+ + NO3^-",
+                "formula": null,
+                "water": false
+              }
+            ]
+          }
+        },
+        {
+          "reagents": [
+            "species.naoh",
+            "species.nano3"
+          ],
+          "formulas": [
+            "NaOH",
+            "NaNO3"
+          ],
+          "class": "NOT_MODELED",
+          "reactionId": null,
+          "coverageCode": "REACTION_NOT_MODELED",
+          "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
+          "reviewDecisionRequired": true,
+          "candidate": {
+            "kind": "no-reaction-candidate",
+            "basis": "every ion-swap product is listed as soluble (dissociation rules)",
+            "swaps": [
+              {
+                "ions": "Na+ + OH-",
+                "formula": "NaOH",
+                "water": false
+              },
+              {
+                "ions": "Na+ + NO3^-",
+                "formula": "NaNO3",
+                "water": false
+              }
+            ]
+          }
+        }
+      ],
+      "summary": {
+        "pairs": 21,
+        "MODELED_REACTION": 3,
+        "MODELED_NO_REACTION": 0,
+        "CONDITION_DEPENDENT": 1,
+        "NOT_MODELED": 17,
+        "classified": 21,
+        "unclassified": 0,
+        "reactionCandidates": 3,
+        "noReactionCandidates": 7,
+        "unclassifiableCandidates": 7
+      }
+    }
+  ]
+}

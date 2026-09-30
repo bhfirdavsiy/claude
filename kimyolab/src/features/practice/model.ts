@@ -1,7 +1,7 @@
 import type {PracticeActivity} from '../../domain/content/types.ts';
 import type {ActivityExecutionPlan} from '../../runtime/practice-router/execution-plan.ts';
 import type {LearningActivityReadiness} from '../../domain/readiness/readiness.ts';
-import type {ElementNameCatalog} from '../localization/element-names.ts';
+import type {ElementNameCatalog,SpeciesNameCatalog} from '../localization/element-names.ts';
 
 export interface StudentPracticePageModel {
   id:string;
@@ -23,7 +23,7 @@ export interface StudentPracticePageModel {
   curriculumVersion?:string;
   legacyContent?:{equipment?:string;materials?:string;safety?:string;steps?:string[];tasks?:string[]};
   /** localized display text for the page (P1.4 closeout) — presentation only, never chemistry input */
-  localization?:{elementNames?:ElementNameCatalog};
+  localization?:{elementNames?:ElementNameCatalog;speciesNames?:SpeciesNameCatalog};
   chemistry:{
     reactions:any[];
     solutionRules:{version:string;dissociation:any[];insoluble:string[]};
@@ -35,6 +35,8 @@ export interface StudentPracticePageModel {
     equilibrium?:any;
     /** P1.6: species registry data (reagent identities for the ionic mixing practice) */
     species?:any[];
+    /** P1.7: structured meaning of reaction condition tags (content, reviewed) */
+    conditionVocabulary?:any;
   };
 }
 
@@ -58,7 +60,9 @@ export function buildPracticePageModel(input:{
   kinetics?:any;
   equilibrium?:any;
   species?:any[];
+  conditionVocabulary?:any;
   elementNames?:ElementNameCatalog;
+  speciesNames?:SpeciesNameCatalog;
 }):StudentPracticePageModel {
   return {
     id:input.activity.id,
@@ -83,7 +87,7 @@ export function buildPracticePageModel(input:{
     scoringVersion:input.scoringVersion,
     ...(input.curriculumVersion?{curriculumVersion:input.curriculumVersion}:{}),
     legacyContent:structuredClone((input.activity as any).legacyContent??{}),
-    ...(input.elementNames?{localization:{elementNames:input.elementNames}}:{}),
+    ...(input.elementNames||input.speciesNames?{localization:{...(input.elementNames?{elementNames:input.elementNames}:{}),...(input.speciesNames?{speciesNames:input.speciesNames}:{})}}:{}),
     chemistry:{
       reactions:structuredClone(input.reactions),
       solutionRules:structuredClone(input.solutionRules),
@@ -94,6 +98,7 @@ export function buildPracticePageModel(input:{
       kinetics:input.kinetics===undefined?undefined:structuredClone(input.kinetics),
       equilibrium:input.equilibrium===undefined?undefined:structuredClone(input.equilibrium),
       species:input.species===undefined?undefined:structuredClone(input.species),
+      conditionVocabulary:input.conditionVocabulary===undefined?undefined:structuredClone(input.conditionVocabulary),
     },
   };
 }

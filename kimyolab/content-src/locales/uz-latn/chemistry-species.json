@@ -1,0 +1,18 @@
+{
+  "schema": "kimyolab.locale.chemistry-species.v1",
+  "locale": "uz-Latn",
+  "reviewStatus": "pending",
+  "note": "O‘zbekcha (lotin) modda nomlari. Kalit — species.json dagi nameKey (domain identifikatori speciesId; formula ko‘rsatish uchun). Faqat hozir o‘quvchiga ko‘rinadigan reagent va tuzlar uchun. Ro‘yxatda yo‘q moddada UI formulaning o‘zini ko‘rsatadi. Tarjimalar tasdiqlanmagan: chemistry reviewer ko‘rib chiqadi (CHEM-033 review surface, review-packets/chemistry-kb).",
+  "names": {
+    "species.agno3.name": "kumush nitrat",
+    "species.nacl.name": "natriy xlorid",
+    "species.bacl2.name": "bariy xlorid",
+    "species.h2so4.name": "sulfat kislota",
+    "species.zncl2.name": "rux xlorid",
+    "species.naoh.name": "natriy gidroksid",
+    "species.nano3.name": "natriy nitrat",
+    "species.alcl3.name": "alyuminiy xlorid",
+    "species.na2co3.name": "natriy karbonat",
+    "species.nh4cl.name": "ammoniy xlorid"
+  }
+}

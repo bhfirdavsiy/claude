@@ -1,6 +1,7 @@
 import type {PracticeActivity, PracticeType} from '../../domain/content/types.ts';
 import {ReactionMatcher} from '../../domain/chemistry/reaction-matcher.ts';
 import {SpeciesRegistry} from '../../domain/chemistry/species-registry.ts';
+import {parseConditionVocabulary} from '../../domain/chemistry/condition-vocabulary.ts';
 import {IonicEngine} from '../../domain/chemistry/ionic-engine.ts';
 import {createReferenceSliceRouter, loadReferenceSliceRegistry} from '../../runtime/reference-slices/index.ts';
 import {loadBeta1ConfigRegistry} from '../../runtime/beta1/config.ts';
@@ -87,11 +88,12 @@ export class ReferencePracticeSession {
       });
     } else if(runtime==='reference-slice'){
       const registry=loadReferenceSliceRegistry({[model.id]:config});
-      const reactionMatcher=ReactionMatcher.from(model.chemistry.reactions as any);
+      const conditionVocabulary=model.chemistry.conditionVocabulary?parseConditionVocabulary(model.chemistry.conditionVocabulary):undefined;
+      const reactionMatcher=ReactionMatcher.from(model.chemistry.reactions as any,conditionVocabulary?{vocabulary:conditionVocabulary}:{});
       const ionicEngine=IonicEngine.from({reactions:model.chemistry.reactions as any,rules:model.chemistry.solutionRules as any});
       const speciesRegistry=Array.isArray(model.chemistry.species)?SpeciesRegistry.from(model.chemistry.species as any):undefined;
       this.router=createReferenceSliceRouter({
-        registry,reactionMatcher,ionicEngine,...(speciesRegistry?{speciesRegistry}:{}),
+        registry,reactionMatcher,ionicEngine,...(speciesRegistry?{speciesRegistry}:{}),...(conditionVocabulary?{conditionVocabulary}:{}),
         contentVersion:model.contentVersion,
         scoringVersion:model.scoringVersion,
         now,

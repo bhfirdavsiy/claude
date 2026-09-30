@@ -1,3 +1,4 @@
+import type {ConditionVocabulary} from '../../domain/chemistry/condition-vocabulary.ts';
 import type {SpeciesRegistry} from '../../domain/chemistry/species-registry.ts';
 export { loadReferenceSliceRegistry } from './config.ts';
 export { createExperimentSliceAdapter } from './experiment-adapter.ts';
@@ -24,6 +25,8 @@ export function createReferenceSliceRouter(options:{
   ionicEngine:IonicEngine;
   /** P1.6: reagent identities for the ionic mixing practice */
   speciesRegistry?:SpeciesRegistry;
+  /** P1.7: condition vocabulary (the actual conditions of mixing solutions) */
+  conditionVocabulary?:ConditionVocabulary;
   contentVersion:string;
   scoringVersion:string;
   now:()=>string;

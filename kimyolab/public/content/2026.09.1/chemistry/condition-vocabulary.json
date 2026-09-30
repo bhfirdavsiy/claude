@@ -1,0 +1,23 @@
+{
+  "schema": "kimyolab.chemistry.condition-vocabulary.v1",
+  "version": "1.0.0",
+  "reviewStatus": "pending",
+  "note": "Structured meaning of the free-text condition tags used in reactions.json (P1.7). Each tag names ONE value of ONE condition dimension; a record's tags are requirements. Contexts describe the ACTUAL conditions of a learner situation. This file adds no reaction and changes no record — it only makes the existing tags machine-checkable. Chemistry review required (CHEM-033).",
+  "sourceRefs": ["src.school.solution-rules"],
+  "terms": {
+    "ignition": {"dimension": "ignition", "value": "present"},
+    "heating": {"dimension": "temperature", "value": "heated"},
+    "gentle heating": {"dimension": "temperature", "value": "gently-heated"},
+    "strong heating": {"dimension": "temperature", "value": "strongly-heated"},
+    "concentrated acid": {"dimension": "acid-concentration", "value": "concentrated"},
+    "dilute acid": {"dimension": "acid-concentration", "value": "dilute"},
+    "oxygen-excess": {"dimension": "oxygen-supply", "value": "excess"},
+    "oxygen-limited": {"dimension": "oxygen-supply", "value": "limited"}
+  },
+  "contexts": {
+    "solution-mixing": {
+      "description": "Two school reagent solutions mixed in a test tube at room temperature (acids are dilute, no heating, no flame).",
+      "dimensions": {"temperature": "room", "acid-concentration": "dilute", "ignition": "absent"}
+    }
+  }
+}

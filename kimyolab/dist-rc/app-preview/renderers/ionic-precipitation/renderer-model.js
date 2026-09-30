@@ -12,7 +12,8 @@ export const IONIC_RENDERER_MODEL_SCHEMA='kimyolab.renderer.ionic-precipitation.
 
                                                   
                                             
-                                           
+                                                                                                  
+                                                            
                         
                         
                  
@@ -72,7 +73,7 @@ function isState(x    )                      {
 }
 
 /** The canonical converter: engine result → IonicPrecipitationRendererModel. Throws on a non-ionic result. */
-export function toIonicPrecipitationRendererModel(result        )                                {
+export function toIonicPrecipitationRendererModel(result        ,localize                          =()=>null)                                {
   const r=result                                                      ;
   const s=r?.finalState?.ionic;
   if(!isState(s)) throw new Error('IONIC_RENDERER_MODEL_INPUT_INVALID');
@@ -96,7 +97,7 @@ export function toIonicPrecipitationRendererModel(result        )               
   ].filter(Boolean);
   return {
     schema:IONIC_RENDERER_MODEL_SCHEMA,
-    reagents:s.reagents.map(x=>({id:x.speciesId,label:formulaLabel(x.formula)})),
+    reagents:s.reagents.map(x=>({id:x.speciesId,label:formulaLabel(x.formula),name:x.nameKey?localize(x.nameKey):null})),
     selectedA:s.selected.A,selectedB:s.selected.B,
     canMix:Boolean(s.selected.A&&s.selected.B&&s.selected.A!==s.selected.B&&!c),
     reactionState,observation,

@@ -5,6 +5,13 @@ import { parseFormula } from './formula-parser.js';
                                                                                   
                                                                               
 function fmt(n       ,f       ){return `${n===1?'':n}${f}`}
+/**
+ * How a species is written in a net ionic equation is decided ONLY from reaction-level data (P1.7 — no guessing):
+ *   dissociation rule → ions (aq) · explicit phase on the reaction record · insoluble list → (s) · H2O → (l).
+ * A species with none of these is NOT treated as molecular by default: netIonicEquation throws
+ * NET_IONIC_UNSUPPORTED. (The species registry's phase is the standard state of the pure substance — e.g. NaBr(s) —
+ * not its state in a reaction, so it is deliberately NOT used.)
+ */
 export class IonicEngine{
   #reactions                           ;#rules                    ;#insoluble            ;
           constructor(input                                                 ){
@@ -13,6 +20,15 @@ export class IonicEngine{
     this.#insoluble=new Set(input.rules.insoluble||[]);
   }
   static from(input                                                 ){return new IonicEngine(input)}
+  /** Can the net ionic equation of this reaction be derived from data alone? Lists what is missing if not. */
+  support(reactionId       )                                                        {
+    const r=this.#reactions.get(reactionId);if(!r)return {supported:false,unsupported:[`reaction:${reactionId}`]};
+    const unsupported=[...r.reactants,...r.products].filter(x=>!this.#determined(x.formula,x.phase)).map(x=>x.formula);
+    return unsupported.length?{supported:false,unsupported:[...new Set(unsupported)]}:{supported:true};
+  }
+  #determined(formula       ,phase        ){
+    return this.#rules.has(formula)||Boolean(phase)||this.#insoluble.has(formula)||formula==='H2O';
+  }
   dissociate(formula       ){const r=this.#rules.get(formula);return r?{modeled:true,ions:r.ions.map(x=>({...x}))}:{modeled:false,code:'DISSOCIATION_NOT_MODELED'         }}
   #expand(formulas         ,coeffs         ,refs                                      )           {
     const out           =[];
@@ -22,6 +38,7 @@ export class IonicEngine{
       let phase=refs.find(r=>r.formula===formula)?.phase;
       if(!phase&&this.#insoluble.has(formula))phase='s';
       if(!phase&&formula==='H2O')phase='l';
+      if(!phase)throw new Error(`NET_IONIC_UNSUPPORTED:${formula}`);
       out.push({formula,coefficient:base,ionic:false,phase});
     });
     return out;

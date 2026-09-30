@@ -6,7 +6,7 @@
   "assessmentVersion": "0.0.0",
   "scoringVersion": "0.0.0",
   "createdAt": "2026-09-22T00:00:00.000Z",
-  "checksum": "a553fcd6edaa73686be2fc0ab9a028ebdb94fc9e2d9c9d1d8c6d549ef61f87ea",
+  "checksum": "b0bcedb32a61c7e02356a504a3da408e76aac9fd6968e71cada25116daf144f9",
   "compatibility": {
     "minAppVersion": "20.1.0"
   },
@@ -77,6 +77,11 @@
       "path": "assessment/prompts.json",
       "checksum": "fbc78848d528780175b6d469ec1f67252ac121d222cba15810cb013b39766f0a",
       "size": 4128
+    },
+    {
+      "path": "chemistry/condition-vocabulary.json",
+      "checksum": "b6d463b39f67c580826689a3c747949f51bcff298d0f4873b22cf01c22d8b19e",
+      "size": 1443
     },
     {
       "path": "chemistry/constants.json",
@@ -202,6 +207,11 @@
       "path": "locales/uz-latn/chemistry-elements.json",
       "checksum": "f3f3e25646aa3e3b2d3163db93d1da0a32e2728fcf18de08e37cb68ce2321cdb",
       "size": 793
+    },
+    {
+      "path": "locales/uz-latn/chemistry-species.json",
+      "checksum": "e702971d77b027d6363aaad58161e62b28d76ab6a347e53d3cc8f6218a00a93e",
+      "size": 955
     },
     {
       "path": "mapping-links.json",
