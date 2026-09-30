@@ -1,0 +1,575 @@
+{
+  "schema": "kimyolab.option-set-authoring-queue.v1",
+  "status": "AWAITING_HUMAN_AUTHOR",
+  "semantics": "Fields where the learner must type an internal canonical token because the repository holds only the target value. A choice UI needs a complete, pedagogically sound option set; that is authored content. The platform does not invent distractors (P2.1 ADR-P2-002 §2, P2.2 scope).",
+  "counts": {
+    "activities": 23,
+    "fields": 32
+  },
+  "authoringContract": {
+    "whatAuthorProvides": [
+      "the complete option set for the field: the canonical target plus plausible, unambiguous distractors (canonical tokens)",
+      "an uz-Latn display label per option (learner-interaction catalog key answer.<domain>.<value>)",
+      "a one-line rationale per distractor (the misconception it targets)",
+      "the source/curriculum reference supporting the target"
+    ],
+    "reviewRequirement": [
+      "didactic review (distractors are pedagogy)",
+      "chemistry review (the target and every option are chemically correct and unambiguous)",
+      "two different people; decisions imported through the governed authoring/review pipelines — never by the agent"
+    ],
+    "landsIn": "content-src/activity-configs/<configSource>.json (option set) + content-src/locales/uz-latn/learner-interaction.json (labels), via npm run authoring:draft → human apply"
+  },
+  "activities": [
+    {
+      "activityId": "practice.simulation.10.17.monohydric-alcohols",
+      "learningUnitId": "lu.10.17",
+      "learningUnitTitle": "Bir atomli spirtlar",
+      "activityTitle": "Bir atomli spirtlar: tuzilish–xossa modeli",
+      "runtime": "generic",
+      "configSource": "beta2-safe",
+      "fields": [
+        {
+          "field": "class",
+          "fieldLabel": "Birikmalar sinfi",
+          "canonicalTarget": "monohydric-alcohol",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.simulation.10.19.phenols",
+      "learningUnitId": "lu.10.19",
+      "learningUnitTitle": "Fenollar va aromatik spirtlar",
+      "activityTitle": "Fenol va aromatik spirtlarni taqqoslash modeli",
+      "runtime": "generic",
+      "configSource": "beta2-safe",
+      "fields": [
+        {
+          "field": "ohAttachedTo",
+          "fieldLabel": "OH guruhi birikkan qism",
+          "canonicalTarget": "aromatic-ring",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        },
+        {
+          "field": "class",
+          "fieldLabel": "Birikmalar sinfi",
+          "canonicalTarget": "phenol",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.simulation.10.21.carbonyls",
+      "learningUnitId": "lu.10.21",
+      "learningUnitTitle": "Aldegidlar va ketonlar",
+      "activityTitle": "Aldegid va ketonlarni farqlash modeli",
+      "runtime": "generic",
+      "configSource": "beta2-safe",
+      "fields": [
+        {
+          "field": "carbonylPosition",
+          "fieldLabel": "Karbonil guruhning o‘rni",
+          "canonicalTarget": "internal",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        },
+        {
+          "field": "class",
+          "fieldLabel": "Birikmalar sinfi",
+          "canonicalTarget": "ketone",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.simulation.11.04.planned",
+      "learningUnitId": "lu.11.04",
+      "learningUnitTitle": "Kimyoviy bog‘lanish turlari va kristall panjaralar",
+      "activityTitle": "Bog‘lanish va kristall panjara 3D modeli",
+      "runtime": "beta3-advanced",
+      "configSource": "beta3-advanced",
+      "fields": [
+        {
+          "field": "lattice",
+          "fieldLabel": "Kristall panjara turi",
+          "canonicalTarget": "ionic-lattice",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.simulation.11.09.planned",
+      "learningUnitId": "lu.11.09",
+      "learningUnitTitle": "Kuchli va kuchsiz elektrolitlar",
+      "activityTitle": "Kuchli/kuchsiz elektrolit o‘tkazuvchanlik va ion ulushi modeli",
+      "runtime": "beta3-advanced",
+      "configSource": "beta3-advanced",
+      "fields": [
+        {
+          "field": "strength",
+          "fieldLabel": "Elektrolit kuchi",
+          "canonicalTarget": "strong",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.simulation.7.02.planned",
+      "learningUnitId": "lu.7.02",
+      "learningUnitTitle": "Modda va uning xossalari",
+      "activityTitle": "Modda xossalarini tasniflash simulyatori",
+      "runtime": "generic",
+      "configSource": "beta1",
+      "fields": [
+        {
+          "field": "property",
+          "fieldLabel": "Xossa",
+          "canonicalTarget": "density",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        },
+        {
+          "field": "classification",
+          "fieldLabel": "Turkumi",
+          "canonicalTarget": "physical",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.simulation.7.06.planned",
+      "learningUnitId": "lu.7.06",
+      "learningUnitTitle": "Atom",
+      "activityTitle": "Jism → modda → molekula/atom masshtab simulyatsiyasi",
+      "runtime": "generic",
+      "configSource": "beta1",
+      "fields": [
+        {
+          "field": "scale",
+          "fieldLabel": "Zarracha darajasi",
+          "canonicalTarget": "atom",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.simulation.7.10.planned",
+      "learningUnitId": "lu.7.10",
+      "learningUnitTitle": "Izotoplar, izobarlar, izotonlar",
+      "activityTitle": "Yadro konstruktori: izotop/izobar/izotonni aniqlash",
+      "runtime": "generic",
+      "configSource": "beta1",
+      "fields": [
+        {
+          "field": "label",
+          "fieldLabel": "Nomlanishi",
+          "canonicalTarget": "isotope",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.simulation.7.13.planned",
+      "learningUnitId": "lu.7.13",
+      "learningUnitTitle": "Oddiy va murakkab moddalar",
+      "activityTitle": "Molekulalarni oddiy/murakkab modda sifatida tasniflash",
+      "runtime": "generic",
+      "configSource": "beta1",
+      "fields": [
+        {
+          "field": "classification",
+          "fieldLabel": "Turkumi",
+          "canonicalTarget": "complex",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.simulation.7.16.planned",
+      "learningUnitId": "lu.7.16",
+      "learningUnitTitle": "Kimyoviy elementlarning tavsiflanishi va tabiiy oilalari",
+      "activityTitle": "Element oilalari bo‘yicha rangli tasnif va filtrlash",
+      "runtime": "generic",
+      "configSource": "beta1",
+      "fields": [
+        {
+          "field": "family",
+          "fieldLabel": "Elementlar oilasi",
+          "canonicalTarget": "halogen",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.simulation.8.02.planned",
+      "learningUnitId": "lu.8.02",
+      "learningUnitTitle": "Kimyoviy elementlarning dastlabki toifalanishi va tabiiy oilalari",
+      "activityTitle": "Tarixiy tasniflash usullarini vaqt chizig‘ida solishtirish",
+      "runtime": "generic",
+      "configSource": "beta1",
+      "fields": [
+        {
+          "field": "system",
+          "fieldLabel": "Tasniflash tizimi",
+          "canonicalTarget": "triads",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.simulation.8.03.planned",
+      "learningUnitId": "lu.8.03",
+      "learningUnitTitle": "Davriy qonun va elementlar davriy sistemasi",
+      "activityTitle": "Davriy trend filtrlari va element pasporti",
+      "runtime": "generic",
+      "configSource": "beta1",
+      "fields": [
+        {
+          "field": "trend",
+          "fieldLabel": "Qonuniyat",
+          "canonicalTarget": "atomic-radius-down-group",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.simulation.8.05.planned",
+      "learningUnitId": "lu.8.05",
+      "learningUnitTitle": "Izotoplar va izobarlar",
+      "activityTitle": "Izotop/izobar juftliklarini qurish va tasniflash",
+      "runtime": "generic",
+      "configSource": "beta1",
+      "fields": [
+        {
+          "field": "relation",
+          "fieldLabel": "O‘zaro munosabat",
+          "canonicalTarget": "isotope",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.simulation.8.19.planned",
+      "learningUnitId": "lu.8.19",
+      "learningUnitTitle": "Kimyoviy reaksiya tezligi",
+      "activityTitle": "Reaksiya tezligiga T, konsentratsiya va sirt ta’siri simulyatsiyasi; oddiy virtual tajriba",
+      "runtime": "generic",
+      "configSource": "beta1",
+      "fields": [
+        {
+          "field": "surface",
+          "fieldLabel": "Sirt holati",
+          "canonicalTarget": "powder",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        },
+        {
+          "field": "rate",
+          "fieldLabel": "Reaksiya tezligi",
+          "canonicalTarget": "faster",
+          "answerCategory": "PROCESS",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.simulation.8.20.planned",
+      "learningUnitId": "lu.8.20",
+      "learningUnitTitle": "Kimyoviy muvozanat",
+      "activityTitle": "Dinamik muvozanat va Le-Shatele simulyatori",
+      "runtime": "generic",
+      "configSource": "beta1",
+      "fields": [
+        {
+          "field": "pressure",
+          "fieldLabel": "Bosim",
+          "canonicalTarget": "increase",
+          "answerCategory": "PROCESS",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        },
+        {
+          "field": "shift",
+          "fieldLabel": "Muvozanat siljishi",
+          "canonicalTarget": "right",
+          "answerCategory": "PROCESS",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.simulation.8.7",
+      "learningUnitId": "lu.8.10",
+      "learningUnitTitle": "Qutbli va qutbsiz kovalent bog‘lanish",
+      "activityTitle": "Turli kimyoviy bog‘lanishli moddalar kristall panjaralari modellarini tayyorlash",
+      "runtime": "generic",
+      "configSource": "beta1",
+      "fields": [
+        {
+          "field": "bondType",
+          "fieldLabel": "Bog‘lanish turi",
+          "canonicalTarget": "polar-covalent",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        },
+        {
+          "field": "lattice",
+          "fieldLabel": "Kristall panjara turi",
+          "canonicalTarget": "molecular",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.simulation.9.01.planned",
+      "learningUnitId": "lu.9.01",
+      "learningUnitTitle": "Davriy sistema, davriy qonun va bog‘lanish turlarini takrorlash",
+      "activityTitle": "Davriy jadval–elektron tuzilish–bog‘lanish takrorlash paneli",
+      "runtime": "generic",
+      "configSource": "beta2-safe",
+      "fields": [
+        {
+          "field": "mode",
+          "fieldLabel": "Tahlil usuli",
+          "canonicalTarget": "periodic-bonding",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.simulation.9.02.planned",
+      "learningUnitId": "lu.9.02",
+      "learningUnitTitle": "Elektrolitlar va noelektrolitlar",
+      "activityTitle": "Elektrolit/noelektrolit o‘tkazuvchanlik virtual tajribasi",
+      "runtime": "generic",
+      "configSource": "beta2-safe",
+      "fields": [
+        {
+          "field": "conductivity",
+          "fieldLabel": "Elektr o‘tkazuvchanlik",
+          "canonicalTarget": "high",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.simulation.9.07.planned",
+      "learningUnitId": "lu.9.07",
+      "learningUnitTitle": "Uglerod guruhidagi elementlarning umumiy tavsifi",
+      "activityTitle": "Uglerod guruhi trendi va materiallar case’i",
+      "runtime": "generic",
+      "configSource": "beta2-safe",
+      "fields": [
+        {
+          "field": "property",
+          "fieldLabel": "Xossa",
+          "canonicalTarget": "semiconductor",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.simulation.9.08.planned",
+      "learningUnitId": "lu.9.08",
+      "learningUnitTitle": "Uglerodning allotropiyasi va xossalari",
+      "activityTitle": "Grafit–olmos–fulleren 3D tuzilma taqqoslash",
+      "runtime": "generic",
+      "configSource": "beta2-safe",
+      "fields": [
+        {
+          "field": "allotrope",
+          "fieldLabel": "Allotropik shakl",
+          "canonicalTarget": "diamond",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        },
+        {
+          "field": "structure",
+          "fieldLabel": "Tuzilishi",
+          "canonicalTarget": "tetrahedral-network",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.simulation.9.18.water-hardness",
+      "learningUnitId": "lu.9.18",
+      "learningUnitTitle": "Kalsiy, magniy va suvning qattiqligi",
+      "activityTitle": "Suv qattiqligi va uni yumshatish modeli",
+      "runtime": "generic",
+      "configSource": "beta2-safe",
+      "fields": [
+        {
+          "field": "hardness",
+          "fieldLabel": "Qattiqlik turi",
+          "canonicalTarget": "temporary",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        },
+        {
+          "field": "treatment",
+          "fieldLabel": "Yumshatish usuli",
+          "canonicalTarget": "boiling",
+          "answerCategory": "PROCESS",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.simulation.9.20.cu-ag-au",
+      "learningUnitId": "lu.9.20",
+      "learningUnitTitle": "Mis, kumush va oltin",
+      "activityTitle": "Mis, kumush va oltin: xossa–qo‘llanish taqqoslash modeli",
+      "runtime": "generic",
+      "configSource": "beta2-safe",
+      "fields": [
+        {
+          "field": "reactivity",
+          "fieldLabel": "Faollik darajasi",
+          "canonicalTarget": "very-low",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        },
+        {
+          "field": "use",
+          "fieldLabel": "Qo‘llanilishi",
+          "canonicalTarget": "jewelry",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.simulation.9.21.group12",
+      "learningUnitId": "lu.9.21",
+      "learningUnitTitle": "II guruh yonaki guruhcha elementlari",
+      "activityTitle": "II guruh yonaki guruhcha elementlari trend modeli",
+      "runtime": "generic",
+      "configSource": "beta2-safe",
+      "fields": [
+        {
+          "field": "roomState",
+          "fieldLabel": "Xona haroratidagi agregat holati",
+          "canonicalTarget": "liquid",
+          "answerCategory": "ENUM",
+          "whyMissing": "the config holds only the target value (targetState/expected); no option set exists in the domain, config or content",
+          "authorMustProvide": "complete option set + uz-Latn labels + distractor rationale",
+          "reviewRequirement": "didactic + chemistry review by two people",
+          "status": "AWAITING_HUMAN_AUTHOR"
+        }
+      ]
+    }
+  ]
+}

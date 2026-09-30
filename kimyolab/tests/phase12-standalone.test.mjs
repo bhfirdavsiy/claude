@@ -12,7 +12,11 @@ test('standalone build is self-contained while preserving modular ESM sources',(
   assert.ok(report.contentJsonFiles>=20);
   assert.equal(report.architecture,'modular-esm-in-single-html-delivery');
   assert.match(html,/data-kimyolab-entry="standalone"/);
-  assert.match(html,/__KIMYOLAB_STANDALONE__/);
+  // P2.2 changed this assertion: the standalone artifact selects the embedded HOST (ADR-P2-003) instead of setting a
+  // __KIMYOLAB_STANDALONE__ flag for features to inspect and monkey-patching global fetch.
+  assert.match(html,/__KIMYOLAB_HOST__=Object\.freeze\(\{kind:'embedded'/);
+  assert.doesNotMatch(html,/__KIMYOLAB_STANDALONE__/);
+  assert.doesNotMatch(html,/globalThis\.fetch=/);
   assert.match(html,/map\.type='importmap'/);
   assert.match(html,/kl\/app\/bootstrap\.js/);
   assert.doesNotMatch(html,/src="\/app-preview\//);

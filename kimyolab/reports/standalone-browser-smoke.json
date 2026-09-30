@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-29T10:49:22.137Z",
+  "generatedAt": "2026-09-30T13:57:04.810Z",
   "status": "pass",
-  "browser": "chromium",
+  "browser": "chrome",
   "method": "CDP Page.setDocumentContent; no localhost/file URL dependency",
   "checks": {
     "standaloneEntry": true,

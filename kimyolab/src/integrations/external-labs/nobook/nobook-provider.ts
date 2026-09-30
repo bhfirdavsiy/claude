@@ -1,4 +1,5 @@
 import type {ExternalLabBinding,ExternalLabEvidence,ExternalLabProvider,ExternalLabSession,ExternalProviderReadiness} from '../types.ts';
+import {apiUrl,assetUrl} from '../../../ui/host-paths.ts';
 
 type Communication={
   get(method:string,param?:unknown):Promise<any>;
@@ -10,7 +11,7 @@ async function loadPostmate():Promise<PostmateCtor>{
   const injected=(globalThis as any).__KIMYOLAB_NOBOOK_POSTMATE__;
   if(injected) return injected as PostmateCtor;
   try{
-    const sdkUrl='/vendor/nobook/postmate.js';
+    const sdkUrl=assetUrl('vendor/nobook/postmate.js');
     const sdk:any=await import(sdkUrl);
     const ctor=sdk.default??sdk.Postmate;
     if(typeof ctor!=='function') throw new Error('NOBOOK_SDK_EXPORT_INVALID');
@@ -23,7 +24,7 @@ async function loadPostmate():Promise<PostmateCtor>{
 }
 
 async function getSessionConfig(binding:ExternalLabBinding,learningUnitId:string,learnerRef:string){
-  const response=await fetch('/api/external-labs/nobook/session',{
+  const response=await fetch(apiUrl('api/external-labs/nobook/session'),{
     method:'POST',headers:{'Content-Type':'application/json'},
     // The server derives provider/module from the canonical binding; the client only names it.
     body:JSON.stringify({bindingId:binding.id,learningUnitId,learnerRef}),
@@ -40,7 +41,7 @@ export class NobookLabProvider implements ExternalLabProvider {
     if(binding.provider!=='nobook'||binding.status==='disabled') return {provider:'nobook',ready:false,code:'DISABLED',retryable:false};
     const controller=new AbortController(); const timer=setTimeout(()=>controller.abort(),4000);
     try{
-      const r=await fetch('/api/external-labs/nobook/status',{signal:controller.signal});
+      const r=await fetch(apiUrl('api/external-labs/nobook/status'),{signal:controller.signal});
       const body=await r.json().catch(()=>({}));
       const ready=r.ok&&Boolean(body.configured)&&Boolean(body.sdkReady);
       if(ready) return {provider:'nobook',ready:true,code:'READY',retryable:true};

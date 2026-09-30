@@ -59,6 +59,13 @@ export function resolvePublicRoot(options = {}) {
   return resolvePublicRootFromPaths({cwd: options.cwd, publicRoot: options.publicRoot, env: options.env});
 }
 
+/** `/`, `/kimyolab/` … — leading and trailing slash, no dot segments. */
+export function normalizeMountPath(value) {
+  const raw = String(value ?? '/').trim() || '/';
+  if (!/^\/[A-Za-z0-9._~\-/]*$/.test(raw) || raw.includes('//') || raw.split('/').some((s) => s === '.' || s === '..')) throw new Error(`HOST_BASE_PATH_INVALID:${raw}`);
+  return raw.endsWith('/') ? raw : `${raw}/`;
+}
+
 export function createKimyoLabServer(options = {}) {
   const env = options.env ?? process.env;
   const publicRoot = resolvePublicRoot({...options, env});
@@ -74,6 +81,9 @@ export function createKimyoLabServer(options = {}) {
     status: createRateLimiter({windowMs: 60_000, max: Number(env.KIMYOLAB_STATUS_RATE_LIMIT ?? 60), now: options.now}),
   };
   const fetchImpl = options.fetchImpl ?? globalThis.fetch;
+  // P2.2: the product can be mounted under a subpath (portal simulation `/kimyolab/`). Everything outside the mount is
+  // 404; inside it, requests are served exactly as at the root (same allow-list, same API, same security headers).
+  const basePath = normalizeMountPath(options.basePath ?? env.KIMYOLAB_BASE_PATH ?? '/');
 
   const csp = `default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-src ${frameSourcesFor('nobook').join(' ')}; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'`;
   const securityHeaders = {
@@ -262,6 +272,11 @@ export function createKimyoLabServer(options = {}) {
     const rawPath = rawUrl.split('?')[0].split('#')[0];
     let pathname;
     try { pathname = decodeURIComponent(rawPath); } catch { res.writeHead(400, headers({'Content-Type': 'text/plain; charset=utf-8'})); res.end('Bad request'); return; }
+    if (basePath !== '/') {
+      if (pathname === basePath.slice(0, -1)) { res.writeHead(308, headers({Location: basePath + (rawUrl.includes('?') ? rawUrl.slice(rawUrl.indexOf('?')) : ''), 'Content-Type': 'text/plain; charset=utf-8'})); res.end('Permanent redirect'); return; }
+      if (!pathname.startsWith(basePath)) return notFound(res);
+      pathname = `/${pathname.slice(basePath.length)}`;
+    }
     if (pathname.startsWith('/api/')) return handleApi(req, res, pathname, requestId);
     if (req.method !== 'GET' && req.method !== 'HEAD') { res.writeHead(405, headers({Allow: 'GET, HEAD', 'Content-Type': 'text/plain; charset=utf-8'})); res.end('Method not allowed'); return; }
     // Reject traversal, backslashes, NUL, dot-segments and dotfiles before touching the filesystem.

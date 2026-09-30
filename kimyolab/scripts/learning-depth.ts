@@ -21,8 +21,10 @@ export const DEPTH_REPORTS={baseline:'reports/learning-depth-baseline.json',summ
 export const ROADMAP:ReadonlyArray<{id:string;label:string}>=[
   {id:'P2.0',label:'learning depth & coverage baseline'},
   {id:'P2.1',label:'learner interaction reliability & usability'},
-  {id:'P2.2',label:'portal-safe single product host foundation'},
-  {id:'P3',label:'raqamlitalim.trm.uz portal deployment'},
+  {id:'P2.2',label:'portal-safe host foundation'},
+  {id:'P2.3',label:'structured theory system'},
+  {id:'P2.4+',label:'assessment / model-based / localization / accessibility / governance expansion'},
+  {id:'P3',label:'real portal deployment and production pilot'},
 ];
 const milestoneOrder=(a:string,b:string)=>a.localeCompare(b,undefined,{numeric:true});
 export function milestoneState(base:string){
@@ -171,6 +173,9 @@ export async function buildDepthReports(base=root){
     completedMilestones:ms.completed,
     currentMilestone:ms.currentLabel,
     nextMilestones:[...ms.next,'human review round (workbench): chemistry A–C queues, lu.9.15 assessment','release decisions for the 27 pending activities'],
+    // P2.2: deployment/portal readiness is a SEPARATE metric (reports/portal-subpath-readiness.json). It is reported here
+    // for visibility and is NOT an input of foundation, learning product or the 0.4/0.6 overall estimate (ADR-P2-003 §8).
+    separateMetrics:(()=>{ const f=path.join(base,'reports/portal-subpath-readiness.json'); if(!fs.existsSync(f)) return {portalSubpathReadiness:null}; const r=JSON.parse(fs.readFileSync(f,'utf8')); return {portalSubpathReadiness:{source:'reports/portal-subpath-readiness.json',status:r.summary.status,checksPassed:r.summary.pass,checks:r.summary.checks,portalIntegrated:r.portalIntegrated,inManagementFormula:false}}; })(),
     remainingMajorWork:['assessment for 121 units (and review of lu.9.15)','structured theory for 122 units','model-based practice beyond 6 units','source provenance for 127 assertions','uz-Cyrl and ru localization','accessibility verification of 141 legacy activities','human review and release decisions'],
     uzSummary:[
       `Platforma poydevori: ${P(foundation)}% (${foundationChecks.filter(c=>c.pass).length}/${foundationChecks.length} tekshiruv o‘tdi).`,

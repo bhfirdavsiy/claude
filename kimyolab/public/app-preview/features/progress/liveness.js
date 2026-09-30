@@ -4,9 +4,12 @@
 // without relying on unload handlers, which cannot guarantee an async IndexedDB write.
                                                                                       
 
-const PREFIX='kimyolab.attempt.';
+// P2.2: the lock name prefix is the host's namespace (src/app/host.ts attemptLockPrefix): two KimyoLab deployments
+// on one origin must never read each other's locks. The root/standalone namespace keeps the historical prefix.
+export const DEFAULT_ATTEMPT_LOCK_PREFIX='kimyolab.attempt.';
 
-export function createWebLocksLiveness(locks    =(globalThis       ).navigator?.locks)                              {
+export function createWebLocksLiveness(locks    =(globalThis       ).navigator?.locks,prefix       =DEFAULT_ATTEMPT_LOCK_PREFIX)                              {
+  const PREFIX=prefix;
   if(!locks||typeof locks.request!=='function'||typeof locks.query!=='function') return undefined;
   const held=new Map                 ();
   return {

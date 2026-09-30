@@ -118,7 +118,8 @@
     "authoring:preview": "node --experimental-strip-types scripts/authoring.ts preview",
     "authoring:apply": "node --experimental-strip-types scripts/authoring.ts apply",
     "learning:depth": "node --experimental-strip-types scripts/learning-depth.ts",
-    "learner:interaction": "node --experimental-strip-types scripts/learner-interaction.ts"
+    "learner:interaction": "node --experimental-strip-types scripts/learner-interaction.ts",
+    "host:readiness": "node --experimental-strip-types scripts/host-readiness.ts"
   },
   "devDependencies": {
     "@playwright/test": "1.56.1",

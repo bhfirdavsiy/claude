@@ -57,11 +57,11 @@ export class BrowserProgressService {
                    store                       ;
   /** The canonical workflow authority this facade delegates to (exposed for headless adapters/tests). */
            orchestrator                     ;
-  constructor(factory    =(globalThis       ).indexedDB,dbName='kimyolab-runtime',options                                                                                                                                                      ={}){
+  constructor(factory    =(globalThis       ).indexedDB,dbName='kimyolab-runtime',options                                                                                                                                                                         ={}){
     const now=options.now??(()=>new Date().toISOString());
     const newId=options.newId??newUuid;
     this.store=new IndexedDbProgressStore(factory,dbName,undefined,{now,newId});
-    const liveness=options.liveness===null?undefined:options.liveness??createWebLocksLiveness();
+    const liveness=options.liveness===null?undefined:options.liveness??createWebLocksLiveness(undefined,options.lockPrefix);
     this.orchestrator=new LearningOrchestrator(this.store,{now,newId,versionPolicy:options.versionPolicy,...(liveness?{liveness}:{}),...(options.assessmentContent?{assessmentContent:options.assessmentContent}:{})});
   }
   get storage(){return this.store;}

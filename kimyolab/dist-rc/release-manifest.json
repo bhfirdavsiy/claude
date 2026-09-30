@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-09-30T13:09:09.343Z",
+  "createdAt": "2026-09-30T14:02:16.696Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -11,14 +11,20 @@
     {
       "path": "app-preview/app/bootstrap.js",
       "sourcePath": "public/app-preview/app/bootstrap.js",
-      "checksum": "c35381d4c6ddd866ede8ce0d1b157e54505b4658e6588f7f962202f557514a58",
-      "size": 9809
+      "checksum": "c1c0781f37a46cd22dedb33942f49849a2f7693d07006c35d55e040af2b5ad9c",
+      "size": 10033
     },
     {
       "path": "app-preview/app/content-client.js",
       "sourcePath": "public/app-preview/app/content-client.js",
-      "checksum": "392e33371a09799259c675d700f588b27770fb349b0ef814ba0ac4c62f0c5b9a",
-      "size": 21693
+      "checksum": "5ff5839c477d837b71908364e81d960e78360a97e7bb640c1a17a2d33f483a59",
+      "size": 21901
+    },
+    {
+      "path": "app-preview/app/host.js",
+      "sourcePath": "public/app-preview/app/host.js",
+      "checksum": "dffbd3bb9a40a3e5079d4b77a04f97813a05b874362500a8e615728473d4d8fe",
+      "size": 8801
     },
     {
       "path": "app-preview/app/routes.js",
@@ -365,8 +371,8 @@
     {
       "path": "app-preview/features/home/render.js",
       "sourcePath": "public/app-preview/features/home/render.js",
-      "checksum": "6e9ff2f21bef17b3e923bc2fa01fe9831f8ea7f2944027740772be310af8697d",
-      "size": 4595
+      "checksum": "b9b1f7f1caaecc19e4d1348db492f8287def1ae2f01cb7aed4b9b8b2186aef05",
+      "size": 4622
     },
     {
       "path": "app-preview/features/labs/external-render.js",
@@ -449,8 +455,8 @@
     {
       "path": "app-preview/features/progress/liveness.js",
       "sourcePath": "public/app-preview/features/progress/liveness.js",
-      "checksum": "d5e060fd659d1b245de90429b063aefb0dd07ac8463cd0571af808091c38415c",
-      "size": 1505
+      "checksum": "28f64fe1f9f4f12af67d7970734c949ecd9204370c6dd716719e1a8091593abf",
+      "size": 1826
     },
     {
       "path": "app-preview/features/progress/mastery-render.js",
@@ -473,8 +479,8 @@
     {
       "path": "app-preview/features/progress/service.js",
       "sourcePath": "public/app-preview/features/progress/service.js",
-      "checksum": "fdb6cfab8a73da288c97ad8a6140e8b669eff31174c86277d2a55ed643825781",
-      "size": 9721
+      "checksum": "c09fa4bc0c3156147d148110edb99058ef155a0d43030c019184b6032bc5fb29",
+      "size": 9768
     },
     {
       "path": "app-preview/features/search/model.js",
@@ -515,8 +521,8 @@
     {
       "path": "app-preview/integrations/external-labs/nobook/nobook-provider.js",
       "sourcePath": "public/app-preview/integrations/external-labs/nobook/nobook-provider.js",
-      "checksum": "1301071136b6590c4f0043844b06f1927650612ecc592cff4abdfd3ff830122a",
-      "size": 5042
+      "checksum": "46b254c1afbaf6180ed78e104a492249aa5c7cbe89dd05c33d5261aa85aa4b0a",
+      "size": 5124
     },
     {
       "path": "app-preview/integrations/external-labs/nobook/sdk-adapter.js",
@@ -911,14 +917,26 @@
     {
       "path": "app-preview/ui/components/dom.js",
       "sourcePath": "public/app-preview/ui/components/dom.js",
-      "checksum": "73bf57f5ac6e95824abd6a5f2d0af28bfe0d3561e78fd27cf79b7590b1a5dffb",
-      "size": 653
+      "checksum": "bb997d607313421105b3d52712f598decf64342d9bf81d5b5cc901fcd219133e",
+      "size": 1041
+    },
+    {
+      "path": "app-preview/ui/host-paths.js",
+      "sourcePath": "public/app-preview/ui/host-paths.js",
+      "checksum": "e2f6f3b2149b66893fadbf685eb5c86dfcbff21af1556a83a838b1bb07d3b710",
+      "size": 1174
     },
     {
       "path": "app-preview/ui/tokens/kimyolab.css",
       "sourcePath": "public/app-preview/ui/tokens/kimyolab.css",
-      "checksum": "a62bbb9b2079defc5dc1035fd628a11bdb411eb8cb2f202890f70c6b4aee42aa",
-      "size": 29120
+      "checksum": "e0c0de10f5a2be8f35c0a71d3a9bf79b4f6668d5c24fd755f78d3663d836adac",
+      "size": 29760
+    },
+    {
+      "path": "assets/brand/kimyolab-logo.webp",
+      "sourcePath": "public/assets/brand/kimyolab-logo.webp",
+      "checksum": "c5afee421f72480358dd2b4d77b21587b3afd7843afbf15bcc87cafe5924b36d",
+      "size": 146002
     },
     {
       "path": "assets/home/results.png",
@@ -1217,8 +1235,8 @@
     {
       "path": "index.html",
       "sourcePath": "index.html",
-      "checksum": "753ddb29bc609d95a310cea703c6ebc8d3631bf861b80b48144ff8ef61c6362e",
-      "size": 1775
+      "checksum": "4e225124a830cdb404465529ccdcdb97ecf533cb6722fd8bbb27110fbf5625c5",
+      "size": 2394
     }
   ]
 }

@@ -1,5 +1,7 @@
 import { parseAppRoute } from './routes.ts';
 import { ContentClient, contentErrorMessage } from './content-client.ts';
+import { resolveHost, runtimeDbName, attemptLockPrefix } from './host.ts';
+import { configureHostPaths } from '../ui/host-paths.ts';
 import { renderHome } from '../features/home/render.ts';
 import { renderError, renderLearningGuide, renderLearningPracticeStage, renderLearningQuiz, renderLoading, renderNotFound } from '../features/learning-hub/render.ts';
 import {renderPracticePage} from '../features/practice/host.ts';
@@ -19,31 +21,21 @@ import {renderExternalLab} from '../features/labs/external-render.ts';
 const mainElement=document.getElementById('app-main');
 if(!(mainElement instanceof HTMLElement)) throw new Error('APP_MAIN_MISSING');
 const main:HTMLElement=mainElement;
-const client=new ContentClient({baseUrl:'/content'});
+// P2.2: the ONE place that knows how KimyoLab is hosted (ADR-P2-003). Everything below receives the host's values;
+// no feature, renderer, engine or store inspects which host it is.
+const host=resolveHost(globalThis,document,window);
+configureHostPaths({href:host.href,asset:host.assetUrl,api:host.apiUrl});
+const client=new ContentClient({baseUrl:host.contentBase,fetchImpl:host.fetchContent});
 // The canonical evaluator reads prompts+keys through this source only at submission time (P1.1 C2/C3).
-const progressService=new BrowserProgressService((globalThis as any).indexedDB,undefined,{assessmentContent:{loadAssessmentForEvaluation:(learningUnitId)=>client.loadAssessmentForEvaluation(learningUnitId)}});
-const standalone=(globalThis as any).__KIMYOLAB_STANDALONE__===true;
+const progressService=new BrowserProgressService((globalThis as any).indexedDB,runtimeDbName(host.storageNamespace),{lockPrefix:attemptLockPrefix(host.storageNamespace),assessmentContent:{loadAssessmentForEvaluation:(learningUnitId)=>client.loadAssessmentForEvaluation(learningUnitId)}});
 const rendererRegistry=createDefaultRendererRegistry();
 
-function currentLocation(){
-  if(!standalone) return {pathname:location.pathname,searchParams:new URLSearchParams(location.search)};
-  const raw=location.hash.startsWith('#')?location.hash.slice(1):location.hash;
-  const value=raw&&raw.startsWith('/')?raw:'/';
-  const parsed=new URL(value,'https://standalone.kimyolab.local');
-  return {pathname:parsed.pathname,searchParams:parsed.searchParams};
-}
+function currentLocation(){ return host.currentLocation(); }
+function navigateInternal(href:string){ host.navigate(href); }
 
-function navigateInternal(href:string){
-  const url=new URL(href,'https://kimyolab.local');
-  if(standalone){
-    const next=`${url.pathname}${url.search}`;
-    if(location.hash===`#${next}`) void renderCurrent();
-    else location.hash=next;
-    return;
-  }
-  history.pushState({},'',`${url.pathname}${url.search}`);
-  void renderCurrent();
-}
+// static shell links (header navigation) and the brand logo resolve through the host as well
+for(const anchor of document.querySelectorAll<HTMLAnchorElement>('a[data-kl-route]')) anchor.setAttribute('href',host.href(anchor.dataset.klRoute??'/'));
+for(const image of document.querySelectorAll<HTMLImageElement>('img[data-kl-asset]')) image.setAttribute('src',host.assetUrl(image.dataset.klAsset??''));
 
 let activePractice:PracticeAttemptSession|undefined;
 let activeAssessment:AssessmentSessionState|undefined;
@@ -122,21 +114,17 @@ async function renderCurrent(){
 }
 
 document.addEventListener('click',(event)=>{
+  if(event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey) return;
   const target=event.target;
   if(!(target instanceof Element)) return;
-  const anchor=target.closest('a[href^="/"]');
-  if(!(anchor instanceof HTMLAnchorElement)) return;
-  const href=anchor.getAttribute('href');
-  if(!href) return;
-  if(!standalone){
-    const url=new URL(anchor.href,location.origin);
-    if(url.origin!==location.origin) return;
-  }
+  const anchor=target.closest('a[data-kl-route]');
+  if(!(anchor instanceof HTMLAnchorElement)||anchor.target==='_blank') return;
+  const route=anchor.dataset.klRoute;
+  if(!route||!route.startsWith('/')) return;
   event.preventDefault();
-  navigateInternal(href);
+  navigateInternal(route);
 });
 // Attempts left open by a previous page lifetime (refresh, tab/window close) are closed as abandoned.
 void progressService.recoverOrphanedAttempts().catch(()=>undefined);
-window.addEventListener('popstate',()=>void renderCurrent());
-if(standalone) window.addEventListener('hashchange',()=>void renderCurrent());
+host.onLocationChange(()=>void renderCurrent());
 void renderCurrent();

@@ -8,7 +8,9 @@ const read=(p)=>fs.readFileSync(path.join(root,p),'utf8');
 
 test('canonical shell preserves KimyoLab/Sinco visual identity and product navigation',()=>{
   const html=read('index.html');
-  assert.match(html,/kl-brand-mark/);
+  // P2.2 changed this assertion: the temporary "K" letter mark (kl-brand-mark) was replaced by the user-approved
+  // KimyoLab logo, resolved through the host-safe asset path (ADR-P2-003 §7).
+  assert.match(html,/class="kl-brand-logo" src="\/assets\/brand\/kimyolab-logo\.webp" data-kl-asset="assets\/brand\/kimyolab-logo\.webp"/);
   assert.match(html,/Mavzu studiyasi/);
   assert.match(html,/Virtual laboratoriya/);
   const css=read('src/ui/tokens/kimyolab.css');

@@ -1,0 +1,45 @@
+{
+  "schema": "kimyolab.standalone-parity.v1",
+  "semantics": "The standalone presentation artifact is a generated deliverable of the SAME product (embedded host), not a demo.",
+  "artifact": {
+    "path": "dist-standalone/KimyoLab_standalone.html",
+    "sha256": "7fb35754f84e0d167709fd773ff250d9db5d49d129446751c36bddf16f84d4d7",
+    "sizeBytes": 5616291,
+    "contentVersion": "2026.09.1",
+    "moduleCount": 115,
+    "contentJsonFiles": 45,
+    "embeddedAssets": [
+      "assets/brand/kimyolab-logo.webp",
+      "assets/home/results.png",
+      "assets/home/topic-studio.png",
+      "assets/home/virtual-lab.png"
+    ],
+    "host": "embedded",
+    "routeMode": "hash"
+  },
+  "sameContent": {
+    "embeddedFiles": 45,
+    "byteIdenticalToPublicContentPack": true,
+    "mismatches": []
+  },
+  "sameRuntime": {
+    "globalFetchPatched": false,
+    "standaloneFlag": false,
+    "embeddedHostConfig": true,
+    "integrityChecked": true
+  },
+  "parity": {
+    "status": "PASS",
+    "scenarios": 8
+  },
+  "smokes": {
+    "desktop": "pass",
+    "mobile": "pass",
+    "hostSpecs": "pass"
+  },
+  "network": {
+    "internalContent": "embedded — no server, no network",
+    "externalLabs": "third-party labs (NOBOOK, ChemAI) and the NOBOOK session API need network/a server; not faked offline"
+  },
+  "status": "PASS"
+}
