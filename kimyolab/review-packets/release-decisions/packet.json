@@ -1,0 +1,1582 @@
+{
+  "schema": "kimyolab.release-decision-packet.v1",
+  "semantics": "For the content owner. Every activity below is technically launchable only after a human release decision. Machine eligibility is shown; it is not a recommendation to release. Decisions are exported from the workbench (Release decisions tab) and imported with npm run review:import.",
+  "count": 27,
+  "activities": [
+    {
+      "activityId": "practice.experiment.10.10",
+      "title": "Organik birikmalarni xos reaksiyalar asosida aniqlash",
+      "learningUnits": [
+        "lu.10.05",
+        "lu.10.06",
+        "lu.10.10",
+        "lu.10.19",
+        "lu.10.21",
+        "lu.10.22"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "b567a22b2966135b8b7faec6597c4391a4cacfea7cd151c7498e95002d23d0cb",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    },
+    {
+      "activityId": "practice.experiment.10.2",
+      "title": "Organik birikmalar tarkibini tahlil qilish",
+      "learningUnits": [
+        "lu.10.01",
+        "lu.10.02"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "1028fd6c88e7a553b992294ff3d261a63442f482eed51e74e19efecff2abf9c4",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    },
+    {
+      "activityId": "practice.experiment.10.6",
+      "title": "Spirtlar va aldegidlarga xos reaksiyalar",
+      "learningUnits": [
+        "lu.10.06",
+        "lu.10.17",
+        "lu.10.21"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "17475f075fa86c38a950ebc989129c2ce0fe89ddd6c8fd11bacda19d761ee188",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    },
+    {
+      "activityId": "practice.experiment.10.7",
+      "title": "O‘simliklar tarkibidagi murakkab efirlar",
+      "learningUnits": [
+        "lu.10.06",
+        "lu.10.23"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "8caf8c80b3bc5c21b109cd43006bcc25302c96b558fd66d5ad639e12442f6794",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    },
+    {
+      "activityId": "practice.experiment.7.1",
+      "title": "Laboratoriya shtativi, spirt lampa, gaz gorelkalari va elektr isitgich bilan ishlash",
+      "learningUnits": [
+        "lu.7.01"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "b0767e17c026879d8a4aa753ab464056a9353b3119139e042e79a1d88d4c011c",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    },
+    {
+      "activityId": "practice.experiment.7.10",
+      "title": "Kislotalarning metallar bilan o‘zaro ta’siri",
+      "learningUnits": [
+        "lu.7.15",
+        "lu.7.20"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [
+          "condition-term:dilute acid",
+          "condition:rxn.mg-h2so4",
+          "dissociation:H2SO4",
+          "dissociation:HCl",
+          "dissociation:ZnCl2",
+          "observation:rxn.mg-h2so4",
+          "observation:rxn.zn-hcl",
+          "reaction:rxn.mg-h2so4",
+          "reaction:rxn.zn-hcl"
+        ],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "c10c74802eff1e9c5bb09f9bb9bf659df8bf76deab0c9b826890532e91ac196c",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    },
+    {
+      "activityId": "practice.experiment.7.11",
+      "title": "Suvning oksidlar bilan o‘zaro ta’siri",
+      "learningUnits": [
+        "lu.7.15",
+        "lu.7.21"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [
+          "observation:rxn.cao-water",
+          "observation:rxn.co2-water",
+          "reaction:rxn.cao-water",
+          "reaction:rxn.co2-water"
+        ],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "769b864470e01fdb057933c7d2841e2ce7f6e271fba4e5baf2b08bad0411fbc0",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    },
+    {
+      "activityId": "practice.experiment.7.12",
+      "title": "Suvning fizik xossalarini o‘rganish",
+      "learningUnits": [
+        "lu.7.02",
+        "lu.7.04",
+        "lu.7.21"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "918528c8ee80a7650a90fb17548c8166564491d9d57445af59b20770144ebd9a",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    },
+    {
+      "activityId": "practice.experiment.7.9",
+      "title": "Kislotalarning olinishi va xossalari",
+      "learningUnits": [
+        "lu.7.15",
+        "lu.7.20"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [
+          "condition-term:concentrated acid",
+          "condition-term:gentle heating",
+          "condition:rxn.nacl-h2so4",
+          "dissociation:CaCl2",
+          "dissociation:H2SO4",
+          "dissociation:HCl",
+          "dissociation:NaCl",
+          "dissociation:NaOH",
+          "observation:rxn.caco3-hcl",
+          "observation:rxn.cuo-hcl",
+          "observation:rxn.nacl-h2so4",
+          "observation:rxn.naoh-hcl",
+          "reaction:rxn.caco3-hcl",
+          "reaction:rxn.cuo-hcl",
+          "reaction:rxn.nacl-h2so4",
+          "reaction:rxn.naoh-hcl"
+        ],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "d866c28131709cff273405a944ac54b8d178598feca52b2be6a656222f2813c5",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    },
+    {
+      "activityId": "practice.experiment.8.10",
+      "title": "Galogenlarning birikmalar eritmalaridan bir-birini siqib chiqarishi",
+      "learningUnits": [
+        "lu.8.14",
+        "lu.8.16"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [
+          "observation:rxn.br2-ki",
+          "observation:rxn.cl2-kbr",
+          "reaction:rxn.br2-ki",
+          "reaction:rxn.cl2-kbr"
+        ],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "e25bdc019f7f7590a86e1a147f88dbe57abc405d99eb4e95d492a960b39d0558",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    },
+    {
+      "activityId": "practice.experiment.8.11",
+      "title": "Galogenlarning suvda va organik erituvchilarda erishi",
+      "learningUnits": [
+        "lu.8.16"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "7e546d7488df734944a3ca8a9c6688c6a22da81cc392eebb7ad72816f261aba5",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    },
+    {
+      "activityId": "practice.experiment.8.13",
+      "title": "Turli eritmalarda sulfat ioni borligini aniqlash",
+      "learningUnits": [
+        "lu.8.18"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "14c3b095336df2be079997959062e0bffe368cf24160ec3b7fa2a3e3d426bea6",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    },
+    {
+      "activityId": "practice.experiment.8.14",
+      "title": "Ammoniy tuziga so‘ndirilgan ohak ta’sir ettirib ammiak olish",
+      "learningUnits": [
+        "lu.8.22"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [
+          "condition-term:gentle heating",
+          "condition:rxn.nh4cl-caoh2",
+          "dissociation:CaCl2",
+          "dissociation:HCl",
+          "dissociation:NH4Cl",
+          "observation:rxn.nh3-hcl",
+          "observation:rxn.nh4cl-caoh2",
+          "reaction:rxn.nh3-hcl",
+          "reaction:rxn.nh4cl-caoh2"
+        ],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "f4ba2d24d6ddad6c90a1fa5020999199da5fabda8d9adada41bda4da25d3ef56",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    },
+    {
+      "activityId": "practice.experiment.8.15",
+      "title": "Mineral o‘g‘itlar namunalari bilan tanishish",
+      "learningUnits": [
+        "lu.8.24"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "1ae6957f2f22eeaa43b41bb0fe531832e8331ab64b0b281b8307c5d305640a20",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    },
+    {
+      "activityId": "practice.experiment.8.6",
+      "title": "Rux gidroksidning olinishi, unga kislota va ishqor ta’siri",
+      "learningUnits": [
+        "lu.8.01"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [
+          "dissociation:HCl",
+          "dissociation:NaCl",
+          "dissociation:NaOH",
+          "dissociation:ZnCl2",
+          "insoluble:Zn(OH)2",
+          "observation:rxn.zncl2-naoh",
+          "observation:rxn.znoh2-hcl",
+          "reaction:rxn.zncl2-naoh",
+          "reaction:rxn.znoh2-hcl"
+        ],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "98bd1f18e451b89a1c8fc163edc53b3a577aac2c76bd6c1288875f57faafa1f7",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    },
+    {
+      "activityId": "practice.experiment.8.8",
+      "title": "Xlorid kislota, galogenidlar va yod uchun sifat reaksiyalari",
+      "learningUnits": [
+        "lu.8.16"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [
+          "dissociation:AgNO3",
+          "dissociation:NaCl",
+          "dissociation:NaNO3",
+          "insoluble:AgBr",
+          "insoluble:AgCl",
+          "insoluble:AgI",
+          "observation:rxn.agno3-nabr",
+          "observation:rxn.agno3-nacl",
+          "observation:rxn.agno3-nai",
+          "reaction:rxn.agno3-nabr",
+          "reaction:rxn.agno3-nacl",
+          "reaction:rxn.agno3-nai"
+        ],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "3205982f5cdb4a0d7d077b55928c68a12d608cca670f1479fe60625961bb425d",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    },
+    {
+      "activityId": "practice.experiment.8.9",
+      "title": "Tuproq eritmasi tarkibida xloridlar borligini aniqlash",
+      "learningUnits": [
+        "lu.8.16"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [
+          "dissociation:AgNO3",
+          "dissociation:NaCl",
+          "dissociation:NaNO3",
+          "insoluble:AgCl",
+          "observation:rxn.agno3-nacl",
+          "reaction:rxn.agno3-nacl"
+        ],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "377049f8a03eb5ecbcd1e4943010268eb640671a61aac2cc7ddf48f56398bf7f",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    },
+    {
+      "activityId": "practice.experiment.9.12",
+      "title": "Alyuminiy namunalari va qotishmalari bilan tanishish",
+      "learningUnits": [
+        "lu.9.12",
+        "lu.9.19"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "b94032d49ba4264ddcfd4db800aa375b7d22e5db65f43222e230a21747dd8fef",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    },
+    {
+      "activityId": "practice.experiment.9.13",
+      "title": "Alyuminiy gidroksidni olish va uning xossalari",
+      "learningUnits": [
+        "lu.9.05",
+        "lu.9.19"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "fa41cca6150e103a2a7211b33a20a4a00306d6f5af95d4945bd19ec88de6e2e5",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    },
+    {
+      "activityId": "practice.experiment.9.15",
+      "title": "Mis(II)-gidroksidni olish va xossalarini tekshirish",
+      "learningUnits": [
+        "lu.9.05",
+        "lu.9.20"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "ab01b4a592a3243dcc4c63e950f1a5eac0a36ec38e971affd1425bad31432f50",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    },
+    {
+      "activityId": "practice.experiment.9.16",
+      "title": "Rux gidroksidni olish va amfoter xossalarini tekshirish",
+      "learningUnits": [
+        "lu.9.05",
+        "lu.9.21"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [
+          "dissociation:HCl",
+          "dissociation:NaCl",
+          "dissociation:NaOH",
+          "dissociation:ZnCl2",
+          "insoluble:Zn(OH)2",
+          "observation:rxn.zncl2-naoh",
+          "observation:rxn.znoh2-hcl",
+          "reaction:rxn.zncl2-naoh",
+          "reaction:rxn.znoh2-hcl"
+        ],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "c65ec119d6fbbe966046ae499fea67481287ce0a57b7e5d2e9419380e221e76c",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    },
+    {
+      "activityId": "practice.experiment.9.19",
+      "title": "Temir(II) va temir(III) tuzlarini aniqlash",
+      "learningUnits": [
+        "lu.9.24"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "464432e51b78a0904acdc4bcdf608dba38f4ef3bbd638f7541f8405405b5709c",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    },
+    {
+      "activityId": "practice.experiment.9.20",
+      "title": "Cho‘yan va po‘lat namunalari bilan tanishish",
+      "learningUnits": [
+        "lu.9.12",
+        "lu.9.25"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "5689b81612983fda305645b276a321e44cc65b08b6401ebeee531c583c16b71a",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    },
+    {
+      "activityId": "practice.experiment.9.4",
+      "title": "Karbonatlar va gidrokarbonatlarning xossalari hamda o‘zaro aylanishi",
+      "learningUnits": [
+        "lu.9.05",
+        "lu.9.07",
+        "lu.9.09"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [
+          "dissociation:CaCl2",
+          "dissociation:HCl",
+          "observation:rxn.caco3-hcl",
+          "reaction:rxn.caco3-hcl"
+        ],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "22514f0e74a9924a4000fa87ca96e5969cfeb6b7fd67f09c4037b7ba48c8445a",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    },
+    {
+      "activityId": "practice.experiment.9.6",
+      "title": "Shisha turlari va shishadan yasalgan mahsulotlar bilan tanishish",
+      "learningUnits": [
+        "lu.9.07",
+        "lu.9.10"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "e65ddb96fb5bf69613cefd5f713fff914116b000fe93140ddd5343baa0337bc6",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    },
+    {
+      "activityId": "practice.experiment.9.7",
+      "title": "Metallar namunalari va issiqlik o‘tkazuvchanligini ko‘zdan kechirish",
+      "learningUnits": [
+        "lu.9.13"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "0ef0e024f1a7497528f699b2a43bd3963fbebf1853684788d79438a5cf4d82dc",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    },
+    {
+      "activityId": "practice.experiment.9.9",
+      "title": "Tuz eritmalari bilan metallarning o‘zaro ta’siri",
+      "learningUnits": [
+        "lu.9.05",
+        "lu.9.13",
+        "lu.9.20"
+      ],
+      "runtimeReadiness": "PENDING",
+      "runtimeReasons": [
+        "ACTIVITY_NOT_RELEASED",
+        "ACTIVITY_REVIEW_PENDING",
+        "CHEMISTRY_REVIEW_REQUIRED"
+      ],
+      "contentReviewStatus": "REVIEW_PENDING",
+      "reviews": {
+        "technical": "pending",
+        "didactic": "pending",
+        "accessibility": "pending",
+        "chemistry": "pending"
+      },
+      "accessibility": {
+        "profile": [],
+        "review": "pending"
+      },
+      "route": {
+        "ok": true,
+        "engine": "experiment",
+        "runtime": "generic",
+        "configSource": "guided-labs"
+      },
+      "engine": "experiment",
+      "renderer": {
+        "capability": null,
+        "available": true
+      },
+      "dependencies": {
+        "chemistryAssertions": [],
+        "staleChemistryAssertions": []
+      },
+      "currentLifecycle": "planned",
+      "basisHash": "bb293c0290be9cbcb4f9bf3dc98186a669eaa581be72876b1f60001c2f52d9c2",
+      "eligibility": {
+        "status": "NOT_ELIGIBLE",
+        "reasons": [
+          "CONTENT_REVIEW_PENDING",
+          "ACCESSIBILITY_REVIEW_INCOMPLETE"
+        ]
+      },
+      "releaseState": "DECISION_MISSING",
+      "releaseRecommendation": {
+        "decision": null,
+        "rationale": null,
+        "filledBy": "content owner (a person) — tooling recommends nothing"
+      }
+    }
+  ]
+}

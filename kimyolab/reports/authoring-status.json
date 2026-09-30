@@ -1,0 +1,4373 @@
+{
+  "schema": "kimyolab.authoring-status.v1",
+  "semantics": "Authoring tasks are DERIVED from human decisions (and machine flags a person must resolve). A task is work for an author — never a content change, an approval or a release. Content changes only through a person running authoring:apply; the new hash then needs a new human review.",
+  "totals": {
+    "tasks": 130,
+    "OPEN": 130,
+    "IN_PROGRESS": 0,
+    "READY_FOR_REVIEW": 0,
+    "SUPERSEDED": 0,
+    "CLOSED": 0
+  },
+  "bySurface": {
+    "assessment": {
+      "OPEN": 3,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    },
+    "chemistry": {
+      "OPEN": 127,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    }
+  },
+  "byAction": {
+    "add-source": {
+      "OPEN": 127,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    },
+    "map-concept": {
+      "OPEN": 3,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    }
+  },
+  "byPriority": {
+    "A": {
+      "OPEN": 6,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    },
+    "B": {
+      "OPEN": 24,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    },
+    "C": {
+      "OPEN": 1,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    },
+    "D": {
+      "OPEN": 30,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    },
+    "E": {
+      "OPEN": 69,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    }
+  },
+  "byAffectedActivity": {
+    "(none)": {
+      "OPEN": 46,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    },
+    "practice.experiment.11.2": {
+      "OPEN": 1,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    },
+    "practice.experiment.7.10": {
+      "OPEN": 9,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    },
+    "practice.experiment.7.11": {
+      "OPEN": 4,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    },
+    "practice.experiment.7.9": {
+      "OPEN": 16,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    },
+    "practice.experiment.8.1": {
+      "OPEN": 14,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    },
+    "practice.experiment.8.10": {
+      "OPEN": 4,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    },
+    "practice.experiment.8.14": {
+      "OPEN": 9,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    },
+    "practice.experiment.8.6": {
+      "OPEN": 9,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    },
+    "practice.experiment.8.8": {
+      "OPEN": 12,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    },
+    "practice.experiment.8.9": {
+      "OPEN": 6,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    },
+    "practice.experiment.9.10": {
+      "OPEN": 1,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    },
+    "practice.experiment.9.14": {
+      "OPEN": 1,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    },
+    "practice.experiment.9.16": {
+      "OPEN": 9,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    },
+    "practice.experiment.9.4": {
+      "OPEN": 4,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    },
+    "practice.simulation.11.11.planned": {
+      "OPEN": 1,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    },
+    "practice.simulation.7.07.planned": {
+      "OPEN": 20,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    },
+    "practice.trainer.11.10.planned": {
+      "OPEN": 6,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    },
+    "practice.trainer.9.05.planned": {
+      "OPEN": 6,
+      "IN_PROGRESS": 0,
+      "READY_FOR_REVIEW": 0,
+      "SUPERSEDED": 0,
+      "CLOSED": 0
+    }
+  },
+  "canonicalContentMutated": false,
+  "tasks": [
+    {
+      "id": "task.0685c7a6af323de63a2a",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.h2-combustion",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.h2-combustion",
+      "action": "add-source",
+      "basisHash": "6111b2260db19b4db1292ece2b0f867f69872d28647901231859b2718b71417b",
+      "currentHash": "6111b2260db19b4db1292ece2b0f867f69872d28647901231859b2718b71417b",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "A",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.2469bd631d172d90db68",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.cl2-kbr",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.cl2-kbr",
+      "action": "add-source",
+      "basisHash": "6111b2260db19b4db1292ece2b0f867f69872d28647901231859b2718b71417b",
+      "currentHash": "6111b2260db19b4db1292ece2b0f867f69872d28647901231859b2718b71417b",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.10"
+      ],
+      "reviewerDecision": null,
+      "priority": "A",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.419fdf44ca2515382d50",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.br2-ki",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.br2-ki",
+      "action": "add-source",
+      "basisHash": "6111b2260db19b4db1292ece2b0f867f69872d28647901231859b2718b71417b",
+      "currentHash": "6111b2260db19b4db1292ece2b0f867f69872d28647901231859b2718b71417b",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.10"
+      ],
+      "reviewerDecision": null,
+      "priority": "A",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.467e6d45ff107ee618dc",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.nacl-h2so4",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.nacl-h2so4",
+      "action": "add-source",
+      "basisHash": "0f03806f43e6d13239b0b4c6c117f58eebb571f3a45b924acbf7307f2076f0b2",
+      "currentHash": "0f03806f43e6d13239b0b4c6c117f58eebb571f3a45b924acbf7307f2076f0b2",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9"
+      ],
+      "reviewerDecision": null,
+      "priority": "A",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.5e519280c51cd6505d48",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.naoh-hcl",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.naoh-hcl",
+      "action": "add-source",
+      "basisHash": "6111b2260db19b4db1292ece2b0f867f69872d28647901231859b2718b71417b",
+      "currentHash": "6111b2260db19b4db1292ece2b0f867f69872d28647901231859b2718b71417b",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9"
+      ],
+      "reviewerDecision": null,
+      "priority": "A",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.c41c386f8dfa2e98c01c",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.znoh2-hcl",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.znoh2-hcl",
+      "action": "add-source",
+      "basisHash": "28ce4fd9020c7018132361c19cd18ad800426f588560f1d73df47d60370f84d9",
+      "currentHash": "28ce4fd9020c7018132361c19cd18ad800426f588560f1d73df47d60370f84d9",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.6",
+        "practice.experiment.9.16"
+      ],
+      "reviewerDecision": null,
+      "priority": "A",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.010a8ba537fb0cdec229",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition-term:gentle heating",
+      "surface": "chemistry",
+      "targetId": "condition-term:gentle heating",
+      "action": "add-source",
+      "basisHash": "aa4661e55217fdb21bbac10e002e28d136c143fc9b9314bf09223410122a4da3",
+      "currentHash": "aa4661e55217fdb21bbac10e002e28d136c143fc9b9314bf09223410122a4da3",
+      "affectedFiles": [
+        "content-src/chemistry/condition-vocabulary.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9",
+        "practice.experiment.8.14"
+      ],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.0c1532548dfcc4dacdd0",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.agno3-nacl",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.agno3-nacl",
+      "action": "add-source",
+      "basisHash": "0a144f1f693e3e5596d6b2cdbf529d26a694cce5868a898eb5c8bf0bf85137bd",
+      "currentHash": "0a144f1f693e3e5596d6b2cdbf529d26a694cce5868a898eb5c8bf0bf85137bd",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.1",
+        "practice.experiment.8.8",
+        "practice.experiment.8.9",
+        "practice.trainer.11.10.planned",
+        "practice.trainer.9.05.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.12a8e0479078b895000f",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition-term:oxygen-limited",
+      "surface": "chemistry",
+      "targetId": "condition-term:oxygen-limited",
+      "action": "add-source",
+      "basisHash": "68666f133c6936c040605dd6e4a8440c10af35b5fc14505c8fca6024b16b1842",
+      "currentHash": "68666f133c6936c040605dd6e4a8440c10af35b5fc14505c8fca6024b16b1842",
+      "affectedFiles": [
+        "content-src/chemistry/condition-vocabulary.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.27b7f1b17c964b6141c1",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition:rxn.h2-cuo",
+      "surface": "chemistry",
+      "targetId": "condition:rxn.h2-cuo",
+      "action": "add-source",
+      "basisHash": "e1e99c41f75a2214d74876f4c61665ec874bb1bb776bbfe68c727eab61340cbd",
+      "currentHash": "e1e99c41f75a2214d74876f4c61665ec874bb1bb776bbfe68c727eab61340cbd",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.2843389990d470ff0714",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition:rxn.c-combustion-limited",
+      "surface": "chemistry",
+      "targetId": "condition:rxn.c-combustion-limited",
+      "action": "add-source",
+      "basisHash": "80180d5adceccb429db01c1690278bf678c66fd17017c1024ca81240a0c6c0d6",
+      "currentHash": "80180d5adceccb429db01c1690278bf678c66fd17017c1024ca81240a0c6c0d6",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.3dc25283df0c93d441a7",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition-term:dilute acid",
+      "surface": "chemistry",
+      "targetId": "condition-term:dilute acid",
+      "action": "add-source",
+      "basisHash": "935dd11de9e413057226afe92cec81a274366ac69f3476a7fb1e593a52f5cc08",
+      "currentHash": "935dd11de9e413057226afe92cec81a274366ac69f3476a7fb1e593a52f5cc08",
+      "affectedFiles": [
+        "content-src/chemistry/condition-vocabulary.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.10"
+      ],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.401d9addf1dc1e9c3f87",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition:rxn.zn-h2so4",
+      "surface": "chemistry",
+      "targetId": "condition:rxn.zn-h2so4",
+      "action": "add-source",
+      "basisHash": "ae3245daa6464cc20ba8b55363c276764c312d6e26518276aef94980579d0282",
+      "currentHash": "ae3245daa6464cc20ba8b55363c276764c312d6e26518276aef94980579d0282",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.52a63d15c3ef9affa5c2",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition-term:heating",
+      "surface": "chemistry",
+      "targetId": "condition-term:heating",
+      "action": "add-source",
+      "basisHash": "1ca42c12960f6b1a4ebcd061ff3921398e370eb4bb44de5dcd572ba9c2f2833b",
+      "currentHash": "1ca42c12960f6b1a4ebcd061ff3921398e370eb4bb44de5dcd572ba9c2f2833b",
+      "affectedFiles": [
+        "content-src/chemistry/condition-vocabulary.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.55e52ca18497c9276215",
+      "sourceDecisionId": "flag:MAPPING_REVIEW_REQUIRED:q.9.15.04",
+      "surface": "assessment",
+      "targetId": "q.9.15.04",
+      "action": "map-concept",
+      "basisHash": "f22e51fd5b16a0d8be081e799e57fe699a2f6dbe8bbbc9d0b2faa01aa546196c",
+      "currentHash": "f22e51fd5b16a0d8be081e799e57fe699a2f6dbe8bbbc9d0b2faa01aa546196c",
+      "affectedFiles": [
+        "content-src/assessment-items.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "questionStem": "CuCl₂ eritmasida Cu²⁺ ionlari katodda nima qiladi?",
+        "currentConcepts": [
+          {
+            "id": "concept.c184",
+            "name": "Anod"
+          },
+          {
+            "id": "concept.c186",
+            "name": "eritma"
+          },
+          {
+            "id": "concept.c188",
+            "name": "qoplama"
+          }
+        ],
+        "currentOutcomes": [
+          {
+            "id": "lu.9.15#o1",
+            "text": "9.10 CuCl2 va KI eritmalari elektrolizi bevosita mos."
+          }
+        ],
+        "flags": [
+          "MAPPING_REVIEW_REQUIRED: savol “katod” haqida, lekin “katod” (concept.c185) konseptiga bog‘lanmagan; bog‘langan: Anod (concept.c184), eritma (concept.c186), qoplama (concept.c188)"
+        ],
+        "recommendedAction": "PLACEHOLDER — the didactic reviewer decides; tooling recommends no concept"
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.64f6db88ebfbe26ad630",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition:rxn.nh4cl-caoh2",
+      "surface": "chemistry",
+      "targetId": "condition:rxn.nh4cl-caoh2",
+      "action": "add-source",
+      "basisHash": "c3f5f5638a3a735e34fb689f7e4d3fbbeb8fae5c16776f376c1dd8084faedb14",
+      "currentHash": "c3f5f5638a3a735e34fb689f7e4d3fbbeb8fae5c16776f376c1dd8084faedb14",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.14"
+      ],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.864c85efe3ce70a6fba5",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition:rxn.s-combustion",
+      "surface": "chemistry",
+      "targetId": "condition:rxn.s-combustion",
+      "action": "add-source",
+      "basisHash": "7c89472822fdd1a151b26e2b5faa8d02de7f688526817c70a09e4c2bb6a94a97",
+      "currentHash": "7c89472822fdd1a151b26e2b5faa8d02de7f688526817c70a09e4c2bb6a94a97",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.8b0a135acfb9a0e39986",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition:rxn.fe-combustion",
+      "surface": "chemistry",
+      "targetId": "condition:rxn.fe-combustion",
+      "action": "add-source",
+      "basisHash": "08c406ac7d59ab7f910c1dc326a0f26b185d2f98677101c0e31b98d9d4433cbe",
+      "currentHash": "08c406ac7d59ab7f910c1dc326a0f26b185d2f98677101c0e31b98d9d4433cbe",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.a23a0e85e4226b34b794",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition-term:concentrated acid",
+      "surface": "chemistry",
+      "targetId": "condition-term:concentrated acid",
+      "action": "add-source",
+      "basisHash": "2d047f80063a402bbd43eed02d033a5a7dcfe409d7744c1b2eb8e1da0a96a0db",
+      "currentHash": "2d047f80063a402bbd43eed02d033a5a7dcfe409d7744c1b2eb8e1da0a96a0db",
+      "affectedFiles": [
+        "content-src/chemistry/condition-vocabulary.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9"
+      ],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.acdd9b83e05ca29b0a9f",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition-term:ignition",
+      "surface": "chemistry",
+      "targetId": "condition-term:ignition",
+      "action": "add-source",
+      "basisHash": "639ad80b9ecfc7ef18a8e546a7d6331767fc0f6df88f9412656c51ceb8ca5dbe",
+      "currentHash": "639ad80b9ecfc7ef18a8e546a7d6331767fc0f6df88f9412656c51ceb8ca5dbe",
+      "affectedFiles": [
+        "content-src/chemistry/condition-vocabulary.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.cd2184a4eb8a930476d0",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition-term:oxygen-excess",
+      "surface": "chemistry",
+      "targetId": "condition-term:oxygen-excess",
+      "action": "add-source",
+      "basisHash": "14153351e6b4ec19865b7d6a86fc729c453dcd5daa467cb64a1746a12b792e2e",
+      "currentHash": "14153351e6b4ec19865b7d6a86fc729c453dcd5daa467cb64a1746a12b792e2e",
+      "affectedFiles": [
+        "content-src/chemistry/condition-vocabulary.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.e3494b8ee4940628f1f2",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition:rxn.nacl-h2so4",
+      "surface": "chemistry",
+      "targetId": "condition:rxn.nacl-h2so4",
+      "action": "add-source",
+      "basisHash": "e6da9fcc8a66f9d7b667203206375a8d213e18797a9ab8276211a9ce9bca249c",
+      "currentHash": "e6da9fcc8a66f9d7b667203206375a8d213e18797a9ab8276211a9ce9bca249c",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9"
+      ],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.e37584d037a919c28354",
+      "sourceDecisionId": "flag:MAPPING_REVIEW_REQUIRED:q.9.15.01",
+      "surface": "assessment",
+      "targetId": "q.9.15.01",
+      "action": "map-concept",
+      "basisHash": "2c280300b79bc99cd1a9dd6e33f1705dad0bc10c55c33da948ab985ee539cba6",
+      "currentHash": "2c280300b79bc99cd1a9dd6e33f1705dad0bc10c55c33da948ab985ee539cba6",
+      "affectedFiles": [
+        "content-src/assessment-items.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "questionStem": "Elektroliz jarayonida katodda qaysi jarayon sodir bo‘ladi?",
+        "currentConcepts": [
+          {
+            "id": "concept.c184",
+            "name": "Anod"
+          },
+          {
+            "id": "concept.c186",
+            "name": "eritma"
+          }
+        ],
+        "currentOutcomes": [
+          {
+            "id": "lu.9.15#o1",
+            "text": "9.10 CuCl2 va KI eritmalari elektrolizi bevosita mos."
+          }
+        ],
+        "flags": [
+          "MAPPING_REVIEW_REQUIRED: savol “katod” haqida, lekin “katod” (concept.c185) konseptiga bog‘lanmagan; bog‘langan: Anod (concept.c184), eritma (concept.c186)"
+        ],
+        "recommendedAction": "PLACEHOLDER — the didactic reviewer decides; tooling recommends no concept"
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.e80ade0e04e0e2e13560",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition:rxn.c-combustion",
+      "surface": "chemistry",
+      "targetId": "condition:rxn.c-combustion",
+      "action": "add-source",
+      "basisHash": "a02d049dce99ed68136479da35a79b0bb8b066933b0cce11f897b99b87a72689",
+      "currentHash": "a02d049dce99ed68136479da35a79b0bb8b066933b0cce11f897b99b87a72689",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.e83b7001fc788d5653a2",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition-term:strong heating",
+      "surface": "chemistry",
+      "targetId": "condition-term:strong heating",
+      "action": "add-source",
+      "basisHash": "b81fa242cf6ac30e8b880730b1a457d6f7130c9587e7b7f160e9d0ae8cd37bce",
+      "currentHash": "b81fa242cf6ac30e8b880730b1a457d6f7130c9587e7b7f160e9d0ae8cd37bce",
+      "affectedFiles": [
+        "content-src/chemistry/condition-vocabulary.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.eff752d28b6fc62de267",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition:rxn.mg-h2so4",
+      "surface": "chemistry",
+      "targetId": "condition:rxn.mg-h2so4",
+      "action": "add-source",
+      "basisHash": "ae3245daa6464cc20ba8b55363c276764c312d6e26518276aef94980579d0282",
+      "currentHash": "ae3245daa6464cc20ba8b55363c276764c312d6e26518276aef94980579d0282",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.10"
+      ],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.f295990e46e02f31a8ec",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition-context:solution-mixing",
+      "surface": "chemistry",
+      "targetId": "condition-context:solution-mixing",
+      "action": "add-source",
+      "basisHash": "0afdf86c9d4c5484051f0b1dc71ec4b61d7cc075b26b2f850958fb5f12f45085",
+      "currentHash": "0afdf86c9d4c5484051f0b1dc71ec4b61d7cc075b26b2f850958fb5f12f45085",
+      "affectedFiles": [
+        "content-src/chemistry/condition-vocabulary.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.1"
+      ],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.f44a389c75d4600acc5c",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition:rxn.p-combustion",
+      "surface": "chemistry",
+      "targetId": "condition:rxn.p-combustion",
+      "action": "add-source",
+      "basisHash": "7c89472822fdd1a151b26e2b5faa8d02de7f688526817c70a09e4c2bb6a94a97",
+      "currentHash": "7c89472822fdd1a151b26e2b5faa8d02de7f688526817c70a09e4c2bb6a94a97",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.f82e0ffbc841e2d74927",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition:rxn.h2-combustion",
+      "surface": "chemistry",
+      "targetId": "condition:rxn.h2-combustion",
+      "action": "add-source",
+      "basisHash": "7c89472822fdd1a151b26e2b5faa8d02de7f688526817c70a09e4c2bb6a94a97",
+      "currentHash": "7c89472822fdd1a151b26e2b5faa8d02de7f688526817c70a09e4c2bb6a94a97",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.fb2b9e0c1df73aa3ca59",
+      "sourceDecisionId": "flag:MAPPING_REVIEW_REQUIRED:q.9.15.02",
+      "surface": "assessment",
+      "targetId": "q.9.15.02",
+      "action": "map-concept",
+      "basisHash": "65e4a33544707b34786f01fbe141ab4b0b73f87fcbd2589156a15d2ada946e3f",
+      "currentHash": "65e4a33544707b34786f01fbe141ab4b0b73f87fcbd2589156a15d2ada946e3f",
+      "affectedFiles": [
+        "content-src/assessment-items.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "questionStem": "Elektrolitik yacheykada anodda qaysi jarayon sodir bo‘ladi?",
+        "currentConcepts": [
+          {
+            "id": "concept.c185",
+            "name": "katod"
+          },
+          {
+            "id": "concept.c187",
+            "name": "suyuqlanma"
+          }
+        ],
+        "currentOutcomes": [
+          {
+            "id": "lu.9.15#o1",
+            "text": "9.10 CuCl2 va KI eritmalari elektrolizi bevosita mos."
+          }
+        ],
+        "flags": [
+          "MAPPING_REVIEW_REQUIRED: savol “Anod” haqida, lekin “Anod” (concept.c184) konseptiga bog‘lanmagan; bog‘langan: katod (concept.c185), suyuqlanma (concept.c187)"
+        ],
+        "recommendedAction": "PLACEHOLDER — the didactic reviewer decides; tooling recommends no concept"
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.b87096a2429569b8924c",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:electrolysis:CuCl2|aq|inert",
+      "surface": "chemistry",
+      "targetId": "electrolysis:CuCl2|aq|inert",
+      "action": "add-source",
+      "basisHash": "29b8f4ea757a5b4116fb299de8eef63a195d6c437dd7c54281bba01ee91ce42e",
+      "currentHash": "29b8f4ea757a5b4116fb299de8eef63a195d6c437dd7c54281bba01ee91ce42e",
+      "affectedFiles": [
+        "content-src/chemistry/electrolysis.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.11.2",
+        "practice.experiment.9.10"
+      ],
+      "reviewerDecision": null,
+      "priority": "C",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.legacy.9.10"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.01649b24dc96090c1a19",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:species-name:species.naoh.name",
+      "surface": "chemistry",
+      "targetId": "species-name:species.naoh.name",
+      "action": "add-source",
+      "basisHash": "5ad9bdd1d1b108078dc63b8577b719e48b8dc3ac7409970141517db55025940a",
+      "currentHash": "5ad9bdd1d1b108078dc63b8577b719e48b8dc3ac7409970141517db55025940a",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.1"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.01cd2d36c86062bceb22",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:He",
+      "surface": "chemistry",
+      "targetId": "element-name:He",
+      "action": "add-source",
+      "basisHash": "e1a9300329aedb8f64bd69fc41c2e561449fd5174ca3aa5df4755b3b1282fe5b",
+      "currentHash": "e1a9300329aedb8f64bd69fc41c2e561449fd5174ca3aa5df4755b3b1282fe5b",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.0fc3582f2dc22243bbfe",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Li",
+      "surface": "chemistry",
+      "targetId": "element-name:Li",
+      "action": "add-source",
+      "basisHash": "172f899c8798f1b9b14fe8c35cf699e9aac5df2ab476c876a0af7d496907d9df",
+      "currentHash": "172f899c8798f1b9b14fe8c35cf699e9aac5df2ab476c876a0af7d496907d9df",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.120b9487fca8d611ad78",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:F",
+      "surface": "chemistry",
+      "targetId": "element-name:F",
+      "action": "add-source",
+      "basisHash": "e371559f9a9b1d90769a8cdd43409381e14bf9381e38fc2de73cdccef9b146f0",
+      "currentHash": "e371559f9a9b1d90769a8cdd43409381e14bf9381e38fc2de73cdccef9b146f0",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.19db975d083dfd6de658",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Ne",
+      "surface": "chemistry",
+      "targetId": "element-name:Ne",
+      "action": "add-source",
+      "basisHash": "10fdb9d9877d30ab08a7364bfd7ed9f33aae16c6e844d8f99ea84120196b3a8f",
+      "currentHash": "10fdb9d9877d30ab08a7364bfd7ed9f33aae16c6e844d8f99ea84120196b3a8f",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.23244b2ecf468f007a2e",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:H",
+      "surface": "chemistry",
+      "targetId": "element-name:H",
+      "action": "add-source",
+      "basisHash": "6ae10af57873082f2171c8432778cf307228893fc2f18d52a4705a75549584a7",
+      "currentHash": "6ae10af57873082f2171c8432778cf307228893fc2f18d52a4705a75549584a7",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.2adffb9c782773d34ad4",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:species-name:species.nh4cl.name",
+      "surface": "chemistry",
+      "targetId": "species-name:species.nh4cl.name",
+      "action": "add-source",
+      "basisHash": "e02aa868f21467b80242e24a29b6674fcf13cf596946e6559db67e118c162baf",
+      "currentHash": "e02aa868f21467b80242e24a29b6674fcf13cf596946e6559db67e118c162baf",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.11.11.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.2b5a7885e8079409f9b7",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Ar",
+      "surface": "chemistry",
+      "targetId": "element-name:Ar",
+      "action": "add-source",
+      "basisHash": "6db2ef9a701be97f703404e9f0945a5e6d0521c5aa8a435d5a3655f67f01da18",
+      "currentHash": "6db2ef9a701be97f703404e9f0945a5e6d0521c5aa8a435d5a3655f67f01da18",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.32dcc76fc2e01b06c5bb",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:species-name:species.bacl2.name",
+      "surface": "chemistry",
+      "targetId": "species-name:species.bacl2.name",
+      "action": "add-source",
+      "basisHash": "d137ff603cc64b357a64e7f75561e20beb205ec17846123a35a031a4da440f07",
+      "currentHash": "d137ff603cc64b357a64e7f75561e20beb205ec17846123a35a031a4da440f07",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.1"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.3367cece6ef3c8cb3a1a",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Mg",
+      "surface": "chemistry",
+      "targetId": "element-name:Mg",
+      "action": "add-source",
+      "basisHash": "9d0a82a8f32d7830a974fe2bb751da0b701c5e76ce20f6617f99d42452be855b",
+      "currentHash": "9d0a82a8f32d7830a974fe2bb751da0b701c5e76ce20f6617f99d42452be855b",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.45751cf97a8c0124aa24",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:N",
+      "surface": "chemistry",
+      "targetId": "element-name:N",
+      "action": "add-source",
+      "basisHash": "f599582a48a0617e4ebeeb960e603201f3edc344f79fdeafdd95fcfd65c1260a",
+      "currentHash": "f599582a48a0617e4ebeeb960e603201f3edc344f79fdeafdd95fcfd65c1260a",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.48d694d5d3e89fcf5941",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:species-name:species.na2co3.name",
+      "surface": "chemistry",
+      "targetId": "species-name:species.na2co3.name",
+      "action": "add-source",
+      "basisHash": "9d4b395f1fdfc99f5e6759ac9bd32ab9451491041a80d27b06a3c14f058c4a13",
+      "currentHash": "9d4b395f1fdfc99f5e6759ac9bd32ab9451491041a80d27b06a3c14f058c4a13",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.4b6a56a9825f819fff73",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:S",
+      "surface": "chemistry",
+      "targetId": "element-name:S",
+      "action": "add-source",
+      "basisHash": "671855a29f96d22a15300953188afb882a1c5bdc1a1af49dc697a9e08dffbd5b",
+      "currentHash": "671855a29f96d22a15300953188afb882a1c5bdc1a1af49dc697a9e08dffbd5b",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.5342dc3fd96090151180",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Na",
+      "surface": "chemistry",
+      "targetId": "element-name:Na",
+      "action": "add-source",
+      "basisHash": "90581b9b70f6a0555b264b926e3fec9d5818c8b3cd64c580860b92e62002efae",
+      "currentHash": "90581b9b70f6a0555b264b926e3fec9d5818c8b3cd64c580860b92e62002efae",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.55ef394c4173ea13e2e3",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:B",
+      "surface": "chemistry",
+      "targetId": "element-name:B",
+      "action": "add-source",
+      "basisHash": "ae83dfe036352a416bdae6de497b745f7c47ebcc0eab7a566b0ced389ce1d470",
+      "currentHash": "ae83dfe036352a416bdae6de497b745f7c47ebcc0eab7a566b0ced389ce1d470",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.6338467db961ddfc8c20",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Ca",
+      "surface": "chemistry",
+      "targetId": "element-name:Ca",
+      "action": "add-source",
+      "basisHash": "d7a1ed8f3f178f5132ec8363e46489d31038ace9f82e7810a84049e2dd4f8e3a",
+      "currentHash": "d7a1ed8f3f178f5132ec8363e46489d31038ace9f82e7810a84049e2dd4f8e3a",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.65cf62ac6d030e3f384e",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:O",
+      "surface": "chemistry",
+      "targetId": "element-name:O",
+      "action": "add-source",
+      "basisHash": "f177e83077e3426bd08e490120ab99a71a5e3ed1721d1fb945f6772f7cf5614f",
+      "currentHash": "f177e83077e3426bd08e490120ab99a71a5e3ed1721d1fb945f6772f7cf5614f",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.6baefd9fa1611ad5ef65",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:species-name:species.nacl.name",
+      "surface": "chemistry",
+      "targetId": "species-name:species.nacl.name",
+      "action": "add-source",
+      "basisHash": "a2a43c3699698812900956dd5c1f7c73aad7336d095454d07b94b0e71825b0c2",
+      "currentHash": "a2a43c3699698812900956dd5c1f7c73aad7336d095454d07b94b0e71825b0c2",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.1"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.7059445bf00abb28fd01",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:species-name:species.nano3.name",
+      "surface": "chemistry",
+      "targetId": "species-name:species.nano3.name",
+      "action": "add-source",
+      "basisHash": "94e05fd7c5e08d708540dbffeeb71875bd9efca5dd4fc1e270f31192cc24899f",
+      "currentHash": "94e05fd7c5e08d708540dbffeeb71875bd9efca5dd4fc1e270f31192cc24899f",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.1"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.73ab78649f397ecd95ab",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:species-name:species.alcl3.name",
+      "surface": "chemistry",
+      "targetId": "species-name:species.alcl3.name",
+      "action": "add-source",
+      "basisHash": "edae77ed22ce690d824ac281da4ba6e461bd44ea89662e2a3215de44fe5682f7",
+      "currentHash": "edae77ed22ce690d824ac281da4ba6e461bd44ea89662e2a3215de44fe5682f7",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.9.14"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.7d0daf092ffc68f3853e",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:species-name:species.zncl2.name",
+      "surface": "chemistry",
+      "targetId": "species-name:species.zncl2.name",
+      "action": "add-source",
+      "basisHash": "7f78ee8f104a1f2267db5fd40e4b6089393da3871a3604a166650778cec15daa",
+      "currentHash": "7f78ee8f104a1f2267db5fd40e4b6089393da3871a3604a166650778cec15daa",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.1"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.8ae08ddea05e3726c39d",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:K",
+      "surface": "chemistry",
+      "targetId": "element-name:K",
+      "action": "add-source",
+      "basisHash": "491986093b97bb15d4988e8e63b8bc24b24d54caeaaf3b1cb94f1215b93a2380",
+      "currentHash": "491986093b97bb15d4988e8e63b8bc24b24d54caeaaf3b1cb94f1215b93a2380",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.9c9df62ab6727e048e44",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:P",
+      "surface": "chemistry",
+      "targetId": "element-name:P",
+      "action": "add-source",
+      "basisHash": "48fe52d0936fc99c274d6e875bc156d595b767d88e1173706c2e5cc860fdb20a",
+      "currentHash": "48fe52d0936fc99c274d6e875bc156d595b767d88e1173706c2e5cc860fdb20a",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.ae96552667189954ed16",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:species-name:species.agno3.name",
+      "surface": "chemistry",
+      "targetId": "species-name:species.agno3.name",
+      "action": "add-source",
+      "basisHash": "bdeac3988739d75fd4924de2afbab96775f2bca09a309c4f5a0a27bc24462755",
+      "currentHash": "bdeac3988739d75fd4924de2afbab96775f2bca09a309c4f5a0a27bc24462755",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.1"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.b46ab46d716060f30d1f",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:species-name:species.h2so4.name",
+      "surface": "chemistry",
+      "targetId": "species-name:species.h2so4.name",
+      "action": "add-source",
+      "basisHash": "56da57e283f479c8b23fd5d7d23fdcadbed9295fdf10d0a6258cc944d1d2573e",
+      "currentHash": "56da57e283f479c8b23fd5d7d23fdcadbed9295fdf10d0a6258cc944d1d2573e",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.1"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.c30f753c902ded24498d",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:C",
+      "surface": "chemistry",
+      "targetId": "element-name:C",
+      "action": "add-source",
+      "basisHash": "44fb91c396d661896129454afc1f1fb400ab9fdd2a2448b590ab1feb5142a718",
+      "currentHash": "44fb91c396d661896129454afc1f1fb400ab9fdd2a2448b590ab1feb5142a718",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.c4781487979e731b1e68",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Be",
+      "surface": "chemistry",
+      "targetId": "element-name:Be",
+      "action": "add-source",
+      "basisHash": "a17ed8573179eaeef2b7113932cff5eb5ced3efce86dcf5457a7c6951ccba0b1",
+      "currentHash": "a17ed8573179eaeef2b7113932cff5eb5ced3efce86dcf5457a7c6951ccba0b1",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.c809ec9ac523e745281c",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Al",
+      "surface": "chemistry",
+      "targetId": "element-name:Al",
+      "action": "add-source",
+      "basisHash": "5597844b82e3b36495fbb3541794acba85768a65f10e23e3c53a990d2776fb39",
+      "currentHash": "5597844b82e3b36495fbb3541794acba85768a65f10e23e3c53a990d2776fb39",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.cc18df863ee039354134",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Si",
+      "surface": "chemistry",
+      "targetId": "element-name:Si",
+      "action": "add-source",
+      "basisHash": "8cbc2b4cb997872454c5a7297f9347f5ec6f7ef3e5629a65506b04714d48ebe8",
+      "currentHash": "8cbc2b4cb997872454c5a7297f9347f5ec6f7ef3e5629a65506b04714d48ebe8",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.f1e3d2b729a13113352a",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Cl",
+      "surface": "chemistry",
+      "targetId": "element-name:Cl",
+      "action": "add-source",
+      "basisHash": "1d25e8a924188e9960ea6f6773f8b4c646a801153e0c8c7b6d41ea799313d2ca",
+      "currentHash": "1d25e8a924188e9960ea6f6773f8b4c646a801153e0c8c7b6d41ea799313d2ca",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.07a423ce559fb36cf735",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.s-combustion",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.s-combustion",
+      "action": "add-source",
+      "basisHash": "10b14380fa8810564e221d2daff0774d0b02cfe148182e6a8dcfe2cc4fda8473",
+      "currentHash": "10b14380fa8810564e221d2daff0774d0b02cfe148182e6a8dcfe2cc4fda8473",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.0c75f6fc19d454fc289b",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.fe-combustion",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.fe-combustion",
+      "action": "add-source",
+      "basisHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "currentHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.0e4517a94f2cb1908dbd",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:insoluble:AgBr",
+      "surface": "chemistry",
+      "targetId": "insoluble:AgBr",
+      "action": "add-source",
+      "basisHash": "33e675a404591687e4aac7a2a976f4dc63cb5f9103fb5682f49699dfc5b07134",
+      "currentHash": "33e675a404591687e4aac7a2a976f4dc63cb5f9103fb5682f49699dfc5b07134",
+      "affectedFiles": [
+        "content-src/chemistry/solubility.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.8"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.143e993a012f00f28056",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.nacl-h2so4",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.nacl-h2so4",
+      "action": "add-source",
+      "basisHash": "d7f6463ba9122c09afabb91dd28d4da94b4e1a99024e95df80864aedce26821d",
+      "currentHash": "d7f6463ba9122c09afabb91dd28d4da94b4e1a99024e95df80864aedce26821d",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.1b8501d97e753a3b3d07",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:dissociation:NaOH",
+      "surface": "chemistry",
+      "targetId": "dissociation:NaOH",
+      "action": "add-source",
+      "basisHash": "4f7ff8bf0f29031eabe0ee5bf27d0ca5753c7c3140d5634d000b10ccaa162738",
+      "currentHash": "4f7ff8bf0f29031eabe0ee5bf27d0ca5753c7c3140d5634d000b10ccaa162738",
+      "affectedFiles": [
+        "content-src/chemistry/solubility.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9",
+        "practice.experiment.8.6",
+        "practice.experiment.9.16"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.1c726bfac62f1f2bd431",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.bacl2-h2so4",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.bacl2-h2so4",
+      "action": "add-source",
+      "basisHash": "9ae3af8a1529f89df89e3f2c9fc5325af254547888c726f6e6ef341d0587ce3f",
+      "currentHash": "9ae3af8a1529f89df89e3f2c9fc5325af254547888c726f6e6ef341d0587ce3f",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.1cd009689c256e9594bc",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.mg-h2so4",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.mg-h2so4",
+      "action": "add-source",
+      "basisHash": "5820da22b5a3622e76f61f4e0f3ac3b44b41bda55b446371529509347d6c89a3",
+      "currentHash": "5820da22b5a3622e76f61f4e0f3ac3b44b41bda55b446371529509347d6c89a3",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.10"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.26392e34c3a9707a4210",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.s-combustion",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.s-combustion",
+      "action": "add-source",
+      "basisHash": "9b210554bf998985f70aac6db1194bafee5cecbe131917a554bb0084b544693d",
+      "currentHash": "9b210554bf998985f70aac6db1194bafee5cecbe131917a554bb0084b544693d",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.319389869db89bc1a266",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:dissociation:AgNO3",
+      "surface": "chemistry",
+      "targetId": "dissociation:AgNO3",
+      "action": "add-source",
+      "basisHash": "2098cdf7cc74d428173ea1d8fda31d54cc22116a86e9d484b5f27276430f88f5",
+      "currentHash": "2098cdf7cc74d428173ea1d8fda31d54cc22116a86e9d484b5f27276430f88f5",
+      "affectedFiles": [
+        "content-src/chemistry/solubility.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.1",
+        "practice.experiment.8.8",
+        "practice.experiment.8.9",
+        "practice.trainer.11.10.planned",
+        "practice.trainer.9.05.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.360974ef9a625167292b",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.cuso4-na2s",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.cuso4-na2s",
+      "action": "add-source",
+      "basisHash": "3de39a3c8cb7e9c84d7d1769627a8c58997ede4ce709d0a2c35542a767d4b13c",
+      "currentHash": "3de39a3c8cb7e9c84d7d1769627a8c58997ede4ce709d0a2c35542a767d4b13c",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.36db4bf28d68280af12a",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.zn-hcl",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.zn-hcl",
+      "action": "add-source",
+      "basisHash": "02a117e6cb683c14ccd614a8f93608d50896665f77e8ce249923f5c8e505454b",
+      "currentHash": "02a117e6cb683c14ccd614a8f93608d50896665f77e8ce249923f5c8e505454b",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.10"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.36e7e86e12a430a854d2",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:insoluble:AgCl",
+      "surface": "chemistry",
+      "targetId": "insoluble:AgCl",
+      "action": "add-source",
+      "basisHash": "63071d8813c6b31de1eb4ed1980a73d920762622289fb926819df5f3bade5bc9",
+      "currentHash": "63071d8813c6b31de1eb4ed1980a73d920762622289fb926819df5f3bade5bc9",
+      "affectedFiles": [
+        "content-src/chemistry/solubility.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.1",
+        "practice.experiment.8.8",
+        "practice.experiment.8.9",
+        "practice.trainer.11.10.planned",
+        "practice.trainer.9.05.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.383d7d047e7fd9fd9b6b",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.nh4cl-caoh2",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.nh4cl-caoh2",
+      "action": "add-source",
+      "basisHash": "dbb96203805c49e8ac1a1bd42a164dd1ed41519210b7ee4af9677dbb4f75bb4c",
+      "currentHash": "dbb96203805c49e8ac1a1bd42a164dd1ed41519210b7ee4af9677dbb4f75bb4c",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.14"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.3c3ee8af7b6c5ad28f79",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.zn-h2so4",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.zn-h2so4",
+      "action": "add-source",
+      "basisHash": "596cca75de8027716005635c5b9f58df3885b374021cbf8ab90a8a7d1cfb74d7",
+      "currentHash": "596cca75de8027716005635c5b9f58df3885b374021cbf8ab90a8a7d1cfb74d7",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.431b28aefacd8b03b1bd",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.co2-water",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.co2-water",
+      "action": "add-source",
+      "basisHash": "e09dddd47599b2428ebea7df2d3acd3c0af826347613bd5392f2f0dfde60401e",
+      "currentHash": "e09dddd47599b2428ebea7df2d3acd3c0af826347613bd5392f2f0dfde60401e",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.11"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.4da2a049b568335fe595",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.cuso4-na2s",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.cuso4-na2s",
+      "action": "add-source",
+      "basisHash": "2eb20d73f80b846deb0c5fb879bfd406052a885031c058db45a5f8735ad1312c",
+      "currentHash": "2eb20d73f80b846deb0c5fb879bfd406052a885031c058db45a5f8735ad1312c",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.4f219bb130a955563c8a",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.agno3-nabr",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.agno3-nabr",
+      "action": "add-source",
+      "basisHash": "864ea03debfdf69e8a0edebabae7aaa3ecf32b322a8a2388649180b3f6b57d91",
+      "currentHash": "864ea03debfdf69e8a0edebabae7aaa3ecf32b322a8a2388649180b3f6b57d91",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.8"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.53094c8214e69a1bd4db",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:dissociation:Na2CO3",
+      "surface": "chemistry",
+      "targetId": "dissociation:Na2CO3",
+      "action": "add-source",
+      "basisHash": "d3bcd6961c804d340b28046eba1bede89c5a6f536f878c59a3c70ec00a7bbab6",
+      "currentHash": "d3bcd6961c804d340b28046eba1bede89c5a6f536f878c59a3c70ec00a7bbab6",
+      "affectedFiles": [
+        "content-src/chemistry/solubility.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.56d2b4946cc987f3d4aa",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.nh3-hcl",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.nh3-hcl",
+      "action": "add-source",
+      "basisHash": "2dfdff30c8647e8002ce96f7decba2a57b12c30949f362beab44db1dc7a864a8",
+      "currentHash": "2dfdff30c8647e8002ce96f7decba2a57b12c30949f362beab44db1dc7a864a8",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.14"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.57ec5013b7185d8ea930",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:dissociation:Na2SO4",
+      "surface": "chemistry",
+      "targetId": "dissociation:Na2SO4",
+      "action": "add-source",
+      "basisHash": "f2e3beca05ac9d021a4b3c3a33a2f9e53a1c1de0fa840123479be674ba10c94e",
+      "currentHash": "f2e3beca05ac9d021a4b3c3a33a2f9e53a1c1de0fa840123479be674ba10c94e",
+      "affectedFiles": [
+        "content-src/chemistry/solubility.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.58f180188995f8e4f5d1",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.zn-h2so4",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.zn-h2so4",
+      "action": "add-source",
+      "basisHash": "8ee0d84f8c9cc5e8fe45c3a3d8e1e8519d1800e64fed83a91ffb7bdddb408a9b",
+      "currentHash": "8ee0d84f8c9cc5e8fe45c3a3d8e1e8519d1800e64fed83a91ffb7bdddb408a9b",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.59b5d2dc8ed0d87017b5",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:insoluble:AgI",
+      "surface": "chemistry",
+      "targetId": "insoluble:AgI",
+      "action": "add-source",
+      "basisHash": "317268c8b8a0f50a6c1807d21a12b005022bb226ba35625498d7a40ace9fadc7",
+      "currentHash": "317268c8b8a0f50a6c1807d21a12b005022bb226ba35625498d7a40ace9fadc7",
+      "affectedFiles": [
+        "content-src/chemistry/solubility.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.8"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.650574a21f5a9676f5f2",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.naoh-hcl",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.naoh-hcl",
+      "action": "add-source",
+      "basisHash": "93857b0f9320bc1034f6533926a819ccc5e3934b30e1d6cc5e1893c0d91ad9b7",
+      "currentHash": "93857b0f9320bc1034f6533926a819ccc5e3934b30e1d6cc5e1893c0d91ad9b7",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.664c60701b568df4e4b2",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.mg-h2so4",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.mg-h2so4",
+      "action": "add-source",
+      "basisHash": "1e996b31833c3305ea52ac91aeccee145fa7c612465ef8d29f0d24809da66b93",
+      "currentHash": "1e996b31833c3305ea52ac91aeccee145fa7c612465ef8d29f0d24809da66b93",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.10"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.682dc1d36bf91fd65226",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:insoluble:Ca3(PO4)2",
+      "surface": "chemistry",
+      "targetId": "insoluble:Ca3(PO4)2",
+      "action": "add-source",
+      "basisHash": "06997f3bf4f33b7d4ca111e8e1c889d142ebab0333b2067193abad03d213e324",
+      "currentHash": "06997f3bf4f33b7d4ca111e8e1c889d142ebab0333b2067193abad03d213e324",
+      "affectedFiles": [
+        "content-src/chemistry/solubility.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.6bbecf25be7fe1b1f24a",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.agno3-nacl",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.agno3-nacl",
+      "action": "add-source",
+      "basisHash": "28ce4fd9020c7018132361c19cd18ad800426f588560f1d73df47d60370f84d9",
+      "currentHash": "28ce4fd9020c7018132361c19cd18ad800426f588560f1d73df47d60370f84d9",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.1",
+        "practice.experiment.8.8",
+        "practice.experiment.8.9",
+        "practice.trainer.11.10.planned",
+        "practice.trainer.9.05.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.6c6be71368bfd585492b",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.nh4cl-caoh2",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.nh4cl-caoh2",
+      "action": "add-source",
+      "basisHash": "1ffa40c60fa4fba65b72f649e0923fa8eda6f49e3c1ce9949c2d4cc7279fb97e",
+      "currentHash": "1ffa40c60fa4fba65b72f649e0923fa8eda6f49e3c1ce9949c2d4cc7279fb97e",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.14"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.6e87a559e3a325f911c0",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:insoluble:Zn(OH)2",
+      "surface": "chemistry",
+      "targetId": "insoluble:Zn(OH)2",
+      "action": "add-source",
+      "basisHash": "210d869e6513a944b7a504987992850f5ba65069246c29b9cf134447e4f671c1",
+      "currentHash": "210d869e6513a944b7a504987992850f5ba65069246c29b9cf134447e4f671c1",
+      "affectedFiles": [
+        "content-src/chemistry/solubility.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.6",
+        "practice.experiment.9.16"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.70bdcf6a68d12f0afed8",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:insoluble:CuS",
+      "surface": "chemistry",
+      "targetId": "insoluble:CuS",
+      "action": "add-source",
+      "basisHash": "d6cb1198683aa1f57b958ee6654df6910fb6fedfaeb49560915609bd842d4520",
+      "currentHash": "d6cb1198683aa1f57b958ee6654df6910fb6fedfaeb49560915609bd842d4520",
+      "affectedFiles": [
+        "content-src/chemistry/solubility.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.729b098328cff59f6093",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.c-combustion-limited",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.c-combustion-limited",
+      "action": "add-source",
+      "basisHash": "98378b1852fa5e9c84b2d93898423619d5795feb3c19a63702de3e6c4ac62e91",
+      "currentHash": "98378b1852fa5e9c84b2d93898423619d5795feb3c19a63702de3e6c4ac62e91",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.74d711d14914745d2335",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.zn-hcl",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.zn-hcl",
+      "action": "add-source",
+      "basisHash": "0ac51f6cdb5927430535190283a7bf8a2dcdc840fb20ab0b07077a3715a7ce62",
+      "currentHash": "0ac51f6cdb5927430535190283a7bf8a2dcdc840fb20ab0b07077a3715a7ce62",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.10"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.781b97969e00be7141d9",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.h2-combustion",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.h2-combustion",
+      "action": "add-source",
+      "basisHash": "bb6fcddaa95681ec17d28887a9562d54a80d6e1e7cd19fe9478af1e3dabbcd70",
+      "currentHash": "bb6fcddaa95681ec17d28887a9562d54a80d6e1e7cd19fe9478af1e3dabbcd70",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.819afcdadc998c2e615f",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.h2-cuo",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.h2-cuo",
+      "action": "add-source",
+      "basisHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "currentHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.879ea106fd1df12bcd49",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.cao-water",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.cao-water",
+      "action": "add-source",
+      "basisHash": "c413b15762a78ddce2e21dac15c5dc6cbd52a2dbae5d149afc7d43f8b5980184",
+      "currentHash": "c413b15762a78ddce2e21dac15c5dc6cbd52a2dbae5d149afc7d43f8b5980184",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.11"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.88912b0183ee797144e7",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:dissociation:NaNO3",
+      "surface": "chemistry",
+      "targetId": "dissociation:NaNO3",
+      "action": "add-source",
+      "basisHash": "ca5076202d700c42292fc504bcd63f07af5024b94f62557177e6cc119146e597",
+      "currentHash": "ca5076202d700c42292fc504bcd63f07af5024b94f62557177e6cc119146e597",
+      "affectedFiles": [
+        "content-src/chemistry/solubility.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.1",
+        "practice.experiment.8.8",
+        "practice.experiment.8.9",
+        "practice.trainer.11.10.planned",
+        "practice.trainer.9.05.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.88f44419d53f8ea883a9",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.zncl2-naoh",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.zncl2-naoh",
+      "action": "add-source",
+      "basisHash": "24b6fe8cd35a6e5b11a07e86fe8587cc8f0ec940c568d6a211a5a2b3da31f015",
+      "currentHash": "24b6fe8cd35a6e5b11a07e86fe8587cc8f0ec940c568d6a211a5a2b3da31f015",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.6",
+        "practice.experiment.9.16"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.89853583bc22c8e2626a",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:dissociation:H2SO4",
+      "surface": "chemistry",
+      "targetId": "dissociation:H2SO4",
+      "action": "add-source",
+      "basisHash": "81b24baa0fd173e838fe5c4cec0311518f1c2969de7f2204fd0450f38fb8f17e",
+      "currentHash": "81b24baa0fd173e838fe5c4cec0311518f1c2969de7f2204fd0450f38fb8f17e",
+      "affectedFiles": [
+        "content-src/chemistry/solubility.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.10",
+        "practice.experiment.7.9"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.8ef49205fdf34369ba89",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:dissociation:HCl",
+      "surface": "chemistry",
+      "targetId": "dissociation:HCl",
+      "action": "add-source",
+      "basisHash": "f6ef5095247899ea77c1aedaa1c0037c00213736ce87ad2baf41f246331d8a45",
+      "currentHash": "f6ef5095247899ea77c1aedaa1c0037c00213736ce87ad2baf41f246331d8a45",
+      "affectedFiles": [
+        "content-src/chemistry/solubility.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.10",
+        "practice.experiment.7.9",
+        "practice.experiment.8.14",
+        "practice.experiment.8.6",
+        "practice.experiment.9.16",
+        "practice.experiment.9.4"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.91722f94597452b3cd2b",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.c-combustion",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.c-combustion",
+      "action": "add-source",
+      "basisHash": "66ceda2138644554ba8f54d44be8565df09f14cb53b1cbf375d650233559c5af",
+      "currentHash": "66ceda2138644554ba8f54d44be8565df09f14cb53b1cbf375d650233559c5af",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.9e4bc32fbaefb623abaf",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:dissociation:ZnCl2",
+      "surface": "chemistry",
+      "targetId": "dissociation:ZnCl2",
+      "action": "add-source",
+      "basisHash": "db73ff27d9a83d65b137e3673bce8e0f6bc7f2d56ab92134d74542b948f5723d",
+      "currentHash": "db73ff27d9a83d65b137e3673bce8e0f6bc7f2d56ab92134d74542b948f5723d",
+      "affectedFiles": [
+        "content-src/chemistry/solubility.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.10",
+        "practice.experiment.8.6",
+        "practice.experiment.9.16"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.a237736ca16776cd2bfc",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.agno3-nai",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.agno3-nai",
+      "action": "add-source",
+      "basisHash": "864ea03debfdf69e8a0edebabae7aaa3ecf32b322a8a2388649180b3f6b57d91",
+      "currentHash": "864ea03debfdf69e8a0edebabae7aaa3ecf32b322a8a2388649180b3f6b57d91",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.8"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.a6fca4816d30a6e69c40",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.c-combustion-limited",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.c-combustion-limited",
+      "action": "add-source",
+      "basisHash": "b14249fee27757fd2174ec79b3f9a4590cd253c3329881ea655b5629bbe820c6",
+      "currentHash": "b14249fee27757fd2174ec79b3f9a4590cd253c3329881ea655b5629bbe820c6",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.aa2a0d6ab79516f7961b",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.cuo-hcl",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.cuo-hcl",
+      "action": "add-source",
+      "basisHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "currentHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.ade84f4360edc9dea9c6",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.bacl2-h2so4",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.bacl2-h2so4",
+      "action": "add-source",
+      "basisHash": "28ce4fd9020c7018132361c19cd18ad800426f588560f1d73df47d60370f84d9",
+      "currentHash": "28ce4fd9020c7018132361c19cd18ad800426f588560f1d73df47d60370f84d9",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.b00dbd2a94872fc3a64a",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.agno3-nabr",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.agno3-nabr",
+      "action": "add-source",
+      "basisHash": "2f6dd9c04167c14352029ef7f9c88cf68fc70ffb6865903fc785be103c4bf875",
+      "currentHash": "2f6dd9c04167c14352029ef7f9c88cf68fc70ffb6865903fc785be103c4bf875",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.8"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.b52d51081f52068a6711",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:insoluble:ZnS",
+      "surface": "chemistry",
+      "targetId": "insoluble:ZnS",
+      "action": "add-source",
+      "basisHash": "2d30c5bf27dd68367fc2e946aa2b2250cc511ddbfb7c393b22647d1edce5cc3c",
+      "currentHash": "2d30c5bf27dd68367fc2e946aa2b2250cc511ddbfb7c393b22647d1edce5cc3c",
+      "affectedFiles": [
+        "content-src/chemistry/solubility.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.b5355c17ce448a315360",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.caco3-hcl",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.caco3-hcl",
+      "action": "add-source",
+      "basisHash": "7abb8ee6f3e52c4471f78928a9af21465b0cdf65301b987eb591b77dc21fc97c",
+      "currentHash": "7abb8ee6f3e52c4471f78928a9af21465b0cdf65301b987eb591b77dc21fc97c",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9",
+        "practice.experiment.9.4"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.bd6832c63c2f628356f3",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.caco3-hcl",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.caco3-hcl",
+      "action": "add-source",
+      "basisHash": "670e374c4f38d690b2a76c3a727b5fb138b42f2d613d4910ab69b41193053694",
+      "currentHash": "670e374c4f38d690b2a76c3a727b5fb138b42f2d613d4910ab69b41193053694",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9",
+        "practice.experiment.9.4"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.c940127e6df8834c43c7",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.agno3-nai",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.agno3-nai",
+      "action": "add-source",
+      "basisHash": "1140fcd5777519698b8fd781de8722923dbe204049a821d776a196190816dd0d",
+      "currentHash": "1140fcd5777519698b8fd781de8722923dbe204049a821d776a196190816dd0d",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.8"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.cf8b1b0d72d0ab8d006c",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:dissociation:CaCl2",
+      "surface": "chemistry",
+      "targetId": "dissociation:CaCl2",
+      "action": "add-source",
+      "basisHash": "3369d588d2fef737516e268a67f030a9525363d874a8b1cc0d3337ed749d570c",
+      "currentHash": "3369d588d2fef737516e268a67f030a9525363d874a8b1cc0d3337ed749d570c",
+      "affectedFiles": [
+        "content-src/chemistry/solubility.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9",
+        "practice.experiment.8.14",
+        "practice.experiment.9.4"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.d05081f51105b8866b82",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.br2-ki",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.br2-ki",
+      "action": "add-source",
+      "basisHash": "bae6fd137662c002cea02737f63499a0357f243ead233e2929706b775ce7dd16",
+      "currentHash": "bae6fd137662c002cea02737f63499a0357f243ead233e2929706b775ce7dd16",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.10"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.d08ec8b873e05d4c09da",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.cuo-hcl",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.cuo-hcl",
+      "action": "add-source",
+      "basisHash": "c07c6e0b10e27d42cd827869f6cb936dc772b76631bf9d0f062dcb1250ff8711",
+      "currentHash": "c07c6e0b10e27d42cd827869f6cb936dc772b76631bf9d0f062dcb1250ff8711",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.d5016b79e65f29d55b17",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.co2-water",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.co2-water",
+      "action": "add-source",
+      "basisHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "currentHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.11"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.d84fe255a74357de391f",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.h2-cuo",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.h2-cuo",
+      "action": "add-source",
+      "basisHash": "6727d2d118c44218717330fe2a4b11bc36bbdc2116933beeeaea6af638b9caf4",
+      "currentHash": "6727d2d118c44218717330fe2a4b11bc36bbdc2116933beeeaea6af638b9caf4",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.dba90fea1f50be01f02a",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.cl2-kbr",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.cl2-kbr",
+      "action": "add-source",
+      "basisHash": "925606d40bfb2bff930f7d6f25ffed20c432c79758d10ac3469d64a54b705a4c",
+      "currentHash": "925606d40bfb2bff930f7d6f25ffed20c432c79758d10ac3469d64a54b705a4c",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.10"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.dc8223a4308c331b1055",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.fe-combustion",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.fe-combustion",
+      "action": "add-source",
+      "basisHash": "2938f9cd1e044ef3f329af3b1231d258940d96b6c199c95ba01f4f0cb3364be9",
+      "currentHash": "2938f9cd1e044ef3f329af3b1231d258940d96b6c199c95ba01f4f0cb3364be9",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.dd511b784f799032e441",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:dissociation:NH4Cl",
+      "surface": "chemistry",
+      "targetId": "dissociation:NH4Cl",
+      "action": "add-source",
+      "basisHash": "fa88afd742745a9396ca3e4410339b45fcc9da227572b7dd6f0680fc8eff5700",
+      "currentHash": "fa88afd742745a9396ca3e4410339b45fcc9da227572b7dd6f0680fc8eff5700",
+      "affectedFiles": [
+        "content-src/chemistry/solubility.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.14"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.dd843d2c234bcf4cd3fc",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.p-combustion",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.p-combustion",
+      "action": "add-source",
+      "basisHash": "b5159c653bd640dab67c8cffea84137a937e5e686d6a651f5ca25c99cc479144",
+      "currentHash": "b5159c653bd640dab67c8cffea84137a937e5e686d6a651f5ca25c99cc479144",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.e3576b2e1c2a0c9c5c8f",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.c-combustion",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.c-combustion",
+      "action": "add-source",
+      "basisHash": "df01349c96b3b18e827b3e571ddff677a963d788cc22b08899717d17a9e2d42b",
+      "currentHash": "df01349c96b3b18e827b3e571ddff677a963d788cc22b08899717d17a9e2d42b",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.e41bd010c0cd2ae99ac2",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.znoh2-hcl",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.znoh2-hcl",
+      "action": "add-source",
+      "basisHash": "e7d5f2294b1921ee0ed9a1746b78759cc858dde045e4250e7f2656dbdc17161a",
+      "currentHash": "e7d5f2294b1921ee0ed9a1746b78759cc858dde045e4250e7f2656dbdc17161a",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.6",
+        "practice.experiment.9.16"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.e5ea36bbabea5e000a81",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.cao-water",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.cao-water",
+      "action": "add-source",
+      "basisHash": "d84b34901ada2ebccbcbc9eeba6b5f808c5d11d6bc290d778fc5ff953b9a8e02",
+      "currentHash": "d84b34901ada2ebccbcbc9eeba6b5f808c5d11d6bc290d778fc5ff953b9a8e02",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.11"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.e8f4f3e50ea8bc4c56e0",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.na2s-hcl",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.na2s-hcl",
+      "action": "add-source",
+      "basisHash": "9d0e3cefade852bcc45f33b026225b883ab3f635e4bf602f11c3d46c11529979",
+      "currentHash": "9d0e3cefade852bcc45f33b026225b883ab3f635e4bf602f11c3d46c11529979",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.eca8051680a2fcba542a",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:dissociation:BaCl2",
+      "surface": "chemistry",
+      "targetId": "dissociation:BaCl2",
+      "action": "add-source",
+      "basisHash": "1ee182d484b0e4ac1dababe49fee6315529aec11dc72c204a5d39dd21ae790fd",
+      "currentHash": "1ee182d484b0e4ac1dababe49fee6315529aec11dc72c204a5d39dd21ae790fd",
+      "affectedFiles": [
+        "content-src/chemistry/solubility.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.ee19b932673b404cbf26",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.na2s-hcl",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.na2s-hcl",
+      "action": "add-source",
+      "basisHash": "c82e233fa4f200dee39d7ec22e5b80819584137555cb4d3a464a9ed42cdc427d",
+      "currentHash": "c82e233fa4f200dee39d7ec22e5b80819584137555cb4d3a464a9ed42cdc427d",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.ef4157f39776a16a0e36",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.nh3-hcl",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.nh3-hcl",
+      "action": "add-source",
+      "basisHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "currentHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.14"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.f00dbed6478543b8106a",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.p-combustion",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.p-combustion",
+      "action": "add-source",
+      "basisHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "currentHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.f5ba21cf0d4c9a9ff2b3",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.zncl2-naoh",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.zncl2-naoh",
+      "action": "add-source",
+      "basisHash": "28ce4fd9020c7018132361c19cd18ad800426f588560f1d73df47d60370f84d9",
+      "currentHash": "28ce4fd9020c7018132361c19cd18ad800426f588560f1d73df47d60370f84d9",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.8.6",
+        "practice.experiment.9.16"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.f73a965856f69efca2f6",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:insoluble:BaSO4",
+      "surface": "chemistry",
+      "targetId": "insoluble:BaSO4",
+      "action": "add-source",
+      "basisHash": "b29223aa8298bdb2d227ef76a354bc0fb9f918147fc12de0b08ed4bd88895f9d",
+      "currentHash": "b29223aa8298bdb2d227ef76a354bc0fb9f918147fc12de0b08ed4bd88895f9d",
+      "affectedFiles": [
+        "content-src/chemistry/solubility.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.fb8758a7f95a02ee0932",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:dissociation:NaCl",
+      "surface": "chemistry",
+      "targetId": "dissociation:NaCl",
+      "action": "add-source",
+      "basisHash": "42599d5d8e9a9ccf0b5e66d9750c5879e9f291fbfa8ca03d710cfa3c586519ef",
+      "currentHash": "42599d5d8e9a9ccf0b5e66d9750c5879e9f291fbfa8ca03d710cfa3c586519ef",
+      "affectedFiles": [
+        "content-src/chemistry/solubility.json"
+      ],
+      "affectedActivities": [
+        "practice.experiment.7.9",
+        "practice.experiment.8.1",
+        "practice.experiment.8.6",
+        "practice.experiment.8.8",
+        "practice.experiment.8.9",
+        "practice.experiment.9.16",
+        "practice.trainer.11.10.planned",
+        "practice.trainer.9.05.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    }
+  ]
+}

@@ -113,7 +113,10 @@
     "review:build": "node --experimental-strip-types scripts/review.ts build",
     "review:status": "node --experimental-strip-types scripts/review.ts status",
     "review:validate": "node --experimental-strip-types scripts/review.ts validate",
-    "review:import": "node --experimental-strip-types scripts/review.ts import"
+    "review:import": "node --experimental-strip-types scripts/review.ts import",
+    "authoring:draft": "node --experimental-strip-types scripts/authoring.ts draft",
+    "authoring:preview": "node --experimental-strip-types scripts/authoring.ts preview",
+    "authoring:apply": "node --experimental-strip-types scripts/authoring.ts apply"
   },
   "devDependencies": {
     "@playwright/test": "1.56.1",

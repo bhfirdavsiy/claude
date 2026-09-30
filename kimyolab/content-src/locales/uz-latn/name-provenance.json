@@ -1,0 +1,246 @@
+{
+  "schema": "kimyolab.name-provenance.v1",
+  "note": "Localized names are DISPLAY TRANSLATIONS, not chemistry truth (docs/governance/SOURCE_POLICY.md). Each name needs a registered sourceRef of an acceptable category (LOCALIZATION_GLOSSARY, CURRICULUM, TEXTBOOK or OFFICIAL_STANDARD) before its approval can count. sourceRef null = add-source authoring task. displayName must equal the catalog.",
+  "entries": [
+    {
+      "nameKey": "element.H.name",
+      "assertionId": "element-name:H",
+      "locale": "uz-Latn",
+      "displayName": "Vodorod",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.He.name",
+      "assertionId": "element-name:He",
+      "locale": "uz-Latn",
+      "displayName": "Geliy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Li.name",
+      "assertionId": "element-name:Li",
+      "locale": "uz-Latn",
+      "displayName": "Litiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Be.name",
+      "assertionId": "element-name:Be",
+      "locale": "uz-Latn",
+      "displayName": "Berilliy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.B.name",
+      "assertionId": "element-name:B",
+      "locale": "uz-Latn",
+      "displayName": "Bor",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.C.name",
+      "assertionId": "element-name:C",
+      "locale": "uz-Latn",
+      "displayName": "Uglerod",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.N.name",
+      "assertionId": "element-name:N",
+      "locale": "uz-Latn",
+      "displayName": "Azot",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.O.name",
+      "assertionId": "element-name:O",
+      "locale": "uz-Latn",
+      "displayName": "Kislorod",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.F.name",
+      "assertionId": "element-name:F",
+      "locale": "uz-Latn",
+      "displayName": "Ftor",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Ne.name",
+      "assertionId": "element-name:Ne",
+      "locale": "uz-Latn",
+      "displayName": "Neon",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Na.name",
+      "assertionId": "element-name:Na",
+      "locale": "uz-Latn",
+      "displayName": "Natriy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Mg.name",
+      "assertionId": "element-name:Mg",
+      "locale": "uz-Latn",
+      "displayName": "Magniy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Al.name",
+      "assertionId": "element-name:Al",
+      "locale": "uz-Latn",
+      "displayName": "Alyuminiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Si.name",
+      "assertionId": "element-name:Si",
+      "locale": "uz-Latn",
+      "displayName": "Kremniy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.P.name",
+      "assertionId": "element-name:P",
+      "locale": "uz-Latn",
+      "displayName": "Fosfor",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.S.name",
+      "assertionId": "element-name:S",
+      "locale": "uz-Latn",
+      "displayName": "Oltingugurt",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Cl.name",
+      "assertionId": "element-name:Cl",
+      "locale": "uz-Latn",
+      "displayName": "Xlor",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Ar.name",
+      "assertionId": "element-name:Ar",
+      "locale": "uz-Latn",
+      "displayName": "Argon",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.K.name",
+      "assertionId": "element-name:K",
+      "locale": "uz-Latn",
+      "displayName": "Kaliy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Ca.name",
+      "assertionId": "element-name:Ca",
+      "locale": "uz-Latn",
+      "displayName": "Kalsiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "species.agno3.name",
+      "assertionId": "species-name:species.agno3.name",
+      "locale": "uz-Latn",
+      "displayName": "kumush nitrat",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "species.nacl.name",
+      "assertionId": "species-name:species.nacl.name",
+      "locale": "uz-Latn",
+      "displayName": "natriy xlorid",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "species.bacl2.name",
+      "assertionId": "species-name:species.bacl2.name",
+      "locale": "uz-Latn",
+      "displayName": "bariy xlorid",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "species.h2so4.name",
+      "assertionId": "species-name:species.h2so4.name",
+      "locale": "uz-Latn",
+      "displayName": "sulfat kislota",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "species.zncl2.name",
+      "assertionId": "species-name:species.zncl2.name",
+      "locale": "uz-Latn",
+      "displayName": "rux xlorid",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "species.naoh.name",
+      "assertionId": "species-name:species.naoh.name",
+      "locale": "uz-Latn",
+      "displayName": "natriy gidroksid",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "species.nano3.name",
+      "assertionId": "species-name:species.nano3.name",
+      "locale": "uz-Latn",
+      "displayName": "natriy nitrat",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "species.alcl3.name",
+      "assertionId": "species-name:species.alcl3.name",
+      "locale": "uz-Latn",
+      "displayName": "alyuminiy xlorid",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "species.na2co3.name",
+      "assertionId": "species-name:species.na2co3.name",
+      "locale": "uz-Latn",
+      "displayName": "natriy karbonat",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "species.nh4cl.name",
+      "assertionId": "species-name:species.nh4cl.name",
+      "locale": "uz-Latn",
+      "displayName": "ammoniy xlorid",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    }
+  ]
+}

@@ -14,7 +14,7 @@
       "id": "renderer-path",
       "kind": "machine",
       "status": "PASS",
-      "detail": "legacy beta2-advanced experiment UI (browser E2E: tests/e2e/pilot-practice.spec.mjs); an electrolysis registry renderer is NOT_STARTED (P1.7 scope ban) — start gate NOT_READY"
+      "detail": "legacy beta2-advanced experiment UI (browser E2E: tests/e2e/pilot-practice.spec.mjs, tests/e2e/review-workbench.spec.mjs); an electrolysis registry renderer is NOT_STARTED (P1.7 scope ban) — start gate NOT_READY"
     },
     {
       "id": "activity-content-review",

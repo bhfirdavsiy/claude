@@ -147,7 +147,8 @@ test('chemistry round trip: PENDING → exported decision → validate → impor
   const v=validateDecisionFile(t,file);
   assert.deepEqual(v.issues,[]); assert.deepEqual(v.categories.valid,[`chemistry:${id}`]); assert.equal(v.registersChanged,false);
   assert.deepEqual(read('content-src/chemistry-reviews.json',t).records,[],'the preview writes nothing');
-  assert.deepEqual(importDecisionFile(t,file).imported,{chemistry:1,candidates:0,assessment:0});
+  // P1.9: the import result also counts release decisions (a new surface) — none here
+  assert.deepEqual(importDecisionFile(t,file).imported,{chemistry:1,candidates:0,assessment:0,release:0});
   assert.equal(buildWorkbenchModel(t).chemistry.find(a=>a.id===id).reviewStatus,'approved');
   assert.equal(buildKbReports(t).gate.status,'PENDING');
   // the content the reviewer approved changes → the approval no longer counts and the gate FAILs until re-review
@@ -177,7 +178,8 @@ test('import preview classifies every problem: stale, invalid identity, unknown,
   assert.ok(cats(chem(m,'hydrolysis:NaCl',{status:'approved'})).tampering.some(i=>i.includes(':status')));
   assert.ok(cats(item(m,'q.9.15.01','chemistry',{lifecycle:'APPROVED'})).tampering.length);
   assert.ok(validateDecisionFile(t,{...envelope(m,chem(m,'hydrolysis:NaCl')),approvedBy:'admin'}).categories.tampering.includes('ENVELOPE_FIELD_NOT_ALLOWED:approvedBy'));
-  assert.ok(validateDecisionFile(t,{...envelope(m),decisions:[{...chem(m,'hydrolysis:NaCl'),surface:'release'}]}).issues.includes('DECISION_SURFACE_UNKNOWN:release'));
+  // P1.9 made `release` a real surface (content-owner decisions); an unknown surface is still refused
+  assert.ok(validateDecisionFile(t,{...envelope(m),decisions:[{...chem(m,'hydrolysis:NaCl'),surface:'publish'}]}).issues.includes('DECISION_SURFACE_UNKNOWN:publish'));
   assert.ok(validateDecisionFile(t,{schema:'x',decisions:[]}).issues.includes('ENVELOPE_SCHEMA_INVALID'));
   // a file hash is compared, never trusted: the importer recomputes the current hash from content
   const lie=chem(m,'hydrolysis:NaCl',{assertionHash:m.chemistry.find(a=>a.id==='hydrolysis:AlCl3').currentHash});
@@ -262,7 +264,9 @@ test('workbench page: offline (CSP, no network), DOM-safe rendering, accessible 
   for(const tab of ['chemistry','candidates','assessment','pilot']) assert.match(html,new RegExp(`role="tab" id="tabbtn-${tab}" aria-controls="tab-${tab}"`));
   assert.match(html,/role="tablist"/); assert.match(html,/ArrowRight/); assert.match(html,/aria-live="polite"/); assert.match(html,/role="alert"/);
   assert.equal(report.workbench.registerWrites,false); assert.equal(report.workbench.networkRequests,false);
-  assert.deepEqual(report.workbench.surfaces,{chemistry:134,candidates:18,assessment:5,pilot:4});
+  // P1.9 adds the authoring (read-only) and release-decision surfaces to the same workbench; the P1.8 four are unchanged
+  const {authoring:_a,release:_r,...p18}=report.workbench.surfaces;
+  assert.deepEqual(p18,{chemistry:134,candidates:18,assessment:5,pilot:4});
   assert.equal(report.approveAllAvailable,false);
 });
 

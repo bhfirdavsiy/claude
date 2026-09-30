@@ -1,0 +1,25 @@
+{
+  "schema": "kimyolab.electrolysis-record-template.v1",
+  "status": "TEMPLATE — PROPOSED / NEEDS REVIEW",
+  "canonical": false,
+  "notice": "Copy for ONE case a human chemistry reviewer accepted for authoring. Fill every null by hand; tooling fills no chemistry value. The completed record is added to content-src/chemistry/electrolysis.json only by a person in a reviewed pull request, and it is then reviewed as a chemistry assertion (hash-pinned). Nothing is added from this template automatically.",
+  "authoringDecision": {"reviewerId": null, "decision": "accept_for_authoring", "decidedAt": null, "comment": null},
+  "record": {
+    "electrolyte": null,
+    "phase": null,
+    "electrode": null,
+    "cathode": {"product": null, "observation": null},
+    "anode": {"product": null, "observation": null},
+    "sourceRefs": [],
+    "reviewStatus": "pending"
+  },
+  "fieldRules": {
+    "electrolyte": "a registered species formula (content-src/chemistry/species.json)",
+    "phase": "aq | l",
+    "electrode": "inert | active",
+    "cathode.product / anode.product": "registered species formulas",
+    "observations": "what a learner sees, school level, no instruction to smell or touch",
+    "sourceRefs": "at least one registered source of an acceptable category (CURRICULUM, TEXTBOOK, OFFICIAL_STANDARD, AUTHORITATIVE_REFERENCE)",
+    "reviewStatus": "always pending when authored — only the chemistry review register approves"
+  }
+}

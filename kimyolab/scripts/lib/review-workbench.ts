@@ -22,10 +22,12 @@ import {loadSources} from '../learning-readiness.ts';
 import {compileReadiness,itemVerdicts,type ReadinessSources} from './readiness-compile.ts';
 import {computeReviewHash} from '../../src/runtime/governance/approvals.ts';
 import {buildMasteryView} from '../../src/domain/mastery/view.ts';
+import {validateReleaseDecisions,importReleaseDecisions} from './release.ts';
+import {RELEASE_DECISION_FIELDS} from '../../src/domain/governance/release-decision.ts';
 
 export const DECISIONS_SCHEMA='kimyolab.review-decisions.v1';
 export const OUTPUT_DIR='review-output';
-export const SURFACES=['chemistry','chemistry-candidate','assessment','pilot-signoff'] as const;
+export const SURFACES=['chemistry','chemistry-candidate','assessment','pilot-signoff','release'] as const;
 export type Surface=typeof SURFACES[number];
 export const REVIEW_REPORTS={
   status:'reports/human-review-status.json',
@@ -38,7 +40,7 @@ export const MAPPING_FLAG='MAPPING_REVIEW_REQUIRED';
 export const PILOT_SIGNOFF_FIELDS:readonly string[]=['learningUnitId','reviewerId','role','decision','signedAt','basisHash','comment'];
 const ENVELOPE_FIELDS=['schema','exportedAt','workspaceFingerprint','decisions'];
 /** Canonical reviewer roles — each surface accepts exactly its own. */
-export const ROLES_BY_SURFACE:Record<Surface,readonly string[]>={chemistry:['chemistry'],'chemistry-candidate':['chemistry'],assessment:['chemistry','didactic'],'pilot-signoff':['pilot-owner']};
+export const ROLES_BY_SURFACE:Record<Surface,readonly string[]>={chemistry:['chemistry'],'chemistry-candidate':['chemistry'],assessment:['chemistry','didactic'],'pilot-signoff':['pilot-owner'],release:['content-owner']};
 
 const readJson=(root:string,rel:string)=>JSON.parse(fs.readFileSync(path.join(root,rel),'utf8'));
 const readOptional=(root:string,rel:string,fallback:any)=>fs.existsSync(path.join(root,rel))?readJson(root,rel):fallback;
@@ -234,7 +236,7 @@ function validatePilotSignoffs(root:string,records:any[]):string[]{
 
 /** Splits an exported decision file by surface (the `surface` tag is the workbench's; the importers never see it). */
 function split(envelope:any){
-  const by:Record<Surface,any[]>={chemistry:[],'chemistry-candidate':[],assessment:[],'pilot-signoff':[]};
+  const by:Record<Surface,any[]>={chemistry:[],'chemistry-candidate':[],assessment:[],'pilot-signoff':[],release:[]};
   const issues:string[]=[];
   if(!envelope||envelope.schema!==DECISIONS_SCHEMA||!Array.isArray(envelope.decisions)) return {by,issues:['ENVELOPE_SCHEMA_INVALID']};
   for(const k of Object.keys(envelope).filter(k=>!ENVELOPE_FIELDS.includes(k))) issues.push(`ENVELOPE_FIELD_NOT_ALLOWED:${k}`);
@@ -250,7 +252,7 @@ function split(envelope:any){
 
 export interface DecisionValidation {
   schema:string;
-  counts:{decisions:number;chemistry:number;candidates:number;assessment:number;pilotSignoffs:number;issues:number};
+  counts:{decisions:number;chemistry:number;candidates:number;assessment:number;pilotSignoffs:number;release:number;issues:number};
   categories:Record<'valid'|'stale'|'invalidIdentity'|'unknown'|'missingComment'|'conflicting'|'tampering'|'invalid',string[]>;
   issues:string[];
   importable:boolean;
@@ -264,13 +266,14 @@ export function validateDecisionFile(root:string,envelope:any):DecisionValidatio
   const chem=validateChemistryDecisions(root,{decisions:by.chemistry,candidateDecisions:by['chemistry-candidate']});
   const assess=by.assessment.length?validateRegister(root,{schema:REVIEW_REGISTER_SCHEMA,records:by.assessment}):{rows:[],issues:[]};
   const pilot=validatePilotSignoffs(root,by['pilot-signoff']);
-  const all=uniq([...issues,...chem.issues,...assess.issues,...pilot]);
+  const release=by.release.length?validateReleaseDecisions(root,by.release):[];
+  const all=uniq([...issues,...chem.issues,...assess.issues,...pilot,...release]);
   const categories:DecisionValidation['categories']={valid:[],stale:[],invalidIdentity:[],unknown:[],missingComment:[],conflicting:[],tampering:[],invalid:[]};
   for(const i of all) (categories as any)[categorize(i)].push(i);
-  const idOf=(s:Surface,d:any)=>s==='chemistry'?d.assertionId:s==='chemistry-candidate'?d.candidateId:s==='assessment'?`${d.itemId}|${d.role}`:d.learningUnitId;
+  const idOf=(s:Surface,d:any)=>s==='chemistry'?d.assertionId:s==='chemistry-candidate'?d.candidateId:s==='assessment'?`${d.itemId}|${d.role}`:s==='release'?d.activityId:d.learningUnitId;
   for(const s of SURFACES) for(const d of by[s]){ const id=String(idOf(s,d)); const bare=s==='assessment'?String(d.itemId):id; if(!all.some(i=>i.includes(`:${bare}`)||i.endsWith(bare))) categories.valid.push(`${s}:${id}`); }
   const total=SURFACES.reduce((n,s)=>n+by[s].length,0);
-  return {schema:'kimyolab.review-validation.v1',counts:{decisions:total,chemistry:by.chemistry.length,candidates:by['chemistry-candidate'].length,assessment:by.assessment.length,pilotSignoffs:by['pilot-signoff'].length,issues:all.length},categories,issues:all,importable:all.length===0&&total>0,pilotSignoffsImportable:false,registersChanged:false};
+  return {schema:'kimyolab.review-validation.v1',counts:{decisions:total,chemistry:by.chemistry.length,candidates:by['chemistry-candidate'].length,assessment:by.assessment.length,pilotSignoffs:by['pilot-signoff'].length,release:by.release.length,issues:all.length},categories,issues:all,importable:all.length===0&&total>0,pilotSignoffsImportable:false,registersChanged:false};
 }
 
 /**
@@ -280,12 +283,14 @@ export function validateDecisionFile(root:string,envelope:any):DecisionValidatio
  */
 export function importDecisionFile(root:string,envelope:any){
   const v=validateDecisionFile(root,envelope);
-  if(v.issues.length) return {imported:{chemistry:0,candidates:0,assessment:0},pilotSignoffsNotImported:v.counts.pilotSignoffs,issues:v.issues};
+  const none={chemistry:0,candidates:0,assessment:0,release:0};
+  if(v.issues.length) return {imported:none,pilotSignoffsNotImported:v.counts.pilotSignoffs,issues:v.issues};
   const {by}=split(envelope);
   const chem=(by.chemistry.length||by['chemistry-candidate'].length)?importDecisions(root,{decisions:by.chemistry,candidateDecisions:by['chemistry-candidate']}):{imported:0,importedCandidates:0,issues:[]};
-  if(chem.issues.length) return {imported:{chemistry:0,candidates:0,assessment:0},pilotSignoffsNotImported:v.counts.pilotSignoffs,issues:chem.issues};
+  if(chem.issues.length) return {imported:none,pilotSignoffsNotImported:v.counts.pilotSignoffs,issues:chem.issues};
   const assess=by.assessment.length?importRegister(root,{schema:REVIEW_REGISTER_SCHEMA,records:by.assessment}):{imported:0};
-  return {imported:{chemistry:chem.imported,candidates:chem.importedCandidates,assessment:assess.imported},pilotSignoffsNotImported:v.counts.pilotSignoffs,issues:[] as string[]};
+  const release=by.release.length?importReleaseDecisions(root,by.release):{imported:0,issues:[]};
+  return {imported:{chemistry:chem.imported,candidates:chem.importedCandidates,assessment:assess.imported,release:release.imported},pilotSignoffsNotImported:v.counts.pilotSignoffs,issues:release.issues};
 }
 
 // ------------------------------------------------------------------ reports
@@ -399,6 +404,8 @@ export async function promotionImpact(model:WorkbenchModel,root:string,evaluateP
   const unit=src.units.find((u:any)=>u.id===lu);
   const reach=(availability:string)=>buildMasteryView({learningUnitId:lu,conceptIds:unit.conceptIds,mastery:unit.conceptIds.map((c:string)=>({conceptId:c,evidenceIds:['e'],confidence:1,status:'mastered',scoringVersion:'1'})) as any,countedEvidence:[{id:'e',conceptId:unit.conceptIds[0],evidenceClass:'concept-assessment',source:'a',createdAt:'2026-01-01T00:00:00.000Z'}] as any,attempts:{practiceCompletedOrAbandoned:3,assessment:1},assessmentAvailability:availability as any}).band==='MASTERED';
   const sourceless=model.chemistry.filter(c=>!c.sourceRefs.length);
+  const kbGate=buildKbReports(root).gate;
+  const noProvenance=kbGate.pending.filter(p=>p.startsWith('SOURCE_NOT_ACCEPTABLE:')).map(p=>p.slice('SOURCE_NOT_ACCEPTABLE:'.length));
   return {
     schema:'kimyolab.review-promotion-impact.v1',
     hypothetical:true,
@@ -414,7 +421,7 @@ export async function promotionImpact(model:WorkbenchModel,root:string,evaluateP
       note:'content approval never changes the runtime dimension: activities that are not released (ACTIVITY_NOT_RELEASED) or not routable stay as they are until a person releases them',
     },
     assessment:{items:bank.length,unitsWouldBecomeAvailable:assessmentAvailable,masteredReachable:{now:reach(unitsBefore.get(lu)??'NONE'),ifApproved:reach('AVAILABLE')},learningUnitId:lu},
-    chemistry:{assertions:model.chemistry.length,pending:model.chemistry.filter(c=>c.reviewStatus==='pending').length,wouldRemainBlocked:{count:sourceless.length,reason:'APPROVED_WITHOUT_SOURCE — the gate refuses an approval of an assertion that cites no source (localized names today); a source must be added before an approval can count',ids:sourceless.map(c=>c.id)},candidatesAddedToKb:0},
+    chemistry:{assertions:model.chemistry.length,pending:model.chemistry.filter(c=>c.reviewStatus==='pending').length,wouldRemainBlocked:{count:sourceless.length,reason:'APPROVED_WITHOUT_SOURCE — the gate refuses an approval of an assertion that cites no source (localized names today); a source must be added before an approval can count',ids:sourceless.map(c=>c.id)},withoutAcceptableProvenance:{count:noProvenance.length,reason:'P1.9 source policy: APPROVED_WITHOUT_ACCEPTABLE_SOURCE — an approval backed only by INTERNAL_PROPOSAL (or no) provenance does not count',ids:noProvenance},candidatesAddedToKb:0},
     pilots,
     globalStrictEnforcement:false,
   };
@@ -444,4 +451,4 @@ export function humanReviewStatus(model:WorkbenchModel,root:string){
   };
 }
 
-export const REVIEW_FIELDS={chemistry:CHEMISTRY_DECISION_FIELDS,'chemistry-candidate':CANDIDATE_DECISION_FIELDS,assessment:ASSESSMENT_REVIEW_FIELDS,'pilot-signoff':PILOT_SIGNOFF_FIELDS};
+export const REVIEW_FIELDS={chemistry:CHEMISTRY_DECISION_FIELDS,'chemistry-candidate':CANDIDATE_DECISION_FIELDS,assessment:ASSESSMENT_REVIEW_FIELDS,'pilot-signoff':PILOT_SIGNOFF_FIELDS,release:RELEASE_DECISION_FIELDS};

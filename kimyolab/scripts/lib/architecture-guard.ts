@@ -46,9 +46,9 @@ const MASTERY_DERIVATION=new Set(['computeConceptMastery','buildMasteryView','re
 /** Readiness / approval derivation belongs to the build (compileReadiness) and the domain — presentation only reads the pack (P1.3 §43). */
 const READINESS_DERIVATION=new Set(['deriveActivityReadiness','compileReadiness','reviewStateOf','reviewPendingOf','effectiveApprovalState','deriveItemLifecycle','derivePilotStatus']);
 /** Human decision registers. Only the review importer may write the assessment register; nothing writes sign-offs. */
-const HUMAN_REGISTERS=/(assessment-reviews|pilot-signoffs|chemistry-reviews|chemistry-candidate-reviews)\.json/;
-const REGISTER_WRITERS=new Set(['scripts/assessment-review/lib.ts','scripts/chemistry-review/import.ts']);
-const REGISTER_IDENTIFIERS=new Set(['REGISTER_FILE','SIGNOFF_FILE','REVIEW_REGISTER_FILE','CANDIDATE_REGISTER_FILE']);
+const HUMAN_REGISTERS=/(assessment-reviews|pilot-signoffs|chemistry-reviews|chemistry-candidate-reviews|release-decisions)\.json/;
+const REGISTER_WRITERS=new Set(['scripts/assessment-review/lib.ts','scripts/chemistry-review/import.ts','scripts/lib/release.ts']);
+const REGISTER_IDENTIFIERS=new Set(['REGISTER_FILE','SIGNOFF_FILE','REVIEW_REGISTER_FILE','CANDIDATE_REGISTER_FILE','RELEASE_REGISTER_FILE']);
 const FS_WRITES=new Set(['writeFileSync','writeFile','appendFileSync','appendFile','renameSync','rename','copyFileSync','copyFile','createWriteStream']);
 /** Rules that also apply to build scripts (the rest guard the runtime in src/). */
 export const SCRIPT_RULES=new Set(['HUMAN_APPROVAL_WRITTEN_BY_TOOLING','BANK_LEVEL_APPROVAL']);

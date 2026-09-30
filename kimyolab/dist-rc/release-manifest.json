@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-09-30T10:35:05.473Z",
+  "createdAt": "2026-09-30T11:46:52.933Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -253,6 +253,24 @@
       "sourcePath": "public/app-preview/domain/content/xlsx-reader.js",
       "checksum": "0844e78b9bb5f1ac7850240f24106c3e25cb134e3f26c4d7f3abb8748f8dc8ad",
       "size": 4416
+    },
+    {
+      "path": "app-preview/domain/governance/authoring-task.js",
+      "sourcePath": "public/app-preview/domain/governance/authoring-task.js",
+      "checksum": "fe11270739bed942dfaf812753ccc656c62ca86b069bb761e7b8a09cf0ee4da1",
+      "size": 3848
+    },
+    {
+      "path": "app-preview/domain/governance/release-decision.js",
+      "sourcePath": "public/app-preview/domain/governance/release-decision.js",
+      "checksum": "de0cb53b66375fa072b4d46b6af5c61b3877789f1d40b5f564090eb77cb673e9",
+      "size": 5750
+    },
+    {
+      "path": "app-preview/domain/governance/source-policy.js",
+      "sourcePath": "public/app-preview/domain/governance/source-policy.js",
+      "checksum": "d4725802f63f21de16bccf3586ebca16fa63fd3ba80e5d81f3360051b6100dfc",
+      "size": 2903
     },
     {
       "path": "app-preview/domain/mastery/mastery.js",
@@ -1137,10 +1155,16 @@
       "size": 955
     },
     {
+      "path": "content/2026.09.1/locales/uz-latn/name-provenance.json",
+      "sourcePath": "public/content/2026.09.1/locales/uz-latn/name-provenance.json",
+      "checksum": "724dd064c9c229750e19d26bf9c7bc4490fb8ede30cef727f88156edc28f6fc0",
+      "size": 6785
+    },
+    {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "d57563e931e94e60319c84a54e734056667185340d8b5f3b15dc8be54adb4de8",
-      "size": 7344
+      "checksum": "96f3190c1a5c2494be3d9f0daec5e588edc1704c8d97f134d80ef30db0ae2965",
+      "size": 7516
     },
     {
       "path": "content/2026.09.1/mapping-links.json",
@@ -1163,7 +1187,7 @@
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "5bb38e79df629baf482df1994ccac6a34f72013a22e72f5bef3f102bde746f47",
+      "checksum": "79896949ad58467bc9d7bc5f9692f0d9964accef18a21e666d266f55529012c7",
       "size": 158
     },
     {

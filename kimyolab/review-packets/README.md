@@ -13,6 +13,15 @@ Bu papkadagi fayllar approval'ni avtomatik bermaydi. Reviewer qarorini aniq vers
 
 Pilot sign-off import qilinmaydi: pilot owner uni `content-src/pilot-signoffs.json`ga PR orqali qo‘shadi. Nomzodlar (`CANDIDATE — NOT PART OF CANONICAL KB`) bo‘yicha qaror bilimlar bazasiga hech narsa qo‘shmaydi. Electrolysis kengaytirish brief’i: `electrolysis-expansion/` (PROPOSED / NEEDS REVIEW).
 
+## 0.1 Authoring va release (P1.9)
+- **Authoring tabi** (faqat o‘qish uchun). Vazifalar inson qarorlaridan hosil bo‘ladi: `correct`, `map-concept`, `add-source`, `author-candidate` va boshqalar.
+  - Draft: `npm run authoring:draft -- <taskId>`.
+  - Tekshiruv: `npm run authoring:preview -- <draft>`.
+  - Qo‘llash: `npm run authoring:apply -- <draft>` — faqat inson; CI yoki agent muhitida rad etiladi.
+  - Qo‘llangandan keyin eski review’lar STALE bo‘ladi va yangi review kerak.
+- **Release decisions tabi** (rol: `content-owner`). Machine eligibility — qaror emas. NOT_ELIGIBLE activity uchun RELEASE o‘chiq. Packet: `release-decisions/`.
+- **Manba siyosati:** `docs/governance/SOURCE_POLICY.md`. Maqbul manba bo‘lmasa, approval hisobga olinmaydi.
+
 ## 1. Chemistry reviewer — CHEM-033
 1. `CHEM-033-review-package.md`ni ko'rib chiqing.
 2. `CHEM-033-approval-template.json`ni nusxalang.

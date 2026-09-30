@@ -6,3 +6,4 @@ node_modules/
 /reports/p0-acceptance.json
 /reports/p0-release-freeze.json
 /review-output/*.json
+/authoring-output/
