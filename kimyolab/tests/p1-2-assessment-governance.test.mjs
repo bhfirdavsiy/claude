@@ -18,7 +18,8 @@ const ctx={unitOutcomeCount:unit.learningOutcomes.length,unitConceptIds:unit.con
 function sandbox(){
   const dir=fs.mkdtempSync(path.join(os.tmpdir(),'kl-review-'));
   fs.mkdirSync(path.join(dir,'content-src'),{recursive:true});
-  for(const f of ['assessment-items.json','learning-units.json','assessment-reviews.json']) fs.copyFileSync(path.join(root,'content-src',f),path.join(dir,'content-src',f));
+  // (P1.3: packets now print concept names, so the sandbox also needs concepts.json)
+  for(const f of ['assessment-items.json','learning-units.json','assessment-reviews.json','concepts.json']) fs.copyFileSync(path.join(root,'content-src',f),path.join(dir,'content-src',f));
   return dir;
 }
 const human=(row,extra={})=>({...row,decision:'approved',reviewerId:'dilnoza.karimova',reviewedAt:'2026-09-28T09:00:00.000Z',...extra});
@@ -64,7 +65,9 @@ test('review packets: every field for the reviewer, correct answer only there �
   const out=buildPackets(dir);
   assert.deepEqual(out,{packets:5,rows:10});
   const packet=fs.readFileSync(path.join(dir,'review-packets/assessment-pilot/q.9.15.01.md'),'utf8');
-  for(const field of ['itemId','LearningUnit','grade','Savol','Variantlar','To‘g‘ri javob','Izoh','Konseptlar','Taklif qilingan outcome','Cognitive demand','misconception','Kimyoviy to‘g‘rilik','Til va didaktika','Qaror','itemHash']) assert.ok(packet.includes(field),field);
+  // P1.3 §21: the packet is a one-page decision view; "Kimyoviy to‘g‘rilik" became "Kimyoviy aniqlik" and the
+  // didactic goal, difficulty, distractor quality and the decision/comment table were added.
+  for(const field of ['itemId','LearningUnit','grade','Savol','Variantlar','To‘g‘ri javob','Izoh','Konseptlar','Taklif qilingan outcome','Cognitive demand','misconception','Kimyoviy aniqlik','Didaktik maqsad','Qiyinchilik','Chalg‘ituvchi variantlar sifati','Reviewer decision','Reviewer comment','outcomeDecision','Til va didaktika','Qaror','itemHash','approval emas']) assert.ok(packet.includes(field),field);
   assert.ok(packet.includes(`**To‘g‘ri javob:** ${bank.items[0].correctOptionId}`));
   const learnerPrompts=fs.readFileSync(path.join(root,'public/content',JSON.parse(fs.readFileSync(path.join(root,'public/content/manifest.json'),'utf8')).activeVersion,'assessment/prompts.json'),'utf8');
   assert.doesNotMatch(learnerPrompts,/To‘g‘ri javob|correctOptionId|reviewer/);

@@ -17,6 +17,9 @@ export function buildProgressViewModel(progress                       ,units    
     else if(isTheoryComplete(row)) resumeHref=`/learn/${id}/practice`;
     const status=displayStatus(row);
     const view=mastery.get(row.learningUnitId);
-    return {learningUnitId:row.learningUnitId,grade:unit?.grade??0,title:unit?.title??'Mavzu',status,statusLabel:LABELS[status]??status,lastVisitedAt:row.lastVisitedAt,resumeHref,...(view?{mastery:view}:{})};
+    // P1.3 copy audit: where the mastery indicator is shown, the lesson line never borrows mastery words
+    // ("O‘zlashtirilgan"/"Takrorlash kerak"): the lesson achievement behind those states is a submitted test.
+    const lessonLabel=(view&&(status==='mastered'||status==='needs_review')?LABELS.assessment_complete:LABELS[status])??status;
+    return {learningUnitId:row.learningUnitId,grade:unit?.grade??0,title:unit?.title??'Mavzu',status,statusLabel:lessonLabel,lastVisitedAt:row.lastVisitedAt,resumeHref,...(view?{mastery:view}:{})};
   });
 }

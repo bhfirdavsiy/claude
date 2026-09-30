@@ -29,6 +29,16 @@ export const ASSESSMENT_KEY_NAMES=new Set(['AssessmentKey','AssessmentKeyPack','
 /** Mastery is derived by the orchestrator; presentation receives a MasteryViewModel only (P1.2 §26). */
 const MASTERY_DERIVATION=new Set(['computeConceptMastery','buildMasteryView','rescoreEvidence']);
 
+/** Readiness / approval derivation belongs to the build (compileReadiness) and the domain — presentation only reads the pack (P1.3 §43). */
+const READINESS_DERIVATION=new Set(['deriveActivityReadiness','compileReadiness','reviewStateOf','reviewPendingOf','effectiveApprovalState','deriveItemLifecycle','derivePilotStatus']);
+/** Human decision registers. Only the review importer may write the assessment register; nothing writes sign-offs. */
+const HUMAN_REGISTERS=/(assessment-reviews|pilot-signoffs)\.json/;
+const REGISTER_WRITERS=new Set(['scripts/assessment-review/lib.ts']);
+const REGISTER_IDENTIFIERS=new Set(['REGISTER_FILE','SIGNOFF_FILE']);
+const FS_WRITES=new Set(['writeFileSync','writeFile','appendFileSync','appendFile','renameSync','rename','copyFileSync','copyFile','createWriteStream']);
+/** Rules that also apply to build scripts (the rest guard the runtime in src/). */
+export const SCRIPT_RULES=new Set(['HUMAN_APPROVAL_WRITTEN_BY_TOOLING','BANK_LEVEL_APPROVAL']);
+
 export interface GuardViolation {file:string;line:number;rule:string;detail:string}
 
 const MASTERY_FUNCTION='computeConceptMastery';
@@ -70,6 +80,7 @@ export function checkSource(rel:string,source:string):GuardViolation[]{
           aliases.set(e.name.text,original);
           flagKey(e,original);
           if(presentation&&!e.isTypeOnly&&!typeOnly&&MASTERY_DERIVATION.has(original)) out.push({file:rel,line:line(e),rule:'MASTERY_COMPUTED_IN_PRESENTATION',detail:original});
+          if(presentation&&!e.isTypeOnly&&!typeOnly&&READINESS_DERIVATION.has(original)) out.push({file:rel,line:line(e),rule:'READINESS_DERIVED_IN_PRESENTATION',detail:original});
           if(!typeOnly&&!e.isTypeOnly) flagBoundary(e,original);
         }
       }
@@ -98,6 +109,28 @@ export function checkSource(rel:string,source:string):GuardViolation[]{
       const key=el.propertyName&&ts.isIdentifier(el.propertyName)?el.propertyName.text:ts.isIdentifier(el.name)?el.name.text:undefined;
       if(key) flagMutation(el,key);
     }
+    // ---- P1.3: approvals are human decisions — tooling never writes them, the bank never claims them
+    if(ts.isStringLiteral(node)&&HUMAN_REGISTERS.test(node.text)&&rel.startsWith('src/')) out.push({file:rel,line:line(node),rule:'HUMAN_APPROVAL_WRITTEN_BY_TOOLING',detail:`runtime code references ${node.text}`});
+    if(ts.isCallExpression(node)&&!REGISTER_WRITERS.has(rel)){
+      const callee=node.expression;
+      const fn=ts.isPropertyAccessExpression(callee)?callee.name.text:ts.isIdentifier(callee)?callee.text:undefined;
+      if(fn&&FS_WRITES.has(fn)){
+        let target:string|undefined;
+        const scan=(n:any)=>{ if(target) return; if((ts.isStringLiteral(n)||ts.isNoSubstitutionTemplateLiteral(n))&&HUMAN_REGISTERS.test(n.text)) target=n.text; else if(ts.isIdentifier(n)&&REGISTER_IDENTIFIERS.has(n.text)) target=n.text; else if(ts.isTemplateExpression(n)&&HUMAN_REGISTERS.test(n.getText(sf))) target=n.getText(sf); else ts.forEachChild(n,scan); };
+        node.arguments.forEach(scan);
+        if(target) out.push({file:rel,line:line(node),rule:'HUMAN_APPROVAL_WRITTEN_BY_TOOLING',detail:`${fn}(${target})`});
+      }
+    }
+    const isApprovedLiteral=(n:any)=>n&&(ts.isStringLiteral(n)||ts.isNoSubstitutionTemplateLiteral(n))&&n.text==='APPROVED';
+    if(ts.isPropertyAssignment(node)&&ts.isIdentifier(node.name)&&node.name.text==='lifecycle'&&isApprovedLiteral(node.initializer)) out.push({file:rel,line:line(node),rule:'BANK_LEVEL_APPROVAL',detail:"lifecycle:'APPROVED' is derived from human review records, never authored"});
+    if(ts.isBinaryExpression(node)&&node.operatorToken.kind===ts.SyntaxKind.EqualsToken&&ts.isPropertyAccessExpression(node.left)&&node.left.name.text==='lifecycle'&&isApprovedLiteral(node.right)) out.push({file:rel,line:line(node),rule:'BANK_LEVEL_APPROVAL',detail:"assigning lifecycle='APPROVED'"});
+    // ---- P1.3 (future RendererRegistry contract): presentation never selects behaviour by a concrete activity id
+    if(presentation){
+      const idLike=(n:any)=>n&&((ts.isPropertyAccessExpression(n)&&['id','activityId','practiceActivityId'].includes(n.name.text))||(ts.isIdentifier(n)&&['activityId','practiceActivityId'].includes(n.text)));
+      const activityLiteral=(n:any)=>n&&(ts.isStringLiteral(n)||ts.isNoSubstitutionTemplateLiteral(n))&&/^practice\./.test(n.text);
+      if(ts.isSwitchStatement(node)&&idLike(node.expression)&&node.caseBlock.clauses.some((c:any)=>ts.isCaseClause(c)&&activityLiteral(c.expression))) out.push({file:rel,line:line(node),rule:'RENDERER_SELECTED_BY_ACTIVITY_ID',detail:'switch over a concrete activity id'});
+      if(ts.isBinaryExpression(node)&&[ts.SyntaxKind.EqualsEqualsEqualsToken,ts.SyntaxKind.ExclamationEqualsEqualsToken,ts.SyntaxKind.EqualsEqualsToken].includes(node.operatorToken.kind)&&((idLike(node.left)&&activityLiteral(node.right))||(idLike(node.right)&&activityLiteral(node.left)))) out.push({file:rel,line:line(node),rule:'RENDERER_SELECTED_BY_ACTIVITY_ID',detail:'comparison with a concrete activity id'});
+    }
     // ---- calls: resolve aliases before checking boundary / mastery functions
     if(ts.isCallExpression(node)){
       const callee=node.expression;
@@ -123,5 +156,10 @@ export function checkTree(root:string):GuardViolation[]{
   const out:GuardViolation[]=[];
   const walk=(dir:string)=>{for(const e of fs.readdirSync(dir,{withFileTypes:true})){const full=path.join(dir,e.name);if(e.isDirectory())walk(full);else if(e.name.endsWith('.ts')){const rel=path.relative(root,full).split(path.sep).join('/');out.push(...checkSource(rel,fs.readFileSync(full,'utf8')));}}};
   walk(path.join(root,'src'));
+  // build scripts: only the approval rules apply (they legitimately use persistence/derivation helpers)
+  const scripts:GuardViolation[]=[];
+  const walkScripts=(dir:string)=>{for(const e of fs.readdirSync(dir,{withFileTypes:true})){const full=path.join(dir,e.name);if(e.isDirectory())walkScripts(full);else if(e.name.endsWith('.ts')){const rel=path.relative(root,full).split(path.sep).join('/');scripts.push(...checkSource(rel,fs.readFileSync(full,'utf8')).filter(v=>SCRIPT_RULES.has(v.rule)));}}};
+  if(fs.existsSync(path.join(root,'scripts'))) walkScripts(path.join(root,'scripts'));
+  out.push(...scripts);
   return out;
 }

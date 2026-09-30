@@ -54,7 +54,7 @@ export function createBeta2AdvancedRouter(o        )                            
     const expected=o.ionicEngine.netIonicEquation(config.reactionId).equation;
     const answers=context.inputs[activity.id]?.trainerAnswers??[];const answer=answers.at(-1)??'';const correct=normalizeEquation(answer)===normalizeEquation(expected);
     const evidence               ={...meta(activity,config,o),id:`${activity.id}.ionic-answer.${answers.length||1}`,score:correct?1:0,evidenceClass:'trainer-calculation',type:'answer',questionId:config.reactionId,correct,independenceKey:`${activity.id}:ionic-equation`};
-    return {evidence:[evidence],serializedState:JSON.stringify({answer,expected,correct})};
+    return {evidence:[evidence],serializedState:JSON.stringify({answer,expected,correct}),finalState:{status:correct?'correct':'in_progress'}};
   }};
   const simulation                                             ={async run(activity,context){
     const config=o.registry[activity.id];if(!config||config.capability!=='manganese-redox-simulation')throw new Error(`BETA2_ADVANCED_CONFIG_MISSING:${activity.id}`);
@@ -73,7 +73,7 @@ export function createBeta2AdvancedRouter(o        )                            
       const model=selected?o.hydrolysisModel.classify(selected):{modeled:false         ,code:'HYDROLYSIS_NOT_MODELED'         };
       const achieved=!!selected&&model.modeled&&selected===config.salt&&recorded===model.medium&&recorded===config.expectedMedium;
       const evidence                     ={...meta(activity,config,o),id:`${activity.id}.hydrolysis`,score:achieved?1:0,evidenceClass:'practice-observation',type:'construction',targetId:`hydrolysis-${config.salt}-${config.expectedMedium}`,achieved,independenceKey:`${activity.id}:hydrolysis`};
-      return {evidence:[evidence],serializedState:JSON.stringify({selected,recorded,model}),model}       ;
+      return {evidence:[evidence],serializedState:JSON.stringify({selected,recorded,model}),model,finalState:{status:achieved?'complete':'in_progress'}}       ;
     }
     if(config.capability==='electrolysis-experiment'){
       const model=o.electrolysisModel.resolve(config.query);if(!model.modeled)throw new Error(model.code);
@@ -84,7 +84,7 @@ export function createBeta2AdvancedRouter(o        )                            
         evidence.push({...meta(activity,config,o),id:`${activity.id}.cathode`,score:1,evidenceClass:'practice-observation',type:'observation',observation:{type:'state-change',from:`${config.query.electrolyte}(aq)`,to:`${model.cathode.product}(s)`},independenceKey:`${activity.id}:cathode`}                       );
         evidence.push({...meta(activity,config,o),id:`${activity.id}.anode`,score:1,evidenceClass:'practice-observation',type:'observation',observation:{type:'gas',descriptionKey:model.anode.observation},independenceKey:`${activity.id}:anode`}                       );
       }
-      return {evidence,serializedState:JSON.stringify({completed,model}),model}       ;
+      return {evidence,serializedState:JSON.stringify({completed,model}),model,finalState:{status:completed?'complete':'in_progress'}}       ;
     }
     throw new Error(`BETA2_ADVANCED_CAPABILITY_INVALID:${activity.id}`);
   }};
