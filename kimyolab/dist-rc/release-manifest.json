@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-09-30T05:33:14.998Z",
+  "createdAt": "2026-09-30T07:26:05.628Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -119,14 +119,14 @@
     {
       "path": "app-preview/domain/chemistry/ionic-equation.js",
       "sourcePath": "public/app-preview/domain/chemistry/ionic-equation.js",
-      "checksum": "eeb9c31318a3ad8de29f63c782b506717aeea5458e5a12e89b2dd435692b8a85",
-      "size": 4872
+      "checksum": "0f4196cf75cd8164d4c3301ba26549ff7783c0cd56fbd4783dc6ed1892f03113",
+      "size": 5441
     },
     {
       "path": "app-preview/domain/chemistry/ionic-mixing.js",
       "sourcePath": "public/app-preview/domain/chemistry/ionic-mixing.js",
-      "checksum": "ffb2d93044f03751bc73ee6b4e01026ecc92863c762d60d1eda6774a31b763bd",
-      "size": 8451
+      "checksum": "d82536dc0035eb99aac1c1c5e83d3c07b46009fb111e63eefe163544f6a55536",
+      "size": 8953
     },
     {
       "path": "app-preview/domain/chemistry/kinetics-model.js",
@@ -173,8 +173,8 @@
     {
       "path": "app-preview/domain/chemistry/reaction-matcher.js",
       "sourcePath": "public/app-preview/domain/chemistry/reaction-matcher.js",
-      "checksum": "c78835a2b58ff40947ef239787d44f69d94797d1bc50aef7be073edd7cb24b49",
-      "size": 4195
+      "checksum": "886154fe0059805d9747cf27797d31f326636f536e9af4fba822e1ddfa266cc8",
+      "size": 6091
     },
     {
       "path": "app-preview/domain/chemistry/redox-balancer.js",
@@ -557,8 +557,8 @@
     {
       "path": "app-preview/renderers/ionic-precipitation/renderer-model.js",
       "sourcePath": "public/app-preview/renderers/ionic-precipitation/renderer-model.js",
-      "checksum": "dc63dfd89e69f646f6947151503a5d3b8a253dd6e7a241c34d1e5043b58afa46",
-      "size": 7074
+      "checksum": "4f2ca8fd50a64aeadf95062362748ff7cc62bf637b38a83a39b302a458c4e267",
+      "size": 7176
     },
     {
       "path": "app-preview/renderers/ionic-precipitation/renderer.js",
@@ -809,8 +809,8 @@
     {
       "path": "app-preview/runtime/reference-slices/experiment-adapter.js",
       "sourcePath": "public/app-preview/runtime/reference-slices/experiment-adapter.js",
-      "checksum": "f9b7354f04d0297c2a15494d986dedaf126c8f39700f712a62978c0f76406dac",
-      "size": 6263
+      "checksum": "1eabac7259beb5b4be433b9d79a3f9e504585a2be96ad1e891e076f6de88fd29",
+      "size": 6297
     },
     {
       "path": "app-preview/runtime/reference-slices/hydrolysis-practice.js",

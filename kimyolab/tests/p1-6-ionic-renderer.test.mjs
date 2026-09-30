@@ -82,10 +82,10 @@ test('matcher: modeled reaction, explicit modeled no-reaction and not-modeled ar
 
 test('matcher: records that need other conditions (heating, concentrated acid) do not apply to mixing two solutions',()=>{
   const d=domain();
-  // rxn.nacl-h2so4 needs concentrated acid + gentle heating — without the flag the legacy matcher ignores that
-  const loose=d.matcher.match({reactants:[{formula:'NaCl',phase:'aq'},{formula:'H2SO4',phase:'aq'}]});
+  // rxn.nacl-h2so4 needs concentrated acid + gentle heating — the legacy 'filter-by-query' policy ignores that
+  const loose=d.matcher.match({reactants:[{formula:'NaCl',phase:'aq'},{formula:'H2SO4',phase:'aq'}],conditionPolicy:'filter-by-query'});
   assert.equal(loose.modeled,true,'legacy behaviour unchanged for existing callers');
-  assert.deepEqual(d.matcher.match({reactants:[{formula:'NaCl',phase:'aq'},{formula:'H2SO4',phase:'aq'}],requireConditionsMet:true}),{modeled:false,code:'REACTION_CONDITIONS_NOT_MET'});
+  assert.deepEqual(d.matcher.match({reactants:[{formula:'NaCl',phase:'aq'},{formula:'H2SO4',phase:'aq'}],conditionPolicy:'require-record-conditions'}),{modeled:false,code:'REACTION_CONDITIONS_NOT_MET'});
   const st=evaluateIonicMixing(d,{shelf:CONFIG.reagentShelf,targetReactionId:TARGET,actions:pair('species.nacl','species.h2so4')});
   assert.deepEqual([st.current.outcome,st.current.coverageCode,st.current.observations],['not-modeled','REACTION_CONDITIONS_NOT_MET',null],'no gas is invented for a room-temperature dilute mix');
 });
@@ -136,7 +136,7 @@ test('domain parity: every shelf pair → engine result = ReactionMatcher (stric
   const formula=(id)=>d.species.byId(id).formula;
   const outcomes=new Set();
   for(let i=0;i<shelf.length;i++) for(let j=i+1;j<shelf.length;j++){
-    const m=d.matcher.match({reactants:[{formula:formula(shelf[i]),phase:'aq'},{formula:formula(shelf[j]),phase:'aq'}],requireConditionsMet:true});
+    const m=d.matcher.match({reactants:[{formula:formula(shelf[i]),phase:'aq'},{formula:formula(shelf[j]),phase:'aq'}],conditionPolicy:'require-record-conditions'});
     const s=new ReferencePracticeSession(page); let r;
     for(const a of pair(shelf[i],shelf[j])) r=await s.apply(ionicIntent(a,page.type));
     const cur=r.finalState.ionic.current, model=toIonicPrecipitationRendererModel(r);

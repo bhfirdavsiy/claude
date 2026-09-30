@@ -72,6 +72,17 @@ function sameSide(learner               ,expected               )        {
 }
 
 /**
+ * Two learner submissions are the SAME answer (for "is this a new revision?"): identical terms, coefficients and
+ * phase marks on each side, in any order. Stricter than the answer check (where a phase mark is optional).
+ */
+export function sameSubmission(a       ,b       )        {
+  const x=parseIonicEquation(a), y=parseIonicEquation(b);
+  if(!x.ok||!y.ok) return false;
+  const key=(ts               )=>ts.map(t=>`${t.coefficient}|${t.formula}|${t.charge}|${t.phase??''}`).sort().join(';');
+  return key(x.left)===key(y.left)&&key(x.right)===key(y.right);
+}
+
+/**
  * Compares a learner's net ionic equation with the expected one (from IonicEngine).
  * Returns a syntax error for unreadable input, otherwise the chemistry verdict.
  */

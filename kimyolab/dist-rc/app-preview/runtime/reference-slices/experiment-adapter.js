@@ -79,7 +79,7 @@ export function createExperimentSliceAdapter(o        )                         
 
         if(config.reactionId && action.type==='addAgNO3'){
           const reactants=(action.payload?.reactants         )??config.reactants;
-          const match=o.reactionMatcher.match({reactants});
+          const match=o.reactionMatcher.match({reactants,conditionPolicy:'filter-by-query'});
           if(!match.modeled) return {status:'invalid',code:match.code,feedbackKey:`chemistry.${match.code.toLowerCase()}`};
           matchedReaction=match.reaction;
         }

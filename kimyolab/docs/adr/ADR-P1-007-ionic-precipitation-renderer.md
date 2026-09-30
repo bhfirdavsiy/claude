@@ -45,7 +45,7 @@
 
 **Sharoitlar (P1.6 audit topilmasi).** `rxn.nacl-h2so4` konsentrlangan kislota va qizdirishni talab qiladi, lekin eski matcher so‘rovda sharoit berilmasa uni moslab yuborardi. Natijada ikki eritmani xona haroratida aralashtirish “gaz ajraldi” deb ko‘rsatilardi.
 
-Yechim: aralashtirish `requireConditionsMet: true` bilan so‘raydi. Yozuv talab qilgan har bir sharoit (teg, tok, yorug‘lik, muhit) mavjud bo‘lmasa → `REACTION_CONDITIONS_NOT_MET`. Mavjud chaqiruvchilar uchun xulq o‘zgarmadi (flag ixtiyoriy).
+Yechim: aralashtirish `conditionPolicy: 'require-record-conditions'` bilan so‘raydi (closeout’da aniq majburiy argumentga aylantirildi, addendum D1). Yozuv talab qilgan har bir sharoit (teg, tok, yorug‘lik, muhit) mavjud bo‘lmasa → `REACTION_CONDITIONS_NOT_MET`. Mavjud chaqiruvchilar uchun xulq o‘zgarmadi (flag ixtiyoriy).
 
 ## 4. Reagent tanlash
 
@@ -128,3 +128,53 @@ Tugallanish = target reaksiya (`config.reactionId`) kuzatilgan **va** uning net-
 - Elektroliz renderer’i.
 - 3D/WebGL, to‘liq periodik jadval.
 - Yangi assessment generatsiyasi, global strict readiness, D9, server-side assessment.
+
+## Addendum — P1.6 closeout (merge oldidan semantik audit)
+
+### D1. Sharoit siyosati aniq (implicit default yo‘q)
+`ReactionMatcher.match` endi `conditionPolicy` ni **majburiy** qabul qiladi. U berilmasa → `REACTION_MATCH_POLICY_REQUIRED`.
+
+| Chaqiruvchi | Siyosat | Ma’nosi |
+|---|---|---|
+| `experiment-adapter.ts` (legacy scenario yo‘li) | `filter-by-query` | Oldingi hujjatlangan xulq: so‘rov sharoiti nomzodlarni toraytiradi, yozuv talablari majburlanmaydi. |
+| `ionic-mixing.ts` (ikki eritmani aralashtirish) | `require-record-conditions` | So‘rov haqiqiy sharoitni to‘liq aytadi. Yozuv talabi bajarilmasa → `REACTION_CONDITIONS_NOT_MET`. |
+
+Test barcha `src/` chaqiruvchilarini ro‘yxatlaydi (ro‘yxatda yo‘q chaqiruvchi = FAIL). Legacy testlar (`phase2-reactions`) izoh bilan `filter-by-query` ga o‘tkazildi.
+
+### D2. Sharoit semantikasi (`requirementsMet`)
+| Yozuv | Haqiqiy sharoit | Natija |
+|---|---|---|
+| maydon ko‘rsatilmagan | — | talab yo‘q (bajarilgan) |
+| ko‘rsatilgan | ko‘rsatilmagan | **bajarilmagan** (noma’lum ≠ bajarilgan) |
+| ko‘rsatilgan | boshqacha | **bajarilmagan** (ziddiyat) |
+
+- Maydonlar: `tags` (har biri bo‘lishi shart), `lightRequired`/`electricalCurrent` (boolean mos kelishi kerak), `medium`, `solvent`, `catalystIds`, `temperatureRange`/`pressureRange`/`concentrationRules` (aynan teng bo‘lishi kerak, oraliq arifmetikasi taxmin qilinmaydi).
+- **Known limitation → P1.7:** KB sharoitlari erkin matnli teglar. Masalan “dilute acid” aslida reagent deskriptori, lekin hozir u ham talab sifatida o‘qiladi. Teglar lug‘ati P1.7 da tuziladi.
+
+### D3. Uch klass
+- `classifyMatch()` quyidagilardan birini qaytaradi: `MODELED_REACTION`, `MODELED_NO_REACTION`, `NOT_MODELED`.
+- Domain (`outcome`), evidence (`outcome` faqat `reaction`/`no-reaction`) va UI (`reactionState`) shu uchtasini ajratadi.
+- `NOT_MODELED` hech qachon “reaksiya bormaydi” deb ko‘rsatilmaydi.
+- Sintetik fixture no-reaction yo‘lini isbotlaydi. Production KB’da 0 ta yozuv bor: **KNOWN CONTENT GAP**.
+
+### D4. Doimiy regression
+Sharoit talab qiladigan **har bir** KB yozuvi xona haroratidagi eritmalar aralashmasiga mos kelmaydi. O‘z sharoiti bilan esa mos keladi. Bu KB kengaysa ham ishlaydigan property test.
+
+### D5. Tenglama taqqoslovchi korpusi
+`tests/fixtures/net-ionic-corpus.json` — 38 holat. Qamrov:
+- hadlar tartibi, koeffitsiyent normallashtirish, zaryad sintaksisi, Unicode;
+- holat belgilari, tomoshabin ionlar;
+- strelka turlari, bo‘sh joylar, noaniq zaryad yozuvi.
+
+Har holatda kutilgan verdict: qabul, rad yoki sintaksis. Na false positive, na false negative.
+
+### D6. Kutilgan javob
+Kutilgan tenglama topshirilishdan **oldin ham, keyin ham** RendererModel’da va DOM’da (matn va `data-model`) yo‘q (mini-DOM testi). O‘quvchi faqat feedback matnini ko‘radi. `canonicalExpected` faqat audit evidence’ida qoladi.
+
+### D7. Evidence identitet
+- A+B va B+A — bitta juftlik.
+- Qayta aralashtirish yangi yozuv qo‘shmaydi.
+- **Bir xil tenglamani qayta topshirish** (tartib yoki bo‘sh joy farqi bilan) yangi revision emas: `EQUATION_UNCHANGED`, evidence yo‘q.
+  - Solishtirish qat’iy: holat belgisi ham teng bo‘lishi kerak. Audit’da topilgan xato: yumshoq solishtirish `AgCl` va `AgCl(aq)` ni bir xil deb, to‘g‘ri javobni rad etardi.
+- Retry yangi attempt ochadi. Engine ID takrorlanadi, persisted ID esa noyob. Append-only.
+- Mastery evidence chegaralangan: kuzatuvlar ≤ modellashtirilgan juftliklar soni, har reaksiya uchun bitta to‘g‘ri javob.

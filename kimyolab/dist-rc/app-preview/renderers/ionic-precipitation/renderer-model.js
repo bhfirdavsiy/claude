@@ -44,6 +44,7 @@ const REJECTION                                        =Object.freeze({
   EQUATION_NO_REACTION:'Tenglama faqat modelda mavjud reaksiya kuzatilgandan keyin yoziladi.',
   EQUATION_SYNTAX:'Tenglamani o‘qib bo‘lmadi.',
   EQUATION_ALREADY_SOLVED:'Bu reaksiyaning tenglamasi allaqachon to‘g‘ri yozilgan.',
+  EQUATION_UNCHANGED:'Bu javob avvalgisi bilan bir xil. Tenglamani o‘zgartirib, qayta tekshiring.',
   IONIC_ACTION_INVALID:'Bu amalni bajarib bo‘lmadi.',
 });
 

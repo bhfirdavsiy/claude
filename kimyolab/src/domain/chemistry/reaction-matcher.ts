@@ -27,14 +27,44 @@ function conditionMatch(q:ReactionConditions|undefined,r:ReactionConditions):boo
 export const NO_REACTION_TYPE='no-reaction';
 export const isNoReaction=(r:ReactionRecord)=>r.reactionType===NO_REACTION_TYPE;
 
-/** every condition the record demands is present in the actual conditions */
-function requirementsMet(r:ReactionConditions|undefined,actual:ReactionConditions|undefined):boolean{
-  const have=new Set(actual?.tags??[]);
-  if((r?.tags??[]).some(t=>!have.has(t)))return false;
-  if(r?.electricalCurrent&&!actual?.electricalCurrent)return false;
-  if(r?.lightRequired&&!actual?.lightRequired)return false;
-  if(r?.medium&&r.medium!==actual?.medium)return false;
+/**
+ * Does a record's condition requirement hold in the ACTUAL conditions? (policy 'require-record-conditions')
+ *
+ *   record field unspecified                → no requirement (always met)
+ *   record field specified, actual missing  → NOT met (unknown is never assumed to be satisfied)
+ *   record field specified, actual differs  → NOT met (conflicting)
+ *
+ * Fields: tags (each required tag present), lightRequired / electricalCurrent (booleans must agree), medium,
+ * solvent (equal), catalystIds (each present), temperatureRange / pressureRange / concentrationRules (the actual
+ * conditions must state the same value — no range arithmetic is guessed).
+ */
+export function requirementsMet(r:ReactionConditions|undefined,actual:ReactionConditions|undefined):boolean{
+  const a=actual??{};
+  if((r?.tags??[]).some(t=>!(a.tags??[]).includes(t)))return false;
+  if(r?.lightRequired!==undefined&&Boolean(a.lightRequired)!==r.lightRequired)return false;
+  if(r?.electricalCurrent!==undefined&&Boolean(a.electricalCurrent)!==r.electricalCurrent)return false;
+  if(r?.medium!==undefined&&r.medium!==a.medium)return false;
+  if(r?.solvent!==undefined&&r.solvent!==a.solvent)return false;
+  if((r?.catalystIds??[]).some(c=>!(a.catalystIds??[]).includes(c)))return false;
+  for(const k of ['temperatureRange','pressureRange','concentrationRules'] as const)
+    if(r?.[k]!==undefined&&JSON.stringify(r[k])!==JSON.stringify(a[k]))return false;
   return true;
+}
+
+/**
+ * How a caller's conditions are used — ALWAYS explicit (P1.6 closeout: no implicit default):
+ *  - 'filter-by-query'           : legacy/reference behaviour. Query conditions (if any) narrow the candidates;
+ *                                  a record's own requirements are NOT enforced; >1 candidate → CONDITION_REQUIRED.
+ *  - 'require-record-conditions' : the query states the complete ACTUAL conditions (e.g. two solutions mixed at
+ *                                  room temperature = no tags). A record whose requirements are not met does not
+ *                                  apply → REACTION_CONDITIONS_NOT_MET.
+ */
+export type ConditionPolicy='filter-by-query'|'require-record-conditions';
+
+/** The three modeled/unmodeled classes (P1.6 closeout). NOT_MODELED never means "does not react". */
+export type MatchClass='MODELED_REACTION'|'MODELED_NO_REACTION'|'NOT_MODELED';
+export function classifyMatch(m:ReactionMatchResult):MatchClass{
+  return !m.modeled?'NOT_MODELED':isNoReaction(m.reaction)?'MODELED_NO_REACTION':'MODELED_REACTION';
 }
 
 export class ReactionMatcher{
@@ -52,15 +82,12 @@ export class ReactionMatcher{
     }
     return new ReactionMatcher(records);
   }
-  /**
-   * `requireConditionsMet` (P1.6): the query describes the ACTUAL conditions (e.g. mixing two solutions at room
-   * temperature: no tags). A record that needs more (heating, concentrated acid, current, light) does not apply —
-   * REACTION_CONDITIONS_NOT_MET — instead of silently matching as if the conditions were there.
-   */
-  match(query:{reactants:ReactantQuery[];conditions?:ReactionConditions;requireConditionsMet?:boolean}):ReactionMatchResult{
+  match(query:{reactants:ReactantQuery[];conditions?:ReactionConditions;conditionPolicy:ConditionPolicy}):ReactionMatchResult{
+    if(query?.conditionPolicy!=='filter-by-query'&&query?.conditionPolicy!=='require-record-conditions') throw new Error('REACTION_MATCH_POLICY_REQUIRED');
     let candidates=this.#records.filter(r=>sameFormulas(query.reactants,r.reactants)&&phasesCompatible(query.reactants,r.reactants));
-    if(query.conditions)candidates=candidates.filter(r=>conditionMatch(query.conditions,r.conditions));
-    if(query.requireConditionsMet){
+    if(query.conditionPolicy==='filter-by-query'){
+      if(query.conditions)candidates=candidates.filter(r=>conditionMatch(query.conditions,r.conditions));
+    }else{
       const before=candidates.length;
       candidates=candidates.filter(r=>requirementsMet(r.conditions,query.conditions));
       if(before&&!candidates.length)return {modeled:false,code:'REACTION_CONDITIONS_NOT_MET'};
