@@ -22,6 +22,8 @@ export async function writeReviewReports(base=root){
   write(REVIEW_REPORTS.candidates,authoringCandidates(model));
   write(REVIEW_REPORTS.goldenSlice,goldenSliceDependencies(model,base));
   write(REVIEW_REPORTS.impact,await promotionImpact(model,base,evaluatePilot));
+  const {writeGovernanceReports}=await import('./lib/governance-reports.ts');
+  writeGovernanceReports(base,model);
   return {model,status};
 }
 

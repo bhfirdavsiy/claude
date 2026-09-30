@@ -10,6 +10,7 @@ import {SpeciesRegistry} from '../../src/domain/chemistry/species-registry.ts';
 import {parseFormula} from '../../src/domain/chemistry/formula-parser.ts';
 import {HydrolysisModel,validateIndicator,HYDROLYSIS_MEDIA} from '../../src/domain/chemistry/hydrolysis-model.ts';
 import {parseConditionVocabulary,dimensionsOf,type ConditionVocabulary} from '../../src/domain/chemistry/condition-vocabulary.ts';
+import {parseSourceRegistry,provenanceOf,claimKindOf} from '../../src/domain/governance/source-policy.ts';
 import {assertionHash,candidateHash,parseReviewRegister,reviewStateOf,ASSERTION_CATEGORIES,type ChemistryAssertion,type AssertionCategory,type ReviewState} from '../../src/domain/chemistry/kb-review.ts';
 
 export const REVIEW_REGISTER_FILE='content-src/chemistry-reviews.json';
@@ -47,6 +48,8 @@ export function loadKb(root:string){
     elementNames:readOptional(root,'content-src/locales/uz-latn/chemistry-elements.json',{names:{},reviewStatus:'missing'}),
     speciesNames:readOptional(root,'content-src/locales/uz-latn/chemistry-species.json',{names:{},reviewStatus:'missing'}),
     register:readOptional(root,REVIEW_REGISTER_FILE,{schema:'kimyolab.chemistry-reviews.v1',records:[]}),
+    sourceRegistryRaw:readOptional(root,'content-src/source-registry.json',{schema:'kimyolab.source-registry.v1',sources:[]}),
+    nameProvenance:readOptional(root,'content-src/locales/uz-latn/name-provenance.json',{entries:[]}),
     configs,
     pilot:readJson(root,'content-src/learning-pilot.json'),
     mappings:readJson(root,'content-src/mapping-links.json') as any[],
@@ -114,12 +117,14 @@ export function buildAssertions(kb:Kb){
   const ind=kb.hydrolysis.indicator;
   if(ind) for(const m of HYDROLYSIS_MEDIA) if(ind.colors?.[m]) push({id:`indicator:${ind.id}:${m}`,category:'indicator',claim:`${ind.id}: ${m} muhitda ${ind.colors[m]}`,data:{indicator:ind.id,medium:m,color:ind.colors[m]},sourceRefs:refIds(ind.sourceRefs),affectedActivities:usage.hydrolysisRenderer,dataReviewStatus:ind.reviewStatus??null});
   for(const e of kb.electrolysis.records??[]) push({id:`electrolysis:${e.electrolyte}|${e.phase}|${e.electrode}`,category:'electrolysis',claim:`${e.electrolyte}(${e.phase}), ${e.electrode} elektrod: katod ${e.cathode.product}, anod ${e.anode.product}`,data:{electrolyte:e.electrolyte,phase:e.phase,electrode:e.electrode,cathode:e.cathode,anode:e.anode},sourceRefs:refIds(e.sourceRefs),affectedActivities:usage.electrolytes(e.electrolyte),dataReviewStatus:e.reviewStatus??null});
+  // P1.9: a localized name's provenance lives in name-provenance.json (display translation, not chemistry truth)
+  const nameSource=(assertionId:string)=>{ const e=(kb.nameProvenance.entries??[]).find((x:any)=>x.assertionId===assertionId); return e?.sourceRef?[String(e.sourceRef)]:[]; };
   const byNameKey=new Map(kb.species.map(s=>[s.nameKey,s]));
   for(const [nameKey,name] of Object.entries(kb.speciesNames.names??{})){
     const s=byNameKey.get(nameKey);
-    push({id:`species-name:${nameKey}`,category:'species-name',claim:`${s?.formula??'?'} — ${name}`,data:{nameKey,speciesId:s?.id??null,formula:s?.formula??null,name,locale:kb.speciesNames.locale},sourceRefs:[],affectedActivities:usage.shelves.filter(x=>s&&x.shelf.includes(s.id)).map(x=>x.activityId).concat(s?usage.salts(s.formula):[]).sort(),dataReviewStatus:kb.speciesNames.reviewStatus??null});
+    push({id:`species-name:${nameKey}`,category:'species-name',claim:`${s?.formula??'?'} — ${name}`,data:{nameKey,speciesId:s?.id??null,formula:s?.formula??null,name,locale:kb.speciesNames.locale},sourceRefs:nameSource(`species-name:${nameKey}`),affectedActivities:usage.shelves.filter(x=>s&&x.shelf.includes(s.id)).map(x=>x.activityId).concat(s?usage.salts(s.formula):[]).sort(),dataReviewStatus:kb.speciesNames.reviewStatus??null});
   }
-  for(const [symbol,name] of Object.entries(kb.elementNames.names??{})) push({id:`element-name:${symbol}`,category:'species-name',claim:`${symbol} — ${name}`,data:{symbol,name,locale:kb.elementNames.locale},sourceRefs:[],affectedActivities:['practice.simulation.7.07.planned'],dataReviewStatus:kb.elementNames.reviewStatus??null});
+  for(const [symbol,name] of Object.entries(kb.elementNames.names??{})) push({id:`element-name:${symbol}`,category:'species-name',claim:`${symbol} — ${name}`,data:{symbol,name,locale:kb.elementNames.locale},sourceRefs:nameSource(`element-name:${symbol}`),affectedActivities:['practice.simulation.7.07.planned'],dataReviewStatus:kb.elementNames.reviewStatus??null});
   return out.sort((a,b)=>a.id.localeCompare(b.id));
 }
 
@@ -181,10 +186,23 @@ export function evaluateGate(kb:Kb,assertions:ReturnType<typeof buildAssertions>
   fail.push(...reg.issues);
   const known=new Set(assertions.map(a=>a.id));
   for(const r of reg.records) if(!known.has(r.assertionId)) fail.push(`CHEM_REVIEW_UNKNOWN_ASSERTION:${r.assertionId}`);
+  // P1.9 source provenance: every cited source is registered; an approval counts only with acceptable provenance
+  const sources=parseSourceRegistry(kb.sourceRegistryRaw);
+  fail.push(...sources.issues);
+  const provenance=new Map(assertions.map(a=>[a.id,provenanceOf(a.sourceRefs,sources.registry,claimKindOf(a.category))]));
+  for(const e of kb.nameProvenance.entries??[]){
+    const a=assertions.find(x=>x.id===e.assertionId);
+    if(!a){ fail.push(`NAME_PROVENANCE_UNKNOWN:${e.assertionId}`); continue; }
+    if((a.data as any)?.name!==e.displayName) fail.push(`NAME_PROVENANCE_MISMATCH:${e.assertionId}`);
+  }
   for(const a of assertions){
     const s=reviewStateOf(a,reg.records);
+    const p=provenance.get(a.id)!;
+    for(const id of p.unregistered) fail.push(`SOURCE_UNREGISTERED:${a.id}:${id}`);
     if(s.state==='stale'&&s.record?.decision==='approve') fail.push(`APPROVAL_STALE:${a.id}`);
     if(s.state==='approved'&&!a.sourceRefs.length) fail.push(`APPROVED_WITHOUT_SOURCE:${a.id}`);
+    else if(s.state==='approved'&&!p.acceptable) fail.push(`APPROVED_WITHOUT_ACCEPTABLE_SOURCE:${a.id}`);
+    if(!p.acceptable) pending.push(`SOURCE_NOT_ACCEPTABLE:${a.id}`);
     if(a.dataReviewStatus==='approved'&&s.state!=='approved') fail.push(`APPROVAL_NOT_FROM_REGISTER:${a.id}`);
     if(s.state==='pending'||s.state==='stale') pending.push(`REVIEW_PENDING:${a.id}`);
     for(const f of a.flags) if(f==='CHEMISTRY_REVIEW_REQUIRED') pending.push(`CHEMISTRY_REVIEW_REQUIRED:${a.id}`);

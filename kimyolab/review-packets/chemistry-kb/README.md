@@ -5,7 +5,7 @@
 ## Holat
 
 - Assertion’lar: **134** — approved: 0, pending: 134, stale: 0, rejected: 0, change_required: 0
-- Gate: **PENDING** (FAIL: 0, PENDING: 165)
+- Gate: **PENDING** (FAIL: 0, PENDING: 292)
 - Har assertion’ning hash’i o‘zgarsa, eski qaror **stale** bo‘ladi va hisobga olinmaydi.
 
 ## Kategoriyalar

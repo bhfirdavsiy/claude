@@ -1,0 +1,1008 @@
+{
+  "schema": "kimyolab.human-action-queue.v1",
+  "semantics": "What PEOPLE need to do next, in order. Every item names its role, its blockers (never hidden) and one next action. Tooling does none of these actions.",
+  "counts": {
+    "review-chemistry": 5,
+    "review-assessment": 5,
+    "fix-mapping": 3,
+    "correct-content": 0,
+    "add-source": 5,
+    "author-candidate": 0,
+    "triage-candidates": 1,
+    "prepare-release": 0,
+    "decide-release": 27,
+    "sign-off-pilot": 4
+  },
+  "items": [
+    {
+      "rank": 1,
+      "kind": "review-chemistry",
+      "priority": "A",
+      "role": "chemistry",
+      "count": 6,
+      "targetIds": [
+        "observation:rxn.br2-ki",
+        "observation:rxn.cl2-kbr",
+        "observation:rxn.h2-combustion",
+        "observation:rxn.nacl-h2so4",
+        "observation:rxn.naoh-hcl",
+        "observation:rxn.znoh2-hcl"
+      ],
+      "blockedBy": [
+        "SOURCE_NOT_ACCEPTABLE: 6/6 cite no acceptable source — an approval would not count until a source is added"
+      ],
+      "nextHumanAction": "Chemistry reviewer: review 6 pending assertion(s) in queue A (workbench → Kimyo KB, filter “A”)."
+    },
+    {
+      "rank": 2,
+      "kind": "review-chemistry",
+      "priority": "B",
+      "role": "chemistry",
+      "count": 28,
+      "targetIds": [
+        "condition-context:solution-mixing",
+        "condition-term:concentrated acid",
+        "condition-term:dilute acid",
+        "condition-term:gentle heating",
+        "condition-term:heating",
+        "condition-term:ignition",
+        "condition-term:oxygen-excess",
+        "condition-term:oxygen-limited",
+        "condition-term:strong heating",
+        "condition:rxn.c-combustion",
+        "condition:rxn.c-combustion-limited",
+        "condition:rxn.fe-combustion",
+        "condition:rxn.h2-combustion",
+        "condition:rxn.h2-cuo",
+        "condition:rxn.mg-h2so4",
+        "condition:rxn.nacl-h2so4",
+        "condition:rxn.nh4cl-caoh2",
+        "condition:rxn.p-combustion",
+        "condition:rxn.s-combustion",
+        "condition:rxn.zn-h2so4",
+        "hydrolysis:AlCl3",
+        "hydrolysis:Na2CO3",
+        "hydrolysis:NaCl",
+        "hydrolysis:NH4Cl",
+        "indicator:litmus:acidic",
+        "indicator:litmus:basic",
+        "indicator:litmus:neutral",
+        "reaction:rxn.agno3-nacl"
+      ],
+      "blockedBy": [
+        "SOURCE_NOT_ACCEPTABLE: 21/28 cite no acceptable source — an approval would not count until a source is added"
+      ],
+      "nextHumanAction": "Chemistry reviewer: review 28 pending assertion(s) in queue B (workbench → Kimyo KB, filter “B”)."
+    },
+    {
+      "rank": 3,
+      "kind": "review-chemistry",
+      "priority": "C",
+      "role": "chemistry",
+      "count": 1,
+      "targetIds": [
+        "electrolysis:CuCl2|aq|inert"
+      ],
+      "blockedBy": [
+        "SOURCE_NOT_ACCEPTABLE: 1/1 cite no acceptable source — an approval would not count until a source is added"
+      ],
+      "nextHumanAction": "Chemistry reviewer: review 1 pending assertion(s) in queue C (workbench → Kimyo KB, filter “C”)."
+    },
+    {
+      "rank": 4,
+      "kind": "review-chemistry",
+      "priority": "D",
+      "role": "chemistry",
+      "count": 30,
+      "targetIds": [
+        "element-name:Al",
+        "element-name:Ar",
+        "element-name:B",
+        "element-name:Be",
+        "element-name:C",
+        "element-name:Ca",
+        "element-name:Cl",
+        "element-name:F",
+        "element-name:H",
+        "element-name:He",
+        "element-name:K",
+        "element-name:Li",
+        "element-name:Mg",
+        "element-name:N",
+        "element-name:Na",
+        "element-name:Ne",
+        "element-name:O",
+        "element-name:P",
+        "element-name:S",
+        "element-name:Si",
+        "species-name:species.agno3.name",
+        "species-name:species.alcl3.name",
+        "species-name:species.bacl2.name",
+        "species-name:species.h2so4.name",
+        "species-name:species.na2co3.name",
+        "species-name:species.nacl.name",
+        "species-name:species.nano3.name",
+        "species-name:species.naoh.name",
+        "species-name:species.nh4cl.name",
+        "species-name:species.zncl2.name"
+      ],
+      "blockedBy": [
+        "SOURCE_NOT_ACCEPTABLE: 30/30 cite no acceptable source — an approval would not count until a source is added"
+      ],
+      "nextHumanAction": "Chemistry reviewer: review 30 pending assertion(s) in queue D (workbench → Kimyo KB, filter “D”)."
+    },
+    {
+      "rank": 5,
+      "kind": "review-chemistry",
+      "priority": "E",
+      "role": "chemistry",
+      "count": 69,
+      "targetIds": [
+        "dissociation:AgNO3",
+        "dissociation:BaCl2",
+        "dissociation:CaCl2",
+        "dissociation:H2SO4",
+        "dissociation:HCl",
+        "dissociation:Na2CO3",
+        "dissociation:Na2SO4",
+        "dissociation:NaCl",
+        "dissociation:NaNO3",
+        "dissociation:NaOH",
+        "dissociation:NH4Cl",
+        "dissociation:ZnCl2",
+        "insoluble:AgBr",
+        "insoluble:AgCl",
+        "insoluble:AgI",
+        "insoluble:BaSO4",
+        "insoluble:Ca3(PO4)2",
+        "insoluble:CuS",
+        "insoluble:Zn(OH)2",
+        "insoluble:ZnS",
+        "observation:rxn.agno3-nabr",
+        "observation:rxn.agno3-nacl",
+        "observation:rxn.agno3-nai",
+        "observation:rxn.bacl2-h2so4",
+        "observation:rxn.c-combustion",
+        "observation:rxn.c-combustion-limited",
+        "observation:rxn.caco3-hcl",
+        "observation:rxn.cao-water",
+        "observation:rxn.co2-water",
+        "observation:rxn.cuo-hcl",
+        "observation:rxn.cuso4-na2s",
+        "observation:rxn.fe-combustion",
+        "observation:rxn.h2-cuo",
+        "observation:rxn.mg-h2so4",
+        "observation:rxn.na2s-hcl",
+        "observation:rxn.nh3-hcl",
+        "observation:rxn.nh4cl-caoh2",
+        "observation:rxn.p-combustion",
+        "observation:rxn.s-combustion",
+        "observation:rxn.zn-h2so4",
+        "observation:rxn.zn-hcl",
+        "observation:rxn.zncl2-naoh",
+        "reaction:rxn.agno3-nabr",
+        "reaction:rxn.agno3-nai",
+        "reaction:rxn.bacl2-h2so4",
+        "reaction:rxn.br2-ki",
+        "reaction:rxn.c-combustion",
+        "reaction:rxn.c-combustion-limited",
+        "reaction:rxn.caco3-hcl",
+        "reaction:rxn.cao-water",
+        "reaction:rxn.cl2-kbr",
+        "reaction:rxn.co2-water",
+        "reaction:rxn.cuo-hcl",
+        "reaction:rxn.cuso4-na2s",
+        "reaction:rxn.fe-combustion",
+        "reaction:rxn.h2-combustion",
+        "reaction:rxn.h2-cuo",
+        "reaction:rxn.mg-h2so4",
+        "reaction:rxn.na2s-hcl",
+        "reaction:rxn.nacl-h2so4",
+        "reaction:rxn.naoh-hcl",
+        "reaction:rxn.nh3-hcl",
+        "reaction:rxn.nh4cl-caoh2",
+        "reaction:rxn.p-combustion",
+        "reaction:rxn.s-combustion",
+        "reaction:rxn.zn-h2so4",
+        "reaction:rxn.zn-hcl",
+        "reaction:rxn.zncl2-naoh",
+        "reaction:rxn.znoh2-hcl"
+      ],
+      "blockedBy": [
+        "SOURCE_NOT_ACCEPTABLE: 69/69 cite no acceptable source — an approval would not count until a source is added"
+      ],
+      "nextHumanAction": "Chemistry reviewer: review 69 pending assertion(s) in queue E (workbench → Kimyo KB, filter “E”)."
+    },
+    {
+      "rank": 6,
+      "kind": "review-assessment",
+      "priority": "B",
+      "role": "chemistry+didactic",
+      "count": 1,
+      "targetIds": [
+        "q.9.15.01"
+      ],
+      "blockedBy": [
+        "MAPPING_REVIEW_REQUIRED on q.9.15.01"
+      ],
+      "nextHumanAction": "Chemistry and Didactic reviewer (two different people): review q.9.15.01 on the current hash and decide the outcome mapping."
+    },
+    {
+      "rank": 7,
+      "kind": "review-assessment",
+      "priority": "B",
+      "role": "chemistry+didactic",
+      "count": 1,
+      "targetIds": [
+        "q.9.15.02"
+      ],
+      "blockedBy": [
+        "MAPPING_REVIEW_REQUIRED on q.9.15.02"
+      ],
+      "nextHumanAction": "Chemistry and Didactic reviewer (two different people): review q.9.15.02 on the current hash and decide the outcome mapping."
+    },
+    {
+      "rank": 8,
+      "kind": "review-assessment",
+      "priority": "B",
+      "role": "chemistry+didactic",
+      "count": 1,
+      "targetIds": [
+        "q.9.15.03"
+      ],
+      "blockedBy": [],
+      "nextHumanAction": "Chemistry and Didactic reviewer (two different people): review q.9.15.03 on the current hash and decide the outcome mapping."
+    },
+    {
+      "rank": 9,
+      "kind": "review-assessment",
+      "priority": "B",
+      "role": "chemistry+didactic",
+      "count": 1,
+      "targetIds": [
+        "q.9.15.04"
+      ],
+      "blockedBy": [
+        "MAPPING_REVIEW_REQUIRED on q.9.15.04"
+      ],
+      "nextHumanAction": "Chemistry and Didactic reviewer (two different people): review q.9.15.04 on the current hash and decide the outcome mapping."
+    },
+    {
+      "rank": 10,
+      "kind": "review-assessment",
+      "priority": "B",
+      "role": "chemistry+didactic",
+      "count": 1,
+      "targetIds": [
+        "q.9.15.05"
+      ],
+      "blockedBy": [],
+      "nextHumanAction": "Chemistry and Didactic reviewer (two different people): review q.9.15.05 on the current hash and decide the outcome mapping."
+    },
+    {
+      "rank": 11,
+      "kind": "fix-mapping",
+      "priority": "B",
+      "role": "didactic",
+      "count": 1,
+      "targetIds": [
+        "q.9.15.01"
+      ],
+      "taskId": "task.e37584d037a919c28354",
+      "blockedBy": [
+        "no didactic reviewer decision yet — the author cannot choose a concept"
+      ],
+      "nextHumanAction": "Didactic reviewer: decide the concept/outcome mapping of q.9.15.01 (question text names a concept it is not mapped to)."
+    },
+    {
+      "rank": 12,
+      "kind": "fix-mapping",
+      "priority": "B",
+      "role": "didactic",
+      "count": 1,
+      "targetIds": [
+        "q.9.15.02"
+      ],
+      "taskId": "task.fb2b9e0c1df73aa3ca59",
+      "blockedBy": [
+        "no didactic reviewer decision yet — the author cannot choose a concept"
+      ],
+      "nextHumanAction": "Didactic reviewer: decide the concept/outcome mapping of q.9.15.02 (question text names a concept it is not mapped to)."
+    },
+    {
+      "rank": 13,
+      "kind": "fix-mapping",
+      "priority": "B",
+      "role": "didactic",
+      "count": 1,
+      "targetIds": [
+        "q.9.15.04"
+      ],
+      "taskId": "task.55e52ca18497c9276215",
+      "blockedBy": [
+        "no didactic reviewer decision yet — the author cannot choose a concept"
+      ],
+      "nextHumanAction": "Didactic reviewer: decide the concept/outcome mapping of q.9.15.04 (question text names a concept it is not mapped to)."
+    },
+    {
+      "rank": 14,
+      "kind": "add-source",
+      "priority": "A",
+      "role": "author",
+      "count": 67,
+      "targetIds": [
+        "observation:rxn.h2-combustion",
+        "observation:rxn.cl2-kbr",
+        "observation:rxn.br2-ki",
+        "observation:rxn.nacl-h2so4",
+        "observation:rxn.naoh-hcl",
+        "observation:rxn.znoh2-hcl",
+        "reaction:rxn.agno3-nacl",
+        "condition:rxn.h2-cuo",
+        "condition:rxn.c-combustion-limited",
+        "condition:rxn.zn-h2so4",
+        "condition:rxn.nh4cl-caoh2",
+        "condition:rxn.s-combustion",
+        "condition:rxn.fe-combustion",
+        "condition:rxn.nacl-h2so4",
+        "condition:rxn.c-combustion",
+        "condition:rxn.mg-h2so4",
+        "condition:rxn.p-combustion",
+        "condition:rxn.h2-combustion",
+        "observation:rxn.s-combustion",
+        "observation:rxn.fe-combustion",
+        "reaction:rxn.nacl-h2so4",
+        "reaction:rxn.bacl2-h2so4",
+        "reaction:rxn.mg-h2so4",
+        "reaction:rxn.s-combustion",
+        "reaction:rxn.cuso4-na2s",
+        "reaction:rxn.zn-hcl",
+        "reaction:rxn.nh4cl-caoh2",
+        "observation:rxn.zn-h2so4",
+        "reaction:rxn.co2-water",
+        "observation:rxn.cuso4-na2s",
+        "observation:rxn.agno3-nabr",
+        "reaction:rxn.nh3-hcl",
+        "reaction:rxn.zn-h2so4",
+        "reaction:rxn.naoh-hcl",
+        "observation:rxn.mg-h2so4",
+        "observation:rxn.agno3-nacl",
+        "observation:rxn.nh4cl-caoh2",
+        "reaction:rxn.c-combustion-limited",
+        "observation:rxn.zn-hcl",
+        "reaction:rxn.h2-combustion",
+        "observation:rxn.h2-cuo",
+        "reaction:rxn.cao-water",
+        "reaction:rxn.zncl2-naoh",
+        "reaction:rxn.c-combustion",
+        "observation:rxn.agno3-nai",
+        "observation:rxn.c-combustion-limited",
+        "observation:rxn.cuo-hcl",
+        "observation:rxn.bacl2-h2so4",
+        "reaction:rxn.agno3-nabr",
+        "observation:rxn.caco3-hcl",
+        "reaction:rxn.caco3-hcl",
+        "reaction:rxn.agno3-nai",
+        "reaction:rxn.br2-ki",
+        "reaction:rxn.cuo-hcl",
+        "observation:rxn.co2-water",
+        "reaction:rxn.h2-cuo",
+        "reaction:rxn.cl2-kbr",
+        "reaction:rxn.fe-combustion",
+        "reaction:rxn.p-combustion",
+        "observation:rxn.c-combustion",
+        "reaction:rxn.znoh2-hcl",
+        "observation:rxn.cao-water",
+        "reaction:rxn.na2s-hcl",
+        "observation:rxn.na2s-hcl",
+        "observation:rxn.nh3-hcl",
+        "observation:rxn.p-combustion",
+        "observation:rxn.zncl2-naoh"
+      ],
+      "file": "content-src/chemistry/reactions.json",
+      "blockedBy": [],
+      "nextHumanAction": "Author: cite an acceptable, registered source (content-src/source-registry.json) for 67 claim(s) in content-src/chemistry/reactions.json."
+    },
+    {
+      "rank": 15,
+      "kind": "add-source",
+      "priority": "B",
+      "role": "author",
+      "count": 9,
+      "targetIds": [
+        "condition-term:gentle heating",
+        "condition-term:oxygen-limited",
+        "condition-term:dilute acid",
+        "condition-term:heating",
+        "condition-term:concentrated acid",
+        "condition-term:ignition",
+        "condition-term:oxygen-excess",
+        "condition-term:strong heating",
+        "condition-context:solution-mixing"
+      ],
+      "file": "content-src/chemistry/condition-vocabulary.json",
+      "blockedBy": [],
+      "nextHumanAction": "Author: cite an acceptable, registered source (content-src/source-registry.json) for 9 claim(s) in content-src/chemistry/condition-vocabulary.json."
+    },
+    {
+      "rank": 16,
+      "kind": "add-source",
+      "priority": "C",
+      "role": "author",
+      "count": 1,
+      "targetIds": [
+        "electrolysis:CuCl2|aq|inert"
+      ],
+      "file": "content-src/chemistry/electrolysis.json",
+      "blockedBy": [],
+      "nextHumanAction": "Author: cite an acceptable, registered source (content-src/source-registry.json) for 1 claim(s) in content-src/chemistry/electrolysis.json."
+    },
+    {
+      "rank": 17,
+      "kind": "add-source",
+      "priority": "D",
+      "role": "author",
+      "count": 30,
+      "targetIds": [
+        "species-name:species.naoh.name",
+        "element-name:He",
+        "element-name:Li",
+        "element-name:F",
+        "element-name:Ne",
+        "element-name:H",
+        "species-name:species.nh4cl.name",
+        "element-name:Ar",
+        "species-name:species.bacl2.name",
+        "element-name:Mg",
+        "element-name:N",
+        "species-name:species.na2co3.name",
+        "element-name:S",
+        "element-name:Na",
+        "element-name:B",
+        "element-name:Ca",
+        "element-name:O",
+        "species-name:species.nacl.name",
+        "species-name:species.nano3.name",
+        "species-name:species.alcl3.name",
+        "species-name:species.zncl2.name",
+        "element-name:K",
+        "element-name:P",
+        "species-name:species.agno3.name",
+        "species-name:species.h2so4.name",
+        "element-name:C",
+        "element-name:Be",
+        "element-name:Al",
+        "element-name:Si",
+        "element-name:Cl"
+      ],
+      "file": "content-src/locales/uz-latn/name-provenance.json",
+      "blockedBy": [],
+      "nextHumanAction": "Author: cite an acceptable, registered source (content-src/source-registry.json) for 30 claim(s) in content-src/locales/uz-latn/name-provenance.json."
+    },
+    {
+      "rank": 18,
+      "kind": "add-source",
+      "priority": "E",
+      "role": "author",
+      "count": 20,
+      "targetIds": [
+        "insoluble:AgBr",
+        "dissociation:NaOH",
+        "dissociation:AgNO3",
+        "insoluble:AgCl",
+        "dissociation:Na2CO3",
+        "dissociation:Na2SO4",
+        "insoluble:AgI",
+        "insoluble:Ca3(PO4)2",
+        "insoluble:Zn(OH)2",
+        "insoluble:CuS",
+        "dissociation:NaNO3",
+        "dissociation:H2SO4",
+        "dissociation:HCl",
+        "dissociation:ZnCl2",
+        "insoluble:ZnS",
+        "dissociation:CaCl2",
+        "dissociation:NH4Cl",
+        "dissociation:BaCl2",
+        "insoluble:BaSO4",
+        "dissociation:NaCl"
+      ],
+      "file": "content-src/chemistry/solubility.json",
+      "blockedBy": [],
+      "nextHumanAction": "Author: cite an acceptable, registered source (content-src/source-registry.json) for 20 claim(s) in content-src/chemistry/solubility.json."
+    },
+    {
+      "rank": 19,
+      "kind": "triage-candidates",
+      "priority": "B",
+      "role": "chemistry",
+      "count": 18,
+      "targetIds": [
+        "candidate:practice.experiment.8.1:species.agno3+species.bacl2",
+        "candidate:practice.experiment.8.1:species.agno3+species.h2so4",
+        "candidate:practice.experiment.8.1:species.agno3+species.zncl2",
+        "candidate:practice.experiment.8.1:species.agno3+species.naoh",
+        "candidate:practice.experiment.8.1:species.agno3+species.nano3",
+        "candidate:practice.experiment.8.1:species.bacl2+species.nacl",
+        "candidate:practice.experiment.8.1:species.h2so4+species.nacl",
+        "candidate:practice.experiment.8.1:species.nacl+species.zncl2",
+        "candidate:practice.experiment.8.1:species.nacl+species.naoh",
+        "candidate:practice.experiment.8.1:species.nacl+species.nano3",
+        "candidate:practice.experiment.8.1:species.bacl2+species.zncl2",
+        "candidate:practice.experiment.8.1:species.bacl2+species.naoh",
+        "candidate:practice.experiment.8.1:species.bacl2+species.nano3",
+        "candidate:practice.experiment.8.1:species.h2so4+species.zncl2",
+        "candidate:practice.experiment.8.1:species.h2so4+species.naoh",
+        "candidate:practice.experiment.8.1:species.h2so4+species.nano3",
+        "candidate:practice.experiment.8.1:species.nano3+species.zncl2",
+        "candidate:practice.experiment.8.1:species.nano3+species.naoh"
+      ],
+      "blockedBy": [],
+      "nextHumanAction": "Chemistry reviewer: triage 18 candidate(s) (accept for authoring / reject / needs evidence) in the workbench → Kimyo nomzodlari."
+    },
+    {
+      "rank": 20,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.10.10"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.10.10 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 21,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.10.2"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.10.2 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 22,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.10.6"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.10.6 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 23,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.10.7"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.10.7 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 24,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.7.1"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.7.1 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 25,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.7.10"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.7.10 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 26,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.7.11"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.7.11 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 27,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.7.12"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.7.12 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 28,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.7.9"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.7.9 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 29,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.8.10"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.8.10 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 30,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.8.11"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.8.11 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 31,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.8.13"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.8.13 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 32,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.8.14"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.8.14 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 33,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.8.15"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.8.15 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 34,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.8.6"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.8.6 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 35,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.8.8"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.8.8 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 36,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.8.9"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.8.9 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 37,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.9.12"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.9.12 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 38,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.9.13"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.9.13 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 39,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.9.15"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.9.15 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 40,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.9.16"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.9.16 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 41,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.9.19"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.9.19 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 42,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.9.20"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.9.20 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 43,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.9.4"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.9.4 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 44,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.9.6"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.9.6 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 45,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.9.7"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.9.7 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 46,
+      "kind": "decide-release",
+      "priority": "C",
+      "role": "content-owner",
+      "count": 1,
+      "targetIds": [
+        "practice.experiment.9.9"
+      ],
+      "blockedBy": [
+        "CONTENT_REVIEW_PENDING",
+        "ACCESSIBILITY_REVIEW_INCOMPLETE"
+      ],
+      "nextHumanAction": "Content owner: practice.experiment.9.9 is NOT_ELIGIBLE (CONTENT_REVIEW_PENDING, ACCESSIBILITY_REVIEW_INCOMPLETE); decide KEEP_PENDING / DISABLE / CHANGE_REQUIRED, or wait for its reviews."
+    },
+    {
+      "rank": 47,
+      "kind": "sign-off-pilot",
+      "priority": "C",
+      "role": "pilot-owner",
+      "count": 1,
+      "targetIds": [
+        "lu.7.07"
+      ],
+      "blockedBy": [
+        "content.activity-review"
+      ],
+      "nextHumanAction": "Pilot owner: nothing to sign yet for lu.7.07 — 1 human check(s) pending first."
+    },
+    {
+      "rank": 48,
+      "kind": "sign-off-pilot",
+      "priority": "C",
+      "role": "pilot-owner",
+      "count": 1,
+      "targetIds": [
+        "lu.7.11"
+      ],
+      "blockedBy": [
+        "content.activity-review"
+      ],
+      "nextHumanAction": "Pilot owner: nothing to sign yet for lu.7.11 — 1 human check(s) pending first."
+    },
+    {
+      "rank": 49,
+      "kind": "sign-off-pilot",
+      "priority": "C",
+      "role": "pilot-owner",
+      "count": 1,
+      "targetIds": [
+        "lu.7.12"
+      ],
+      "blockedBy": [
+        "content.activity-review"
+      ],
+      "nextHumanAction": "Pilot owner: nothing to sign yet for lu.7.12 — 1 human check(s) pending first."
+    },
+    {
+      "rank": 50,
+      "kind": "sign-off-pilot",
+      "priority": "C",
+      "role": "pilot-owner",
+      "count": 1,
+      "targetIds": [
+        "lu.9.15"
+      ],
+      "blockedBy": [
+        "content.activity-review",
+        "content.chemistry-review",
+        "assessment.dual-review",
+        "assessment.outcome-review"
+      ],
+      "nextHumanAction": "Pilot owner: nothing to sign yet for lu.9.15 — 4 human check(s) pending first."
+    }
+  ]
+}

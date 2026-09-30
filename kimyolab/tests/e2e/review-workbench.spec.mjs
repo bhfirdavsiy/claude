@@ -76,3 +76,31 @@ test('workbench: offline, keyboard-operable tabs, hostile packet text stays text
   expect(errors).toEqual([]);
   expect(external).toEqual([]);
 });
+
+test('release decisions tab (P1.9): content-owner only, RELEASE disabled while NOT_ELIGIBLE, export → preview valid',async({page})=>{
+  const errors=[];page.on('pageerror',e=>errors.push(String(e)));
+  await page.goto(pathToFileURL(path.join(fixture,'review-packets/reviewer-workspace.html')).href);
+  await page.locator('#tabbtn-chemistry').focus();
+  for(let i=0;i<5;i++) await page.keyboard.press('ArrowRight');
+  await expect(page.locator('#tabbtn-release')).toBeFocused();
+  await expect(page.locator('#tab-release')).toBeVisible();
+  const card=page.locator('#wbReleaseList article',{has:page.locator('h3',{hasText:'practice.experiment.9.10'})});
+  await expect(card.locator('input[value=KEEP_PENDING]')).toBeDisabled();
+  await page.fill('#wbReviewerId','malika.content');await page.locator('#wbReviewerId').press('Tab');
+  await page.selectOption('#wbReviewerRole','content-owner');
+  await expect(card).toContainText('Eligibility: NOT_ELIGIBLE');
+  await expect(card).toContainText('PILOT — sign-off alohida');
+  await expect(card.locator('input[value=RELEASE]')).toBeDisabled();
+  await card.getByLabel('Kutishda qoldirish').check();
+  await card.locator('textarea').fill('Chemistry va assessment review hali yo‘q.');await card.locator('textarea').press('Tab');
+  await page.keyboard.press('Shift+Tab');
+  const [download]=await Promise.all([page.waitForEvent('download'),page.click('#wbExport')]);
+  const file=path.join(fixture,'release.json');await download.saveAs(file);
+  const exported=JSON.parse(fs.readFileSync(file,'utf8'));
+  expect(exported.decisions).toEqual([expect.objectContaining({surface:'release',activityId:'practice.experiment.9.10',decision:'KEEP_PENDING',role:'content-owner'})]);
+  const preview=JSON.parse(node(`import {validateDecisionFile} from ${JSON.stringify(pathToFileURL(path.join(root,'scripts/lib/review-workbench.ts')).href)};import fs from 'node:fs';console.log(JSON.stringify(validateDecisionFile(${JSON.stringify(fixture)},JSON.parse(fs.readFileSync(${JSON.stringify(file)},'utf8')))));`,root));
+  expect(preview.issues).toEqual([]);
+  await page.click('#tabbtn-authoring');
+  await expect(page.locator('#wbTaskList article').first()).toBeVisible();
+  expect(errors).toEqual([]);
+});

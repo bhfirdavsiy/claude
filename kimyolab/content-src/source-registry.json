@@ -1,0 +1,12 @@
+{
+  "schema": "kimyolab.source-registry.v1",
+  "note": "Every sourceRef used by a content claim must be registered here with a provenance category (docs/governance/SOURCE_POLICY.md). The categories below were PROPOSED from each source's own id/type/title and are conservative: a source whose origin is not documented is INTERNAL_PROPOSAL, which never makes an approval count. Reclassifying a source is a human change in a reviewed pull request, with evidence.",
+  "reviewStatus": "pending",
+  "sources": [
+    {"id": "src.beta1.migration", "category": "INTERNAL_PROPOSAL", "title": "KimyoLab v20 Beta1 migrated curated reaction / school chemistry set", "classification": "PROPOSED", "evidence": "type: internal (reactions.json, species.json)"},
+    {"id": "src.school.solution-rules", "category": "INTERNAL_PROPOSAL", "title": "KimyoLab school-scope dissociation and solubility rules", "classification": "PROPOSED", "evidence": "type: internal (solubility.json, condition-vocabulary.json)"},
+    {"id": "src.curriculum.9.06", "category": "CURRICULUM", "title": "Grade 9 curriculum, topic 9.06 (salt hydrolysis, indicators)", "classification": "PROPOSED", "evidence": "id names the curriculum topic (hydrolysis.json)"},
+    {"id": "src.legacy.9.10", "category": "INTERNAL_PROPOSAL", "title": "Legacy KimyoLab content for topic 9.10 (electrolysis)", "classification": "PROPOSED", "evidence": "legacy app content; the textbook or standard behind it is not recorded"},
+    {"id": "src.legacy.9.15", "category": "INTERNAL_PROPOSAL", "title": "Legacy KimyoLab content for topic 9.15 (assessment items)", "classification": "PROPOSED", "evidence": "legacy app content; the textbook or standard behind it is not recorded"}
+  ]
+}

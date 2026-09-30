@@ -6,7 +6,7 @@
   "assessmentVersion": "0.0.0",
   "scoringVersion": "0.0.0",
   "createdAt": "2026-09-22T00:00:00.000Z",
-  "checksum": "b0bcedb32a61c7e02356a504a3da408e76aac9fd6968e71cada25116daf144f9",
+  "checksum": "c8f0583fcc296c68c01b2f3874b743c3c1209306e47b758be95b542f3f3e26f1",
   "compatibility": {
     "minAppVersion": "20.1.0"
   },
@@ -212,6 +212,11 @@
       "path": "locales/uz-latn/chemistry-species.json",
       "checksum": "e702971d77b027d6363aaad58161e62b28d76ab6a347e53d3cc8f6218a00a93e",
       "size": 955
+    },
+    {
+      "path": "locales/uz-latn/name-provenance.json",
+      "checksum": "724dd064c9c229750e19d26bf9c7bc4490fb8ede30cef727f88156edc28f6fc0",
+      "size": 6785
     },
     {
       "path": "mapping-links.json",

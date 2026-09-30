@@ -1,0 +1,1253 @@
+{
+  "schema": "kimyolab.release-decision-status.v1",
+  "semantics": "Machine eligibility (ELIGIBLE | NOT_ELIGIBLE) is a precondition, never a decision. Only a content owner (a person) releases, keeps pending, disables or sends back an activity, pinned to its basis hash. A release decision never replaces the pilot owner sign-off.",
+  "totals": {
+    "activities": 146,
+    "eligible": 0,
+    "notEligible": 146,
+    "released": 0,
+    "keepPending": 0,
+    "disabled": 0,
+    "changeRequired": 0,
+    "decisionMissing": 146,
+    "staleDecision": 0
+  },
+  "pendingActivities": {
+    "count": 27,
+    "eligible": 0,
+    "decisionMissing": 27,
+    "packet": "review-packets/release-decisions/packet.json"
+  },
+  "notEligibleReasons": {
+    "ACCESSIBILITY_REVIEW_INCOMPLETE": 146,
+    "CONTENT_REVIEW_PENDING": 146,
+    "ROUTE_INVALID": 1,
+    "RUNTIME_DISABLED": 1
+  },
+  "pilot": [
+    {
+      "activityId": "practice.calculation.7.5",
+      "learningUnits": [
+        "lu.7.12",
+        "lu.7.14"
+      ],
+      "technicalReady": true,
+      "contentApproved": false,
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseDecision": "DECISION_MISSING",
+      "pilotSignoff": "NONE",
+      "pilotStatus": "CONTENT_REVIEW_PENDING",
+      "separateGates": "release decision (content owner) and pilot sign-off (pilot owner) are separate human decisions"
+    },
+    {
+      "activityId": "practice.experiment.9.10",
+      "learningUnits": [
+        "lu.9.15"
+      ],
+      "technicalReady": true,
+      "contentApproved": false,
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseDecision": "DECISION_MISSING",
+      "pilotSignoff": "NONE",
+      "pilotStatus": "CONTENT_REVIEW_PENDING",
+      "separateGates": "release decision (content owner) and pilot sign-off (pilot owner) are separate human decisions"
+    },
+    {
+      "activityId": "practice.simulation.7.07.planned",
+      "learningUnits": [
+        "lu.7.07"
+      ],
+      "technicalReady": true,
+      "contentApproved": false,
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseDecision": "DECISION_MISSING",
+      "pilotSignoff": "NONE",
+      "pilotStatus": "CONTENT_REVIEW_PENDING",
+      "separateGates": "release decision (content owner) and pilot sign-off (pilot owner) are separate human decisions"
+    },
+    {
+      "activityId": "practice.trainer.7.4",
+      "learningUnits": [
+        "lu.7.11"
+      ],
+      "technicalReady": true,
+      "contentApproved": false,
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseDecision": "DECISION_MISSING",
+      "pilotSignoff": "NONE",
+      "pilotStatus": "CONTENT_REVIEW_PENDING",
+      "separateGates": "release decision (content owner) and pilot sign-off (pilot owner) are separate human decisions"
+    }
+  ],
+  "globalStrictEnforcement": false,
+  "activities": [
+    {
+      "activityId": "practice.calculation.11.05.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "8f3fae487a284c3093d68700cc2336e2cd931fde565716090216ba8e645aafa9"
+    },
+    {
+      "activityId": "practice.calculation.11.06.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "9940cf9837c94c369d57fb9cd24479e6453ff3719bcce290da707a3480d9703c"
+    },
+    {
+      "activityId": "practice.calculation.11.07.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "4b939f6ce1d831a517e1a5c54c48c6412475cb6e181a879f59be2a8c5c8ec65a"
+    },
+    {
+      "activityId": "practice.calculation.11.08.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "b66a514040f3196941ec6662338241e73482eef2736bd631aa82357aab7b206e"
+    },
+    {
+      "activityId": "practice.calculation.11.13.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "c9e5bc5f5bdc205cd4477a7564520b2ef33f1910d81b22d3051d81ed6848a69f"
+    },
+    {
+      "activityId": "practice.calculation.11.14.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "e50906320a07cae4b6b916183ef4aa79804e63253956aae275509a31a1012ea5"
+    },
+    {
+      "activityId": "practice.calculation.11.22.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "2709cbdf055ece976e81e607a4eec53d518a87a05db9fd2d1d0126a7ecd6d169"
+    },
+    {
+      "activityId": "practice.calculation.7.09.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "e43c8f0bacf23e7ee43d40cce1bc5fec867973d26021d4581ac278475333cb40"
+    },
+    {
+      "activityId": "practice.calculation.7.5",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "da50f70b4b7d8ea80fb35404ee81a0ab40c4bc88cd3a4349caa91587e86e669c"
+    },
+    {
+      "activityId": "practice.calculation.8.17.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "fb3c97a497ec95db8aee79a8ac24b41c3747da702b8274389e2c2f947cfead65"
+    },
+    {
+      "activityId": "practice.case.10.11",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "fddc5ab34b833fa477fe3625bd8ac851f101469f697e040f58bb62566bdac51d"
+    },
+    {
+      "activityId": "practice.case.10.16.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "5f754db68eb82d8ec2606ba1c7f961caaaef5efee83c1433cd64233879eb53c1"
+    },
+    {
+      "activityId": "practice.case.7.01.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "9db3ff8b0a44aa566ec8099db03f7ba016fb371e8599d41540dae053872e90db"
+    },
+    {
+      "activityId": "practice.case.7.14",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "890249533403b4162b13fb6fce05a9c32170d919e1fa48ed49b962e9509b0a75"
+    },
+    {
+      "activityId": "practice.case.8.21.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "d99a358f6a33faebbb9b939fa72a6d805fe4afebdc748acc6e9f7da4522bd143"
+    },
+    {
+      "activityId": "practice.case.9.11.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "448b7e30321dcb32aed463b4f35a9dad30b50d734ad008b4194296101d5093e1"
+    },
+    {
+      "activityId": "practice.case.9.14.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "934a3121cb90cecbc0e73939715f05048c28f5d228d98bd62d895b0a14cb9dd2"
+    },
+    {
+      "activityId": "practice.case.9.17.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "40594e48a5e9e1def41dd8c57fc61cea56530a4333d763fd002895c7793edaed"
+    },
+    {
+      "activityId": "practice.case.9.25.steel-process",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "131a7b184fd8e935349a762d98d0952499c3fcf3f99751975c1cac9b75955993"
+    },
+    {
+      "activityId": "practice.case.9.26.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "e90f94291d2645538b7fb4be8a092d041b1396c16a60211f41914ffbda1762bb"
+    },
+    {
+      "activityId": "practice.experiment.10.1",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "c6ae17aced6f00a9e47186e7ca51c3117cf03b456fed572f828826d1eb4149f2"
+    },
+    {
+      "activityId": "practice.experiment.10.10",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "b567a22b2966135b8b7faec6597c4391a4cacfea7cd151c7498e95002d23d0cb"
+    },
+    {
+      "activityId": "practice.experiment.10.2",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "1028fd6c88e7a553b992294ff3d261a63442f482eed51e74e19efecff2abf9c4"
+    },
+    {
+      "activityId": "practice.experiment.10.22.carboxylic-acid",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "28c061b7c562d32277a077f14b9305dbf2657752554e457562262ed6a8c1a089"
+    },
+    {
+      "activityId": "practice.experiment.10.3",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "a199387729723ca57b9727005c9ee874b46b9675f44a47951759c386d5fc07e2"
+    },
+    {
+      "activityId": "practice.experiment.10.5",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "ef267bdbca0ef68b14f507216b47ae24eeebf8f95b5cd24ee03637813ec363fd"
+    },
+    {
+      "activityId": "practice.experiment.10.6",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "17475f075fa86c38a950ebc989129c2ce0fe89ddd6c8fd11bacda19d761ee188"
+    },
+    {
+      "activityId": "practice.experiment.10.7",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "8caf8c80b3bc5c21b109cd43006bcc25302c96b558fd66d5ad639e12442f6794"
+    },
+    {
+      "activityId": "practice.experiment.10.8",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "a1b55f4d9f46999db5b706c34fa64580dfb1ff2619b419df660f702fe096c94d"
+    },
+    {
+      "activityId": "practice.experiment.10.9",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "9339e5526bdd453e36ac1480db8bbae8cfeeeb36011b58886bd948c6e33003fe"
+    },
+    {
+      "activityId": "practice.experiment.11.2",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "267e8ede727d4559f0323036d73c60e68a4f3d731958413c4e4d895881e024f3"
+    },
+    {
+      "activityId": "practice.experiment.7.1",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "b0767e17c026879d8a4aa753ab464056a9353b3119139e042e79a1d88d4c011c"
+    },
+    {
+      "activityId": "practice.experiment.7.10",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "c10c74802eff1e9c5bb09f9bb9bf659df8bf76deab0c9b826890532e91ac196c"
+    },
+    {
+      "activityId": "practice.experiment.7.11",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "769b864470e01fdb057933c7d2841e2ce7f6e271fba4e5baf2b08bad0411fbc0"
+    },
+    {
+      "activityId": "practice.experiment.7.12",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "918528c8ee80a7650a90fb17548c8166564491d9d57445af59b20770144ebd9a"
+    },
+    {
+      "activityId": "practice.experiment.7.13",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "00c21358db46a03b02fa9aefb4d66542004a308315b4c58e551b9148f783b935"
+    },
+    {
+      "activityId": "practice.experiment.7.2",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "a2cdc6ffeffdb4b6797bc2cd074aa00eb9a8aa0807f6977ad2f28d8b8f69eb8e"
+    },
+    {
+      "activityId": "practice.experiment.7.3",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "91cd5ed86d64bab6d3132a47943dbdc1c4857d4e9a9802bac4d3b27a86e28f35"
+    },
+    {
+      "activityId": "practice.experiment.7.6",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "fa63b814e9a2a3ebc51235dec292644a7218510be1e984b77ba70812e5f0ddba"
+    },
+    {
+      "activityId": "practice.experiment.7.7",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "5b81d12857d0f6f2cf3e7a5626f21e18b0e8150e143e0f90f95b32d26033d0bd"
+    },
+    {
+      "activityId": "practice.experiment.7.8",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "3267d04b04ef28d6acd791cbf4ed5dda50c99d47ee04c088636b66b02c842c46"
+    },
+    {
+      "activityId": "practice.experiment.7.9",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "d866c28131709cff273405a944ac54b8d178598feca52b2be6a656222f2813c5"
+    },
+    {
+      "activityId": "practice.experiment.8.1",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "d7d9645849ddd154f44fcd7b98414427a190581b990f5ed2a03baea520f2ed74"
+    },
+    {
+      "activityId": "practice.experiment.8.10",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "e25bdc019f7f7590a86e1a147f88dbe57abc405d99eb4e95d492a960b39d0558"
+    },
+    {
+      "activityId": "practice.experiment.8.11",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "7e546d7488df734944a3ca8a9c6688c6a22da81cc392eebb7ad72816f261aba5"
+    },
+    {
+      "activityId": "practice.experiment.8.12",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "dbfe2ff45ae24c77a4d3c16cf1e743f74e06d120dc4d5762be6be548faee153b"
+    },
+    {
+      "activityId": "practice.experiment.8.12.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "563396865d4e08f0c4df65a2b2d3aee3304be18aef333bc93c21a5d2e5840f89"
+    },
+    {
+      "activityId": "practice.experiment.8.13",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "14c3b095336df2be079997959062e0bffe368cf24160ec3b7fa2a3e3d426bea6"
+    },
+    {
+      "activityId": "practice.experiment.8.14",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "f4ba2d24d6ddad6c90a1fa5020999199da5fabda8d9adada41bda4da25d3ef56"
+    },
+    {
+      "activityId": "practice.experiment.8.15",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "1ae6957f2f22eeaa43b41bb0fe531832e8331ab64b0b281b8307c5d305640a20"
+    },
+    {
+      "activityId": "practice.experiment.8.2",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "2c64f10379a20c9795e10db6392cf2bd80fe7f525f56bc232c9a76a42b76aebb"
+    },
+    {
+      "activityId": "practice.experiment.8.3",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "19cf339cf4d2c36ccf0c9c3e1d2de8c549305f674cf8682744b1ce64531576e1"
+    },
+    {
+      "activityId": "practice.experiment.8.4",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "b929ede12e5ab3f0265f6238ee06f2cd8595d18e7f3396110949797232931390"
+    },
+    {
+      "activityId": "practice.experiment.8.5",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "44fe09e80da469fe536743a4dbeb03d98da8c345833e5df63bba1b7692ff2252"
+    },
+    {
+      "activityId": "practice.experiment.8.6",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "98bd1f18e451b89a1c8fc163edc53b3a577aac2c76bd6c1288875f57faafa1f7"
+    },
+    {
+      "activityId": "practice.experiment.8.8",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "3205982f5cdb4a0d7d077b55928c68a12d608cca670f1479fe60625961bb425d"
+    },
+    {
+      "activityId": "practice.experiment.8.9",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "377049f8a03eb5ecbcd1e4943010268eb640671a61aac2cc7ddf48f56398bf7f"
+    },
+    {
+      "activityId": "practice.experiment.9.1",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "198e34db7d598c5179402a5648238320a0a65ba7b9be0c37fb4aaa94dcbc5f35"
+    },
+    {
+      "activityId": "practice.experiment.9.10",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "88d1331107ed24bb928f67882c21eb31272fc349ece2b657a4ab731a2e89efcf"
+    },
+    {
+      "activityId": "practice.experiment.9.11",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "a55c76649715db243781caa696e955510af0dbacc76d0a48ffe767c531b3276e"
+    },
+    {
+      "activityId": "practice.experiment.9.12",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "b94032d49ba4264ddcfd4db800aa375b7d22e5db65f43222e230a21747dd8fef"
+    },
+    {
+      "activityId": "practice.experiment.9.13",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "fa41cca6150e103a2a7211b33a20a4a00306d6f5af95d4945bd19ec88de6e2e5"
+    },
+    {
+      "activityId": "practice.experiment.9.14",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "84a825bcce8a2ba648cb3bc6e13c254f13917a9c846e51b3c0423fe23dc81981"
+    },
+    {
+      "activityId": "practice.experiment.9.15",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "ab01b4a592a3243dcc4c63e950f1a5eac0a36ec38e971affd1425bad31432f50"
+    },
+    {
+      "activityId": "practice.experiment.9.16",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "c65ec119d6fbbe966046ae499fea67481287ce0a57b7e5d2e9419380e221e76c"
+    },
+    {
+      "activityId": "practice.experiment.9.17",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "a598c4ef06d51cc3e98d6babd06d5e0340048e97ba5110a6d8cf319de57a6a39"
+    },
+    {
+      "activityId": "practice.experiment.9.18",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "8e3ffd6ad72b879d2a000bdb96a6756d4f36dacc26f1f77c91a2f3a029a5418b"
+    },
+    {
+      "activityId": "practice.experiment.9.19",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "464432e51b78a0904acdc4bcdf608dba38f4ef3bbd638f7541f8405405b5709c"
+    },
+    {
+      "activityId": "practice.experiment.9.2",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "ddcab4dcb06ee4164f82b89d609a4bcccec469a5e515c1c26a8c4cece2cc66f6"
+    },
+    {
+      "activityId": "practice.experiment.9.20",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "5689b81612983fda305645b276a321e44cc65b08b6401ebeee531c583c16b71a"
+    },
+    {
+      "activityId": "practice.experiment.9.3",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "804eee1c2a44b7fee5d030b7797182cfc852582fdb0541255ae27a5c228b491b"
+    },
+    {
+      "activityId": "practice.experiment.9.4",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "22514f0e74a9924a4000fa87ca96e5969cfeb6b7fd67f09c4037b7ba48c8445a"
+    },
+    {
+      "activityId": "practice.experiment.9.5",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "0fba5b8301d6e9640b017e54fcf67fccf4e587690c78fa6096ac3531cdc4959a"
+    },
+    {
+      "activityId": "practice.experiment.9.6",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "e65ddb96fb5bf69613cefd5f713fff914116b000fe93140ddd5343baa0337bc6"
+    },
+    {
+      "activityId": "practice.experiment.9.7",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "0ef0e024f1a7497528f699b2a43bd3963fbebf1853684788d79438a5cf4d82dc"
+    },
+    {
+      "activityId": "practice.experiment.9.8",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "50d5a36cc0da9e9ddea529786cee7693c5fba853bed31f4c69ea58cde6d7ba7f"
+    },
+    {
+      "activityId": "practice.experiment.9.9",
+      "runtime": "PENDING",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "bb293c0290be9cbcb4f9bf3dc98186a669eaa581be72876b1f60001c2f52d9c2"
+    },
+    {
+      "activityId": "practice.simulation.10.02.structure-theory",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "e2efdd9803df08d6cf7e3b6d657fa40bdac044155e3b44befe01a165d61b2aa4"
+    },
+    {
+      "activityId": "practice.simulation.10.04.isomerism",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "1ff3fc55e5c3707694d82335a7e3a48e5536e578e357ce1ab6810fd12ed9092d"
+    },
+    {
+      "activityId": "practice.simulation.10.08.homologous-series",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "ce52e2a8a8f2be21d9905249d7b02f4f37873cb86d469398e8a5d84ffb1b844f"
+    },
+    {
+      "activityId": "practice.simulation.10.10.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "db176b165cae46f8c5a23321501f606fbb57491ae1bac31fe374a27f79778cec"
+    },
+    {
+      "activityId": "practice.simulation.10.11.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "ed0cf710dca58a4d328c43b2dbb351c46d665632692a908eb964f801263b85ed"
+    },
+    {
+      "activityId": "practice.simulation.10.13.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "b916de52d138b11538f17975395eb01ccc5ec5ea04b8bfe298c2cd0fb528d609"
+    },
+    {
+      "activityId": "practice.simulation.10.14.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "35d3b87174171be86717f27ac01d10599fa7343456ca7020e86088107bbd33a2"
+    },
+    {
+      "activityId": "practice.simulation.10.15.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "2a4bdd165b6a449aceb5419378543641c466779c65b3e93d4dfe030e47971741"
+    },
+    {
+      "activityId": "practice.simulation.10.17.monohydric-alcohols",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "b691306c06148f7e20328bfea8e3b08d80d7d95c5715fcea6f4e38206a6550ee"
+    },
+    {
+      "activityId": "practice.simulation.10.19.phenols",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "8d27a73bf5c5c6faba97b1f9ace579dc42de6f0b0460cb1b4e5a7a4998082572"
+    },
+    {
+      "activityId": "practice.simulation.10.20.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "5a80132547991cc44f9ef72c3f714c1fe5c3ab216ebf88a26b780015594aeb34"
+    },
+    {
+      "activityId": "practice.simulation.10.21.carbonyls",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "669b6c0efb914038eca7c1832b28b69d5d4af850cd5ef3f8a2970dbe8af5fe10"
+    },
+    {
+      "activityId": "practice.simulation.10.23.esters",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "37a1fc38b738a82834c413771b090dfd472786ef3d79776ebaa2a5e16dcdfe25"
+    },
+    {
+      "activityId": "practice.simulation.10.4",
+      "runtime": "DISABLED",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "ae766b8233ac68a53e16dec6a6e941353249326361f5d5e3ab197909e928ca70"
+    },
+    {
+      "activityId": "practice.simulation.11.01.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "4b26648e17a0cce6c34b2d70ad3b775fc33f5b002632cef2e3aba7e214825f78"
+    },
+    {
+      "activityId": "practice.simulation.11.02.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "277a84d7e86993581b8b4775f841d52155a2d3ff4a88a08c56527b0f989eb97e"
+    },
+    {
+      "activityId": "practice.simulation.11.03.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "0bc831a09679f98bd3f618189b6658eac7ee7a93a5913a07078cf0675c5e8bfd"
+    },
+    {
+      "activityId": "practice.simulation.11.04.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "eb2520d7cf270f0078d55ff3f1c0bc3427fe75869f4e988cf041438e129ebc61"
+    },
+    {
+      "activityId": "practice.simulation.11.09.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "f3827cf75ceab6d845b1c3b0a36c5643311e6f17d79a74b439d9b9a5d7a905d0"
+    },
+    {
+      "activityId": "practice.simulation.11.11.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "f41fdb79e583cf7441c7bab8739085e54e33f7848432f0ca99e0dde021d7fe47"
+    },
+    {
+      "activityId": "practice.simulation.11.12.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "0e41b244cc63142896b0f20b502edaaabc95992e333f09743ed72638426ebb24"
+    },
+    {
+      "activityId": "practice.simulation.11.15.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "1a1e27687a816a04950c796bb61a790997ec5226628f49e3ed98d88c9d6c609d"
+    },
+    {
+      "activityId": "practice.simulation.11.16.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "8a7741ad325f6a019a82a0672dbba84e5be6255f0535cd389636eeb31e30c8df"
+    },
+    {
+      "activityId": "practice.simulation.11.17.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "58957645efb952c2321f76b9693cd504d80ba565b73332944f44df25532334ae"
+    },
+    {
+      "activityId": "practice.simulation.11.18.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "fc6d3a350c3486179ddc2aef67cc9a7e5100eb531cbf3f2f1ffee6a92db4f4ca"
+    },
+    {
+      "activityId": "practice.simulation.11.20.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "b737ae7762488ff403b70f9aa55a902a6286206424dc76128a6b37c71addf00f"
+    },
+    {
+      "activityId": "practice.simulation.7.02.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "1d7b9f5181ce547c4edbd3b67207a4ad857209529769e13424f30076852554c2"
+    },
+    {
+      "activityId": "practice.simulation.7.06.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "657fdab13e07714c281f809920f5c1fed6c9335d6422719858f583c6c92dd827"
+    },
+    {
+      "activityId": "practice.simulation.7.07.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "d64f3791b2383d7f476afbd6e99d11ad16dc6463a748353232f1fb6008c25ac7"
+    },
+    {
+      "activityId": "practice.simulation.7.10.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "f544b8429771486e9e255bfb18a2d5298258c7c6b569b9f2ea386508b6e0a633"
+    },
+    {
+      "activityId": "practice.simulation.7.13.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "b3c496019023ec2365dfd765542a3fac13462c2e7e3abb05d000787f08b3ed06"
+    },
+    {
+      "activityId": "practice.simulation.7.16.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "c682fb03aaad055c3bdad4febd71045060562618e391fac45a3145abf8dce8c8"
+    },
+    {
+      "activityId": "practice.simulation.7.17.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "7fd8f24c8d4cfbed039aff84cacbd12912fe4b9ca6c78e005bc7f32a9698a775"
+    },
+    {
+      "activityId": "practice.simulation.8.02.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "c2aa6ff68b6e32a2b9293af275af558d0cd5a8d1bc6c7af308a565ea448419e5"
+    },
+    {
+      "activityId": "practice.simulation.8.03.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "006d41707c6a25fc7b0f2aa661d5522c512778fcea1378552e07557ae8cb244b"
+    },
+    {
+      "activityId": "practice.simulation.8.04.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "24d91446748ffe73fe309db86e0a31ea1cfaccbe07d7b0bb1150ad0172b4f363"
+    },
+    {
+      "activityId": "practice.simulation.8.05.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "5e02cc3463186ad30337c01dfad17a66abd6b8a3dd19fce6c321e78c7698e505"
+    },
+    {
+      "activityId": "practice.simulation.8.06.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "0eece9ebd8c191d901a145a08396f0c798ac2846e1630929b62ddb7369a7f87b"
+    },
+    {
+      "activityId": "practice.simulation.8.09.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "b58ac3921b5e5c5e2b85c95cb51b61c7fb071150c549d3dba8918eca45ebaab7"
+    },
+    {
+      "activityId": "practice.simulation.8.19.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "2f5ba287f685e9658475ccabe92a3460a6faa877d4d6c019aaedf7fbdacf22dd"
+    },
+    {
+      "activityId": "practice.simulation.8.20.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "93ea74b4cf2d4a1ca2ad1ad956edb9de70331be663907d10448062ae7df97e1d"
+    },
+    {
+      "activityId": "practice.simulation.8.7",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "93bfbb2b8922255e04c23b222df4e873b812d5b08e9c5bcc9ce4a419317df1cf"
+    },
+    {
+      "activityId": "practice.simulation.9.01.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "7529c22ad1c896b66339561b254644019839dfd256a8c099834b34412d8f8e43"
+    },
+    {
+      "activityId": "practice.simulation.9.02.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "35240540fe75089daba39de2ef87b9971f92162b45c620917744e6e64422448a"
+    },
+    {
+      "activityId": "practice.simulation.9.03.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "1de3f1360c68e700f943c667b4f877b2f83ceab0b665118953612c58b00171ce"
+    },
+    {
+      "activityId": "practice.simulation.9.04.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "79ae9466cc31fcfe198bb29e90384d28d1696fbfad2a5c4e6c88adfa7a3b6501"
+    },
+    {
+      "activityId": "practice.simulation.9.07.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "9d91e7928bbf4fe4760c980503418e5381375a65ac7a90c50280fd9534b7835c"
+    },
+    {
+      "activityId": "practice.simulation.9.08.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "7a270d9f11943f54ac12b35ea9589eddfa05256bd5ccb68e13f5ae361b8a6a2b"
+    },
+    {
+      "activityId": "practice.simulation.9.18.water-hardness",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "e5786a96ed3f0fec3f230d4d2bd8d29c627ac96710a826ce962b0cd770b27cad"
+    },
+    {
+      "activityId": "practice.simulation.9.20.cu-ag-au",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "8d626a3ced908bdef4eabcc3b40984fb20a6fa5095d0269ec2038d39ba4dbd44"
+    },
+    {
+      "activityId": "practice.simulation.9.21.group12",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "73f00a5e1ea99ec6ffdc15c16f7c5ec7276a40bcb3103fc7e641fe3ce528a539"
+    },
+    {
+      "activityId": "practice.simulation.9.23.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "3fb9840c70599aaa4eb2b478aa7a234f57d48411a69952267940a16de2aa4b76"
+    },
+    {
+      "activityId": "practice.trainer.10.03.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "ad20fb722bad21207df0a63524f7b0dd7eb755f2c69e44a30edf635b9906e362"
+    },
+    {
+      "activityId": "practice.trainer.10.05.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "5fa08808f75bb1278dd5368b83f94c9024565998f6fd2014f214dab4f04aa681"
+    },
+    {
+      "activityId": "practice.trainer.10.06.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "2966db982516cd0c7ebbe90b9dcb89de0aa7e630723adb61a63e2007255612f4"
+    },
+    {
+      "activityId": "practice.trainer.10.07.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "4a2eb1dae927c3503c33e71e0c1a0fcfe3584d616ae7fdb4cdc5647212ad7a3f"
+    },
+    {
+      "activityId": "practice.trainer.10.09.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "ad5075d54c45f6fefcc67ec42d5d729d45ad9ea2f5940062464753da956237a9"
+    },
+    {
+      "activityId": "practice.trainer.10.26.fibers",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "e68fb4d1b48bf262243c813aadf92f91a920eb7817f32e7c9bc9aeb86f1cbac5"
+    },
+    {
+      "activityId": "practice.trainer.11.10.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "93ceed57a01bd9e8bf8ce511508a8010d8cd4fffe935fddabd94fed3aa3a2253"
+    },
+    {
+      "activityId": "practice.trainer.11.19.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "038b687e59f6170920188971009d12a4bea55adc03df016fa1fc769ea9ba2a88"
+    },
+    {
+      "activityId": "practice.trainer.7.08.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "cb98e51990ab4afacad7b34fefbae0b06eec0e840581340ccb974fafc06f5beb"
+    },
+    {
+      "activityId": "practice.trainer.7.15.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "15a9be43ceb088cb8ece553c957333a676d2b98074afd4a723421434c72c6ae0"
+    },
+    {
+      "activityId": "practice.trainer.7.4",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "2ea5558a5bb5728da45ff0d19df07d9ef56c75e7b95799c573b811b53990d7b9"
+    },
+    {
+      "activityId": "practice.trainer.8.01.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "f063d09bad458f8d23ac9da5bd562ef7b5e20fbbdcf8595b52daa87fe71c25bc"
+    },
+    {
+      "activityId": "practice.trainer.8.07.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "f9afbf527b3b4757e479449c183b7532f69d45664d9dbe50976d56f11c284b77"
+    },
+    {
+      "activityId": "practice.trainer.8.08.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "487e8bc31606c2915169e053e5de04b51e1476b8dbc02cebf1fcb03ed72c24d3"
+    },
+    {
+      "activityId": "practice.trainer.8.13.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "32e1091b80c369ad672cba2b6b8ded1c0002d4728229cd3b301e77ed87908cc5"
+    },
+    {
+      "activityId": "practice.trainer.8.14.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "de0d20ae0d54b2dfcd015522ffe362f8e9d47a01ff6366aaae08a81273e1865f"
+    },
+    {
+      "activityId": "practice.trainer.9.05.planned",
+      "runtime": "READY",
+      "content": "REVIEW_PENDING",
+      "eligibility": "NOT_ELIGIBLE",
+      "releaseState": "DECISION_MISSING",
+      "basisHash": "2a67ac8a49a63ab496b21c03a1aa99600517de9f940cb52d6aa340ff124b29d7"
+    }
+  ]
+}

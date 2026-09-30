@@ -137,6 +137,29 @@ function pilotCard(p){
   return card;
 }
 function renderPilot(){var list=document.getElementById('wbPilotList');list.textContent='';W.pilot.forEach(function(p){list.appendChild(pilotCard(p))})}
+// ---------------------------------------------------------------- authoring tasks (read-only)
+function taskCard(t){
+  var card=el('article',{class:'wb-card','aria-labelledby':'h-'+cssId(t.id)});
+  card.appendChild(el('h3',{id:'h-'+cssId(t.id),text:t.action+' — '+t.targetId}));
+  card.appendChild(el('div',{class:'wb-badges'},[badge('Holat: '+t.status),badge('Sirt: '+t.surface),badge('Navbat: '+t.priority)]));
+  card.appendChild(dl([['Task ID',t.id],['Manba qaror',t.sourceDecisionId],['Reviewer qarori',t.reviewerDecision||'hali yo‘q'],['Reviewer izohi',t.reviewerComment||'—'],['basisHash',t.basisHash],['Fayllar',t.affectedFiles.join(', ')],['Activity',t.affectedActivities.join(', ')||'—'],['Draft buyrug‘i','npm run authoring:draft -- '+t.id]]));
+  return card;
+}
+function renderTasks(){var list=document.getElementById('wbTaskList');list.textContent='';var a=document.getElementById('wbTaskAction').value,s=document.getElementById('wbTaskStatus').value;var xs=W.authoring.filter(function(t){return (a==='all'||t.action===a)&&(s==='all'||t.status===s)});xs.slice(0,200).forEach(function(t){list.appendChild(taskCard(t))});document.getElementById('wbTaskCount').textContent='Ko‘rinmoqda: '+Math.min(xs.length,200)+' / '+xs.length+' (jami '+W.authoring.length+')'}
+// ---------------------------------------------------------------- release decisions (content owner)
+function releaseCard(e){
+  var r=reviewer();var enabled=r.role==='content-owner'&&!identityProblem();
+  extraHash[dkey('release',e.activityId,'content-owner')]=e.basisHash;
+  var card=el('article',{class:'wb-card','aria-labelledby':'h-'+cssId(e.activityId)});
+  card.appendChild(el('h3',{id:'h-'+cssId(e.activityId),text:e.activityId+(e.title?' — '+e.title:'')}));
+  card.appendChild(el('div',{class:'wb-badges'},[badge('Eligibility: '+e.eligibility.status,e.eligibility.status==='ELIGIBLE'?'':'warn'),badge('Release: '+e.releaseState),badge('Runtime: '+e.runtime),badge('Content: '+e.content)].concat(e.pilot?[badge('PILOT — sign-off alohida')]:[])));
+  card.appendChild(dl([['LU',e.learningUnits.join(', ')],['Route',e.route],['Lifecycle',e.lifecycleStatus],['Review’lar','technical '+e.reviews.technical+', didactic '+e.reviews.didactic+', accessibility '+e.reviews.accessibility+', chemistry '+e.reviews.chemistry],['NOT_ELIGIBLE sabablari',e.eligibility.reasons.join(', ')||'—'],['basisHash',e.basisHash]]));
+  var box=decisionBox('release',e.activityId,'content-owner',[['RELEASE','Release'],['KEEP_PENDING','Kutishda qoldirish'],['DISABLE','O‘chirish'],['CHANGE_REQUIRED','O‘zgartirish kerak']],enabled,'Release qarorini faqat content-owner rolidagi inson beradi.');
+  if(e.eligibility.status!=='ELIGIBLE'){var rel=box.querySelector('input[value=RELEASE]');if(rel){rel.disabled=true;rel.setAttribute('aria-describedby','why-rel-'+cssId(e.activityId))}box.appendChild(el('p',{class:'wb-note',id:'why-rel-'+cssId(e.activityId),text:'RELEASE mumkin emas: NOT_ELIGIBLE (machine shart bajarilmagan).'}))}
+  card.appendChild(box);
+  return card;
+}
+function renderRelease(){var list=document.getElementById('wbReleaseList');list.textContent='';W.release.forEach(function(e){list.appendChild(releaseCard(e))})}
 // ---------------------------------------------------------------- export (download only — nothing is written anywhere else)
 function exportDecisions(){
   var errs=document.getElementById('wbErrors');errs.textContent='';errs.hidden=true;
@@ -145,12 +168,13 @@ function exportDecisions(){
   Object.keys(draft.decisions).forEach(function(k){
     var d=draft.decisions[k];if(!d.decision||d.reviewerId!==r.id)return;
     var comment=(d.comment||'').trim();
-    var needsComment=['reject','change_required','rejected','changes_requested','reject_candidate','needs_evidence'].indexOf(d.decision)>=0||(d.outcomeDecision&&d.outcomeDecision!=='confirm');
+    var needsComment=['reject','change_required','rejected','changes_requested','reject_candidate','needs_evidence','KEEP_PENDING','DISABLE','CHANGE_REQUIRED'].indexOf(d.decision)>=0||(d.outcomeDecision&&d.outcomeDecision!=='confirm');
     if(needsComment&&!comment)problems.push(d.id+': izoh majburiy');
     var rec=null;
     if(d.surface==='chemistry'){var a=W.chemistry.find(function(x){return x.id===d.id});if(a)rec={surface:'chemistry',assertionId:a.id,assertionHash:a.currentHash,decision:d.decision,reviewerId:r.id,reviewerRole:'chemistry',reviewedAt:now}}
     else if(d.surface==='chemistry-candidate'){var c=W.candidates.find(function(x){return x.candidateId===d.id});if(c)rec={surface:'chemistry-candidate',candidateId:c.candidateId,candidateHash:c.candidateHash,decision:d.decision,reviewerId:r.id,reviewerRole:'chemistry',reviewedAt:now}}
     else if(d.surface==='assessment'){var it=W.assessment.find(function(x){return x.itemId===d.id});if(it){if(d.role==='didactic'&&!d.outcomeDecision)problems.push(d.id+': outcome mapping qarori majburiy');rec={surface:'assessment',itemId:it.itemId,role:d.role,decision:d.decision,reviewerId:r.id,reviewerRole:d.role,reviewedAt:now,itemHash:it.itemHash,itemVersion:it.itemVersion,evidence:it.evidence};if(d.role==='didactic')rec.outcomeDecision=d.outcomeDecision}}
+    else if(d.surface==='release'){var re=W.release.find(function(x){return x.activityId===d.id});if(re){if(d.decision==='RELEASE'&&re.eligibility.status!=='ELIGIBLE')problems.push(d.id+': NOT_ELIGIBLE — RELEASE mumkin emas');rec={surface:'release',activityId:re.activityId,basisHash:re.basisHash,decision:d.decision,reviewerId:r.id,role:'content-owner',decidedAt:now}}}
     else if(d.surface==='pilot-signoff'){var p=W.pilot.find(function(x){return x.learningUnitId===d.id});if(p)rec={surface:'pilot-signoff',learningUnitId:p.learningUnitId,reviewerId:r.id,role:'pilot-owner',decision:d.decision,signedAt:now,basisHash:p.basisHash}}
     if(rec){if(comment)rec.comment=comment;out.push(rec)}
   });
@@ -161,7 +185,7 @@ function exportDecisions(){
   document.getElementById('wbStatus').textContent=out.length+' ta qaror eksport qilindi. Faylni review-output/ papkasiga qo‘ying va avval npm run review:validate -- <fayl> ni ishga tushiring.';
 }
 function countDecisions(){var r=reviewer();var n=Object.keys(draft.decisions).filter(function(k){return draft.decisions[k].decision&&draft.decisions[k].reviewerId===r.id}).length;var e=document.getElementById('wbCount');if(e)e.textContent='Qarorlar (shu reviewer): '+n}
-function renderAll(){var ip=identityProblem();var w=document.getElementById('wbIdentity');w.textContent=ip||('Reviewer: '+reviewer().id+' · rol: '+reviewer().role);w.className='notice '+(ip?'warn':'ok');renderChemistry();renderCandidates();renderAssessment();renderPilot();countDecisions()}
+function renderAll(){var ip=identityProblem();var w=document.getElementById('wbIdentity');w.textContent=ip||('Reviewer: '+reviewer().id+' · rol: '+reviewer().role);w.className='notice '+(ip?'warn':'ok');renderChemistry();renderCandidates();renderAssessment();renderPilot();renderTasks();renderRelease();countDecisions()}
 // ---------------------------------------------------------------- wiring
 var idInput=document.getElementById('wbReviewerId'),roleInput=document.getElementById('wbReviewerRole');
 idInput.value=draft.reviewer.id||'';roleInput.value=draft.reviewer.role||'';
@@ -171,6 +195,8 @@ roleInput.addEventListener('change',function(){draft.reviewer.role=roleInput.val
 document.getElementById('wbChemSearch').addEventListener('input',renderChemistry);
 var cats=[];W.chemistry.forEach(function(a){if(cats.indexOf(a.category)<0)cats.push(a.category)});cats.sort().forEach(function(c){document.getElementById('wbChemCategory').appendChild(el('option',{value:c,text:c}))});
 Object.keys(W.priorities).forEach(function(p){document.getElementById('wbChemPriority').appendChild(el('option',{value:p,text:W.priorities[p]}))});
+var acts=[];W.authoring.forEach(function(t){if(acts.indexOf(t.action)<0)acts.push(t.action)});acts.sort().forEach(function(a){document.getElementById('wbTaskAction').appendChild(el('option',{value:a,text:a}))});
+['wbTaskAction','wbTaskStatus'].forEach(function(id){document.getElementById(id).addEventListener('change',renderTasks)});
 document.getElementById('wbExport').addEventListener('click',exportDecisions);
 renderAll();
 })();`;

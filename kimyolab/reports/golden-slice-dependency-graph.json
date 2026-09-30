@@ -1,0 +1,233 @@
+{
+  "schema": "kimyolab.golden-slice-dependency-graph.v1",
+  "learningUnitId": "lu.9.15",
+  "primaryPractice": "practice.experiment.9.10",
+  "note": "The release decision is a separate human gate (content owner); PILOT_READY needs the pilot owner sign-off — neither replaces the other.",
+  "nodes": [
+    {
+      "id": "practice-technical",
+      "kind": "machine",
+      "status": "PASS",
+      "detail": "TECHNICAL_PASS",
+      "blockedBy": []
+    },
+    {
+      "id": "electrolysis-source",
+      "kind": "human",
+      "status": "PENDING",
+      "detail": "add an acceptable source for electrolysis:CuCl2|aq|inert (1 add-source task)",
+      "blockedBy": []
+    },
+    {
+      "id": "electrolysis-chemistry-review",
+      "kind": "human",
+      "status": "PENDING",
+      "detail": "electrolysis:CuCl2|aq|inert: pending",
+      "blockedBy": [
+        "electrolysis-source"
+      ]
+    },
+    {
+      "id": "activity-content-review",
+      "kind": "human",
+      "status": "PENDING",
+      "detail": "technical/didactic/accessibility/chemistry of practice.experiment.9.10: {\"technical\":\"pending\",\"didactic\":\"pending\",\"accessibility\":\"pending\",\"chemistry\":\"pending\"}",
+      "blockedBy": []
+    },
+    {
+      "id": "activity-content-approved",
+      "kind": "derived",
+      "status": "PENDING",
+      "detail": "content REVIEW_PENDING",
+      "blockedBy": [
+        "activity-content-review",
+        "electrolysis-chemistry-review",
+        "electrolysis-source"
+      ]
+    },
+    {
+      "id": "release-decision",
+      "kind": "human",
+      "status": "PENDING",
+      "detail": "content owner: DECISION_MISSING (eligibility NOT_ELIGIBLE); separate from the pilot sign-off",
+      "blockedBy": [
+        "activity-content-approved",
+        "activity-content-review",
+        "electrolysis-chemistry-review",
+        "electrolysis-source"
+      ]
+    },
+    {
+      "id": "mapping-review",
+      "kind": "human",
+      "status": "PENDING",
+      "detail": "MAPPING_REVIEW_REQUIRED: q.9.15.01, q.9.15.02, q.9.15.04",
+      "blockedBy": []
+    },
+    {
+      "id": "assessment-chemistry-review",
+      "kind": "human",
+      "status": "PENDING",
+      "detail": "0/5",
+      "blockedBy": []
+    },
+    {
+      "id": "assessment-didactic-review",
+      "kind": "human",
+      "status": "PENDING",
+      "detail": "0/5 (a different person)",
+      "blockedBy": []
+    },
+    {
+      "id": "outcome-mapping",
+      "kind": "human",
+      "status": "PENDING",
+      "detail": "0/5 confirmed",
+      "blockedBy": [
+        "mapping-review"
+      ]
+    },
+    {
+      "id": "assessment-available",
+      "kind": "derived",
+      "status": "PENDING",
+      "detail": "unit assessment AVAILABLE ⇒ MASTERED reachable",
+      "blockedBy": [
+        "assessment-chemistry-review",
+        "assessment-didactic-review",
+        "mapping-review",
+        "outcome-mapping"
+      ]
+    },
+    {
+      "id": "pilot-signoff-pending",
+      "kind": "derived",
+      "status": "PENDING",
+      "detail": "pilot status CONTENT_REVIEW_PENDING",
+      "blockedBy": [
+        "activity-content-approved",
+        "activity-content-review",
+        "assessment-available",
+        "assessment-chemistry-review",
+        "assessment-didactic-review",
+        "electrolysis-chemistry-review",
+        "electrolysis-source",
+        "mapping-review",
+        "outcome-mapping"
+      ]
+    },
+    {
+      "id": "pilot-owner-signoff",
+      "kind": "human",
+      "status": "PENDING",
+      "detail": "sign-off NONE",
+      "blockedBy": [
+        "activity-content-approved",
+        "activity-content-review",
+        "assessment-available",
+        "assessment-chemistry-review",
+        "assessment-didactic-review",
+        "electrolysis-chemistry-review",
+        "electrolysis-source",
+        "mapping-review",
+        "outcome-mapping",
+        "pilot-signoff-pending"
+      ]
+    },
+    {
+      "id": "pilot-ready",
+      "kind": "derived",
+      "status": "PENDING",
+      "detail": "PILOT_READY",
+      "blockedBy": [
+        "activity-content-approved",
+        "activity-content-review",
+        "assessment-available",
+        "assessment-chemistry-review",
+        "assessment-didactic-review",
+        "electrolysis-chemistry-review",
+        "electrolysis-source",
+        "mapping-review",
+        "outcome-mapping",
+        "pilot-owner-signoff",
+        "pilot-signoff-pending"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "electrolysis-source",
+      "to": "electrolysis-chemistry-review"
+    },
+    {
+      "from": "electrolysis-chemistry-review",
+      "to": "activity-content-approved"
+    },
+    {
+      "from": "activity-content-review",
+      "to": "activity-content-approved"
+    },
+    {
+      "from": "activity-content-approved",
+      "to": "release-decision"
+    },
+    {
+      "from": "mapping-review",
+      "to": "outcome-mapping"
+    },
+    {
+      "from": "assessment-chemistry-review",
+      "to": "assessment-available"
+    },
+    {
+      "from": "assessment-didactic-review",
+      "to": "assessment-available"
+    },
+    {
+      "from": "outcome-mapping",
+      "to": "assessment-available"
+    },
+    {
+      "from": "practice-technical",
+      "to": "pilot-signoff-pending"
+    },
+    {
+      "from": "activity-content-approved",
+      "to": "pilot-signoff-pending"
+    },
+    {
+      "from": "electrolysis-chemistry-review",
+      "to": "pilot-signoff-pending"
+    },
+    {
+      "from": "assessment-available",
+      "to": "pilot-signoff-pending"
+    },
+    {
+      "from": "pilot-signoff-pending",
+      "to": "pilot-owner-signoff"
+    },
+    {
+      "from": "pilot-owner-signoff",
+      "to": "pilot-ready"
+    }
+  ],
+  "pendingHuman": [
+    "electrolysis-source",
+    "electrolysis-chemistry-review",
+    "activity-content-review",
+    "release-decision",
+    "mapping-review",
+    "assessment-chemistry-review",
+    "assessment-didactic-review",
+    "outcome-mapping",
+    "pilot-owner-signoff"
+  ],
+  "nextUnblocked": [
+    "electrolysis-source",
+    "activity-content-review",
+    "mapping-review",
+    "assessment-chemistry-review",
+    "assessment-didactic-review"
+  ]
+}
