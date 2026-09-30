@@ -4,9 +4,12 @@
 // without relying on unload handlers, which cannot guarantee an async IndexedDB write.
 import type {SessionLivenessPort} from '../../runtime/learning-orchestrator/types.ts';
 
-const PREFIX='kimyolab.attempt.';
+// P2.2: the lock name prefix is the host's namespace (src/app/host.ts attemptLockPrefix): two KimyoLab deployments
+// on one origin must never read each other's locks. The root/standalone namespace keeps the historical prefix.
+export const DEFAULT_ATTEMPT_LOCK_PREFIX='kimyolab.attempt.';
 
-export function createWebLocksLiveness(locks:any=(globalThis as any).navigator?.locks):SessionLivenessPort|undefined{
+export function createWebLocksLiveness(locks:any=(globalThis as any).navigator?.locks,prefix:string=DEFAULT_ATTEMPT_LOCK_PREFIX):SessionLivenessPort|undefined{
+  const PREFIX=prefix;
   if(!locks||typeof locks.request!=='function'||typeof locks.query!=='function') return undefined;
   const held=new Map<string,()=>void>();
   return {

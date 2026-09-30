@@ -1,17 +1,15 @@
 import { HOME_COPY } from './copy.ts';
 import { el, clear, link } from '../../ui/components/dom.ts';
+import { assetUrl } from '../../ui/host-paths.ts';
 
 type HomeIconKey='topic'|'lab'|'results';
 const HOME_ICON_PATHS:Record<HomeIconKey,string>={
-  topic:'/assets/home/topic-studio.png',
-  lab:'/assets/home/virtual-lab.png',
-  results:'/assets/home/results.png',
+  topic:'assets/home/topic-studio.png',
+  lab:'assets/home/virtual-lab.png',
+  results:'assets/home/results.png',
 };
-function homeAsset(key:HomeIconKey){
-  const path=HOME_ICON_PATHS[key];
-  const embedded=(globalThis as any).__KIMYOLAB_STANDALONE_ASSETS__?.[path];
-  return typeof embedded==='string'?embedded:path;
-}
+// P2.2: resolved through the host (base path over HTTP, embedded data URL in the standalone artifact)
+function homeAsset(key:HomeIconKey){ return assetUrl(HOME_ICON_PATHS[key]); }
 function featureCard(icon:HomeIconKey,title:string,body:string,href:string,cta:string){
   const card=link('',href,'kl-feature-card');
   const iconWrap=el('span',{className:'kl-feature-icon'});

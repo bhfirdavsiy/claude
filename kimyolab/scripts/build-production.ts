@@ -2,11 +2,17 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {computeTreeHash} from './deploy-surface-hash.ts';
+import {applyBasePath} from './lib/host-build.ts';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 // Output directory: argv[2] (used by hermetic tests) or ./dist — the ONLY directory the server exposes.
-const dist=path.resolve(process.argv[2]??path.join(root,'dist'));
-const writeReport=!process.argv[2];
+// P2.2: `--base-path /kimyolab/` (or KIMYOLAB_BASE_PATH) builds the same product for a subpath host.
+const args=process.argv.slice(2);
+const baseFlag=args.indexOf('--base-path');
+const basePath=baseFlag>=0?args[baseFlag+1]:process.env.KIMYOLAB_BASE_PATH??'/';
+const positional=args.filter((a,i)=>!(baseFlag>=0&&(i===baseFlag||i===baseFlag+1)));
+const dist=path.resolve(positional[0]??path.join(root,'dist'));
+const writeReport=!positional[0];
 const publicDir=path.join(root,'public');
 
 fs.rmSync(dist,{recursive:true,force:true});
@@ -21,7 +27,7 @@ function copyTree(src:string,dst:string){
 }
 
 copyTree(publicDir,dist);
-const indexHtml=fs.readFileSync(path.join(root,'index.html'),'utf8');
+const indexHtml=applyBasePath(fs.readFileSync(path.join(root,'index.html'),'utf8'),basePath??'/');
 fs.writeFileSync(path.join(dist,'index.html'),indexHtml,'utf8');
 // app.html remains a compatibility alias for older browser-gate/runbook references.
 fs.writeFileSync(path.join(dist,'app.html'),indexHtml,'utf8');

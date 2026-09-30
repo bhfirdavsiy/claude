@@ -1,0 +1,401 @@
+{
+  "schema": "kimyolab.host-parity.v1",
+  "semantics": "The same learner scenarios through the portal-simulation host (production build under /kimyolab/) and the standalone single-file host. Compared: content version, activity, engine result (evidence type/score/achieved/correct/target), completion (attempt status), progress, mastery rows and the learner-visible outcome text. Allowed to differ: URL, shell, navigation and content transport, storage namespace.",
+  "allowedDifferences": [
+    "browser URL",
+    "host shell",
+    "navigation transport (path vs hash)",
+    "content transport (HTTP vs embedded bytes)",
+    "storage namespace"
+  ],
+  "notAllowed": [
+    "chemistry result",
+    "scoring",
+    "evidence semantics",
+    "content",
+    "assessment behaviour"
+  ],
+  "scenarios": [
+    {
+      "id": "home-to-curriculum",
+      "title": "home → curriculum",
+      "status": "PASS",
+      "facts": {
+        "units": 122
+      },
+      "semantic": {
+        "evidence": [],
+        "attempts": [],
+        "progress": [],
+        "mastery": []
+      },
+      "differences": []
+    },
+    {
+      "id": "unit-guide-practice",
+      "title": "learning unit → guide → practice",
+      "status": "PASS",
+      "facts": {
+        "practiceLinks": 1
+      },
+      "semantic": {
+        "evidence": [],
+        "attempts": [],
+        "progress": [
+          {
+            "learningUnitId": "lu.7.12",
+            "status": "in_progress",
+            "contentVersion": "2026.09.1"
+          }
+        ],
+        "mastery": []
+      },
+      "differences": []
+    },
+    {
+      "id": "atom-builder",
+      "title": "Atom Builder 7.07",
+      "status": "PASS",
+      "facts": {
+        "isotope": "Uglerod-14"
+      },
+      "semantic": {
+        "evidence": [
+          {
+            "activityId": "practice.simulation.7.07.planned",
+            "contentVersion": "2026.09.1",
+            "type": "construction",
+            "evidenceClass": "practice-observation",
+            "score": 1,
+            "achieved": true,
+            "targetId": "C-14"
+          }
+        ],
+        "attempts": [
+          {
+            "activityId": "practice.simulation.7.07.planned",
+            "status": "completed",
+            "contentVersion": "2026.09.1"
+          }
+        ],
+        "progress": [
+          {
+            "learningUnitId": "lu.7.07",
+            "status": "practice_complete",
+            "contentVersion": "2026.09.1"
+          }
+        ],
+        "mastery": [
+          {
+            "conceptId": "concept.c019"
+          }
+        ]
+      },
+      "differences": []
+    },
+    {
+      "id": "hydrolysis",
+      "title": "Hydrolysis renderer 9.14",
+      "status": "PASS",
+      "facts": {
+        "observation": "Indikator (lakmus) qizil tusga o‘tdi. Muhit kislotali."
+      },
+      "semantic": {
+        "evidence": [
+          {
+            "activityId": "practice.experiment.9.14",
+            "contentVersion": "2026.09.1",
+            "type": "answer",
+            "evidenceClass": "practice-observation",
+            "score": 1,
+            "correct": true,
+            "questionId": "hydrolysis-medium:AlCl3",
+            "answerKind": "hydrolysis-prediction",
+            "response": "acidic",
+            "selectedSalt": "AlCl3",
+            "predictedMedium": "acidic",
+            "actualMedium": "acidic"
+          },
+          {
+            "activityId": "practice.experiment.9.14",
+            "contentVersion": "2026.09.1",
+            "type": "construction",
+            "evidenceClass": "practice-observation",
+            "score": 0,
+            "achieved": false,
+            "targetId": "hydrolysis-AlCl3-acidic"
+          },
+          {
+            "activityId": "practice.experiment.9.14",
+            "contentVersion": "2026.09.1",
+            "type": "construction",
+            "evidenceClass": "practice-observation",
+            "score": 1,
+            "achieved": true,
+            "targetId": "hydrolysis-AlCl3-acidic"
+          }
+        ],
+        "attempts": [
+          {
+            "activityId": "practice.experiment.9.14",
+            "status": "completed",
+            "contentVersion": "2026.09.1"
+          }
+        ],
+        "progress": [
+          {
+            "learningUnitId": "lu.9.06",
+            "status": "practice_complete",
+            "contentVersion": "2026.09.1"
+          }
+        ],
+        "mastery": [
+          {
+            "conceptId": "concept.c164"
+          }
+        ]
+      },
+      "differences": []
+    },
+    {
+      "id": "ionic",
+      "title": "Ionic precipitation renderer 8.1",
+      "status": "PASS",
+      "facts": {
+        "observation": "AgNO₃ + NaCl: Oq cho‘kma hosil bo‘ldi."
+      },
+      "semantic": {
+        "evidence": [
+          {
+            "activityId": "practice.experiment.8.1",
+            "contentVersion": "2026.09.1",
+            "type": "answer",
+            "evidenceClass": "practice-observation",
+            "score": 1,
+            "correct": true,
+            "questionId": "net-ionic:rxn.agno3-nacl",
+            "answerKind": "net-ionic-equation",
+            "response": "Cl- + Ag+ -> AgCl"
+          },
+          {
+            "activityId": "practice.experiment.8.1",
+            "contentVersion": "2026.09.1",
+            "type": "construction",
+            "evidenceClass": "practice-observation",
+            "score": 0,
+            "achieved": false,
+            "targetId": "ionic-rxn.agno3-nacl"
+          },
+          {
+            "activityId": "practice.experiment.8.1",
+            "contentVersion": "2026.09.1",
+            "type": "construction",
+            "evidenceClass": "practice-observation",
+            "score": 1,
+            "achieved": true,
+            "targetId": "ionic-rxn.agno3-nacl"
+          },
+          {
+            "activityId": "practice.experiment.8.1",
+            "contentVersion": "2026.09.1",
+            "type": "observation",
+            "evidenceClass": "practice-observation",
+            "score": 1,
+            "observationKind": "ionic-mixing",
+            "outcome": "reaction",
+            "reagents": [
+              "species.agno3",
+              "species.nacl"
+            ],
+            "observation": {
+              "type": "precipitate",
+              "color": "white"
+            }
+          }
+        ],
+        "attempts": [
+          {
+            "activityId": "practice.experiment.8.1",
+            "status": "completed",
+            "contentVersion": "2026.09.1"
+          }
+        ],
+        "progress": [
+          {
+            "learningUnitId": "lu.8.16",
+            "status": "practice_complete",
+            "contentVersion": "2026.09.1"
+          }
+        ],
+        "mastery": [
+          {
+            "conceptId": "concept.c114"
+          }
+        ]
+      },
+      "differences": []
+    },
+    {
+      "id": "manganese-9.23",
+      "title": "P2.1 manganese 9.23 invalid + valid choice",
+      "status": "PASS",
+      "facts": {
+        "verdict": "To‘g‘ri. Natija saqlandi. Davom eting."
+      },
+      "semantic": {
+        "evidence": [
+          {
+            "activityId": "practice.simulation.9.23.planned",
+            "contentVersion": "2026.09.1",
+            "type": "construction",
+            "evidenceClass": "practice-observation",
+            "score": 0,
+            "achieved": false,
+            "targetId": "manganese-acidic"
+          },
+          {
+            "activityId": "practice.simulation.9.23.planned",
+            "contentVersion": "2026.09.1",
+            "type": "construction",
+            "evidenceClass": "practice-observation",
+            "score": 1,
+            "achieved": true,
+            "targetId": "manganese-acidic"
+          }
+        ],
+        "attempts": [
+          {
+            "activityId": "practice.simulation.9.23.planned",
+            "status": "completed",
+            "contentVersion": "2026.09.1"
+          }
+        ],
+        "progress": [
+          {
+            "learningUnitId": "lu.9.23",
+            "status": "practice_complete",
+            "contentVersion": "2026.09.1"
+          }
+        ],
+        "mastery": [
+          {
+            "conceptId": "concept.c213"
+          }
+        ]
+      },
+      "differences": []
+    },
+    {
+      "id": "static-check-form",
+      "title": "legacy STATIC_CHECK form (trainer 7.4)",
+      "status": "PASS",
+      "facts": {
+        "verdict": "To‘g‘ri. Faoliyat muvaffaqiyatli yakunlandi."
+      },
+      "semantic": {
+        "evidence": [
+          {
+            "activityId": "practice.trainer.7.4",
+            "contentVersion": "2026.09.1",
+            "type": "answer",
+            "evidenceClass": "trainer-calculation",
+            "score": 0,
+            "correct": false,
+            "questionId": "q.aluminium-oxide"
+          },
+          {
+            "activityId": "practice.trainer.7.4",
+            "contentVersion": "2026.09.1",
+            "type": "answer",
+            "evidenceClass": "trainer-calculation",
+            "score": 1,
+            "correct": true,
+            "questionId": "q.aluminium-oxide"
+          }
+        ],
+        "attempts": [
+          {
+            "activityId": "practice.trainer.7.4",
+            "status": "completed",
+            "contentVersion": "2026.09.1"
+          }
+        ],
+        "progress": [
+          {
+            "learningUnitId": "lu.7.11",
+            "status": "practice_complete",
+            "contentVersion": "2026.09.1"
+          }
+        ],
+        "mastery": [
+          {
+            "conceptId": "concept.c031"
+          }
+        ]
+      },
+      "differences": []
+    },
+    {
+      "id": "progress-persistence",
+      "title": "progress persists across a reload",
+      "status": "PASS",
+      "facts": {
+        "heading": "Natijalarim"
+      },
+      "semantic": {
+        "evidence": [
+          {
+            "activityId": "practice.trainer.7.4",
+            "contentVersion": "2026.09.1",
+            "type": "answer",
+            "evidenceClass": "trainer-calculation",
+            "score": 1,
+            "correct": true,
+            "questionId": "q.aluminium-oxide"
+          }
+        ],
+        "attempts": [
+          {
+            "activityId": "practice.trainer.7.4",
+            "status": "completed",
+            "contentVersion": "2026.09.1"
+          }
+        ],
+        "progress": [
+          {
+            "learningUnitId": "lu.7.11",
+            "status": "practice_complete",
+            "contentVersion": "2026.09.1"
+          }
+        ],
+        "mastery": [
+          {
+            "conceptId": "concept.c031"
+          },
+          {
+            "conceptId": "concept.c032"
+          },
+          {
+            "conceptId": "concept.c033"
+          }
+        ]
+      },
+      "differences": []
+    }
+  ],
+  "summary": {
+    "scenarios": 8,
+    "pass": 8,
+    "status": "PASS"
+  },
+  "scenarioIds": [
+    "home-to-curriculum",
+    "unit-guide-practice",
+    "atom-builder",
+    "hydrolysis",
+    "ionic",
+    "manganese-9.23",
+    "static-check-form",
+    "progress-persistence"
+  ]
+}

@@ -37,7 +37,8 @@ export function contentErrorMessage(error        ,fallback       )       {
   return fallback;
 }
 
-                                                                        
+/** P2.2: the content base comes from the host boundary (`<basePath>content`); there is no site-root default. */
+                                                                       
 
                                                                     
 
@@ -49,12 +50,13 @@ export class ContentClient {
   /** True private (#): verified pack files — including the key pack after an evaluation — are unreachable from outside. */
   #cache=new Map                     ();
           versionPromise                 ;
-  constructor(options                     ={}){
+  constructor(options                     ){
     const globalFetch=(globalThis       ).fetch                       ;
     if(!options.fetchImpl&&!globalFetch) throw new ContentLoadError('CONTENT_FETCH_UNAVAILABLE');
     // window.fetch must be called with the global receiver; an unbound method throws "Illegal invocation".
     this.fetchImpl=options.fetchImpl??globalFetch .bind(globalThis);
-    this.baseUrl=(options.baseUrl??'/content').replace(/\/$/,'');
+    if(typeof options?.baseUrl!=='string'||!options.baseUrl) throw new ContentLoadError('CONTENT_BASE_MISSING');
+    this.baseUrl=options.baseUrl.replace(/\/$/,'');
   }
 
           async request(url       ){

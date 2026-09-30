@@ -7,6 +7,8 @@ import {fileURLToPath} from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const output=path.join(root,'dist-standalone','KimyoLab_standalone.html');
 const reportFile=path.join(root,'reports','standalone-browser-smoke.json');
+// P2.2: in-app links carry their LOGICAL route in data-kl-route (the href itself is the host's form: #/learn/… in
+// the standalone host), so link lookups below read data-kl-route instead of the href.
 const sleep=(ms)=>new Promise(r=>setTimeout(r,ms));
 function findChromium(){
   for(const name of [process.env.CHROME_BIN,'chromium','chromium-browser','google-chrome','google-chrome-stable','msedge','chrome'].filter(Boolean)){
@@ -44,15 +46,15 @@ try{
   cdp.events.length=0;
   const click=(await cdp.call('Runtime.evaluate',{expression:`(()=>{const a=[...document.querySelectorAll('a')].find(x=>x.textContent.includes('O‘rganishni boshlash'));if(!a)return false;a.click();return true;})()`,returnByValue:true})).result.value;
   await sleep(1500);
-  const curriculum=(await cdp.call('Runtime.evaluate',{expression:`(()=>({hash:location.hash,main:document.querySelector('#app-main')?.innerText||'',firstHref:[...document.querySelectorAll('a')].map(a=>a.getAttribute('href')).find(h=>h&&h.startsWith('/learn/'))||''}))()`,returnByValue:true})).result.value;
+  const curriculum=(await cdp.call('Runtime.evaluate',{expression:`(()=>({hash:location.hash,main:document.querySelector('#app-main')?.innerText||'',firstHref:[...document.querySelectorAll('a')].map(a=>a.getAttribute('data-kl-route')).find(h=>h&&h.startsWith('/learn/'))||''}))()`,returnByValue:true})).result.value;
   const curriculumExceptions=cdp.events.filter(e=>e.method==='Runtime.exceptionThrown').length;
   cdp.events.length=0;
-  const unitClick=(await cdp.call('Runtime.evaluate',{expression:`(()=>{const a=[...document.querySelectorAll('a')].find(x=>(x.getAttribute('href')||'').startsWith('/learn/'));if(!a)return false;a.click();return true;})()`,returnByValue:true})).result.value;
+  const unitClick=(await cdp.call('Runtime.evaluate',{expression:`(()=>{const a=[...document.querySelectorAll('a')].find(x=>(x.getAttribute('data-kl-route')||'').startsWith('/learn/'));if(!a)return false;a.click();return true;})()`,returnByValue:true})).result.value;
   await sleep(1200);
   const unit=(await cdp.call('Runtime.evaluate',{expression:`(()=>({hash:location.hash,main:document.querySelector('#app-main')?.innerText||'',guideButton:[...document.querySelectorAll('button')].some(b=>(b.textContent||'').includes('Nazariyani yakunlash'))}))()`,returnByValue:true})).result.value;
   const guideAdvance=(await cdp.call('Runtime.evaluate',{expression:`(()=>{const b=[...document.querySelectorAll('button')].find(x=>(x.textContent||'').includes('Nazariyani yakunlash'));if(!b)return false;b.click();return true;})()`,returnByValue:true})).result.value;
   await sleep(900);
-  const practiceStage=(await cdp.call('Runtime.evaluate',{expression:`(()=>({hash:location.hash,main:document.querySelector('#app-main')?.innerText||'',practiceHref:[...document.querySelectorAll('a')].map(a=>a.getAttribute('href')).find(h=>h&&h.startsWith('/practice/'))||''}))()`,returnByValue:true})).result.value;
+  const practiceStage=(await cdp.call('Runtime.evaluate',{expression:`(()=>({hash:location.hash,main:document.querySelector('#app-main')?.innerText||'',practiceHref:[...document.querySelectorAll('a')].map(a=>a.getAttribute('data-kl-route')).find(h=>h&&h.startsWith('/practice/'))||''}))()`,returnByValue:true})).result.value;
   await cdp.call('Runtime.evaluate',{expression:`(()=>{const id=location.hash.split('/')[2]||'';if(id.startsWith('lu.'))location.hash='#/learn/'+id+'/quiz';return true;})()`});
   await sleep(800);
   const reinforcement=(await cdp.call('Runtime.evaluate',{expression:`(()=>({hash:location.hash,main:document.querySelector('#app-main')?.innerText||'',hasForm:!!document.querySelector('.kl-reinforcement-form')}))()`,returnByValue:true})).result.value;
@@ -60,10 +62,10 @@ try{
   cdp.events.length=0;
   const labNav=(await cdp.call('Runtime.evaluate',{expression:`(()=>{location.hash='#/labs';return true;})()`,returnByValue:true})).result.value;
   await sleep(1700);
-  const labs=(await cdp.call('Runtime.evaluate',{expression:`(()=>({hash:location.hash,main:document.querySelector('#app-main')?.innerText||'',externalHref:[...document.querySelectorAll('a')].map(a=>a.getAttribute('href')).find(h=>h&&h.startsWith('/external-lab/'))||'',nativeHref:[...document.querySelectorAll('a')].map(a=>a.getAttribute('href')).find(h=>h&&h.startsWith('/practice/practice.experiment.'))||''}))()`,returnByValue:true})).result.value;
+  const labs=(await cdp.call('Runtime.evaluate',{expression:`(()=>({hash:location.hash,main:document.querySelector('#app-main')?.innerText||'',externalHref:[...document.querySelectorAll('a')].map(a=>a.getAttribute('data-kl-route')).find(h=>h&&h.startsWith('/external-lab/'))||'',nativeHref:[...document.querySelectorAll('a')].map(a=>a.getAttribute('data-kl-route')).find(h=>h&&h.startsWith('/practice/practice.experiment.'))||''}))()`,returnByValue:true})).result.value;
   const labExceptions=cdp.events.filter(e=>e.method==='Runtime.exceptionThrown').length;
   cdp.events.length=0;
-  const nativeClick=(await cdp.call('Runtime.evaluate',{expression:`(()=>{const a=[...document.querySelectorAll('a')].find(x=>(x.getAttribute('href')||'').startsWith('/practice/practice.experiment.'));if(!a)return false;a.click();return true;})()`,returnByValue:true})).result.value;
+  const nativeClick=(await cdp.call('Runtime.evaluate',{expression:`(()=>{const a=[...document.querySelectorAll('a')].find(x=>(x.getAttribute('data-kl-route')||'').startsWith('/practice/practice.experiment.'));if(!a)return false;a.click();return true;})()`,returnByValue:true})).result.value;
   await sleep(1200);
   const nativeLab=(await cdp.call('Runtime.evaluate',{expression:`(()=>({hash:location.hash,main:document.querySelector('#app-main')?.innerText||'',stepButtons:[...document.querySelectorAll('button')].filter(b=>(b.textContent||'').trim()==='Bajarish').length,workspace:!!document.querySelector('.kl-experiment-stage')}))()`,returnByValue:true})).result.value;
   const firstStepClick=(await cdp.call('Runtime.evaluate',{expression:`(()=>{const b=[...document.querySelectorAll('button')].find(x=>(x.textContent||'').trim()==='Bajarish');if(!b)return false;b.click();return true;})()`,returnByValue:true})).result.value;
@@ -81,7 +83,7 @@ try{
   cdp.events.length=0;
   await cdp.call('Runtime.evaluate',{expression:`(()=>{location.hash='#/labs';return true;})()`});
   await sleep(900);
-  const externalClick=(await cdp.call('Runtime.evaluate',{expression:`(()=>{const a=[...document.querySelectorAll('a')].find(x=>(x.getAttribute('href')||'').startsWith('/external-lab/'));if(!a)return false;a.click();return true;})()`,returnByValue:true})).result.value;
+  const externalClick=(await cdp.call('Runtime.evaluate',{expression:`(()=>{const a=[...document.querySelectorAll('a')].find(x=>(x.getAttribute('data-kl-route')||'').startsWith('/external-lab/'));if(!a)return false;a.click();return true;})()`,returnByValue:true})).result.value;
   await sleep(1200);
   const external=(await cdp.call('Runtime.evaluate',{expression:`(()=>({hash:location.hash,main:document.querySelector('#app-main')?.innerText||''}))()`,returnByValue:true})).result.value;
   const externalExceptions=cdp.events.filter(e=>e.method==='Runtime.exceptionThrown').length;

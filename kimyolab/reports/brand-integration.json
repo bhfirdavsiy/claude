@@ -1,0 +1,26 @@
+{
+  "schema": "kimyolab.brand-integration.v1",
+  "status": "INTEGRATED",
+  "asset": {
+    "path": "public/assets/brand/kimyolab-logo.webp",
+    "sha256": "c5afee421f72480358dd2b4d77b21587b3afd7843afbf15bcc87cafe5924b36d",
+    "approvedSha256": "c5afee421f72480358dd2b4d77b21587b3afd7843afbf15bcc87cafe5924b36d",
+    "identicalToApproved": true,
+    "sizeBytes": 146002,
+    "format": "image/webp",
+    "dimensions": {
+      "width": 1254,
+      "height": 1254
+    },
+    "modified": false
+  },
+  "shell": {
+    "logoElement": true,
+    "temporaryLetterMarkRemoved": true,
+    "favicon": true
+  },
+  "hosts": {
+    "portal": "resolves",
+    "standalone": "resolves"
+  }
+}

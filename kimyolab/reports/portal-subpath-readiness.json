@@ -1,0 +1,80 @@
+{
+  "schema": "kimyolab.portal-subpath-readiness.v1",
+  "semantics": "Readiness of the SAME product for a subpath host, proven on a SIMULATED /kimyolab/ mount (local server). This is NOT portal integration: the real raqamlitalim.trm.uz deployment, its authentication and its shell belong to P3.",
+  "mount": "/kimyolab/",
+  "portalIntegrated": false,
+  "realDeployment": "P3",
+  "checks": [
+    {
+      "id": "route-base",
+      "pass": true,
+      "evidence": "navigation only through the host; deep links map /kimyolab/<route> → logical route"
+    },
+    {
+      "id": "asset-base",
+      "pass": true,
+      "evidence": "no /assets or root-absolute shell URL; every request stays inside /kimyolab/"
+    },
+    {
+      "id": "content-base",
+      "pass": true,
+      "evidence": "ContentClient base = host.contentBase (/kimyolab/content); integrity unchanged"
+    },
+    {
+      "id": "deep-links",
+      "pass": true,
+      "evidence": "direct /kimyolab/learn/… and /kimyolab/practice/… open"
+    },
+    {
+      "id": "refresh",
+      "pass": true,
+      "evidence": "reload on a deep link renders the same page"
+    },
+    {
+      "id": "history-and-query",
+      "pass": true,
+      "evidence": "back/forward and ?q= query strings"
+    },
+    {
+      "id": "outside-scope-404",
+      "pass": true,
+      "evidence": "/, /curriculum, /content/… → 404; /kimyolab → 308 /kimyolab/"
+    },
+    {
+      "id": "storage-namespace",
+      "pass": true,
+      "evidence": "IndexedDB kimyolab@/kimyolab/.runtime, not kimyolab-runtime"
+    },
+    {
+      "id": "lock-namespace",
+      "pass": true,
+      "evidence": "Web Locks kimyolab@/kimyolab/.attempt.*"
+    },
+    {
+      "id": "css-isolation",
+      "pass": true,
+      "evidence": "no global selectors; a host page is unchanged; typical portal CSS keeps controls usable"
+    },
+    {
+      "id": "service-worker",
+      "pass": true,
+      "evidence": "none registered; none could claim /"
+    },
+    {
+      "id": "host-boundary",
+      "pass": true,
+      "evidence": "only bootstrap resolves the host; no code inspects the host type"
+    },
+    {
+      "id": "standalone-parity",
+      "pass": true,
+      "evidence": "8/8 scenarios identical in both hosts"
+    }
+  ],
+  "summary": {
+    "checks": 13,
+    "pass": 13,
+    "status": "READY_IN_SIMULATION"
+  },
+  "separateFromProjectProgress": "not part of the 0.4 foundation / 0.6 learning-product management formula (ADR-P2-003 §8)"
+}

@@ -7,20 +7,22 @@ import {spawn, spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 
 export const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
-let cached;
+const cached = new Map();
 
 function run(args) {
   const r = spawnSync(process.execPath, args, {cwd: repoRoot, encoding: 'utf8'});
   if (r.status !== 0) throw new Error(`${args.join(' ')} failed:\n${r.stdout}\n${r.stderr}`);
 }
 
-/** Builds app-preview + a production dist into a temp directory (once per process). */
-export function buildDist() {
-  if (cached && fs.existsSync(path.join(cached, 'index.html'))) return cached;
-  run(['scripts/build-browser-preview.ts']);
+/** Builds app-preview + a production dist into a temp directory (once per process and base path).
+ *  P2.2: `basePath` builds the same product for a subpath host (e.g. the `/kimyolab/` portal simulation). */
+export function buildDist({basePath = '/'} = {}) {
+  const hit = cached.get(basePath);
+  if (hit && fs.existsSync(path.join(hit, 'index.html'))) return hit;
+  if (!cached.size) run(['scripts/build-browser-preview.ts']);
   const out = fs.mkdtempSync(path.join(os.tmpdir(), 'kimyolab-dist-'));
-  run(['scripts/build-production.ts', out]);
-  cached = out;
+  run(['scripts/build-production.ts', out, '--base-path', basePath]);
+  cached.set(basePath, out);
   return out;
 }
 

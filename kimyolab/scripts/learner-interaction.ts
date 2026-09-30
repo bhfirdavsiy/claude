@@ -22,6 +22,7 @@ import {REQUIRED_UI_KEYS} from '../src/features/localization/element-names.ts';
  *  41029a7) — cited, not recomputed: the P2.0 UI no longer exists on this branch. */
 export const P20_BASELINE=Object.freeze({source:'reports/learning-depth-baseline.json @ 41029a7 (P2.0 merge)',crashOnLearnerInput:1,crashActivities:['practice.simulation.9.23.planned'],rawIdLabelActivities:67,untranslatedTokenActivities:35,hardcodedUzbekLiterals:174,hardcodedUzbekFiles:23,migratedFiles:{'src/features/practice/render.ts':12,'src/features/practice/ui-model.ts':6}});
 
+export const OPTION_SET_PACKET='review-packets/option-set-authoring';
 export const INTERACTION_REPORTS=['reports/learner-answer-input-audit.json','reports/learner-label-audit.json','reports/interaction-reliability.json'] as const;
 const INTERNAL_TOKEN=/^[a-z][a-z_-]{2,}$/;
 /** Learner input the probe sends to every answer field: typos, other scripts, empty, huge, markup, numbers. */
@@ -51,7 +52,7 @@ export async function buildInteractionReports(root:string){
   const src=loadSources(root); const {pack}=compileReadiness(src);
   const client=new ContentClient({fetchImpl:diskFetch(root) as any,baseUrl:'/content'});
   const answers:any[]=[], labels:any[]=[], activities:any[]=[];
-  let launchable=0, rendererOwned=0; const promptLeaks:string[]=[];
+  let launchable=0, rendererOwned=0; const promptLeaks:string[]=[]; const optionQueue:any[]=[];
   for(const a of src.activities as any[]){
     const readiness=pack.activities.find((x:any)=>x.activityId===a.id);
     if(!launchDecision(readiness).allowed) continue;
@@ -78,6 +79,7 @@ export async function buildInteractionReports(root:string){
           ...(chosen?{domain:domain?.domain??'boolean',domainSource:domain?.source??'boolean',options:q.input.choices.length,optionsContainAnswer:q.input.choices.some((x:any)=>x.value===String(expected)),category:domain?(domain.domain==='organic-product'&&/-repeat-unit$/.test(String(expected))?'POLYMER_STRUCTURE':categoryOfDomain(domain.domain)):'ENUM'}
             :{answerShape:shape,...(shape==='INTERNAL_TOKEN'?{category:categoryOfField(q.id,String(expected)),status:'OPTION_SET_MISSING'}:{})}),
           internalTokenTyped:!chosen&&shape==='INTERNAL_TOKEN',closedDomainAsText:!chosen&&Boolean(domain&&domain.values.length>=2)});
+        if(!chosen&&shape==='INTERNAL_TOKEN') optionQueue.push({activityId:a.id,learningUnitId:lu,learningUnitTitle:model.learningUnit.title,activityTitle:model.title,field:q.id,fieldLabel:q.label,canonicalTarget:String(expected),answerCategory:categoryOfField(q.id,String(expected)),runtime:model.executionPlan.runtime,configSource:model.executionPlan.configSource});
       }
     }
     row.crashErrors=[...new Set(row.crashErrors)];
@@ -121,13 +123,38 @@ export async function buildInteractionReports(root:string){
       {id:'REFERENCE_CONFIG_IN_PAGE_MODEL',detail:'the client-side practice engine receives referenceConfig in the page model (pre-existing architecture); the UI model and the DOM never contain an expected answer'},
     ],
   };
-  return {answerAudit,labelAudit,reliability};
+  // P2.2 (O): the human authoring/review queue for the OPTION_SET_MISSING fields. It lists what exists and what a
+  // person must provide; it contains NO machine-made alternatives, and nothing here becomes content.
+  const byActivity=new Map<string,any[]>();
+  for(const f of optionQueue) byActivity.set(f.activityId,[...(byActivity.get(f.activityId)??[]),f]);
+  const optionSetQueue={schema:'kimyolab.option-set-authoring-queue.v1',status:'AWAITING_HUMAN_AUTHOR',
+    semantics:'Fields where the learner must type an internal canonical token because the repository holds only the target value. A choice UI needs a complete, pedagogically sound option set; that is authored content. The platform does not invent distractors (P2.1 ADR-P2-002 §2, P2.2 scope).',
+    counts:{activities:byActivity.size,fields:optionQueue.length},
+    authoringContract:{whatAuthorProvides:['the complete option set for the field: the canonical target plus plausible, unambiguous distractors (canonical tokens)','an uz-Latn display label per option (learner-interaction catalog key answer.<domain>.<value>)','a one-line rationale per distractor (the misconception it targets)','the source/curriculum reference supporting the target'],
+      reviewRequirement:['didactic review (distractors are pedagogy)','chemistry review (the target and every option are chemically correct and unambiguous)','two different people; decisions imported through the governed authoring/review pipelines — never by the agent'],
+      landsIn:'content-src/activity-configs/<configSource>.json (option set) + content-src/locales/uz-latn/learner-interaction.json (labels), via npm run authoring:draft → human apply'},
+    activities:[...byActivity.entries()].sort(([a],[b])=>a.localeCompare(b)).map(([activityId,fields])=>({activityId,learningUnitId:fields[0].learningUnitId,learningUnitTitle:fields[0].learningUnitTitle,activityTitle:fields[0].activityTitle,runtime:fields[0].runtime,configSource:fields[0].configSource,
+      fields:fields.map((f:any)=>({field:f.field,fieldLabel:f.fieldLabel,canonicalTarget:f.canonicalTarget,answerCategory:f.answerCategory,whyMissing:'the config holds only the target value (targetState/expected); no option set exists in the domain, config or content',authorMustProvide:'complete option set + uz-Latn labels + distractor rationale',reviewRequirement:'didactic + chemistry review by two people',status:'AWAITING_HUMAN_AUTHOR'}))}))};
+  return {answerAudit,labelAudit,reliability,optionSetQueue};
+}
+
+function optionSetReadme(q:any):string{
+  const rows=q.activities.flatMap((a:any)=>a.fields.map((f:any)=>`| \`${a.activityId}\` | \`${a.learningUnitId}\` | ${f.fieldLabel} (\`${f.field}\`) | \`${f.canonicalTarget}\` | ${f.answerCategory} |`));
+  return [`# Option-set authoring queue (${q.counts.activities} activities, ${q.counts.fields} fields)`,'',
+    'Generated by `scripts/learner-interaction.ts` — do not edit by hand. Status: **AWAITING_HUMAN_AUTHOR**.','',
+    'These fields make the learner type an internal token because only the target value exists. The platform does **not** invent answer alternatives; a person authors them and two people review them.','',
+    '## What the author provides','',...q.authoringContract.whatAuthorProvides.map((x:string)=>`- ${x}`),'',
+    '## Review requirement','',...q.authoringContract.reviewRequirement.map((x:string)=>`- ${x}`),'',`Lands in: ${q.authoringContract.landsIn}`,'',
+    '## Queue','','| Activity | Learning unit | Field | Canonical target | Category |','|---|---|---|---|---|',...rows,''].join('\n');
 }
 
 export async function writeInteractionReports(root:string){
-  const {answerAudit,labelAudit,reliability}=await buildInteractionReports(root);
+  const {answerAudit,labelAudit,reliability,optionSetQueue}=await buildInteractionReports(root);
   const w=(rel:string,v:unknown)=>fs.writeFileSync(path.join(root,rel),JSON.stringify(v,null,2)+'\n');
   w(INTERACTION_REPORTS[0],answerAudit); w(INTERACTION_REPORTS[1],labelAudit); w(INTERACTION_REPORTS[2],reliability);
+  fs.mkdirSync(path.join(root,OPTION_SET_PACKET),{recursive:true});
+  w(`${OPTION_SET_PACKET}/queue.json`,optionSetQueue);
+  fs.writeFileSync(path.join(root,OPTION_SET_PACKET,'README.md'),optionSetReadme(optionSetQueue));
   return reliability;
 }
 

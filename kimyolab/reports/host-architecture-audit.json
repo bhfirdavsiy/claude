@@ -1,0 +1,244 @@
+{
+  "schema": "kimyolab.host-architecture-audit.v1",
+  "semantics": "Static audit of the host boundary (ADR-P2-003). A violation is code outside src/app/host.ts that hard-codes the site root, writes navigation state, or inspects which host it runs in. Logical app routes (/learn/…) passed to link() are the route model, not violations.",
+  "hostBoundary": {
+    "file": "src/app/host.ts",
+    "exists": true,
+    "importedBy": [
+      "src/app/bootstrap.ts"
+    ],
+    "onlyBootstrapImports": true,
+    "bootstrapUsesHost": {
+      "resolveHost": true,
+      "contentBase": true,
+      "fetchContent": true,
+      "storage": true,
+      "locks": true,
+      "links": true
+    }
+  },
+  "hardcodedPaths": {
+    "patterns": [
+      {
+        "id": "content-root-literal",
+        "description": "a content URL hard-coded to /content",
+        "allowIn": [
+          "src/app/host.ts"
+        ]
+      },
+      {
+        "id": "app-preview-root-literal",
+        "description": "a module/CSS URL hard-coded to /app-preview/",
+        "allowIn": []
+      },
+      {
+        "id": "asset-root-literal",
+        "description": "an asset URL hard-coded to /assets/ or /vendor/",
+        "allowIn": []
+      },
+      {
+        "id": "api-root-literal",
+        "description": "an API URL hard-coded to /api/",
+        "allowIn": [
+          "src/app/host.ts"
+        ]
+      },
+      {
+        "id": "location-or-history-write",
+        "description": "navigation state written outside the host boundary",
+        "allowIn": [
+          "src/app/host.ts"
+        ]
+      },
+      {
+        "id": "host-type-check",
+        "description": "code that inspects which host it runs in",
+        "allowIn": [
+          "src/app/host.ts"
+        ]
+      }
+    ],
+    "after": {
+      "byPattern": {
+        "content-root-literal": 0,
+        "app-preview-root-literal": 0,
+        "asset-root-literal": 0,
+        "api-root-literal": 0,
+        "location-or-history-write": 0,
+        "host-type-check": 0
+      },
+      "violations": 0,
+      "findings": []
+    },
+    "shell": {
+      "rootAbsoluteUrlsWhenMountedAtKimyolab": [],
+      "declaresBasePath": true,
+      "routeAnchors": 6
+    }
+  },
+  "serviceWorker": {
+    "registrations": [],
+    "maxAllowedScope": "<basePath> (e.g. /kimyolab/)",
+    "pass": true
+  },
+  "storage": {
+    "strategy": "namespace from basePath: \"/\" → kimyolab (legacy names kept: kimyolab-runtime, kimyolab.attempt.); \"/kimyolab/\" → kimyolab@/kimyolab/ (kimyolab@/kimyolab/.runtime, kimyolab@/kimyolab/.attempt.)",
+    "legacyDefaultParameters": [
+      {
+        "file": "src/features/progress/liveness.ts",
+        "line": 9
+      },
+      {
+        "file": "src/features/progress/service.ts",
+        "line": 60
+      },
+      {
+        "file": "src/runtime/progress/indexeddb-store.ts",
+        "line": 154
+      }
+    ],
+    "note": "the defaults are the root namespace values used by Node tests; the browser bootstrap always passes the host namespace"
+  },
+  "css": {
+    "selectors": 339,
+    "klScoped": 337,
+    "rootCustomPropertyBlocks": 2,
+    "rootNonNamespacedDeclarations": [],
+    "global": []
+  },
+  "before": {
+    "commit": "5766c2bdd2484ddfebba6edfef7a6f02d4780e98",
+    "byPattern": {
+      "content-root-literal": 2,
+      "app-preview-root-literal": 0,
+      "asset-root-literal": 4,
+      "api-root-literal": 2,
+      "location-or-history-write": 4,
+      "host-type-check": 2
+    },
+    "violations": 14,
+    "findings": [
+      {
+        "pattern": "content-root-literal",
+        "file": "src/app/bootstrap.ts",
+        "line": 22,
+        "text": "'/content'",
+        "allowed": false
+      },
+      {
+        "pattern": "location-or-history-write",
+        "file": "src/app/bootstrap.ts",
+        "line": 41,
+        "text": "location.hash=",
+        "allowed": false
+      },
+      {
+        "pattern": "location-or-history-write",
+        "file": "src/app/bootstrap.ts",
+        "line": 44,
+        "text": "history.pushState",
+        "allowed": false
+      },
+      {
+        "pattern": "location-or-history-write",
+        "file": "src/app/bootstrap.ts",
+        "line": 140,
+        "text": "addEventListener('popstate'",
+        "allowed": false
+      },
+      {
+        "pattern": "location-or-history-write",
+        "file": "src/app/bootstrap.ts",
+        "line": 141,
+        "text": "addEventListener('hashchange'",
+        "allowed": false
+      },
+      {
+        "pattern": "host-type-check",
+        "file": "src/app/bootstrap.ts",
+        "line": 25,
+        "text": "__KIMYOLAB_STANDALONE__",
+        "allowed": false
+      },
+      {
+        "pattern": "content-root-literal",
+        "file": "src/app/content-client.ts",
+        "line": 57,
+        "text": "'/content'",
+        "allowed": false
+      },
+      {
+        "pattern": "asset-root-literal",
+        "file": "src/features/home/render.ts",
+        "line": 6,
+        "text": "'/assets/",
+        "allowed": false
+      },
+      {
+        "pattern": "asset-root-literal",
+        "file": "src/features/home/render.ts",
+        "line": 7,
+        "text": "'/assets/",
+        "allowed": false
+      },
+      {
+        "pattern": "asset-root-literal",
+        "file": "src/features/home/render.ts",
+        "line": 8,
+        "text": "'/assets/",
+        "allowed": false
+      },
+      {
+        "pattern": "host-type-check",
+        "file": "src/features/home/render.ts",
+        "line": 12,
+        "text": "__KIMYOLAB_STANDALONE_ASSETS__",
+        "allowed": false
+      },
+      {
+        "pattern": "asset-root-literal",
+        "file": "src/integrations/external-labs/nobook/nobook-provider.ts",
+        "line": 13,
+        "text": "'/vendor/",
+        "allowed": false
+      },
+      {
+        "pattern": "api-root-literal",
+        "file": "src/integrations/external-labs/nobook/nobook-provider.ts",
+        "line": 26,
+        "text": "'/api/",
+        "allowed": false
+      },
+      {
+        "pattern": "api-root-literal",
+        "file": "src/integrations/external-labs/nobook/nobook-provider.ts",
+        "line": 43,
+        "text": "'/api/",
+        "allowed": false
+      }
+    ],
+    "shell": {
+      "rootAbsoluteUrlsWhenMountedAtKimyolab": [
+        "/app-preview/ui/tokens/kimyolab.css",
+        "/",
+        "/",
+        "/curriculum",
+        "/labs",
+        "/search",
+        "/progress",
+        "/app-preview/app/bootstrap.js"
+      ],
+      "declaresBasePath": false
+    },
+    "css": {
+      "global": [
+        "*",
+        "body",
+        "a",
+        ":focus-visible",
+        "*::before",
+        "*::after"
+      ]
+    }
+  }
+}
