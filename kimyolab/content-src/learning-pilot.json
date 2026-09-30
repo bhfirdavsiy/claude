@@ -1,0 +1,10 @@
+{
+  "schema": "kimyolab.learning-pilot.v1",
+  "description": "P1.2 controlled pilot: strict readiness enforcement (C4) and learner-facing mastery (C1) apply only to these LearningUnits. Selection criteria and rationale: docs/adr/ADR-P1-003-readiness-and-mastery-ux.md.",
+  "learningUnits": [
+    {"id": "lu.9.15", "reason": "Only unit with objective assessment items (5, review pending) and a released beta2-advanced electrolysis experiment; exercises the pending-assessment fallback and the approved-assessment path."},
+    {"id": "lu.7.11", "reason": "Released reference-slice trainer (practice.trainer.7.4) with an ionic/valency chemistry model and existing browser coverage."},
+    {"id": "lu.7.12", "reason": "Released reference-slice calculation (practice.calculation.7.5) with a deterministic calculation engine and existing 10-command attempt coverage."},
+    {"id": "lu.7.07", "reason": "Released reference-slice simulation (practice.simulation.7.07.planned, lifecycle ready) — a third engine type."}
+  ]
+}

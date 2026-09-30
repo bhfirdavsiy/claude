@@ -1,13 +1,17 @@
 import type { LearningHubModel, StudentPracticeModel } from './model.ts';
 import { el, clear, link } from '../../ui/components/dom.ts';
 import type {CycleSnapshot} from '../progress/service.ts';
+import type {MasteryViewModel} from '../../domain/mastery/view.ts';
+import {renderMasteryPanel} from '../progress/mastery-render.ts';
 
 export type LearningCycleStage='guide'|'practice'|'quiz';
 
 function practiceCard(practice:StudentPracticeModel,learningUnitId:string,primary=false){
   const article=el('article',{className:`kl-practice-card${primary?' kl-practice-card--primary':''}`});
   article.append(el('span',{className:'kl-practice-card__type',text:practice.type}),el('h3',{text:practice.title}),el('p',{text:practice.goal}));
-  article.append(link('Faoliyatni boshlash',`/practice/${encodeURIComponent(practice.id)}?lu=${encodeURIComponent(learningUnitId)}`,'kl-text-link'));
+  // P1.2 (C4): an activity the readiness gate refuses is shown with a learner-facing reason, never a launch link.
+  if(practice.launchable) article.append(link('Faoliyatni boshlash',`/practice/${encodeURIComponent(practice.id)}?lu=${encodeURIComponent(learningUnitId)}`,'kl-text-link'));
+  else{article.classList.add('is-unavailable');article.setAttribute('aria-disabled','true');article.append(el('p',{className:'kl-muted kl-practice-card__unavailable',text:practice.unavailableMessage??'Bu faoliyat hozircha mavjud emas.'}));}
   return article;
 }
 
@@ -80,8 +84,12 @@ export interface AssessmentFeedback { objectiveItems:number; correctItems:number
  * responses and hands them to `onAssessment` (→ LearningOrchestrator.submitAssessment → evaluator).
  * Without items it is a reflection (`onSubmit` → REINFORCEMENT_COMPLETED), which is never an assessment.
  */
-export function renderLearningQuiz(root:HTMLElement,model:LearningHubModel,status:CycleSnapshot,onSubmit?:(payload:Record<string,unknown>)=>Promise<void>,onAssessment?:(responses:Array<{itemId:string;selectedOptionId:string}>)=>Promise<AssessmentFeedback>){
+export function renderLearningQuiz(root:HTMLElement,model:LearningHubModel,status:CycleSnapshot,onSubmit?:(payload:Record<string,unknown>)=>Promise<void>,onAssessment?:(responses:Array<{itemId:string;selectedOptionId:string}>)=>Promise<AssessmentFeedback>,mastery?:{refresh:()=>Promise<MasteryViewModel>}){
   clear(root); root.append(cycleHeader(model,status,'quiz'));
+  // Pilot units (P1.2 C1): mastery is shown separately from the lesson stage and refreshed after each submission.
+  const masterySlot=el('div',{className:'kl-mastery-slot'});
+  const refreshMastery=()=>{if(!mastery)return;void mastery.refresh().then(view=>{clear(masterySlot);masterySlot.append(renderMasteryPanel(view));}).catch(()=>undefined);};
+  refreshMastery();
   const layout=el('div',{className:'kl-shell kl-learning-grid'}); const main=el('div',{className:'kl-learning-main'});
   const card=el('section',{className:'kl-card'}); card.append(el('p',{className:'kl-kicker',text:'3-bosqich · Mustahkamlash'}),el('h2',{text:'Nazariya va tajribani bir-biriga bog‘lang'}),el('p',{className:'kl-section-copy',text:'Bu bosqich mavzuni qayta aytish emas: nazariy tushuncha, amaliy kuzatuv va ilmiy xulosani bir zanjirga keltiring.'}));
   const form=el('form',{className:'kl-reinforcement-form'});
@@ -99,12 +107,15 @@ export function renderLearningQuiz(root:HTMLElement,model:LearningHubModel,statu
       const responses=model.assessment.items.map(item=>({itemId:item.id,selectedOptionId:String(data.get(item.id)??'')}));
       submit.setAttribute('disabled','');
       void onAssessment(responses).then(result=>{
+        refreshMastery();
         for(const item of result.items){const fs=form.querySelector(`[data-item-id="${CSS.escape(item.itemId)}"]`);fs?.setAttribute('data-result',item.correct?'correct':'incorrect');}
         feedback.textContent=`Natija: ${result.correctItems}/${result.objectiveItems}. Javoblaringiz saqlandi.`;
         submit.removeAttribute('disabled');
       }).catch(()=>{feedback.textContent='Natijani saqlab bo‘lmadi. Qayta urinib ko‘ring.';submit.removeAttribute('disabled');});
     });
   }else{
+    // Objective assessment not available: reflection is the pedagogical fallback. Say why, in plain words.
+    if(model.assessmentAvailability.status==='PENDING'&&model.assessmentAvailability.message) card.append(el('p',{className:'kl-notice',text:model.assessmentAvailability.message,attrs:{role:'note','data-quiz-state':'pending'}}));
     const prompts=[
       {name:'conceptReflection',title:'1. Asosiy tushunchalarni izohlang',help:`${model.concepts.map(x=>x.name).join(', ')} tushunchalaridan kamida bittasini o‘z so‘zingiz bilan tushuntiring.`},
       {name:'practiceReflection',title:'2. Amaliyot natijasini yozing',help:`“${model.primaryPractice.title}” faoliyatida nimani kuzatdingiz yoki qanday natija oldingiz?`},
@@ -114,10 +125,11 @@ export function renderLearningQuiz(root:HTMLElement,model:LearningHubModel,statu
     const confidence=el('fieldset',{className:'kl-confidence'});confidence.append(el('legend',{text:'Mavzuni qanchalik tushundingiz?'}));
     for(const [value,labelText] of [['understood','Tushundim'],['partial','Qisman tushundim'],['review','Yana takrorlashim kerak']]){const label=el('label',{className:'kl-check'});const input=el('input',{attrs:{type:'radio',name:'confidence',value,required:''}});label.append(input,document.createTextNode(` ${labelText}`));confidence.append(label);} form.append(confidence);
     const actions=el('div',{className:'kl-cycle-actions'}); actions.append(link('← Amaliyotga qaytish',`/learn/${model.id}/practice`,'kl-button kl-button--secondary')); const submit=el('button',{className:'kl-button kl-button--primary',text:status.reinforcementComplete?'Mustahkamlashni yangilash':'Mustahkamlashni yakunlash',attrs:{type:'submit'}});actions.append(submit);form.append(actions,feedback);
-    form.addEventListener('submit',e=>{e.preventDefault();if(!onSubmit)return;const data=new FormData(form as HTMLFormElement);const payload={mode:'reflection',conceptReflection:String(data.get('conceptReflection')??'').trim(),practiceReflection:String(data.get('practiceReflection')??'').trim(),connectionReflection:String(data.get('connectionReflection')??'').trim(),confidence:String(data.get('confidence')??'')};if(Object.values(payload).some(v=>!v)){feedback.textContent='Barcha qismlarni to‘ldiring.';return;}submit.setAttribute('disabled','');void onSubmit(payload).then(()=>{feedback.textContent='Mustahkamlash saqlandi. Endi natijalarni ko‘rishingiz yoki mavzuni qayta ko‘rib chiqishingiz mumkin.';submit.removeAttribute('disabled');}).catch(()=>{feedback.textContent='Natijani saqlab bo‘lmadi. Qayta urinib ko‘ring.';submit.removeAttribute('disabled');});});
+    form.addEventListener('submit',e=>{e.preventDefault();if(!onSubmit)return;const data=new FormData(form as HTMLFormElement);const payload={mode:'reflection',conceptReflection:String(data.get('conceptReflection')??'').trim(),practiceReflection:String(data.get('practiceReflection')??'').trim(),connectionReflection:String(data.get('connectionReflection')??'').trim(),confidence:String(data.get('confidence')??'')};if(Object.values(payload).some(v=>!v)){feedback.textContent='Barcha qismlarni to‘ldiring.';return;}submit.setAttribute('disabled','');void onSubmit(payload).then(()=>{refreshMastery();feedback.textContent='Mustahkamlash saqlandi. Endi natijalarni ko‘rishingiz yoki mavzuni qayta ko‘rib chiqishingiz mumkin.';submit.removeAttribute('disabled');}).catch(()=>{feedback.textContent='Natijani saqlab bo‘lmadi. Qayta urinib ko‘ring.';submit.removeAttribute('disabled');});});
   }
   card.append(form); main.append(card);
   const side=el('aside',{className:'kl-learning-side',attrs:{'aria-label':'Mustahkamlash yo‘riqnomasi'}});side.append(conceptsCard(model));const w=el('section',{className:'kl-card'});w.append(el('h2',{text:'Qo‘shimcha mustahkamlash'}),el('p',{text:'Mavzuni yozma topshiriqlar bilan davom ettirish uchun ish varaqasidan foydalaning.'}),link('Ish varaqasini ochish',`/worksheet/${model.id}`,'kl-text-link'));side.append(w);const r=el('section',{className:'kl-card'});r.append(el('h2',{text:'Natija'}),link('Natijalarimni ko‘rish','/progress','kl-text-link'));side.append(r);
+  if(mastery){const m=el('section',{className:'kl-card'});m.append(el('h2',{text:'O‘zlashtirish holati'}),masterySlot);side.prepend(m);}
   layout.append(main,side);root.append(layout);
 }
 

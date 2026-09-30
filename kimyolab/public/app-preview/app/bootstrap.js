@@ -88,7 +88,7 @@ async function renderCurrent(){
           const result=await progressService.submitAssessment(session,responses);
           session=result.session;
           return result;
-        });
+        },hub.pilot?{refresh:()=>progressService.getMasteryView(learningUnitId,versions,hub.concepts.map(c=>c.id),hub.assessmentAvailability.status)}:undefined);
       }
       else renderLearningGuide(main,hub,cycle,async()=>{try{await progressService.markGuideComplete(learningUnitId,versions);}catch{}navigateInternal(`/learn/${learningUnitId}/practice`);});
     }
@@ -97,7 +97,19 @@ async function renderCurrent(){
   }
   if(route.name==='progress'){
     renderLoading(main);
-    try{const [rows,groups]=await Promise.all([progressService.listProgress(),Promise.all([7,8,9,10,11].map(g=>client.listLearningUnits(g)))]);renderProgress(main,buildProgressViewModel(rows,groups.flat()));}
+    try{
+      const [rows,groups,readiness,versions]=await Promise.all([progressService.listProgress(),Promise.all([7,8,9,10,11].map(g=>client.listLearningUnits(g))),client.loadReadiness(),client.getRuntimeVersions()]);
+      const units=groups.flat();
+      // Learner-facing mastery only for pilot units (P1.2 C1), computed under the active versions.
+      const mastery=new Map();
+      for(const row of rows){
+        if(!readiness.pilotLearningUnitIds.includes(row.learningUnitId)) continue;
+        const unit    =units.find((u    )=>u.id===row.learningUnitId);
+        const availability=readiness.units?.find(u=>u.learningUnitId===row.learningUnitId)?.assessment.status??'NONE';
+        if(unit) mastery.set(row.learningUnitId,await progressService.getMasteryView(row.learningUnitId,versions,unit.conceptIds??[],availability));
+      }
+      renderProgress(main,buildProgressViewModel(rows,units,mastery));
+    }
     catch(error){renderError(main,contentErrorMessage(error,'Natijalarni yuklab bo‘lmadi. Brauzer saqlash imkoniyatini tekshiring.'));}
     return;
   }

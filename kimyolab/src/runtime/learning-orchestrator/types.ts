@@ -60,8 +60,8 @@ export interface LearningStorePort {
   saveMastery(mastery:ConceptMastery):Promise<void>;
   loadMastery(conceptId:string):Promise<ConceptMastery|undefined>;
   saveAssessment(result:AssessmentResult):Promise<void>;
-  /** Used only by boot-time recovery of orphaned attempts (never per command). */
-  listAttempts():Promise<Attempt[]>;
+  /** Boot-time recovery (all) and the page-level mastery view (one unit); never per command. */
+  listAttempts(learningUnitId?:string):Promise<Attempt[]>;
 }
 
 /**

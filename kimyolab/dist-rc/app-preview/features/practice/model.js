@@ -1,5 +1,6 @@
                                                                     
                                                                                            
+                                                                                   
 
                                            
             
@@ -10,6 +11,8 @@
                                                                                      
                                                                           
                                                                                             
+                                      
+                                                                                                  
                                       
                                      
                          
@@ -34,6 +37,7 @@ export function buildPracticePageModel(input
                             
                                   
                                                                   
+                                      
                                       
                                      
                         
@@ -60,6 +64,10 @@ export function buildPracticePageModel(input
       const plan=input.executionPlan;
       if(plan.activityId!==input.activity.id||plan.engine!==input.activity.type) throw new Error('EXECUTION_PLAN_ACTIVITY_MISMATCH');
       return {...plan};
+    })(),
+    readiness:(()=>{
+      if(input.readiness.activityId!==input.activity.id) throw new Error('READINESS_ACTIVITY_MISMATCH');
+      return structuredClone(input.readiness);
     })(),
     referenceConfig:structuredClone(input.referenceConfig),
     activityVersion:String(input.activity.version??'0'),

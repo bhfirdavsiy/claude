@@ -11,6 +11,8 @@ import {computeConceptMastery,type ConceptMastery,type MasteryContext,type Maste
 import {scoreAssessment,type AssessmentResult} from '../../domain/assessment/scoring.ts';
 import {evaluateAssessment,evaluationToEvidenceDrafts,type AssessmentEvaluation,type AssessmentResponse} from '../../domain/assessment/evaluator.ts';
 import {assessmentIdFor} from '../../domain/assessment/model.ts';
+import {buildMasteryView,type MasteryViewInput,type MasteryViewModel} from '../../domain/mastery/view.ts';
+import type {AssessmentAvailability} from '../../domain/readiness/unit-readiness.ts';
 import {newUuid} from '../shared/ids.ts';
 import type {PracticeType} from '../../domain/content/types.ts';
 import type {LearningIntent} from './events.ts';
@@ -404,6 +406,26 @@ export class LearningOrchestrator {
       out.push(mastery);
     }
     return out;
+  }
+
+  /**
+   * Learner-facing mastery (C1): recomputed through the canonical path under the ACTIVE version context
+   * (old-version evidence never shows), then reduced to a pedagogical band. The UI receives only the view.
+   */
+  async getMasteryView(learningUnitId:string,versions:Pick<VersionContext,'contentVersion'|'scoringVersion'|'curriculumVersion'>,conceptIds:string[],assessmentAvailability:AssessmentAvailability):Promise<MasteryViewModel>{
+    const ids=unique(conceptIds);
+    const mastery=await this.recomputeMastery(ids,versions);
+    const counted:MasteryViewInput['countedEvidence']=[];
+    for(const m of mastery){
+      const included=new Set(m.evidenceIds);
+      for(const e of await this.store.loadEvidenceForConcept(m.conceptId)) if(included.has(e.id)) counted.push({id:e.id,conceptId:e.conceptId,evidenceClass:e.evidenceClass,source:e.independenceKey??e.activityId,createdAt:e.createdAt});
+    }
+    const attempts=await this.store.listAttempts(learningUnitId);
+    const finished=(a:Attempt)=>a.status!=='in_progress';
+    return buildMasteryView({
+      learningUnitId,conceptIds:ids,mastery,countedEvidence:counted,assessmentAvailability,
+      attempts:{practiceCompletedOrAbandoned:attempts.filter(a=>a.attemptType!=='assessment'&&finished(a)).length,assessment:attempts.filter(a=>a.attemptType==='assessment').length},
+    });
   }
 
   // ---------------------------------------------------------------- snapshot

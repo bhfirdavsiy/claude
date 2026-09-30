@@ -6,7 +6,7 @@
   "assessmentVersion": "0.0.0",
   "scoringVersion": "0.0.0",
   "createdAt": "2026-09-22T00:00:00.000Z",
-  "checksum": "518a40f790485c4e6fd9355051941f8a8e8bc623406f48a9a97ac266704e2a9a",
+  "checksum": "a460619b9f93bdbbf6a4f716c004f53811da366be231e0359dcafcd85ddfca3c",
   "compatibility": {
     "minAppVersion": "20.1.0"
   },
@@ -59,6 +59,11 @@
       "size": 4877
     },
     {
+      "path": "activity-readiness.json",
+      "checksum": "bda98723c5461a6c9e42a75c831223dae307837097f9c5424d932322ac8988a0",
+      "size": 59052
+    },
+    {
       "path": "aliases.yaml",
       "checksum": "7db3ed84e10c586d4f269dd951eaac13a89519e18df8e09f695e5a002daabd37",
       "size": 32029
@@ -70,8 +75,8 @@
     },
     {
       "path": "assessment/prompts.json",
-      "checksum": "841c79bd42e4a9d1dd3bfcbae1957f9aec4a1a058f8e92f333215de6e00bb1d2",
-      "size": 3988
+      "checksum": "fbc78848d528780175b6d469ec1f67252ac121d222cba15810cb013b39766f0a",
+      "size": 4128
     },
     {
       "path": "chemistry/constants.json",

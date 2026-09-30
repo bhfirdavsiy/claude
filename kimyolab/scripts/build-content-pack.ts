@@ -5,6 +5,9 @@ import { sha256File, sha256Buffer } from '../src/domain/content/checksum.ts';
 import { createActivationPointer } from '../src/runtime/compatibility/release-pointer.ts';
 import { CONFIG_SOURCE_NAMES, EXECUTION_PLAN_PACK_PATH, compileExecutionPlans } from '../src/runtime/practice-router/execution-plan.ts';
 import { ASSESSMENT_KEY_PACK_PATH, ASSESSMENT_PROMPT_PACK_PATH, splitAssessmentBank } from '../src/domain/assessment/model.ts';
+import { deriveItemLifecycle } from '../src/domain/assessment/governance.ts';
+import { READINESS_PACK_PATH } from '../src/domain/readiness/readiness.ts';
+import { compileReadiness } from './lib/readiness-compile.ts';
 import { readReleasePointer, writeReleasePointerAtomic } from './release-pointer-io.ts';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -56,7 +59,18 @@ copy(path.join(source, 'aliases.yaml'), path.join(packRoot, 'aliases.yaml'));
 
 // P1.1 (C3): the authored bank (content-src/assessment-items.json) is never shipped as-is. The pack
 // carries a learner-facing prompt layer and a separate answer-key layer that a deployment can withhold.
-const assessment = splitAssessmentBank(JSON.parse(fs.readFileSync(path.join(source, 'assessment-items.json'), 'utf8')));
+// P1.2: the shipped review state is DERIVED from the human review register — never taken from the bank.
+const reviewRegister = JSON.parse(fs.readFileSync(path.join(source, 'assessment-reviews.json'), 'utf8'));
+const unitById = new Map(units.map((u: any) => [u.id, u]));
+const assessment = splitAssessmentBank(JSON.parse(fs.readFileSync(path.join(source, 'assessment-items.json'), 'utf8')), {
+  effectiveReview: (item: any) => {
+    const unit: any = unitById.get(item.learningUnitId);
+    const verdict = deriveItemLifecycle(item, reviewRegister.records ?? [], { unitOutcomeCount: unit?.learningOutcomes?.length ?? 0, unitConceptIds: unit?.conceptIds ?? [] });
+    if (verdict.lifecycle === 'APPROVED') return { chemistry: 'approved', didactic: 'approved' };
+    const shipped = (d: string) => (d === 'rejected' ? 'rejected' : 'pending') as 'rejected' | 'pending';
+    return { chemistry: shipped(verdict.review.chemistry), didactic: shipped(verdict.review.didactic) };
+  },
+});
 writeJson(path.join(packRoot, ASSESSMENT_PROMPT_PACK_PATH), assessment.prompts);
 writeJson(path.join(packRoot, ASSESSMENT_KEY_PACK_PATH), assessment.keys);
 
@@ -81,6 +95,18 @@ if (fs.existsSync(activityConfigsSource)) {
     throw new Error(`EXECUTION_PLAN_COMPILE_FAILED: ${compiled.fatal.length} activity route error(s)`);
   }
   writeJson(path.join(packRoot, EXECUTION_PLAN_PACK_PATH), compiled.pack);
+
+  // P1.2: the ONE runtime readiness authority (activity status/reasons/enforcement + unit assessment facts).
+  const readiness = compileReadiness({
+    activities, configs,
+    mappings: JSON.parse(fs.readFileSync(path.join(source, 'mapping-links.json'), 'utf8')),
+    units,
+    bank: JSON.parse(fs.readFileSync(path.join(source, 'assessment-items.json'), 'utf8')),
+    reviews: JSON.parse(fs.readFileSync(path.join(source, 'assessment-reviews.json'), 'utf8')).records ?? [],
+    pilot: JSON.parse(fs.readFileSync(path.join(source, 'learning-pilot.json'), 'utf8')),
+  });
+  if (readiness.fatal.length) { for (const f of readiness.fatal) console.error(f); throw new Error(`READINESS_COMPILE_FAILED: ${readiness.fatal.length}`); }
+  writeJson(path.join(packRoot, READINESS_PACK_PATH), readiness.pack);
 }
 
 const chemistrySource = path.join(source, 'chemistry');

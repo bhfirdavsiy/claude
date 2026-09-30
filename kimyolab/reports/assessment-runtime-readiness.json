@@ -1,21 +1,20 @@
 {
-  "generatedAt": "2026-09-29T16:18:53.665Z",
   "totalLearningUnits": 122,
   "unitsWithObjectiveAssessment": 0,
+  "unitsWithPendingAssessment": 1,
   "approvedItems": 0,
   "pendingItems": 5,
+  "draftItems": 0,
+  "retiredItems": 0,
   "itemsWithConceptMapping": 5,
-  "itemsWithOutcomeMapping": 0,
+  "itemsWithOutcomeMapping": 5,
   "itemsRuntimeReady": 0,
   "itemsBlocked": 5,
   "blockedReasons": {
-    "REVIEW_PENDING": 5
+    "CHEMISTRY_REVIEW_REQUIRED": 5,
+    "ASSESSMENT_REVIEW_PENDING": 5
   },
-  "bankVersion": "1.0.0-rc.1",
-  "itemsByLearningUnit": {
-    "lu.9.15": {
-      "total": 5,
-      "runtimeReady": 0
-    }
-  }
+  "humanReviewRecords": 0,
+  "itemsWithProvenance": 0,
+  "bankVersion": "1.0.0-rc.1"
 }

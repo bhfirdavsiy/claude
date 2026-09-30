@@ -126,6 +126,35 @@
               "type": "string",
               "pattern": "^lu\\.[0-9]+(\\.[0-9]+)+#o[1-9][0-9]*$"
             }
+          },
+          "lifecycle": {
+            "enum": [
+              "DRAFT",
+              "REVIEW_PENDING",
+              "RETIRED"
+            ],
+            "description": "Authored lifecycle. APPROVED is derived from human review records only."
+          },
+          "provenance": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "authoredBy",
+              "aiGenerated"
+            ],
+            "properties": {
+              "authoredBy": {
+                "type": "string",
+                "minLength": 1
+              },
+              "aiGenerated": {
+                "type": "boolean"
+              },
+              "generator": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
           }
         }
       }

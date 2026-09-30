@@ -1,0 +1,16 @@
+{
+  "totalLU": 122,
+  "LUWithMasteryEvidenceSource": 122,
+  "LUWithObjectiveAssessment": 0,
+  "LUEligibleForMasteryDisplay": 4,
+  "LUWhereMasteredIsReachable": 0,
+  "LUBlockedByMissingAssessment": 122,
+  "LUBlockedByReadiness": 0,
+  "pilotLU": [
+    "lu.9.15",
+    "lu.7.11",
+    "lu.7.12",
+    "lu.7.07"
+  ],
+  "note": "Mastery is displayed only for pilot units. Without an approved objective assessment a unit can never show \"O‘zlashtirilgan\" (minimum-evidence rule)."
+}

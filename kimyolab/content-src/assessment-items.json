@@ -16,6 +16,7 @@
       "correctOptionId": "A",
       "explanation": "Katodda zarrachalar elektron qabul qiladi, ya’ni qaytarilish sodir bo‘ladi.",
       "conceptIds": ["concept.c184", "concept.c186"],
+      "outcomeIds": ["lu.9.15#o1"],
       "sourceRefs": ["src.legacy.9.15"],
       "version": "1.0.0-rc.1",
       "review": {"chemistry": "pending", "didactic": "pending"}
@@ -34,6 +35,7 @@
       "correctOptionId": "B",
       "explanation": "Anodda zarrachalar elektron beradi, ya’ni oksidlanish sodir bo‘ladi.",
       "conceptIds": ["concept.c185", "concept.c187"],
+      "outcomeIds": ["lu.9.15#o1"],
       "sourceRefs": ["src.legacy.9.15"],
       "version": "1.0.0-rc.1",
       "review": {"chemistry": "pending", "didactic": "pending"}
@@ -52,6 +54,7 @@
       "correctOptionId": "A",
       "explanation": "Kationlar manfiy elektrod — katod tomon harakatlanadi.",
       "conceptIds": ["concept.c184", "concept.c186"],
+      "outcomeIds": ["lu.9.15#o1"],
       "sourceRefs": ["src.legacy.9.15"],
       "version": "1.0.0-rc.1",
       "review": {"chemistry": "pending", "didactic": "pending"}
@@ -70,6 +73,7 @@
       "correctOptionId": "A",
       "explanation": "Cu²⁺ ionlari katodda elektron qabul qilib metall mis holatiga qaytariladi.",
       "conceptIds": ["concept.c184", "concept.c186", "concept.c188"],
+      "outcomeIds": ["lu.9.15#o1"],
       "sourceRefs": ["src.legacy.9.15"],
       "version": "1.0.0-rc.1",
       "review": {"chemistry": "pending", "didactic": "pending"}
@@ -88,6 +92,7 @@
       "correctOptionId": "A",
       "explanation": "Elektroliz tashqi elektr energiyasi hisobiga boradigan kimyoviy jarayondir.",
       "conceptIds": ["concept.c187", "concept.c188"],
+      "outcomeIds": ["lu.9.15#o1"],
       "sourceRefs": ["src.legacy.9.15"],
       "version": "1.0.0-rc.1",
       "review": {"chemistry": "pending", "didactic": "pending"}

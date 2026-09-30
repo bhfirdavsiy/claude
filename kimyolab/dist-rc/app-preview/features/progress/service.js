@@ -9,6 +9,8 @@ import {IndexedDbProgressStore} from '../../runtime/progress/indexeddb-store.js'
 import {newUuid} from '../../runtime/shared/ids.js';
 import {createWebLocksLiveness} from './liveness.js';
                                                                              
+                                                                   
+                                                                                     
 import {LearningOrchestrator} from '../../runtime/learning-orchestrator/orchestrator.js';
 import {beginInputFromPage,versionsFromPage,versionsFromRuntime} from '../../runtime/learning-orchestrator/adapters.js';
                                                                                                                                                                              
@@ -136,6 +138,12 @@ export class BrowserProgressService {
 
   retryAssessment(session                       ){return this.orchestrator.retryAssessment(session);}
   leaveAssessment(session                       ){this.orchestrator.leaveAssessment(session);}
+
+  /** Learner-facing mastery view (C1), version-safe: computed under the given active versions. */
+  getMasteryView(learningUnitId       ,versions                    ,conceptIds         ,assessmentAvailability                       )                          {
+    const v=versionsFromRuntime(versions);
+    return this.orchestrator.getMasteryView(learningUnitId,{contentVersion:v.contentVersion,scoringVersion:v.scoringVersion,...(v.curriculumVersion?{curriculumVersion:v.curriculumVersion}:{})},conceptIds,assessmentAvailability);
+  }
 
   async getCycleSnapshot(learningUnitId       )                       {
     const progress=await this.store.loadProgress(learningUnitId);

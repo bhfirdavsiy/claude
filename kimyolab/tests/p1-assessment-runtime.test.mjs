@@ -121,7 +121,9 @@ test('assessment evidence of an old scoring version never enters the new mastery
   assert.ok(m.excludedEvidenceIds.length>0,'it stays in history as excluded');
 });
 
-test('C1 stays disabled: a mastered/needs_review unit is not shown with a mastery status',async()=>{
+// P1.2: C1 is now enabled for pilot units — but as its own MasteryViewModel. The invariant kept here is that the
+// LESSON status never carries mastery (progress ≠ mastery), which is what this test asserts.
+test('lesson status never shows mastery: a mastered/needs_review unit keeps a lesson label (mastery is a separate view)',async()=>{
   const s=service('c2-c1');
   // enough correct objective evidence to reach mastery on the unit concepts
   for(let i=0;i<3;i++){const session=s.beginAssessment(LU,versions,unit.conceptIds);await s.submitAssessment(session,correct());}

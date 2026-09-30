@@ -113,5 +113,6 @@ test('routing coverage: 118 + 27 + 1 = 146, no released activity with 0 or 2+ pl
   const disabled=activities.find(a=>a.id==='practice.simulation.10.4');
   assert.notEqual(disabled.lifecycleStatus,'ready','the disabled activity is not release-eligible');
   const client=new ContentClient({fetchImpl,baseUrl:'/content'});
-  await assert.rejects(client.loadPractice('practice.simulation.10.4'),/PRACTICE_CONFIG_NOT_FOUND/);
+  // P1.2: the canonical readiness gate now refuses it first (DISABLED), before routing is even consulted.
+  await assert.rejects(client.loadPractice('practice.simulation.10.4'),/ACTIVITY_NOT_AVAILABLE|PRACTICE_CONFIG_NOT_FOUND/);
 });

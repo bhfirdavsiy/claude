@@ -70,7 +70,10 @@ export type DisplayStatus=LearningUnitProgress['status']|'reinforcement_complete
  * assessment. Pre-P1.0 records stored reflection as `assessment_complete` without an evaluated
  * assessment — those are shown as what they really were.
  */
-/** C1 (user-visible mastery) is deferred to P1.2: mastery-derived statuses are not shown to learners yet. */
+/**
+ * The LESSON status never carries mastery (P1.2 §32): mastery is shown only through the separate
+ * MasteryViewModel (pilot units). `masteryVisible` exists for diagnostics only.
+ */
 export const USER_VISIBLE_MASTERY=false;
 
 export function displayStatus(progress:LearningUnitProgress,options:{masteryVisible?:boolean}={}):DisplayStatus{

@@ -1,0 +1,161 @@
+{
+  "schema": "kimyolab.assessment-reviews.v1",
+  "instructions": "Copy this file, fill decision/reviewerId/reviewedAt/comment per row for the rows YOU reviewed, leave others null, then run npm run assessment:review:import -- <file>.",
+  "records": [
+    {
+      "itemId": "q.9.15.01",
+      "role": "chemistry",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "itemHash": "2c280300b79bc99cd1a9dd6e33f1705dad0bc10c55c33da948ab985ee539cba6",
+      "itemVersion": "1.0.0-rc.1",
+      "evidence": {
+        "packet": "review-packets/assessment-pilot/q.9.15.01.md",
+        "packetSha256": "9b67316dc300c89e2ce14f0e60e3358515c6dfe0978cbfb96dbf1b22478a3266"
+      },
+      "comment": ""
+    },
+    {
+      "itemId": "q.9.15.01",
+      "role": "didactic",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "didactic",
+      "reviewedAt": null,
+      "itemHash": "2c280300b79bc99cd1a9dd6e33f1705dad0bc10c55c33da948ab985ee539cba6",
+      "itemVersion": "1.0.0-rc.1",
+      "evidence": {
+        "packet": "review-packets/assessment-pilot/q.9.15.01.md",
+        "packetSha256": "9b67316dc300c89e2ce14f0e60e3358515c6dfe0978cbfb96dbf1b22478a3266"
+      },
+      "outcomeDecision": null,
+      "comment": ""
+    },
+    {
+      "itemId": "q.9.15.02",
+      "role": "chemistry",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "itemHash": "65e4a33544707b34786f01fbe141ab4b0b73f87fcbd2589156a15d2ada946e3f",
+      "itemVersion": "1.0.0-rc.1",
+      "evidence": {
+        "packet": "review-packets/assessment-pilot/q.9.15.02.md",
+        "packetSha256": "a8b547afdcfd3eae00d1702142824f235a68ae54ccb51a7cd74a57c9320de28c"
+      },
+      "comment": ""
+    },
+    {
+      "itemId": "q.9.15.02",
+      "role": "didactic",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "didactic",
+      "reviewedAt": null,
+      "itemHash": "65e4a33544707b34786f01fbe141ab4b0b73f87fcbd2589156a15d2ada946e3f",
+      "itemVersion": "1.0.0-rc.1",
+      "evidence": {
+        "packet": "review-packets/assessment-pilot/q.9.15.02.md",
+        "packetSha256": "a8b547afdcfd3eae00d1702142824f235a68ae54ccb51a7cd74a57c9320de28c"
+      },
+      "outcomeDecision": null,
+      "comment": ""
+    },
+    {
+      "itemId": "q.9.15.03",
+      "role": "chemistry",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "itemHash": "035b9511086e81d9db2ca8f020afb589cb0b8957bf98e653649c6e362777af20",
+      "itemVersion": "1.0.0-rc.1",
+      "evidence": {
+        "packet": "review-packets/assessment-pilot/q.9.15.03.md",
+        "packetSha256": "519894dbbcb7e9cba320f5d70a7fd46980c02aff33542030d0f8bfcf39ad8a6e"
+      },
+      "comment": ""
+    },
+    {
+      "itemId": "q.9.15.03",
+      "role": "didactic",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "didactic",
+      "reviewedAt": null,
+      "itemHash": "035b9511086e81d9db2ca8f020afb589cb0b8957bf98e653649c6e362777af20",
+      "itemVersion": "1.0.0-rc.1",
+      "evidence": {
+        "packet": "review-packets/assessment-pilot/q.9.15.03.md",
+        "packetSha256": "519894dbbcb7e9cba320f5d70a7fd46980c02aff33542030d0f8bfcf39ad8a6e"
+      },
+      "outcomeDecision": null,
+      "comment": ""
+    },
+    {
+      "itemId": "q.9.15.04",
+      "role": "chemistry",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "itemHash": "f22e51fd5b16a0d8be081e799e57fe699a2f6dbe8bbbc9d0b2faa01aa546196c",
+      "itemVersion": "1.0.0-rc.1",
+      "evidence": {
+        "packet": "review-packets/assessment-pilot/q.9.15.04.md",
+        "packetSha256": "e53d992c2826fd0ede0bbeca54cfc3b379ab90a6ca48589c8b2b56d5e3c09986"
+      },
+      "comment": ""
+    },
+    {
+      "itemId": "q.9.15.04",
+      "role": "didactic",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "didactic",
+      "reviewedAt": null,
+      "itemHash": "f22e51fd5b16a0d8be081e799e57fe699a2f6dbe8bbbc9d0b2faa01aa546196c",
+      "itemVersion": "1.0.0-rc.1",
+      "evidence": {
+        "packet": "review-packets/assessment-pilot/q.9.15.04.md",
+        "packetSha256": "e53d992c2826fd0ede0bbeca54cfc3b379ab90a6ca48589c8b2b56d5e3c09986"
+      },
+      "outcomeDecision": null,
+      "comment": ""
+    },
+    {
+      "itemId": "q.9.15.05",
+      "role": "chemistry",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "itemHash": "a548e91c44fbf39a2d95e234ae86108ad7042a827641c7e278b3d9e8b2b24b62",
+      "itemVersion": "1.0.0-rc.1",
+      "evidence": {
+        "packet": "review-packets/assessment-pilot/q.9.15.05.md",
+        "packetSha256": "64670a0a3d12358da7b76ff35ab51f2dde76bf8597d8cdf923c891f278b27fb1"
+      },
+      "comment": ""
+    },
+    {
+      "itemId": "q.9.15.05",
+      "role": "didactic",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "didactic",
+      "reviewedAt": null,
+      "itemHash": "a548e91c44fbf39a2d95e234ae86108ad7042a827641c7e278b3d9e8b2b24b62",
+      "itemVersion": "1.0.0-rc.1",
+      "evidence": {
+        "packet": "review-packets/assessment-pilot/q.9.15.05.md",
+        "packetSha256": "64670a0a3d12358da7b76ff35ab51f2dde76bf8597d8cdf923c891f278b27fb1"
+      },
+      "outcomeDecision": null,
+      "comment": ""
+    }
+  ]
+}
