@@ -60,6 +60,8 @@ const walkAssets=(dir:string)=>{
     if(entry.isDirectory()){ walkAssets(full); continue; }
     const type=ASSET_TYPES[path.extname(entry.name).toLowerCase()];
     if(!entry.isFile()||!type) continue;
+    // the canonical brand ORIGINAL (PNG) is a provenance source, not a delivery asset: the app serves the WebP derivative
+    if(posix(path.relative(path.join(root,'public'),full))==='assets/brand/kimyolab-logo.png') continue;
     standaloneAssets[posix(path.relative(path.join(root,'public'),full))]=`data:${type};base64,${fs.readFileSync(full).toString('base64')}`;
   }
 };

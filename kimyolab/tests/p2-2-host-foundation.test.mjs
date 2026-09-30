@@ -14,7 +14,7 @@ import {createWebLocksLiveness,DEFAULT_ATTEMPT_LOCK_PREFIX} from '../src/feature
 import {IndexedDbProgressStore} from '../src/runtime/progress/indexeddb-store.ts';
 import {applyBasePath,rootAbsoluteUrls} from '../scripts/lib/host-build.ts';
 import {buildHostAudit} from '../scripts/lib/host-audit.ts';
-import {APPROVED_LOGO_SHA256,BRAND_ASSET} from '../scripts/host-readiness.ts';
+import {CANONICAL_LOGO,DELIVERY_LOGO,buildBrandReport} from '../scripts/host-readiness.ts';
 import {WEIGHTS} from '../scripts/learning-depth.ts';
 import {createFakeIndexedDb} from './helpers/fake-indexeddb.mjs';
 
@@ -176,13 +176,33 @@ test('standalone artifact: same content bytes, same runtime (no fetch patch, no 
   assert.equal(r.status,'PASS');
 });
 
-test('brand: the user-approved logo is used byte-for-byte in both hosts; the temporary letter mark is gone',()=>{
-  const r=json('reports/brand-integration.json');
-  const bytes=fs.readFileSync(path.join(root,BRAND_ASSET));
-  assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),APPROVED_LOGO_SHA256,'the approved binary, not a redraw');
-  assert.equal(r.status,'INTEGRATED'); assert.equal(r.asset.identicalToApproved,true); assert.deepEqual(r.asset.dimensions,{width:1254,height:1254});
-  assert.deepEqual(r.hosts,{portal:'resolves',standalone:'resolves'});
-  assert.equal(r.shell.temporaryLetterMarkRemoved,true);
+// P2.2 closeout (A1) replaced this test: it compared the WebP with a constant set to that same WebP's hash — a
+// self-confirming check. The canonical source is the user-approved ORIGINAL PNG; its hash below is the user's statement
+// (P2.3 instruction A1), written here independently of any file in the repository.
+const USER_APPROVED_ORIGINAL_PNG_SHA256='243d59b0ed1a3e827a5f63522f816e445a43953e9b24492bd67d771533d2f7b0';
+test('brand provenance: canonical = the user-approved original PNG; the WebP is a delivery derivative, never self-certified',()=>{
+  assert.equal(CANONICAL_LOGO.sha256,USER_APPROVED_ORIGINAL_PNG_SHA256);
+  assert.equal(CANONICAL_LOGO.path,'public/assets/brand/kimyolab-logo.png');
+  const delivery=crypto.createHash('sha256').update(fs.readFileSync(path.join(root,DELIVERY_LOGO))).digest('hex');
+  assert.notEqual(delivery,USER_APPROVED_ORIGINAL_PNG_SHA256,'the WebP is not the original');
+  const committed=json('reports/brand-integration.json');
+  const fresh=buildBrandReport(root,{portal:committed.hosts.portal==='resolves',standalone:committed.hosts.standalone==='resolves'});
+  assert.deepEqual(committed,JSON.parse(JSON.stringify(fresh)),'report is current');
+  assert.equal(committed.canonicalSourceSha256,USER_APPROVED_ORIGINAL_PNG_SHA256);
+  assert.equal(committed.deliveryAssetSha256,delivery);
+  assert.equal(committed.delivery.byteIdenticalToCanonical,false);
+  assert.equal(committed.visuallyEquivalent,'NOT_CHECKED','never claimed without a check');
+  const png=path.join(root,CANONICAL_LOGO.path);
+  if(fs.existsSync(png)){
+    assert.equal(crypto.createHash('sha256').update(fs.readFileSync(png)).digest('hex'),USER_APPROVED_ORIGINAL_PNG_SHA256,'a committed canonical PNG must be the unchanged original');
+    assert.equal(committed.status,'CANONICAL_PRESENT');
+  }else{
+    assert.equal(committed.status,'CANONICAL_SOURCE_MISSING');
+    assert.equal(committed.derivedFromCanonical,'UNVERIFIED');
+    assert.equal(committed.blocker.code,'BRAND_ASSET_MISSING');
+  }
+  assert.deepEqual(committed.hosts,{portal:'resolves',standalone:'resolves'});
+  assert.equal(committed.shell.temporaryLetterMarkRemoved,true);
 });
 
 test('OPTION_SET_MISSING stays a human authoring queue: no machine-made alternatives',()=>{
@@ -207,4 +227,16 @@ test('progress: portal readiness is a separate metric, not in the management for
   assert.equal(b.activities.filter(a=>a.depth==='MODEL_BASED').length,4);
   assert.equal(p.learningProductProgress.components.modelBasedInteraction,4.918,'6/122 units');
   assert.ok(p.whereWeAreNow.facts.includes('0 human approvals, 0 human releases, 0 pilot sign-offs'));
+});
+
+// P2.2 closeout (A2): after P2.2 comes P2.3 (structured theory), then P2.4+, and only then P3.
+import {ROADMAP,milestoneState} from '../scripts/learning-depth.ts';
+test('roadmap: P2.2 → P2.3 → P2.4+ → P3; P3 is not "next" after P2.2',()=>{
+  assert.deepEqual(ROADMAP.map(r=>r.id),['P2.0','P2.1','P2.2','P2.3','P2.4+','P3']);
+  const p=json('reports/project-progress.json'); const ms=milestoneState(root);
+  const next=p.nextMilestones[0].split(' ')[0];
+  const order=ROADMAP.map(r=>r.id);
+  assert.equal(next,order[order.indexOf(ms.current)+1],'next = the roadmap stage after the current one');
+  assert.ok(!p.nextMilestones.some(m=>m.startsWith('P3'))||ms.current==='P2.4+','P3 is never next before P2.4+ is delivered');
+  if(ms.current==='P2.2') assert.equal(next,'P2.3');
 });

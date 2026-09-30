@@ -19,8 +19,11 @@ const rel=(...p:string[])=>path.join(root,...p);
 const readJson=(p:string)=>JSON.parse(fs.readFileSync(rel(p),'utf8'));
 const sha=(b:Buffer|string)=>crypto.createHash('sha256').update(b).digest('hex');
 export const HOST_REPORTS=['reports/host-architecture-audit.json','reports/host-parity.json','reports/standalone-parity.json','reports/brand-integration.json','reports/portal-subpath-readiness.json'] as const;
-export const BRAND_ASSET='public/assets/brand/kimyolab-logo.webp';
-export const APPROVED_LOGO_SHA256='c5afee421f72480358dd2b4d77b21587b3afd7843afbf15bcc87cafe5924b36d';
+// P2.3 closeout of P2.2 (A1): the CANONICAL brand source is the original PNG the user approved in chat — its hash is
+// the user's statement, never a hash computed from a file the agent produced. The WebP served by the product is a
+// DELIVERY asset: it is not byte-identical to the original, and its derivation can only be verified against the PNG.
+export const CANONICAL_LOGO={path:'public/assets/brand/kimyolab-logo.png',sha256:'243d59b0ed1a3e827a5f63522f816e445a43953e9b24492bd67d771533d2f7b0',format:'image/png',dimensions:{width:1254,height:1254},source:'original approved by the user in chat (P2.3 instruction A1)'} as const;
+export const DELIVERY_LOGO='public/assets/brand/kimyolab-logo.webp';
 const HOST_SPECS=['tests/e2e/portal-subpath.spec.mjs','tests/e2e/standalone-host.spec.mjs'];
 
 /** Playwright JSON results → {title: 'passed'|'failed'|…}. */
@@ -34,6 +37,27 @@ function runSpecs():Record<string,string>{
 }
 const passed=(results:Record<string,string>,prefix:string)=>{ const hit=Object.entries(results).filter(([t])=>t.startsWith(prefix)); return hit.length>0&&hit.every(([,s])=>s==='passed'); };
 
+function pngSize(bytes:Buffer){ if(bytes.subarray(1,4).toString()!=='PNG') return null; return {width:bytes.readUInt32BE(16),height:bytes.readUInt32BE(20)}; }
+/** Brand provenance (pure except for reading files). Resolution flags come from the host E2E specs. */
+export function buildBrandReport(base:string,resolves:{portal:boolean;standalone:boolean}){
+  const file=(p:string)=>{ const f=path.join(base,p); return fs.existsSync(f)?fs.readFileSync(f):null; };
+  const canonical=file(CANONICAL_LOGO.path), delivery=file(DELIVERY_LOGO);
+  const index=fs.readFileSync(path.join(base,'index.html'),'utf8');
+  const canonicalSha=canonical?sha(canonical):null;
+  const canonicalOk=canonicalSha===CANONICAL_LOGO.sha256;
+  const status=!canonical?'CANONICAL_SOURCE_MISSING':!canonicalOk?'CANONICAL_SOURCE_MISMATCH':!delivery?'DELIVERY_ASSET_MISSING':'CANONICAL_PRESENT';
+  return {schema:'kimyolab.brand-integration.v2',status,
+    semantics:'canonicalSourceSha256 is the hash of the user-approved original (stated by the user, not computed from any file the agent produced). The delivery asset is what the product serves. derivedFromCanonical and visuallyEquivalent are asserted only when verified against the canonical original; otherwise they stay UNVERIFIED / NOT_CHECKED.',
+    canonicalSourceSha256:CANONICAL_LOGO.sha256,
+    deliveryAssetSha256:delivery?sha(delivery):null,
+    derivedFromCanonical:canonicalOk&&delivery?'NOT_VERIFIED_YET':'UNVERIFIED',
+    visuallyEquivalent:'NOT_CHECKED',
+    canonical:{path:CANONICAL_LOGO.path,expectedSha256:CANONICAL_LOGO.sha256,format:CANONICAL_LOGO.format,expectedDimensions:CANONICAL_LOGO.dimensions,source:CANONICAL_LOGO.source,present:Boolean(canonical),sha256:canonicalSha,matchesApprovedOriginal:canonical?canonicalOk:null,dimensions:canonical?pngSize(canonical):null},
+    delivery:delivery?{path:DELIVERY_LOGO,sha256:sha(delivery),sizeBytes:delivery.length,format:'image/webp',dimensions:webpSize(delivery),provenance:'the logo image as received through the chat channel (WebP); NOT byte-identical to the canonical PNG; derivation unverified until the PNG is committed',byteIdenticalToCanonical:false}:null,
+    shell:{logoElement:/class="kl-brand-logo"[^>]*data-kl-asset="assets\/brand\/kimyolab-logo\.webp"/.test(index),temporaryLetterMarkRemoved:!/kl-brand-mark">K</.test(index),favicon:/rel="icon"[^>]*kimyolab-logo\.webp/.test(index)},
+    hosts:{portal:resolves.portal?'resolves':'fails',standalone:resolves.standalone?'resolves':'fails'},
+    blocker:canonical?null:{code:'BRAND_ASSET_MISSING',detail:`the user-approved original PNG (SHA-256 ${CANONICAL_LOGO.sha256}) is not in this environment; commit it unchanged at ${CANONICAL_LOGO.path}`}};
+}
 function webpSize(bytes:Buffer){ if(bytes.subarray(12,16).toString()!=='VP8X') return null; return {width:bytes.readUIntLE(24,3)+1,height:bytes.readUIntLE(27,3)+1}; }
 
 export async function buildHostReports(){
@@ -75,14 +99,7 @@ export async function buildHostReports(){
     network:{internalContent:'embedded — no server, no network',externalLabs:'third-party labs (NOBOOK, ChemAI) and the NOBOOK session API need network/a server; not faked offline'},
     status:contentMismatch.length===0&&parityPass&&passed(specs,'standalone')?'PASS':'FAIL'};
   // ---------------------------------------------------------------- brand
-  const logoFile=rel(BRAND_ASSET);
-  const logo=fs.existsSync(logoFile)?fs.readFileSync(logoFile):null;
-  const index=fs.readFileSync(rel('index.html'),'utf8');
-  const brand=logo?{schema:'kimyolab.brand-integration.v1',status:'INTEGRATED',
-      asset:{path:BRAND_ASSET,sha256:sha(logo),approvedSha256:APPROVED_LOGO_SHA256,identicalToApproved:sha(logo)===APPROVED_LOGO_SHA256,sizeBytes:logo.length,format:'image/webp',dimensions:webpSize(logo),modified:false},
-      shell:{logoElement:/class="kl-brand-logo"[^>]*data-kl-asset="assets\/brand\/kimyolab-logo\.webp"/.test(index),temporaryLetterMarkRemoved:!/kl-brand-mark">K</.test(index),favicon:/rel="icon"[^>]*kimyolab-logo\.webp/.test(index)},
-      hosts:{portal:passed(specs,'/kimyolab/ opens')?'resolves':'fails',standalone:(build.embeddedAssets??[]).includes('assets/brand/kimyolab-logo.webp')&&passed(specs,'standalone opens from disk')?'resolves':'fails'}}
-    :{schema:'kimyolab.brand-integration.v1',status:'BRAND_ASSET_MISSING',expectedPath:BRAND_ASSET};
+  const brand=buildBrandReport(root,{portal:passed(specs,'/kimyolab/ opens'),standalone:(build.embeddedAssets??[]).includes('assets/brand/kimyolab-logo.webp')&&passed(specs,'standalone opens from disk')});
   // ---------------------------------------------------------------- portal readiness (simulated mount)
   const check=(id:string,pass:boolean,evidence:string)=>({id,pass,evidence});
   const checks=[

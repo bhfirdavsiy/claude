@@ -80,8 +80,12 @@ Yo‘q va P2.2 da qo‘shilmaydi. Audit (`reports/host-architecture-audit.json`)
 
 ## 7. Brend
 
-- Tasdiqlangan logo aynan baytlari bilan saqlandi: `public/assets/brand/kimyolab-logo.webp` (SHA-256 `c5afee42…`, 1254×1254).
-- Vaqtinchalik “K” belgisi o‘rnini bosadi. Host-safe asset yo‘li orqali ikkala host’da ko‘rsatiladi.
+- **Canonical manba** — foydalanuvchi chatda tasdiqlagan original PNG (1254×1254, SHA-256 `243d59b0ed1a3e827a5f63522f816e445a43953e9b24492bd67d771533d2f7b0`). Joyi: `public/assets/brand/kimyolab-logo.png`, o‘zgartirilmaydi.
+- **Delivery asset** — `public/assets/brand/kimyolab-logo.webp` (SHA-256 `c5afee42…`). Bu logo chat kanali orqali kelgan WebP ko‘rinishi; original bilan baytma-bayt bir xil **emas**. U derivative hisoblanadi.
+- `reports/brand-integration.json` ikkalasini ajratadi: `canonicalSourceSha256`, `deliveryAssetSha256`, `derivedFromCanonical`, `visuallyEquivalent`. Oxirgi ikkisi faqat original bilan tekshirilgandan keyin tasdiqlanadi.
+- P2.2 closeout (A1) tuzatishi: avvalgi test WebP’ni o‘zining hash’iga teng konstanta bilan solishtirardi (o‘z-o‘zini tasdiqlash). U olib tashlandi.
+- **Blocker:** original PNG agent muhitida yo‘q (`BRAND_ASSET_MISSING`). Uni foydalanuvchi yuqoridagi yo‘lga o‘zgartirmasdan qo‘shishi kerak; test hash’ni tekshiradi.
+- Vaqtinchalik “K” belgisi olib tashlandi. Logo host-safe asset yo‘li orqali ikkala host’da ko‘rsatiladi.
 
 ## 8. Progress
 

@@ -21,8 +21,10 @@ export const DEPTH_REPORTS={baseline:'reports/learning-depth-baseline.json',summ
 export const ROADMAP:ReadonlyArray<{id:string;label:string}>=[
   {id:'P2.0',label:'learning depth & coverage baseline'},
   {id:'P2.1',label:'learner interaction reliability & usability'},
-  {id:'P2.2',label:'portal-safe single product host foundation'},
-  {id:'P3',label:'raqamlitalim.trm.uz portal deployment'},
+  {id:'P2.2',label:'portal-safe host foundation'},
+  {id:'P2.3',label:'structured theory system'},
+  {id:'P2.4+',label:'assessment / model-based / localization / accessibility / governance expansion'},
+  {id:'P3',label:'real portal deployment and production pilot'},
 ];
 const milestoneOrder=(a:string,b:string)=>a.localeCompare(b,undefined,{numeric:true});
 export function milestoneState(base:string){
