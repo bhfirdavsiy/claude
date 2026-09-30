@@ -34,7 +34,9 @@
                             
                               
                                  
-                          
+                         
+                                                                            
+                      
 
 /** Enforcement per activity: `strict` (pilot) launches only READY; `observe` keeps pre-P1.2 behaviour. */
                                                     
@@ -61,6 +63,12 @@ export function isReleaseReady(r                                                
                          
                                                                                             
                            
+     
+                                                                                                             
+                                                                                                                  
+                                                                                                     
+     
+                                      
  
 
 /**
@@ -73,11 +81,13 @@ export function isReleaseReady(r                                                
 export function deriveActivityReadiness(activity                       ,route                                 ,enforcement                     ,renderer                     ={required:false})                          {
   const reasons                  =[];
   let status                 ;
-  const released=activity.lifecycleStatus==='ready';
+  // grandfathered authored availability (P0/P1 content) OR a current human RELEASE decision — never approval alone
+  const released=activity.lifecycleStatus==='ready'||activity.release==='RELEASED';
   if(!route.ok){
     if(route.code==='ROUTE_NONE'&&!released){status='DISABLED';reasons.push('ROUTE_NONE');}
     else{status='BLOCKED';reasons.push(route.code==='ROUTE_NONE'?'ROUTE_NONE':'ROUTE_INVALID');}
-  }else if(renderer.required&&!renderer.available){status='BLOCKED';reasons.push('RENDERER_UNAVAILABLE');}
+  }else if(activity.release==='DISABLED'){status='DISABLED';reasons.push('RELEASE_DISABLED');}
+  else if(renderer.required&&!renderer.available){status='BLOCKED';reasons.push('RENDERER_UNAVAILABLE');}
   else if(!released){status='PENDING';reasons.push('ACTIVITY_NOT_RELEASED');}
   else status='READY';
   const rejected=activity.reviewRejected??[];
@@ -129,6 +139,7 @@ export function resolveReadiness(pack        ,activityId       )                
 /** Localized, learner-facing explanation. Machine codes never reach the UI (P1.2 §19/§33). */
 export const READINESS_MESSAGES                                         =Object.freeze({
   ACTIVITY_NOT_RELEASED:'Bu faoliyat hali tayyorlanmoqda. Tez orada ochiladi.',
+  RELEASE_DISABLED:'Bu faoliyat hozircha o‘chirilgan.',
   ROUTE_NONE:'Bu faoliyat hozircha mavjud emas.',
   ROUTE_INVALID:'Bu faoliyatni hozircha ochib bo‘lmaydi. Keyinroq urinib ko‘ring.',
   ACTIVITY_REVIEW_PENDING:'Faoliyat mutaxassislar tekshiruvidan o‘tmoqda.',

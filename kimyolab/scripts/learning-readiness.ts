@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {compileReadiness,itemVerdicts,type ReadinessSources} from './lib/readiness-compile.ts';
+import {parseReleaseRegister} from '../src/domain/governance/release-decision.ts';
 import {validateReviewRecord,assessmentItemHash} from '../src/domain/assessment/governance.ts';
 import {launchDecision,isReleaseReady} from '../src/domain/readiness/readiness.ts';
 import {CONFIG_SOURCE_NAMES} from '../src/runtime/practice-router/execution-plan.ts';
@@ -19,6 +20,8 @@ export function loadSources(base=root):ReadinessSources{
     mappings:r('content-src/mapping-links.json'),units:r('content-src/learning-units.json'),
     bank:r('content-src/assessment-items.json'),reviews:r('content-src/assessment-reviews.json').records??[],
     pilot:r('content-src/learning-pilot.json'),
+    // P2.0: the release register is the single release authority (validated records only)
+    releaseDecisions:fs.existsSync(path.join(base,'content-src/release-decisions.json'))?parseReleaseRegister(r('content-src/release-decisions.json')).records:[],
   };
 }
 

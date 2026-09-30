@@ -34,7 +34,9 @@ export type ReadinessReason=
   |'OUTCOME_MAPPING_MISSING'
   |'CHEMISTRY_REVIEW_REQUIRED'
   |'CONTENT_VERSION_INCOMPATIBLE'
-  |'RENDERER_UNAVAILABLE';
+  |'RENDERER_UNAVAILABLE'
+  /** P2.0: a content owner's current DISABLE decision (release register) */
+  |'RELEASE_DISABLED';
 
 /** Enforcement per activity: `strict` (pilot) launches only READY; `observe` keeps pre-P1.2 behaviour. */
 export type ReadinessEnforcement='strict'|'observe';
@@ -61,6 +63,12 @@ export interface ReadinessInputActivity {
   reviewPending:string[];
   /** Result of effectiveApprovalState: which human reviews rejected the current version. */
   reviewRejected?:string[];
+  /**
+   * P2.0 — the ONE release authority is the human release register (content-src/release-decisions.json). Its
+   * effective state on the activity's CURRENT basis arrives here, derived at build time: RELEASED makes a planned
+   * activity launchable, DISABLED takes it down. A stale or missing decision has no effect (`null`).
+   */
+  release?:'RELEASED'|'DISABLED'|null;
 }
 
 /**
@@ -73,11 +81,13 @@ export type RendererAvailability={required:false}|{required:true;available:boole
 export function deriveActivityReadiness(activity:ReadinessInputActivity,route:{ok:true}|{ok:false;code:string},enforcement:ReadinessEnforcement,renderer:RendererAvailability={required:false}):LearningActivityReadiness{
   const reasons:ReadinessReason[]=[];
   let status:RuntimeReadiness;
-  const released=activity.lifecycleStatus==='ready';
+  // grandfathered authored availability (P0/P1 content) OR a current human RELEASE decision — never approval alone
+  const released=activity.lifecycleStatus==='ready'||activity.release==='RELEASED';
   if(!route.ok){
     if(route.code==='ROUTE_NONE'&&!released){status='DISABLED';reasons.push('ROUTE_NONE');}
     else{status='BLOCKED';reasons.push(route.code==='ROUTE_NONE'?'ROUTE_NONE':'ROUTE_INVALID');}
-  }else if(renderer.required&&!renderer.available){status='BLOCKED';reasons.push('RENDERER_UNAVAILABLE');}
+  }else if(activity.release==='DISABLED'){status='DISABLED';reasons.push('RELEASE_DISABLED');}
+  else if(renderer.required&&!renderer.available){status='BLOCKED';reasons.push('RENDERER_UNAVAILABLE');}
   else if(!released){status='PENDING';reasons.push('ACTIVITY_NOT_RELEASED');}
   else status='READY';
   const rejected=activity.reviewRejected??[];
@@ -129,6 +139,7 @@ export function resolveReadiness(pack:unknown,activityId:string):LearningActivit
 /** Localized, learner-facing explanation. Machine codes never reach the UI (P1.2 §19/§33). */
 export const READINESS_MESSAGES:Readonly<Record<ReadinessReason,string>>=Object.freeze({
   ACTIVITY_NOT_RELEASED:'Bu faoliyat hali tayyorlanmoqda. Tez orada ochiladi.',
+  RELEASE_DISABLED:'Bu faoliyat hozircha o‘chirilgan.',
   ROUTE_NONE:'Bu faoliyat hozircha mavjud emas.',
   ROUTE_INVALID:'Bu faoliyatni hozircha ochib bo‘lmaydi. Keyinroq urinib ko‘ring.',
   ACTIVITY_REVIEW_PENDING:'Faoliyat mutaxassislar tekshiruvidan o‘tmoqda.',

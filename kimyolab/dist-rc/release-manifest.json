@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-09-30T11:46:52.933Z",
+  "createdAt": "2026-09-30T12:31:08.719Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -293,8 +293,8 @@
     {
       "path": "app-preview/domain/readiness/readiness.js",
       "sourcePath": "public/app-preview/domain/readiness/readiness.js",
-      "checksum": "2c548dfff73d0af639d814e029a09f48334645a465ada7daa65ebfae057b936e",
-      "size": 8473
+      "checksum": "b9a92cf95e799f036583e57d4f3559a18840be884ff973b5aabac8b8c7dc153c",
+      "size": 9253
     },
     {
       "path": "app-preview/domain/readiness/unit-readiness.js",

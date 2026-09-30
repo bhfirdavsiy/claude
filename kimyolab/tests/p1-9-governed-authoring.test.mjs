@@ -204,7 +204,11 @@ test('release round trip: eligible + no decision → still pending; human RELEAS
   assert.ok(cats({lifecycleStatus:'ready'}).tampering.length);
   assert.deepEqual(importDecisionFile(t,env(release(e))).imported.release,1);
   assert.equal(releaseEntries(t).find(x=>x.activityId===id).releaseState,'RELEASED');
-  assert.equal(JSON.stringify(compileReadiness(loadSources(t)).pack.activities.find(a=>a.activityId===id)),packBefore,'the decision is recorded; it does not rewrite lifecycle or runtime by itself');
+  // P2.0 (ADR-P2-001): the release register is now the single release authority — a current RELEASE makes the planned
+  // activity launchable at BUILD time (runtime READY) without mutating content. (P1.9 asserted "no runtime effect".)
+  const after=compileReadiness(loadSources(t)).pack.activities.find(a=>a.activityId===id);
+  assert.equal(JSON.parse(packBefore).runtime,'PENDING'); assert.equal(after.runtime,'READY');
+  assert.equal(read('content-src/practice-activities.json',t).find(a=>a.id===id).lifecycleStatus,'planned','no content mutation');
   // content changes → the release decision is stale and a re-release on the old basis is refused
   const acts=read('content-src/practice-activities.json',t); acts.find(x=>x.id===id).goal+=' (edited)'; write(t,'content-src/practice-activities.json',acts);
   assert.equal(releaseEntries(t).find(x=>x.activityId===id).releaseState,'STALE');
