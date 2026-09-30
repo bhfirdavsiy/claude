@@ -10,9 +10,12 @@ import {SpeciesRegistry} from '../../src/domain/chemistry/species-registry.ts';
 import {parseFormula} from '../../src/domain/chemistry/formula-parser.ts';
 import {HydrolysisModel,validateIndicator,HYDROLYSIS_MEDIA} from '../../src/domain/chemistry/hydrolysis-model.ts';
 import {parseConditionVocabulary,dimensionsOf,type ConditionVocabulary} from '../../src/domain/chemistry/condition-vocabulary.ts';
-import {assertionHash,parseReviewRegister,reviewStateOf,ASSERTION_CATEGORIES,type ChemistryAssertion,type AssertionCategory,type ReviewState} from '../../src/domain/chemistry/kb-review.ts';
+import {assertionHash,candidateHash,parseReviewRegister,reviewStateOf,ASSERTION_CATEGORIES,type ChemistryAssertion,type AssertionCategory,type ReviewState} from '../../src/domain/chemistry/kb-review.ts';
 
 export const REVIEW_REGISTER_FILE='content-src/chemistry-reviews.json';
+/** P1.8: human triage of review candidates (authoring input, never KB truth). Written only by the chemistry importer. */
+export const CANDIDATE_REGISTER_FILE='content-src/chemistry-candidate-reviews.json';
+export const CANDIDATE_BADGE='CANDIDATE — NOT PART OF CANONICAL KB';
 export const PACKET_DIR='review-packets/chemistry-kb';
 export const REPORTS={
   inventory:'reports/chemistry-kb-inventory.json',
@@ -242,6 +245,22 @@ export function ionicPairCoverage(kb:Kb){
     const count=(c:string)=>pairs.filter(p=>p.class===c).length;
     return {activityId,targetReactionId,reagents:shelf,pairs,summary:{pairs:pairs.length,MODELED_REACTION:count('MODELED_REACTION'),MODELED_NO_REACTION:count('MODELED_NO_REACTION'),CONDITION_DEPENDENT:count('CONDITION_DEPENDENT'),NOT_MODELED:count('NOT_MODELED'),classified:pairs.length,unclassified:0,reactionCandidates:pairs.filter(p=>p.candidate?.kind==='reaction-candidate').length,noReactionCandidates:pairs.filter(p=>p.candidate?.kind==='no-reaction-candidate').length,unclassifiableCandidates:pairs.filter(p=>p.candidate?.kind==='unclassifiable').length}};
   });
+}
+
+/**
+ * P1.8: the review candidates of every learner shelf (NOT_MODELED / CONDITION_DEPENDENT pairs) with a stable id and
+ * a content hash, so a reviewer's triage decision is pinned to exactly what they saw. Never canonical truth.
+ */
+export function reviewCandidates(ionic:{shelves:any[]}){
+  return ionic.shelves.flatMap((s:any)=>s.pairs.filter((p:any)=>p.reviewDecisionRequired).map((p:any)=>({
+    candidateId:`candidate:${s.activityId}:${[...p.reagents].sort().join('+')}`,
+    candidateHash:candidateHash({reagents:p.reagents,candidate:p.candidate}),
+    badge:CANDIDATE_BADGE,canonical:false,
+    pair:p.formulas.join(' + '),reagents:p.reagents,class:p.class,currentBehavior:p.currentBehavior,
+    whyNeeded:`both reagents are on the learner shelf of ${s.activityId}; a learner can mix them today and sees “modelda yo‘q”`,
+    activitiesAffected:[s.activityId],candidate:p.candidate,
+    reviewDecisionRequired:'add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)',
+  })));
 }
 
 // ------------------------------------------------------------------ electrolysis readiness (data only, no renderer)

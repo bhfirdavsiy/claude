@@ -35,5 +35,7 @@
 
 ## Model qamrovi bo‘yicha nomzodlar (18)
 
-`candidates.json`: o‘quvchi tokchasidagi, hozir `NOT_MODELED` yoki `CONDITION_DEPENDENT` juftliklar. `candidate` — eruvchanlik qoidalaridan chiqarilgan **taklif**, kanonik haqiqat emas.
+`candidates.json`: o‘quvchi tokchasidagi, hozir `NOT_MODELED` yoki `CONDITION_DEPENDENT` juftliklar. `candidate` — eruvchanlik qoidalaridan chiqarilgan **taklif**, kanonik haqiqat emas (**CANDIDATE — NOT PART OF CANONICAL KB**).
+
+Nomzod bo‘yicha qaror (`accept_for_authoring` / `reject_candidate` / `needs_evidence`) faqat authoring triage: u KBga reaction yoki no-reaction qo‘shmaydi.
 

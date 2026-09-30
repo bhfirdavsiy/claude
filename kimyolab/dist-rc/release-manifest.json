@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-09-30T07:46:58.568Z",
+  "createdAt": "2026-09-30T10:35:05.473Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -35,8 +35,8 @@
     {
       "path": "app-preview/domain/assessment/governance.js",
       "sourcePath": "public/app-preview/domain/assessment/governance.js",
-      "checksum": "04d8d62f82df92a5d6056660cb3aad68408d0334cb229b5ed8b66d316456c395",
-      "size": 7953
+      "checksum": "1eda899a5c900888ca3dcf031ece6ca97e8a8e0cdcb3f7ced090aa1e52383cbb",
+      "size": 9306
     },
     {
       "path": "app-preview/domain/assessment/model.js",
@@ -137,8 +137,8 @@
     {
       "path": "app-preview/domain/chemistry/kb-review.js",
       "sourcePath": "public/app-preview/domain/chemistry/kb-review.js",
-      "checksum": "a356c8d7124bcc0706e63ad3f807f0ac9c55ce91c1e791a241d90a0168d5b2f0",
-      "size": 4544
+      "checksum": "b34eebe368243145e573bb865aef54a8a3c59d2647c3032b385725ba6c9c5915",
+      "size": 8924
     },
     {
       "path": "app-preview/domain/chemistry/kinetics-model.js",

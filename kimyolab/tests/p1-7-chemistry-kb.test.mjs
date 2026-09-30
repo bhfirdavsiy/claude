@@ -156,7 +156,8 @@ test('review: humans decide via the importer; the current hash counts; a later c
     for(const [over,code] of [[{reviewerId:'claude-agent'},'CHEM_REVIEW_REVIEWER_NOT_HUMAN'],[{reviewerRole:'didactic'},'CHEM_REVIEW_ROLE_INVALID'],[{decision:'reject'},'CHEM_REVIEW_COMMENT_REQUIRED'],[{assertionHash:'f'.repeat(64)},'CHEM_REVIEW_STALE_DECISION'],[{assertionId:'hydrolysis:Nope'},'CHEM_REVIEW_UNKNOWN_ASSERTION']])
       assert.ok(importDecisions(t,decision(over)).issues.some(i=>i.startsWith(code)),code);
     assert.deepEqual(JSON.parse(fs.readFileSync(path.join(t,REVIEW_REGISTER_FILE),'utf8')).records,[],'refused decisions write nothing');
-    assert.deepEqual(importDecisions(t,decision()),{imported:1,issues:[]});
+    // P1.8: the importer also reports candidate triage decisions (importedCandidates) — same single decision imported
+    assert.deepEqual(importDecisions(t,decision()),{imported:1,importedCandidates:0,issues:[]});
     const after=buildKbReports(t);
     assert.equal(reviewStateOf(after.assertions.find(x=>x.id===a.id),JSON.parse(fs.readFileSync(path.join(t,REVIEW_REGISTER_FILE),'utf8')).records).state,'approved');
     assert.equal(after.inventory.counts.reviewed,1);

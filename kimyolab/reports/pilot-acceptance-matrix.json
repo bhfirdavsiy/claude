@@ -34,7 +34,7 @@
         },
         "chemistryModel": {
           "verdict": "PENDING",
-          "detail": "electrolysis model resolves CuCl2(aq, inert): cathode Cu, anode Cl2 (1 modeled electrolyte(s)) | chemistry review of the activity and of the electrolysis model record (reviewStatus pending)"
+          "detail": "electrolysis model resolves CuCl2(aq, inert): cathode Cu, anode Cl2 (1 modeled electrolyte(s)) | chemistry review of the activity (pending) and of the chemistry KB assertion electrolysis:CuCl2|aq|inert (pending)"
         },
         "conceptMapping": {
           "verdict": "PASS",
@@ -82,7 +82,7 @@
       "blockers": [],
       "pendingHuman": [
         "content.activity-review: human review of practice.experiment.9.10: REVIEW_PENDING (technical, didactic, accessibility, chemistry pending)",
-        "content.chemistry-review: chemistry review of the activity and of the electrolysis model record (reviewStatus pending)",
+        "content.chemistry-review: chemistry review of the activity (pending) and of the chemistry KB assertion electrolysis:CuCl2|aq|inert (pending)",
         "assessment.dual-review: 0/5 items APPROVED by two independent reviewers on the current hash; availability PENDING",
         "assessment.outcome-review: outcome mapping decisions: pending×5 (the proposed mapping is not final until a didactic reviewer confirms it)"
       ],
@@ -128,7 +128,7 @@
           "dimension": "content",
           "kind": "human",
           "verdict": "PENDING",
-          "detail": "chemistry review of the activity and of the electrolysis model record (reviewStatus pending)"
+          "detail": "chemistry review of the activity (pending) and of the chemistry KB assertion electrolysis:CuCl2|aq|inert (pending)"
         },
         {
           "id": "mastery.eligible",

@@ -5,3 +5,4 @@ node_modules/
 /.tmp-*/
 /reports/p0-acceptance.json
 /reports/p0-release-freeze.json
+/review-output/*.json

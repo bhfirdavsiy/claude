@@ -1,0 +1,299 @@
+{
+  "schema": "kimyolab.review-promotion-impact.v1",
+  "hypothetical": true,
+  "canonicalStateChanged": false,
+  "semantics": "What would change IF every currently pending human review were approved on the current hash. Computed in memory; no register, approval or sign-off is written, and nothing here counts as a decision.",
+  "activities": {
+    "total": 146,
+    "wouldBecomeContentApproved": 146,
+    "runtimeStatesUnchanged": true,
+    "runtimeChanged": [],
+    "wouldBeReleaseReady": 118,
+    "remainNotReleaseReady": [
+      {
+        "activityId": "practice.experiment.10.10",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.experiment.10.2",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.experiment.10.6",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.experiment.10.7",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.experiment.7.1",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.experiment.7.10",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.experiment.7.11",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.experiment.7.12",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.experiment.7.9",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.experiment.8.10",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.experiment.8.11",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.experiment.8.13",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.experiment.8.14",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.experiment.8.15",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.experiment.8.6",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.experiment.8.8",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.experiment.8.9",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.experiment.9.12",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.experiment.9.13",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.experiment.9.15",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.experiment.9.16",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.experiment.9.19",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.experiment.9.20",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.experiment.9.4",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.experiment.9.6",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.experiment.9.7",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.experiment.9.9",
+        "runtime": "PENDING",
+        "reasons": [
+          "ACTIVITY_NOT_RELEASED"
+        ]
+      },
+      {
+        "activityId": "practice.simulation.10.4",
+        "runtime": "DISABLED",
+        "reasons": [
+          "ROUTE_NONE"
+        ]
+      }
+    ],
+    "note": "content approval never changes the runtime dimension: activities that are not released (ACTIVITY_NOT_RELEASED) or not routable stay as they are until a person releases them"
+  },
+  "assessment": {
+    "items": 5,
+    "unitsWouldBecomeAvailable": [
+      "lu.9.15"
+    ],
+    "masteredReachable": {
+      "now": false,
+      "ifApproved": true
+    },
+    "learningUnitId": "lu.9.15"
+  },
+  "chemistry": {
+    "assertions": 134,
+    "pending": 134,
+    "wouldRemainBlocked": {
+      "count": 30,
+      "reason": "APPROVED_WITHOUT_SOURCE — the gate refuses an approval of an assertion that cites no source (localized names today); a source must be added before an approval can count",
+      "ids": [
+        "element-name:Al",
+        "element-name:Ar",
+        "element-name:B",
+        "element-name:Be",
+        "element-name:C",
+        "element-name:Ca",
+        "element-name:Cl",
+        "element-name:F",
+        "element-name:H",
+        "element-name:He",
+        "element-name:K",
+        "element-name:Li",
+        "element-name:Mg",
+        "element-name:N",
+        "element-name:Na",
+        "element-name:Ne",
+        "element-name:O",
+        "element-name:P",
+        "element-name:S",
+        "element-name:Si",
+        "species-name:species.agno3.name",
+        "species-name:species.alcl3.name",
+        "species-name:species.bacl2.name",
+        "species-name:species.h2so4.name",
+        "species-name:species.na2co3.name",
+        "species-name:species.nacl.name",
+        "species-name:species.nano3.name",
+        "species-name:species.naoh.name",
+        "species-name:species.nh4cl.name",
+        "species-name:species.zncl2.name"
+      ]
+    },
+    "candidatesAddedToKb": 0
+  },
+  "pilots": [
+    {
+      "learningUnitId": "lu.9.15",
+      "now": "CONTENT_REVIEW_PENDING",
+      "ifApproved": "SIGNOFF_PENDING",
+      "stillNeeds": [
+        "pilot-owner sign-off on the new basisHash (a person, in a pull request)"
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.11",
+      "now": "CONTENT_REVIEW_PENDING",
+      "ifApproved": "SIGNOFF_PENDING",
+      "stillNeeds": [
+        "pilot-owner sign-off on the new basisHash (a person, in a pull request)"
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.12",
+      "now": "CONTENT_REVIEW_PENDING",
+      "ifApproved": "SIGNOFF_PENDING",
+      "stillNeeds": [
+        "pilot-owner sign-off on the new basisHash (a person, in a pull request)"
+      ]
+    },
+    {
+      "learningUnitId": "lu.7.07",
+      "now": "CONTENT_REVIEW_PENDING",
+      "ifApproved": "SIGNOFF_PENDING",
+      "stillNeeds": [
+        "pilot-owner sign-off on the new basisHash (a person, in a pull request)"
+      ]
+    }
+  ],
+  "globalStrictEnforcement": false
+}

@@ -1,5 +1,19 @@
 {
-  "schema": "kimyolab.chemistry-kb-candidates.v1",
+  "schema": "kimyolab.chemistry-authoring-candidates.v1",
+  "semantics": "Review candidates derived from the solubility rules (P1.7). A candidate is never canonical chemistry: a reviewer decision (accept_for_authoring | reject_candidate | needs_evidence) only triages authoring work.",
+  "summary": {
+    "total": 18,
+    "reactionCandidates": 3,
+    "noReactionCandidates": 7,
+    "unclassifiable": 7,
+    "conditionDependent": 1,
+    "pending": 18,
+    "acceptedForAuthoring": 0,
+    "rejected": 0,
+    "needsEvidence": 0,
+    "stale": 0,
+    "addedToKnowledgeBase": 0
+  },
   "candidates": [
     {
       "candidateId": "candidate:practice.experiment.8.1:species.agno3+species.bacl2",
@@ -11,16 +25,11 @@
         "species.agno3",
         "species.bacl2"
       ],
-      "class": "NOT_MODELED",
-      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
-      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
-      "activitiesAffected": [
-        "practice.experiment.8.1"
-      ],
-      "candidate": {
-        "kind": "reaction-candidate",
+      "currentClass": "NOT_MODELED",
+      "kind": "reaction-candidate",
+      "derivation": {
         "basis": "solubility rules list AgCl as insoluble",
-        "swaps": [
+        "ionSwaps": [
           {
             "ions": "Ba2+ + NO3^-",
             "formula": null,
@@ -33,7 +42,11 @@
           }
         ]
       },
-      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+      "supportingRule": "solubility.insoluble: AgCl",
+      "affectedActivity": "practice.experiment.8.1",
+      "requiredReviewerRole": "chemistry",
+      "status": "pending",
+      "notCanonical": "products, reaction type and observation are NOT asserted here; an accepted candidate still has to be authored as a reaction / no-reaction record and reviewed as an assertion"
     },
     {
       "candidateId": "candidate:practice.experiment.8.1:species.agno3+species.h2so4",
@@ -45,16 +58,11 @@
         "species.agno3",
         "species.h2so4"
       ],
-      "class": "NOT_MODELED",
-      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
-      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
-      "activitiesAffected": [
-        "practice.experiment.8.1"
-      ],
-      "candidate": {
-        "kind": "unclassifiable",
+      "currentClass": "NOT_MODELED",
+      "kind": "unclassifiable",
+      "derivation": {
         "basis": "the solubility rules do not cover every ion-swap product",
-        "swaps": [
+        "ionSwaps": [
           {
             "ions": "H+ + NO3^-",
             "formula": null,
@@ -67,7 +75,11 @@
           }
         ]
       },
-      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+      "supportingRule": "none — the solubility rules do not cover every ion-swap product",
+      "affectedActivity": "practice.experiment.8.1",
+      "requiredReviewerRole": "chemistry",
+      "status": "pending",
+      "notCanonical": "products, reaction type and observation are NOT asserted here; an accepted candidate still has to be authored as a reaction / no-reaction record and reviewed as an assertion"
     },
     {
       "candidateId": "candidate:practice.experiment.8.1:species.agno3+species.zncl2",
@@ -79,16 +91,11 @@
         "species.agno3",
         "species.zncl2"
       ],
-      "class": "NOT_MODELED",
-      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
-      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
-      "activitiesAffected": [
-        "practice.experiment.8.1"
-      ],
-      "candidate": {
-        "kind": "reaction-candidate",
+      "currentClass": "NOT_MODELED",
+      "kind": "reaction-candidate",
+      "derivation": {
         "basis": "solubility rules list AgCl as insoluble",
-        "swaps": [
+        "ionSwaps": [
           {
             "ions": "Zn2+ + NO3^-",
             "formula": null,
@@ -101,7 +108,11 @@
           }
         ]
       },
-      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+      "supportingRule": "solubility.insoluble: AgCl",
+      "affectedActivity": "practice.experiment.8.1",
+      "requiredReviewerRole": "chemistry",
+      "status": "pending",
+      "notCanonical": "products, reaction type and observation are NOT asserted here; an accepted candidate still has to be authored as a reaction / no-reaction record and reviewed as an assertion"
     },
     {
       "candidateId": "candidate:practice.experiment.8.1:species.agno3+species.naoh",
@@ -113,16 +124,11 @@
         "species.agno3",
         "species.naoh"
       ],
-      "class": "NOT_MODELED",
-      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
-      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
-      "activitiesAffected": [
-        "practice.experiment.8.1"
-      ],
-      "candidate": {
-        "kind": "unclassifiable",
+      "currentClass": "NOT_MODELED",
+      "kind": "unclassifiable",
+      "derivation": {
         "basis": "the solubility rules do not cover every ion-swap product",
-        "swaps": [
+        "ionSwaps": [
           {
             "ions": "Na+ + NO3^-",
             "formula": "NaNO3",
@@ -135,7 +141,11 @@
           }
         ]
       },
-      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+      "supportingRule": "none — the solubility rules do not cover every ion-swap product",
+      "affectedActivity": "practice.experiment.8.1",
+      "requiredReviewerRole": "chemistry",
+      "status": "pending",
+      "notCanonical": "products, reaction type and observation are NOT asserted here; an accepted candidate still has to be authored as a reaction / no-reaction record and reviewed as an assertion"
     },
     {
       "candidateId": "candidate:practice.experiment.8.1:species.agno3+species.nano3",
@@ -147,16 +157,11 @@
         "species.agno3",
         "species.nano3"
       ],
-      "class": "NOT_MODELED",
-      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
-      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
-      "activitiesAffected": [
-        "practice.experiment.8.1"
-      ],
-      "candidate": {
-        "kind": "no-reaction-candidate",
+      "currentClass": "NOT_MODELED",
+      "kind": "no-reaction-candidate",
+      "derivation": {
         "basis": "every ion-swap product is listed as soluble (dissociation rules)",
-        "swaps": [
+        "ionSwaps": [
           {
             "ions": "Na+ + NO3^-",
             "formula": "NaNO3",
@@ -169,7 +174,11 @@
           }
         ]
       },
-      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+      "supportingRule": "solubility.dissociation: every ion-swap product is listed as soluble",
+      "affectedActivity": "practice.experiment.8.1",
+      "requiredReviewerRole": "chemistry",
+      "status": "pending",
+      "notCanonical": "products, reaction type and observation are NOT asserted here; an accepted candidate still has to be authored as a reaction / no-reaction record and reviewed as an assertion"
     },
     {
       "candidateId": "candidate:practice.experiment.8.1:species.bacl2+species.nacl",
@@ -181,16 +190,11 @@
         "species.nacl",
         "species.bacl2"
       ],
-      "class": "NOT_MODELED",
-      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
-      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
-      "activitiesAffected": [
-        "practice.experiment.8.1"
-      ],
-      "candidate": {
-        "kind": "no-reaction-candidate",
+      "currentClass": "NOT_MODELED",
+      "kind": "no-reaction-candidate",
+      "derivation": {
         "basis": "every ion-swap product is listed as soluble (dissociation rules)",
-        "swaps": [
+        "ionSwaps": [
           {
             "ions": "Ba2+ + Cl-",
             "formula": "BaCl2",
@@ -203,7 +207,11 @@
           }
         ]
       },
-      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+      "supportingRule": "solubility.dissociation: every ion-swap product is listed as soluble",
+      "affectedActivity": "practice.experiment.8.1",
+      "requiredReviewerRole": "chemistry",
+      "status": "pending",
+      "notCanonical": "products, reaction type and observation are NOT asserted here; an accepted candidate still has to be authored as a reaction / no-reaction record and reviewed as an assertion"
     },
     {
       "candidateId": "candidate:practice.experiment.8.1:species.h2so4+species.nacl",
@@ -215,14 +223,14 @@
         "species.nacl",
         "species.h2so4"
       ],
-      "class": "CONDITION_DEPENDENT",
-      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
-      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
-      "activitiesAffected": [
-        "practice.experiment.8.1"
-      ],
-      "candidate": null,
-      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+      "currentClass": "CONDITION_DEPENDENT",
+      "kind": "condition-dependent",
+      "derivation": null,
+      "supportingRule": "a matching record exists but needs other conditions (CONDITION_DEPENDENT)",
+      "affectedActivity": "practice.experiment.8.1",
+      "requiredReviewerRole": "chemistry",
+      "status": "pending",
+      "notCanonical": "products, reaction type and observation are NOT asserted here; an accepted candidate still has to be authored as a reaction / no-reaction record and reviewed as an assertion"
     },
     {
       "candidateId": "candidate:practice.experiment.8.1:species.nacl+species.zncl2",
@@ -234,16 +242,11 @@
         "species.nacl",
         "species.zncl2"
       ],
-      "class": "NOT_MODELED",
-      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
-      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
-      "activitiesAffected": [
-        "practice.experiment.8.1"
-      ],
-      "candidate": {
-        "kind": "no-reaction-candidate",
+      "currentClass": "NOT_MODELED",
+      "kind": "no-reaction-candidate",
+      "derivation": {
         "basis": "every ion-swap product is listed as soluble (dissociation rules)",
-        "swaps": [
+        "ionSwaps": [
           {
             "ions": "Zn2+ + Cl-",
             "formula": "ZnCl2",
@@ -256,7 +259,11 @@
           }
         ]
       },
-      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+      "supportingRule": "solubility.dissociation: every ion-swap product is listed as soluble",
+      "affectedActivity": "practice.experiment.8.1",
+      "requiredReviewerRole": "chemistry",
+      "status": "pending",
+      "notCanonical": "products, reaction type and observation are NOT asserted here; an accepted candidate still has to be authored as a reaction / no-reaction record and reviewed as an assertion"
     },
     {
       "candidateId": "candidate:practice.experiment.8.1:species.nacl+species.naoh",
@@ -268,16 +275,11 @@
         "species.nacl",
         "species.naoh"
       ],
-      "class": "NOT_MODELED",
-      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
-      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
-      "activitiesAffected": [
-        "practice.experiment.8.1"
-      ],
-      "candidate": {
-        "kind": "no-reaction-candidate",
+      "currentClass": "NOT_MODELED",
+      "kind": "no-reaction-candidate",
+      "derivation": {
         "basis": "every ion-swap product is listed as soluble (dissociation rules)",
-        "swaps": [
+        "ionSwaps": [
           {
             "ions": "Na+ + Cl-",
             "formula": "NaCl",
@@ -290,7 +292,11 @@
           }
         ]
       },
-      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+      "supportingRule": "solubility.dissociation: every ion-swap product is listed as soluble",
+      "affectedActivity": "practice.experiment.8.1",
+      "requiredReviewerRole": "chemistry",
+      "status": "pending",
+      "notCanonical": "products, reaction type and observation are NOT asserted here; an accepted candidate still has to be authored as a reaction / no-reaction record and reviewed as an assertion"
     },
     {
       "candidateId": "candidate:practice.experiment.8.1:species.nacl+species.nano3",
@@ -302,16 +308,11 @@
         "species.nacl",
         "species.nano3"
       ],
-      "class": "NOT_MODELED",
-      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
-      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
-      "activitiesAffected": [
-        "practice.experiment.8.1"
-      ],
-      "candidate": {
-        "kind": "no-reaction-candidate",
+      "currentClass": "NOT_MODELED",
+      "kind": "no-reaction-candidate",
+      "derivation": {
         "basis": "every ion-swap product is listed as soluble (dissociation rules)",
-        "swaps": [
+        "ionSwaps": [
           {
             "ions": "Na+ + Cl-",
             "formula": "NaCl",
@@ -324,7 +325,11 @@
           }
         ]
       },
-      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+      "supportingRule": "solubility.dissociation: every ion-swap product is listed as soluble",
+      "affectedActivity": "practice.experiment.8.1",
+      "requiredReviewerRole": "chemistry",
+      "status": "pending",
+      "notCanonical": "products, reaction type and observation are NOT asserted here; an accepted candidate still has to be authored as a reaction / no-reaction record and reviewed as an assertion"
     },
     {
       "candidateId": "candidate:practice.experiment.8.1:species.bacl2+species.zncl2",
@@ -336,16 +341,11 @@
         "species.bacl2",
         "species.zncl2"
       ],
-      "class": "NOT_MODELED",
-      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
-      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
-      "activitiesAffected": [
-        "practice.experiment.8.1"
-      ],
-      "candidate": {
-        "kind": "no-reaction-candidate",
+      "currentClass": "NOT_MODELED",
+      "kind": "no-reaction-candidate",
+      "derivation": {
         "basis": "every ion-swap product is listed as soluble (dissociation rules)",
-        "swaps": [
+        "ionSwaps": [
           {
             "ions": "Zn2+ + Cl-",
             "formula": "ZnCl2",
@@ -358,7 +358,11 @@
           }
         ]
       },
-      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+      "supportingRule": "solubility.dissociation: every ion-swap product is listed as soluble",
+      "affectedActivity": "practice.experiment.8.1",
+      "requiredReviewerRole": "chemistry",
+      "status": "pending",
+      "notCanonical": "products, reaction type and observation are NOT asserted here; an accepted candidate still has to be authored as a reaction / no-reaction record and reviewed as an assertion"
     },
     {
       "candidateId": "candidate:practice.experiment.8.1:species.bacl2+species.naoh",
@@ -370,16 +374,11 @@
         "species.bacl2",
         "species.naoh"
       ],
-      "class": "NOT_MODELED",
-      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
-      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
-      "activitiesAffected": [
-        "practice.experiment.8.1"
-      ],
-      "candidate": {
-        "kind": "unclassifiable",
+      "currentClass": "NOT_MODELED",
+      "kind": "unclassifiable",
+      "derivation": {
         "basis": "the solubility rules do not cover every ion-swap product",
-        "swaps": [
+        "ionSwaps": [
           {
             "ions": "Na+ + Cl-",
             "formula": "NaCl",
@@ -392,7 +391,11 @@
           }
         ]
       },
-      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+      "supportingRule": "none — the solubility rules do not cover every ion-swap product",
+      "affectedActivity": "practice.experiment.8.1",
+      "requiredReviewerRole": "chemistry",
+      "status": "pending",
+      "notCanonical": "products, reaction type and observation are NOT asserted here; an accepted candidate still has to be authored as a reaction / no-reaction record and reviewed as an assertion"
     },
     {
       "candidateId": "candidate:practice.experiment.8.1:species.bacl2+species.nano3",
@@ -404,16 +407,11 @@
         "species.bacl2",
         "species.nano3"
       ],
-      "class": "NOT_MODELED",
-      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
-      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
-      "activitiesAffected": [
-        "practice.experiment.8.1"
-      ],
-      "candidate": {
-        "kind": "unclassifiable",
+      "currentClass": "NOT_MODELED",
+      "kind": "unclassifiable",
+      "derivation": {
         "basis": "the solubility rules do not cover every ion-swap product",
-        "swaps": [
+        "ionSwaps": [
           {
             "ions": "Na+ + Cl-",
             "formula": "NaCl",
@@ -426,7 +424,11 @@
           }
         ]
       },
-      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+      "supportingRule": "none — the solubility rules do not cover every ion-swap product",
+      "affectedActivity": "practice.experiment.8.1",
+      "requiredReviewerRole": "chemistry",
+      "status": "pending",
+      "notCanonical": "products, reaction type and observation are NOT asserted here; an accepted candidate still has to be authored as a reaction / no-reaction record and reviewed as an assertion"
     },
     {
       "candidateId": "candidate:practice.experiment.8.1:species.h2so4+species.zncl2",
@@ -438,16 +440,11 @@
         "species.h2so4",
         "species.zncl2"
       ],
-      "class": "NOT_MODELED",
-      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
-      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
-      "activitiesAffected": [
-        "practice.experiment.8.1"
-      ],
-      "candidate": {
-        "kind": "unclassifiable",
+      "currentClass": "NOT_MODELED",
+      "kind": "unclassifiable",
+      "derivation": {
         "basis": "the solubility rules do not cover every ion-swap product",
-        "swaps": [
+        "ionSwaps": [
           {
             "ions": "Zn2+ + SO4^2-",
             "formula": null,
@@ -460,7 +457,11 @@
           }
         ]
       },
-      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+      "supportingRule": "none — the solubility rules do not cover every ion-swap product",
+      "affectedActivity": "practice.experiment.8.1",
+      "requiredReviewerRole": "chemistry",
+      "status": "pending",
+      "notCanonical": "products, reaction type and observation are NOT asserted here; an accepted candidate still has to be authored as a reaction / no-reaction record and reviewed as an assertion"
     },
     {
       "candidateId": "candidate:practice.experiment.8.1:species.h2so4+species.naoh",
@@ -472,16 +473,11 @@
         "species.h2so4",
         "species.naoh"
       ],
-      "class": "NOT_MODELED",
-      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
-      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
-      "activitiesAffected": [
-        "practice.experiment.8.1"
-      ],
-      "candidate": {
-        "kind": "reaction-candidate",
+      "currentClass": "NOT_MODELED",
+      "kind": "reaction-candidate",
+      "derivation": {
         "basis": "H+ and OH- would form water",
-        "swaps": [
+        "ionSwaps": [
           {
             "ions": "Na+ + SO4^2-",
             "formula": "Na2SO4",
@@ -494,7 +490,11 @@
           }
         ]
       },
-      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+      "supportingRule": "H⁺ + OH⁻ → H₂O (ion-swap forms water)",
+      "affectedActivity": "practice.experiment.8.1",
+      "requiredReviewerRole": "chemistry",
+      "status": "pending",
+      "notCanonical": "products, reaction type and observation are NOT asserted here; an accepted candidate still has to be authored as a reaction / no-reaction record and reviewed as an assertion"
     },
     {
       "candidateId": "candidate:practice.experiment.8.1:species.h2so4+species.nano3",
@@ -506,16 +506,11 @@
         "species.h2so4",
         "species.nano3"
       ],
-      "class": "NOT_MODELED",
-      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
-      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
-      "activitiesAffected": [
-        "practice.experiment.8.1"
-      ],
-      "candidate": {
-        "kind": "unclassifiable",
+      "currentClass": "NOT_MODELED",
+      "kind": "unclassifiable",
+      "derivation": {
         "basis": "the solubility rules do not cover every ion-swap product",
-        "swaps": [
+        "ionSwaps": [
           {
             "ions": "Na+ + SO4^2-",
             "formula": "Na2SO4",
@@ -528,7 +523,11 @@
           }
         ]
       },
-      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+      "supportingRule": "none — the solubility rules do not cover every ion-swap product",
+      "affectedActivity": "practice.experiment.8.1",
+      "requiredReviewerRole": "chemistry",
+      "status": "pending",
+      "notCanonical": "products, reaction type and observation are NOT asserted here; an accepted candidate still has to be authored as a reaction / no-reaction record and reviewed as an assertion"
     },
     {
       "candidateId": "candidate:practice.experiment.8.1:species.nano3+species.zncl2",
@@ -540,16 +539,11 @@
         "species.zncl2",
         "species.nano3"
       ],
-      "class": "NOT_MODELED",
-      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
-      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
-      "activitiesAffected": [
-        "practice.experiment.8.1"
-      ],
-      "candidate": {
-        "kind": "unclassifiable",
+      "currentClass": "NOT_MODELED",
+      "kind": "unclassifiable",
+      "derivation": {
         "basis": "the solubility rules do not cover every ion-swap product",
-        "swaps": [
+        "ionSwaps": [
           {
             "ions": "Na+ + Cl-",
             "formula": "NaCl",
@@ -562,7 +556,11 @@
           }
         ]
       },
-      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+      "supportingRule": "none — the solubility rules do not cover every ion-swap product",
+      "affectedActivity": "practice.experiment.8.1",
+      "requiredReviewerRole": "chemistry",
+      "status": "pending",
+      "notCanonical": "products, reaction type and observation are NOT asserted here; an accepted candidate still has to be authored as a reaction / no-reaction record and reviewed as an assertion"
     },
     {
       "candidateId": "candidate:practice.experiment.8.1:species.nano3+species.naoh",
@@ -574,16 +572,11 @@
         "species.naoh",
         "species.nano3"
       ],
-      "class": "NOT_MODELED",
-      "currentBehavior": "fails closed: \"modelda yo‘q\" (never shown as no reaction)",
-      "whyNeeded": "both reagents are on the learner shelf of practice.experiment.8.1; a learner can mix them today and sees “modelda yo‘q”",
-      "activitiesAffected": [
-        "practice.experiment.8.1"
-      ],
-      "candidate": {
-        "kind": "no-reaction-candidate",
+      "currentClass": "NOT_MODELED",
+      "kind": "no-reaction-candidate",
+      "derivation": {
         "basis": "every ion-swap product is listed as soluble (dissociation rules)",
-        "swaps": [
+        "ionSwaps": [
           {
             "ions": "Na+ + OH-",
             "formula": "NaOH",
@@ -596,7 +589,11 @@
           }
         ]
       },
-      "reviewDecisionRequired": "add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)"
+      "supportingRule": "solubility.dissociation: every ion-swap product is listed as soluble",
+      "affectedActivity": "practice.experiment.8.1",
+      "requiredReviewerRole": "chemistry",
+      "status": "pending",
+      "notCanonical": "products, reaction type and observation are NOT asserted here; an accepted candidate still has to be authored as a reaction / no-reaction record and reviewed as an assertion"
     }
   ]
 }

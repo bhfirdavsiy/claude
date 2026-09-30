@@ -1,0 +1,32 @@
+{
+  "schema": "kimyolab.electrolysis-expansion-proposals.v1",
+  "status": "PROPOSED / NEEDS REVIEW",
+  "canonical": false,
+  "notice": "Agent-drafted authoring proposals for a human chemistry reviewer. None of this is canonical chemistry: nothing here is read by the model, the engines or the renderers, and nothing is added to content-src/chemistry/electrolysis.json until a person authors a record and it passes review as a chemistry assertion.",
+  "blackSwanCriterion": {
+    "rule": ">= 2 independent learner choice dimensions with >= 2 modeled values each, and >= 3 distinct cathode/anode outcomes",
+    "source": "reports/electrolysis-model-readiness.json rendererStartGate (P1.7)"
+  },
+  "proposedDesign": {
+    "id": "design.cation-x-anion.aq-inert",
+    "status": "PROPOSED / NEEDS REVIEW",
+    "learnerChoices": [
+      {"dimension": "cation", "values": ["Cu2+", "Na+"], "why": "a low-reactivity metal ion is reduced to the metal; an active-metal ion is not, water is reduced instead"},
+      {"dimension": "anion", "values": ["Cl-", "SO4^2-"], "why": "a halide is oxidised to the halogen; an oxo-anion is not, water is oxidised instead"}
+    ],
+    "fixed": {"phase": "aq", "electrode": "inert"},
+    "electrolytes": ["CuCl2", "NaCl", "CuSO4", "Na2SO4"],
+    "distinctOutcomes": 4,
+    "note": "Two independent choices, two values each, four different cathode/anode pairs: no single fixed script reproduces every learner path. CuCl2 is the only combination modeled today."
+  },
+  "candidateCases": [
+    {"id": "case.cucl2.aq.inert", "electrolyte": "CuCl2", "phase": "aq", "electrode": "inert", "proposedCathode": "Cu", "proposedAnode": "Cl2", "status": "EXISTING RECORD — review pending", "inProposedDesign": true},
+    {"id": "case.nacl.aq.inert", "electrolyte": "NaCl", "phase": "aq", "electrode": "inert", "proposedCathode": "H2", "proposedAnode": "Cl2", "status": "PROPOSED / NEEDS REVIEW", "inProposedDesign": true, "reviewQuestion": "Is the school-level model (concentrated vs dilute NaCl) stated precisely enough for the anode product?"},
+    {"id": "case.cuso4.aq.inert", "electrolyte": "CuSO4", "phase": "aq", "electrode": "inert", "proposedCathode": "Cu", "proposedAnode": "O2", "status": "PROPOSED / NEEDS REVIEW", "inProposedDesign": true},
+    {"id": "case.na2so4.aq.inert", "electrolyte": "Na2SO4", "phase": "aq", "electrode": "inert", "proposedCathode": "H2", "proposedAnode": "O2", "status": "PROPOSED / NEEDS REVIEW", "inProposedDesign": true},
+    {"id": "case.ki.aq.inert", "electrolyte": "KI", "phase": "aq", "electrode": "inert", "proposedCathode": "H2", "proposedAnode": "I2", "status": "PROPOSED / NEEDS REVIEW", "inProposedDesign": false, "reviewQuestion": "lu.9.15 names “CuCl2 va KI eritmalari elektrolizi” as its outcome — should KI be the second electrolyte instead of NaCl?"},
+    {"id": "case.nacl.l.inert", "electrolyte": "NaCl", "phase": "l", "electrode": "inert", "proposedCathode": "Na", "proposedAnode": "Cl2", "status": "PROPOSED / NEEDS REVIEW", "inProposedDesign": false, "blockedBy": "species Na is not registered (content-src/chemistry/species.json)", "reviewQuestion": "Is a melt (phase choice) in scope for grade 9?"},
+    {"id": "case.cuso4.aq.copper", "electrolyte": "CuSO4", "phase": "aq", "electrode": "active", "proposedCathode": "Cu", "proposedAnode": "Cu (anode dissolves: Cu → Cu2+)", "status": "PROPOSED / NEEDS REVIEW", "inProposedDesign": false, "blockedBy": "the record format has no 'electrode dissolves' product — a model change a reviewer must approve first", "reviewQuestion": "Is the active-electrode case (electroplating, lu.9.15 concept “qoplama”) required?"}
+  ],
+  "speciesCheck": {"registered": ["CuCl2", "NaCl", "CuSO4", "Na2SO4", "KI", "Cu", "H2", "O2", "Cl2", "I2"], "notRegistered": ["Na"]}
+}

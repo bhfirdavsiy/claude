@@ -6,7 +6,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {buildKbReports,REPORTS,PACKET_DIR} from './lib/chemistry-kb.ts';
+import {buildKbReports,reviewCandidates,REPORTS,PACKET_DIR} from './lib/chemistry-kb.ts';
 import {parseReviewRegister,reviewStateOf} from '../src/domain/chemistry/kb-review.ts';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
@@ -23,12 +23,7 @@ export function buildPacket(r:ReturnType<typeof buildKbReports>){
     instructions:'Fill decision (approve | reject | change_required), reviewerId (a person), reviewedAt (ISO date) and a comment for every non-approval; leave decision null to skip. Import with: node --experimental-strip-types scripts/chemistry-review/import.ts <this file>. A decision on an outdated hash is refused.',
     decisions:r.assertions.map(a=>({assertionId:a.id,assertionHash:a.hash,decision:null,reviewerId:null,reviewerRole:'chemistry',reviewedAt:null,comment:null})),
   };
-  const candidates=r.ionic.shelves.flatMap((s:any)=>s.pairs.filter((p:any)=>p.reviewDecisionRequired).map((p:any)=>({
-    pair:p.formulas.join(' + '),reagents:p.reagents,class:p.class,currentBehavior:p.currentBehavior,
-    whyNeeded:`both reagents are on the learner shelf of ${s.activityId}; a learner can mix them today and sees “modelda yo‘q”`,
-    activitiesAffected:[s.activityId],candidate:p.candidate,
-    reviewDecisionRequired:'add a reviewed reaction record, add a reviewed explicit no-reaction record, or confirm it stays not modeled (the agent adds nothing)',
-  })));
+  const candidates=reviewCandidates(r.ionic);
   const byCat=(c:string)=>assertions.filter(a=>a.category===c);
   const readme=[
     '# Chemistry KB review packet (P1.7)','',
@@ -44,7 +39,8 @@ export function buildPacket(r:ReturnType<typeof buildKbReports>){
     ...assertions.filter(a=>a.flags.length).map(a=>`- \`${a.id}\` — ${a.flags.filter(f=>f!=='CHEMISTRY_REVIEW_REQUIRED').join('; ')}`),'',
     '- `indicator:*` yozuvlari hydrolysis klassifikatsiyasidan **alohida** assertion: har biri o‘zi review qilinadi.','',
     `## Model qamrovi bo‘yicha nomzodlar (${candidates.length})`,'',
-    '`candidates.json`: o‘quvchi tokchasidagi, hozir `NOT_MODELED` yoki `CONDITION_DEPENDENT` juftliklar. `candidate` — eruvchanlik qoidalaridan chiqarilgan **taklif**, kanonik haqiqat emas.','',
+    '`candidates.json`: o‘quvchi tokchasidagi, hozir `NOT_MODELED` yoki `CONDITION_DEPENDENT` juftliklar. `candidate` — eruvchanlik qoidalaridan chiqarilgan **taklif**, kanonik haqiqat emas (**CANDIDATE — NOT PART OF CANONICAL KB**).','',
+    'Nomzod bo‘yicha qaror (`accept_for_authoring` / `reject_candidate` / `needs_evidence`) faqat authoring triage: u KBga reaction yoki no-reaction qo‘shmaydi.','',
   ].join('\n')+'\n';
   return {assertions,template,candidates,readme};
 }
