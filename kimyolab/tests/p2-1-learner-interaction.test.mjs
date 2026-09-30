@@ -208,3 +208,22 @@ test('shared interaction strings live in the catalog: the legacy practice render
     const s=fs.readFileSync(path.join(root,f),'utf8'); assert.doesNotMatch(s,/['"`][^'"`\n]*[‘’ʻ][^'"`\n]*['"`]/,`${f} has an Uzbek literal`);
   }
 });
+
+// ------------------------------------------------------------------ progress milestones are consistent (P2.1 closeout)
+
+import {milestoneState,ROADMAP} from '../scripts/learning-depth.ts';
+test('project-progress milestones: current is neither completed nor next; next is the following roadmap stage',()=>{
+  const p=JSON.parse(fs.readFileSync(path.join(root,'reports/project-progress.json'),'utf8'));
+  const id=(s)=>String(s).split(' ')[0];
+  const current=p.whereWeAreNow.milestone;
+  assert.equal(id(p.currentMilestone),current,'whereWeAreNow and currentMilestone agree');
+  assert.ok(!p.completedMilestones.includes(current),'the current stage is not also completed');
+  assert.ok(!p.nextMilestones.map(id).includes(current),'the current stage is not also a future stage');
+  for(const c of p.completedMilestones) assert.ok(!p.nextMilestones.map(id).includes(c),`${c} is both completed and next`);
+  const order=ROADMAP.map(r=>r.id); const next=p.nextMilestones.map(id).find(x=>order.includes(x));
+  assert.equal(order.indexOf(next),order.indexOf(current)+1,'the next technical milestone follows the current one');
+  const ms=milestoneState(root); assert.equal(ms.current,current);
+  // the latest delivered kill-critic review is the current stage
+  const reviews=fs.readdirSync(path.join(root,'docs/reviews')).filter(f=>f.endsWith('-kill-critic.md')).map(f=>f.replace('-kill-critic.md','').toUpperCase());
+  assert.ok(reviews.includes(current)); assert.deepEqual(p.completedMilestones.slice(1).sort(),reviews.filter(r=>r!==current).sort());
+});

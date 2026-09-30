@@ -121,7 +121,7 @@
     "milestone": "P0-INTEGRITY"
   },
   "whereWeAreNow": {
-    "milestone": "P2.0",
+    "milestone": "P2.1",
     "foundationPercent": 100,
     "learningProductPercent": 11.688,
     "facts": [
@@ -144,11 +144,11 @@
     "P1.7",
     "P1.8",
     "P1.9",
-    "P2.1"
+    "P2.0"
   ],
-  "currentMilestone": "P2.0 — learning depth & coverage baseline",
+  "currentMilestone": "P2.1 — learner interaction reliability & usability",
   "nextMilestones": [
-    "P2.1 — first learning-depth work package (chosen by a person from reports/p2-work-packages.json)",
+    "P2.2 — portal-safe single product host foundation",
     "human review round (workbench): chemistry A–C queues, lu.9.15 assessment",
     "release decisions for the 27 pending activities"
   ],
