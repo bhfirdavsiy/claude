@@ -70,7 +70,8 @@
       "minChars": 300,
       "sourceRefs": [],
       "authoredBy": null,
-      "reviewStatus": "draft"
+      "status": "draft",
+      "reviews": []
     },
     "workedExamples": [
       {
@@ -79,7 +80,8 @@
         "answer": null,
         "sourceRefs": [],
         "authoredBy": null,
-        "reviewStatus": "draft"
+        "status": "draft",
+        "reviews": []
       }
     ],
     "misconceptions": [
@@ -88,14 +90,16 @@
         "correction": null,
         "sourceRefs": [],
         "authoredBy": null,
-        "reviewStatus": "draft"
+        "status": "draft",
+        "reviews": []
       }
     ],
     "summary": {
       "points": [],
       "sourceRefs": [],
       "authoredBy": null,
-      "reviewStatus": "draft"
+      "status": "draft",
+      "reviews": []
     }
   },
   "sourceRequirements": {
@@ -113,6 +117,6 @@
     "misconception: a real, documented learner misconception with a correct explanation (not invented)",
     "summary points restate the explanation without new claims",
     "every block cites a registered acceptable source; no placeholder text",
-    "chemistry review and didactic review by two different people; approvals are hash-pinned to the reviewed text"
+    "approval = an approving chemistry review AND an approving didactic review by two different people, neither the author, both pinned to the same content hash; any edit of text or sources makes them stale"
   ]
 }

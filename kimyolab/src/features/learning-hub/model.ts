@@ -4,6 +4,7 @@ import {launchDecision,readinessMessage,resolveReadiness,type ReadinessPack} fro
 import type {AssessmentAvailability} from '../../domain/readiness/unit-readiness.ts';
 import {assessmentIdFor,isApproved,toPromptView,validatePromptPack,type AssessmentPromptView} from '../../domain/assessment/model.ts';
 import {structuredTheoryView,type StructuredTheoryView} from '../theory/view.ts';
+import {createLocalizer,type InteractionCatalog} from '../localization/element-names.ts';
 
 export interface LearningHubContentData {
   units:LearningUnit[];
@@ -18,6 +19,8 @@ export interface LearningHubContentData {
   readiness?:ReadinessPack;
   /** P2.3: structured theory pack (theory-structured.json); absent in older packs → MINIMAL rendering */
   structuredTheory?:unknown;
+  /** P2.3 closeout (A3): learner-interaction catalog for the theory section labels */
+  interaction?:InteractionCatalog;
 }
 
 export interface StudentPracticeModel {
@@ -111,7 +114,7 @@ export function buildLearningHubModel(learningUnitId:string,data:LearningHubCont
       title:theory.title,
       blocks:theory.explanationBlocks.map(block=>({type:block.type,text:block.text})),
       representationModes:[...theory.representationModes],
-      ...(()=>{ const view=structuredTheoryView(data.structuredTheory,theory.id); return view?{structured:view}:{}; })(),
+      ...(()=>{ const view=structuredTheoryView(data.structuredTheory,theory.id,createLocalizer(data.interaction?{interaction:data.interaction}:undefined)); return view?{structured:view}:{}; })(),
     },
     primaryPractice:studentPractice(practice,data.readiness),
     supportingPractices:supporting,

@@ -9,7 +9,7 @@ Each `units/<lu>.json` packet holds the unit facts (outcomes, concepts, current 
 1. An author writes `content-src/theory-structured/<theoryId>.json` (schema `kimyolab.structured-theory.v1`, see `schemas/structured-theory.schema.json`).
 2. Every block (explanation, each worked example, each misconception, summary) cites registered sources of an acceptable category and names its human author.
 3. `npm run content:pack` validates it: malformed entries (placeholders, missing author, automation author, approval without a hash-pinned review) fail the build; incomplete or unsourced entries stay out of the learner pack.
-4. Chemistry and didactic reviewers (two people) review; approvals are recorded per block with `reviewedHash` of the exact text.
+4. A chemistry reviewer and a didactic reviewer (two different people, neither the author) each add a review pinned to the block's current content hash; the block is APPROVED only when both approve the same hash. Any edit makes earlier reviews stale.
 
 ## Queue (by id — no priority score)
 

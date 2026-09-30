@@ -932,7 +932,7 @@
         ],
         "rawIdLabelActivities": 0,
         "untranslatedAnswerTokenActivities": 23,
-        "hardcodedUzbekUiLiterals": 158
+        "hardcodedUzbekUiLiterals": 156
       },
       "dependencies": [
         "locale architecture decision (content packs per locale)"

@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-09-30T16:32:40.121Z",
+  "createdAt": "2026-09-30T17:02:21.919Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -17,8 +17,8 @@
     {
       "path": "app-preview/app/content-client.js",
       "sourcePath": "public/app-preview/app/content-client.js",
-      "checksum": "bfd7d870a11a07b9c349e6fdeaa8ec945f2d55c33d2d9521a4f3e65cde2833a9",
-      "size": 22269
+      "checksum": "2c6d4b81677dc1f26666ba4f6ab9cd8c635b5066bf442f9419cc24113e976979",
+      "size": 22744
     },
     {
       "path": "app-preview/app/host.js",
@@ -41,8 +41,8 @@
     {
       "path": "app-preview/domain/assessment/governance.js",
       "sourcePath": "public/app-preview/domain/assessment/governance.js",
-      "checksum": "1eda899a5c900888ca3dcf031ece6ca97e8a8e0cdcb3f7ced090aa1e52383cbb",
-      "size": 9306
+      "checksum": "d5cd975f420a4f7ef2518e640df051766b59e5f91244a0ad5897c6176f29e099",
+      "size": 9347
     },
     {
       "path": "app-preview/domain/assessment/model.js",
@@ -267,6 +267,12 @@
       "size": 3848
     },
     {
+      "path": "app-preview/domain/governance/identity.js",
+      "sourcePath": "public/app-preview/domain/governance/identity.js",
+      "checksum": "90169876a93abac77152f183fc9af517baab27d5cc246f7e0c514773ccdf42bd",
+      "size": 430
+    },
+    {
       "path": "app-preview/domain/governance/release-decision.js",
       "sourcePath": "public/app-preview/domain/governance/release-decision.js",
       "checksum": "de0cb53b66375fa072b4d46b6af5c61b3877789f1d40b5f564090eb77cb673e9",
@@ -311,8 +317,8 @@
     {
       "path": "app-preview/domain/theory/structured-theory.js",
       "sourcePath": "public/app-preview/domain/theory/structured-theory.js",
-      "checksum": "b7035f6c23fc185f30f36c4ebd668a7c05bc4963dc64890fae3d1d07465399aa",
-      "size": 8501
+      "checksum": "cea952f43fffdadc21b642eddbfa2493a14e5136deb3a2d5863c8680e3079ff2",
+      "size": 11406
     },
     {
       "path": "app-preview/engines/calculation/engine.js",
@@ -401,8 +407,8 @@
     {
       "path": "app-preview/features/learning-hub/model.js",
       "sourcePath": "public/app-preview/features/learning-hub/model.js",
-      "checksum": "3f3fe0e452fa9040ac7611a812ec278b637b6aa2548b2bd5f4e1c4749e6354a2",
-      "size": 6463
+      "checksum": "9831cd6b707ecc2ed8172e577a5868b5890197e26b1100899e3ba897727c8903",
+      "size": 6750
     },
     {
       "path": "app-preview/features/learning-hub/render.js",
@@ -413,8 +419,8 @@
     {
       "path": "app-preview/features/localization/element-names.js",
       "sourcePath": "public/app-preview/features/localization/element-names.js",
-      "checksum": "fb60d021c5fba5a2b7d2bb0b519f47dee8a2107cb56a8eb0d9ca2e3061d357ec",
-      "size": 7252
+      "checksum": "5ccb6509ef691774f4ef34ba892613c89b7a207773ee46aa9867041c26dc6012",
+      "size": 7600
     },
     {
       "path": "app-preview/features/practice/answer-domain.js",
@@ -503,14 +509,14 @@
     {
       "path": "app-preview/features/theory/structured-render.js",
       "sourcePath": "public/app-preview/features/theory/structured-render.js",
-      "checksum": "50f741f6730a8e1b590e8e5be709e82540a79ac5fc7b31e587c740827e54d548",
-      "size": 3822
+      "checksum": "440d644c7d00b23d4826fbbcb55d122bdbe4912e0062d7f74997fb8dc7dc5b3c",
+      "size": 3221
     },
     {
       "path": "app-preview/features/theory/view.js",
       "sourcePath": "public/app-preview/features/theory/view.js",
-      "checksum": "2e0d84d320605b231667274ee48717760ca9e3da5f4027a5be1ae0dcb9032286",
-      "size": 2730
+      "checksum": "950d751fc088710cbf6585324f0465bf54db2e0293d096780564e043ec233a32",
+      "size": 3899
     },
     {
       "path": "app-preview/features/worksheet/model.js",
@@ -1211,8 +1217,8 @@
     {
       "path": "content/2026.09.1/locales/uz-latn/learner-interaction.json",
       "sourcePath": "public/content/2026.09.1/locales/uz-latn/learner-interaction.json",
-      "checksum": "4877351325c9e141f83e808c7246aa35d73192a2e6ea7e4a6ec62e8fabccbc8f",
-      "size": 12315
+      "checksum": "a10c99999c06a79197f5d42d16e0f4a8dfa7928acff7dafffb9a3bb357aab4fe",
+      "size": 13127
     },
     {
       "path": "content/2026.09.1/locales/uz-latn/name-provenance.json",
@@ -1223,7 +1229,7 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "de75d51b97eb09f6205ca23488788546c5f759e21deda00b4e403cdf5da13975",
+      "checksum": "127b7d1e004e170a186bafe4abfa24a7ab6a99d46b5d115d963259530e70b832",
       "size": 7849
     },
     {
@@ -1253,7 +1259,7 @@
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "02251e2dac3978eb1f086a1106880e0728c607067c95292211391561207541b8",
+      "checksum": "75e235c679444cca7cc3e43f049eaa9a82eefa651d52cf3ecb72710f30c33e36",
       "size": 158
     },
     {

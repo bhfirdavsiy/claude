@@ -1,18 +1,17 @@
 // P2.3 — build-time collection of structured theory (ADR-P2-004). Authored entries live in
 // content-src/theory-structured/<theoryId>.json. The JSON Schema IS the STRUCTURED contract, so the build FAILS on an
-// incomplete or malformed entry (missing block, short explanation, placeholder text, automation author, approval
-// without a review or with a stale review hash, unknown theory/unit); drafts live in the authoring packets. A
+// incomplete or malformed entry (missing block, short explanation, placeholder text, automation author or reviewer,
+// self-review, one person in both review roles, unknown theory/unit); drafts live in the authoring packets. A
 // well-formed entry whose sources are not registered/acceptable is kept out of the learner pack and reported — it never
 // reaches learners and never counts as STRUCTURED.
 import fs from 'node:fs';
 import path from 'node:path';
-import crypto from 'node:crypto';
 import {createContentAjv} from './content-schema.ts';
 import {parseSourceRegistry,type SourceRegistry} from '../../src/domain/governance/source-policy.ts';
-import {validateStructuredTheory,reviewableContent,STRUCTURED_THEORY_PACK_SCHEMA,type StructuredTheory} from '../../src/domain/theory/structured-theory.ts';
+import {validateStructuredTheory,STRUCTURED_THEORY_PACK_SCHEMA,type StructuredTheory} from '../../src/domain/theory/structured-theory.ts';
 
 export const STRUCTURED_THEORY_DIR='content-src/theory-structured';
-const MALFORMED=new Set(['SCHEMA','PLACEHOLDER_TEXT','AUTOMATION_AUTHOR','AUTHOR_MISSING','APPROVAL_WITHOUT_REVIEW','MEDIA_INVALID']);
+const MALFORMED=new Set(['SCHEMA','PLACEHOLDER_TEXT','AUTOMATION_AUTHOR','AUTHOR_MISSING','REVIEW_INVALID','REVIEWER_NOT_HUMAN','SELF_REVIEW','SAME_REVIEWER_BOTH_ROLES','DUPLICATE_ROLE_REVIEW','MEDIA_INVALID']);
 
 export interface CollectedTheory { file:string; entry:StructuredTheory; complete:boolean; sourced:boolean; issues:Array<{code:string;where:string}> }
 
@@ -39,9 +38,7 @@ export function collectStructuredTheory(root:string,dir=path.join(root,STRUCTURE
     if(seen.has(entry?.theoryId)) errors.push(`${file}:DUPLICATE`); seen.add(entry?.theoryId);
     const v=validateStructuredTheory(entry,registry);
     for(const i of v.issues) if(MALFORMED.has(i.code)) errors.push(`${file}:${i.code}:${i.where}`);
-    // an approval is pinned to the exact content a person reviewed
-    const blocks=[['explanation',entry?.explanation],...(entry?.workedExamples??[]).map((b:any,i:number)=>[`workedExamples[${i}]`,b]),...(entry?.misconceptions??[]).map((b:any,i:number)=>[`misconceptions[${i}]`,b]),['summary',entry?.summary]] as Array<[string,any]>;
-    for(const [where,b] of blocks) if(b?.reviewStatus==='approved'&&b.review?.reviewedHash!==crypto.createHash('sha256').update(reviewableContent(b)).digest('hex')) errors.push(`${file}:REVIEW_HASH_STALE:${where}`);
+    // approval is DERIVED per block (two pinned human reviews); a review of an older revision is STALE, not approval
     out.push({file,entry,complete:v.complete,sourced:v.sourced,issues:v.issues});
   }
   if(errors.length) throw new Error(`STRUCTURED_THEORY_INVALID\n${errors.join('\n')}`);

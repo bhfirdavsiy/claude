@@ -4,6 +4,7 @@ import {launchDecision,readinessMessage,resolveReadiness,                  } fro
                                                                                      
 import {assessmentIdFor,isApproved,toPromptView,validatePromptPack,                         } from '../../domain/assessment/model.js';
 import {structuredTheoryView,                         } from '../theory/view.js';
+import {createLocalizer,                       } from '../localization/element-names.js';
 
                                          
                        
@@ -18,6 +19,8 @@ import {structuredTheoryView,                         } from '../theory/view.js'
                            
                                                                                                          
                             
+                                                                                      
+                                  
  
 
                                        
@@ -111,7 +114,7 @@ export function buildLearningHubModel(learningUnitId       ,data                
       title:theory.title,
       blocks:theory.explanationBlocks.map(block=>({type:block.type,text:block.text})),
       representationModes:[...theory.representationModes],
-      ...(()=>{ const view=structuredTheoryView(data.structuredTheory,theory.id); return view?{structured:view}:{}; })(),
+      ...(()=>{ const view=structuredTheoryView(data.structuredTheory,theory.id,createLocalizer(data.interaction?{interaction:data.interaction}:undefined)); return view?{structured:view}:{}; })(),
     },
     primaryPractice:studentPractice(practice,data.readiness),
     supportingPractices:supporting,

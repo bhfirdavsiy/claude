@@ -6,9 +6,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
-import {validateStructuredTheory,classifyTheoryDepth,reviewableContent,PLACEHOLDER} from '../src/domain/theory/structured-theory.ts';
+import {validateStructuredTheory,classifyTheoryDepth,PLACEHOLDER,blockGovernance,blockContentHash,theoryReviewState} from '../src/domain/theory/structured-theory.ts';
 import {collectStructuredTheory,structuredTheoryPack,loadSourceRegistry,STRUCTURED_THEORY_DIR} from '../scripts/lib/structured-theory.ts';
 import {structuredTheoryView} from '../src/features/theory/view.ts';
 import {buildLearningHubModel} from '../src/features/learning-hub/model.ts';
@@ -30,9 +29,9 @@ test('schema: the fixture satisfies the JSON Schema and the contract → STRUCTU
   assert.equal(validate(structuredFixture()),true,JSON.stringify(validate.errors));
   assert.deepEqual(codes(structuredFixture()),[]);
   assert.equal(classifyTheoryDepth(legacy,structuredFixture(),registry).depth,'STRUCTURED');
-  // the schema itself rejects extra fields and an approved block without a review
+  // the schema itself rejects extra fields, and an authored "approved" status (approval is derived, never authored)
   assert.equal(validate({...structuredFixture(),extra:1}),false);
-  assert.equal(validate(structuredFixture({summary:{...structuredFixture().summary,reviewStatus:'approved'}})),false);
+  assert.equal(validate(structuredFixture({summary:{...structuredFixture().summary,status:'approved'}})),false);
 });
 
 test('backward compatibility: legacy theory alone is MINIMAL; no theory is NONE',()=>{
@@ -82,11 +81,49 @@ test('unsourced or badly sourced content is never complete',()=>{
   assert.ok(codes(internal).includes('SOURCE_NOT_ACCEPTABLE')); assert.equal(classifyTheoryDepth(legacy,internal,registry).depth,'MINIMAL');
 });
 
-test('no machine authorship, no approval without a person’s hash-pinned review',()=>{
+// P2.3 closeout (A2) replaced the single-reviewer test: approval now needs TWO human reviews (chemistry + didactic) of
+// the same content hash, by two distinct people, neither of them the author.
+const review=(block,role,reviewerId,{hash=blockContentHash(block),decision='approved'}={})=>({reviewerId,reviewerRole:role,decision,reviewedAt:'2026-10-01T00:00:00Z',reviewedHash:hash});
+const withReviews=(block,...reviews)=>({...block,reviews});
+test('no machine authorship; a reviewer is a human who is not the author',()=>{
   const f=structuredFixture();
   for(const who of ['claude','agent.p2-3','kimyolab-bot','system']) assert.ok(codes(structuredFixture({explanation:{...f.explanation,authoredBy:who}})).includes('AUTOMATION_AUTHOR'),who);
-  assert.ok(codes(structuredFixture({summary:{...f.summary,reviewStatus:'approved'}})).includes('APPROVAL_WITHOUT_REVIEW'));
-  assert.ok(codes(structuredFixture({summary:{...f.summary,reviewStatus:'approved',review:{reviewerId:'claude',reviewerRole:'chemistry',reviewedAt:'2026-10-01T00:00:00Z',reviewedHash:'a'.repeat(64)}}})).includes('APPROVAL_WITHOUT_REVIEW'),'an automation reviewer is not a review');
+  for(const who of ['claude','ci-bot','github-actions']) assert.deepEqual(blockGovernance(withReviews(f.summary,review(f.summary,'chemistry',who))).issues,['REVIEWER_NOT_HUMAN'],who);
+  assert.deepEqual(blockGovernance(withReviews(f.summary,review(f.summary,'chemistry','fixture.author'))).issues,['SELF_REVIEW'],'author self-review fails');
+  assert.ok(codes(structuredFixture({summary:withReviews(f.summary,review(f.summary,'chemistry','claude'))})).includes('REVIEWER_NOT_HUMAN'));
+});
+test('dual review: one review is pending; chemistry + didactic by two people on the same hash is APPROVED',()=>{
+  const b=structuredFixture().summary;
+  assert.equal(blockGovernance(b).state,'REVIEW_PENDING');
+  assert.equal(blockGovernance(withReviews(b,review(b,'chemistry','malika.chem'))).state,'REVIEW_PENDING','one review is not approval');
+  assert.equal(blockGovernance(withReviews(b,review(b,'didactic','sardor.did'))).state,'REVIEW_PENDING');
+  const approved=withReviews(b,review(b,'chemistry','malika.chem'),review(b,'didactic','sardor.did'));
+  assert.equal(blockGovernance(approved).state,'APPROVED');
+  assert.equal(blockGovernance(withReviews(b,review(b,'chemistry','malika.chem'),review(b,'didactic','sardor.did',{decision:'changes-requested'}))).state,'CHANGES_REQUESTED');
+});
+test('dual review: same person in both roles fails; two reviews of the same role are not a pair',()=>{
+  const b=structuredFixture().summary;
+  const same=withReviews(b,review(b,'chemistry','malika.chem'),review(b,'didactic','Malika.Chem'));
+  assert.ok(blockGovernance(same).issues.includes('SAME_REVIEWER_BOTH_ROLES')); assert.notEqual(blockGovernance(same).state,'APPROVED');
+  const twoChem=withReviews(b,review(b,'chemistry','malika.chem'),review(b,'chemistry','aziz.chem'));
+  assert.ok(blockGovernance(twoChem).issues.includes('DUPLICATE_ROLE_REVIEW')); assert.notEqual(blockGovernance(twoChem).state,'APPROVED');
+});
+test('dual review: different hashes are never approved; an edit of content or sources makes reviews stale',()=>{
+  const b=structuredFixture().summary;
+  const edited={...b,points:[...b.points,'Uchinchi band.']};
+  const split=withReviews(edited,review(b,'chemistry','malika.chem'),review(edited,'didactic','sardor.did'));
+  assert.equal(blockGovernance(split).state,'STALE_REVIEW','reviews of two different revisions');
+  const approved=withReviews(b,review(b,'chemistry','malika.chem'),review(b,'didactic','sardor.did'));
+  assert.equal(blockGovernance({...approved,points:[...b.points,'Uchinchi band.']}).state,'STALE_REVIEW','content edit invalidates');
+  assert.equal(blockGovernance({...approved,sourceRefs:[...b.sourceRefs,'src.legacy.9.10']}).state,'STALE_REVIEW','sourceRefs edit invalidates');
+  assert.equal(blockGovernance({...approved,authoredBy:'fixture.author',status:'draft'}).state,'APPROVED','author metadata/status is not content');
+  // entry level: approved only when every block is
+  const f=structuredFixture();
+  const all=Object.fromEntries(['explanation','summary'].map(k=>[k,withReviews(f[k],review(f[k],'chemistry','malika.chem'),review(f[k],'didactic','sardor.did'))]));
+  const ex=f.workedExamples.map(w=>withReviews(w,review(w,'chemistry','malika.chem'),review(w,'didactic','sardor.did')));
+  const mi=f.misconceptions.map(m=>withReviews(m,review(m,'chemistry','malika.chem'),review(m,'didactic','sardor.did')));
+  assert.equal(theoryReviewState({...f,...all,workedExamples:ex,misconceptions:mi}),'APPROVED');
+  assert.equal(theoryReviewState({...f,...all,workedExamples:ex,misconceptions:f.misconceptions}),'REVIEW_PENDING');
 });
 
 // ------------------------------------------------------------------ build: fail closed
@@ -102,10 +139,13 @@ test('build: malformed entries fail the build; incomplete ones stay out of the l
   assert.throws(()=>collectStructuredTheory(root,withEntries({'theory.9.06.json':'{not json'})),/STRUCTURED_THEORY_INVALID[\s\S]*JSON/);
   assert.throws(()=>collectStructuredTheory(root,withEntries({'theory.7.12.json':structuredFixture({theoryId:'theory.7.12'})})),/UNIT_MISMATCH/);
   assert.throws(()=>collectStructuredTheory(root,withEntries({'other.json':structuredFixture()})),/FILE_NAME_MUST_BE_THEORY_ID/);
-  const staleApproval={...f.summary,reviewStatus:'approved',review:{reviewerId:'dilnoza.karimova',reviewerRole:'didactic',reviewedAt:'2026-10-01T00:00:00Z',reviewedHash:'b'.repeat(64)}};
-  assert.throws(()=>collectStructuredTheory(root,withEntries({[`${FIXTURE_THEORY_ID}.json`]:structuredFixture({summary:staleApproval})})),/REVIEW_HASH_STALE/);
-  const pinned={...staleApproval,review:{...staleApproval.review,reviewedHash:crypto.createHash('sha256').update(reviewableContent(staleApproval)).digest('hex')}};
-  assert.equal(collectStructuredTheory(root,withEntries({[`${FIXTURE_THEORY_ID}.json`]:structuredFixture({summary:pinned})})).length,1,'a correctly pinned approval is accepted');
+  // P2.3 closeout (A2): malformed reviews fail the build (self-review, automation reviewer, one person in both roles)
+  assert.throws(()=>collectStructuredTheory(root,withEntries({[`${FIXTURE_THEORY_ID}.json`]:structuredFixture({summary:withReviews(f.summary,review(f.summary,'chemistry','fixture.author'))})})),/SELF_REVIEW/);
+  assert.throws(()=>collectStructuredTheory(root,withEntries({[`${FIXTURE_THEORY_ID}.json`]:structuredFixture({summary:withReviews(f.summary,review(f.summary,'didactic','claude'))})})),/REVIEWER_NOT_HUMAN/);
+  assert.throws(()=>collectStructuredTheory(root,withEntries({[`${FIXTURE_THEORY_ID}.json`]:structuredFixture({summary:withReviews(f.summary,review(f.summary,'chemistry','a.b'),review(f.summary,'didactic','a.b'))})})),/SAME_REVIEWER_BOTH_ROLES/);
+  // a stale review is not an error — the block is simply not approved
+  const stale=collectStructuredTheory(root,withEntries({[`${FIXTURE_THEORY_ID}.json`]:structuredFixture({summary:withReviews(f.summary,review(f.summary,'chemistry','a.b',{hash:'b'.repeat(64)}))})}));
+  assert.equal(blockGovernance(stale[0].entry.summary).state,'STALE_REVIEW');
   // incomplete: the schema is the STRUCTURED contract, so a draft missing a block is rejected by the build
   // (drafts live in the authoring packets, not in content-src)
   assert.throws(()=>collectStructuredTheory(root,withEntries({[`${FIXTURE_THEORY_ID}.json`]:structuredFixture({misconceptions:[]})})),/STRUCTURED_THEORY_INVALID[\s\S]*misconceptions/);
@@ -166,7 +206,7 @@ test('theory audit: current, honest (122 MINIMAL, 0 STRUCTURED), no marketing nu
   assert.deepEqual(committed,JSON.parse(JSON.stringify(buildTheoryAuthoring(root).audit)),'run node scripts/theory-authoring.ts');
   assert.deepEqual(committed.totals,{units:122,MINIMAL:122,STRUCTURED:0,NONE:0,structuredEntriesAuthored:0});
   assert.deepEqual(committed.missingBlocks,{explanation:122,workedExample:122,misconception:122,summary:122});
-  assert.deepEqual(committed.humanReview.structuredEntries,{APPROVED:0,REVIEW_PENDING:0,DRAFT:0,CHANGES_REQUESTED:0});
+  assert.deepEqual(committed.humanReview.structuredEntries,{APPROVED:0,REVIEW_PENDING:0,STALE_REVIEW:0,DRAFT:0,CHANGES_REQUESTED:0});
   const depth=json('reports/learning-depth-baseline.json');
   assert.equal(depth.learningUnits.filter(u=>u.dimensions.theory==='STRUCTURED').length,0);
   assert.equal(depth.learningUnits.filter(u=>u.dimensions.theory==='MINIMAL').length,122);

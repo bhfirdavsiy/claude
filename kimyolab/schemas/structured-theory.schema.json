@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://kimyolab.local/schemas/structured-theory.schema.json",
   "title": "StructuredTheory",
-  "description": "P2.3 (ADR-P2-004): human-authored, source-supported structured theory of one learning unit. Every block carries its own provenance and review state. The build additionally enforces explanation length, registered/acceptable sources, no placeholders, no automation authors and hash-pinned approvals.",
+  "description": "P2.3 (ADR-P2-004): human-authored, source-supported structured theory of one learning unit. Every block carries its own provenance and reviews. APPROVED is derived: an approving chemistry review and an approving didactic review by two distinct humans (neither the author), both pinned to the block's current content hash. The build additionally enforces explanation length, registered/acceptable sources, no placeholders and no automation identities.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -37,7 +37,8 @@
         "text",
         "sourceRefs",
         "authoredBy",
-        "reviewStatus"
+        "status",
+        "reviews"
       ],
       "properties": {
         "text": {
@@ -56,56 +57,57 @@
           "type": "string",
           "minLength": 1
         },
-        "reviewStatus": {
+        "status": {
           "enum": [
             "draft",
-            "pending-review",
-            "changes-requested",
-            "approved"
-          ]
-        },
-        "review": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "reviewerId",
-            "reviewerRole",
-            "reviewedAt",
-            "reviewedHash"
+            "ready-for-review"
           ],
-          "properties": {
-            "reviewerId": {
-              "type": "string",
-              "minLength": 1
-            },
-            "reviewerRole": {
-              "enum": [
-                "chemistry",
-                "didactic"
-              ]
-            },
-            "reviewedAt": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "reviewedHash": {
-              "type": "string",
-              "pattern": "^[a-f0-9]{64}$"
+          "description": "the author's workflow state; approval is DERIVED from reviews, never authored"
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "reviewerId",
+              "reviewerRole",
+              "decision",
+              "reviewedAt",
+              "reviewedHash"
+            ],
+            "properties": {
+              "reviewerId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reviewerRole": {
+                "enum": [
+                  "chemistry",
+                  "didactic"
+                ]
+              },
+              "decision": {
+                "enum": [
+                  "approved",
+                  "changes-requested"
+                ]
+              },
+              "reviewedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "reviewedHash": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "notes": {
+                "type": "string"
+              }
             }
-          }
+          },
+          "maxItems": 8
         }
-      },
-      "if": {
-        "properties": {
-          "reviewStatus": {
-            "const": "approved"
-          }
-        }
-      },
-      "then": {
-        "required": [
-          "review"
-        ]
       }
     },
     "workedExamples": {
@@ -120,7 +122,8 @@
           "answer",
           "sourceRefs",
           "authoredBy",
-          "reviewStatus"
+          "status",
+          "reviews"
         ],
         "properties": {
           "problem": {
@@ -151,56 +154,57 @@
             "type": "string",
             "minLength": 1
           },
-          "reviewStatus": {
+          "status": {
             "enum": [
               "draft",
-              "pending-review",
-              "changes-requested",
-              "approved"
-            ]
-          },
-          "review": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "reviewerId",
-              "reviewerRole",
-              "reviewedAt",
-              "reviewedHash"
+              "ready-for-review"
             ],
-            "properties": {
-              "reviewerId": {
-                "type": "string",
-                "minLength": 1
-              },
-              "reviewerRole": {
-                "enum": [
-                  "chemistry",
-                  "didactic"
-                ]
-              },
-              "reviewedAt": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "reviewedHash": {
-                "type": "string",
-                "pattern": "^[a-f0-9]{64}$"
+            "description": "the author's workflow state; approval is DERIVED from reviews, never authored"
+          },
+          "reviews": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "reviewerId",
+                "reviewerRole",
+                "decision",
+                "reviewedAt",
+                "reviewedHash"
+              ],
+              "properties": {
+                "reviewerId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "reviewerRole": {
+                  "enum": [
+                    "chemistry",
+                    "didactic"
+                  ]
+                },
+                "decision": {
+                  "enum": [
+                    "approved",
+                    "changes-requested"
+                  ]
+                },
+                "reviewedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "reviewedHash": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "notes": {
+                  "type": "string"
+                }
               }
-            }
+            },
+            "maxItems": 8
           }
-        },
-        "if": {
-          "properties": {
-            "reviewStatus": {
-              "const": "approved"
-            }
-          }
-        },
-        "then": {
-          "required": [
-            "review"
-          ]
         }
       }
     },
@@ -215,7 +219,8 @@
           "correction",
           "sourceRefs",
           "authoredBy",
-          "reviewStatus"
+          "status",
+          "reviews"
         ],
         "properties": {
           "statement": {
@@ -238,56 +243,57 @@
             "type": "string",
             "minLength": 1
           },
-          "reviewStatus": {
+          "status": {
             "enum": [
               "draft",
-              "pending-review",
-              "changes-requested",
-              "approved"
-            ]
-          },
-          "review": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "reviewerId",
-              "reviewerRole",
-              "reviewedAt",
-              "reviewedHash"
+              "ready-for-review"
             ],
-            "properties": {
-              "reviewerId": {
-                "type": "string",
-                "minLength": 1
-              },
-              "reviewerRole": {
-                "enum": [
-                  "chemistry",
-                  "didactic"
-                ]
-              },
-              "reviewedAt": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "reviewedHash": {
-                "type": "string",
-                "pattern": "^[a-f0-9]{64}$"
+            "description": "the author's workflow state; approval is DERIVED from reviews, never authored"
+          },
+          "reviews": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "reviewerId",
+                "reviewerRole",
+                "decision",
+                "reviewedAt",
+                "reviewedHash"
+              ],
+              "properties": {
+                "reviewerId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "reviewerRole": {
+                  "enum": [
+                    "chemistry",
+                    "didactic"
+                  ]
+                },
+                "decision": {
+                  "enum": [
+                    "approved",
+                    "changes-requested"
+                  ]
+                },
+                "reviewedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "reviewedHash": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "notes": {
+                  "type": "string"
+                }
               }
-            }
+            },
+            "maxItems": 8
           }
-        },
-        "if": {
-          "properties": {
-            "reviewStatus": {
-              "const": "approved"
-            }
-          }
-        },
-        "then": {
-          "required": [
-            "review"
-          ]
         }
       }
     },
@@ -298,7 +304,8 @@
         "points",
         "sourceRefs",
         "authoredBy",
-        "reviewStatus"
+        "status",
+        "reviews"
       ],
       "properties": {
         "points": {
@@ -321,56 +328,57 @@
           "type": "string",
           "minLength": 1
         },
-        "reviewStatus": {
+        "status": {
           "enum": [
             "draft",
-            "pending-review",
-            "changes-requested",
-            "approved"
-          ]
-        },
-        "review": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "reviewerId",
-            "reviewerRole",
-            "reviewedAt",
-            "reviewedHash"
+            "ready-for-review"
           ],
-          "properties": {
-            "reviewerId": {
-              "type": "string",
-              "minLength": 1
-            },
-            "reviewerRole": {
-              "enum": [
-                "chemistry",
-                "didactic"
-              ]
-            },
-            "reviewedAt": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "reviewedHash": {
-              "type": "string",
-              "pattern": "^[a-f0-9]{64}$"
+          "description": "the author's workflow state; approval is DERIVED from reviews, never authored"
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "reviewerId",
+              "reviewerRole",
+              "decision",
+              "reviewedAt",
+              "reviewedHash"
+            ],
+            "properties": {
+              "reviewerId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reviewerRole": {
+                "enum": [
+                  "chemistry",
+                  "didactic"
+                ]
+              },
+              "decision": {
+                "enum": [
+                  "approved",
+                  "changes-requested"
+                ]
+              },
+              "reviewedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "reviewedHash": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "notes": {
+                "type": "string"
+              }
             }
-          }
+          },
+          "maxItems": 8
         }
-      },
-      "if": {
-        "properties": {
-          "reviewStatus": {
-            "const": "approved"
-          }
-        }
-      },
-      "then": {
-        "required": [
-          "review"
-        ]
       }
     },
     "media": {

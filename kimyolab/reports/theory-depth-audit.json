@@ -45,6 +45,7 @@
     "structuredEntries": {
       "APPROVED": 0,
       "REVIEW_PENDING": 0,
+      "STALE_REVIEW": 0,
       "DRAFT": 0,
       "CHANGES_REQUESTED": 0
     }

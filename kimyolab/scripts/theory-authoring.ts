@@ -42,7 +42,7 @@ export function buildTheoryAuthoring(root:string){
     provenance:{entriesFullySourced:collected.filter(c=>c.sourced).length,entriesWithSourceIssues:collected.filter(c=>!c.sourced).length,acceptableSourceCategories:ACCEPTABLE.chemistry,registeredAcceptableSources:acceptableSources.length,unitSourceRefCategories:Object.fromEntries(Object.entries(rows.reduce((m:any,r)=>{ for(const s of r.u.sourceRefs??[]) m[s.type??'unknown']=(m[s.type??'unknown']??0)+1; return m; },{})).sort())},
     humanReview:{legacyTheoryLifecycle:Object.fromEntries(Object.entries(rows.reduce((m:any,r)=>(m[r.theory?.lifecycleStatus??'none']=(m[r.theory?.lifecycleStatus??'none']??0)+1,m),{})).sort()),
       legacyTheoryApprovals:{didacticApproved:count(r=>r.theory?.approvals?.didactic?.status==='approved'),technicalApproved:count(r=>r.theory?.approvals?.technical?.status==='approved')},
-      structuredEntries:{APPROVED:count(r=>r.review==='APPROVED'),REVIEW_PENDING:count(r=>r.review==='REVIEW_PENDING'),DRAFT:count(r=>r.review==='DRAFT'),CHANGES_REQUESTED:count(r=>r.review==='CHANGES_REQUESTED')}},
+      structuredEntries:{APPROVED:count(r=>r.review==='APPROVED'),REVIEW_PENDING:count(r=>r.review==='REVIEW_PENDING'),STALE_REVIEW:count(r=>r.review==='STALE_REVIEW'),DRAFT:count(r=>r.review==='DRAFT'),CHANGES_REQUESTED:count(r=>r.review==='CHANGES_REQUESTED')}},
     units:rows.map(r=>({learningUnitId:r.u.id,theoryId:r.theoryId,depth:r.depth,blocks:r.blocks,structuredEntry:r.entry?{issues:r.validation?.issues.map((i:any)=>i.code)??[],review:r.review}:null})),
   };
   const packets=rows.map(r=>({schema:'kimyolab.theory-authoring-packet.v1',status:r.depth==='STRUCTURED'?'STRUCTURED':'AWAITING_HUMAN_AUTHOR',
@@ -55,12 +55,12 @@ export function buildTheoryAuthoring(root:string){
     dependencies:{practiceActivities:links.filter(l=>l.learningUnitId===r.u.id).map(l=>l.practiceActivityId).filter(Boolean),assessmentItems:items.filter(i=>i.learningUnitId===r.u.id).length},
     // EMPTY slots — a person fills them; the platform does not
     slots:{file:`${STRUCTURED_THEORY_DIR}/${r.theoryId}.json`,schema:STRUCTURED_THEORY_SCHEMA,
-      explanation:{text:null,minChars:MIN_EXPLANATION_CHARS,sourceRefs:[],authoredBy:null,reviewStatus:'draft'},
-      workedExamples:[{problem:null,solutionSteps:[],answer:null,sourceRefs:[],authoredBy:null,reviewStatus:'draft'}],
-      misconceptions:[{statement:null,correction:null,sourceRefs:[],authoredBy:null,reviewStatus:'draft'}],
-      summary:{points:[],sourceRefs:[],authoredBy:null,reviewStatus:'draft'}},
+      explanation:{text:null,minChars:MIN_EXPLANATION_CHARS,sourceRefs:[],authoredBy:null,status:'draft',reviews:[]},
+      workedExamples:[{problem:null,solutionSteps:[],answer:null,sourceRefs:[],authoredBy:null,status:'draft',reviews:[]}],
+      misconceptions:[{statement:null,correction:null,sourceRefs:[],authoredBy:null,status:'draft',reviews:[]}],
+      summary:{points:[],sourceRefs:[],authoredBy:null,status:'draft',reviews:[]}},
     sourceRequirements:{acceptableCategories:ACCEPTABLE.chemistry,rule:'every block cites ≥1 registered source (content-src/source-registry.json) of an acceptable category; register new textbooks/standards through a reviewed PR (docs/governance/SOURCE_POLICY.md)'},
-    reviewChecklist:['explanation ≥300 characters, school level, consistent with the cited source','worked example: problem, numbered solution steps and answer are chemically correct and match the source','misconception: a real, documented learner misconception with a correct explanation (not invented)','summary points restate the explanation without new claims','every block cites a registered acceptable source; no placeholder text','chemistry review and didactic review by two different people; approvals are hash-pinned to the reviewed text'],
+    reviewChecklist:['explanation ≥300 characters, school level, consistent with the cited source','worked example: problem, numbered solution steps and answer are chemically correct and match the source','misconception: a real, documented learner misconception with a correct explanation (not invented)','summary points restate the explanation without new claims','every block cites a registered acceptable source; no placeholder text','approval = an approving chemistry review AND an approving didactic review by two different people, neither the author, both pinned to the same content hash; any edit of text or sources makes them stale'],
   }));
   const queue={schema:'kimyolab.theory-authoring-queue.v1',status:'AWAITING_HUMAN_AUTHOR',
     semantics:'One entry per learning unit with FACTS and DEPENDENCIES only. There is no priority score and no best/worst ordering (units are listed by id); a person decides the order.',
@@ -76,7 +76,7 @@ function readme(q:any):string{
     `1. An author writes \`${STRUCTURED_THEORY_DIR}/<theoryId>.json\` (schema \`${STRUCTURED_THEORY_SCHEMA}\`, see \`schemas/structured-theory.schema.json\`).`,
     '2. Every block (explanation, each worked example, each misconception, summary) cites registered sources of an acceptable category and names its human author.',
     '3. `npm run content:pack` validates it: malformed entries (placeholders, missing author, automation author, approval without a hash-pinned review) fail the build; incomplete or unsourced entries stay out of the learner pack.',
-    '4. Chemistry and didactic reviewers (two people) review; approvals are recorded per block with `reviewedHash` of the exact text.','',
+    '4. A chemistry reviewer and a didactic reviewer (two different people, neither the author) each add a review pinned to the block\'s current content hash; the block is APPROVED only when both approve the same hash. Any edit makes earlier reviews stale.','',
     '## Queue (by id — no priority score)','','| Unit | Grade | Title | Depth | Concepts | Practices | Items |','|---|---|---|---|---|---|---|',
     ...q.units.map((u:any)=>`| \`${u.learningUnitId}\` | ${u.grade} | ${u.title} | ${u.depth} | ${u.concepts} | ${u.practiceActivities} | ${u.assessmentItems} |`),''].join('\n');
 }

@@ -132,6 +132,12 @@ export class ContentClient {
     const prefix=`${this.baseUrl}/${version}`;
     // P2.3: the structured theory pack is optional for older packs (absent → MINIMAL); when listed, it is integrity-checked
     const structuredTheory=this.files.has(STRUCTURED_THEORY_PACK_PATH)?await this.packJson(version,STRUCTURED_THEORY_PACK_PATH):undefined;
+    // P2.3 closeout (A3): theory section labels come from the learner-interaction catalog (same fail-closed rule)
+    let interaction;
+    if(structuredTheory){
+      try{interaction=parseInteractionCatalog(await this.packJson(version,interactionPackPath(DEFAULT_LOCALE)));}
+      catch(error){throw error instanceof ContentLoadError?error:new ContentLoadError('LOCALIZATION_INVALID',{resource:interactionPackPath(DEFAULT_LOCALE)});}
+    }
     const [units,theories,practices,mappings,concepts,externalRaw,assessmentPrompts,readinessPack]=await Promise.all([
       this.packJson(version,`learning-units/grade-${grade}.json`),
       this.packJson(version,`theory-activities.json`),
@@ -142,7 +148,7 @@ export class ContentClient {
       this.packJson(version,ASSESSMENT_PROMPT_PACK_PATH),
       this.packJson(version,READINESS_PACK_PATH),
     ]);
-    try{return buildLearningHubModel(learningUnitId,{units,theories,practices,mappings,concepts,externalLabs:bindingsForLearningUnit(validateExternalLabBindings(externalRaw),learningUnitId),assessmentPrompts,readiness:readinessPack,structuredTheory});}
+    try{return buildLearningHubModel(learningUnitId,{units,theories,practices,mappings,concepts,externalLabs:bindingsForLearningUnit(validateExternalLabBindings(externalRaw),learningUnitId),assessmentPrompts,readiness:readinessPack,structuredTheory,...(interaction?{interaction}:{})});}
     catch(error){
       const code=error instanceof Error?error.message.split(':')[0]:'CONTENT_MODEL_ERROR';
       throw new ContentLoadError(code,{resource:learningUnitId});

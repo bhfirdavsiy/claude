@@ -179,7 +179,8 @@ test('standalone artifact: same content bytes, same runtime (no fetch patch, no 
 // P2.2 closeout (A1) replaced this test: it compared the WebP with a constant set to that same WebP's hash — a
 // self-confirming check. The canonical source is the user-approved ORIGINAL PNG; its hash below is the user's statement
 // (P2.3 instruction A1), written here independently of any file in the repository.
-const USER_APPROVED_ORIGINAL_PNG_SHA256='243d59b0ed1a3e827a5f63522f816e445a43953e9b24492bd67d771533d2f7b0';
+// P2.4 instruction A1 changed this value: the user corrected the hash (243d59b0… given in P2.3 was wrong).
+const USER_APPROVED_ORIGINAL_PNG_SHA256='f061070fec1d4a9d75fda481ac1b0a80e8adb666ca7ab5a03b920fc705ebb6d4';
 test('brand provenance: canonical = the user-approved original PNG; the WebP is a delivery derivative, never self-certified',()=>{
   assert.equal(CANONICAL_LOGO.sha256,USER_APPROVED_ORIGINAL_PNG_SHA256);
   assert.equal(CANONICAL_LOGO.path,'public/assets/brand/kimyolab-logo.png');
@@ -189,6 +190,9 @@ test('brand provenance: canonical = the user-approved original PNG; the WebP is 
   const fresh=buildBrandReport(root,{portal:committed.hosts.portal==='resolves',standalone:committed.hosts.standalone==='resolves'});
   assert.deepEqual(committed,JSON.parse(JSON.stringify(fresh)),'report is current');
   assert.equal(committed.canonicalSourceSha256,USER_APPROVED_ORIGINAL_PNG_SHA256);
+  assert.equal(committed.canonicalSource,'public/assets/brand/kimyolab-logo.png'); assert.equal(committed.deliveryAsset,DELIVERY_LOGO);
+  // the chat-delivered WebP (c5afee42…) is neither the old nor the corrected canonical value
+  assert.ok(!['243d59b0ed1a3e827a5f63522f816e445a43953e9b24492bd67d771533d2f7b0',USER_APPROVED_ORIGINAL_PNG_SHA256].includes(delivery));
   assert.equal(committed.deliveryAssetSha256,delivery);
   assert.equal(committed.delivery.byteIdenticalToCanonical,false);
   assert.equal(committed.visuallyEquivalent,'NOT_CHECKED','never claimed without a check');
