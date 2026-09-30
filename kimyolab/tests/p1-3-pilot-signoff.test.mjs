@@ -160,21 +160,25 @@ test('pending triage covers exactly the runtime-PENDING activities, from facts o
 // ------------------------------------------------------------------ renderer foundation (analysis only)
 
 // P1.4 update: the P1.3 invariants "start gate closed" and "no renderer code" held only until the contract
-// decision. The contract was approved for P1.4 implementation, so the gate is open and exactly ONE renderer
-// (atom-builder) exists; the honesty checks (hydrolysis CANNOT_SUCCEED, electrolysis canned) must still hold.
-test('renderer foundation report: facts from code, black-swan honesty, only the atom-builder is implemented',async()=>{
+// decision. The contract was approved for P1.4 implementation, so the gate is open and only the approved reference
+// renderers exist (atom-builder; since P1.5 also hydrolysis-medium); the honesty check (electrolysis canned) still holds.
+test('renderer foundation report: facts from code, black-swan honesty, only the approved reference renderers are implemented',async()=>{
   const report=await buildRendererReadiness();
   assert.deepEqual(committed(RENDERER_REPORT_FILE),report,'run npm run renderer:readiness');
   assert.equal(report.startGate.rendererContractApproved,true);
   assert.equal(report.startGate.canStartImplementation,true);
-  assert.deepEqual(report.rows.filter(r=>r.implemented).map(r=>r.candidate),['atom-builder'],'no other renderer was implemented');
+  // P1.5: hydrolysis-medium is the second approved reference renderer. The old invariant ("only atom-builder")
+  // described the P1.4 scope; ionic precipitation and electrolysis are still NOT implemented.
+  assert.deepEqual(report.rows.filter(r=>r.implemented).map(r=>r.candidate),['atom-builder','hydrolysis-medium'],'no other renderer was implemented');
   const by=Object.fromEntries(report.rows.map(r=>[r.candidate,r]));
   assert.deepEqual(report.rows.filter(r=>r.rank).sort((a,b)=>a.rank-b.rank).map(r=>r.candidate),['atom-builder','ionic-precipitation','hydrolysis-medium']);
   assert.equal(by['atom-builder'].learnerUiPath.verdict,'CAN_SUCCEED');
-  assert.equal(by['hydrolysis-medium'].learnerUiPath.verdict,'CANNOT_SUCCEED','the current UI cannot pass the salt/medium to the model');
+  // P1.5: the 9.14 blocker is fixed — the hydrolysis renderer sends the chosen salt and the prediction to the model
+  // (the old CANNOT_SUCCEED expectation documented the bug; tests/p1-5-hydrolysis-regression.test.mjs reproduces it).
+  assert.equal(by['hydrolysis-medium'].learnerUiPath.verdict,'CAN_SUCCEED','the renderer passes the salt/medium to the model');
   assert.equal(by.electrolysis.modelData[0].records,1);
   assert.ok(by.electrolysis.blockers.some(b=>/canned animation/.test(b)),'a one-record model must not be called a simulation');
-  assert.deepEqual(fs.readdirSync(path.join(root,'src/renderers')).filter(f=>fs.statSync(path.join(root,'src/renderers',f)).isDirectory()),['atom-builder'],'only the atom-builder renderer exists (no ionic/hydrolysis/electrolysis renderer)');
+  assert.deepEqual(fs.readdirSync(path.join(root,'src/renderers')).filter(f=>fs.statSync(path.join(root,'src/renderers',f)).isDirectory()).sort(),['atom-builder','hydrolysis-medium'],'no ionic/electrolysis renderer exists');
 });
 
 // ------------------------------------------------------------------ completion fix (found by pilot:status)

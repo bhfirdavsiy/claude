@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-09-30T04:33:27.836Z",
+  "createdAt": "2026-09-30T04:52:49.589Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -11,8 +11,8 @@
     {
       "path": "app-preview/app/bootstrap.js",
       "sourcePath": "public/app-preview/app/bootstrap.js",
-      "checksum": "cd39068f302a83cadfe66e7d5c7b8a34821ebd3c29f836a7154ae875302a29b9",
-      "size": 9775
+      "checksum": "c35381d4c6ddd866ede8ce0d1b157e54505b4658e6588f7f962202f557514a58",
+      "size": 9809
     },
     {
       "path": "app-preview/app/content-client.js",
@@ -101,8 +101,14 @@
     {
       "path": "app-preview/domain/chemistry/hydrolysis-model.js",
       "sourcePath": "public/app-preview/domain/chemistry/hydrolysis-model.js",
-      "checksum": "542e57aa5079344453d55b55287f042fde5c2b9c4df1d78d4dfa78bb59bb7e52",
-      "size": 1234
+      "checksum": "592c95e4c1e975472c7e2ad79d01a3b3db2eaab92e15180c96fdd0c1f999d41a",
+      "size": 3172
+    },
+    {
+      "path": "app-preview/domain/chemistry/hydrolysis-trial.js",
+      "sourcePath": "public/app-preview/domain/chemistry/hydrolysis-trial.js",
+      "checksum": "50b20993395e0a42b49cc0ee6308d4371dd777420d9c8127e49284c8bf69d900",
+      "size": 5713
     },
     {
       "path": "app-preview/domain/chemistry/ionic-engine.js",
@@ -359,8 +365,8 @@
     {
       "path": "app-preview/features/practice/host.js",
       "sourcePath": "public/app-preview/features/practice/host.js",
-      "checksum": "eb0025f090d24d10c9bd666f226fde4682a33e7453b1d4875fa64aedbe61fd31",
-      "size": 5144
+      "checksum": "7fd0d0f0659508704586b49b319bc66ca0c363d66eaf247d675b4302c2ef16de",
+      "size": 5593
     },
     {
       "path": "app-preview/features/practice/model.js",
@@ -383,8 +389,8 @@
     {
       "path": "app-preview/features/practice/ui-model.js",
       "sourcePath": "public/app-preview/features/practice/ui-model.js",
-      "checksum": "6f9db3209818249981fdb40df1da96f44788602495a6534d9952d948e70505dd",
-      "size": 5160
+      "checksum": "53dd245eeaa0cf8a7534848a9c4a4c01f03d6344157abd361ab1b0cd29e4904d",
+      "size": 5089
     },
     {
       "path": "app-preview/features/progress/liveness.js",
@@ -503,20 +509,32 @@
     {
       "path": "app-preview/renderers/catalog.js",
       "sourcePath": "public/app-preview/renderers/catalog.js",
-      "checksum": "b7205a02f31513b8bffe0d1063584d703959e757d9f0e9afda3a6b74aa2dd45f",
-      "size": 890
+      "checksum": "3e59e6ce4946cb75071ce9af107f41653be11a4dfaa0491727c94226533c624d",
+      "size": 1559
     },
     {
       "path": "app-preview/renderers/contract.js",
       "sourcePath": "public/app-preview/renderers/contract.js",
-      "checksum": "55e804efe75b3ff0b6957c7fc2a979ee9ed61a15d227daf35a45befa922f197b",
-      "size": 3379
+      "checksum": "09920e0f48df1ab97cd777d699a7c86606080dd841c05b7acc5bca8643a72568",
+      "size": 3563
+    },
+    {
+      "path": "app-preview/renderers/hydrolysis-medium/renderer-model.js",
+      "sourcePath": "public/app-preview/renderers/hydrolysis-medium/renderer-model.js",
+      "checksum": "8a2811dd55ebf7007640b92c8774dfeddcf06f72dca5e54127ad8c2b731355bd",
+      "size": 6678
+    },
+    {
+      "path": "app-preview/renderers/hydrolysis-medium/renderer.js",
+      "sourcePath": "public/app-preview/renderers/hydrolysis-medium/renderer.js",
+      "checksum": "07f8697d8759aac702e4c8acc4bdd5f36c6f2c98db8ca4df4092eb26726f6fad",
+      "size": 7792
     },
     {
       "path": "app-preview/renderers/index.js",
       "sourcePath": "public/app-preview/renderers/index.js",
-      "checksum": "62c063b93d68e8fc0f8ba44be2fa01ce084dabfe854d8e57e2e2d70e778264cc",
-      "size": 494
+      "checksum": "184bb6443413d00c808ca8291fbada096311639f639a84e7cb15197c8adfc61e",
+      "size": 615
     },
     {
       "path": "app-preview/renderers/registry.js",
@@ -551,8 +569,8 @@
     {
       "path": "app-preview/runtime/beta2/advanced.js",
       "sourcePath": "public/app-preview/runtime/beta2/advanced.js",
-      "checksum": "78f79625a99411dd2442361a2d4c8042b5d6ae44b9a40271d30d817f3d8ffd2f",
-      "size": 8923
+      "checksum": "5cc28e1963080616c205be2191efaad881c642c7fc43d3d0fdc9f08007c52c5e",
+      "size": 8786
     },
     {
       "path": "app-preview/runtime/beta2/capability.js",
@@ -581,8 +599,8 @@
     {
       "path": "app-preview/runtime/beta3/advanced.js",
       "sourcePath": "public/app-preview/runtime/beta3/advanced.js",
-      "checksum": "a66bc1709462e34ce275a8a2ba5183a5ed31308789f8c6f699deadd34a85d2e1",
-      "size": 9877
+      "checksum": "497c2e89d832cc0fb654db7edf27488f4491a7b22b4ce0f2d6589c07c603e053",
+      "size": 10580
     },
     {
       "path": "app-preview/runtime/beta3/index.js",
@@ -623,8 +641,8 @@
     {
       "path": "app-preview/runtime/evidence/types.js",
       "sourcePath": "public/app-preview/runtime/evidence/types.js",
-      "checksum": "35c195eba27f52ba598706cc8722254189554014acd906aefcb4eb5d81e1faac",
-      "size": 10664
+      "checksum": "190ef1cf488eb6be851f17e7cee96588a8adc2c7f79b18a41c2448ce70505de4",
+      "size": 11723
     },
     {
       "path": "app-preview/runtime/governance/approvals.js",
@@ -765,6 +783,12 @@
       "size": 5469
     },
     {
+      "path": "app-preview/runtime/reference-slices/hydrolysis-practice.js",
+      "sourcePath": "public/app-preview/runtime/reference-slices/hydrolysis-practice.js",
+      "checksum": "7ec5f45567ecfce9ff206a8a681d72ca799b686324fcfbf21129766e119dd373",
+      "size": 2294
+    },
+    {
       "path": "app-preview/runtime/reference-slices/index.js",
       "sourcePath": "public/app-preview/runtime/reference-slices/index.js",
       "checksum": "541cb1df14862d55e9afbf9f589a81f91e5429c6af789d0f7f0b606a3cc99701",
@@ -809,8 +833,8 @@
     {
       "path": "app-preview/ui/tokens/kimyolab.css",
       "sourcePath": "public/app-preview/ui/tokens/kimyolab.css",
-      "checksum": "8f48085434312d9428fd513c57807bf47dda8c63f2ec113f3bbd41c7379ffb72",
-      "size": 25353
+      "checksum": "beef7b5989eeadbf9007b909628f3fb4bf92c1bdcfbb0e4cdf898f56f0853c07",
+      "size": 26812
     },
     {
       "path": "assets/home/results.png",
@@ -839,8 +863,8 @@
     {
       "path": "content/2026.09.1/activity-configs/beta2-advanced.json",
       "sourcePath": "public/content/2026.09.1/activity-configs/beta2-advanced.json",
-      "checksum": "cebab6ffa2241202aa13845ca295b1f29f6409a83f468b284ad2106c8c9c4bba",
-      "size": 938
+      "checksum": "ef6543787aafea6fefb267a9990f6040cb8a6b281b6e354453fcd6f79c460cf9",
+      "size": 1021
     },
     {
       "path": "content/2026.09.1/activity-configs/beta2-organic.json",
@@ -857,8 +881,8 @@
     {
       "path": "content/2026.09.1/activity-configs/beta3-advanced.json",
       "sourcePath": "public/content/2026.09.1/activity-configs/beta3-advanced.json",
-      "checksum": "09f75d421586cbc067bf15b455be6ab9a8fc9fa2755e2bdbde25d9705efbc7a8",
-      "size": 5932
+      "checksum": "f1f3cbeb4e67da0326ecaaf3e7fe8d9b3ce5cbb530ff56a4e1d771a67b994fae",
+      "size": 6015
     },
     {
       "path": "content/2026.09.1/activity-configs/beta3-safe.json",
@@ -941,8 +965,8 @@
     {
       "path": "content/2026.09.1/chemistry/hydrolysis.json",
       "sourcePath": "public/content/2026.09.1/chemistry/hydrolysis.json",
-      "checksum": "e510f85c76b6f64659d55260204800c9a9f52627db1abf0393b37680c4f1f76b",
-      "size": 875
+      "checksum": "15ca79febd7edefc43c2c4d652b86726338b23122a852f95a35be602bb0773eb",
+      "size": 1219
     },
     {
       "path": "content/2026.09.1/chemistry/kinetics.json",
@@ -1001,8 +1025,8 @@
     {
       "path": "content/2026.09.1/execution-plans.json",
       "sourcePath": "public/content/2026.09.1/execution-plans.json",
-      "checksum": "f2ca48235adb343cebd2a2b44907f89842f12869cd9161705c789c612bc90d71",
-      "size": 34080
+      "checksum": "0a6f304baba067571d4cbb5cca44d8e4905cccec13dfb0e5e893f89ceca9e2c1",
+      "size": 34298
     },
     {
       "path": "content/2026.09.1/external-lab-bindings.json",
@@ -1055,8 +1079,8 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "316c8b21277c9355dafb3da643766cafdb70dc4712882219e8b906b51b234ef9",
-      "size": 6998
+      "checksum": "b9c1ce9287c936829d69f2149311d4e79a656496187b71ae70497467ab800e4b",
+      "size": 7000
     },
     {
       "path": "content/2026.09.1/mapping-links.json",
@@ -1079,7 +1103,7 @@
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "07bf0ecf63ca63ff43d5509881764db4c616f116eb338e2d643e60e9a7fa1af1",
+      "checksum": "8ef0d57423d1e36ab7e802ffeca6702fc2bfb2f078ddb66cb3922533c03dd396",
       "size": 158
     },
     {

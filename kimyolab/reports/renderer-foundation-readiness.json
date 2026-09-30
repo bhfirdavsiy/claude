@@ -39,7 +39,7 @@
       },
       "assessment": {
         "pedagogicalValue": "high — every learner action changes a derived chemical identity (element, isotope, ion); core 7th-grade concept",
-        "currentLimitation": "P1.4: element data moved to the domain periodic table (Z 1–118, Uzbek names Z≤20); DOM + text-state renderer only — no shell/orbital view yet",
+        "currentLimitation": "P1.4: element identity in the domain periodic table (Z 1–118), Uzbek names in localization content (Z≤20); DOM + text-state renderer only — no shell/orbital view yet",
         "engineMaturity": "mature: pure reducer, serialize/restore, construction evidence",
         "interactionDepth": "real model-based: arbitrary particle combinations → derived state (not a fixed path)",
         "accessibilityComplexity": "low — the state is naturally textual; +/- buttons are keyboard operable",
@@ -112,7 +112,7 @@
       "candidate": "hydrolysis-medium",
       "title": "Tuz gidrolizi: tuz tanlash → muhitni bashorat qilish → indikator",
       "rank": 3,
-      "implemented": null,
+      "implemented": "P1.5 — RendererRegistry capability hydrolysis-medium@1.0.0 (src/renderers/hydrolysis-medium)",
       "leadActivityId": "practice.experiment.9.14",
       "readyActivities": 2,
       "activities": [
@@ -134,34 +134,30 @@
       "domainModelReady?": true,
       "engineReady?": true,
       "contentReady?": true,
-      "interactionModelReady?": false,
-      "accessibilityPlan?": "salt and medium as labelled radio groups, indicator result as text (\"muhit: kislotali\"), no colour-only feedback",
+      "interactionModelReady?": true,
+      "accessibilityPlan?": "salt and medium as labelled radio groups, indicator result as text (\"Indikator (lakmus) qizil tusga o‘tdi. Muhit kislotali.\"), no colour-only feedback",
       "assessmentLinkage?": "none — mastery for these units cannot reach MASTERED until an approved assessment exists",
       "learnerUiPath": {
-        "verdict": "CANNOT_SUCCEED",
-        "detail": "controls 3; complete=false; positive evidence=false"
+        "verdict": "CAN_SUCCEED",
+        "detail": "controls 3; complete=true; positive evidence=true"
       },
       "assessment": {
         "pedagogicalValue": "high — a genuine prediction (medium) that the model confirms or refutes",
-        "currentLimitation": "BROKEN in the browser: the UI sends selectSalt/recordMedium without the salt or the medium, so the learner can never succeed (score 0 on every attempt); only 4 salts are modeled",
-        "engineMaturity": "model small but fail-closed (unmodeled salt → not modeled)",
-        "interactionDepth": "model-based decision once inputs reach the model; limited by 4 records",
+        "currentLimitation": "P1.5: fixed — the hydrolysis-medium renderer sends the chosen salt and the predicted medium; only 4 salts are modeled (content, review pending)",
+        "engineMaturity": "model small but fail-closed (unmodeled salt → HYDROLYSIS_NOT_MODELED, no observation)",
+        "interactionDepth": "model-based: the learner chooses among the modeled salts and predicts; the domain returns the medium and the indicator colour (3 distinct outcomes)",
         "accessibilityComplexity": "medium — indicator colour needs a text/label equivalent",
-        "reusePotential": "medium — practice.simulation.11.11 (beta3 hydrolysis) uses the same model",
-        "blackSwan": "PASS in the domain (learner choice → model verdict); FAIL in the current UI (no input reaches the model)",
-        "accessibilityPlan": "salt and medium as labelled radio groups, indicator result as text (\"muhit: kislotali\"), no colour-only feedback",
+        "reusePotential": "medium — practice.simulation.11.11 (beta3 hydrolysis) uses the same renderer and trial scoring",
+        "blackSwan": "PASS — learner choice → model verdict; predict-before-reveal enforced in the domain",
+        "accessibilityPlan": "salt and medium as labelled radio groups, indicator result as text (\"Indikator (lakmus) qizil tusga o‘tdi. Muhit kislotali.\"), no colour-only feedback",
         "dependencies": [
-          "fix the UI command payload (P1.4 renderer or a targeted bugfix)",
           "more modeled salts reviewed by a chemist"
         ]
       },
       "dependencies": [
-        "fix the UI command payload (P1.4 renderer or a targeted bugfix)",
         "more modeled salts reviewed by a chemist"
       ],
-      "blockers": [
-        "learner UI path: CANNOT_SUCCEED (controls 3; complete=false; positive evidence=false)"
-      ]
+      "blockers": []
     },
     {
       "candidate": "electrolysis",

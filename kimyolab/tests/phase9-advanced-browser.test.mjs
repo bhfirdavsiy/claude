@@ -41,14 +41,17 @@ test('advanced ionic trainer loads in browser model and derives the net ionic an
 test('advanced hydrolysis experiment exposes bounded salt/medium controls and evidence',async()=>{
   const model=await client().loadPractice('practice.experiment.9.14');
   assert.equal(model.executionPlan.configSource,'beta2-advanced');
-  const ui=buildPracticeUiModel(model);
-  assert.equal(ui.kind,'experiment');
-  assert.deepEqual(ui.controls.map(x=>x.action),['selectSalt','addIndicator','recordMedium']);
+  // P1.5: the old invariant was wrong in two ways — the legacy controls (selectSalt/addIndicator/recordMedium)
+  // carried no payload, so no learner could ever succeed, and recordMedium AFTER addIndicator copied the revealed
+  // medium instead of predicting it. 9.14 is now drawn by the hydrolysis-medium renderer (predict before reveal).
+  assert.throws(()=>buildPracticeUiModel(model),/RENDERER_REQUIRED/);
+  assert.deepEqual(model.executionPlan.rendererRequirement,{capability:'hydrolysis-medium',range:'^1.0.0'});
   const session=new ReferencePracticeSession(model,{now});
   await session.apply({kind:'experiment-action',action:{type:'selectSalt',payload:{salt:'AlCl3'}}});
-  await session.apply({kind:'experiment-action',action:{type:'addIndicator'}});
-  const result=await session.apply({kind:'experiment-action',action:{type:'recordMedium',payload:{medium:'acidic'}}});
+  await session.apply({kind:'experiment-action',action:{type:'predictMedium',payload:{medium:'acidic'}}});
+  const result=await session.apply({kind:'experiment-action',action:{type:'addIndicator'}});
   assert.ok(result.evidence.some(e=>e.type==='construction'&&e.achieved===true));
+  assert.ok(result.evidence.some(e=>e.type==='answer'&&e.selectedSalt==='AlCl3'&&e.actualMedium==='acidic'&&e.correct===true));
 });
 
 test('advanced electrolysis experiment exposes electrode observation controls and bounded model evidence',async()=>{

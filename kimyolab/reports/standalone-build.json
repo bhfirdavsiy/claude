@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-09-30T04:33:28.700Z",
+  "generatedAt": "2026-09-30T04:52:50.334Z",
   "output": "dist-standalone/KimyoLab_standalone.html",
   "aliases": [
     "dist-standalone/index.html"
   ],
   "entry": "kl/app/bootstrap.js",
-  "moduleCount": 98,
+  "moduleCount": 102,
   "contentJsonFiles": 41,
   "embeddedAssetCount": 3,
-  "sizeBytes": 4912449,
-  "sha256": "e48318c6b8a72f1776d8068b9a95b2b6d0ef56a6989dde6eb64aa2aa44321dc5",
+  "sizeBytes": 4944297,
+  "sha256": "3fc4144bbf59e8d852b2c74cb66b5314eaa3143ce857d3484e27c51ebeeebd65",
   "architecture": "modular-esm-in-single-html-delivery",
   "routeMode": "hash",
   "valid": true

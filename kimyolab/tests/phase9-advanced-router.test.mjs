@@ -31,7 +31,9 @@ test('ionic-equation trainer validates against IonicEngine output instead of a g
 
 test('hydrolysis simulation uses bounded curated model and emits construction evidence',async()=>{
  const id='practice.experiment.9.14';
- const result=await router.run(activity(id,'experiment'),{inputs:{[id]:{actions:[{type:'selectSalt',payload:{salt:'AlCl3'}},{type:'addIndicator'},{type:'recordMedium',payload:{medium:'acidic'}}]}}});
+ const result=await router.run(activity(id,'experiment'),{inputs:{[id]:{actions:[{type:'selectSalt',payload:{salt:'AlCl3'}},{type:'predictMedium',payload:{medium:'acidic'}},{type:'addIndicator'}]}}});
+ // P1.5: predict (predictMedium) BEFORE the indicator; the old recordMedium-after-reveal protocol copied the
+ // revealed answer and is no longer accepted (tests/p1-5-hydrolysis-renderer.test.mjs).
  assert.equal(result.ok,true);
  assert.ok(result.value.evidence.some(e=>e.type==='construction'&&e.achieved));
 });

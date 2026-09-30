@@ -6,7 +6,7 @@
   "assessmentVersion": "0.0.0",
   "scoringVersion": "0.0.0",
   "createdAt": "2026-09-22T00:00:00.000Z",
-  "checksum": "d770087efcb7d9f583a24dfb0c2f92c823d09770561eaac92e37fee822be8d9d",
+  "checksum": "51824564c934bd5b4c21b3166227229c4c71dd20e349e5f61045ebbb65b9ded3",
   "compatibility": {
     "minAppVersion": "20.1.0"
   },
@@ -25,8 +25,8 @@
     },
     {
       "path": "activity-configs/beta2-advanced.json",
-      "checksum": "cebab6ffa2241202aa13845ca295b1f29f6409a83f468b284ad2106c8c9c4bba",
-      "size": 938
+      "checksum": "ef6543787aafea6fefb267a9990f6040cb8a6b281b6e354453fcd6f79c460cf9",
+      "size": 1021
     },
     {
       "path": "activity-configs/beta2-organic.json",
@@ -40,8 +40,8 @@
     },
     {
       "path": "activity-configs/beta3-advanced.json",
-      "checksum": "09f75d421586cbc067bf15b455be6ab9a8fc9fa2755e2bdbde25d9705efbc7a8",
-      "size": 5932
+      "checksum": "f1f3cbeb4e67da0326ecaaf3e7fe8d9b3ce5cbb530ff56a4e1d771a67b994fae",
+      "size": 6015
     },
     {
       "path": "activity-configs/beta3-safe.json",
@@ -110,8 +110,8 @@
     },
     {
       "path": "chemistry/hydrolysis.json",
-      "checksum": "e510f85c76b6f64659d55260204800c9a9f52627db1abf0393b37680c4f1f76b",
-      "size": 875
+      "checksum": "15ca79febd7edefc43c2c4d652b86726338b23122a852f95a35be602bb0773eb",
+      "size": 1219
     },
     {
       "path": "chemistry/kinetics.json",
@@ -160,8 +160,8 @@
     },
     {
       "path": "execution-plans.json",
-      "checksum": "f2ca48235adb343cebd2a2b44907f89842f12869cd9161705c789c612bc90d71",
-      "size": 34080
+      "checksum": "0a6f304baba067571d4cbb5cca44d8e4905cccec13dfb0e5e893f89ceca9e2c1",
+      "size": 34298
     },
     {
       "path": "external-lab-bindings.json",

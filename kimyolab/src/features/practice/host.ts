@@ -26,6 +26,8 @@ export const RENDERER_FAILED_MESSAGE='Bu faoliyatni ko‘rsatishda xatolik yuz b
 export interface PracticePagePort extends PracticeCommandPort {
   /** engine result for the current inputs, without a new input and without persistence */
   current():Promise<any>;
+  /** P1.5: start a NEW attempt of this activity (the finished attempt and its evidence stay as they are) */
+  retry?():void;
 }
 
 export type PracticeRenderPath='registry'|'legacy'|'blocked';
@@ -78,11 +80,16 @@ export function renderPracticePage(root:HTMLElement,page:StudentPracticePageMode
         if(isPracticeResultComplete(page.type,result)&&!next.childElementCount){
           feedback.textContent='Faoliyat muvaffaqiyatli yakunlandi.';
           next.append(link('Mustahkamlashga o‘tish',`/learn/${page.learningUnit.id}/quiz`,'kl-button kl-button--primary'));
+          if(port.retry){
+            const again=el('button',{className:'kl-button kl-button--secondary',text:'Qaytadan urinish (yangi urinish)',attrs:{type:'button','data-action':'retry'}});
+            again.addEventListener('click',()=>port.retry!());
+            next.append(again);
+          }
         }
         return result;
       },
       current:()=>port.current(),
-    },{title:page.title,goal:page.goal,elementName:elementNameMapper(page.localization?.elementNames)});
+    },{title:page.title,goal:page.goal,practiceType:page.type,elementName:elementNameMapper(page.localization?.elementNames)});
   }catch{ failClosed(); return 'registry'; }
   void port.current().then(draw,()=>failClosed());
   return 'registry';

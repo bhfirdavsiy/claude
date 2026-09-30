@@ -32,6 +32,16 @@ export interface AnswerEvidence extends EvidenceBase {
   /** Version of the assessed item, when it differs in lifecycle from the activity/bank version. */
   itemVersion?: string;
 }
+/**
+ * P1.5: one hydrolysis prediction trial (answer evidence with the full trial). `correct` compares the prediction
+ * with the domain's medium; `score` is 1 only for a correct prediction made BEFORE the indicator revealed it.
+ */
+export interface HydrolysisPredictionEvidence extends AnswerEvidence {
+  selectedSalt: string;
+  predictedMedium: 'acidic' | 'basic' | 'neutral';
+  actualMedium: 'acidic' | 'basic' | 'neutral';
+  predictedBeforeReveal: boolean;
+}
 export interface CalculationEvidence extends EvidenceBase {
   type: 'calculation';
   stepId: string;
@@ -92,6 +102,12 @@ export function validateEvidence(input: unknown): Evidence {
       if (!text(input.questionId) || typeof input.correct !== 'boolean') invalid('answer fields required');
       if (input.response !== undefined && !text(input.response)) invalid('answer response must be text');
       if (input.itemVersion !== undefined && !text(input.itemVersion)) invalid('answer itemVersion must be text');
+      if (input.selectedSalt !== undefined) {
+        const media = ['acidic', 'basic', 'neutral'];
+        if (!text(input.selectedSalt) || !media.includes(String(input.predictedMedium)) || !media.includes(String(input.actualMedium)) || typeof input.predictedBeforeReveal !== 'boolean') invalid('hydrolysis prediction fields required');
+        if (input.correct !== (input.predictedMedium === input.actualMedium)) invalid('hydrolysis correct must match prediction');
+        if (input.score > 0 && !input.predictedBeforeReveal) invalid('a prediction after the reveal earns no credit');
+      }
       break;
     case 'calculation':
       if (!text(input.stepId) || typeof input.value !== 'number' || !Number.isFinite(input.value) || !text(input.unit)) invalid('calculation fields required');

@@ -55,6 +55,8 @@ export interface RendererMountContext {
   goal:string;
   /** localized element display name for a symbol (content-backed presentation mapper); defaults to the symbol */
   elementName?:(symbol:string)=>string;
+  /** engine family of the page (P1.5): a renderer serving several engines picks the matching command kind */
+  practiceType?:'experiment'|'simulation'|'trainer'|'calculation'|'case';
 }
 
 export interface RendererImplementation {
