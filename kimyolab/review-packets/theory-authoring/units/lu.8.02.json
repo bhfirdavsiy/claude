@@ -1,0 +1,118 @@
+{
+  "schema": "kimyolab.theory-authoring-packet.v1",
+  "status": "AWAITING_HUMAN_AUTHOR",
+  "learningUnit": {
+    "id": "lu.8.02",
+    "grade": 8,
+    "title": "Kimyoviy elementlarning dastlabki toifalanishi va tabiiy oilalari",
+    "chapter": "II bob, 3-4-§, 17-24-betlar"
+  },
+  "learningOutcomes": [
+    "Tajriba emas, tarixiy-model faoliyat eng mos."
+  ],
+  "concepts": [
+    {
+      "id": "concept.c080",
+      "name": "Elementlar toifalanishi"
+    },
+    {
+      "id": "concept.c081",
+      "name": "triadalar"
+    },
+    {
+      "id": "concept.c082",
+      "name": "oilalar"
+    }
+  ],
+  "prerequisiteConcepts": [],
+  "currentTheory": {
+    "theoryId": "theory.8.02",
+    "title": "Kimyoviy elementlarning dastlabki toifalanishi va tabiiy oilalari",
+    "depth": "MINIMAL",
+    "legacyBlocks": [
+      {
+        "type": "concept-summary",
+        "text": "Elementlar toifalanishi, triadalar, oilalar"
+      },
+      {
+        "type": "legacy-mapping-note",
+        "text": "Tajriba emas, tarixiy-model faoliyat eng mos."
+      }
+    ],
+    "lifecycleStatus": "draft"
+  },
+  "currentProvenance": {
+    "unitSourceRefs": [
+      {
+        "id": "src.legacy.8.02",
+        "type": "internal",
+        "title": "II bob, 3-4-§, 17-24-betlar"
+      }
+    ],
+    "theorySourceRefs": [],
+    "note": "the legacy theory carries no registered source; every structured block must cite one"
+  },
+  "dependencies": {
+    "practiceActivities": [
+      "practice.simulation.8.02.planned"
+    ],
+    "assessmentItems": 0
+  },
+  "slots": {
+    "file": "content-src/theory-structured/theory.8.02.json",
+    "schema": "kimyolab.structured-theory.v1",
+    "explanation": {
+      "text": null,
+      "minChars": 300,
+      "sourceRefs": [],
+      "authoredBy": null,
+      "status": "draft",
+      "reviews": []
+    },
+    "workedExamples": [
+      {
+        "problem": null,
+        "solutionSteps": [],
+        "answer": null,
+        "sourceRefs": [],
+        "authoredBy": null,
+        "status": "draft",
+        "reviews": []
+      }
+    ],
+    "misconceptions": [
+      {
+        "statement": null,
+        "correction": null,
+        "sourceRefs": [],
+        "authoredBy": null,
+        "status": "draft",
+        "reviews": []
+      }
+    ],
+    "summary": {
+      "points": [],
+      "sourceRefs": [],
+      "authoredBy": null,
+      "status": "draft",
+      "reviews": []
+    }
+  },
+  "sourceRequirements": {
+    "acceptableCategories": [
+      "CURRICULUM",
+      "TEXTBOOK",
+      "OFFICIAL_STANDARD",
+      "AUTHORITATIVE_REFERENCE"
+    ],
+    "rule": "every block cites ≥1 registered source (content-src/source-registry.json) of an acceptable category; register new textbooks/standards through a reviewed PR (docs/governance/SOURCE_POLICY.md)"
+  },
+  "reviewChecklist": [
+    "explanation ≥300 characters, school level, consistent with the cited source",
+    "worked example: problem, numbered solution steps and answer are chemically correct and match the source",
+    "misconception: a real, documented learner misconception with a correct explanation (not invented)",
+    "summary points restate the explanation without new claims",
+    "every block cites a registered acceptable source; no placeholder text",
+    "approval = an approving chemistry review AND an approving didactic review by two different people, neither the author, both pinned to the same content hash; any edit of text or sources makes them stale"
+  ]
+}

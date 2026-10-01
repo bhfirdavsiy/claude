@@ -1,0 +1,129 @@
+{
+  "schema": "kimyolab.theory-authoring-packet.v1",
+  "status": "AWAITING_HUMAN_AUTHOR",
+  "learningUnit": {
+    "id": "lu.9.20",
+    "grade": 9,
+    "title": "Mis, kumush va oltin",
+    "chapter": "IV bob, 28-29-§, 131-138-betlar"
+  },
+  "learningOutcomes": [
+    "9.9 metall-tuz almashinuvi va 9.15 Cu(OH)2 mis kimyosini qo‘llab-quvvatlaydi."
+  ],
+  "concepts": [
+    {
+      "id": "concept.c202",
+      "name": "Cu"
+    },
+    {
+      "id": "concept.c203",
+      "name": "Ag"
+    },
+    {
+      "id": "concept.c204",
+      "name": "Au"
+    },
+    {
+      "id": "concept.c205",
+      "name": "xossalar"
+    },
+    {
+      "id": "concept.c206",
+      "name": "ishlatilish"
+    }
+  ],
+  "prerequisiteConcepts": [],
+  "currentTheory": {
+    "theoryId": "theory.9.20",
+    "title": "Mis, kumush va oltin",
+    "depth": "MINIMAL",
+    "legacyBlocks": [
+      {
+        "type": "concept-summary",
+        "text": "Cu, Ag, Au, xossalar, ishlatilish"
+      },
+      {
+        "type": "legacy-mapping-note",
+        "text": "9.9 metall-tuz almashinuvi va 9.15 Cu(OH)2 mis kimyosini qo‘llab-quvvatlaydi."
+      }
+    ],
+    "lifecycleStatus": "draft"
+  },
+  "currentProvenance": {
+    "unitSourceRefs": [
+      {
+        "id": "src.legacy.9.20",
+        "type": "internal",
+        "title": "IV bob, 28-29-§, 131-138-betlar"
+      }
+    ],
+    "theorySourceRefs": [],
+    "note": "the legacy theory carries no registered source; every structured block must cite one"
+  },
+  "dependencies": {
+    "practiceActivities": [
+      "practice.simulation.9.20.cu-ag-au",
+      "practice.experiment.9.9",
+      "practice.experiment.9.15",
+      "practice.experiment.9.3"
+    ],
+    "assessmentItems": 0
+  },
+  "slots": {
+    "file": "content-src/theory-structured/theory.9.20.json",
+    "schema": "kimyolab.structured-theory.v1",
+    "explanation": {
+      "text": null,
+      "minChars": 300,
+      "sourceRefs": [],
+      "authoredBy": null,
+      "status": "draft",
+      "reviews": []
+    },
+    "workedExamples": [
+      {
+        "problem": null,
+        "solutionSteps": [],
+        "answer": null,
+        "sourceRefs": [],
+        "authoredBy": null,
+        "status": "draft",
+        "reviews": []
+      }
+    ],
+    "misconceptions": [
+      {
+        "statement": null,
+        "correction": null,
+        "sourceRefs": [],
+        "authoredBy": null,
+        "status": "draft",
+        "reviews": []
+      }
+    ],
+    "summary": {
+      "points": [],
+      "sourceRefs": [],
+      "authoredBy": null,
+      "status": "draft",
+      "reviews": []
+    }
+  },
+  "sourceRequirements": {
+    "acceptableCategories": [
+      "CURRICULUM",
+      "TEXTBOOK",
+      "OFFICIAL_STANDARD",
+      "AUTHORITATIVE_REFERENCE"
+    ],
+    "rule": "every block cites ≥1 registered source (content-src/source-registry.json) of an acceptable category; register new textbooks/standards through a reviewed PR (docs/governance/SOURCE_POLICY.md)"
+  },
+  "reviewChecklist": [
+    "explanation ≥300 characters, school level, consistent with the cited source",
+    "worked example: problem, numbered solution steps and answer are chemically correct and match the source",
+    "misconception: a real, documented learner misconception with a correct explanation (not invented)",
+    "summary points restate the explanation without new claims",
+    "every block cites a registered acceptable source; no placeholder text",
+    "approval = an approving chemistry review AND an approving didactic review by two different people, neither the author, both pinned to the same content hash; any edit of text or sources makes them stale"
+  ]
+}

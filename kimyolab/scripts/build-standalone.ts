@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import crypto from 'node:crypto';
+import {CANONICAL_BRAND_SOURCE} from './lib/host-build.ts';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const previewRoot=path.join(root,'public','app-preview');
@@ -60,8 +61,7 @@ const walkAssets=(dir:string)=>{
     if(entry.isDirectory()){ walkAssets(full); continue; }
     const type=ASSET_TYPES[path.extname(entry.name).toLowerCase()];
     if(!entry.isFile()||!type) continue;
-    // the canonical brand ORIGINAL (PNG) is a provenance source, not a delivery asset: the app serves the WebP derivative
-    if(posix(path.relative(path.join(root,'public'),full))==='assets/brand/kimyolab-logo.png') continue;
+    if(posix(path.relative(path.join(root,'public'),full))===CANONICAL_BRAND_SOURCE) continue;   // provenance source, not delivered
     standaloneAssets[posix(path.relative(path.join(root,'public'),full))]=`data:${type};base64,${fs.readFileSync(full).toString('base64')}`;
   }
 };

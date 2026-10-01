@@ -53,6 +53,23 @@
       "differences": []
     },
     {
+      "id": "theory-guide",
+      "title": "theory (P2.3): the same theory content and depth in both hosts",
+      "status": "PASS",
+      "facts": {
+        "depth": "MINIMAL",
+        "text": "Gidroliz, eritma muhiti, indikator\n\n9.14 alyuminiy tuzi eritmasining indikatorga ta’sirini kuzatadi.",
+        "heading": "Mavzuni tushunib oling"
+      },
+      "semantic": {
+        "evidence": [],
+        "attempts": [],
+        "progress": [],
+        "mastery": []
+      },
+      "differences": []
+    },
+    {
       "id": "atom-builder",
       "title": "Atom Builder 7.07",
       "status": "PASS",
@@ -384,13 +401,14 @@
     }
   ],
   "summary": {
-    "scenarios": 8,
-    "pass": 8,
+    "scenarios": 9,
+    "pass": 9,
     "status": "PASS"
   },
   "scenarioIds": [
     "home-to-curriculum",
     "unit-guide-practice",
+    "theory-guide",
     "atom-builder",
     "hydrolysis",
     "ionic",

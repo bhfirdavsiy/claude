@@ -1,0 +1,122 @@
+{
+  "schema": "kimyolab.theory-authoring-packet.v1",
+  "status": "AWAITING_HUMAN_AUTHOR",
+  "learningUnit": {
+    "id": "lu.11.01",
+    "grade": 11,
+    "title": "Atom tuzilishi",
+    "chapter": "1-bob, 1-§, 4-10-betlar"
+  },
+  "learningOutcomes": [
+    "Atom tuzilishi model/trenajyor orqali o‘zlashtiriladi."
+  ],
+  "concepts": [
+    {
+      "id": "concept.c284",
+      "name": "Rezerford"
+    },
+    {
+      "id": "concept.c285",
+      "name": "Bor va kvant modeli; orbital; kvant sonlari; Pauli"
+    },
+    {
+      "id": "concept.c286",
+      "name": "Klechkovskiy"
+    },
+    {
+      "id": "concept.c287",
+      "name": "Gund qoidalari"
+    }
+  ],
+  "prerequisiteConcepts": [],
+  "currentTheory": {
+    "theoryId": "theory.11.01",
+    "title": "Atom tuzilishi",
+    "depth": "MINIMAL",
+    "legacyBlocks": [
+      {
+        "type": "concept-summary",
+        "text": "Rezerford, Bor va kvant modeli; orbital; kvant sonlari; Pauli, Klechkovskiy, Gund qoidalari"
+      },
+      {
+        "type": "legacy-mapping-note",
+        "text": "Atom tuzilishi model/trenajyor orqali o‘zlashtiriladi."
+      }
+    ],
+    "lifecycleStatus": "draft"
+  },
+  "currentProvenance": {
+    "unitSourceRefs": [
+      {
+        "id": "src.legacy.11.01",
+        "type": "internal",
+        "title": "1-bob, 1-§, 4-10-betlar"
+      }
+    ],
+    "theorySourceRefs": [],
+    "note": "the legacy theory carries no registered source; every structured block must cite one"
+  },
+  "dependencies": {
+    "practiceActivities": [
+      "practice.simulation.11.01.planned"
+    ],
+    "assessmentItems": 0
+  },
+  "slots": {
+    "file": "content-src/theory-structured/theory.11.01.json",
+    "schema": "kimyolab.structured-theory.v1",
+    "explanation": {
+      "text": null,
+      "minChars": 300,
+      "sourceRefs": [],
+      "authoredBy": null,
+      "status": "draft",
+      "reviews": []
+    },
+    "workedExamples": [
+      {
+        "problem": null,
+        "solutionSteps": [],
+        "answer": null,
+        "sourceRefs": [],
+        "authoredBy": null,
+        "status": "draft",
+        "reviews": []
+      }
+    ],
+    "misconceptions": [
+      {
+        "statement": null,
+        "correction": null,
+        "sourceRefs": [],
+        "authoredBy": null,
+        "status": "draft",
+        "reviews": []
+      }
+    ],
+    "summary": {
+      "points": [],
+      "sourceRefs": [],
+      "authoredBy": null,
+      "status": "draft",
+      "reviews": []
+    }
+  },
+  "sourceRequirements": {
+    "acceptableCategories": [
+      "CURRICULUM",
+      "TEXTBOOK",
+      "OFFICIAL_STANDARD",
+      "AUTHORITATIVE_REFERENCE"
+    ],
+    "rule": "every block cites ≥1 registered source (content-src/source-registry.json) of an acceptable category; register new textbooks/standards through a reviewed PR (docs/governance/SOURCE_POLICY.md)"
+  },
+  "reviewChecklist": [
+    "explanation ≥300 characters, school level, consistent with the cited source",
+    "worked example: problem, numbered solution steps and answer are chemically correct and match the source",
+    "misconception: a real, documented learner misconception with a correct explanation (not invented)",
+    "summary points restate the explanation without new claims",
+    "every block cites a registered acceptable source; no placeholder text",
+    "approval = an approving chemistry review AND an approving didactic review by two different people, neither the author, both pinned to the same content hash; any edit of text or sources makes them stale"
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "schema": "kimyolab.theory-authoring-packet.v1",
+  "status": "AWAITING_HUMAN_AUTHOR",
+  "learningUnit": {
+    "id": "lu.7.19",
+    "grade": 7,
+    "title": "Kislorod: xossalari, yonish, ozon va oksidlar",
+    "chapter": "IV bob, 2-10-mavzular"
+  },
+  "learningOutcomes": [
+    "7.7 kislorodda C, S, Fe yonishini bevosita bajaradi."
+  ],
+  "concepts": [
+    {
+      "id": "concept.c054",
+      "name": "O2"
+    },
+    {
+      "id": "concept.c055",
+      "name": "O3"
+    },
+    {
+      "id": "concept.c056",
+      "name": "yonish"
+    },
+    {
+      "id": "concept.c057",
+      "name": "oksidlanish"
+    },
+    {
+      "id": "concept.c058",
+      "name": "oksid"
+    }
+  ],
+  "prerequisiteConcepts": [],
+  "currentTheory": {
+    "theoryId": "theory.7.19",
+    "title": "Kislorod: xossalari, yonish, ozon va oksidlar",
+    "depth": "MINIMAL",
+    "legacyBlocks": [
+      {
+        "type": "concept-summary",
+        "text": "O2, O3, yonish, oksidlanish, oksid"
+      },
+      {
+        "type": "legacy-mapping-note",
+        "text": "7.7 kislorodda C, S, Fe yonishini bevosita bajaradi."
+      }
+    ],
+    "lifecycleStatus": "draft"
+  },
+  "currentProvenance": {
+    "unitSourceRefs": [
+      {
+        "id": "src.legacy.7.19",
+        "type": "internal",
+        "title": "IV bob, 2-10-mavzular"
+      }
+    ],
+    "theorySourceRefs": [],
+    "note": "the legacy theory carries no registered source; every structured block must cite one"
+  },
+  "dependencies": {
+    "practiceActivities": [
+      "practice.experiment.7.7"
+    ],
+    "assessmentItems": 0
+  },
+  "slots": {
+    "file": "content-src/theory-structured/theory.7.19.json",
+    "schema": "kimyolab.structured-theory.v1",
+    "explanation": {
+      "text": null,
+      "minChars": 300,
+      "sourceRefs": [],
+      "authoredBy": null,
+      "status": "draft",
+      "reviews": []
+    },
+    "workedExamples": [
+      {
+        "problem": null,
+        "solutionSteps": [],
+        "answer": null,
+        "sourceRefs": [],
+        "authoredBy": null,
+        "status": "draft",
+        "reviews": []
+      }
+    ],
+    "misconceptions": [
+      {
+        "statement": null,
+        "correction": null,
+        "sourceRefs": [],
+        "authoredBy": null,
+        "status": "draft",
+        "reviews": []
+      }
+    ],
+    "summary": {
+      "points": [],
+      "sourceRefs": [],
+      "authoredBy": null,
+      "status": "draft",
+      "reviews": []
+    }
+  },
+  "sourceRequirements": {
+    "acceptableCategories": [
+      "CURRICULUM",
+      "TEXTBOOK",
+      "OFFICIAL_STANDARD",
+      "AUTHORITATIVE_REFERENCE"
+    ],
+    "rule": "every block cites ≥1 registered source (content-src/source-registry.json) of an acceptable category; register new textbooks/standards through a reviewed PR (docs/governance/SOURCE_POLICY.md)"
+  },
+  "reviewChecklist": [
+    "explanation ≥300 characters, school level, consistent with the cited source",
+    "worked example: problem, numbered solution steps and answer are chemically correct and match the source",
+    "misconception: a real, documented learner misconception with a correct explanation (not invented)",
+    "summary points restate the explanation without new claims",
+    "every block cites a registered acceptable source; no placeholder text",
+    "approval = an approving chemistry review AND an approving didactic review by two different people, neither the author, both pinned to the same content hash; any edit of text or sources makes them stale"
+  ]
+}

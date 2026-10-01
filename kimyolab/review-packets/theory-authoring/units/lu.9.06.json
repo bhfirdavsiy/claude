@@ -1,0 +1,118 @@
+{
+  "schema": "kimyolab.theory-authoring-packet.v1",
+  "status": "AWAITING_HUMAN_AUTHOR",
+  "learningUnit": {
+    "id": "lu.9.06",
+    "grade": 9,
+    "title": "Tuzlarning gidrolizi",
+    "chapter": "II bob, 7-§, 32-41-betlar"
+  },
+  "learningOutcomes": [
+    "9.14 alyuminiy tuzi eritmasining indikatorga ta’sirini kuzatadi."
+  ],
+  "concepts": [
+    {
+      "id": "concept.c156",
+      "name": "Gidroliz"
+    },
+    {
+      "id": "concept.c157",
+      "name": "eritma muhiti"
+    },
+    {
+      "id": "concept.c061",
+      "name": "indikator"
+    }
+  ],
+  "prerequisiteConcepts": [],
+  "currentTheory": {
+    "theoryId": "theory.9.06",
+    "title": "Tuzlarning gidrolizi",
+    "depth": "MINIMAL",
+    "legacyBlocks": [
+      {
+        "type": "concept-summary",
+        "text": "Gidroliz, eritma muhiti, indikator"
+      },
+      {
+        "type": "legacy-mapping-note",
+        "text": "9.14 alyuminiy tuzi eritmasining indikatorga ta’sirini kuzatadi."
+      }
+    ],
+    "lifecycleStatus": "draft"
+  },
+  "currentProvenance": {
+    "unitSourceRefs": [
+      {
+        "id": "src.legacy.9.06",
+        "type": "internal",
+        "title": "II bob, 7-§, 32-41-betlar"
+      }
+    ],
+    "theorySourceRefs": [],
+    "note": "the legacy theory carries no registered source; every structured block must cite one"
+  },
+  "dependencies": {
+    "practiceActivities": [
+      "practice.experiment.9.14"
+    ],
+    "assessmentItems": 0
+  },
+  "slots": {
+    "file": "content-src/theory-structured/theory.9.06.json",
+    "schema": "kimyolab.structured-theory.v1",
+    "explanation": {
+      "text": null,
+      "minChars": 300,
+      "sourceRefs": [],
+      "authoredBy": null,
+      "status": "draft",
+      "reviews": []
+    },
+    "workedExamples": [
+      {
+        "problem": null,
+        "solutionSteps": [],
+        "answer": null,
+        "sourceRefs": [],
+        "authoredBy": null,
+        "status": "draft",
+        "reviews": []
+      }
+    ],
+    "misconceptions": [
+      {
+        "statement": null,
+        "correction": null,
+        "sourceRefs": [],
+        "authoredBy": null,
+        "status": "draft",
+        "reviews": []
+      }
+    ],
+    "summary": {
+      "points": [],
+      "sourceRefs": [],
+      "authoredBy": null,
+      "status": "draft",
+      "reviews": []
+    }
+  },
+  "sourceRequirements": {
+    "acceptableCategories": [
+      "CURRICULUM",
+      "TEXTBOOK",
+      "OFFICIAL_STANDARD",
+      "AUTHORITATIVE_REFERENCE"
+    ],
+    "rule": "every block cites ≥1 registered source (content-src/source-registry.json) of an acceptable category; register new textbooks/standards through a reviewed PR (docs/governance/SOURCE_POLICY.md)"
+  },
+  "reviewChecklist": [
+    "explanation ≥300 characters, school level, consistent with the cited source",
+    "worked example: problem, numbered solution steps and answer are chemically correct and match the source",
+    "misconception: a real, documented learner misconception with a correct explanation (not invented)",
+    "summary points restate the explanation without new claims",
+    "every block cites a registered acceptable source; no placeholder text",
+    "approval = an approving chemistry review AND an approving didactic review by two different people, neither the author, both pinned to the same content hash; any edit of text or sources makes them stale"
+  ]
+}

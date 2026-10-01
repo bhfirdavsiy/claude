@@ -44,7 +44,9 @@ export interface AssessmentReviewRegister { schema:typeof REVIEW_REGISTER_SCHEMA
 
 /** Identities that denote automation. An approval must come from a person (P1.2 §13). P1.8 adds the names of
  *  common AI assistants and repository bots (e.g. “ChatGPT”, “Codex”) — the name check stays one layer only. */
-export const AUTOMATION_IDENTITY=/(^|[^a-z])(ai|bot|claude|gpt|chatgpt|openai|anthropic|codex|copilot|gemini|llm|agent|automation|autoapprove|script|ci|github-actions|dependabot|renovate)([^a-z]|$)/i;
+// P2.3 closeout: defined once in a browser-safe module (the structured theory runtime needs it); re-exported here.
+export {AUTOMATION_IDENTITY} from '../governance/identity.ts';
+import {AUTOMATION_IDENTITY} from '../governance/identity.ts';
 
 /**
  * P1.8 defence in depth: the identity check above is a name check, so the review IMPORT commands additionally

@@ -4,6 +4,10 @@
 // never core logic.
 import {normalizeBasePath} from '../../src/app/host.ts';
 
+/** The canonical brand ORIGINAL (relative to public/): a provenance source, not a delivery asset — the product serves the
+ *  WebP derivative, so no build (production, release bundle, standalone) ships the PNG. */
+export const CANONICAL_BRAND_SOURCE='assets/brand/kimyolab-logo.png';
+
 export function applyBasePath(html:string,basePath:string):string{
   const base=normalizeBasePath(basePath);
   let out=html.replace(/(<meta\s+name="kimyolab-base-path"\s+content=")[^"]*(")/i,`$1${base}$2`);

@@ -4,6 +4,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 import os from 'node:os';
 import {computeTreeHash} from '../scripts/deploy-surface-hash.ts';
+import {CANONICAL_BRAND_SOURCE} from '../scripts/lib/host-build.ts';
 
 function copyTree(src,dst){
   fs.mkdirSync(dst,{recursive:true});
@@ -20,6 +21,9 @@ test('canonical source deploy surface and RC release bundle are byte-identical',
   copyTree(path.join(root,'public','app-preview'),path.join(expected,'app-preview'));
   copyTree(path.join(root,'public','content'),path.join(expected,'content'));
   if(fs.existsSync(path.join(root,'public','assets'))) copyTree(path.join(root,'public','assets'),path.join(expected,'assets'));
+  // P2.3 closeout (A1) changed this test: the user-committed canonical brand PNG lives in public/assets as a provenance
+  // source and is not delivered by any build (the product serves the WebP derivative), so it is not deploy surface.
+  fs.rmSync(path.join(expected,CANONICAL_BRAND_SOURCE),{force:true});
   const source=computeTreeHash(expected);
   const release=computeTreeHash(path.join(root,'dist-rc'),['release-manifest.json']);
   assert.equal(release.fileCount,source.fileCount);

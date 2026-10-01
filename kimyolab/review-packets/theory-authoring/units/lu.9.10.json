@@ -1,0 +1,131 @@
+{
+  "schema": "kimyolab.theory-authoring-packet.v1",
+  "status": "AWAITING_HUMAN_AUTHOR",
+  "learningUnit": {
+    "id": "lu.9.10",
+    "grade": 9,
+    "title": "Kremniy va silikat sanoati",
+    "chapter": "III bob, 12-14-§, 61-70-betlar"
+  },
+  "learningOutcomes": [
+    "Tabiiy silikat va shisha namunalarini kuzatish bevosita mos."
+  ],
+  "concepts": [
+    {
+      "id": "concept.c159",
+      "name": "Si"
+    },
+    {
+      "id": "concept.c171",
+      "name": "SiO2"
+    },
+    {
+      "id": "concept.c172",
+      "name": "silikat"
+    },
+    {
+      "id": "concept.c173",
+      "name": "shisha"
+    },
+    {
+      "id": "concept.c174",
+      "name": "sement"
+    },
+    {
+      "id": "concept.c175",
+      "name": "keramika"
+    }
+  ],
+  "prerequisiteConcepts": [],
+  "currentTheory": {
+    "theoryId": "theory.9.10",
+    "title": "Kremniy va silikat sanoati",
+    "depth": "MINIMAL",
+    "legacyBlocks": [
+      {
+        "type": "concept-summary",
+        "text": "Si, SiO2, silikat, shisha, sement, keramika"
+      },
+      {
+        "type": "legacy-mapping-note",
+        "text": "Tabiiy silikat va shisha namunalarini kuzatish bevosita mos."
+      }
+    ],
+    "lifecycleStatus": "draft"
+  },
+  "currentProvenance": {
+    "unitSourceRefs": [
+      {
+        "id": "src.legacy.9.10",
+        "type": "internal",
+        "title": "III bob, 12-14-§, 61-70-betlar"
+      }
+    ],
+    "theorySourceRefs": [],
+    "note": "the legacy theory carries no registered source; every structured block must cite one"
+  },
+  "dependencies": {
+    "practiceActivities": [
+      "practice.experiment.9.5",
+      "practice.experiment.9.6"
+    ],
+    "assessmentItems": 0
+  },
+  "slots": {
+    "file": "content-src/theory-structured/theory.9.10.json",
+    "schema": "kimyolab.structured-theory.v1",
+    "explanation": {
+      "text": null,
+      "minChars": 300,
+      "sourceRefs": [],
+      "authoredBy": null,
+      "status": "draft",
+      "reviews": []
+    },
+    "workedExamples": [
+      {
+        "problem": null,
+        "solutionSteps": [],
+        "answer": null,
+        "sourceRefs": [],
+        "authoredBy": null,
+        "status": "draft",
+        "reviews": []
+      }
+    ],
+    "misconceptions": [
+      {
+        "statement": null,
+        "correction": null,
+        "sourceRefs": [],
+        "authoredBy": null,
+        "status": "draft",
+        "reviews": []
+      }
+    ],
+    "summary": {
+      "points": [],
+      "sourceRefs": [],
+      "authoredBy": null,
+      "status": "draft",
+      "reviews": []
+    }
+  },
+  "sourceRequirements": {
+    "acceptableCategories": [
+      "CURRICULUM",
+      "TEXTBOOK",
+      "OFFICIAL_STANDARD",
+      "AUTHORITATIVE_REFERENCE"
+    ],
+    "rule": "every block cites ≥1 registered source (content-src/source-registry.json) of an acceptable category; register new textbooks/standards through a reviewed PR (docs/governance/SOURCE_POLICY.md)"
+  },
+  "reviewChecklist": [
+    "explanation ≥300 characters, school level, consistent with the cited source",
+    "worked example: problem, numbered solution steps and answer are chemically correct and match the source",
+    "misconception: a real, documented learner misconception with a correct explanation (not invented)",
+    "summary points restate the explanation without new claims",
+    "every block cites a registered acceptable source; no placeholder text",
+    "approval = an approving chemistry review AND an approving didactic review by two different people, neither the author, both pinned to the same content hash; any edit of text or sources makes them stale"
+  ]
+}

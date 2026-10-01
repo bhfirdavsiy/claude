@@ -3,6 +3,7 @@ import { el, clear, link } from '../../ui/components/dom.js';
                                                           
                                                                    
 import {renderMasteryPanel} from '../progress/mastery-render.js';
+import {renderStructuredTheory} from '../theory/structured-render.js';
 
                                                          
 
@@ -50,7 +51,9 @@ export function renderLearningGuide(root            ,model                 ,stat
   const layout=el('div',{className:'kl-shell kl-learning-grid'}); const main=el('div',{className:'kl-learning-main'});
   const theory=el('section',{className:'kl-card',attrs:{'aria-labelledby':'theory-title'}});
   theory.append(el('p',{className:'kl-kicker',text:'1-bosqich · Nazariya'}),el('h2',{text:'Mavzuni tushunib oling',attrs:{id:'theory-title'}}));
-  for(const block of model.theory.blocks) theory.append(el('p',{text:block.text}));
+  // P2.3: a complete, sourced structured theory renders with the structured renderer; otherwise the MINIMAL legacy blocks
+  if(model.theory.structured) theory.append(renderStructuredTheory(model.theory.structured));
+  else{ const legacy=el('div',{className:'kl-theory kl-theory--minimal',attrs:{'data-theory-depth':'MINIMAL'}}); for(const block of model.theory.blocks) legacy.append(el('p',{text:block.text})); theory.append(legacy); }
   const actions=el('div',{className:'kl-cycle-actions'}); actions.append(link('Ish varaqasi',`/worksheet/${encodeURIComponent(model.id)}`,'kl-button kl-button--secondary'));
   if(onComplete){const b=el('button',{className:'kl-button kl-button--primary',text:status.guideComplete?'Amaliyotga o‘tish':'Nazariyani yakunlash va amaliyotga o‘tish',attrs:{type:'button'}}); b.addEventListener('click',()=>void onComplete()); actions.append(b);} else actions.append(link('Amaliyotga o‘tish',`/learn/${model.id}/practice`,'kl-button kl-button--primary'));
   theory.append(actions); main.append(theory);

@@ -63,3 +63,15 @@ Each dimension is an ordered enum. Its normalized level is `index / (count − 1
   - the value is a generic trainer's authored `acceptedAnswers` (Uzbek learner answers).
 - **Raw-id label.** A label counts as raw when it matches the P2.0 id-like rule, or when it is exactly the id or its mechanical humanization (`replaceAll('-',' ')`, camelCase split).
 - `reports/interaction-reliability.json` compares with the P2.0 baseline it cites (commit `41029a7`). It never edits that baseline.
+
+## 7. P2.3 — theory depth rule (ADR-P2-004)
+
+- A unit's theory is **STRUCTURED** only when a human-authored entry in `content-src/theory-structured/` meets both conditions:
+  - it is complete: explanation of at least 300 characters, at least one worked example, at least one misconception check, and a summary;
+  - every block cites a registered source of an acceptable category.
+- Legacy `explanationBlocks` are MINIMAL whatever their block types are. The P2.0 block-type heuristic was removed.
+- These never count as STRUCTURED:
+  - templates, placeholders, empty packet slots;
+  - unsourced entries;
+  - incomplete entries (the build rejects them).
+- Review state is reported in `reports/theory-depth-audit.json`. It is separate from depth: an approval does not make theory deeper, and depth does not approve it.

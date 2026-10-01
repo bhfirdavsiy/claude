@@ -245,6 +245,22 @@
     "ui.retry": "Tekshiring va yana urinib ko‘ring.",
     "ui.save-failed": "Faoliyat bajarildi, lekin natijani saqlab bo‘lmadi.",
     "ui.step-fallback": "{n}-qadam",
-    "ui.submit": "Tekshirish"
+    "ui.submit": "Tekshirish",
+    "ui.theory-answer": "Javob",
+    "ui.theory-example": "{n}-misol",
+    "ui.theory-examples": "Ishlangan misollar",
+    "ui.theory-explanation": "Tushuntirish",
+    "ui.theory-misconceptions": "Keng tarqalgan xato tushunchalar",
+    "ui.theory-problem": "Masala",
+    "ui.theory-review-changes": "Bu nazariya mutaxassislar izohi bo‘yicha qayta ishlanmoqda.",
+    "ui.theory-review-draft": "Bu nazariya hali tayyorlanmoqda.",
+    "ui.theory-review-pending": "Bu nazariya mutaxassislar tekshiruvida.",
+    "ui.theory-review-stale": "Bu nazariya o‘zgartirilgan va qayta tekshiruvni kutmoqda.",
+    "ui.theory-right": "To‘g‘risi",
+    "ui.theory-source": "Manba",
+    "ui.theory-sources": "Manbalar",
+    "ui.theory-steps": "Yechim",
+    "ui.theory-summary": "Xulosa",
+    "ui.theory-wrong": "Xato fikr"
   }
 }

@@ -68,7 +68,7 @@
     {
       "id": "standalone-parity",
       "pass": true,
-      "evidence": "8/8 scenarios identical in both hosts"
+      "evidence": "9/9 scenarios identical in both hosts"
     }
   ],
   "summary": {

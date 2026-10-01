@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-09-30T14:02:16.696Z",
+  "createdAt": "2026-09-30T17:02:21.919Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -17,8 +17,8 @@
     {
       "path": "app-preview/app/content-client.js",
       "sourcePath": "public/app-preview/app/content-client.js",
-      "checksum": "5ff5839c477d837b71908364e81d960e78360a97e7bb640c1a17a2d33f483a59",
-      "size": 21901
+      "checksum": "2c6d4b81677dc1f26666ba4f6ab9cd8c635b5066bf442f9419cc24113e976979",
+      "size": 22744
     },
     {
       "path": "app-preview/app/host.js",
@@ -41,8 +41,8 @@
     {
       "path": "app-preview/domain/assessment/governance.js",
       "sourcePath": "public/app-preview/domain/assessment/governance.js",
-      "checksum": "1eda899a5c900888ca3dcf031ece6ca97e8a8e0cdcb3f7ced090aa1e52383cbb",
-      "size": 9306
+      "checksum": "d5cd975f420a4f7ef2518e640df051766b59e5f91244a0ad5897c6176f29e099",
+      "size": 9347
     },
     {
       "path": "app-preview/domain/assessment/model.js",
@@ -267,6 +267,12 @@
       "size": 3848
     },
     {
+      "path": "app-preview/domain/governance/identity.js",
+      "sourcePath": "public/app-preview/domain/governance/identity.js",
+      "checksum": "90169876a93abac77152f183fc9af517baab27d5cc246f7e0c514773ccdf42bd",
+      "size": 430
+    },
+    {
       "path": "app-preview/domain/governance/release-decision.js",
       "sourcePath": "public/app-preview/domain/governance/release-decision.js",
       "checksum": "de0cb53b66375fa072b4d46b6af5c61b3877789f1d40b5f564090eb77cb673e9",
@@ -307,6 +313,12 @@
       "sourcePath": "public/app-preview/domain/readiness/unit-readiness.js",
       "checksum": "6365b53057bcfd94085eb0d76c98de4aba4d27b63f95d9c031f7f13c72cb0eef",
       "size": 466
+    },
+    {
+      "path": "app-preview/domain/theory/structured-theory.js",
+      "sourcePath": "public/app-preview/domain/theory/structured-theory.js",
+      "checksum": "cea952f43fffdadc21b642eddbfa2493a14e5136deb3a2d5863c8680e3079ff2",
+      "size": 11406
     },
     {
       "path": "app-preview/engines/calculation/engine.js",
@@ -395,20 +407,20 @@
     {
       "path": "app-preview/features/learning-hub/model.js",
       "sourcePath": "public/app-preview/features/learning-hub/model.js",
-      "checksum": "34e1aa352a334d3a0abefc5b96386c295e84d0fb0a1f797fd444f437d738a44e",
-      "size": 5964
+      "checksum": "9831cd6b707ecc2ed8172e577a5868b5890197e26b1100899e3ba897727c8903",
+      "size": 6750
     },
     {
       "path": "app-preview/features/learning-hub/render.js",
       "sourcePath": "public/app-preview/features/learning-hub/render.js",
-      "checksum": "271aa8a236407658b927469145011bbd7a6a024693ac142e84ea1ef41542adf1",
-      "size": 16362
+      "checksum": "bc6225b645e3a6be3599d27d1485782224ea16f756e0c7fbaaa05603857f9f29",
+      "size": 16786
     },
     {
       "path": "app-preview/features/localization/element-names.js",
       "sourcePath": "public/app-preview/features/localization/element-names.js",
-      "checksum": "fb60d021c5fba5a2b7d2bb0b519f47dee8a2107cb56a8eb0d9ca2e3061d357ec",
-      "size": 7252
+      "checksum": "5ccb6509ef691774f4ef34ba892613c89b7a207773ee46aa9867041c26dc6012",
+      "size": 7600
     },
     {
       "path": "app-preview/features/practice/answer-domain.js",
@@ -493,6 +505,18 @@
       "sourcePath": "public/app-preview/features/search/render.js",
       "checksum": "4d81d45ba95e2ccafec587f77e1dbce9d123bc91b134ee6a0daa48b6fd6d4e45",
       "size": 1755
+    },
+    {
+      "path": "app-preview/features/theory/structured-render.js",
+      "sourcePath": "public/app-preview/features/theory/structured-render.js",
+      "checksum": "440d644c7d00b23d4826fbbcb55d122bdbe4912e0062d7f74997fb8dc7dc5b3c",
+      "size": 3221
+    },
+    {
+      "path": "app-preview/features/theory/view.js",
+      "sourcePath": "public/app-preview/features/theory/view.js",
+      "checksum": "950d751fc088710cbf6585324f0465bf54db2e0293d096780564e043ec233a32",
+      "size": 3899
     },
     {
       "path": "app-preview/features/worksheet/model.js",
@@ -929,8 +953,8 @@
     {
       "path": "app-preview/ui/tokens/kimyolab.css",
       "sourcePath": "public/app-preview/ui/tokens/kimyolab.css",
-      "checksum": "e0c0de10f5a2be8f35c0a71d3a9bf79b4f6668d5c24fd755f78d3663d836adac",
-      "size": 29760
+      "checksum": "b891f2aadf9d4e373f17ad016ee82c000b43242c21c470377f1d8b6575e3edf5",
+      "size": 30621
     },
     {
       "path": "assets/brand/kimyolab-logo.webp",
@@ -1193,8 +1217,8 @@
     {
       "path": "content/2026.09.1/locales/uz-latn/learner-interaction.json",
       "sourcePath": "public/content/2026.09.1/locales/uz-latn/learner-interaction.json",
-      "checksum": "4877351325c9e141f83e808c7246aa35d73192a2e6ea7e4a6ec62e8fabccbc8f",
-      "size": 12315
+      "checksum": "a10c99999c06a79197f5d42d16e0f4a8dfa7928acff7dafffb9a3bb357aab4fe",
+      "size": 13127
     },
     {
       "path": "content/2026.09.1/locales/uz-latn/name-provenance.json",
@@ -1205,8 +1229,8 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "d672675ab2107f28da02af211b8eb5a6204c084736bf6666c808e432b7e7b5a2",
-      "size": 7693
+      "checksum": "127b7d1e004e170a186bafe4abfa24a7ab6a99d46b5d115d963259530e70b832",
+      "size": 7849
     },
     {
       "path": "content/2026.09.1/mapping-links.json",
@@ -1227,9 +1251,15 @@
       "size": 193632
     },
     {
+      "path": "content/2026.09.1/theory-structured.json",
+      "sourcePath": "public/content/2026.09.1/theory-structured.json",
+      "checksum": "4f807020de554be08cf5b39dc1d32a2b0e0910b2dad9c0f743d590b9882beb32",
+      "size": 87
+    },
+    {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "5f52759dda1315fee527635189b94c9c800449d2c7c4d0b09f3e9df39c7ba915",
+      "checksum": "75e235c679444cca7cc3e43f049eaa9a82eefa651d52cf3ecb72710f30c33e36",
       "size": 158
     },
     {

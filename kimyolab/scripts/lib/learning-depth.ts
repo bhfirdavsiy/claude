@@ -23,6 +23,8 @@ import {RENDERER_CATALOG} from '../../src/renderers/catalog.ts';
 import {releaseEntries} from './release.ts';
 import {buildKbReports} from './chemistry-kb.ts';
 import {parseReviewRegister,reviewStateOf} from '../../src/domain/chemistry/kb-review.ts';
+import {classifyTheoryDepth} from '../../src/domain/theory/structured-theory.ts';
+import {collectStructuredTheory,loadSourceRegistry} from './structured-theory.ts';
 
 const readJson=(root:string,rel:string)=>JSON.parse(fs.readFileSync(path.join(root,rel),'utf8'));
 const readOptional=(root:string,rel:string,fallback:any)=>fs.existsSync(path.join(root,rel))?readJson(root,rel):fallback;
@@ -209,6 +211,7 @@ export async function buildLearningDepth(root:string){
   const {pack}=compileReadiness(src);
   const configs=Object.fromEntries(CONFIG_SOURCE_NAMES.map(n=>[n,src.configs[n]??{}]));
   const theories=readJson(root,'content-src/theory-activities.json') as any[];
+  const structuredTheories=collectStructuredTheory(root); const sourceRegistry=loadSourceRegistry(root);
   const conceptsRaw=readJson(root,'content-src/concepts.json');
   const concepts=Array.isArray(conceptsRaw)?conceptsRaw:conceptsRaw.concepts??[];
   const guidedMap=readOptional(root,'content-src/chemistry/guided-step-reaction-map.json',{});
@@ -274,8 +277,10 @@ export async function buildLearningDepth(root:string){
       conceptSummaryChars:text('concept-summary').length,
       blockTypes:uniq(blocks.map((b:any)=>b.type)).sort(),
     };
-    const structuredCount=[theoryChecks.conceptExplanation,theoryChecks.workedExample,theoryChecks.misconception,theoryChecks.summary].filter(Boolean).length;
-    const theoryDepth:TheoryDepth=!theory?'NONE':structuredCount===4?'STRUCTURED':'MINIMAL';
+    // P2.3: the one depth rule (src/domain/theory/structured-theory.ts): STRUCTURED only for a complete AND sourced,
+    // human-authored structured entry. Legacy explanationBlocks alone are MINIMAL whatever their block types say.
+    const structuredEntry=theory?structuredTheories.find(c=>c.entry.theoryId===theory.id)?.entry:undefined;
+    const theoryDepth:TheoryDepth=classifyTheoryDepth(theory,structuredEntry,sourceRegistry).depth as TheoryDepth;
     const succeeding=acts.filter(x=>x.canSucceed==='CAN_SUCCEED');
     const practice:PracticeDepth=succeeding.reduce((best:PracticeDepth,x:any)=>ORDER.practice.indexOf(x.depth)>ORDER.practice.indexOf(best)?x.depth:best,'NONE' as PracticeDepth);
     const interaction:Interaction=succeeding.reduce((best:Interaction,x:any)=>ORDER.interaction.indexOf(x.interaction)>ORDER.interaction.indexOf(best)?x.interaction:best,'NONE' as Interaction);

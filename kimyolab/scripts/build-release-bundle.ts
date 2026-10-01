@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {sha256File} from '../src/domain/content/checksum.ts';
+import {CANONICAL_BRAND_SOURCE} from './lib/host-build.ts';
 
 interface ReleaseFile {path:string;sourcePath:string;checksum:string;size:number}
 
@@ -13,6 +14,7 @@ function copyTree(projectRoot:string,sourceRel:string,outputRoot:string,targetRe
       const full=path.join(current,entry.name);
       if(entry.isDirectory()) walk(full);
       else if(entry.isFile()){
+        if(path.relative(path.join(projectRoot,'public'),full).split(path.sep).join('/')===CANONICAL_BRAND_SOURCE) continue;
         const local=path.relative(sourceRoot,full);
         const target=path.join(outputRoot,targetRel,local);
         fs.mkdirSync(path.dirname(target),{recursive:true});

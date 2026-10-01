@@ -1,0 +1,1519 @@
+{
+  "schema": "kimyolab.theory-depth-audit.v1",
+  "semantics": "Theory depth per learning unit, from the repository. STRUCTURED = a human-authored entry in content-src/theory-structured/ that is complete (explanation ≥300 chars, ≥1 worked example, ≥1 misconception check, a summary) AND cites registered sources of an acceptable category in every block. Templates, placeholders, unsourced or incomplete entries are never STRUCTURED. Review state is governance and is reported separately.",
+  "totals": {
+    "units": 122,
+    "MINIMAL": 122,
+    "STRUCTURED": 0,
+    "NONE": 0,
+    "structuredEntriesAuthored": 0
+  },
+  "blocksPresent": {
+    "explanation": 0,
+    "workedExample": 0,
+    "misconception": 0,
+    "summary": 0
+  },
+  "missingBlocks": {
+    "explanation": 122,
+    "workedExample": 122,
+    "misconception": 122,
+    "summary": 122
+  },
+  "provenance": {
+    "entriesFullySourced": 0,
+    "entriesWithSourceIssues": 0,
+    "acceptableSourceCategories": [
+      "CURRICULUM",
+      "TEXTBOOK",
+      "OFFICIAL_STANDARD",
+      "AUTHORITATIVE_REFERENCE"
+    ],
+    "registeredAcceptableSources": 1,
+    "unitSourceRefCategories": {
+      "internal": 122
+    }
+  },
+  "humanReview": {
+    "legacyTheoryLifecycle": {
+      "draft": 122
+    },
+    "legacyTheoryApprovals": {
+      "didacticApproved": 0,
+      "technicalApproved": 0
+    },
+    "structuredEntries": {
+      "APPROVED": 0,
+      "REVIEW_PENDING": 0,
+      "STALE_REVIEW": 0,
+      "DRAFT": 0,
+      "CHANGES_REQUESTED": 0
+    }
+  },
+  "units": [
+    {
+      "learningUnitId": "lu.7.01",
+      "theoryId": "theory.7.01",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.7.02",
+      "theoryId": "theory.7.02",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.7.03",
+      "theoryId": "theory.7.03",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.7.04",
+      "theoryId": "theory.7.04",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.7.05",
+      "theoryId": "theory.7.05",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.7.06",
+      "theoryId": "theory.7.06",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.7.07",
+      "theoryId": "theory.7.07",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.7.08",
+      "theoryId": "theory.7.08",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.7.09",
+      "theoryId": "theory.7.09",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.7.10",
+      "theoryId": "theory.7.10",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.7.11",
+      "theoryId": "theory.7.11",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.7.12",
+      "theoryId": "theory.7.12",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.7.13",
+      "theoryId": "theory.7.13",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.7.14",
+      "theoryId": "theory.7.14",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.7.15",
+      "theoryId": "theory.7.15",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.7.16",
+      "theoryId": "theory.7.16",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.7.17",
+      "theoryId": "theory.7.17",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.7.18",
+      "theoryId": "theory.7.18",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.7.19",
+      "theoryId": "theory.7.19",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.7.20",
+      "theoryId": "theory.7.20",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.7.21",
+      "theoryId": "theory.7.21",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.7.22",
+      "theoryId": "theory.7.22",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.7.23",
+      "theoryId": "theory.7.23",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.8.01",
+      "theoryId": "theory.8.01",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.8.02",
+      "theoryId": "theory.8.02",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.8.03",
+      "theoryId": "theory.8.03",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.8.04",
+      "theoryId": "theory.8.04",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.8.05",
+      "theoryId": "theory.8.05",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.8.06",
+      "theoryId": "theory.8.06",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.8.07",
+      "theoryId": "theory.8.07",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.8.08",
+      "theoryId": "theory.8.08",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.8.09",
+      "theoryId": "theory.8.09",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.8.10",
+      "theoryId": "theory.8.10",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.8.11",
+      "theoryId": "theory.8.11",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.8.12",
+      "theoryId": "theory.8.12",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.8.13",
+      "theoryId": "theory.8.13",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.8.14",
+      "theoryId": "theory.8.14",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.8.15",
+      "theoryId": "theory.8.15",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.8.16",
+      "theoryId": "theory.8.16",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.8.17",
+      "theoryId": "theory.8.17",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.8.18",
+      "theoryId": "theory.8.18",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.8.19",
+      "theoryId": "theory.8.19",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.8.20",
+      "theoryId": "theory.8.20",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.8.21",
+      "theoryId": "theory.8.21",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.8.22",
+      "theoryId": "theory.8.22",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.8.23",
+      "theoryId": "theory.8.23",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.8.24",
+      "theoryId": "theory.8.24",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.9.01",
+      "theoryId": "theory.9.01",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.9.02",
+      "theoryId": "theory.9.02",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.9.03",
+      "theoryId": "theory.9.03",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.9.04",
+      "theoryId": "theory.9.04",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.9.05",
+      "theoryId": "theory.9.05",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.9.06",
+      "theoryId": "theory.9.06",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.9.07",
+      "theoryId": "theory.9.07",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.9.08",
+      "theoryId": "theory.9.08",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.9.09",
+      "theoryId": "theory.9.09",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.9.10",
+      "theoryId": "theory.9.10",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.9.11",
+      "theoryId": "theory.9.11",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.9.12",
+      "theoryId": "theory.9.12",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.9.13",
+      "theoryId": "theory.9.13",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.9.14",
+      "theoryId": "theory.9.14",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.9.15",
+      "theoryId": "theory.9.15",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.9.16",
+      "theoryId": "theory.9.16",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.9.17",
+      "theoryId": "theory.9.17",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.9.18",
+      "theoryId": "theory.9.18",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.9.19",
+      "theoryId": "theory.9.19",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.9.20",
+      "theoryId": "theory.9.20",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.9.21",
+      "theoryId": "theory.9.21",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.9.22",
+      "theoryId": "theory.9.22",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.9.23",
+      "theoryId": "theory.9.23",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.9.24",
+      "theoryId": "theory.9.24",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.9.25",
+      "theoryId": "theory.9.25",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.9.26",
+      "theoryId": "theory.9.26",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.01",
+      "theoryId": "theory.10.01",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.02",
+      "theoryId": "theory.10.02",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.03",
+      "theoryId": "theory.10.03",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.04",
+      "theoryId": "theory.10.04",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.05",
+      "theoryId": "theory.10.05",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.06",
+      "theoryId": "theory.10.06",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.07",
+      "theoryId": "theory.10.07",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.08",
+      "theoryId": "theory.10.08",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.09",
+      "theoryId": "theory.10.09",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.10",
+      "theoryId": "theory.10.10",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.11",
+      "theoryId": "theory.10.11",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.12",
+      "theoryId": "theory.10.12",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.13",
+      "theoryId": "theory.10.13",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.14",
+      "theoryId": "theory.10.14",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.15",
+      "theoryId": "theory.10.15",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.16",
+      "theoryId": "theory.10.16",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.17",
+      "theoryId": "theory.10.17",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.18",
+      "theoryId": "theory.10.18",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.19",
+      "theoryId": "theory.10.19",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.20",
+      "theoryId": "theory.10.20",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.21",
+      "theoryId": "theory.10.21",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.22",
+      "theoryId": "theory.10.22",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.23",
+      "theoryId": "theory.10.23",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.24",
+      "theoryId": "theory.10.24",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.25",
+      "theoryId": "theory.10.25",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.26",
+      "theoryId": "theory.10.26",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.10.27",
+      "theoryId": "theory.10.27",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.11.01",
+      "theoryId": "theory.11.01",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.11.02",
+      "theoryId": "theory.11.02",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.11.03",
+      "theoryId": "theory.11.03",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.11.04",
+      "theoryId": "theory.11.04",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.11.05",
+      "theoryId": "theory.11.05",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.11.06",
+      "theoryId": "theory.11.06",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.11.07",
+      "theoryId": "theory.11.07",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.11.08",
+      "theoryId": "theory.11.08",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.11.09",
+      "theoryId": "theory.11.09",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.11.10",
+      "theoryId": "theory.11.10",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.11.11",
+      "theoryId": "theory.11.11",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.11.12",
+      "theoryId": "theory.11.12",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.11.13",
+      "theoryId": "theory.11.13",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.11.14",
+      "theoryId": "theory.11.14",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.11.15",
+      "theoryId": "theory.11.15",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.11.16",
+      "theoryId": "theory.11.16",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.11.17",
+      "theoryId": "theory.11.17",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.11.18",
+      "theoryId": "theory.11.18",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.11.19",
+      "theoryId": "theory.11.19",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.11.20",
+      "theoryId": "theory.11.20",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.11.21",
+      "theoryId": "theory.11.21",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    },
+    {
+      "learningUnitId": "lu.11.22",
+      "theoryId": "theory.11.22",
+      "depth": "MINIMAL",
+      "blocks": {
+        "explanation": false,
+        "workedExample": false,
+        "misconception": false,
+        "summary": false
+      },
+      "structuredEntry": null
+    }
+  ]
+}

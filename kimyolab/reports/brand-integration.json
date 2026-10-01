@@ -1,10 +1,12 @@
 {
   "schema": "kimyolab.brand-integration.v2",
-  "status": "CANONICAL_SOURCE_MISSING",
+  "status": "CANONICAL_PRESENT",
+  "canonicalSource": "public/assets/brand/kimyolab-logo.png",
+  "deliveryAsset": "public/assets/brand/kimyolab-logo.webp",
   "semantics": "canonicalSourceSha256 is the hash of the user-approved original (stated by the user, not computed from any file the agent produced). The delivery asset is what the product serves. derivedFromCanonical and visuallyEquivalent are asserted only when verified against the canonical original; otherwise they stay UNVERIFIED / NOT_CHECKED.",
   "canonicalSourceSha256": "243d59b0ed1a3e827a5f63522f816e445a43953e9b24492bd67d771533d2f7b0",
   "deliveryAssetSha256": "c5afee421f72480358dd2b4d77b21587b3afd7843afbf15bcc87cafe5924b36d",
-  "derivedFromCanonical": "UNVERIFIED",
+  "derivedFromCanonical": "NOT_VERIFIED_YET",
   "visuallyEquivalent": "NOT_CHECKED",
   "canonical": {
     "path": "public/assets/brand/kimyolab-logo.png",
@@ -14,11 +16,14 @@
       "width": 1254,
       "height": 1254
     },
-    "source": "original approved by the user in chat (P2.3 instruction A1)",
-    "present": false,
-    "sha256": null,
-    "matchesApprovedOriginal": null,
-    "dimensions": null
+    "source": "original PNG committed by the user; hash explicitly approved by the user in the P2.3 closeout (supersedes f061070f…)",
+    "present": true,
+    "sha256": "243d59b0ed1a3e827a5f63522f816e445a43953e9b24492bd67d771533d2f7b0",
+    "matchesApprovedOriginal": true,
+    "dimensions": {
+      "width": 1254,
+      "height": 1254
+    }
   },
   "delivery": {
     "path": "public/assets/brand/kimyolab-logo.webp",
@@ -29,7 +34,7 @@
       "width": 1254,
       "height": 1254
     },
-    "provenance": "the logo image as received through the chat channel (WebP); NOT byte-identical to the canonical PNG; derivation unverified until the PNG is committed",
+    "provenance": "the logo image as received through the chat channel (WebP); NOT byte-identical to the canonical PNG; derivation from the canonical PNG not verified",
     "byteIdenticalToCanonical": false
   },
   "shell": {
@@ -41,8 +46,5 @@
     "portal": "resolves",
     "standalone": "resolves"
   },
-  "blocker": {
-    "code": "BRAND_ASSET_MISSING",
-    "detail": "the user-approved original PNG (SHA-256 243d59b0ed1a3e827a5f63522f816e445a43953e9b24492bd67d771533d2f7b0) is not in this environment; commit it unchanged at public/assets/brand/kimyolab-logo.png"
-  }
+  "blocker": null
 }

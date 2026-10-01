@@ -3,6 +3,8 @@ import type {ExternalLabBinding} from '../../integrations/external-labs/types.ts
 import {launchDecision,readinessMessage,resolveReadiness,type ReadinessPack} from '../../domain/readiness/readiness.ts';
 import type {AssessmentAvailability} from '../../domain/readiness/unit-readiness.ts';
 import {assessmentIdFor,isApproved,toPromptView,validatePromptPack,type AssessmentPromptView} from '../../domain/assessment/model.ts';
+import {structuredTheoryView,type StructuredTheoryView} from '../theory/view.ts';
+import {createLocalizer,type InteractionCatalog} from '../localization/element-names.ts';
 
 export interface LearningHubContentData {
   units:LearningUnit[];
@@ -15,6 +17,10 @@ export interface LearningHubContentData {
   assessmentPrompts?:unknown;
   /** Canonical readiness pack (P1.2): launchability of practices, unit assessment availability, pilot. */
   readiness?:ReadinessPack;
+  /** P2.3: structured theory pack (theory-structured.json); absent in older packs → MINIMAL rendering */
+  structuredTheory?:unknown;
+  /** P2.3 closeout (A3): learner-interaction catalog for the theory section labels */
+  interaction?:InteractionCatalog;
 }
 
 export interface StudentPracticeModel {
@@ -49,6 +55,8 @@ export interface LearningHubModel {
     title:string;
     blocks:Array<{type:string;text:string}>;
     representationModes:string[];
+    /** P2.3: present only for a complete, sourced structured entry (STRUCTURED); otherwise the legacy blocks render */
+    structured?:StructuredTheoryView;
   };
   primaryPractice:StudentPracticeModel;
   supportingPractices:StudentPracticeModel[];
@@ -106,6 +114,7 @@ export function buildLearningHubModel(learningUnitId:string,data:LearningHubCont
       title:theory.title,
       blocks:theory.explanationBlocks.map(block=>({type:block.type,text:block.text})),
       representationModes:[...theory.representationModes],
+      ...(()=>{ const view=structuredTheoryView(data.structuredTheory,theory.id,createLocalizer(data.interaction?{interaction:data.interaction}:undefined)); return view?{structured:view}:{}; })(),
     },
     primaryPractice:studentPractice(practice,data.readiness),
     supportingPractices:supporting,

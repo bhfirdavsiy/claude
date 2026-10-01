@@ -121,7 +121,7 @@
     "milestone": "P0-INTEGRITY"
   },
   "whereWeAreNow": {
-    "milestone": "P2.2",
+    "milestone": "P2.3",
     "foundationPercent": 100,
     "learningProductPercent": 11.688,
     "facts": [
@@ -145,11 +145,12 @@
     "P1.8",
     "P1.9",
     "P2.0",
-    "P2.1"
+    "P2.1",
+    "P2.2"
   ],
-  "currentMilestone": "P2.2 — portal-safe host foundation",
+  "currentMilestone": "P2.3 — structured theory system",
   "nextMilestones": [
-    "P2.3 — structured theory system",
+    "P2.4+ — assessment / model-based / localization / accessibility / governance expansion",
     "human review round (workbench): chemistry A–C queues, lu.9.15 assessment",
     "release decisions for the 27 pending activities"
   ],
