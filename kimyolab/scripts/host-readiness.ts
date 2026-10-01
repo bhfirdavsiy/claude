@@ -22,9 +22,10 @@ export const HOST_REPORTS=['reports/host-architecture-audit.json','reports/host-
 // P2.3 closeout of P2.2 (A1): the CANONICAL brand source is the original PNG the user approved in chat — its hash is
 // the user's statement, never a hash computed from a file the agent produced. The WebP served by the product is a
 // DELIVERY asset: it is not byte-identical to the original, and its derivation can only be verified against the PNG.
-// P2.4 instruction A1: the user corrected the canonical hash (the value given in P2.3, 243d59b0…, was wrong). The
-// expected hash is the user's statement; it is never changed to match whatever file happens to be present.
-export const CANONICAL_LOGO={path:'public/assets/brand/kimyolab-logo.png',sha256:'f061070fec1d4a9d75fda481ac1b0a80e8adb666ca7ab5a03b920fc705ebb6d4',format:'image/png',dimensions:{width:1254,height:1254},source:'original approved by the user (P2.4 instruction A1; supersedes the P2.3 value 243d59b0…)'} as const;
+// P2.4 instruction A1 named f061070f… as the canonical hash. The user then committed the original PNG (243d59b0…) and,
+// after the mismatch was reported, explicitly approved 243d59b0… as the canonical hash (P2.3 closeout, user decision).
+// The expected hash is the user's statement; the agent never changes it to match whatever file happens to be present.
+export const CANONICAL_LOGO={path:'public/assets/brand/kimyolab-logo.png',sha256:'243d59b0ed1a3e827a5f63522f816e445a43953e9b24492bd67d771533d2f7b0',format:'image/png',dimensions:{width:1254,height:1254},source:'original PNG committed by the user; hash explicitly approved by the user in the P2.3 closeout (supersedes f061070f…)'} as const;
 export const DELIVERY_LOGO='public/assets/brand/kimyolab-logo.webp';
 const HOST_SPECS=['tests/e2e/portal-subpath.spec.mjs','tests/e2e/standalone-host.spec.mjs'];
 
@@ -56,7 +57,7 @@ export function buildBrandReport(base:string,resolves:{portal:boolean;standalone
     derivedFromCanonical:canonicalOk&&delivery?'NOT_VERIFIED_YET':'UNVERIFIED',
     visuallyEquivalent:'NOT_CHECKED',
     canonical:{path:CANONICAL_LOGO.path,expectedSha256:CANONICAL_LOGO.sha256,format:CANONICAL_LOGO.format,expectedDimensions:CANONICAL_LOGO.dimensions,source:CANONICAL_LOGO.source,present:Boolean(canonical),sha256:canonicalSha,matchesApprovedOriginal:canonical?canonicalOk:null,dimensions:canonical?pngSize(canonical):null},
-    delivery:delivery?{path:DELIVERY_LOGO,sha256:sha(delivery),sizeBytes:delivery.length,format:'image/webp',dimensions:webpSize(delivery),provenance:'the logo image as received through the chat channel (WebP); NOT byte-identical to the canonical PNG; derivation unverified until the PNG is committed',byteIdenticalToCanonical:false}:null,
+    delivery:delivery?{path:DELIVERY_LOGO,sha256:sha(delivery),sizeBytes:delivery.length,format:'image/webp',dimensions:webpSize(delivery),provenance:'the logo image as received through the chat channel (WebP); NOT byte-identical to the canonical PNG; derivation from the canonical PNG not verified',byteIdenticalToCanonical:false}:null,
     shell:{logoElement:/class="kl-brand-logo"[^>]*data-kl-asset="assets\/brand\/kimyolab-logo\.webp"/.test(index),temporaryLetterMarkRemoved:!/kl-brand-mark">K</.test(index),favicon:/rel="icon"[^>]*kimyolab-logo\.webp/.test(index)},
     hosts:{portal:resolves.portal?'resolves':'fails',standalone:resolves.standalone?'resolves':'fails'},
     blocker:!canonical?{code:'BRAND_ASSET_MISSING',detail:`the user-approved original PNG (SHA-256 ${CANONICAL_LOGO.sha256}) is not in this environment (chat attachments arrive as a WebP transcode); commit the original unchanged at ${CANONICAL_LOGO.path}`}

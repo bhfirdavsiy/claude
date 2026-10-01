@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {computeTreeHash} from './deploy-surface-hash.ts';
-import {applyBasePath} from './lib/host-build.ts';
+import {applyBasePath,CANONICAL_BRAND_SOURCE} from './lib/host-build.ts';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 // Output directory: argv[2] (used by hermetic tests) or ./dist — the ONLY directory the server exposes.
@@ -22,7 +22,8 @@ function copyTree(src:string,dst:string){
   fs.mkdirSync(dst,{recursive:true});
   for(const entry of fs.readdirSync(src,{withFileTypes:true})){
     const from=path.join(src,entry.name), to=path.join(dst,entry.name);
-    if(entry.isDirectory()) copyTree(from,to); else fs.copyFileSync(from,to);
+    if(entry.isDirectory()) copyTree(from,to);
+    else if(path.relative(publicDir,from).split(path.sep).join('/')!==CANONICAL_BRAND_SOURCE) fs.copyFileSync(from,to);
   }
 }
 
