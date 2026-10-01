@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kimyolab.local/schemas/source-intake.schema.json",
+  "title": "SourceIntake",
+  "description": "P2.4 (ADR-P2-005): a proposed source for content-src/source-registry.json. A machine may validate this metadata, compute the document hash and detect duplicates; only a human decision pinned to the entry's current hash, accepting exactly the claimed category, makes it APPROVED. INTERNAL_PROPOSAL is not an intake category.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "sourceId", "category", "title", "authority", "language", "bibliographic", "locator", "submittedBy", "status", "reviews"],
+  "properties": {
+    "schema": {"const": "kimyolab.source-intake.v1"},
+    "sourceId": {"type": "string", "pattern": "^src\\.[a-z0-9][a-z0-9.\\-]*$"},
+    "category": {"enum": ["CURRICULUM", "TEXTBOOK", "OFFICIAL_STANDARD", "AUTHORITATIVE_REFERENCE", "LOCALIZATION_GLOSSARY"]},
+    "title": {"type": "string", "minLength": 1},
+    "authority": {"type": "string", "minLength": 1, "description": "publisher or issuing authority"},
+    "edition": {"type": "string", "minLength": 1},
+    "year": {"type": "integer", "minimum": 1801, "maximum": 2199},
+    "language": {"type": "string", "minLength": 2},
+    "bibliographic": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "authors": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "isbn": {"type": "string", "minLength": 1},
+        "identifier": {"type": "string", "minLength": 1},
+        "url": {"type": "string", "minLength": 1}
+      }
+    },
+    "locator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind"],
+      "properties": {"kind": {"enum": ["page", "section", "none"]}}
+    },
+    "document": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fileName", "sha256"],
+      "properties": {"fileName": {"type": "string", "minLength": 1}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}
+    },
+    "submittedBy": {"type": "string", "minLength": 1},
+    "status": {"enum": ["draft", "ready-for-review"]},
+    "reviews": {
+      "type": "array",
+      "maxItems": 16,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["reviewerId", "decision", "acceptedCategory", "reviewedAt", "reviewedHash"],
+        "properties": {
+          "reviewerId": {"type": "string", "minLength": 1},
+          "decision": {"enum": ["approved", "changes-requested", "rejected"]},
+          "acceptedCategory": {"enum": ["CURRICULUM", "TEXTBOOK", "OFFICIAL_STANDARD", "AUTHORITATIVE_REFERENCE", "LOCALIZATION_GLOSSARY"]},
+          "reviewedAt": {"type": "string", "format": "date-time"},
+          "reviewedHash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "notes": {"type": "string"}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema": "kimyolab.source-review-queue.v1",
+  "semantics": "Submitted sources and their DERIVED state. A machine validates metadata, computes hashes and detects duplicates; only a human decision on the current hash, accepting the claimed category, approves. Nothing here is authoritative until npm run source:apply.",
+  "counts": {
+    "entries": 0,
+    "byState": {
+      "DRAFT": 0,
+      "READY_FOR_REVIEW": 0,
+      "APPROVED": 0,
+      "CHANGES_REQUESTED": 0,
+      "REJECTED": 0
+    }
+  },
+  "entries": []
+}

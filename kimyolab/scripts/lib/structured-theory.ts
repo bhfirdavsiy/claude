@@ -8,7 +8,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {createContentAjv} from './content-schema.ts';
 import {parseSourceRegistry,type SourceRegistry} from '../../src/domain/governance/source-policy.ts';
-import {validateStructuredTheory,STRUCTURED_THEORY_PACK_SCHEMA,type StructuredTheory} from '../../src/domain/theory/structured-theory.ts';
+import {validateStructuredTheory,theoryReviewState,STRUCTURED_THEORY_PACK_SCHEMA,type StructuredTheory} from '../../src/domain/theory/structured-theory.ts';
 
 export const STRUCTURED_THEORY_DIR='content-src/theory-structured';
 const MALFORMED=new Set(['SCHEMA','PLACEHOLDER_TEXT','AUTOMATION_AUTHOR','AUTHOR_MISSING','REVIEW_INVALID','REVIEWER_NOT_HUMAN','SELF_REVIEW','SAME_REVIEWER_BOTH_ROLES','DUPLICATE_ROLE_REVIEW','MEDIA_INVALID']);
@@ -51,4 +51,13 @@ export function structuredTheoryPack(root:string,collected=collectStructuredTheo
   const shipped=collected.filter(c=>c.complete&&c.sourced).map(c=>c.entry);
   const cited=[...new Set(shipped.flatMap(e=>[e.explanation,...e.workedExamples,...e.misconceptions,e.summary,...(e.media??[])].flatMap(b=>b.sourceRefs)))].sort();
   return {schema:STRUCTURED_THEORY_PACK_SCHEMA,entries:shipped.sort((a,b)=>a.theoryId.localeCompare(b.theoryId)),sources:cited.map(id=>registry.byId.get(id)!).map(s=>({id:s.id,category:s.category,title:s.title}))};
+}
+
+/** P2.4 (ADR-P2-005): canonical structured theory enters the repository only through the governed apply
+ *  (npm run theory:apply), which requires every block to be dual-review APPROVED. The repository build and validation
+ *  re-check it, so a hand-written or edited canonical file without that approval fails closed. */
+export function assertCanonicalTheoryApproved(collected:CollectedTheory[]){
+  const bad=collected.filter(c=>theoryReviewState(c.entry)!=='APPROVED').map(c=>`${c.file}:NOT_APPROVED:${theoryReviewState(c.entry)}`);
+  if(bad.length) throw new Error(`CANONICAL_THEORY_NOT_APPROVED (use npm run theory:apply)\n${bad.join('\n')}`);
+  return collected;
 }

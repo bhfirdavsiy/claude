@@ -41,3 +41,14 @@ Every content claim that can be approved must cite at least one **registered** s
 - The categories in the registry were **proposed** conservatively from each source's own id, type and title. If the origin is undocumented, the source is `INTERNAL_PROPOSAL`.
 - Today this makes only `src.curriculum.9.06` acceptable, so only the hydrolysis and indicator assertions can be approved as they stand.
 - A source is reclassified, or a new one registered, by a person in a reviewed pull request, with evidence (edition, page, URL of the standard). Tooling never upgrades a category.
+
+## Governed source intake (P2.4, ADR-P2-005)
+
+A new textbook, standard or reference is registered through intake, not by editing the registry by hand:
+
+1. A person submits `content-src/source-intake/<sourceId>.json` (schema `kimyolab.source-intake.v1`): title, publisher/authority, edition/year, language, category, bibliographic data, whether page/section citations are possible, the local document hash if a copy exists, and their own identity (`submittedBy`). The workbench **Manbalar** tab produces this file.
+2. Tooling validates the metadata, computes the document hash and detects duplicates (same id, same document hash, same title + authority + edition + year). It never declares a source authoritative.
+3. A human reviewer who is not the submitter records a decision (`approved` / `changes-requested` / `rejected`) on the entry's **current hash** and names the category they accept. Approval counts only if the accepted category equals the claimed one. Any metadata edit makes the decision stale. Automation identities cannot decide.
+4. A person runs `npm run source:apply -- <intake.json>`. It is refused in CI and agent environments, and it refuses anything not APPROVED or duplicated. The registry record carries `classification: HUMAN_ACCEPTED`, `submittedBy`, `acceptedBy`, `acceptedAt` and the reviewed hash.
+
+The five existing entries keep `classification: PROPOSED`. Reclassifying them is still a reviewed human change.

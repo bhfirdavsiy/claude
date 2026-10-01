@@ -75,3 +75,9 @@ Each dimension is an ordered enum. Its normalized level is `index / (count − 1
   - unsourced entries;
   - incomplete entries (the build rejects them).
 - Review state is reported in `reports/theory-depth-audit.json`. It is separate from depth: an approval does not make theory deeper, and depth does not approve it.
+
+## 8. P2.4 — governed authoring is infrastructure, not progress (ADR-P2-005)
+
+- `reports/theory-authoring-status.json` reports per-unit authoring/review state (not started, draft, ready for review, chemistry-reviewed, didactic-reviewed, approved, changes requested, missing source, stale review), source counts and blockers. It is a **separate** report, not an input of the formula.
+- Working drafts (`authoring-drafts/theory/`), source intake entries, pending or partial reviews, empty packets and the workbench itself never change a percentage. Only canonical content that satisfies the existing rules (for theory: §7, now also dual-review APPROVED via the governed apply) can.
+- No weight was changed.
