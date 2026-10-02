@@ -1,0 +1,3118 @@
+{
+  "schema": "kimyolab.computed-model-interaction-audit.v1",
+  "semantics": "Every activity whose route reaches (or whose family claims) a computed chemistry/mathematics engine, plus every config-target simulation/calculation and every record-based organic activity, so no candidate is hidden. Eligible only when F1–F8 all hold: the learner controls a meaningful domain parameter; ≥2 valid choices reach different domain results; the result comes from the existing engine; the UI holds no answer logic; content already defines the task; unsupported input fails closed; the real browser path reaches success; the curriculum intent is unchanged. \"type final answer → engine says correct/wrong\" is never model-based.",
+  "rule": {
+    "F1": "learner controls a meaningful domain parameter",
+    "F2": "≥2 valid learner choices → meaningfully different model results (black-swan)",
+    "F3": "result from the existing domain engine",
+    "F4": "no chemistry/maths answer logic in the UI",
+    "F5": "content already defines the task semantics",
+    "F6": "unsupported input fails closed",
+    "F7": "real browser path reaches success",
+    "F8": "pedagogically equivalent to the curriculum intent"
+  },
+  "totals": {
+    "candidates": 75,
+    "converted": 3,
+    "eligibleNotConverted": 0,
+    "blocked": 9,
+    "notEligible": 44,
+    "alreadyModelBased": 2,
+    "outOfFamily": 17
+  },
+  "converted": [
+    "practice.simulation.11.18.planned",
+    "practice.simulation.11.20.planned",
+    "practice.simulation.9.23.planned"
+  ],
+  "blocked": [
+    "practice.experiment.11.2",
+    "practice.experiment.9.10",
+    "practice.simulation.11.01.planned",
+    "practice.simulation.11.15.planned",
+    "practice.simulation.11.16.planned",
+    "practice.simulation.11.17.planned",
+    "practice.simulation.8.06.planned",
+    "practice.simulation.8.19.planned",
+    "practice.simulation.8.20.planned"
+  ],
+  "candidates": [
+    {
+      "activityId": "practice.calculation.11.05.planned",
+      "learningUnitIds": [
+        "lu.11.05"
+      ],
+      "type": "calculation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta3-safe",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "config step values (value/unit/tolerance)",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.calculation.11.06.planned",
+      "learningUnitIds": [
+        "lu.11.06"
+      ],
+      "type": "calculation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "calculation",
+      "source": "beta3-advanced",
+      "domainModule": "src/domain/chemistry/gas-laws.ts (totalGasMoles)",
+      "learnerControllableInputs": [],
+      "inputDomain": "config values (mixture moles); the learner types the result with a unit",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "CalculationEngine step validator (value + unit + tolerance)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "ANSWER_VALIDATOR_ONLY: type the final value → the engine says correct/wrong",
+        "CALCULATION_INTENT: changing the inputs and seeing the computed value would replace the calculation the curriculum asks for (F8)",
+        "TASK_SEMANTICS_NOT_IN_CONTENT: an exploration task (which input to vary, what to predict) is not defined by content (F5)"
+      ]
+    },
+    {
+      "activityId": "practice.calculation.11.07.planned",
+      "learningUnitIds": [
+        "lu.11.07"
+      ],
+      "type": "calculation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta3-safe",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "config step values (value/unit/tolerance)",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.calculation.11.08.planned",
+      "learningUnitIds": [
+        "lu.11.08"
+      ],
+      "type": "calculation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "calculation",
+      "source": "beta3-advanced",
+      "domainModule": "src/domain/chemistry/gas-laws.ts (idealGasPressure)",
+      "learnerControllableInputs": [],
+      "inputDomain": "config values (n, T, V); the learner types the result with a unit",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "CalculationEngine step validator (value + unit + tolerance)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "ANSWER_VALIDATOR_ONLY: type the final value → the engine says correct/wrong",
+        "CALCULATION_INTENT: changing the inputs and seeing the computed value would replace the calculation the curriculum asks for (F8)",
+        "TASK_SEMANTICS_NOT_IN_CONTENT: an exploration task (which input to vary, what to predict) is not defined by content (F5)"
+      ]
+    },
+    {
+      "activityId": "practice.calculation.11.13.planned",
+      "learningUnitIds": [
+        "lu.11.13"
+      ],
+      "type": "calculation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta3-safe",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "config step values (value/unit/tolerance)",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.calculation.11.14.planned",
+      "learningUnitIds": [
+        "lu.11.14"
+      ],
+      "type": "calculation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "calculation",
+      "source": "beta3-advanced",
+      "domainModule": "src/domain/chemistry/stoichiometry.ts (molarity, normality)",
+      "learnerControllableInputs": [],
+      "inputDomain": "config values (n, V, equivalent factor); the learner types the result with a unit",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "CalculationEngine step validator (value + unit + tolerance)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "ANSWER_VALIDATOR_ONLY: type the final value → the engine says correct/wrong",
+        "CALCULATION_INTENT: changing the inputs and seeing the computed value would replace the calculation the curriculum asks for (F8)",
+        "TASK_SEMANTICS_NOT_IN_CONTENT: an exploration task (which input to vary, what to predict) is not defined by content (F5)"
+      ]
+    },
+    {
+      "activityId": "practice.calculation.11.22.planned",
+      "learningUnitIds": [
+        "lu.11.22"
+      ],
+      "type": "calculation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "calculation",
+      "source": "beta3-advanced",
+      "domainModule": "src/domain/chemistry/faraday-model.ts (faradayMass)",
+      "learnerControllableInputs": [],
+      "inputDomain": "config values (M, I, t, z); the learner types the result with a unit",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "CalculationEngine step validator (value + unit + tolerance)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "ANSWER_VALIDATOR_ONLY: type the final value → the engine says correct/wrong",
+        "CALCULATION_INTENT: changing the inputs and seeing the computed value would replace the calculation the curriculum asks for (F8)",
+        "TASK_SEMANTICS_NOT_IN_CONTENT: an exploration task (which input to vary, what to predict) is not defined by content (F5)"
+      ]
+    },
+    {
+      "activityId": "practice.calculation.7.09.planned",
+      "learningUnitIds": [
+        "lu.7.09"
+      ],
+      "type": "calculation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta1",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "config step values (value/unit/tolerance)",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.calculation.7.5",
+      "learningUnitIds": [
+        "lu.7.12",
+        "lu.7.14"
+      ],
+      "type": "calculation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "formula",
+      "source": "reference-slices",
+      "domainModule": "src/domain/chemistry/formula-parser.ts (slice.7.12.relative-mass)",
+      "learnerControllableInputs": [
+        "typed formula / value"
+      ],
+      "inputDomain": "reference slice slice.7.12.relative-mass",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "parser error → feedback",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "ANSWER_VALIDATOR_ONLY: type the formula/value → the parser/engine says correct/wrong"
+      ]
+    },
+    {
+      "activityId": "practice.calculation.8.17.planned",
+      "learningUnitIds": [
+        "lu.8.17"
+      ],
+      "type": "calculation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta1",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "config step values (value/unit/tolerance)",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.10.3",
+      "learningUnitIds": [
+        "lu.10.06",
+        "lu.10.12"
+      ],
+      "type": "experiment",
+      "currentDepth": "GUIDED",
+      "currentInteraction": "SCRIPTED",
+      "depthBeforeP26": "GUIDED",
+      "family": "organic-knowledge",
+      "source": "beta2-organic",
+      "domainModule": "src/domain/chemistry/organic-knowledge.ts (record lookup)",
+      "learnerControllableInputs": [],
+      "inputDomain": "organic knowledge records (organic-reaction-template)",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "closed option set (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "OUT_OF_FAMILY",
+      "reasons": [
+        "RECORD_BASED_NOT_COMPUTED: organic answers are looked up in a reviewed record set, not computed; outside the P2.6 computed-engine family"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.10.5",
+      "learningUnitIds": [
+        "lu.10.06",
+        "lu.10.18"
+      ],
+      "type": "experiment",
+      "currentDepth": "GUIDED",
+      "currentInteraction": "SCRIPTED",
+      "depthBeforeP26": "GUIDED",
+      "family": "organic-knowledge",
+      "source": "beta2-organic",
+      "domainModule": "src/domain/chemistry/organic-knowledge.ts (record lookup)",
+      "learnerControllableInputs": [],
+      "inputDomain": "organic knowledge records (organic-qualitative-reaction)",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "closed option set (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "OUT_OF_FAMILY",
+      "reasons": [
+        "RECORD_BASED_NOT_COMPUTED: organic answers are looked up in a reviewed record set, not computed; outside the P2.6 computed-engine family"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.10.8",
+      "learningUnitIds": [
+        "lu.10.06",
+        "lu.10.24"
+      ],
+      "type": "experiment",
+      "currentDepth": "GUIDED",
+      "currentInteraction": "SCRIPTED",
+      "depthBeforeP26": "GUIDED",
+      "family": "organic-knowledge",
+      "source": "beta2-organic",
+      "domainModule": "src/domain/chemistry/organic-knowledge.ts (record lookup)",
+      "learnerControllableInputs": [],
+      "inputDomain": "organic knowledge records (saponification)",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "closed option set (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "OUT_OF_FAMILY",
+      "reasons": [
+        "RECORD_BASED_NOT_COMPUTED: organic answers are looked up in a reviewed record set, not computed; outside the P2.6 computed-engine family"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.10.9",
+      "learningUnitIds": [
+        "lu.10.06",
+        "lu.10.25"
+      ],
+      "type": "experiment",
+      "currentDepth": "GUIDED",
+      "currentInteraction": "SCRIPTED",
+      "depthBeforeP26": "GUIDED",
+      "family": "organic-knowledge",
+      "source": "beta2-organic",
+      "domainModule": "src/domain/chemistry/organic-knowledge.ts (record lookup)",
+      "learnerControllableInputs": [],
+      "inputDomain": "organic knowledge records (carbohydrate-reaction-model)",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "closed option set (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "OUT_OF_FAMILY",
+      "reasons": [
+        "RECORD_BASED_NOT_COMPUTED: organic answers are looked up in a reviewed record set, not computed; outside the P2.6 computed-engine family"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.11.2",
+      "learningUnitIds": [
+        "lu.11.21",
+        "lu.11.22"
+      ],
+      "type": "experiment",
+      "currentDepth": "GUIDED",
+      "currentInteraction": "SCRIPTED",
+      "depthBeforeP26": "GUIDED",
+      "family": "electrolysis",
+      "source": "beta3-advanced",
+      "domainModule": "src/domain/chemistry/electrolysis-model.ts",
+      "learnerControllableInputs": [
+        "procedure clicks"
+      ],
+      "inputDomain": "1 modeled electrolysis record(s)",
+      "distinctReachableOutcomes": [
+        "1 record"
+      ],
+      "invalidInputBehaviour": "unmodeled query → ELECTROLYSIS_NOT_MODELED",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "evidence": "one modeled record → one outcome"
+      },
+      "eligible": false,
+      "status": "BLOCKED",
+      "reasons": [
+        "BLACK_SWAN_FAIL: one modeled record",
+        "OUT_OF_SCOPE_P26: expanding electrolysis model data is excluded (human chemistry work)"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.10",
+      "learningUnitIds": [
+        "lu.9.15"
+      ],
+      "type": "experiment",
+      "currentDepth": "GUIDED",
+      "currentInteraction": "SCRIPTED",
+      "depthBeforeP26": "GUIDED",
+      "family": "electrolysis",
+      "source": "beta2-advanced",
+      "domainModule": "src/domain/chemistry/electrolysis-model.ts",
+      "learnerControllableInputs": [
+        "procedure clicks"
+      ],
+      "inputDomain": "1 modeled electrolysis record(s)",
+      "distinctReachableOutcomes": [
+        "1 record"
+      ],
+      "invalidInputBehaviour": "unmodeled query → ELECTROLYSIS_NOT_MODELED",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "evidence": "one modeled record → one outcome"
+      },
+      "eligible": false,
+      "status": "BLOCKED",
+      "reasons": [
+        "BLACK_SWAN_FAIL: one modeled record",
+        "OUT_OF_SCOPE_P26: expanding electrolysis model data is excluded (human chemistry work)"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.14",
+      "learningUnitIds": [
+        "lu.9.06",
+        "lu.9.19"
+      ],
+      "type": "experiment",
+      "currentDepth": "MODEL_BASED",
+      "currentInteraction": "MODEL_INTERACTIVE",
+      "depthBeforeP26": "MODEL_BASED",
+      "family": "hydrolysis",
+      "source": "beta2-advanced",
+      "domainModule": "src/domain/chemistry/hydrolysis-model.ts via hydrolysis-trial.ts",
+      "learnerControllableInputs": [
+        "salt",
+        "predicted medium"
+      ],
+      "inputDomain": "modeled salts",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "not applicable",
+      "contentDefinesParameters": false,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "hydrolysis-medium@1.0.0 (P1.5)",
+      "evidenceSemantics": "hydrolysis-prediction answers + construction (P1.5)",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": {
+        "pass": true,
+        "evidence": "reports/reference-renderer-hydrolysis.json"
+      },
+      "eligible": false,
+      "status": "ALREADY_MODEL_BASED",
+      "reasons": []
+    },
+    {
+      "activityId": "practice.simulation.10.02.structure-theory",
+      "learningUnitIds": [
+        "lu.10.02"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "organic-knowledge",
+      "source": "beta2-organic",
+      "domainModule": "src/domain/chemistry/organic-knowledge.ts (record lookup)",
+      "learnerControllableInputs": [],
+      "inputDomain": "organic knowledge records (organic-structure-model)",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "closed option set (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "OUT_OF_FAMILY",
+      "reasons": [
+        "RECORD_BASED_NOT_COMPUTED: organic answers are looked up in a reviewed record set, not computed; outside the P2.6 computed-engine family"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.10.04.isomerism",
+      "learningUnitIds": [
+        "lu.10.04"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "organic-knowledge",
+      "source": "beta2-organic",
+      "domainModule": "src/domain/chemistry/organic-knowledge.ts (record lookup)",
+      "learnerControllableInputs": [],
+      "inputDomain": "organic knowledge records (organic-isomerism)",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "closed option set (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "OUT_OF_FAMILY",
+      "reasons": [
+        "RECORD_BASED_NOT_COMPUTED: organic answers are looked up in a reviewed record set, not computed; outside the P2.6 computed-engine family"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.10.08.homologous-series",
+      "learningUnitIds": [
+        "lu.10.08"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "organic-knowledge",
+      "source": "beta2-organic",
+      "domainModule": "src/domain/chemistry/organic-knowledge.ts (record lookup)",
+      "learnerControllableInputs": [],
+      "inputDomain": "organic knowledge records (homologous-series)",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "closed option set (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "OUT_OF_FAMILY",
+      "reasons": [
+        "RECORD_BASED_NOT_COMPUTED: organic answers are looked up in a reviewed record set, not computed; outside the P2.6 computed-engine family"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.10.10.planned",
+      "learningUnitIds": [
+        "lu.10.10"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "organic-knowledge",
+      "source": "beta2-organic",
+      "domainModule": "src/domain/chemistry/organic-knowledge.ts (record lookup)",
+      "learnerControllableInputs": [],
+      "inputDomain": "organic knowledge records (organic-reaction-template)",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "closed option set (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "OUT_OF_FAMILY",
+      "reasons": [
+        "RECORD_BASED_NOT_COMPUTED: organic answers are looked up in a reviewed record set, not computed; outside the P2.6 computed-engine family"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.10.11.planned",
+      "learningUnitIds": [
+        "lu.10.11"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "organic-knowledge",
+      "source": "beta2-organic",
+      "domainModule": "src/domain/chemistry/organic-knowledge.ts (record lookup)",
+      "learnerControllableInputs": [],
+      "inputDomain": "organic knowledge records (cyclic-structure-model)",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "closed option set (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "OUT_OF_FAMILY",
+      "reasons": [
+        "RECORD_BASED_NOT_COMPUTED: organic answers are looked up in a reviewed record set, not computed; outside the P2.6 computed-engine family"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.10.13.planned",
+      "learningUnitIds": [
+        "lu.10.13"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "organic-knowledge",
+      "source": "beta2-organic",
+      "domainModule": "src/domain/chemistry/organic-knowledge.ts (record lookup)",
+      "learnerControllableInputs": [],
+      "inputDomain": "organic knowledge records (organic-polymerization)",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "closed option set (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "OUT_OF_FAMILY",
+      "reasons": [
+        "RECORD_BASED_NOT_COMPUTED: organic answers are looked up in a reviewed record set, not computed; outside the P2.6 computed-engine family"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.10.14.planned",
+      "learningUnitIds": [
+        "lu.10.14"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "organic-knowledge",
+      "source": "beta2-organic",
+      "domainModule": "src/domain/chemistry/organic-knowledge.ts (record lookup)",
+      "learnerControllableInputs": [],
+      "inputDomain": "organic knowledge records (organic-addition)",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "closed option set (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "OUT_OF_FAMILY",
+      "reasons": [
+        "RECORD_BASED_NOT_COMPUTED: organic answers are looked up in a reviewed record set, not computed; outside the P2.6 computed-engine family"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.10.15.planned",
+      "learningUnitIds": [
+        "lu.10.15"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "organic-knowledge",
+      "source": "beta2-organic",
+      "domainModule": "src/domain/chemistry/organic-knowledge.ts (record lookup)",
+      "learnerControllableInputs": [],
+      "inputDomain": "organic knowledge records (aromatic-structure)",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "closed option set (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "OUT_OF_FAMILY",
+      "reasons": [
+        "RECORD_BASED_NOT_COMPUTED: organic answers are looked up in a reviewed record set, not computed; outside the P2.6 computed-engine family"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.10.17.monohydric-alcohols",
+      "learningUnitIds": [
+        "lu.10.17"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta2-safe",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "values compared with the config targetState",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.10.19.phenols",
+      "learningUnitIds": [
+        "lu.10.19"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta2-safe",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "values compared with the config targetState",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.10.20.planned",
+      "learningUnitIds": [
+        "lu.10.20"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "organic-knowledge",
+      "source": "beta2-organic",
+      "domainModule": "src/domain/chemistry/organic-knowledge.ts (record lookup)",
+      "learnerControllableInputs": [],
+      "inputDomain": "organic knowledge records (organic-structure-model)",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "closed option set (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "OUT_OF_FAMILY",
+      "reasons": [
+        "RECORD_BASED_NOT_COMPUTED: organic answers are looked up in a reviewed record set, not computed; outside the P2.6 computed-engine family"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.10.21.carbonyls",
+      "learningUnitIds": [
+        "lu.10.21"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta2-safe",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "values compared with the config targetState",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.10.23.esters",
+      "learningUnitIds": [
+        "lu.10.23"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta2-safe",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "values compared with the config targetState",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.11.01.planned",
+      "learningUnitIds": [
+        "lu.11.01"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "electron-configuration",
+      "source": "beta3-advanced",
+      "domainModule": "src/domain/chemistry/electron-configuration.ts (electronConfiguration)",
+      "learnerControllableInputs": [
+        "(would be) atomic number Z"
+      ],
+      "inputDomain": "Z 1–36 (engine range); config fixes Z=11; the learner types the configuration",
+      "distinctReachableOutcomes": [
+        "36 distinct configuration strings"
+      ],
+      "invalidInputBehaviour": "Z outside 1–36 → ATOMIC_NUMBER_INVALID",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": true,
+        "what": [
+          "exception records (reviewed) before Z can be a learner control",
+          "a stepwise (orbital-by-orbital) domain state for a constructor"
+        ]
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "evidence": "not evaluated as model-based: the only reachable \"state\" is the answer string itself"
+      },
+      "eligible": false,
+      "status": "BLOCKED",
+      "reasons": [
+        "ANSWER_LEAK: exploring Z shows exactly the string the activity asks the learner to construct (F8); the engine returns only the final string, no stepwise state to build",
+        "MODEL_KNOWN_GAP: the engine fills orbitals in one fixed order for every Z ≤ 36 and has no exception records (e.g. Z=24 → \"1s2 2s2 2p6 3s2 3p6 4s2 3d4\", Z=29 → \"1s2 2s2 2p6 3s2 3p6 4s2 3d9\"); exposing Z as a control would present those outputs — chemistry review decides",
+        "TASK_SEMANTICS_NOT_IN_CONTENT: a prediction trial would need a closed option set of configurations (distractors) that content does not define"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.11.02.planned",
+      "learningUnitIds": [
+        "lu.11.02"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "bounded-choice",
+      "source": "beta3-advanced",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "config value \"expected\" (\"Na\")",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "comparison with the config value",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the expected answer is a config value, not computed by a domain model"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.11.03.planned",
+      "learningUnitIds": [
+        "lu.11.03"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "nuclear-equation",
+      "source": "beta3-advanced",
+      "domainModule": "src/domain/chemistry/nuclear-equation.ts (validateNuclearEquation)",
+      "learnerControllableInputs": [
+        "conserved: yes/no"
+      ],
+      "inputDomain": "one content-defined equation (U-238 → Th-234 + α); the learner judges conservation",
+      "distinctReachableOutcomes": [
+        "true",
+        "false"
+      ],
+      "invalidInputBehaviour": "boolean choice (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "ANSWER_VALIDATOR_ONLY: the engine returns one boolean for one fixed equation",
+        "DOMAIN_TRUTH_WOULD_MOVE_TO_UI: a balancing constructor needs ΣA/ΣZ state the engine does not return (F4)",
+        "TASK_SEMANTICS_NOT_IN_CONTENT: which particle is unknown in a balancing task is not defined by content (F5)"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.11.04.planned",
+      "learningUnitIds": [
+        "lu.11.04"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "bounded-choice",
+      "source": "beta3-advanced",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "config value \"expected\" (\"ionic-lattice\")",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "comparison with the config value",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the expected answer is a config value, not computed by a domain model"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.11.09.planned",
+      "learningUnitIds": [
+        "lu.11.09"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "bounded-choice",
+      "source": "beta3-advanced",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "config value \"expected\" (\"strong\")",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "comparison with the config value",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the expected answer is a config value, not computed by a domain model"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.11.11.planned",
+      "learningUnitIds": [
+        "lu.11.11"
+      ],
+      "type": "simulation",
+      "currentDepth": "MODEL_BASED",
+      "currentInteraction": "MODEL_INTERACTIVE",
+      "depthBeforeP26": "MODEL_BASED",
+      "family": "hydrolysis",
+      "source": "beta3-advanced",
+      "domainModule": "src/domain/chemistry/hydrolysis-model.ts via hydrolysis-trial.ts",
+      "learnerControllableInputs": [
+        "salt",
+        "predicted medium"
+      ],
+      "inputDomain": "modeled salts",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "not applicable",
+      "contentDefinesParameters": false,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "hydrolysis-medium@1.0.0 (P1.5)",
+      "evidenceSemantics": "hydrolysis-prediction answers + construction (P1.5)",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": {
+        "pass": true,
+        "evidence": "reports/reference-renderer-hydrolysis.json"
+      },
+      "eligible": false,
+      "status": "ALREADY_MODEL_BASED",
+      "reasons": []
+    },
+    {
+      "activityId": "practice.simulation.11.12.planned",
+      "learningUnitIds": [
+        "lu.11.12"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "bounded-choice",
+      "source": "beta3-advanced",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "config value \"expected\" (31.6)",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "comparison with the config value",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the expected answer is a config value, not computed by a domain model"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.11.15.planned",
+      "learningUnitIds": [
+        "lu.11.15"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "kinetics",
+      "source": "beta3-advanced",
+      "domainModule": "src/domain/chemistry/kinetics-model.ts (averageReactionRate)",
+      "learnerControllableInputs": [],
+      "inputDomain": "config values: c0=1, c1=0.4, Δt=30 s; the learner types the rate",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "numeric comparison with the computed rate",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": true,
+        "what": [
+          "a concentration–time model (rate law / order / rate constant) for the \"rate graph\" the title asks for"
+        ]
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "BLOCKED",
+      "reasons": [
+        "ANSWER_VALIDATOR_ONLY: type the final rate → the engine says correct/wrong",
+        "CALCULATION_INTENT: letting the learner change c0/c1/Δt and see the rate would show the asked value (F8)",
+        "NEW_CHEMISTRY_REQUIRED: a graph needs concentration–time data; the domain has only a two-point average rate"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.11.16.planned",
+      "learningUnitIds": [
+        "lu.11.16"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "kinetics",
+      "source": "beta3-advanced",
+      "domainModule": "src/domain/chemistry/kinetics-model.ts (KineticsModel.effect)",
+      "learnerControllableInputs": [
+        "factor + change (would be the condition)"
+      ],
+      "inputDomain": "modeled factor changes: temperature:increase, catalyst:add, concentration:increase",
+      "distinctReachableOutcomes": [
+        "increase"
+      ],
+      "invalidInputBehaviour": "unmodeled factor → KINETICS_EFFECT_NOT_MODELED",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": true,
+        "what": [
+          "kinetics records for the factors the title names but the model lacks (P, V)",
+          "any factor change with a different effect"
+        ]
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "evidence": "3 modeled factor changes → 1 distinct effect (increase)"
+      },
+      "eligible": false,
+      "status": "BLOCKED",
+      "reasons": [
+        "BLACK_SWAN_FAIL: every modeled factor change has the same effect (increase); a condition trial would be one answer repeated",
+        "NEW_CHEMISTRY_REQUIRED: the title names T, P, V and catalyst — P and V have no records (human chemistry work, not invented here)"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.11.17.planned",
+      "learningUnitIds": [
+        "lu.11.17"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "dynamic-equilibrium",
+      "source": "beta3-advanced",
+      "domainModule": null,
+      "learnerControllableInputs": [
+        "equilibrium: yes/no"
+      ],
+      "inputDomain": "two config rates compared inline in the runtime (|v₁ − v₂| < 1e-12); no rate model",
+      "distinctReachableOutcomes": [
+        "true",
+        "false"
+      ],
+      "invalidInputBehaviour": "boolean choice (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": true,
+        "what": [
+          "a forward/reverse rate model over time"
+        ]
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "BLOCKED",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares two config numbers; there is no dynamic-equilibrium model",
+        "NEW_CHEMISTRY_REQUIRED: a rate-vs-time model would have to be authored and reviewed"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.11.18.planned",
+      "learningUnitIds": [
+        "lu.11.18"
+      ],
+      "type": "simulation",
+      "currentDepth": "MODEL_BASED",
+      "currentInteraction": "MODEL_INTERACTIVE",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "equilibrium",
+      "source": "beta3-advanced",
+      "domainModule": "src/domain/chemistry/equilibrium-model.ts (EquilibriumModel.resolve) via condition-trial.ts",
+      "learnerControllableInputs": [
+        "perturbation (condition)",
+        "predicted shift"
+      ],
+      "inputDomain": "perturbations of reaction system \"haber\": pressure-increase, temperature-increase; predictions: the closed set reactants, products, no-shift",
+      "distinctReachableOutcomes": [
+        "products",
+        "reactants"
+      ],
+      "invalidInputBehaviour": "unmodeled perturbation → CONDITION_NOT_MODELED; outcome outside the closed set → OUTCOME_NOT_IN_MODEL; reveal without prediction → PREDICTION_REQUIRED; no trial, no evidence",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "condition-prediction@1.0.0 (new reusable primitive, no chemistry)",
+      "evidenceSemantics": "one answer evidence per trial (questionId condition:<kind>:<condition>, response = prediction, made before the reveal) + one construction for the target condition; wrong trials are legitimate evidence; config version 2.0.0 (new semantics, new evidence ids)",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": {
+        "pass": true,
+        "evidence": "real stack (reports/reference-renderer-condition-prediction.json): 2 conditions → 2 distinct domain outcomes; unmodeled input fails closed=true"
+      },
+      "eligible": true,
+      "status": "CONVERTED",
+      "reasons": [],
+      "contentScope": "equilibrium records are sourced to src.curriculum.11.18 (this activity's unit); config names the target perturbation \"pressure-increase\""
+    },
+    {
+      "activityId": "practice.simulation.11.20.planned",
+      "learningUnitIds": [
+        "lu.11.20"
+      ],
+      "type": "simulation",
+      "currentDepth": "MODEL_BASED",
+      "currentInteraction": "MODEL_INTERACTIVE",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "manganese-redox",
+      "source": "beta3-advanced",
+      "domainModule": "src/domain/chemistry/manganese-redox-model.ts (ManganeseRedoxModel.resolve) via condition-trial.ts",
+      "learnerControllableInputs": [
+        "reaction medium (condition)",
+        "predicted product"
+      ],
+      "inputDomain": "media acidic, basic, neutral; predictions: the model's own products MnO2, MnO4^2-, Mn^2+",
+      "distinctReachableOutcomes": [
+        "Mn^2+",
+        "MnO4^2-",
+        "MnO2"
+      ],
+      "invalidInputBehaviour": "unmodeled medium (typo, other language, markup) → CONDITION_NOT_MODELED; no trial, no evidence, no crash (the P2.1 guarantee, now in the domain)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "condition-prediction@1.0.0 (new reusable primitive, no chemistry)",
+      "evidenceSemantics": "one answer evidence per trial (questionId condition:<kind>:<condition>, response = prediction, made before the reveal) + one construction for the target condition; wrong trials are legitimate evidence; config version 2.0.0 (new semantics, new evidence ids)",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": {
+        "pass": true,
+        "evidence": "real stack (reports/reference-renderer-condition-prediction.json): 3 conditions → 3 distinct domain outcomes; unmodeled input fails closed=true"
+      },
+      "eligible": true,
+      "status": "CONVERTED",
+      "reasons": [],
+      "contentScope": "the activity title names all three media (\"Kislotali/neytral/ishqoriy muhitda redoks mahsulotlari simulyatsiyasi\"); the config already resolved through the same ManganeseRedoxModel before P2.6"
+    },
+    {
+      "activityId": "practice.simulation.7.02.planned",
+      "learningUnitIds": [
+        "lu.7.02"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta1",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "values compared with the config targetState",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.7.06.planned",
+      "learningUnitIds": [
+        "lu.7.06"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta1",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "values compared with the config targetState",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.7.10.planned",
+      "learningUnitIds": [
+        "lu.7.10"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta1",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "values compared with the config targetState",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.7.13.planned",
+      "learningUnitIds": [
+        "lu.7.13"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta1",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "values compared with the config targetState",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.7.16.planned",
+      "learningUnitIds": [
+        "lu.7.16"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta1",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "values compared with the config targetState",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.7.17.planned",
+      "learningUnitIds": [
+        "lu.7.17"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta1",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "values compared with the config targetState",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.8.02.planned",
+      "learningUnitIds": [
+        "lu.8.02"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta1",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "values compared with the config targetState",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.8.03.planned",
+      "learningUnitIds": [
+        "lu.8.03"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta1",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "values compared with the config targetState",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.8.04.planned",
+      "learningUnitIds": [
+        "lu.8.04"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta1",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "values compared with the config targetState",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.8.05.planned",
+      "learningUnitIds": [
+        "lu.8.05"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta1",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "values compared with the config targetState",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.8.06.planned",
+      "learningUnitIds": [
+        "lu.8.06"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "electron-configuration",
+      "source": "beta1",
+      "domainModule": null,
+      "learnerControllableInputs": [
+        "element",
+        "configuration"
+      ],
+      "inputDomain": "values compared with the config targetState (element, configuration)",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": true,
+        "what": [
+          "as 11.01"
+        ]
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "BLOCKED",
+      "reasons": [
+        "NO_COMPUTED_ENGINE_IN_CURRENT_RUNTIME: beta1 compares the config targetState",
+        "ANSWER_LEAK: exploring Z shows exactly the string the activity asks the learner to construct (F8); the engine returns only the final string, no stepwise state to build",
+        "MODEL_KNOWN_GAP: the engine fills orbitals in one fixed order for every Z ≤ 36 and has no exception records (e.g. Z=24 → \"1s2 2s2 2p6 3s2 3p6 4s2 3d4\", Z=29 → \"1s2 2s2 2p6 3s2 3p6 4s2 3d9\"); exposing Z as a control would present those outputs — chemistry review decides"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.8.09.planned",
+      "learningUnitIds": [
+        "lu.8.09"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta1",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "values compared with the config targetState",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.8.19.planned",
+      "learningUnitIds": [
+        "lu.8.19"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "kinetics",
+      "source": "beta1",
+      "domainModule": null,
+      "learnerControllableInputs": [
+        "temperature",
+        "concentration",
+        "surface",
+        "rate"
+      ],
+      "inputDomain": "values compared with the config targetState (temperature, concentration, surface, rate)",
+      "distinctReachableOutcomes": [
+        "increase"
+      ],
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": true,
+        "what": [
+          "a surface-area record",
+          "any factor change with a different effect"
+        ]
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "evidence": "kinetics records reach 1 distinct effect"
+      },
+      "eligible": false,
+      "status": "BLOCKED",
+      "reasons": [
+        "NO_COMPUTED_ENGINE_IN_CURRENT_RUNTIME: beta1 compares the config targetState",
+        "BLACK_SWAN_FAIL: the kinetics records reach one effect (increase)",
+        "NEW_CHEMISTRY_REQUIRED: surface area is not modeled"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.8.20.planned",
+      "learningUnitIds": [
+        "lu.8.20"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "equilibrium",
+      "source": "beta1",
+      "domainModule": null,
+      "learnerControllableInputs": [
+        "pressure",
+        "shift"
+      ],
+      "inputDomain": "typed/chosen values compared with the config targetState (system, pressure, shift); no domain model is called",
+      "distinctReachableOutcomes": [
+        "products"
+      ],
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "evidence": "own perturbations 1 → 1 distinct modeled outcome"
+      },
+      "eligible": false,
+      "status": "BLOCKED",
+      "reasons": [
+        "NO_COMPUTED_ENGINE_IN_CURRENT_RUNTIME: beta1 compares the config targetState; the equilibrium model is not bound to this activity",
+        "CONTENT_SCOPE: only \"pressure-increase\" is this activity's own content; using the 11.18-sourced temperature record would extend the task beyond its content (F5/F8) — a curriculum/chemistry decision",
+        "BLACK_SWAN_FAIL: with its own perturbation alone the learner reaches 1 distinct outcome"
+      ],
+      "contentScope": "own content defines one perturbation (pressure-increase); the second modeled perturbation belongs to records sourced to src.curriculum.11.18, not to 8.20"
+    },
+    {
+      "activityId": "practice.simulation.8.7",
+      "learningUnitIds": [
+        "lu.8.10",
+        "lu.8.11",
+        "lu.8.12"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta1",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "values compared with the config targetState",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.9.01.planned",
+      "learningUnitIds": [
+        "lu.9.01"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta2-safe",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "values compared with the config targetState",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.9.02.planned",
+      "learningUnitIds": [
+        "lu.9.02"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta2-safe",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "values compared with the config targetState",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.9.03.planned",
+      "learningUnitIds": [
+        "lu.9.03"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta2-safe",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "values compared with the config targetState",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.9.04.planned",
+      "learningUnitIds": [
+        "lu.9.04"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta2-safe",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "values compared with the config targetState",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.9.07.planned",
+      "learningUnitIds": [
+        "lu.9.07"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta2-safe",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "values compared with the config targetState",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.9.08.planned",
+      "learningUnitIds": [
+        "lu.9.08"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta2-safe",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "values compared with the config targetState",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.9.18.water-hardness",
+      "learningUnitIds": [
+        "lu.9.18"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta2-safe",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "values compared with the config targetState",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.9.20.cu-ag-au",
+      "learningUnitIds": [
+        "lu.9.20"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta2-safe",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "values compared with the config targetState",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.9.21.group12",
+      "learningUnitIds": [
+        "lu.9.21"
+      ],
+      "type": "simulation",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "config-target",
+      "source": "beta2-safe",
+      "domainModule": null,
+      "learnerControllableInputs": [],
+      "inputDomain": "values compared with the config targetState",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "legacy form feedback (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares the learner input with a config value; no domain model computes a state"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.9.23.planned",
+      "learningUnitIds": [
+        "lu.9.23"
+      ],
+      "type": "simulation",
+      "currentDepth": "MODEL_BASED",
+      "currentInteraction": "MODEL_INTERACTIVE",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "manganese-redox",
+      "source": "beta2-advanced",
+      "domainModule": "src/domain/chemistry/manganese-redox-model.ts (ManganeseRedoxModel.resolve) via condition-trial.ts",
+      "learnerControllableInputs": [
+        "reaction medium (condition)",
+        "predicted product"
+      ],
+      "inputDomain": "media acidic, basic, neutral; predictions: the model's own products MnO2, MnO4^2-, Mn^2+",
+      "distinctReachableOutcomes": [
+        "Mn^2+",
+        "MnO4^2-",
+        "MnO2"
+      ],
+      "invalidInputBehaviour": "unmodeled medium (typo, other language, markup) → CONDITION_NOT_MODELED; no trial, no evidence, no crash (the P2.1 guarantee, now in the domain)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "condition-prediction@1.0.0 (new reusable primitive, no chemistry)",
+      "evidenceSemantics": "one answer evidence per trial (questionId condition:<kind>:<condition>, response = prediction, made before the reveal) + one construction for the target condition; wrong trials are legitimate evidence; config version 2.0.0 (new semantics, new evidence ids)",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": {
+        "pass": true,
+        "evidence": "real stack (reports/reference-renderer-condition-prediction.json): 3 conditions → 3 distinct domain outcomes; unmodeled input fails closed=true"
+      },
+      "eligible": true,
+      "status": "CONVERTED",
+      "reasons": [],
+      "contentScope": "manganese records are sourced to src.curriculum.9.23 (this activity's unit); the title asks for a medium-dependent simulation"
+    },
+    {
+      "activityId": "practice.trainer.10.03.planned",
+      "learningUnitIds": [
+        "lu.10.03"
+      ],
+      "type": "trainer",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "organic-knowledge",
+      "source": "beta2-organic",
+      "domainModule": "src/domain/chemistry/organic-knowledge.ts (record lookup)",
+      "learnerControllableInputs": [],
+      "inputDomain": "organic knowledge records (organic-valence-model)",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "closed option set (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "OUT_OF_FAMILY",
+      "reasons": [
+        "RECORD_BASED_NOT_COMPUTED: organic answers are looked up in a reviewed record set, not computed; outside the P2.6 computed-engine family"
+      ]
+    },
+    {
+      "activityId": "practice.trainer.10.06.planned",
+      "learningUnitIds": [
+        "lu.10.06"
+      ],
+      "type": "trainer",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "organic-knowledge",
+      "source": "beta2-organic",
+      "domainModule": "src/domain/chemistry/organic-knowledge.ts (record lookup)",
+      "learnerControllableInputs": [],
+      "inputDomain": "organic knowledge records (organic-reaction-template)",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "closed option set (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "OUT_OF_FAMILY",
+      "reasons": [
+        "RECORD_BASED_NOT_COMPUTED: organic answers are looked up in a reviewed record set, not computed; outside the P2.6 computed-engine family"
+      ]
+    },
+    {
+      "activityId": "practice.trainer.10.07.planned",
+      "learningUnitIds": [
+        "lu.10.07"
+      ],
+      "type": "trainer",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "organic-knowledge",
+      "source": "beta2-organic",
+      "domainModule": "src/domain/chemistry/organic-knowledge.ts (record lookup)",
+      "learnerControllableInputs": [],
+      "inputDomain": "organic knowledge records (organic-nomenclature)",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "closed option set (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "OUT_OF_FAMILY",
+      "reasons": [
+        "RECORD_BASED_NOT_COMPUTED: organic answers are looked up in a reviewed record set, not computed; outside the P2.6 computed-engine family"
+      ]
+    },
+    {
+      "activityId": "practice.trainer.10.09.planned",
+      "learningUnitIds": [
+        "lu.10.09"
+      ],
+      "type": "trainer",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "organic-knowledge",
+      "source": "beta2-organic",
+      "domainModule": "src/domain/chemistry/organic-knowledge.ts (record lookup)",
+      "learnerControllableInputs": [],
+      "inputDomain": "organic knowledge records (organic-isomerism)",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "closed option set (P2.1)",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "OUT_OF_FAMILY",
+      "reasons": [
+        "RECORD_BASED_NOT_COMPUTED: organic answers are looked up in a reviewed record set, not computed; outside the P2.6 computed-engine family"
+      ]
+    },
+    {
+      "activityId": "practice.trainer.11.10.planned",
+      "learningUnitIds": [
+        "lu.11.10"
+      ],
+      "type": "trainer",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "ionic-equation",
+      "source": "beta3-advanced",
+      "domainModule": "src/domain/chemistry/ionic-engine.ts (netIonicEquation)",
+      "learnerControllableInputs": [
+        "typed net ionic equation"
+      ],
+      "inputDomain": "one content-defined reaction",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "equation comparison with IonicEngine",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "ANSWER_VALIDATOR_ONLY: trainer — type the equation → correct/wrong (also audited in P2.5)"
+      ]
+    },
+    {
+      "activityId": "practice.trainer.11.19.planned",
+      "learningUnitIds": [
+        "lu.11.19"
+      ],
+      "type": "trainer",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "redox-balancer",
+      "source": "beta3-advanced",
+      "domainModule": "src/domain/chemistry/redox-balancer.ts (balanceRedox)",
+      "learnerControllableInputs": [
+        "typed balanced equation"
+      ],
+      "inputDomain": "one content-defined half-reaction set (acidic medium)",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "equation comparison with the balancer output",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "ANSWER_VALIDATOR_ONLY: type the balanced equation → correct/wrong (trainer intent)"
+      ]
+    },
+    {
+      "activityId": "practice.trainer.7.4",
+      "learningUnitIds": [
+        "lu.7.11"
+      ],
+      "type": "trainer",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "formula",
+      "source": "reference-slices",
+      "domainModule": "src/domain/chemistry/formula-parser.ts (slice.7.11.valency-formula)",
+      "learnerControllableInputs": [
+        "typed formula / value"
+      ],
+      "inputDomain": "reference slice slice.7.11.valency-formula",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "parser error → feedback",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "ANSWER_VALIDATOR_ONLY: type the formula/value → the parser/engine says correct/wrong"
+      ]
+    },
+    {
+      "activityId": "practice.trainer.9.05.planned",
+      "learningUnitIds": [
+        "lu.9.05"
+      ],
+      "type": "trainer",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "depthBeforeP26": "STATIC_CHECK",
+      "family": "ionic-equation",
+      "source": "beta2-advanced",
+      "domainModule": "src/domain/chemistry/ionic-engine.ts (netIonicEquation)",
+      "learnerControllableInputs": [
+        "typed net ionic equation"
+      ],
+      "inputDomain": "one content-defined reaction",
+      "distinctReachableOutcomes": null,
+      "invalidInputBehaviour": "equation comparison with IonicEngine",
+      "contentDefinesParameters": true,
+      "newChemistryRequired": {
+        "required": false,
+        "what": []
+      },
+      "rendererReuse": "none",
+      "evidenceSemantics": "unchanged",
+      "accessibilityRequirements": [
+        "keyboard-only operation (native controls)",
+        "text equivalent for every visual state (text-state table)",
+        "no colour-only information (✓/✗ text)",
+        "aria-live summary for screen readers",
+        "visible focus",
+        "zoom/reflow at 320–375 px",
+        "reduced motion (no motion at all)"
+      ],
+      "blackSwan": null,
+      "eligible": false,
+      "status": "NOT_ELIGIBLE",
+      "reasons": [
+        "ANSWER_VALIDATOR_ONLY: trainer — type the equation → correct/wrong (also audited in P2.5)"
+      ]
+    }
+  ]
+}

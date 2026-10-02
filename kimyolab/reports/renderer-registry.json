@@ -67,6 +67,29 @@
         "practice.experiment.8.1"
       ],
       "status": "ACTIVE"
+    },
+    {
+      "capability": "condition-prediction",
+      "rendererVersion": "1.0.0",
+      "rendererModelSchema": "kimyolab.renderer.condition-prediction.v1",
+      "intents": [
+        "simulation-action"
+      ],
+      "implementation": "src/renderers/condition-prediction/renderer.ts",
+      "implementationExists": true,
+      "accessibility": {
+        "keyboard": true,
+        "nonColorCues": true,
+        "screenReaderSummary": true,
+        "reducedMotion": "static",
+        "nonVisualAlternative": "text-state"
+      },
+      "compatibleActivities": [
+        "practice.simulation.11.18.planned",
+        "practice.simulation.11.20.planned",
+        "practice.simulation.9.23.planned"
+      ],
+      "status": "ACTIVE"
     }
   ]
 }

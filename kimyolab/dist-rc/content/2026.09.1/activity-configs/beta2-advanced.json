@@ -26,8 +26,9 @@
   "practice.simulation.9.23.planned": {
     "capability": "manganese-redox-simulation",
     "type": "simulation",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "conceptId": "concept.c213",
-    "targetMedium": "acidic"
+    "targetMedium": "acidic",
+    "rendererRequirement": {"capability": "condition-prediction", "range": "^1.0.0"}
   }
 }

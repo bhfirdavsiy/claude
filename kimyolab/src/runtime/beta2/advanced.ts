@@ -4,6 +4,8 @@ import type {IonicEngine} from '../../domain/chemistry/ionic-engine.ts';
 import type {HydrolysisModel,HydrolysisMedium} from '../../domain/chemistry/hydrolysis-model.ts';
 import {assertHydrolysisTarget} from '../../domain/chemistry/hydrolysis-trial.ts';
 import {hydrolysisPracticeResult} from '../reference-slices/hydrolysis-practice.ts';
+import {conditionPracticeResult} from '../reference-slices/condition-practice.ts';
+import {manganeseConditionModel} from '../../domain/chemistry/condition-trial.ts';
 import type {ElectrolysisModel,ElectrolysisQuery} from '../../domain/chemistry/electrolysis-model.ts';
 import type {ManganeseRedoxModel,ManganeseMedium} from '../../domain/chemistry/manganese-redox-model.ts';
 import type {AnswerEvidence,ConstructionEvidence,ObservationEvidence,ProcedureEvidence,Evidence} from '../evidence/types.ts';
@@ -15,7 +17,7 @@ interface Base {capability:Capability;type:PracticeType;version:string;conceptId
 export interface IonicTrainerConfig extends Base {capability:'ionic-equation-trainer';type:'trainer';reactionId:string;prompt:string}
 export interface HydrolysisConfig extends Base {capability:'hydrolysis-experiment';type:'experiment';salt:string;expectedMedium:HydrolysisMedium}
 export interface ElectrolysisConfig extends Base {capability:'electrolysis-experiment';type:'experiment';query:ElectrolysisQuery}
-export interface ManganeseConfig extends Base {capability:'manganese-redox-simulation';type:'simulation';targetMedium:ManganeseMedium}
+export interface ManganeseConfig extends Base {capability:'manganese-redox-simulation';type:'simulation';targetMedium:ManganeseMedium;rendererRequirement?:{capability:string;range:string}}
 export type Beta2AdvancedConfig=IonicTrainerConfig|HydrolysisConfig|ElectrolysisConfig|ManganeseConfig;
 export type Beta2AdvancedRegistry=Record<string,Beta2AdvancedConfig>;
 
@@ -61,7 +63,12 @@ export function createBeta2AdvancedRouter(o:Options):PracticeRouter<ReferenceSli
   }};
   const simulation:PracticeEngineAdapter<ReferenceSliceContext>={async run(activity,context){
     const config=o.registry[activity.id];if(!config||config.capability!=='manganese-redox-simulation')throw new Error(`BETA2_ADVANCED_CONFIG_MISSING:${activity.id}`);
-    const actions=context.inputs[activity.id]?.simulationActions??[];const medium=(actions.findLast?.((x:any)=>x.field==='medium')??[...actions].reverse().find((x:any)=>x.field==='medium'))?.value as ManganeseMedium|undefined;
+    const actions=context.inputs[activity.id]?.simulationActions??[];
+    // P2.6 (ADR-P2-007): with the condition-prediction renderer 9.23 is a condition trial (choose a medium, predict the
+    // product, reveal the domain's product). New semantics → config version 2.0.0, new evidence id/targetId.
+    if(config.rendererRequirement?.capability==='condition-prediction') return conditionPracticeResult({model:manganeseConditionModel(o.manganeseModel),targetCondition:config.targetMedium,actions,meta:meta(activity,config,o),
+      construction:{id:`${activity.id}.condition`,targetId:`manganese-${config.targetMedium}-trial`},presentation:{conditionDomain:'manganese-medium',outcomeDomain:'manganese-product',outcomeFormat:'formula',subjectFormula:o.manganeseModel.resolve(config.targetMedium).reactant}}) as any;
+    const medium=(actions.findLast?.((x:any)=>x.field==='medium')??[...actions].reverse().find((x:any)=>x.field==='medium'))?.value as ManganeseMedium|undefined;
     if(!medium)return {evidence:[],serializedState:JSON.stringify({medium:null})};
     // P2.1: a medium the model does not know is a LEARNER input problem (typo, other language, empty), never a crash —
     // a controlled `invalid` outcome in the engines' existing shape; throwing stays reserved for config/invariant faults

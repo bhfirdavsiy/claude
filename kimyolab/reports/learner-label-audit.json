@@ -2,12 +2,12 @@
   "schema": "kimyolab.learner-label-audit.v1",
   "semantics": "Every learner-facing label that is keyed by an id. source: locale (learner-interaction catalog), content (authored label), fallback (numbered generic label; gap LOCALIZATION_MISSING). rawIdLearnerFacing: the label is the id or its mechanical humanization (must be 0).",
   "counts": {
-    "labels": 441,
+    "labels": 432,
     "rawIdLearnerFacing": 0,
     "localizationMissing": 0,
     "bySource": {
       "content": 180,
-      "locale": 261
+      "locale": 252
     }
   },
   "labels": [
@@ -2752,46 +2752,6 @@
       "rawIdLearnerFacing": false
     },
     {
-      "rawId": "medium",
-      "shownAs": "field",
-      "activityId": "practice.simulation.9.23.planned",
-      "learningUnitId": "lu.9.23",
-      "label": "Muhit",
-      "source": "locale",
-      "category": "internal config key",
-      "rawIdLearnerFacing": false
-    },
-    {
-      "rawId": "basic",
-      "shownAs": "answer",
-      "activityId": "practice.simulation.9.23.planned",
-      "learningUnitId": "lu.9.23",
-      "label": "Ishqoriy muhit",
-      "source": "locale",
-      "category": "option token",
-      "rawIdLearnerFacing": false
-    },
-    {
-      "rawId": "acidic",
-      "shownAs": "answer",
-      "activityId": "practice.simulation.9.23.planned",
-      "learningUnitId": "lu.9.23",
-      "label": "Kislotali muhit",
-      "source": "locale",
-      "category": "option token",
-      "rawIdLearnerFacing": false
-    },
-    {
-      "rawId": "neutral",
-      "shownAs": "answer",
-      "activityId": "practice.simulation.9.23.planned",
-      "learningUnitId": "lu.9.23",
-      "label": "Neytral muhit",
-      "source": "locale",
-      "category": "option token",
-      "rawIdLearnerFacing": false
-    },
-    {
       "rawId": "emission",
       "shownAs": "evidence",
       "activityId": "practice.case.9.26.planned",
@@ -4119,56 +4079,6 @@
       "label": "Yo‘q",
       "source": "locale",
       "category": "option token",
-      "rawIdLearnerFacing": false
-    },
-    {
-      "rawId": "shift",
-      "shownAs": "field",
-      "activityId": "practice.simulation.11.18.planned",
-      "learningUnitId": "lu.11.18",
-      "label": "Muvozanat siljishi",
-      "source": "locale",
-      "category": "internal config key",
-      "rawIdLearnerFacing": false
-    },
-    {
-      "rawId": "products",
-      "shownAs": "answer",
-      "activityId": "practice.simulation.11.18.planned",
-      "learningUnitId": "lu.11.18",
-      "label": "Mahsulotlar tomonga",
-      "source": "locale",
-      "category": "option token",
-      "rawIdLearnerFacing": false
-    },
-    {
-      "rawId": "reactants",
-      "shownAs": "answer",
-      "activityId": "practice.simulation.11.18.planned",
-      "learningUnitId": "lu.11.18",
-      "label": "Reaktantlar tomonga",
-      "source": "locale",
-      "category": "option token",
-      "rawIdLearnerFacing": false
-    },
-    {
-      "rawId": "no-shift",
-      "shownAs": "answer",
-      "activityId": "practice.simulation.11.18.planned",
-      "learningUnitId": "lu.11.18",
-      "label": "Siljimaydi",
-      "source": "locale",
-      "category": "option token",
-      "rawIdLearnerFacing": false
-    },
-    {
-      "rawId": "product",
-      "shownAs": "field",
-      "activityId": "practice.simulation.11.20.planned",
-      "learningUnitId": "lu.11.20",
-      "label": "Mahsulot",
-      "source": "locale",
-      "category": "internal config key",
       "rawIdLearnerFacing": false
     },
     {

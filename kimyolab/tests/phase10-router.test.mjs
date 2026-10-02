@@ -49,9 +49,13 @@ test('Beta3 router resolves kinetics, equilibrium, redox and Faraday tasks from 
  let id='practice.simulation.11.16.planned';
  let r=await router.run(activity(id,'simulation'),ctx(id,{simulationActions:[{field:'effect',value:'increase'}]}));
  assert.ok(r.value.evidence.some(e=>e.type==='construction'&&e.achieved));
+ // P2.6 changed the 11.18 input: with the condition-prediction renderer (config 2.0.0, ADR-P2-007) the learner chooses
+ // the perturbation, predicts the shift and reveals the model's result; the old one-field answer is no longer the protocol.
  id='practice.simulation.11.18.planned';
- r=await router.run(activity(id,'simulation'),ctx(id,{simulationActions:[{field:'shift',value:'products'}]}));
+ r=await router.run(activity(id,'simulation'),ctx(id,{simulationActions:[{type:'selectCondition',payload:{condition:'pressure-increase'}},{type:'predictOutcome',payload:{outcome:'products'}},{type:'reveal'}]}));
  assert.ok(r.value.evidence.some(e=>e.type==='construction'&&e.achieved));
+ r=await router.run(activity(id,'simulation'),ctx(id,{simulationActions:[{field:'shift',value:'products'}]}));
+ assert.ok(!r.value.evidence.some(e=>e.type==='construction'&&e.achieved),'typing the final answer no longer completes 11.18');
  id='practice.trainer.11.19.planned';
  r=await router.run(activity(id,'trainer'),ctx(id,{trainerAnswers:['MnO4^- + 5Fe^2+ + 8H+ → Mn^2+ + 5Fe^3+ + 4H2O']}));
  assert.ok(r.value.evidence.some(e=>e.type==='answer'&&e.correct));

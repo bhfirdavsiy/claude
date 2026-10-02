@@ -87,3 +87,11 @@ Each dimension is an ordered enum. Its normalized level is `index / (count − 1
 - A registry renderer counts as MODEL_BASED only with black-swan evidence **for that activity**. For the reaction-mixing renderer, the activity's own shelf must reach at least two distinct modeled outcomes in the real domain, and only observations that pass the KB integrity check count. A newly bound activity cannot inherit the reference activity's evidence.
 - `reports/model-interaction-expansion.json` lists every candidate with its facts and reasons. It is a separate report, not a formula input.
 - P2.5 converted 0 activities. MODEL_BASED stays at 4 activities and 6 learning units, and no weight was changed.
+
+## 10. P2.6 — computed model interaction: a validator is never a model (ADR-P2-007)
+
+- "Type the final answer → the engine says correct/wrong" is STATIC_CHECK, whichever engine computes the answer. A computed-engine activity can be MODEL_BASED only when the learner changes a meaningful model input, the domain computes a different result for at least two valid choices, and the activity's own content defines the task (F1–F8 in the ADR).
+- The condition-prediction renderer is judged **per activity**, like the reaction renderer: `reports/reference-renderer-condition-prediction.json` drives each activity's own modeled conditions through the real stack, and only a PASS with ≥2 distinct domain outcomes is black-swan evidence.
+- `reports/computed-model-interaction-audit.json` lists every candidate (75) with its facts and reasons; `reports/computed-model-interaction-expansion.json` gives the totals. Both are separate reports, not formula inputs.
+- P2.6 converted 3 activities (9.23, 11.18, 11.20). MODEL_BASED moved from 4 activities / 6 units to 7 activities / 9 units, which moves only the `modelBasedInteraction` component (6/122 → 9/122). No weight or formula was changed, and no governance input moved.
+

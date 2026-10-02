@@ -4,6 +4,8 @@ import {LEARNER_INPUT_INVALID} from '../shared/learner-input.js';
                                                                                                  
 import {assertHydrolysisTarget} from '../../domain/chemistry/hydrolysis-trial.js';
 import {hydrolysisPracticeResult} from '../reference-slices/hydrolysis-practice.js';
+import {conditionPracticeResult} from '../reference-slices/condition-practice.js';
+import {manganeseConditionModel} from '../../domain/chemistry/condition-trial.js';
                                                                                                       
                                                                                                          
                                                                                                                              
@@ -15,7 +17,7 @@ import {PracticeRouter,                          } from '../practice-router/rout
                                                                                                                                      
                                                                                                                                                  
                                                                                                                                  
-                                                                                                                                      
+                                                                                                                                                                                            
                                                                                                        
                                                                      
 
@@ -61,7 +63,12 @@ export function createBeta2AdvancedRouter(o        )                            
   }};
   const simulation                                             ={async run(activity,context){
     const config=o.registry[activity.id];if(!config||config.capability!=='manganese-redox-simulation')throw new Error(`BETA2_ADVANCED_CONFIG_MISSING:${activity.id}`);
-    const actions=context.inputs[activity.id]?.simulationActions??[];const medium=(actions.findLast?.((x    )=>x.field==='medium')??[...actions].reverse().find((x    )=>x.field==='medium'))?.value                             ;
+    const actions=context.inputs[activity.id]?.simulationActions??[];
+    // P2.6 (ADR-P2-007): with the condition-prediction renderer 9.23 is a condition trial (choose a medium, predict the
+    // product, reveal the domain's product). New semantics → config version 2.0.0, new evidence id/targetId.
+    if(config.rendererRequirement?.capability==='condition-prediction') return conditionPracticeResult({model:manganeseConditionModel(o.manganeseModel),targetCondition:config.targetMedium,actions,meta:meta(activity,config,o),
+      construction:{id:`${activity.id}.condition`,targetId:`manganese-${config.targetMedium}-trial`},presentation:{conditionDomain:'manganese-medium',outcomeDomain:'manganese-product',outcomeFormat:'formula',subjectFormula:o.manganeseModel.resolve(config.targetMedium).reactant}})       ;
+    const medium=(actions.findLast?.((x    )=>x.field==='medium')??[...actions].reverse().find((x    )=>x.field==='medium'))?.value                             ;
     if(!medium)return {evidence:[],serializedState:JSON.stringify({medium:null})};
     // P2.1: a medium the model does not know is a LEARNER input problem (typo, other language, empty), never a crash —
     // a controlled `invalid` outcome in the engines' existing shape; throwing stays reserved for config/invariant faults

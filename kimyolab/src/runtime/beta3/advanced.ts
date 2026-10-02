@@ -3,10 +3,12 @@ import type {IonicEngine} from '../../domain/chemistry/ionic-engine.ts';
 import type {HydrolysisModel} from '../../domain/chemistry/hydrolysis-model.ts';
 import {assertHydrolysisTarget} from '../../domain/chemistry/hydrolysis-trial.ts';
 import {hydrolysisPracticeResult} from '../reference-slices/hydrolysis-practice.ts';
+import {conditionPracticeResult} from '../reference-slices/condition-practice.ts';
+import {equilibriumConditionModel,manganeseConditionModel} from '../../domain/chemistry/condition-trial.ts';
 import type {ElectrolysisModel} from '../../domain/chemistry/electrolysis-model.ts';
 import type {ManganeseRedoxModel} from '../../domain/chemistry/manganese-redox-model.ts';
 import type {KineticsModel} from '../../domain/chemistry/kinetics-model.ts';
-import type {EquilibriumModel} from '../../domain/chemistry/equilibrium-model.ts';
+import {EQUILIBRIUM_SHIFTS,type EquilibriumModel} from '../../domain/chemistry/equilibrium-model.ts';
 import {electronConfiguration} from '../../domain/chemistry/electron-configuration.ts';
 import {validateNuclearEquation} from '../../domain/chemistry/nuclear-equation.ts';
 import {idealGasPressure,totalGasMoles} from '../../domain/chemistry/gas-laws.ts';
@@ -75,6 +77,13 @@ function trainerExpected(c:Beta3AdvancedConfig,o:Options):string{
   if(c.task==='redox-balance')return balanceRedox({reactants:c.reactants,products:c.products,medium:c.medium}).equation;
   throw new Error(`BETA3_TRAINER_TASK_INVALID:${c.task}`);
 }
+function conditionTrial(a:PracticeActivity,c:Beta3AdvancedConfig,o:Options,actions:readonly unknown[]){
+  if(c.task==='equilibrium-shift') return conditionPracticeResult({model:equilibriumConditionModel(o.equilibriumModel,c.reactionId,EQUILIBRIUM_SHIFTS),targetCondition:c.perturbation,actions,meta:meta(a,c,o),
+    construction:{id:`${a.id}.condition`,targetId:`equilibrium-${c.reactionId}-${c.perturbation}-trial`},presentation:{conditionDomain:'equilibrium-perturbation',outcomeDomain:'equilibrium-shift',outcomeFormat:'label',systemKey:`answer.equilibrium-system.${c.reactionId}`}});
+  if(c.task==='medium-redox'){const m=manganeseConditionModel(o.manganeseModel);return conditionPracticeResult({model:m,targetCondition:c.medium,actions,meta:meta(a,c,o),
+    construction:{id:`${a.id}.condition`,targetId:`manganese-${c.medium}-trial`},presentation:{conditionDomain:'manganese-medium',outcomeDomain:'manganese-product',outcomeFormat:'formula',subjectFormula:o.manganeseModel.resolve(c.medium).reactant}});}
+  return null;
+}
 export function createBeta3AdvancedRouter(o:Options){
  const router=new PracticeRouter<ReferenceSliceContext>();
  const simulation:PracticeEngineAdapter<ReferenceSliceContext>={async run(a,ctx){const c=o.registry[a.id];if(!c||c.type!=='simulation')throw new Error(`BETA3_CONFIG_MISSING:${a.id}`);
@@ -84,6 +93,11 @@ export function createBeta3AdvancedRouter(o:Options){
   // targetId: old free-text evidence (`<id>.beta3.medium`, `hydrolysis:medium`, activityVersion 1.0.0) is never
   // presented as the same scoring context (ADR-P1-006 addendum).
   if(c.task==='hydrolysis'){assertHydrolysisTarget(o.hydrolysisModel,c.salt);return hydrolysisPracticeResult({model:o.hydrolysisModel,targetSalt:c.salt,actions:ctx.inputs[a.id]?.simulationActions??[],meta:meta(a,c,o),construction:{id:`${a.id}.hydrolysis`,targetId:`hydrolysis-${c.salt}-trial`}}) as any;}
+  // P2.6 (ADR-P2-007): with the condition-prediction renderer the equilibrium and medium-redox tasks become condition
+  // trials — the learner chooses a modeled condition, predicts its outcome and reveals the domain's result (the former
+  // one-field input asked only for the final answer). New evaluation semantics → config version 2.0.0 and new evidence
+  // ids/targetIds; the old `<id>.beta3.<field>` evidence (activityVersion 1.0.0) is never the same scoring context.
+  if(c.rendererRequirement?.capability==='condition-prediction'){const r=conditionTrial(a,c,o,ctx.inputs[a.id]?.simulationActions??[]);if(r)return r as any;}
 const expected=simulationExpected(c,o);const value=lastField(ctx.inputs[a.id]?.simulationActions??[],c.field);const achieved=typeof expected==='number'?Math.abs(Number(value)-expected)<=(c.tolerance??1e-6):norm(value)===norm(expected);const ev:ConstructionEvidence={...meta(a,c,o),id:`${a.id}.beta3.${c.field}`,score:achieved?1:0,evidenceClass:'practice-observation',type:'construction',targetId:`${c.task}:${c.field}`,achieved,independenceKey:`${a.id}:${c.field}`};return {evidence:[ev],serializedState:JSON.stringify({value,expected,achieved})};}};
  const trainer:PracticeEngineAdapter<ReferenceSliceContext>={async run(a,ctx){const c=o.registry[a.id];if(!c||c.type!=='trainer')throw new Error(`BETA3_CONFIG_MISSING:${a.id}`);const expected=trainerExpected(c,o);const answers=ctx.inputs[a.id]?.trainerAnswers??[];const answer=answers.at(-1)??'';const correct=normEq(answer)===normEq(expected);const ev:AnswerEvidence={...meta(a,c,o),id:`${a.id}.beta3.answer.${answers.length||1}`,score:correct?1:0,evidenceClass:'trainer-calculation',type:'answer',questionId:c.task,correct,independenceKey:`${a.id}:answer`};return {evidence:[ev],serializedState:JSON.stringify({answer,expected,correct}),finalState:{status:correct?'correct':'in_progress'}};}};
  const calculation:PracticeEngineAdapter<ReferenceSliceContext>={async run(a,ctx){const c=o.registry[a.id];if(!c||c.type!=='calculation')throw new Error(`BETA3_CONFIG_MISSING:${a.id}`);const exp=calculationExpected(c);const engine=new CalculationEngine({activityId:a.id,activityVersion:a.version,contentVersion:o.contentVersion,scoringVersion:o.scoringVersion,conceptId:c.conceptId,now:o.now,steps:[{id:exp.stepId,validator:r=>{const accepted=r.unit===exp.unit&&Math.abs(r.value-exp.value)<=exp.tolerance;return {accepted,score:accepted?1:0,feedbackKey:accepted?'calculation.correct':'calculation.incorrect'}}}]});const outcomes=[];for(const r of ctx.inputs[a.id]?.calculationResponses??[])outcomes.push(engine.submit(r.stepId,{value:r.value,unit:r.unit}));return {evidence:engine.getEvidence(),serializedState:engine.serialize(),outcomes,expected:exp,finalState:engine.getState()};}};

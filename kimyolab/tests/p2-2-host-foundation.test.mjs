@@ -229,8 +229,10 @@ test('progress: portal readiness is a separate metric, not in the management for
   assert.equal(p.separateMetrics.portalSubpathReadiness.status,'READY_IN_SIMULATION');
   assert.ok(Math.abs(0.4*p.foundationProgress.percent+0.6*p.learningProductProgress.percent-p.overallManagementEstimate.percent)<0.01);
   const b=json('reports/learning-depth-baseline.json');
-  assert.equal(b.activities.filter(a=>a.depth==='MODEL_BASED').length,4);
-  assert.equal(p.learningProductProgress.components.modelBasedInteraction,4.918,'6/122 units');
+  // P2.6 changed these values: three condition-prediction conversions with a per-activity black-swan (ADR-P2-007) moved
+  // MODEL_BASED 4 → 7 activities and 6 → 9 units (9/122 = 7.377). Portal readiness still does not enter the formula.
+  assert.equal(b.activities.filter(a=>a.depth==='MODEL_BASED').length,7);
+  assert.equal(p.learningProductProgress.components.modelBasedInteraction,7.377,'9/122 units');
   assert.ok(p.whereWeAreNow.facts.includes('0 human approvals, 0 human releases, 0 pilot sign-offs'));
 });
 
@@ -239,13 +241,15 @@ test('progress: portal readiness is a separate metric, not in the management for
 // open-ended "P2.4+" bucket moved one step to "P2.5+"; the rule (P3 is never next before the P2 work) is unchanged.
 // P2.5 changed it again for the same reason: P2.5 is named (model-based reaction interaction expansion), the open
 // bucket is now "P2.6+".
+// P2.6 changed it again for the same reason: P2.6 is named (computed model interaction expansion), the open bucket is
+// now "P2.7+".
 import {ROADMAP,milestoneState} from '../scripts/learning-depth.ts';
-test('roadmap: P2.2 → P2.3 → P2.4 → P2.5 → P2.6+ → P3; P3 is not "next" after P2.2',()=>{
-  assert.deepEqual(ROADMAP.map(r=>r.id),['P2.0','P2.1','P2.2','P2.3','P2.4','P2.5','P2.6+','P3']);
+test('roadmap: P2.2 → P2.3 → P2.4 → P2.5 → P2.6 → P2.7+ → P3; P3 is not "next" after P2.2',()=>{
+  assert.deepEqual(ROADMAP.map(r=>r.id),['P2.0','P2.1','P2.2','P2.3','P2.4','P2.5','P2.6','P2.7+','P3']);
   const p=json('reports/project-progress.json'); const ms=milestoneState(root);
   const next=p.nextMilestones[0].split(' ')[0];
   const order=ROADMAP.map(r=>r.id);
   assert.equal(next,order[order.indexOf(ms.current)+1],'next = the roadmap stage after the current one');
-  assert.ok(!p.nextMilestones.some(m=>m.startsWith('P3'))||ms.current==='P2.6+','P3 is never next before P2.6+ is delivered');
+  assert.ok(!p.nextMilestones.some(m=>m.startsWith('P3'))||ms.current==='P2.7+','P3 is never next before P2.7+ is delivered');
   if(ms.current==='P2.2') assert.equal(next,'P2.3');
 });

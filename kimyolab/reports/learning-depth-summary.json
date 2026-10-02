@@ -22,31 +22,31 @@
       "percent": 100
     },
     "atLeastGuided": {
-      "count": 37,
-      "percent": 30.3
+      "count": 40,
+      "percent": 32.8
     },
     "byDepth": {
       "GUIDED": 31,
-      "MODEL_BASED": 6,
-      "STATIC_CHECK": 85
+      "MODEL_BASED": 9,
+      "STATIC_CHECK": 82
     },
     "activitiesByDepth": {
       "GUIDED": 25,
-      "MODEL_BASED": 4,
+      "MODEL_BASED": 7,
       "NONE": 1,
-      "STATIC_CHECK": 116
+      "STATIC_CHECK": 113
     },
     "activitiesByInteraction": {
-      "FORM": 86,
-      "MODEL_INTERACTIVE": 4,
+      "FORM": 83,
+      "MODEL_INTERACTIVE": 7,
       "NONE": 1,
       "SCRIPTED": 55
     }
   },
   "modelBasedCoverage": {
-    "activities": 4,
-    "learningUnits": 6,
-    "percentOfLearningUnits": 4.9
+    "activities": 7,
+    "learningUnits": 9,
+    "percentOfLearningUnits": 7.4
   },
   "assessmentCoverage": {
     "totalItems": 5,
@@ -86,8 +86,8 @@
     },
     "practice": {
       "GUIDED": 31,
-      "MODEL_BASED": 6,
-      "STATIC_CHECK": 85
+      "MODEL_BASED": 9,
+      "STATIC_CHECK": 82
     },
     "assessment": {
       "NONE": 121,
@@ -97,8 +97,8 @@
       "PARTIAL": 122
     },
     "interaction": {
-      "FORM": 65,
-      "MODEL_INTERACTIVE": 6,
+      "FORM": 62,
+      "MODEL_INTERACTIVE": 9,
       "SCRIPTED": 51
     },
     "governance": {

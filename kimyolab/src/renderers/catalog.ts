@@ -30,4 +30,14 @@ export const IONIC_PRECIPITATION_CAPABILITY:RendererCapability=Object.freeze({
   accessibility:Object.freeze({keyboard:true,nonColorCues:true,screenReaderSummary:true,reducedMotion:'static',nonVisualAlternative:'text-state'} as const),
 }) as RendererCapability;
 
-export const RENDERER_CATALOG:readonly RendererCapability[]=Object.freeze([ATOM_BUILDER_CAPABILITY,HYDROLYSIS_MEDIUM_CAPABILITY,IONIC_PRECIPITATION_CAPABILITY]);
+/** P2.6: condition prediction — choose a modeled condition, predict its outcome, reveal the domain's result (9.23 and
+ *  11.20 manganese medium → product, 11.18 equilibrium perturbation → shift). A reusable primitive: no chemistry. */
+export const CONDITION_PREDICTION_CAPABILITY:RendererCapability=Object.freeze({
+  id:'condition-prediction',
+  version:'1.0.0',
+  rendererModelSchema:'kimyolab.renderer.condition-prediction.v1',
+  intents:Object.freeze(['simulation-action'] as const),
+  accessibility:Object.freeze({keyboard:true,nonColorCues:true,screenReaderSummary:true,reducedMotion:'static',nonVisualAlternative:'text-state'} as const),
+}) as RendererCapability;
+
+export const RENDERER_CATALOG:readonly RendererCapability[]=Object.freeze([ATOM_BUILDER_CAPABILITY,HYDROLYSIS_MEDIUM_CAPABILITY,IONIC_PRECIPITATION_CAPABILITY,CONDITION_PREDICTION_CAPABILITY]);

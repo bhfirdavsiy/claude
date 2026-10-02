@@ -121,10 +121,13 @@ test('rendererRequirement is compiled from content, only for migrated activities
   const {pack}=compileExecutionPlans(src.activities,configs);
   // P1.5/P1.6: the two hydrolysis activities and the ionic experiment joined the atom (P1.4 had one entry).
   const HYDRO={capability:'hydrolysis-medium',range:'^1.0.0'};
-  assert.deepEqual(pack.plans.filter(p=>p.rendererRequirement).map(p=>[p.activityId,p.rendererRequirement]).sort(),[['practice.experiment.8.1',{capability:'ionic-precipitation',range:'^1.0.0'}],['practice.experiment.9.14',HYDRO],['practice.simulation.11.11.planned',HYDRO],[ATOM_ACTIVITY,{capability:'atom-builder',range:'^1.0.0'}]]);
+  // P2.6: the three condition-prediction activities (ADR-P2-007) joined — 9.23, 11.18, 11.20 (expected list extended).
+  const COND={capability:'condition-prediction',range:'^1.0.0'};
+  assert.deepEqual(pack.plans.filter(p=>p.rendererRequirement).map(p=>[p.activityId,p.rendererRequirement]).sort(),[['practice.experiment.8.1',{capability:'ionic-precipitation',range:'^1.0.0'}],['practice.experiment.9.14',HYDRO],['practice.simulation.11.11.planned',HYDRO],['practice.simulation.11.18.planned',COND],['practice.simulation.11.20.planned',COND],[ATOM_ACTIVITY,{capability:'atom-builder',range:'^1.0.0'}],['practice.simulation.9.23.planned',COND]]);
   const shipped=committed(`public/content/${committed('public/content/manifest.json').activeVersion}/execution-plans.json`);
   assert.deepEqual(resolveExecutionPlan(shipped,ATOM_ACTIVITY).rendererRequirement,{capability:'atom-builder',range:'^1.0.0'});
-  assert.equal(shipped.plans.filter(p=>p.rendererRequirement).length,4,'legacy activities get no artificial requirement');
+  // P2.6: 4 → 7 (the three condition-prediction activities)
+  assert.equal(shipped.plans.filter(p=>p.rendererRequirement).length,7,'legacy activities get no artificial requirement');
   const bad=structuredClone(configs);bad['reference-slices'][ATOM_ACTIVITY].rendererRequirement={capability:'atom-builder'};
   const route=deriveActivityExecutionPlan(src.activities.find(a=>a.id===ATOM_ACTIVITY),bad);
   assert.equal(route.ok,false);assert.equal(route.error.code,'CONFIG_INVALID');
@@ -262,7 +265,8 @@ test('renderer reports are deterministic and current; ionic/electrolysis not imp
   const registry=committed(REGISTRY_REPORT);
   assert.equal(registry.catalogMatchesRegistry,true);
   // P1.5/P1.6: three ACTIVE capabilities (P1.4 had one)
-  assert.deepEqual(registry.renderers.map(r=>[r.capability,r.rendererVersion,r.status,r.compatibleActivities]),[['atom-builder','1.0.0','ACTIVE',[ATOM_ACTIVITY]],['hydrolysis-medium','1.0.0','ACTIVE',['practice.experiment.9.14','practice.simulation.11.11.planned']],['ionic-precipitation','1.0.0','ACTIVE',['practice.experiment.8.1']]]);
+  // P2.6: a fourth ACTIVE capability, condition-prediction (ADR-P2-007), for 9.23/11.18/11.20 (expected list extended)
+  assert.deepEqual(registry.renderers.map(r=>[r.capability,r.rendererVersion,r.status,r.compatibleActivities]),[['atom-builder','1.0.0','ACTIVE',[ATOM_ACTIVITY]],['hydrolysis-medium','1.0.0','ACTIVE',['practice.experiment.9.14','practice.simulation.11.11.planned']],['ionic-precipitation','1.0.0','ACTIVE',['practice.experiment.8.1']],['condition-prediction','1.0.0','ACTIVE',['practice.simulation.11.18.planned','practice.simulation.11.20.planned','practice.simulation.9.23.planned']]]);
   const migration=committed(MIGRATION_REPORT);
   // P1.5: migration numbers are computed from the compiled plans, never hardcoded
   const shippedPlans=committed(`public/content/${committed('public/content/manifest.json').activeVersion}/execution-plans.json`).plans;

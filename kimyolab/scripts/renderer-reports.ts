@@ -26,6 +26,9 @@ import {diskFetch} from './pilot-status.ts';
 import {ionicIntent} from '../src/renderers/ionic-precipitation/renderer.ts';
 import {toIonicPrecipitationRendererModel,IONIC_RENDERER_MODEL_SCHEMA} from '../src/renderers/ionic-precipitation/renderer-model.ts';
 import {IonicEngine} from '../src/domain/chemistry/ionic-engine.ts';
+import {conditionIntent} from '../src/renderers/condition-prediction/renderer.ts';
+import {toConditionRendererModel,CONDITION_RENDERER_MODEL_SCHEMA} from '../src/renderers/condition-prediction/renderer-model.ts';
+import {createLocalizer,parseInteractionCatalog} from '../src/features/localization/element-names.ts';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 export const REGISTRY_REPORT='reports/renderer-registry.json';
@@ -33,8 +36,9 @@ export const MIGRATION_REPORT='reports/renderer-migration.json';
 export const ATOM_REPORT='reports/reference-renderer-atom.json';
 export const HYDROLYSIS_REPORT='reports/reference-renderer-hydrolysis.json';
 export const IONIC_REPORT='reports/reference-renderer-ionic-precipitation.json';
+export const CONDITION_REPORT='reports/reference-renderer-condition-prediction.json';
 /** Where each registered capability is implemented (checked to exist). */
-const IMPLEMENTATIONS:Record<string,string>={'atom-builder':'src/renderers/atom-builder/renderer.ts','hydrolysis-medium':'src/renderers/hydrolysis-medium/renderer.ts','ionic-precipitation':'src/renderers/ionic-precipitation/renderer.ts'};
+const IMPLEMENTATIONS:Record<string,string>={'atom-builder':'src/renderers/atom-builder/renderer.ts','hydrolysis-medium':'src/renderers/hydrolysis-medium/renderer.ts','ionic-precipitation':'src/renderers/ionic-precipitation/renderer.ts','condition-prediction':'src/renderers/condition-prediction/renderer.ts'};
 
 function plans(base:string){
   const src=loadSources(base);
@@ -284,10 +288,91 @@ export async function buildIonicReport(base=root,options:{reactions?:unknown[]}=
   };
 }
 
+/**
+ * P2.6 condition-prediction reference renderer report — measured PER ACTIVITY by driving the REAL stack (ContentClient →
+ * ReferencePracticeSession → adapter → condition-trial.ts → EquilibriumModel / ManganeseRedoxModel) with the renderer's
+ * own intents and the canonical converter. An activity is model-based only when ITS OWN modeled conditions reach ≥2
+ * distinct domain outcomes, renderer = engine = domain for every condition, the reveal needs a prediction, a late
+ * prediction is refused, unmodeled input fails closed and every label resolves from the catalog.
+ * `chemistry` overrides the page's chemistry data (used by tests to prove that a canned model FAILs).
+ */
+export async function buildConditionReport(base=root,options:{chemistry?:Record<string,unknown>}={}){
+  const client=new ContentClient({fetchImpl:diskFetch(base) as any,baseUrl:'/content'});
+  const interaction=parseInteractionCatalog(JSON.parse(fs.readFileSync(path.join(base,'content-src/locales/uz-latn/learner-interaction.json'),'utf8')));
+  const localize=createLocalizer({interaction});
+  const ids=buildRegistryReport(base).renderers.find(r=>r.capability==='condition-prediction')?.compatibleActivities??[];
+  const activities=[];
+  for(const id of ids){
+    const page:any=await client.loadPractice(id);
+    if(options.chemistry) page.chemistry={...page.chemistry,...options.chemistry};
+    const run=async(actions:any[])=>{ const session=new ReferencePracticeSession(page); let r:any=await session.result(); for(const a of actions) r=await session.apply(conditionIntent(a,page.type)); return r; };
+    const start:any=await run([]);
+    const state=start.finalState.condition, first=state.outcomeOptions[0];
+    const probes=[];
+    for(const condition of state.conditions){
+      // a deliberately fixed prediction (the first option) so right AND wrong predictions are exercised
+      const r=await run([{type:'selectCondition',payload:{condition}},{type:'predictOutcome',payload:{outcome:first}},{type:'reveal'}]);
+      const m=toConditionRendererModel(r,localize); const ev=r.evidence.find((e:any)=>e.type==='answer');
+      probes.push({condition,engineOutcome:r.finalState.condition.trials[0]?.actual??null,rendererOutcome:m.observation?.outcome??null,rendererText:m.observation?.text??null,predicted:first,correct:ev?.correct??null,score:ev?.score??null});
+    }
+    const outcomes=new Set(probes.map(p=>p.engineOutcome));
+    const evidenceParity=probes.every(p=>p.engineOutcome!==null&&p.rendererOutcome===p.engineOutcome&&p.correct===(p.engineOutcome===first)&&p.score===(p.correct?1:0));
+    const target=state.targetCondition, targetOutcome=probes.find(p=>p.condition===target)?.engineOutcome;
+    const select={type:'selectCondition',payload:{condition:target}};
+    const success=await run([select,{type:'predictOutcome',payload:{outcome:targetOutcome}},{type:'reveal'}]);
+    const noPrediction=await run([select,{type:'reveal'}]);
+    const wrongFirst=state.outcomeOptions.find((o:string)=>o!==targetOutcome);
+    const late=await run([select,{type:'predictOutcome',payload:{outcome:wrongFirst}},{type:'reveal'},{type:'predictOutcome',payload:{outcome:targetOutcome}}]);
+    const beforeReveal=await run([select,{type:'predictOutcome',payload:{outcome:targetOutcome}}]);
+    const wrongOutcome=state.outcomeOptions.find((o:string)=>o!==targetOutcome);
+    const wrong=await run([select,{type:'predictOutcome',payload:{outcome:wrongOutcome}},{type:'reveal'}]);
+    const again=await run([select,{type:'predictOutcome',payload:{outcome:wrongOutcome}},{type:'reveal'},select]);
+    const unmodeled=await run([{type:'selectCondition',payload:{condition:'NOT_A_MODELED_CONDITION'}},{type:'reveal'}]);
+    const foreign=await run([select,{type:'predictOutcome',payload:{outcome:'NOT_A_MODELED_OUTCOME'}}]);
+    const bm=toConditionRendererModel(beforeReveal,localize);
+    const checks={
+      modelBased:outcomes.size>=2&&evidenceParity,
+      distinctOutcomesAtLeastTwo:outcomes.size>=2,
+      evidenceParity,
+      learnerDecision:state.conditions.length>=2,
+      predictionBeforeReveal:isPracticeResultComplete(page.type,success)&&noPrediction.finalState.condition.rejected==='PREDICTION_REQUIRED'&&noPrediction.finalState.condition.trials.length===0&&!isPracticeResultComplete(page.type,noPrediction)
+        &&late.finalState.condition.rejected==='PREDICTION_LOCKED'&&late.finalState.condition.trials.length===1&&late.finalState.condition.trials[0].predicted===wrongFirst&&!isPracticeResultComplete(page.type,late),
+      outcomeHiddenBeforeReveal:bm.observation===null&&beforeReveal.finalState.condition.current.outcome===null&&beforeReveal.evidence.every((e:any)=>e.type!=='answer'),
+      wrongPredictionIsEvidenceNotCompletion:wrong.evidence.some((e:any)=>e.type==='answer'&&e.correct===false&&e.score===0)&&!isPracticeResultComplete(page.type,wrong),
+      oneTrialPerCondition:again.finalState.condition.rejected==='CONDITION_ALREADY_TRIED'&&!isPracticeResultComplete(page.type,again),
+      unmodeledFailsClosed:unmodeled.finalState.condition.rejected!==null&&unmodeled.finalState.condition.trials.length===0&&!isPracticeResultComplete(page.type,unmodeled),
+      outcomeOutsideModelRejected:foreign.finalState.condition.rejected==='OUTCOME_NOT_IN_MODEL'&&foreign.finalState.condition.current.predicted===null,
+      labelsLocalized:toConditionRendererModel(success,localize).missingKeys.length===0&&probes.every(p=>!!p.rendererText&&!p.rendererText.includes('…')),
+    };
+    activities.push({activityId:id,kind:state.kind,status:Object.values(checks).every(Boolean)?'PASS':'FAIL',checks,conditions:state.conditions,outcomeOptions:state.outcomeOptions,targetCondition:target,distinctOutcomes:outcomes.size,probes});
+  }
+  const cap=RENDERER_CATALOG.find(c=>c.id==='condition-prediction')!;
+  const e2e=path.join(base,'tests/e2e/renderer-condition.spec.mjs');
+  const e2eText=fs.existsSync(e2e)?fs.readFileSync(e2e,'utf8'):'';
+  return {
+    schema:'kimyolab.reference-renderer-condition-prediction.v1',
+    capability:`${cap.id}@${cap.version}`,
+    status:activities.length>0&&activities.every(a=>a.status==='PASS')?'PASS':'FAIL',
+    semantics:'judged per activity: an activity bound to this renderer is model-based only when its own modeled conditions reach ≥2 distinct domain outcomes through the real stack',
+    activities,
+    domainSource:['src/domain/chemistry/condition-trial.ts','src/domain/chemistry/equilibrium-model.ts','src/domain/chemistry/manganese-redox-model.ts','content-src/chemistry/equilibrium.json','content-src/chemistry/manganese-redox.json'],
+    converter:'src/renderers/condition-prediction/renderer-model.ts#toConditionRendererModel',
+    rendererModelSchema:CONDITION_RENDERER_MODEL_SCHEMA,
+    intents:{kinds:cap.intents,shape:conditionIntent({type:'reveal'},'simulation')},
+    accessibility:{...cap.accessibility,keyboardE2E:{spec:'tests/e2e/renderer-condition.spec.mjs',present:e2eText.length>0,keyboardOnly:/keyboard\.press/.test(e2eText)&&!/\.click\(/.test(e2eText)}},
+    knownLimitations:[
+      'equilibrium: one reaction system (haber) with two modeled perturbations (content-src/chemistry/equilibrium.json, review pending)',
+      'manganese: three modeled media → three products (content-src/chemistry/manganese-redox.json, review pending)',
+      'the records\' explanations/observations are English-only and are not shown; only structured results (shift label, product formula) are displayed — translation is human work',
+      'perturbation and system labels are new display text in the learner-interaction catalog (review pending)',
+    ],
+  };
+}
+
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
   const write=(rel:string,body:unknown)=>fs.writeFileSync(path.join(root,rel),`${JSON.stringify(body,null,2)}\n`,'utf8');
-  const registry=buildRegistryReport();const migration=buildMigrationReport();const atom=await buildAtomReport();const hydrolysis=await buildHydrolysisReport();const ionic=await buildIonicReport();
-  write(REGISTRY_REPORT,registry);write(MIGRATION_REPORT,migration);write(ATOM_REPORT,atom);write(HYDROLYSIS_REPORT,hydrolysis);write(IONIC_REPORT,ionic);
-  console.log(JSON.stringify({renderers:registry.renderers.length,registryRendered:migration.registryRendered,legacyRendered:migration.legacyRendered,rendererBlocked:migration.rendererBlocked,atomModelBased:atom.modelBased,evidenceParity:atom.evidenceParity.equal,hydrolysis:hydrolysis.status,hydrolysisDistinctOutcomes:hydrolysis.distinctOutcomes,ionic:ionic.status,ionicDistinctOutcomes:ionic.distinctOutcomes}));
-  if(!registry.catalogMatchesRegistry||!atom.modelBased||!atom.evidenceParity.equal||hydrolysis.status!=='PASS'||ionic.status!=='PASS'){console.error('RENDERER_REPORT_INVARIANT_FAILED');process.exitCode=1;}
+  const registry=buildRegistryReport();const migration=buildMigrationReport();const atom=await buildAtomReport();const hydrolysis=await buildHydrolysisReport();const ionic=await buildIonicReport();const condition=await buildConditionReport();
+  write(REGISTRY_REPORT,registry);write(MIGRATION_REPORT,migration);write(ATOM_REPORT,atom);write(HYDROLYSIS_REPORT,hydrolysis);write(IONIC_REPORT,ionic);write(CONDITION_REPORT,condition);
+  console.log(JSON.stringify({renderers:registry.renderers.length,registryRendered:migration.registryRendered,legacyRendered:migration.legacyRendered,rendererBlocked:migration.rendererBlocked,atomModelBased:atom.modelBased,evidenceParity:atom.evidenceParity.equal,hydrolysis:hydrolysis.status,hydrolysisDistinctOutcomes:hydrolysis.distinctOutcomes,ionic:ionic.status,conditionPrediction:condition.status,ionicDistinctOutcomes:ionic.distinctOutcomes}));
+  if(!registry.catalogMatchesRegistry||!atom.modelBased||!atom.evidenceParity.equal||hydrolysis.status!=='PASS'||ionic.status!=='PASS'||condition.status!=='PASS'){console.error('RENDERER_REPORT_INVARIANT_FAILED');process.exitCode=1;}
 }

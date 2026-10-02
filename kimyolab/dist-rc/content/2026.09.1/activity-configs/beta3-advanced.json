@@ -163,12 +163,13 @@
   "practice.simulation.11.18.planned": {
     "capability": "le-chatelier",
     "type": "simulation",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "conceptId": "concept.c132",
     "task": "equilibrium-shift",
     "reactionId": "haber",
     "perturbation": "pressure-increase",
-    "field": "shift"
+    "field": "shift",
+    "rendererRequirement": {"capability": "condition-prediction", "range": "^1.0.0"}
   },
   "practice.trainer.11.19.planned": {
     "capability": "redox-half-reaction",
@@ -190,11 +191,12 @@
   "practice.simulation.11.20.planned": {
     "capability": "medium-redox",
     "type": "simulation",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "conceptId": "concept.c324",
     "task": "medium-redox",
     "medium": "acidic",
-    "field": "product"
+    "field": "product",
+    "rendererRequirement": {"capability": "condition-prediction", "range": "^1.0.0"}
   },
   "practice.experiment.11.2": {
     "capability": "electrolysis",

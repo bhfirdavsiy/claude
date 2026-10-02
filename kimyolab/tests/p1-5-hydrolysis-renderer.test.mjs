@@ -254,7 +254,8 @@ test('renderer family: atom + hydrolysis — one registry, one host, one readine
   const registry=createDefaultRendererRegistry();
   assert.deepEqual(registry.capabilities().map(c=>c.id),RENDERER_CATALOG.map(c=>c.id));
   // P1.6 added the third capability; the family contract below covers all of them
-  assert.deepEqual(RENDERER_CATALOG.map(c=>c.id),['atom-builder','hydrolysis-medium','ionic-precipitation']);
+  // P2.6: condition-prediction (ADR-P2-007) is the fourth registered capability (expected list extended).
+  assert.deepEqual(RENDERER_CATALOG.map(c=>c.id),['atom-builder','hydrolysis-medium','ionic-precipitation','condition-prediction']);
   for(const [impl,cap] of [[atomBuilderRenderer,ATOM_BUILDER_CAPABILITY],[hydrolysisMediumRenderer,HYDROLYSIS_MEDIUM_CAPABILITY]]){
     assert.equal(impl.capability,cap);
     assert.equal(registry.resolve({capability:cap.id,range:'^1.0.0'}),impl);
@@ -311,7 +312,8 @@ test('hydrolysis report: deterministic, PASS, model-based — and FAILS when the
   assert.equal(cannedReport.distinctOutcomes,1);
   assert.equal(cannedReport.checks.modelBased,false);
   const registry=buildRegistryReport();
-  assert.deepEqual(registry.renderers.filter(r=>r.status==='ACTIVE').map(r=>r.capability),['atom-builder','hydrolysis-medium','ionic-precipitation']);
+  // P2.6: condition-prediction (ADR-P2-007) is the fourth registered capability (expected list extended).
+  assert.deepEqual(registry.renderers.filter(r=>r.status==='ACTIVE').map(r=>r.capability),['atom-builder','hydrolysis-medium','ionic-precipitation','condition-prediction']);
 });
 
 test('governance: no release, no approval — readiness counts unchanged, reviews pending, no sign-offs',()=>{

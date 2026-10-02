@@ -254,13 +254,37 @@
     },
     {
       "id": "manganese-9.23",
-      "title": "P2.1 manganese 9.23 invalid + valid choice",
+      "title": "P2.6 manganese 9.23 condition trial: no reveal without a prediction, wrong + right",
       "status": "PASS",
       "facts": {
-        "verdict": "To‘g‘ri. Natija saqlandi. Davom eting."
+        "observation": "Model natijasi: Mn²⁺.",
+        "trials": [
+          "1-sinov: Ishqoriy muhit — bashorat Mn²⁺, model natijasi MnO₄²⁻ (✗ noto‘g‘ri).",
+          "2-sinov: Kislotali muhit — bashorat Mn²⁺, model natijasi Mn²⁺ (✓ to‘g‘ri)."
+        ]
       },
       "semantic": {
         "evidence": [
+          {
+            "activityId": "practice.simulation.9.23.planned",
+            "contentVersion": "2026.09.1",
+            "type": "answer",
+            "evidenceClass": "practice-observation",
+            "score": 0,
+            "correct": false,
+            "questionId": "condition:manganese-medium-product:basic",
+            "response": "Mn^2+"
+          },
+          {
+            "activityId": "practice.simulation.9.23.planned",
+            "contentVersion": "2026.09.1",
+            "type": "answer",
+            "evidenceClass": "practice-observation",
+            "score": 1,
+            "correct": true,
+            "questionId": "condition:manganese-medium-product:acidic",
+            "response": "Mn^2+"
+          },
           {
             "activityId": "practice.simulation.9.23.planned",
             "contentVersion": "2026.09.1",
@@ -268,7 +292,7 @@
             "evidenceClass": "practice-observation",
             "score": 0,
             "achieved": false,
-            "targetId": "manganese-acidic"
+            "targetId": "manganese-acidic-trial"
           },
           {
             "activityId": "practice.simulation.9.23.planned",
@@ -277,7 +301,7 @@
             "evidenceClass": "practice-observation",
             "score": 1,
             "achieved": true,
-            "targetId": "manganese-acidic"
+            "targetId": "manganese-acidic-trial"
           }
         ],
         "attempts": [
@@ -297,6 +321,108 @@
         "mastery": [
           {
             "conceptId": "concept.c213"
+          }
+        ]
+      },
+      "differences": []
+    },
+    {
+      "id": "equilibrium-11.18",
+      "title": "P2.6 equilibrium 11.18 condition trial (beta3)",
+      "status": "PASS",
+      "facts": {
+        "observation": "Model natijasi: Mahsulotlar tomonga."
+      },
+      "semantic": {
+        "evidence": [
+          {
+            "activityId": "practice.simulation.11.18.planned",
+            "contentVersion": "2026.09.1",
+            "type": "answer",
+            "evidenceClass": "practice-observation",
+            "score": 1,
+            "correct": true,
+            "questionId": "condition:equilibrium-shift:pressure-increase",
+            "response": "products"
+          },
+          {
+            "activityId": "practice.simulation.11.18.planned",
+            "contentVersion": "2026.09.1",
+            "type": "construction",
+            "evidenceClass": "practice-observation",
+            "score": 1,
+            "achieved": true,
+            "targetId": "equilibrium-haber-pressure-increase-trial"
+          }
+        ],
+        "attempts": [
+          {
+            "activityId": "practice.simulation.11.18.planned",
+            "status": "completed",
+            "contentVersion": "2026.09.1"
+          }
+        ],
+        "progress": [
+          {
+            "learningUnitId": "lu.11.18",
+            "status": "practice_complete",
+            "contentVersion": "2026.09.1"
+          }
+        ],
+        "mastery": [
+          {
+            "conceptId": "concept.c132"
+          }
+        ]
+      },
+      "differences": []
+    },
+    {
+      "id": "manganese-11.20",
+      "title": "P2.6 manganese 11.20 condition trial (beta3)",
+      "status": "PASS",
+      "facts": {
+        "observation": "Model natijasi: Mn²⁺."
+      },
+      "semantic": {
+        "evidence": [
+          {
+            "activityId": "practice.simulation.11.20.planned",
+            "contentVersion": "2026.09.1",
+            "type": "answer",
+            "evidenceClass": "practice-observation",
+            "score": 1,
+            "correct": true,
+            "questionId": "condition:manganese-medium-product:acidic",
+            "response": "Mn^2+"
+          },
+          {
+            "activityId": "practice.simulation.11.20.planned",
+            "contentVersion": "2026.09.1",
+            "type": "construction",
+            "evidenceClass": "practice-observation",
+            "score": 1,
+            "achieved": true,
+            "targetId": "manganese-acidic-trial"
+          }
+        ],
+        "attempts": [
+          {
+            "activityId": "practice.simulation.11.20.planned",
+            "status": "completed",
+            "contentVersion": "2026.09.1"
+          }
+        ],
+        "progress": [
+          {
+            "learningUnitId": "lu.11.20",
+            "status": "practice_complete",
+            "contentVersion": "2026.09.1"
+          }
+        ],
+        "mastery": [
+          {
+            "conceptId": "concept.c324"
           }
         ]
       },
@@ -401,8 +527,8 @@
     }
   ],
   "summary": {
-    "scenarios": 9,
-    "pass": 9,
+    "scenarios": 11,
+    "pass": 11,
     "status": "PASS"
   },
   "scenarioIds": [
@@ -413,6 +539,8 @@
     "hydrolysis",
     "ionic",
     "manganese-9.23",
+    "equilibrium-11.18",
+    "manganese-11.20",
     "static-check-form",
     "progress-persistence"
   ]

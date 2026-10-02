@@ -96,7 +96,9 @@ test('classification: form checks are STATIC_CHECK, procedural clicks are not GU
   assert.equal(c({registry:true,blackSwan:true}).depth,'MODEL_BASED');
   const b=reports.baseline;
   const model=b.activities.filter(a=>a.depth==='MODEL_BASED');
-  assert.deepEqual(model.map(a=>a.activityId).sort(),['practice.experiment.8.1','practice.experiment.9.14','practice.simulation.11.11.planned','practice.simulation.7.07.planned']);
+  // P2.6 changed this list: 9.23, 11.18 and 11.20 became condition-prediction trials (ADR-P2-007) and pass the per-activity
+  // black-swan through the real stack (reports/reference-renderer-condition-prediction.json); the rule itself is unchanged.
+  assert.deepEqual(model.map(a=>a.activityId).sort(),['practice.experiment.8.1','practice.experiment.9.14','practice.simulation.11.11.planned','practice.simulation.11.18.planned','practice.simulation.11.20.planned','practice.simulation.7.07.planned','practice.simulation.9.23.planned']);
   assert.ok(model.every(a=>a.blackSwan.pass&&a.renderer.kind==='registry'));
   // runtime READY ≠ depth
   const ready=b.activities.filter(a=>a.runtimeReadiness==='READY');
@@ -117,7 +119,10 @@ test('CAN_SUCCEED through the real UI path; a crash on unexpected input is repor
   const check=reports.progress.foundationProgress.checks.find(c=>c.id==='no-crash-on-wrong-input');
   assert.equal(check.pass,true,'the probe still runs; a new crash would fail this check');
   assert.deepEqual(reports.workPackages.packages.find(p=>p.id==='wp.lab-repair').facts.crashOnWrongInput,[]);
-  assert.equal(b.activities.find(a=>a.activityId==='practice.simulation.9.23.planned').wrongInput,'FEEDBACK');
+  // P2.6 changed this assertion: 9.23 is now drawn by the condition-prediction renderer, so the legacy wrong-input probe no
+  // longer applies (NOT_APPLICABLE, like every registry activity). The P2.1 guarantee moved into the domain: an unmodeled
+  // medium is rejected (CONDITION_NOT_MODELED) with no trial, no evidence and no crash (tests/p2-6-computed-model-interaction).
+  assert.equal(b.activities.find(a=>a.activityId==='practice.simulation.9.23.planned').wrongInput,'NOT_APPLICABLE');
 });
 
 // ------------------------------------------------------------------ theory / assessment / mastery
@@ -148,7 +153,8 @@ test('engines: grounded in the runtime imports; existence is not exposure; unuse
   assert.ok(e.every(x=>'browserExposed' in x&&'rendererExposed' in x));
   assert.ok(e.filter(x=>x.status==='FORM_OR_SCRIPT_ONLY').every(x=>!x.rendererExposed));
   const r=reports.baseline.renderers;
-  assert.deepEqual([r.registryRendered,r.legacyRendered,r.rendererMissingOrUnlaunchable],[4,141,1]);
+  // P2.6: three activities moved from the legacy renderer to the registry (condition-prediction): 4/141 → 7/138
+  assert.deepEqual([r.registryRendered,r.legacyRendered,r.rendererMissingOrUnlaunchable],[7,138,1]);
   assert.ok(r.nextCandidates.every(c=>!('priority' in c)&&!('score' in c)));
 });
 
@@ -157,8 +163,9 @@ test('labs, accessibility and localization are measured, not assumed',()=>{
   assert.equal(b.labs.total,read('content-src/practice-activities.json').filter(a=>a.type==='experiment').length);
   assert.equal(b.labs.cannotSucceed,0); assert.equal(b.labs.external.depth.startsWith('UNKNOWN'),true);
   const legacy=b.activities.filter(a=>a.accessibility&&a.accessibility.source!=='renderer contract');
-  assert.equal(legacy.length,141); assert.ok(legacy.every(a=>a.accessibility.keyboard==='UNKNOWN'),'legacy accessibility is never assumed PASS');
-  assert.equal(b.accessibility.keyboard.verified,4);
+  // P2.6: 141 → 138 legacy activities and 4 → 7 renderer-contract activities (the three condition-prediction conversions)
+  assert.equal(legacy.length,138); assert.ok(legacy.every(a=>a.accessibility.keyboard==='UNKNOWN'),'legacy accessibility is never assumed PASS');
+  assert.equal(b.accessibility.keyboard.verified,7);
   assert.deepEqual(b.localization.learningUnitTitles,{'uz-Latn':122,'uz-Cyrl':0,ru:0});
   // P2.1 changed this assertion: P2.0 measured raw-id labels (e.g. "moles" on 11.05) and typed internal tokens as a
   // gap. P2.1 replaced the labels with the learner-interaction catalog and closed domains with choices: raw-id labels

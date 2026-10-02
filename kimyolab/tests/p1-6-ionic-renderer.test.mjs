@@ -242,7 +242,8 @@ test('renderer flow (mini DOM): select → mix → observation → equation with
 
 test('registry: three capabilities, no capability-specific branch in the core, practiceType stays generic',async()=>{
   const registry=createDefaultRendererRegistry();
-  assert.deepEqual(registry.capabilities().map(c=>c.id),['atom-builder','hydrolysis-medium','ionic-precipitation']);
+  // P2.6: condition-prediction (ADR-P2-007) is the fourth registered capability (expected list extended).
+  assert.deepEqual(registry.capabilities().map(c=>c.id),['atom-builder','hydrolysis-medium','ionic-precipitation','condition-prediction']);
   assert.equal(registry.resolve({capability:'ionic-precipitation',range:'^1.0.0'}),ionicPrecipitationRenderer);
   assert.equal(ionicPrecipitationRenderer.capability,IONIC_PRECIPITATION_CAPABILITY);
   for(const f of ['src/renderers/registry.ts','src/features/practice/host.ts','src/renderers/contract.ts','src/renderers/intent.ts'])

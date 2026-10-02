@@ -2,12 +2,12 @@
   "schema": "kimyolab.learning-unit-gap-map.v1",
   "semantics": "Per unit: normalized layer levels (0..1), strongest/weakest layer, blocking gaps with their CATEGORY (learning content / depth / outcome vs governance vs provenance vs localization vs accessibility — never merged), one technical opportunity and one human dependency. Ties broken alphabetically. No priority score.",
   "gapCounts": {
-    "ACCESSIBILITY_UNVERIFIED": 119,
+    "ACCESSIBILITY_UNVERIFIED": 116,
     "ASSESSMENT_NOT_APPROVED": 1,
     "MASTERY_UNREACHABLE": 122,
     "NOT_RELEASED": 122,
     "NO_ASSESSMENT": 121,
-    "NO_GUIDED_OR_MODEL_PRACTICE": 85,
+    "NO_GUIDED_OR_MODEL_PRACTICE": 82,
     "NO_MODEL_BASED_PRACTICE": 31,
     "PROVENANCE_DEBT": 19,
     "THEORY_MINIMAL": 122,
@@ -15,10 +15,10 @@
     "UNTRANSLATED_ANSWER_TOKEN": 25
   },
   "gapCountsByCategory": {
-    "ACCESSIBILITY": 119,
+    "ACCESSIBILITY": 116,
     "GOVERNANCE": 245,
     "LEARNING_CONTENT": 243,
-    "LEARNING_DEPTH": 116,
+    "LEARNING_DEPTH": 113,
     "LEARNING_OUTCOME": 122,
     "LOCALIZATION": 25,
     "PROVENANCE": 19
@@ -3385,22 +3385,18 @@
       "topic": "Marganes",
       "layers": {
         "theory": 0.5,
-        "practice": 0.333,
+        "practice": 1,
         "assessment": 0,
         "mastery": 0.5,
-        "interaction": 0.333,
+        "interaction": 1,
         "governance": 0
       },
-      "strongestLayer": "mastery",
+      "strongestLayer": "interaction",
       "weakestLayer": "governance",
       "blockingGaps": [
         {
           "gap": "THEORY_MINIMAL",
           "category": "LEARNING_CONTENT"
-        },
-        {
-          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
-          "category": "LEARNING_DEPTH"
         },
         {
           "gap": "NO_ASSESSMENT",
@@ -3417,13 +3413,9 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "expose domain model manganese-redox-model through a model-based renderer (black-swan must hold)",
+      "nextTechnicalOpportunity": "extend the existing model-based renderer (more modeled records reviewed by a chemist)",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -5661,22 +5653,18 @@
       "topic": "Kimyoviy muvozanatga ta’sir etuvchi omillar",
       "layers": {
         "theory": 0.5,
-        "practice": 0.333,
+        "practice": 1,
         "assessment": 0,
         "mastery": 0.5,
-        "interaction": 0.333,
+        "interaction": 1,
         "governance": 0
       },
-      "strongestLayer": "mastery",
+      "strongestLayer": "interaction",
       "weakestLayer": "governance",
       "blockingGaps": [
         {
           "gap": "THEORY_MINIMAL",
           "category": "LEARNING_CONTENT"
-        },
-        {
-          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
-          "category": "LEARNING_DEPTH"
         },
         {
           "gap": "NO_ASSESSMENT",
@@ -5693,13 +5681,9 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "expose domain model equilibrium-model through a model-based renderer (black-swan must hold)",
+      "nextTechnicalOpportunity": "extend the existing model-based renderer (more modeled records reviewed by a chemist)",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
@@ -5755,22 +5739,18 @@
       "topic": "Redoks reaksiyalarining eritma muhitiga bog‘liqligi",
       "layers": {
         "theory": 0.5,
-        "practice": 0.333,
+        "practice": 1,
         "assessment": 0,
         "mastery": 0.5,
-        "interaction": 0.333,
+        "interaction": 1,
         "governance": 0
       },
-      "strongestLayer": "mastery",
+      "strongestLayer": "interaction",
       "weakestLayer": "governance",
       "blockingGaps": [
         {
           "gap": "THEORY_MINIMAL",
           "category": "LEARNING_CONTENT"
-        },
-        {
-          "gap": "NO_GUIDED_OR_MODEL_PRACTICE",
-          "category": "LEARNING_DEPTH"
         },
         {
           "gap": "NO_ASSESSMENT",
@@ -5787,13 +5767,9 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
-      "nextTechnicalOpportunity": "expose domain model manganese-redox-model through a model-based renderer (black-swan must hold)",
+      "nextTechnicalOpportunity": "extend the existing model-based renderer (more modeled records reviewed by a chemist)",
       "nextHumanDependency": "author assessment items for this unit, then chemistry + didactic review (two people)"
     },
     {
