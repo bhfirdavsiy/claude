@@ -135,4 +135,5 @@ const out = {
 fs.writeFileSync(path.join(root, 'reports', 'deployment-rollback-drill.json'), `${JSON.stringify(out, null, 2)}\n`);
 for (const s of steps) console.log(`${s.pass ? '✓' : '✗'} ${s.id}`);
 console.log(`deploy:rollback-drill ${out.status}${out.code ? ` — ${out.code}: ${out.message}` : ''}`);
+if (out.status !== 'PASS' && out.detail) console.log(`  facts: ${JSON.stringify(out.detail)}`);
 if (out.status !== 'PASS') process.exitCode = 1;

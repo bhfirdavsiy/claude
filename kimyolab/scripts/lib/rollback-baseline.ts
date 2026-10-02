@@ -24,10 +24,13 @@ export function mainlineRef(cwd:string,env:Record<string,string|undefined>=proce
 
 export function resolveRollbackBaseline(cwd:string,opts:{env?:Record<string,string|undefined>;differs:(commit:string)=>boolean;maxWalk?:number}):BaselineResolution{
   const env=opts.env??process.env;
-  const fail=(code:string,message:string)=>Object.assign(new Error(message),{code});
+  // every failure carries the facts it was decided on (refs, SHAs, the walk), so a CI log alone explains it
+  const facts:Record<string,unknown>={};
+  const fail=(code:string,message:string)=>Object.assign(new Error(message),{code,detail:facts});
   const mainline=mainlineRef(cwd,env);
   if(!mainline) throw fail('DEPLOY_ROLLBACK_SOURCE_MISSING','No mainline ref (origin/main or main) is available: fetch the full history (CI: actions/checkout fetch-depth: 0).');
   const mainlineSha=isCommit(cwd,mainline)!;
+  Object.assign(facts,{mainline,mainlineSha,head:isCommit(cwd,'HEAD')});
   const onMainline=(sha:string)=>git(cwd,['merge-base','--is-ancestor',sha,mainlineSha]).ok;
   if(env.KIMYOLAB_ROLLBACK_FROM){
     const sha=isCommit(cwd,env.KIMYOLAB_ROLLBACK_FROM);
@@ -40,7 +43,7 @@ export function resolveRollbackBaseline(cwd:string,opts:{env?:Record<string,stri
   if(!head) throw fail('DEPLOY_ROLLBACK_SOURCE_MISSING','HEAD is not a commit.');
   const base=git(cwd,['merge-base','HEAD',mainlineSha]);
   if(!base.ok) throw fail('DEPLOY_ROLLBACK_SOURCE_MISSING',`HEAD and ${mainline} share no history: fetch the full history.`);
-  let start=base.out; let method:BaselineResolution['method']='merge-base';
+  let start=base.out; let method:BaselineResolution['method']='merge-base'; facts.mergeBase=base.out;
   if(start===head){
     // HEAD is a mainline commit (post-merge): the current deployment is HEAD itself → its first parent
     const parent=isCommit(cwd,`${head}^1`);
@@ -48,11 +51,12 @@ export function resolveRollbackBaseline(cwd:string,opts:{env?:Record<string,stri
     start=parent; method='first-parent-of-mainline-head';
   }
   const chain=git(cwd,['rev-list','--first-parent',`--max-count=${opts.maxWalk??30}`,start]);
-  const walked:string[]=[];
+  const walked:string[]=[]; const steps:string[]=[]; Object.assign(facts,{start,method,walk:steps});
   for(const sha of chain.out.split('\n').filter(Boolean)){
     walked.push(sha);
-    if(!onMainline(sha)) continue;
+    if(!onMainline(sha)){ steps.push(`${sha.slice(0,12)} not-on-mainline`); continue; }
     if(opts.differs(sha)) return {commit:sha,method,mainline,mergeBase:base.out,walked};
+    steps.push(`${sha.slice(0,12)} same-artefact`);
   }
   throw fail('DEPLOY_ROLLBACK_SOURCE_MISSING',`No mainline commit within ${opts.maxWalk??30} first-parent steps builds a different artefact.`);
 }
