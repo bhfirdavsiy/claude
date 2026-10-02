@@ -8,7 +8,7 @@
 // chemistry review AND an approving didactic review, by two distinct humans, neither of them the author, both pinned to
 // that same hash. Any edit of content or sources changes the hash, so earlier reviews become STALE.
 import {provenanceOf,                   } from '../governance/source-policy.js';
-import {AUTOMATION_IDENTITY} from '../governance/identity.js';
+import {isAutomationIdentity} from '../governance/identity.js';
 import {sha256HexSync,utf8} from '../content/sha256.js';
 
 export const STRUCTURED_THEORY_SCHEMA='kimyolab.structured-theory.v1';
@@ -53,7 +53,7 @@ export const MIN_EXPLANATION_CHARS=300;
 /** Text that is a template, a stub or a gap marker — never counts as authored content. */
 export const PLACEHOLDER=/\b(?:TODO|TBD|FIXME|XXX|lorem\s+ipsum|placeholder)\b|\{\{|\}\}|\[[^\]]*\]|…|\.\.\.|^\s*$/i;
 /** Automation identities (the governance list shared with assessment review) plus common short forms. */
-export const isAutomationIdentity=(id       )=>AUTOMATION_IDENTITY.test(id)||/^(?:system|kimyolab-bot|machine)(?:[.\-_].*)?$/i.test(id);
+export {isAutomationIdentity};
 
 const isText=(v        )            =>typeof v==='string'&&v.trim().length>0;
 const texts=(t    )         =>[t.explanation?.text,...(t.workedExamples??[]).flatMap((w    )=>[w.problem,...(w.solutionSteps??[]),w.answer]),...(t.misconceptions??[]).flatMap((m    )=>[m.statement,m.correction]),...(t.summary?.points??[])];

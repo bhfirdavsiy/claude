@@ -67,6 +67,7 @@
   "slots": {
     "file": "content-src/theory-structured/theory.9.05.json",
     "schema": "kimyolab.structured-theory.v1",
+    "version": null,
     "explanation": {
       "text": null,
       "minChars": 300,

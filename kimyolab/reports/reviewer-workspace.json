@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-30T11:49:13.929Z",
+  "generatedAt": "2026-10-02T06:31:31.626Z",
   "schema": "kimyolab.reviewer-workspace.v1",
   "workspaceFingerprint": "e764c28a15d5c51310d8fabb922a5c46abed3f9a6002c4f047065e082ff5961e",
   "status": "READY",
@@ -47,5 +47,21 @@
     "registerWrites": false,
     "networkRequests": false,
     "importCommand": "npm run review:import -- <decision file>"
+  },
+  "contentWorkbench": {
+    "schema": "kimyolab.content-workbench.v1",
+    "fingerprint": "0a0df71a9499cf0c7c7172c8cd700b83bce8600eb3526ba2f14a6e84e99af54e",
+    "tabs": [
+      "theory",
+      "sources",
+      "optionsets"
+    ],
+    "units": 122,
+    "acceptableSources": 1,
+    "sourceIntake": 0,
+    "optionFields": 32,
+    "prefilledContent": false,
+    "prefilledIdentity": false,
+    "repositoryWrites": false
   }
 }

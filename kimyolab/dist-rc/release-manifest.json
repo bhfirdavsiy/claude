@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-09-30T17:02:21.919Z",
+  "createdAt": "2026-10-02T06:29:08.455Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -269,8 +269,8 @@
     {
       "path": "app-preview/domain/governance/identity.js",
       "sourcePath": "public/app-preview/domain/governance/identity.js",
-      "checksum": "90169876a93abac77152f183fc9af517baab27d5cc246f7e0c514773ccdf42bd",
-      "size": 430
+      "checksum": "e7300151806c67965b939ce2fe3f9b8f15059e677be5412259ab23fd4ef23a09",
+      "size": 685
     },
     {
       "path": "app-preview/domain/governance/release-decision.js",
@@ -281,8 +281,8 @@
     {
       "path": "app-preview/domain/governance/source-policy.js",
       "sourcePath": "public/app-preview/domain/governance/source-policy.js",
-      "checksum": "d4725802f63f21de16bccf3586ebca16fa63fd3ba80e5d81f3360051b6100dfc",
-      "size": 2903
+      "checksum": "0318e04a7eaab8d3bd7ad7cb32a1d04db3b442fa35a1e64af8d2036e90d8a2e9",
+      "size": 5822
     },
     {
       "path": "app-preview/domain/mastery/mastery.js",
@@ -317,8 +317,8 @@
     {
       "path": "app-preview/domain/theory/structured-theory.js",
       "sourcePath": "public/app-preview/domain/theory/structured-theory.js",
-      "checksum": "cea952f43fffdadc21b642eddbfa2493a14e5136deb3a2d5863c8680e3079ff2",
-      "size": 11406
+      "checksum": "03bab8565c35457afd00792061e7f6fc4120788db31287fd7e2bc06d1d42af01",
+      "size": 11301
     },
     {
       "path": "app-preview/engines/calculation/engine.js",

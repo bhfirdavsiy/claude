@@ -6,10 +6,11 @@ Each `units/<lu>.json` packet holds the unit facts (outcomes, concepts, current 
 
 ## How a unit becomes STRUCTURED
 
-1. An author writes `content-src/theory-structured/<theoryId>.json` (schema `kimyolab.structured-theory.v1`, see `schemas/structured-theory.schema.json`).
-2. Every block (explanation, each worked example, each misconception, summary) cites registered sources of an acceptable category and names its human author.
-3. `npm run content:pack` validates it: malformed entries (placeholders, missing author, automation author, approval without a hash-pinned review) fail the build; incomplete or unsourced entries stay out of the learner pack.
-4. A chemistry reviewer and a didactic reviewer (two different people, neither the author) each add a review pinned to the block's current content hash; the block is APPROVED only when both approve the same hash. Any edit makes earlier reviews stale.
+1. An author opens `review-packets/reviewer-workspace.html` → **Nazariya** tab, imports this unit's packet (or starts from the embedded one), fills the slots with their own text and registered sources, enters their own identity and exports the packet.
+2. `npm run theory:import -- <packet.json>` stores it as a NON-canonical working draft (`authoring-drafts/theory/<lu>.json`); nothing is packed.
+3. A chemistry reviewer and a didactic reviewer (two different people, neither the author) each record a decision on every block in the workbench. The decision pins the block's current content hash (text + sourceRefs); any later edit makes it stale.
+4. When every block is APPROVED, a person runs `npm run theory:apply -- <packet.json>`: schema, sources, both reviews, hashes and self-review are checked, `content-src/theory-structured/<theoryId>.json` is written deterministically, the pack and the theory reports are regenerated. No approval → no apply; a canonical file without approval fails the build.
+5. New textbooks, standards and references are submitted as source intake (`content-src/source-intake/<sourceId>.json`, workbench **Manbalar** tab); a human reviewer accepts the category, then `npm run source:apply` registers it.
 
 ## Queue (by id — no priority score)
 

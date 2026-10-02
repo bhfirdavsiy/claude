@@ -120,7 +120,12 @@
     "learning:depth": "node --experimental-strip-types scripts/learning-depth.ts",
     "learner:interaction": "node --experimental-strip-types scripts/learner-interaction.ts",
     "host:readiness": "node --experimental-strip-types scripts/host-readiness.ts",
-    "theory:authoring": "node --experimental-strip-types scripts/theory-authoring.ts"
+    "theory:authoring": "node --experimental-strip-types scripts/theory-authoring.ts",
+    "theory:check": "node --experimental-strip-types scripts/content-operations.ts theory:check",
+    "theory:import": "node --experimental-strip-types scripts/content-operations.ts theory:import",
+    "theory:apply": "node --experimental-strip-types scripts/content-operations.ts theory:apply",
+    "source:queue": "node --experimental-strip-types scripts/content-operations.ts source:queue",
+    "source:apply": "node --experimental-strip-types scripts/content-operations.ts source:apply"
   },
   "devDependencies": {
     "@playwright/test": "1.56.1",

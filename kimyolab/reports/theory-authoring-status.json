@@ -1,0 +1,1030 @@
+{
+  "schema": "kimyolab.theory-authoring-status.v1",
+  "semantics": "Facts only, from the repository: canonical entries (content-src/theory-structured/) and working drafts (authoring-drafts/theory/). Each unit is in exactly one state. No priority score. Not part of the learning-product progress formula: drafts, pending reviews and source metadata are not content.",
+  "totals": {
+    "units": 122,
+    "notStarted": 122,
+    "draft": 0,
+    "readyForReview": 0,
+    "chemistryReviewed": 0,
+    "didacticReviewed": 0,
+    "approved": 0,
+    "changesRequested": 0,
+    "missingSource": 0,
+    "staleReview": 0
+  },
+  "canonicalEntries": 0,
+  "workingDrafts": 0,
+  "sources": {
+    "registeredSources": 5,
+    "categoryCompatibleSources": 1,
+    "humanAcceptedSources": 0,
+    "canonicalTheoryEligibleSources": 0,
+    "eligibleSourceIds": [],
+    "semantics": "categoryCompatible = the category is acceptable for chemistry claims (SOURCE_POLICY). humanAccepted = a person accepted the source through governed intake (HUMAN_ACCEPTED, pinned to the reviewed intake hash). Only sources that are both are canonical-theory eligible; a PROPOSED source never satisfies theory:apply.",
+    "proposedClassification": 5,
+    "unpinnedHumanAccepted": [],
+    "categories": {
+      "CURRICULUM": 1,
+      "INTERNAL_PROPOSAL": 4
+    },
+    "intake": {
+      "entries": 0,
+      "byState": {
+        "DRAFT": 0,
+        "READY_FOR_REVIEW": 0,
+        "APPROVED": 0,
+        "CHANGES_REQUESTED": 0,
+        "REJECTED": 0
+      }
+    }
+  },
+  "blocked": {
+    "semantics": "Blockers of units that HAVE entered authoring are counted by state. Units not yet in authoring are counted separately: their source blocker is not measured per unit yet, but no unit can be canonically applied while canonicalTheoryEligibleSources is 0.",
+    "unitsNotYetInAuthoring": 122,
+    "unitsInAuthoring": 0,
+    "canonicalApplyImpossibleForAllUnits": true,
+    "inAuthoringBySources": 0,
+    "inAuthoringByAuthoring": 0,
+    "inAuthoringByChemistryReview": 0,
+    "inAuthoringByDidacticReview": 0
+  },
+  "units": [
+    {
+      "learningUnitId": "lu.7.01",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.7.02",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.7.03",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.7.04",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.7.05",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.7.06",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.7.07",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.7.08",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.7.09",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.7.10",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.7.11",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.7.12",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.7.13",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.7.14",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.7.15",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.7.16",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.7.17",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.7.18",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.7.19",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.7.20",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.7.21",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.7.22",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.7.23",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.8.01",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.8.02",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.8.03",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.8.04",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.8.05",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.8.06",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.8.07",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.8.08",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.8.09",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.8.10",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.8.11",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.8.12",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.8.13",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.8.14",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.8.15",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.8.16",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.8.17",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.8.18",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.8.19",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.8.20",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.8.21",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.8.22",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.8.23",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.8.24",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.9.01",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.9.02",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.9.03",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.9.04",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.9.05",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.9.06",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.9.07",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.9.08",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.9.09",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.9.10",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.9.11",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.9.12",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.9.13",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.9.14",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.9.15",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.9.16",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.9.17",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.9.18",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.9.19",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.9.20",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.9.21",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.9.22",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.9.23",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.9.24",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.9.25",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.9.26",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.01",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.02",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.03",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.04",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.05",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.06",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.07",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.08",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.09",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.10",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.11",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.12",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.13",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.14",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.15",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.16",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.17",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.18",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.19",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.20",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.21",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.22",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.23",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.24",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.25",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.26",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.10.27",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.11.01",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.11.02",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.11.03",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.11.04",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.11.05",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.11.06",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.11.07",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.11.08",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.11.09",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.11.10",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.11.11",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.11.12",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.11.13",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.11.14",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.11.15",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.11.16",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.11.17",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.11.18",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.11.19",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.11.20",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.11.21",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    },
+    {
+      "learningUnitId": "lu.11.22",
+      "origin": null,
+      "state": "notStarted",
+      "missingChemistry": true,
+      "missingDidactic": true,
+      "sourced": false
+    }
+  ]
+}
