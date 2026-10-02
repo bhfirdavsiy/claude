@@ -1,0 +1,2685 @@
+{
+  "schema": "kimyolab.model-interaction-expansion.v1",
+  "semantics": "Eligibility of model-based reaction interaction, from the real domain. Shelves come only from each activity's own content; outcomes count only when their observation passes the KB integrity check; unmodeled pairs fail closed. Converted = activities whose route was changed in this repository. No chemistry record was added.",
+  "candidateActivities": 21,
+  "primaryCandidates": 12,
+  "repositoryScanCandidates": 9,
+  "eligible": [],
+  "converted": [],
+  "notConverted": [
+    {
+      "activityId": "practice.trainer.11.10.planned",
+      "reasons": [
+        "ACTIVITY_TYPE_TRAINER: the ionic-precipitation renderer drives experiments; converting would change what the activity is",
+        "NO_CONTENT_DEFINED_REAGENTS: the activity names no reagents or reaction records; any shelf would be invented content",
+        "SHELF_TOO_SMALL: 0 modeled solution reagent(s) — no learner choice",
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.trainer.9.05.planned",
+      "reasons": [
+        "ACTIVITY_TYPE_TRAINER: the ionic-precipitation renderer drives experiments; converting would change what the activity is",
+        "NO_CONTENT_DEFINED_REAGENTS: the activity names no reagents or reaction records; any shelf would be invented content",
+        "SHELF_TOO_SMALL: 0 modeled solution reagent(s) — no learner choice",
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.10",
+      "reasons": [
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.11",
+      "reasons": [
+        "SHELF_TOO_SMALL: 1 modeled solution reagent(s) — no learner choice",
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.9",
+      "reasons": [
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) (+1 whose observation the KB flags CHEMISTRY_REVIEW_REQUIRED: rxn.naoh-hcl) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.10",
+      "reasons": [
+        "SHELF_TOO_SMALL: 1 modeled solution reagent(s) — no learner choice",
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.14",
+      "reasons": [
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.6",
+      "reasons": [
+        "BLACK_SWAN_FAIL: 1 distinct integrity-clean modeled outcome(s) (+1 whose observation the KB flags CHEMISTRY_REVIEW_REQUIRED: rxn.naoh-hcl) — choice cannot be shown to change the result"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.8",
+      "reasons": [
+        "BLACK_SWAN_FAIL: 1 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.9",
+      "reasons": [
+        "BLACK_SWAN_FAIL: 1 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.16",
+      "reasons": [
+        "BLACK_SWAN_FAIL: 1 distinct integrity-clean modeled outcome(s) (+1 whose observation the KB flags CHEMISTRY_REVIEW_REQUIRED: rxn.naoh-hcl) — choice cannot be shown to change the result"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.4",
+      "reasons": [
+        "SHELF_TOO_SMALL: 1 modeled solution reagent(s) — no learner choice",
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.8",
+      "reasons": [
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.2",
+      "reasons": [
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.3",
+      "reasons": [
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.4",
+      "reasons": [
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) (+1 whose observation the KB flags CHEMISTRY_REVIEW_REQUIRED: rxn.naoh-hcl) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.1",
+      "reasons": [
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) (+1 whose observation the KB flags CHEMISTRY_REVIEW_REQUIRED: rxn.naoh-hcl) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.2",
+      "reasons": [
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.3",
+      "reasons": [
+        "BLACK_SWAN_FAIL: 1 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.13",
+      "reasons": [
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) (+1 whose observation the KB flags CHEMISTRY_REVIEW_REQUIRED: rxn.naoh-hcl) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.10.8",
+      "reasons": [
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    }
+  ],
+  "reasons": {
+    "ACTIVITY_TYPE_TRAINER": 2,
+    "BLACK_SWAN_FAIL": 21,
+    "NO_CONTENT_DEFINED_REAGENTS": 2,
+    "NO_REACHABLE_TARGET": 17,
+    "SHELF_TOO_SMALL": 5
+  },
+  "modelBasedActivitiesBefore": 4,
+  "modelBasedActivitiesAfter": 4,
+  "modelBasedUnitsBefore": 6,
+  "modelBasedUnitsAfter": 6,
+  "blackSwanPass": {},
+  "existingModelBasedBlackSwan": [
+    {
+      "activityId": "practice.experiment.8.1",
+      "modeledPairs": 3,
+      "notModeledPairs": 18,
+      "distinctOutcomes": [
+        "rxn.agno3-nacl",
+        "rxn.bacl2-h2so4",
+        "rxn.zncl2-naoh"
+      ],
+      "cleanDistinctOutcomes": [
+        "rxn.agno3-nacl",
+        "rxn.bacl2-h2so4",
+        "rxn.zncl2-naoh"
+      ],
+      "flaggedOutcomes": [],
+      "pass": true,
+      "paths": [
+        {
+          "reagents": [
+            "species.agno3",
+            "species.nacl"
+          ],
+          "reactionId": "rxn.agno3-nacl"
+        },
+        {
+          "reagents": [
+            "species.bacl2",
+            "species.h2so4"
+          ],
+          "reactionId": "rxn.bacl2-h2so4"
+        }
+      ],
+      "unmodeledPair": [
+        "species.agno3",
+        "species.bacl2"
+      ],
+      "evidence": "activity shelf (7 reagents): 3 distinct integrity-clean modeled outcome(s) [rxn.agno3-nacl, rxn.bacl2-h2so4, rxn.zncl2-naoh]"
+    }
+  ],
+  "hostParity": {
+    "scenarios": 9,
+    "pass": 9,
+    "status": "PASS"
+  },
+  "chemistryRecordsAdded": 0,
+  "unlockSemantics": "For each candidate: reagents its content names that the solution-mixing seam excludes (no dissociation rule), with the EXISTING reaction records that involve them. Not a proposal: whether a species gets a reviewed dissociation rule, or the activity needs another interaction model (solid/gas/metal reagents, heating), is human chemistry work.",
+  "unlockSummary": [
+    {
+      "activityId": "practice.experiment.7.10",
+      "unlockFacts": [
+        {
+          "formula": "Mg",
+          "speciesId": "species.mg",
+          "existingRecordsWithThisSpecies": [
+            "rxn.mg-h2so4"
+          ]
+        },
+        {
+          "formula": "Zn",
+          "speciesId": "species.zn",
+          "existingRecordsWithThisSpecies": [
+            "rxn.zn-h2so4",
+            "rxn.zn-hcl"
+          ]
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.11",
+      "unlockFacts": [
+        {
+          "formula": "CaO",
+          "speciesId": "species.cao",
+          "existingRecordsWithThisSpecies": [
+            "rxn.cao-water"
+          ]
+        },
+        {
+          "formula": "H2O",
+          "speciesId": "species.h2o",
+          "existingRecordsWithThisSpecies": [
+            "rxn.cao-water",
+            "rxn.co2-water"
+          ]
+        },
+        {
+          "formula": "CO2",
+          "speciesId": "species.co2",
+          "existingRecordsWithThisSpecies": [
+            "rxn.co2-water"
+          ]
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.9",
+      "unlockFacts": [
+        {
+          "formula": "CuO",
+          "speciesId": "species.cuo",
+          "existingRecordsWithThisSpecies": [
+            "rxn.cuo-hcl"
+          ]
+        },
+        {
+          "formula": "CaCO3",
+          "speciesId": "species.caco3",
+          "existingRecordsWithThisSpecies": [
+            "rxn.caco3-hcl"
+          ]
+        },
+        {
+          "formula": "H2O",
+          "speciesId": "species.h2o",
+          "existingRecordsWithThisSpecies": [
+            "rxn.co2-water"
+          ]
+        },
+        {
+          "formula": "CO2",
+          "speciesId": "species.co2",
+          "existingRecordsWithThisSpecies": [
+            "rxn.co2-water"
+          ]
+        },
+        {
+          "formula": "Zn",
+          "speciesId": "species.zn",
+          "existingRecordsWithThisSpecies": [
+            "rxn.zn-h2so4",
+            "rxn.zn-hcl"
+          ]
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.10",
+      "unlockFacts": [
+        {
+          "formula": "Cl2",
+          "speciesId": "species.cl2",
+          "existingRecordsWithThisSpecies": [
+            "rxn.cl2-kbr"
+          ]
+        },
+        {
+          "formula": "KBr",
+          "speciesId": "species.kbr",
+          "existingRecordsWithThisSpecies": [
+            "rxn.cl2-kbr"
+          ]
+        },
+        {
+          "formula": "Br2",
+          "speciesId": "species.br2",
+          "existingRecordsWithThisSpecies": [
+            "rxn.br2-ki"
+          ]
+        },
+        {
+          "formula": "KI",
+          "speciesId": "species.ki",
+          "existingRecordsWithThisSpecies": [
+            "rxn.br2-ki"
+          ]
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.14",
+      "unlockFacts": [
+        {
+          "formula": "NH3",
+          "speciesId": "species.nh3",
+          "existingRecordsWithThisSpecies": [
+            "rxn.nh3-hcl"
+          ]
+        },
+        {
+          "formula": "Zn",
+          "speciesId": "species.zn",
+          "existingRecordsWithThisSpecies": [
+            "rxn.zn-hcl"
+          ]
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.6",
+      "unlockFacts": [
+        {
+          "formula": "Zn(OH)2",
+          "speciesId": "species.znmoh2",
+          "existingRecordsWithThisSpecies": [
+            "rxn.znoh2-hcl"
+          ]
+        },
+        {
+          "formula": "Zn",
+          "speciesId": "species.zn",
+          "existingRecordsWithThisSpecies": [
+            "rxn.zn-hcl"
+          ]
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.8",
+      "unlockFacts": [
+        {
+          "formula": "NaBr",
+          "speciesId": "species.nabr",
+          "existingRecordsWithThisSpecies": [
+            "rxn.agno3-nabr"
+          ]
+        },
+        {
+          "formula": "NaI",
+          "speciesId": "species.nai",
+          "existingRecordsWithThisSpecies": [
+            "rxn.agno3-nai"
+          ]
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.16",
+      "unlockFacts": [
+        {
+          "formula": "Zn(OH)2",
+          "speciesId": "species.znmoh2",
+          "existingRecordsWithThisSpecies": [
+            "rxn.znoh2-hcl"
+          ]
+        },
+        {
+          "formula": "Zn",
+          "speciesId": "species.zn",
+          "existingRecordsWithThisSpecies": [
+            "rxn.zn-hcl"
+          ]
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.4",
+      "unlockFacts": [
+        {
+          "formula": "CaCO3",
+          "speciesId": "species.caco3",
+          "existingRecordsWithThisSpecies": [
+            "rxn.caco3-hcl"
+          ]
+        },
+        {
+          "formula": "H2O",
+          "speciesId": "species.h2o",
+          "existingRecordsWithThisSpecies": [
+            "rxn.co2-water"
+          ]
+        },
+        {
+          "formula": "CO2",
+          "speciesId": "species.co2",
+          "existingRecordsWithThisSpecies": [
+            "rxn.co2-water"
+          ]
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.8",
+      "unlockFacts": [
+        {
+          "formula": "CuO",
+          "speciesId": "species.cuo",
+          "existingRecordsWithThisSpecies": [
+            "rxn.cuo-hcl"
+          ]
+        },
+        {
+          "formula": "Zn",
+          "speciesId": "species.zn",
+          "existingRecordsWithThisSpecies": [
+            "rxn.zn-h2so4",
+            "rxn.zn-hcl"
+          ]
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.2",
+      "unlockFacts": [
+        {
+          "formula": "Zn",
+          "speciesId": "species.zn",
+          "existingRecordsWithThisSpecies": [
+            "rxn.zn-h2so4"
+          ]
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.4",
+      "unlockFacts": [
+        {
+          "formula": "CuO",
+          "speciesId": "species.cuo",
+          "existingRecordsWithThisSpecies": [
+            "rxn.cuo-hcl"
+          ]
+        },
+        {
+          "formula": "Zn",
+          "speciesId": "species.zn",
+          "existingRecordsWithThisSpecies": [
+            "rxn.zn-h2so4",
+            "rxn.zn-hcl"
+          ]
+        },
+        {
+          "formula": "Na2S",
+          "speciesId": "species.na2s",
+          "existingRecordsWithThisSpecies": [
+            "rxn.na2s-hcl"
+          ]
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.1",
+      "unlockFacts": [
+        {
+          "formula": "H2O",
+          "speciesId": "species.h2o",
+          "existingRecordsWithThisSpecies": [
+            "rxn.co2-water"
+          ]
+        },
+        {
+          "formula": "CO2",
+          "speciesId": "species.co2",
+          "existingRecordsWithThisSpecies": [
+            "rxn.co2-water"
+          ]
+        },
+        {
+          "formula": "Zn",
+          "speciesId": "species.zn",
+          "existingRecordsWithThisSpecies": [
+            "rxn.zn-hcl"
+          ]
+        },
+        {
+          "formula": "CaCO3",
+          "speciesId": "species.caco3",
+          "existingRecordsWithThisSpecies": [
+            "rxn.caco3-hcl"
+          ]
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.2",
+      "unlockFacts": [
+        {
+          "formula": "H2O",
+          "speciesId": "species.h2o",
+          "existingRecordsWithThisSpecies": [
+            "rxn.co2-water"
+          ]
+        },
+        {
+          "formula": "CO2",
+          "speciesId": "species.co2",
+          "existingRecordsWithThisSpecies": [
+            "rxn.co2-water"
+          ]
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "activityId": "practice.trainer.11.10.planned",
+      "source": "work-package",
+      "learningUnitIds": [
+        "lu.11.10"
+      ],
+      "type": "trainer",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "domainModule": "reaction-matcher + ionic-engine (src/domain/chemistry/ionic-mixing.ts)",
+      "ownReactionRecords": [],
+      "availableModeledInputs": [],
+      "excludedInputs": [],
+      "pairs": 0,
+      "modeledPairs": 0,
+      "notModeledPairs": 0,
+      "distinctModeledOutcomes": [],
+      "cleanDistinctModeledOutcomes": [],
+      "flaggedOutcomes": [],
+      "learnerChoicePossible": false,
+      "rendererReusePossible": false,
+      "targetReactionId": null,
+      "ownRecordsUnreachableInMixingModel": [],
+      "governanceBlockers": [
+        "chemistry review of the reaction records (human, pending)",
+        "content/didactic review of the activity (human, pending)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "paths": [],
+        "unmodeledPair": null
+      },
+      "unlockFacts": [],
+      "eligible": false,
+      "reasons": [
+        "ACTIVITY_TYPE_TRAINER: the ionic-precipitation renderer drives experiments; converting would change what the activity is",
+        "NO_CONTENT_DEFINED_REAGENTS: the activity names no reagents or reaction records; any shelf would be invented content",
+        "SHELF_TOO_SMALL: 0 modeled solution reagent(s) — no learner choice",
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.trainer.9.05.planned",
+      "source": "work-package",
+      "learningUnitIds": [
+        "lu.9.05"
+      ],
+      "type": "trainer",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "FORM",
+      "domainModule": "reaction-matcher + ionic-engine (src/domain/chemistry/ionic-mixing.ts)",
+      "ownReactionRecords": [],
+      "availableModeledInputs": [],
+      "excludedInputs": [],
+      "pairs": 0,
+      "modeledPairs": 0,
+      "notModeledPairs": 0,
+      "distinctModeledOutcomes": [],
+      "cleanDistinctModeledOutcomes": [],
+      "flaggedOutcomes": [],
+      "learnerChoicePossible": false,
+      "rendererReusePossible": false,
+      "targetReactionId": null,
+      "ownRecordsUnreachableInMixingModel": [],
+      "governanceBlockers": [
+        "chemistry review of the reaction records (human, pending)",
+        "content/didactic review of the activity (human, pending)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "paths": [],
+        "unmodeledPair": null
+      },
+      "unlockFacts": [],
+      "eligible": false,
+      "reasons": [
+        "ACTIVITY_TYPE_TRAINER: the ionic-precipitation renderer drives experiments; converting would change what the activity is",
+        "NO_CONTENT_DEFINED_REAGENTS: the activity names no reagents or reaction records; any shelf would be invented content",
+        "SHELF_TOO_SMALL: 0 modeled solution reagent(s) — no learner choice",
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.10",
+      "source": "work-package",
+      "learningUnitIds": [
+        "lu.7.15",
+        "lu.7.20"
+      ],
+      "type": "experiment",
+      "currentDepth": "GUIDED",
+      "currentInteraction": "SCRIPTED",
+      "domainModule": "reaction-matcher + ionic-engine (src/domain/chemistry/ionic-mixing.ts)",
+      "ownReactionRecords": [
+        "rxn.mg-h2so4",
+        "rxn.zn-hcl"
+      ],
+      "availableModeledInputs": [
+        "species.h2so4",
+        "species.hcl"
+      ],
+      "excludedInputs": [
+        {
+          "formula": "Mg",
+          "from": "reaction record rxn.mg-h2so4",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.mg"
+        },
+        {
+          "formula": "Zn",
+          "from": "reaction record rxn.zn-hcl",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.zn"
+        },
+        {
+          "formula": "Al",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.al"
+        },
+        {
+          "formula": "Cu",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.cu"
+        },
+        {
+          "formula": "KI",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.ki"
+        }
+      ],
+      "pairs": 1,
+      "modeledPairs": 0,
+      "notModeledPairs": 1,
+      "distinctModeledOutcomes": [],
+      "cleanDistinctModeledOutcomes": [],
+      "flaggedOutcomes": [],
+      "learnerChoicePossible": false,
+      "rendererReusePossible": true,
+      "targetReactionId": null,
+      "ownRecordsUnreachableInMixingModel": [
+        "rxn.mg-h2so4",
+        "rxn.zn-hcl"
+      ],
+      "governanceBlockers": [
+        "chemistry review of the reaction records (human, pending)",
+        "content/didactic review of the activity (human, pending)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "paths": [],
+        "unmodeledPair": [
+          "species.h2so4",
+          "species.hcl"
+        ]
+      },
+      "unlockFacts": [
+        {
+          "formula": "Mg",
+          "speciesId": "species.mg",
+          "existingRecordsWithThisSpecies": [
+            "rxn.mg-h2so4"
+          ]
+        },
+        {
+          "formula": "Zn",
+          "speciesId": "species.zn",
+          "existingRecordsWithThisSpecies": [
+            "rxn.zn-h2so4",
+            "rxn.zn-hcl"
+          ]
+        }
+      ],
+      "eligible": false,
+      "reasons": [
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.11",
+      "source": "work-package",
+      "learningUnitIds": [
+        "lu.7.15",
+        "lu.7.21"
+      ],
+      "type": "experiment",
+      "currentDepth": "GUIDED",
+      "currentInteraction": "SCRIPTED",
+      "domainModule": "reaction-matcher + ionic-engine (src/domain/chemistry/ionic-mixing.ts)",
+      "ownReactionRecords": [
+        "rxn.cao-water",
+        "rxn.co2-water"
+      ],
+      "availableModeledInputs": [
+        "species.naoh"
+      ],
+      "excludedInputs": [
+        {
+          "formula": "CaO",
+          "from": "reaction record rxn.cao-water",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.cao"
+        },
+        {
+          "formula": "H2O",
+          "from": "reaction record rxn.cao-water",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.h2o"
+        },
+        {
+          "formula": "CO2",
+          "from": "reaction record rxn.co2-water",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.co2"
+        },
+        {
+          "formula": "Fe",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.fe"
+        },
+        {
+          "formula": "Al",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.al"
+        },
+        {
+          "formula": "Cu",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.cu"
+        },
+        {
+          "formula": "KI",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.ki"
+        },
+        {
+          "formula": "indikator",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.indikator"
+        }
+      ],
+      "pairs": 0,
+      "modeledPairs": 0,
+      "notModeledPairs": 0,
+      "distinctModeledOutcomes": [],
+      "cleanDistinctModeledOutcomes": [],
+      "flaggedOutcomes": [],
+      "learnerChoicePossible": false,
+      "rendererReusePossible": true,
+      "targetReactionId": null,
+      "ownRecordsUnreachableInMixingModel": [
+        "rxn.cao-water",
+        "rxn.co2-water"
+      ],
+      "governanceBlockers": [
+        "chemistry review of the reaction records (human, pending)",
+        "content/didactic review of the activity (human, pending)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "paths": [],
+        "unmodeledPair": null
+      },
+      "unlockFacts": [
+        {
+          "formula": "CaO",
+          "speciesId": "species.cao",
+          "existingRecordsWithThisSpecies": [
+            "rxn.cao-water"
+          ]
+        },
+        {
+          "formula": "H2O",
+          "speciesId": "species.h2o",
+          "existingRecordsWithThisSpecies": [
+            "rxn.cao-water",
+            "rxn.co2-water"
+          ]
+        },
+        {
+          "formula": "CO2",
+          "speciesId": "species.co2",
+          "existingRecordsWithThisSpecies": [
+            "rxn.co2-water"
+          ]
+        }
+      ],
+      "eligible": false,
+      "reasons": [
+        "SHELF_TOO_SMALL: 1 modeled solution reagent(s) — no learner choice",
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.9",
+      "source": "work-package",
+      "learningUnitIds": [
+        "lu.7.15",
+        "lu.7.20"
+      ],
+      "type": "experiment",
+      "currentDepth": "GUIDED",
+      "currentInteraction": "SCRIPTED",
+      "domainModule": "reaction-matcher + ionic-engine (src/domain/chemistry/ionic-mixing.ts)",
+      "ownReactionRecords": [
+        "rxn.nacl-h2so4",
+        "rxn.cuo-hcl",
+        "rxn.naoh-hcl",
+        "rxn.caco3-hcl"
+      ],
+      "availableModeledInputs": [
+        "species.nacl",
+        "species.h2so4",
+        "species.hcl",
+        "species.naoh"
+      ],
+      "excludedInputs": [
+        {
+          "formula": "CuO",
+          "from": "reaction record rxn.cuo-hcl",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.cuo"
+        },
+        {
+          "formula": "CaCO3",
+          "from": "reaction record rxn.caco3-hcl",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.caco3"
+        },
+        {
+          "formula": "H2O",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.h2o"
+        },
+        {
+          "formula": "CO2",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.co2"
+        },
+        {
+          "formula": "Zn",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.zn"
+        },
+        {
+          "formula": "Fe",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.fe"
+        },
+        {
+          "formula": "Al",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.al"
+        },
+        {
+          "formula": "KI",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.ki"
+        }
+      ],
+      "pairs": 6,
+      "modeledPairs": 1,
+      "notModeledPairs": 5,
+      "distinctModeledOutcomes": [
+        "rxn.naoh-hcl"
+      ],
+      "cleanDistinctModeledOutcomes": [],
+      "flaggedOutcomes": [
+        "rxn.naoh-hcl"
+      ],
+      "learnerChoicePossible": false,
+      "rendererReusePossible": true,
+      "targetReactionId": null,
+      "ownRecordsUnreachableInMixingModel": [
+        "rxn.nacl-h2so4",
+        "rxn.cuo-hcl",
+        "rxn.caco3-hcl"
+      ],
+      "governanceBlockers": [
+        "chemistry review of the reaction records (human, pending)",
+        "content/didactic review of the activity (human, pending)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "paths": [],
+        "unmodeledPair": [
+          "species.nacl",
+          "species.h2so4"
+        ]
+      },
+      "unlockFacts": [
+        {
+          "formula": "CuO",
+          "speciesId": "species.cuo",
+          "existingRecordsWithThisSpecies": [
+            "rxn.cuo-hcl"
+          ]
+        },
+        {
+          "formula": "CaCO3",
+          "speciesId": "species.caco3",
+          "existingRecordsWithThisSpecies": [
+            "rxn.caco3-hcl"
+          ]
+        },
+        {
+          "formula": "H2O",
+          "speciesId": "species.h2o",
+          "existingRecordsWithThisSpecies": [
+            "rxn.co2-water"
+          ]
+        },
+        {
+          "formula": "CO2",
+          "speciesId": "species.co2",
+          "existingRecordsWithThisSpecies": [
+            "rxn.co2-water"
+          ]
+        },
+        {
+          "formula": "Zn",
+          "speciesId": "species.zn",
+          "existingRecordsWithThisSpecies": [
+            "rxn.zn-h2so4",
+            "rxn.zn-hcl"
+          ]
+        }
+      ],
+      "eligible": false,
+      "reasons": [
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) (+1 whose observation the KB flags CHEMISTRY_REVIEW_REQUIRED: rxn.naoh-hcl) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.10",
+      "source": "work-package",
+      "learningUnitIds": [
+        "lu.8.14",
+        "lu.8.16"
+      ],
+      "type": "experiment",
+      "currentDepth": "GUIDED",
+      "currentInteraction": "SCRIPTED",
+      "domainModule": "reaction-matcher + ionic-engine (src/domain/chemistry/ionic-mixing.ts)",
+      "ownReactionRecords": [
+        "rxn.cl2-kbr",
+        "rxn.br2-ki"
+      ],
+      "availableModeledInputs": [
+        "species.nacl"
+      ],
+      "excludedInputs": [
+        {
+          "formula": "Cl2",
+          "from": "reaction record rxn.cl2-kbr",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.cl2"
+        },
+        {
+          "formula": "KBr",
+          "from": "reaction record rxn.cl2-kbr",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.kbr"
+        },
+        {
+          "formula": "Br2",
+          "from": "reaction record rxn.br2-ki",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.br2"
+        },
+        {
+          "formula": "KI",
+          "from": "reaction record rxn.br2-ki",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.ki"
+        },
+        {
+          "formula": "H2O",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.h2o"
+        },
+        {
+          "formula": "Al",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.al"
+        },
+        {
+          "formula": "NaBr",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.nabr"
+        },
+        {
+          "formula": "NaI",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.nai"
+        },
+        {
+          "formula": "I2",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.i2"
+        },
+        {
+          "formula": "etanol",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.etanol"
+        }
+      ],
+      "pairs": 0,
+      "modeledPairs": 0,
+      "notModeledPairs": 0,
+      "distinctModeledOutcomes": [],
+      "cleanDistinctModeledOutcomes": [],
+      "flaggedOutcomes": [],
+      "learnerChoicePossible": false,
+      "rendererReusePossible": true,
+      "targetReactionId": null,
+      "ownRecordsUnreachableInMixingModel": [
+        "rxn.cl2-kbr",
+        "rxn.br2-ki"
+      ],
+      "governanceBlockers": [
+        "chemistry review of the reaction records (human, pending)",
+        "content/didactic review of the activity (human, pending)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "paths": [],
+        "unmodeledPair": null
+      },
+      "unlockFacts": [
+        {
+          "formula": "Cl2",
+          "speciesId": "species.cl2",
+          "existingRecordsWithThisSpecies": [
+            "rxn.cl2-kbr"
+          ]
+        },
+        {
+          "formula": "KBr",
+          "speciesId": "species.kbr",
+          "existingRecordsWithThisSpecies": [
+            "rxn.cl2-kbr"
+          ]
+        },
+        {
+          "formula": "Br2",
+          "speciesId": "species.br2",
+          "existingRecordsWithThisSpecies": [
+            "rxn.br2-ki"
+          ]
+        },
+        {
+          "formula": "KI",
+          "speciesId": "species.ki",
+          "existingRecordsWithThisSpecies": [
+            "rxn.br2-ki"
+          ]
+        }
+      ],
+      "eligible": false,
+      "reasons": [
+        "SHELF_TOO_SMALL: 1 modeled solution reagent(s) — no learner choice",
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.14",
+      "source": "work-package",
+      "learningUnitIds": [
+        "lu.8.22"
+      ],
+      "type": "experiment",
+      "currentDepth": "GUIDED",
+      "currentInteraction": "SCRIPTED",
+      "domainModule": "reaction-matcher + ionic-engine (src/domain/chemistry/ionic-mixing.ts)",
+      "ownReactionRecords": [
+        "rxn.nh4cl-caoh2",
+        "rxn.nh3-hcl"
+      ],
+      "availableModeledInputs": [
+        "species.nh4cl",
+        "species.hcl"
+      ],
+      "excludedInputs": [
+        {
+          "formula": "Ca(OH)2",
+          "from": "reaction record rxn.nh4cl-caoh2",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.camoh2"
+        },
+        {
+          "formula": "NH3",
+          "from": "reaction record rxn.nh3-hcl",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.nh3"
+        },
+        {
+          "formula": "H2O",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.h2o"
+        },
+        {
+          "formula": "Zn",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.zn"
+        },
+        {
+          "formula": "Fe",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.fe"
+        },
+        {
+          "formula": "Al",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.al"
+        },
+        {
+          "formula": "KI",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.ki"
+        },
+        {
+          "formula": "indikator",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.indikator"
+        }
+      ],
+      "pairs": 1,
+      "modeledPairs": 0,
+      "notModeledPairs": 1,
+      "distinctModeledOutcomes": [],
+      "cleanDistinctModeledOutcomes": [],
+      "flaggedOutcomes": [],
+      "learnerChoicePossible": false,
+      "rendererReusePossible": true,
+      "targetReactionId": null,
+      "ownRecordsUnreachableInMixingModel": [
+        "rxn.nh4cl-caoh2",
+        "rxn.nh3-hcl"
+      ],
+      "governanceBlockers": [
+        "chemistry review of the reaction records (human, pending)",
+        "content/didactic review of the activity (human, pending)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "paths": [],
+        "unmodeledPair": [
+          "species.nh4cl",
+          "species.hcl"
+        ]
+      },
+      "unlockFacts": [
+        {
+          "formula": "NH3",
+          "speciesId": "species.nh3",
+          "existingRecordsWithThisSpecies": [
+            "rxn.nh3-hcl"
+          ]
+        },
+        {
+          "formula": "Zn",
+          "speciesId": "species.zn",
+          "existingRecordsWithThisSpecies": [
+            "rxn.zn-hcl"
+          ]
+        }
+      ],
+      "eligible": false,
+      "reasons": [
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.6",
+      "source": "work-package",
+      "learningUnitIds": [
+        "lu.8.01"
+      ],
+      "type": "experiment",
+      "currentDepth": "GUIDED",
+      "currentInteraction": "SCRIPTED",
+      "domainModule": "reaction-matcher + ionic-engine (src/domain/chemistry/ionic-mixing.ts)",
+      "ownReactionRecords": [
+        "rxn.zncl2-naoh",
+        "rxn.znoh2-hcl"
+      ],
+      "availableModeledInputs": [
+        "species.zncl2",
+        "species.naoh",
+        "species.hcl"
+      ],
+      "excludedInputs": [
+        {
+          "formula": "Zn(OH)2",
+          "from": "reaction record rxn.znoh2-hcl",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.znmoh2"
+        },
+        {
+          "formula": "Zn",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.zn"
+        },
+        {
+          "formula": "KI",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.ki"
+        }
+      ],
+      "pairs": 3,
+      "modeledPairs": 2,
+      "notModeledPairs": 1,
+      "distinctModeledOutcomes": [
+        "rxn.naoh-hcl",
+        "rxn.zncl2-naoh"
+      ],
+      "cleanDistinctModeledOutcomes": [
+        "rxn.zncl2-naoh"
+      ],
+      "flaggedOutcomes": [
+        "rxn.naoh-hcl"
+      ],
+      "learnerChoicePossible": true,
+      "rendererReusePossible": true,
+      "targetReactionId": "rxn.zncl2-naoh",
+      "ownRecordsUnreachableInMixingModel": [
+        "rxn.znoh2-hcl"
+      ],
+      "governanceBlockers": [
+        "chemistry review of the reaction records (human, pending)",
+        "content/didactic review of the activity (human, pending)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "paths": [
+          {
+            "reagents": [
+              "species.zncl2",
+              "species.naoh"
+            ],
+            "reactionId": "rxn.zncl2-naoh"
+          }
+        ],
+        "unmodeledPair": [
+          "species.zncl2",
+          "species.hcl"
+        ]
+      },
+      "unlockFacts": [
+        {
+          "formula": "Zn(OH)2",
+          "speciesId": "species.znmoh2",
+          "existingRecordsWithThisSpecies": [
+            "rxn.znoh2-hcl"
+          ]
+        },
+        {
+          "formula": "Zn",
+          "speciesId": "species.zn",
+          "existingRecordsWithThisSpecies": [
+            "rxn.zn-hcl"
+          ]
+        }
+      ],
+      "eligible": false,
+      "reasons": [
+        "BLACK_SWAN_FAIL: 1 distinct integrity-clean modeled outcome(s) (+1 whose observation the KB flags CHEMISTRY_REVIEW_REQUIRED: rxn.naoh-hcl) — choice cannot be shown to change the result"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.8",
+      "source": "work-package",
+      "learningUnitIds": [
+        "lu.8.16"
+      ],
+      "type": "experiment",
+      "currentDepth": "GUIDED",
+      "currentInteraction": "SCRIPTED",
+      "domainModule": "reaction-matcher + ionic-engine (src/domain/chemistry/ionic-mixing.ts)",
+      "ownReactionRecords": [
+        "rxn.agno3-nacl",
+        "rxn.agno3-nabr",
+        "rxn.agno3-nai"
+      ],
+      "availableModeledInputs": [
+        "species.agno3",
+        "species.nacl",
+        "species.hcl"
+      ],
+      "excludedInputs": [
+        {
+          "formula": "NaBr",
+          "from": "reaction record rxn.agno3-nabr",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.nabr"
+        },
+        {
+          "formula": "NaI",
+          "from": "reaction record rxn.agno3-nai",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.nai"
+        },
+        {
+          "formula": "Al",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.al"
+        },
+        {
+          "formula": "KI",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.ki"
+        },
+        {
+          "formula": "I2",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.i2"
+        },
+        {
+          "formula": "kraxmal",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.kraxmal"
+        },
+        {
+          "formula": "etanol",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.etanol"
+        }
+      ],
+      "pairs": 3,
+      "modeledPairs": 1,
+      "notModeledPairs": 2,
+      "distinctModeledOutcomes": [
+        "rxn.agno3-nacl"
+      ],
+      "cleanDistinctModeledOutcomes": [
+        "rxn.agno3-nacl"
+      ],
+      "flaggedOutcomes": [],
+      "learnerChoicePossible": false,
+      "rendererReusePossible": true,
+      "targetReactionId": "rxn.agno3-nacl",
+      "ownRecordsUnreachableInMixingModel": [
+        "rxn.agno3-nabr",
+        "rxn.agno3-nai"
+      ],
+      "governanceBlockers": [
+        "chemistry review of the reaction records (human, pending)",
+        "content/didactic review of the activity (human, pending)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "paths": [
+          {
+            "reagents": [
+              "species.agno3",
+              "species.nacl"
+            ],
+            "reactionId": "rxn.agno3-nacl"
+          }
+        ],
+        "unmodeledPair": [
+          "species.agno3",
+          "species.hcl"
+        ]
+      },
+      "unlockFacts": [
+        {
+          "formula": "NaBr",
+          "speciesId": "species.nabr",
+          "existingRecordsWithThisSpecies": [
+            "rxn.agno3-nabr"
+          ]
+        },
+        {
+          "formula": "NaI",
+          "speciesId": "species.nai",
+          "existingRecordsWithThisSpecies": [
+            "rxn.agno3-nai"
+          ]
+        }
+      ],
+      "eligible": false,
+      "reasons": [
+        "BLACK_SWAN_FAIL: 1 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.9",
+      "source": "work-package",
+      "learningUnitIds": [
+        "lu.8.16"
+      ],
+      "type": "experiment",
+      "currentDepth": "GUIDED",
+      "currentInteraction": "SCRIPTED",
+      "domainModule": "reaction-matcher + ionic-engine (src/domain/chemistry/ionic-mixing.ts)",
+      "ownReactionRecords": [
+        "rxn.agno3-nacl"
+      ],
+      "availableModeledInputs": [
+        "species.agno3",
+        "species.nacl"
+      ],
+      "excludedInputs": [
+        {
+          "formula": "H2O",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.h2o"
+        },
+        {
+          "formula": "Al",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.al"
+        },
+        {
+          "formula": "KI",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.ki"
+        }
+      ],
+      "pairs": 1,
+      "modeledPairs": 1,
+      "notModeledPairs": 0,
+      "distinctModeledOutcomes": [
+        "rxn.agno3-nacl"
+      ],
+      "cleanDistinctModeledOutcomes": [
+        "rxn.agno3-nacl"
+      ],
+      "flaggedOutcomes": [],
+      "learnerChoicePossible": false,
+      "rendererReusePossible": true,
+      "targetReactionId": "rxn.agno3-nacl",
+      "ownRecordsUnreachableInMixingModel": [],
+      "governanceBlockers": [
+        "chemistry review of the reaction records (human, pending)",
+        "content/didactic review of the activity (human, pending)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "paths": [
+          {
+            "reagents": [
+              "species.agno3",
+              "species.nacl"
+            ],
+            "reactionId": "rxn.agno3-nacl"
+          }
+        ],
+        "unmodeledPair": null
+      },
+      "unlockFacts": [],
+      "eligible": false,
+      "reasons": [
+        "BLACK_SWAN_FAIL: 1 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.16",
+      "source": "work-package",
+      "learningUnitIds": [
+        "lu.9.05",
+        "lu.9.21"
+      ],
+      "type": "experiment",
+      "currentDepth": "GUIDED",
+      "currentInteraction": "SCRIPTED",
+      "domainModule": "reaction-matcher + ionic-engine (src/domain/chemistry/ionic-mixing.ts)",
+      "ownReactionRecords": [
+        "rxn.zncl2-naoh",
+        "rxn.znoh2-hcl"
+      ],
+      "availableModeledInputs": [
+        "species.zncl2",
+        "species.naoh",
+        "species.hcl"
+      ],
+      "excludedInputs": [
+        {
+          "formula": "Zn(OH)2",
+          "from": "reaction record rxn.znoh2-hcl",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.znmoh2"
+        },
+        {
+          "formula": "Zn",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.zn"
+        },
+        {
+          "formula": "Mg",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.mg"
+        },
+        {
+          "formula": "Al",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.al"
+        },
+        {
+          "formula": "KI",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.ki"
+        }
+      ],
+      "pairs": 3,
+      "modeledPairs": 2,
+      "notModeledPairs": 1,
+      "distinctModeledOutcomes": [
+        "rxn.naoh-hcl",
+        "rxn.zncl2-naoh"
+      ],
+      "cleanDistinctModeledOutcomes": [
+        "rxn.zncl2-naoh"
+      ],
+      "flaggedOutcomes": [
+        "rxn.naoh-hcl"
+      ],
+      "learnerChoicePossible": true,
+      "rendererReusePossible": true,
+      "targetReactionId": "rxn.zncl2-naoh",
+      "ownRecordsUnreachableInMixingModel": [
+        "rxn.znoh2-hcl"
+      ],
+      "governanceBlockers": [
+        "chemistry review of the reaction records (human, pending)",
+        "content/didactic review of the activity (human, pending)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "paths": [
+          {
+            "reagents": [
+              "species.zncl2",
+              "species.naoh"
+            ],
+            "reactionId": "rxn.zncl2-naoh"
+          }
+        ],
+        "unmodeledPair": [
+          "species.zncl2",
+          "species.hcl"
+        ]
+      },
+      "unlockFacts": [
+        {
+          "formula": "Zn(OH)2",
+          "speciesId": "species.znmoh2",
+          "existingRecordsWithThisSpecies": [
+            "rxn.znoh2-hcl"
+          ]
+        },
+        {
+          "formula": "Zn",
+          "speciesId": "species.zn",
+          "existingRecordsWithThisSpecies": [
+            "rxn.zn-hcl"
+          ]
+        }
+      ],
+      "eligible": false,
+      "reasons": [
+        "BLACK_SWAN_FAIL: 1 distinct integrity-clean modeled outcome(s) (+1 whose observation the KB flags CHEMISTRY_REVIEW_REQUIRED: rxn.naoh-hcl) — choice cannot be shown to change the result"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.4",
+      "source": "work-package",
+      "learningUnitIds": [
+        "lu.9.05",
+        "lu.9.07",
+        "lu.9.09"
+      ],
+      "type": "experiment",
+      "currentDepth": "GUIDED",
+      "currentInteraction": "SCRIPTED",
+      "domainModule": "reaction-matcher + ionic-engine (src/domain/chemistry/ionic-mixing.ts)",
+      "ownReactionRecords": [
+        "rxn.caco3-hcl"
+      ],
+      "availableModeledInputs": [
+        "species.hcl"
+      ],
+      "excludedInputs": [
+        {
+          "formula": "CaCO3",
+          "from": "reaction record rxn.caco3-hcl",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.caco3"
+        },
+        {
+          "formula": "H2O",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.h2o"
+        },
+        {
+          "formula": "CO2",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.co2"
+        },
+        {
+          "formula": "Ca(OH)2",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.camoh2"
+        },
+        {
+          "formula": "Al",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.al"
+        }
+      ],
+      "pairs": 0,
+      "modeledPairs": 0,
+      "notModeledPairs": 0,
+      "distinctModeledOutcomes": [],
+      "cleanDistinctModeledOutcomes": [],
+      "flaggedOutcomes": [],
+      "learnerChoicePossible": false,
+      "rendererReusePossible": true,
+      "targetReactionId": null,
+      "ownRecordsUnreachableInMixingModel": [
+        "rxn.caco3-hcl"
+      ],
+      "governanceBlockers": [
+        "chemistry review of the reaction records (human, pending)",
+        "content/didactic review of the activity (human, pending)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "paths": [],
+        "unmodeledPair": null
+      },
+      "unlockFacts": [
+        {
+          "formula": "CaCO3",
+          "speciesId": "species.caco3",
+          "existingRecordsWithThisSpecies": [
+            "rxn.caco3-hcl"
+          ]
+        },
+        {
+          "formula": "H2O",
+          "speciesId": "species.h2o",
+          "existingRecordsWithThisSpecies": [
+            "rxn.co2-water"
+          ]
+        },
+        {
+          "formula": "CO2",
+          "speciesId": "species.co2",
+          "existingRecordsWithThisSpecies": [
+            "rxn.co2-water"
+          ]
+        }
+      ],
+      "eligible": false,
+      "reasons": [
+        "SHELF_TOO_SMALL: 1 modeled solution reagent(s) — no learner choice",
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.8",
+      "source": "repository-scan",
+      "learningUnitIds": [
+        "lu.7.15",
+        "lu.7.20"
+      ],
+      "type": "experiment",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "SCRIPTED",
+      "domainModule": "reaction-matcher + ionic-engine (src/domain/chemistry/ionic-mixing.ts)",
+      "ownReactionRecords": [],
+      "availableModeledInputs": [
+        "species.h2so4",
+        "species.hcl"
+      ],
+      "excludedInputs": [
+        {
+          "formula": "H2O",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.h2o"
+        },
+        {
+          "formula": "H2",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.h2"
+        },
+        {
+          "formula": "CuO",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.cuo"
+        },
+        {
+          "formula": "Zn",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.zn"
+        },
+        {
+          "formula": "Fe",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.fe"
+        },
+        {
+          "formula": "Al",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.al"
+        },
+        {
+          "formula": "Cu",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.cu"
+        },
+        {
+          "formula": "KI",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.ki"
+        }
+      ],
+      "pairs": 1,
+      "modeledPairs": 0,
+      "notModeledPairs": 1,
+      "distinctModeledOutcomes": [],
+      "cleanDistinctModeledOutcomes": [],
+      "flaggedOutcomes": [],
+      "learnerChoicePossible": false,
+      "rendererReusePossible": true,
+      "targetReactionId": null,
+      "ownRecordsUnreachableInMixingModel": [],
+      "governanceBlockers": [
+        "chemistry review of the reaction records (human, pending)",
+        "content/didactic review of the activity (human, pending)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "paths": [],
+        "unmodeledPair": [
+          "species.h2so4",
+          "species.hcl"
+        ]
+      },
+      "unlockFacts": [
+        {
+          "formula": "CuO",
+          "speciesId": "species.cuo",
+          "existingRecordsWithThisSpecies": [
+            "rxn.cuo-hcl"
+          ]
+        },
+        {
+          "formula": "Zn",
+          "speciesId": "species.zn",
+          "existingRecordsWithThisSpecies": [
+            "rxn.zn-h2so4",
+            "rxn.zn-hcl"
+          ]
+        }
+      ],
+      "eligible": false,
+      "reasons": [
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.2",
+      "source": "repository-scan",
+      "learningUnitIds": [
+        "lu.8.18",
+        "lu.8.21"
+      ],
+      "type": "experiment",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "SCRIPTED",
+      "domainModule": "reaction-matcher + ionic-engine (src/domain/chemistry/ionic-mixing.ts)",
+      "ownReactionRecords": [],
+      "availableModeledInputs": [
+        "species.h2so4",
+        "species.cacl2"
+      ],
+      "excludedInputs": [
+        {
+          "formula": "Zn",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.zn"
+        },
+        {
+          "formula": "Al",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.al"
+        },
+        {
+          "formula": "S",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.s"
+        },
+        {
+          "formula": "AlCl3",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.alcl3"
+        },
+        {
+          "formula": "KI",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.ki"
+        },
+        {
+          "formula": "K2SO4",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.k2so4"
+        },
+        {
+          "formula": "Na2S",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.na2s"
+        }
+      ],
+      "pairs": 1,
+      "modeledPairs": 0,
+      "notModeledPairs": 1,
+      "distinctModeledOutcomes": [],
+      "cleanDistinctModeledOutcomes": [],
+      "flaggedOutcomes": [],
+      "learnerChoicePossible": false,
+      "rendererReusePossible": true,
+      "targetReactionId": null,
+      "ownRecordsUnreachableInMixingModel": [],
+      "governanceBlockers": [
+        "chemistry review of the reaction records (human, pending)",
+        "content/didactic review of the activity (human, pending)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "paths": [],
+        "unmodeledPair": [
+          "species.h2so4",
+          "species.cacl2"
+        ]
+      },
+      "unlockFacts": [
+        {
+          "formula": "Zn",
+          "speciesId": "species.zn",
+          "existingRecordsWithThisSpecies": [
+            "rxn.zn-h2so4"
+          ]
+        }
+      ],
+      "eligible": false,
+      "reasons": [
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.3",
+      "source": "repository-scan",
+      "learningUnitIds": [
+        "lu.8.22"
+      ],
+      "type": "experiment",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "SCRIPTED",
+      "domainModule": "reaction-matcher + ionic-engine (src/domain/chemistry/ionic-mixing.ts)",
+      "ownReactionRecords": [],
+      "availableModeledInputs": [
+        "species.hcl",
+        "species.h2so4",
+        "species.nh4cl"
+      ],
+      "excludedInputs": [
+        {
+          "formula": "H2O",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.h2o"
+        },
+        {
+          "formula": "O2",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.o2"
+        },
+        {
+          "formula": "HNO3",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.hno3"
+        },
+        {
+          "formula": "Ca(OH)2",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.camoh2"
+        },
+        {
+          "formula": "Fe",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.fe"
+        },
+        {
+          "formula": "Al",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.al"
+        },
+        {
+          "formula": "KI",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.ki"
+        },
+        {
+          "formula": "indikator",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.indikator"
+        }
+      ],
+      "pairs": 3,
+      "modeledPairs": 0,
+      "notModeledPairs": 3,
+      "distinctModeledOutcomes": [],
+      "cleanDistinctModeledOutcomes": [],
+      "flaggedOutcomes": [],
+      "learnerChoicePossible": false,
+      "rendererReusePossible": true,
+      "targetReactionId": null,
+      "ownRecordsUnreachableInMixingModel": [],
+      "governanceBlockers": [
+        "chemistry review of the reaction records (human, pending)",
+        "content/didactic review of the activity (human, pending)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "paths": [],
+        "unmodeledPair": [
+          "species.hcl",
+          "species.h2so4"
+        ]
+      },
+      "unlockFacts": [],
+      "eligible": false,
+      "reasons": [
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.4",
+      "source": "repository-scan",
+      "learningUnitIds": [
+        "lu.8.22",
+        "lu.8.23"
+      ],
+      "type": "experiment",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "SCRIPTED",
+      "domainModule": "reaction-matcher + ionic-engine (src/domain/chemistry/ionic-mixing.ts)",
+      "ownReactionRecords": [],
+      "availableModeledInputs": [
+        "species.hcl",
+        "species.h2so4",
+        "species.naoh",
+        "species.nacl",
+        "species.nh4cl"
+      ],
+      "excludedInputs": [
+        {
+          "formula": "HNO3",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.hno3"
+        },
+        {
+          "formula": "CuO",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.cuo"
+        },
+        {
+          "formula": "Zn",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.zn"
+        },
+        {
+          "formula": "Al",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.al"
+        },
+        {
+          "formula": "KI",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.ki"
+        },
+        {
+          "formula": "Na2S",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.na2s"
+        },
+        {
+          "formula": "NH4NO3",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.nh4no3"
+        }
+      ],
+      "pairs": 10,
+      "modeledPairs": 1,
+      "notModeledPairs": 9,
+      "distinctModeledOutcomes": [
+        "rxn.naoh-hcl"
+      ],
+      "cleanDistinctModeledOutcomes": [],
+      "flaggedOutcomes": [
+        "rxn.naoh-hcl"
+      ],
+      "learnerChoicePossible": false,
+      "rendererReusePossible": true,
+      "targetReactionId": null,
+      "ownRecordsUnreachableInMixingModel": [],
+      "governanceBlockers": [
+        "chemistry review of the reaction records (human, pending)",
+        "content/didactic review of the activity (human, pending)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "paths": [],
+        "unmodeledPair": [
+          "species.hcl",
+          "species.h2so4"
+        ]
+      },
+      "unlockFacts": [
+        {
+          "formula": "CuO",
+          "speciesId": "species.cuo",
+          "existingRecordsWithThisSpecies": [
+            "rxn.cuo-hcl"
+          ]
+        },
+        {
+          "formula": "Zn",
+          "speciesId": "species.zn",
+          "existingRecordsWithThisSpecies": [
+            "rxn.zn-h2so4",
+            "rxn.zn-hcl"
+          ]
+        },
+        {
+          "formula": "Na2S",
+          "speciesId": "species.na2s",
+          "existingRecordsWithThisSpecies": [
+            "rxn.na2s-hcl"
+          ]
+        }
+      ],
+      "eligible": false,
+      "reasons": [
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) (+1 whose observation the KB flags CHEMISTRY_REVIEW_REQUIRED: rxn.naoh-hcl) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.1",
+      "source": "repository-scan",
+      "learningUnitIds": [
+        "lu.9.07",
+        "lu.9.09"
+      ],
+      "type": "experiment",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "SCRIPTED",
+      "domainModule": "reaction-matcher + ionic-engine (src/domain/chemistry/ionic-mixing.ts)",
+      "ownReactionRecords": [],
+      "availableModeledInputs": [
+        "species.hcl",
+        "species.naoh",
+        "species.agno3"
+      ],
+      "excludedInputs": [
+        {
+          "formula": "H2O",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.h2o"
+        },
+        {
+          "formula": "CO2",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.co2"
+        },
+        {
+          "formula": "Ca(OH)2",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.camoh2"
+        },
+        {
+          "formula": "Zn",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.zn"
+        },
+        {
+          "formula": "Mg",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.mg"
+        },
+        {
+          "formula": "Fe",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.fe"
+        },
+        {
+          "formula": "Al",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.al"
+        },
+        {
+          "formula": "C",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.c"
+        },
+        {
+          "formula": "CaCO3",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.caco3"
+        }
+      ],
+      "pairs": 3,
+      "modeledPairs": 1,
+      "notModeledPairs": 2,
+      "distinctModeledOutcomes": [
+        "rxn.naoh-hcl"
+      ],
+      "cleanDistinctModeledOutcomes": [],
+      "flaggedOutcomes": [
+        "rxn.naoh-hcl"
+      ],
+      "learnerChoicePossible": false,
+      "rendererReusePossible": true,
+      "targetReactionId": null,
+      "ownRecordsUnreachableInMixingModel": [],
+      "governanceBlockers": [
+        "chemistry review of the reaction records (human, pending)",
+        "content/didactic review of the activity (human, pending)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "paths": [],
+        "unmodeledPair": [
+          "species.hcl",
+          "species.agno3"
+        ]
+      },
+      "unlockFacts": [
+        {
+          "formula": "H2O",
+          "speciesId": "species.h2o",
+          "existingRecordsWithThisSpecies": [
+            "rxn.co2-water"
+          ]
+        },
+        {
+          "formula": "CO2",
+          "speciesId": "species.co2",
+          "existingRecordsWithThisSpecies": [
+            "rxn.co2-water"
+          ]
+        },
+        {
+          "formula": "Zn",
+          "speciesId": "species.zn",
+          "existingRecordsWithThisSpecies": [
+            "rxn.zn-hcl"
+          ]
+        },
+        {
+          "formula": "CaCO3",
+          "speciesId": "species.caco3",
+          "existingRecordsWithThisSpecies": [
+            "rxn.caco3-hcl"
+          ]
+        }
+      ],
+      "eligible": false,
+      "reasons": [
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) (+1 whose observation the KB flags CHEMISTRY_REVIEW_REQUIRED: rxn.naoh-hcl) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.2",
+      "source": "repository-scan",
+      "learningUnitIds": [
+        "lu.9.16",
+        "lu.9.17",
+        "lu.9.18"
+      ],
+      "type": "experiment",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "SCRIPTED",
+      "domainModule": "reaction-matcher + ionic-engine (src/domain/chemistry/ionic-mixing.ts)",
+      "ownReactionRecords": [],
+      "availableModeledInputs": [
+        "species.naoh",
+        "species.nacl",
+        "species.na2co3",
+        "species.cacl2"
+      ],
+      "excludedInputs": [
+        {
+          "formula": "H2O",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.h2o"
+        },
+        {
+          "formula": "CO2",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.co2"
+        },
+        {
+          "formula": "KOH",
+          "from": "legacy reagent list",
+          "reason": "NOT_IN_SPECIES_REGISTRY",
+          "speciesId": null
+        },
+        {
+          "formula": "Ca(OH)2",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.camoh2"
+        },
+        {
+          "formula": "Al",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.al"
+        },
+        {
+          "formula": "CaCO3",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.caco3"
+        },
+        {
+          "formula": "KI",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.ki"
+        },
+        {
+          "formula": "KCl",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.kcl"
+        }
+      ],
+      "pairs": 6,
+      "modeledPairs": 0,
+      "notModeledPairs": 6,
+      "distinctModeledOutcomes": [],
+      "cleanDistinctModeledOutcomes": [],
+      "flaggedOutcomes": [],
+      "learnerChoicePossible": false,
+      "rendererReusePossible": true,
+      "targetReactionId": null,
+      "ownRecordsUnreachableInMixingModel": [],
+      "governanceBlockers": [
+        "chemistry review of the reaction records (human, pending)",
+        "content/didactic review of the activity (human, pending)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "paths": [],
+        "unmodeledPair": [
+          "species.naoh",
+          "species.nacl"
+        ]
+      },
+      "unlockFacts": [
+        {
+          "formula": "H2O",
+          "speciesId": "species.h2o",
+          "existingRecordsWithThisSpecies": [
+            "rxn.co2-water"
+          ]
+        },
+        {
+          "formula": "CO2",
+          "speciesId": "species.co2",
+          "existingRecordsWithThisSpecies": [
+            "rxn.co2-water"
+          ]
+        }
+      ],
+      "eligible": false,
+      "reasons": [
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.3",
+      "source": "repository-scan",
+      "learningUnitIds": [
+        "lu.9.11",
+        "lu.9.13",
+        "lu.9.20"
+      ],
+      "type": "experiment",
+      "currentDepth": "STATIC_CHECK",
+      "currentInteraction": "SCRIPTED",
+      "domainModule": "reaction-matcher + ionic-engine (src/domain/chemistry/ionic-mixing.ts)",
+      "ownReactionRecords": [],
+      "availableModeledInputs": [
+        "species.naoh",
+        "species.zncl2"
+      ],
+      "excludedInputs": [
+        {
+          "formula": "H2O",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.h2o"
+        },
+        {
+          "formula": "CuO",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.cuo"
+        },
+        {
+          "formula": "Zn",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.zn"
+        },
+        {
+          "formula": "Fe",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.fe"
+        },
+        {
+          "formula": "Al",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.al"
+        },
+        {
+          "formula": "Cu",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.cu"
+        },
+        {
+          "formula": "CaCO3",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.caco3"
+        },
+        {
+          "formula": "FeCl3",
+          "from": "legacy reagent list",
+          "reason": "NOT_IN_SPECIES_REGISTRY",
+          "speciesId": null
+        },
+        {
+          "formula": "KI",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.ki"
+        }
+      ],
+      "pairs": 1,
+      "modeledPairs": 1,
+      "notModeledPairs": 0,
+      "distinctModeledOutcomes": [
+        "rxn.zncl2-naoh"
+      ],
+      "cleanDistinctModeledOutcomes": [
+        "rxn.zncl2-naoh"
+      ],
+      "flaggedOutcomes": [],
+      "learnerChoicePossible": false,
+      "rendererReusePossible": true,
+      "targetReactionId": null,
+      "ownRecordsUnreachableInMixingModel": [],
+      "governanceBlockers": [
+        "chemistry review of the reaction records (human, pending)",
+        "content/didactic review of the activity (human, pending)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "paths": [
+          {
+            "reagents": [
+              "species.naoh",
+              "species.zncl2"
+            ],
+            "reactionId": "rxn.zncl2-naoh"
+          }
+        ],
+        "unmodeledPair": null
+      },
+      "unlockFacts": [],
+      "eligible": false,
+      "reasons": [
+        "BLACK_SWAN_FAIL: 1 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.13",
+      "source": "repository-scan",
+      "learningUnitIds": [
+        "lu.9.05",
+        "lu.9.19"
+      ],
+      "type": "experiment",
+      "currentDepth": "GUIDED",
+      "currentInteraction": "SCRIPTED",
+      "domainModule": "reaction-matcher + ionic-engine (src/domain/chemistry/ionic-mixing.ts)",
+      "ownReactionRecords": [],
+      "availableModeledInputs": [
+        "species.naoh",
+        "species.hcl"
+      ],
+      "excludedInputs": [
+        {
+          "formula": "Al",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.al"
+        },
+        {
+          "formula": "KI",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.ki"
+        },
+        {
+          "formula": "AlCl3",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.alcl3"
+        }
+      ],
+      "pairs": 1,
+      "modeledPairs": 1,
+      "notModeledPairs": 0,
+      "distinctModeledOutcomes": [
+        "rxn.naoh-hcl"
+      ],
+      "cleanDistinctModeledOutcomes": [],
+      "flaggedOutcomes": [
+        "rxn.naoh-hcl"
+      ],
+      "learnerChoicePossible": false,
+      "rendererReusePossible": true,
+      "targetReactionId": null,
+      "ownRecordsUnreachableInMixingModel": [],
+      "governanceBlockers": [
+        "chemistry review of the reaction records (human, pending)",
+        "content/didactic review of the activity (human, pending)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "paths": [],
+        "unmodeledPair": null
+      },
+      "unlockFacts": [],
+      "eligible": false,
+      "reasons": [
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) (+1 whose observation the KB flags CHEMISTRY_REVIEW_REQUIRED: rxn.naoh-hcl) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.10.8",
+      "source": "repository-scan",
+      "learningUnitIds": [
+        "lu.10.06",
+        "lu.10.24"
+      ],
+      "type": "experiment",
+      "currentDepth": "GUIDED",
+      "currentInteraction": "SCRIPTED",
+      "domainModule": "reaction-matcher + ionic-engine (src/domain/chemistry/ionic-mixing.ts)",
+      "ownReactionRecords": [],
+      "availableModeledInputs": [
+        "species.naoh",
+        "species.nacl"
+      ],
+      "excludedInputs": [
+        {
+          "formula": "H2O",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.h2o"
+        },
+        {
+          "formula": "Al",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.al"
+        },
+        {
+          "formula": "moy",
+          "from": "legacy reagent list",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.moy"
+        }
+      ],
+      "pairs": 1,
+      "modeledPairs": 0,
+      "notModeledPairs": 1,
+      "distinctModeledOutcomes": [],
+      "cleanDistinctModeledOutcomes": [],
+      "flaggedOutcomes": [],
+      "learnerChoicePossible": false,
+      "rendererReusePossible": true,
+      "targetReactionId": null,
+      "ownRecordsUnreachableInMixingModel": [],
+      "governanceBlockers": [
+        "chemistry review of the reaction records (human, pending)",
+        "content/didactic review of the activity (human, pending)"
+      ],
+      "blackSwan": {
+        "pass": false,
+        "paths": [],
+        "unmodeledPair": [
+          "species.naoh",
+          "species.nacl"
+        ]
+      },
+      "unlockFacts": [],
+      "eligible": false,
+      "reasons": [
+        "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
+        "NO_REACHABLE_TARGET: none of the activity's own reaction records is reachable from the shelf with a clean observation and a computable net ionic equation — completion unreachable"
+      ]
+    }
+  ]
+}

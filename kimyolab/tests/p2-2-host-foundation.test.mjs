@@ -237,13 +237,15 @@ test('progress: portal readiness is a separate metric, not in the management for
 // P2.2 closeout (A2): after P2.2 comes P2.3 (structured theory), then P2.4+, and only then P3.
 // P2.4 changed this test: the P2.4 instruction named the stage (governed theory authoring & source operations), so the
 // open-ended "P2.4+" bucket moved one step to "P2.5+"; the rule (P3 is never next before the P2 work) is unchanged.
+// P2.5 changed it again for the same reason: P2.5 is named (model-based reaction interaction expansion), the open
+// bucket is now "P2.6+".
 import {ROADMAP,milestoneState} from '../scripts/learning-depth.ts';
-test('roadmap: P2.2 → P2.3 → P2.4 → P2.5+ → P3; P3 is not "next" after P2.2',()=>{
-  assert.deepEqual(ROADMAP.map(r=>r.id),['P2.0','P2.1','P2.2','P2.3','P2.4','P2.5+','P3']);
+test('roadmap: P2.2 → P2.3 → P2.4 → P2.5 → P2.6+ → P3; P3 is not "next" after P2.2',()=>{
+  assert.deepEqual(ROADMAP.map(r=>r.id),['P2.0','P2.1','P2.2','P2.3','P2.4','P2.5','P2.6+','P3']);
   const p=json('reports/project-progress.json'); const ms=milestoneState(root);
   const next=p.nextMilestones[0].split(' ')[0];
   const order=ROADMAP.map(r=>r.id);
   assert.equal(next,order[order.indexOf(ms.current)+1],'next = the roadmap stage after the current one');
-  assert.ok(!p.nextMilestones.some(m=>m.startsWith('P3'))||ms.current==='P2.5+','P3 is never next before P2.5+ is delivered');
+  assert.ok(!p.nextMilestones.some(m=>m.startsWith('P3'))||ms.current==='P2.6+','P3 is never next before P2.6+ is delivered');
   if(ms.current==='P2.2') assert.equal(next,'P2.3');
 });

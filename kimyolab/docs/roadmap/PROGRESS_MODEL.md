@@ -81,3 +81,9 @@ Each dimension is an ordered enum. Its normalized level is `index / (count − 1
 - `reports/theory-authoring-status.json` reports per-unit authoring/review state (not started, draft, ready for review, chemistry-reviewed, didactic-reviewed, approved, changes requested, missing source, stale review), source counts and blockers. It is a **separate** report, not an input of the formula.
 - Working drafts (`authoring-drafts/theory/`), source intake entries, pending or partial reviews, empty packets and the workbench itself never change a percentage. Only canonical content that satisfies the existing rules (for theory: §7, now also dual-review APPROVED via the governed apply) can.
 - No weight was changed.
+
+## 9. P2.5 — MODEL_BASED is judged per activity (ADR-P2-006)
+
+- A registry renderer counts as MODEL_BASED only with black-swan evidence **for that activity**. For the reaction-mixing renderer, the activity's own shelf must reach at least two distinct modeled outcomes in the real domain, and only observations that pass the KB integrity check count. A newly bound activity cannot inherit the reference activity's evidence.
+- `reports/model-interaction-expansion.json` lists every candidate with its facts and reasons. It is a separate report, not a formula input.
+- P2.5 converted 0 activities. MODEL_BASED stays at 4 activities and 6 learning units, and no weight was changed.

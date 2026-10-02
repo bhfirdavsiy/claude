@@ -25,6 +25,7 @@ import {buildKbReports} from './chemistry-kb.ts';
 import {parseReviewRegister,reviewStateOf} from '../../src/domain/chemistry/kb-review.ts';
 import {classifyTheoryDepth} from '../../src/domain/theory/structured-theory.ts';
 import {collectStructuredTheory,loadSourceRegistry} from './structured-theory.ts';
+import {activityBlackSwan} from './model-interaction.ts';
 
 const readJson=(root:string,rel:string)=>JSON.parse(fs.readFileSync(path.join(root,rel),'utf8'));
 const readOptional=(root:string,rel:string,fallback:any)=>fs.existsSync(path.join(root,rel))?readJson(root,rel):fallback;
@@ -153,7 +154,11 @@ async function legacyCanSucceed(model:any):Promise<{verdict:string;detail:string
 
 // ------------------------------------------------------------------ activity classification
 
-function blackSwanPass(root:string,capability:string):{pass:boolean;evidence:string}{
+function blackSwanPass(root:string,capability:string,activityId:string):{pass:boolean;evidence:string}{
+  // P2.5 (ADR-P2-006): the reaction-mixing renderer is judged PER ACTIVITY — the activity's own shelf must reach ≥2
+  // distinct integrity-clean modeled outcomes in the real domain. Binding a new activity to the renderer can never
+  // inherit the reference activity's evidence.
+  if(capability==='ionic-precipitation'){ const r=activityBlackSwan(root,activityId); return r?{pass:r.pass,evidence:r.evidence}:{pass:false,evidence:'no reagent shelf in the activity config'}; }
   const file={'atom-builder':'reports/reference-renderer-atom.json','hydrolysis-medium':'reports/reference-renderer-hydrolysis.json','ionic-precipitation':'reports/reference-renderer-ionic-precipitation.json'}[capability];
   const r=file?readOptional(root,file,null):null;
   if(!r) return {pass:false,evidence:'no reference-renderer report'};
@@ -243,7 +248,7 @@ export async function buildLearningDepth(root:string){
     try{ model=await client.loadPractice(a.id); }catch(e:any){ activities.push({...base,depth:'NONE',interaction:'NONE',reason:`content path refuses it (${e?.code??e?.message})`,canSucceed:'NOT_LAUNCHABLE',modules:[],renderer:{kind:'none',capability:null},accessibility:null,localization:{rawIdLabels:[],englishOnlyLabels:[]}}); continue; }
     const ui:any=requirement?{kind:'registry'}:buildPracticeUiModel(model);
     const modules=modulesOf(route.plan.runtime,route.plan.capability,a.id,guidedMap);
-    const bs=requirement?blackSwanPass(root,requirement.capability):{pass:false,evidence:''};
+    const bs=requirement?blackSwanPass(root,requirement.capability,a.id):{pass:false,evidence:''};
     const steps=ui.kind==='experiment'?ui.controls.length:0;
     const cls=classifyActivity({uiKind:ui.kind,runtime:route.plan.runtime,capability:route.plan.capability,registry:Boolean(requirement),blackSwan:bs.pass,hardening:(hardening.get(a.id) as string)??null,modules,steps});
     const success=requirement?{...(await uiPathCanSucceed(client,a.id)),answerSource:'renderer-intents'}:await legacyCanSucceed(model);
