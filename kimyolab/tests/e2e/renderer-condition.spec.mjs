@@ -104,7 +104,11 @@ test('9.23 (beta2): keyboard-only — wrong prediction is evidence, a different 
     {questionId: 'condition:manganese-medium-product:acidic', response: 'Mn^2+', correct: true, score: 1},
     {questionId: 'condition:manganese-medium-product:basic', response: 'Mn^2+', correct: false, score: 0},
   ]);
-  expect(saved.evidence.find((e) => e.type === 'construction')).toMatchObject({targetId: 'manganese-acidic-trial', achieved: true, score: 1});
+  // one construction per engine result (immutable evidence): not achieved after trial 1, achieved after trial 2; the
+  // store's listing order is not part of the contract, so compare as a set
+  const constructions = saved.evidence.filter((e) => e.type === 'construction');
+  expect(constructions.every((e) => e.targetId === 'manganese-acidic-trial')).toBe(true);
+  expect(constructions.map((e) => `${e.achieved}:${e.score}`).sort()).toEqual(['false:0', 'true:1']);
   expect(saved.attempts.map((a) => a.status)).toEqual(['completed']);
 
   // retry: a NEW attempt; the finished attempt and its evidence stay as they were
@@ -117,7 +121,8 @@ test('9.23 (beta2): keyboard-only — wrong prediction is evidence, a different 
   await expect(card.locator('.kl-cond__trials li')).toHaveCount(1);
   const after = await store(page);
   expect(after.attempts.map((a) => a.status).sort()).toEqual(['completed', 'in_progress']);
-  expect(after.evidence.filter((e) => e.attemptId === saved.attempts[0].attemptId)).toEqual(saved.evidence.filter((e) => e.attemptId === saved.attempts[0].attemptId));
+  const ofFirst = (list) => list.filter((e) => e.attemptId === saved.attempts[0].attemptId).map((e) => JSON.stringify(e)).sort();
+  expect(ofFirst(after.evidence)).toEqual(ofFirst(saved.evidence));
   expect(errors).toEqual([]);
 });
 
