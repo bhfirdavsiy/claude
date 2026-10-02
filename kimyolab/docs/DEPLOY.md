@@ -68,7 +68,7 @@ proves that the code reads nothing else.
   - on main, it starts at the first parent;
   - it then walks back along the mainline to the first commit whose artefact differs from the current one.
 
-  The baseline must be on the mainline, and the drill reports its full SHA. Use a full clone (CI: `fetch-depth: 0`).
+  The baseline must be on the mainline, and the drill reports its full SHA. Use a full clone (CI: `fetch-depth: 0` plus an explicit `git fetch --unshallow` when the checkout is still shallow). A shallow clone fails with a message that says so.
 - **Optional server tuning** (bundled server only): `KIMYOLAB_SESSION_RATE_LIMIT`, `KIMYOLAB_STATUS_RATE_LIMIT`, `KIMYOLAB_ALLOWED_ORIGINS`.
 
 ## 4. What to upload

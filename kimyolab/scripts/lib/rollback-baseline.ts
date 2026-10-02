@@ -27,6 +27,10 @@ export function resolveRollbackBaseline(cwd:string,opts:{env?:Record<string,stri
   // every failure carries the facts it was decided on (refs, SHAs, the walk), so a CI log alone explains it
   const facts:Record<string,unknown>={};
   const fail=(code:string,message:string)=>Object.assign(new Error(message),{code,detail:facts});
+  // a shallow clone ends the history early: name that fact instead of a misleading "no previous release" / "no
+  // different artefact" (a fact about the clone, not about the history)
+  const shallowFail=(seen:number)=>{ facts.shallow=true; return fail('DEPLOY_ROLLBACK_SOURCE_MISSING',`The clone is shallow: the mainline history ends after ${seen} commit(s). Fetch the full history (git fetch --unshallow origin; CI: actions/checkout fetch-depth: 0).`); };
+  const isShallow=()=>git(cwd,['rev-parse','--is-shallow-repository']).out==='true';
   const mainline=mainlineRef(cwd,env);
   if(!mainline) throw fail('DEPLOY_ROLLBACK_SOURCE_MISSING','No mainline ref (origin/main or main) is available: fetch the full history (CI: actions/checkout fetch-depth: 0).');
   const mainlineSha=isCommit(cwd,mainline)!;
@@ -47,7 +51,7 @@ export function resolveRollbackBaseline(cwd:string,opts:{env?:Record<string,stri
   if(start===head){
     // HEAD is a mainline commit (post-merge): the current deployment is HEAD itself → its first parent
     const parent=isCommit(cwd,`${head}^1`);
-    if(!parent) throw fail('DEPLOY_ROLLBACK_SOURCE_MISSING','The mainline head has no parent: there is no previous release.');
+    if(!parent) throw isShallow()?shallowFail(1):fail('DEPLOY_ROLLBACK_SOURCE_MISSING','The mainline head has no parent: there is no previous release.');
     start=parent; method='first-parent-of-mainline-head';
   }
   const chain=git(cwd,['rev-list','--first-parent',`--max-count=${opts.maxWalk??30}`,start]);
@@ -58,5 +62,6 @@ export function resolveRollbackBaseline(cwd:string,opts:{env?:Record<string,stri
     if(opts.differs(sha)) return {commit:sha,method,mainline,mergeBase:base.out,walked};
     steps.push(`${sha.slice(0,12)} same-artefact`);
   }
+  if(walked.length<(opts.maxWalk??30)&&isShallow()) throw shallowFail(walked.length);
   throw fail('DEPLOY_ROLLBACK_SOURCE_MISSING',`No mainline commit within ${opts.maxWalk??30} first-parent steps builds a different artefact.`);
 }

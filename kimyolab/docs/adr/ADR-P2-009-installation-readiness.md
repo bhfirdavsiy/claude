@@ -130,7 +130,8 @@ It then runs exactly the documented commands (`npm ci`, `deploy:build`, `deploy:
   - `HEAD^1` was wrong on a branch with 2+ commits. The committed report also named `2e80fd0` without saying why.
   - `scripts/lib/rollback-baseline.ts` now picks the baseline: an explicit ref first, else merge-base with the mainline, else, on main itself, the first parent. It then walks the mainline first-parent chain to the first commit whose artefact (built by its own builder) differs.
   - The full SHA and the walk are reported.
-  - CI uses `fetch-depth: 0`.
+  - CI uses `fetch-depth: 0`. A pull_request checkout was still observed shallow below the merge base (the walk saw one commit), so the workflow completes the mainline history explicitly (`git fetch --unshallow`).
+  - A shallow clone is reported as such (`DEPLOY_ROLLBACK_SOURCE_MISSING: The clone is shallow…`), and every resolver failure carries its facts: refs, SHAs and the walk.
   - On this branch the merge-base `f11c799` builds the same artefact as the current one, because P2.8 changes no learner code, so the baseline is `2e80fd0`.
 - **Evidence currency.** `evidence-current` now also requires matching configuration, matching content version, and a rollback baseline equal to the resolver's choice.
 - **CI semantics.** The generated "CI green" sentence was removed. `ciGateConfigured` lists the steps the workflow runs; that is a repository fact. The live CI result stays an external merge gate. `READY_IN_SIMULATION` is local or simulated only.

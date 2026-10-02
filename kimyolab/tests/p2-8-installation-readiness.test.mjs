@@ -178,6 +178,19 @@ test('rollback baseline: a feature branch with 2+ commits resolves to the MAINLI
     g('checkout', '-q', 'main'); g('merge', '-q', '--no-ff', 'feature', '-m', 'merge');
     const p = resolveRollbackBaseline(repo, {env: {KIMYOLAB_MAINLINE_REF: 'main'}, differs});
     assert.equal(p.commit, m2); assert.equal(p.method, 'first-parent-of-mainline-head');
+    // a SHALLOW clone (as a pull_request checkout was observed to be) is reported as such, with the facts, not as
+    // "no different artefact"
+    const shallow = fs.mkdtempSync(path.join(os.tmpdir(), 'kl-git-shallow-'));
+    try {
+      execFileSync('git', ['clone', '-q', '--depth', '1', '--branch', 'main', `file://${repo}`, shallow]);
+      assert.throws(() => resolveRollbackBaseline(shallow, {env: {KIMYOLAB_MAINLINE_REF: 'origin/main'}, differs: () => false}),
+        (e) => e.code === 'DEPLOY_ROLLBACK_SOURCE_MISSING' && /shallow/.test(e.message) && e.detail.shallow === true);
+      // the CI case: a merge commit on top of a shallow base — the walk from the merge base sees one commit
+      const g2 = (...a) => execFileSync('git', a, {cwd: shallow, encoding: 'utf8', env: {...process.env, GIT_AUTHOR_NAME: 't', GIT_AUTHOR_EMAIL: 't@t', GIT_COMMITTER_NAME: 't', GIT_COMMITTER_EMAIL: 't@t'}}).trim();
+      fs.writeFileSync(path.join(shallow, 'c.txt'), 'pr'); g2('add', '.'); g2('commit', '-q', '-m', 'pr');
+      assert.throws(() => resolveRollbackBaseline(shallow, {env: {KIMYOLAB_MAINLINE_REF: 'origin/main'}, differs: () => false}),
+        (e) => /shallow/.test(e.message) && e.detail.method === 'merge-base' && e.detail.walk.length === 1);
+    } finally { fs.rmSync(shallow, {recursive: true, force: true}); }
   } finally { fs.rmSync(repo, {recursive: true, force: true}); }
   const rb = json('reports/deployment-rollback-drill.json');
   assert.match(rb.previous.commit, /^[0-9a-f]{40}$/, 'the committed drill reports the full baseline SHA');

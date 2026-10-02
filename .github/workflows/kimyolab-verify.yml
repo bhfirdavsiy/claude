@@ -27,6 +27,14 @@ jobs:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0   # the rollback drill resolves the previous known-good MAINLINE release (scripts/lib/rollback-baseline.ts)
+      # A pull_request checkout was observed shallow below the merge base even with fetch-depth 0 (the walk from the
+      # merge base saw one commit). The rollback baseline needs the mainline history, so make it complete explicitly.
+      - name: Complete mainline history for the rollback baseline
+        working-directory: .
+        run: |
+          if [ "$(git rev-parse --is-shallow-repository)" = "true" ]; then git fetch --no-tags --unshallow origin; fi
+          git fetch --no-tags origin '+refs/heads/main:refs/remotes/origin/main'
+          echo "shallow: $(git rev-parse --is-shallow-repository); origin/main: $(git rev-parse origin/main); history: $(git rev-list --count --first-parent origin/main) first-parent commits"
       - uses: actions/setup-node@v7
         with:
           node-version-file: kimyolab/.nvmrc
