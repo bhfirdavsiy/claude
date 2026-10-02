@@ -19,6 +19,9 @@ import {readWorkflows,workflowFindings,declaredToolchain,VERIFIED_ACTIONS,PINNED
 import {runPreflight,PREFLIGHT_CHECKS} from './deploy-preflight.ts';
 import {computeTreeHash} from './deploy-surface-hash.ts';
 import {bundle} from './lib/computed-model-interaction.ts';
+import {resolveRollbackBaseline} from './lib/rollback-baseline.ts';
+import {createCommitBuilder} from './lib/commit-artifact.ts';
+import {readAcceptance} from './lib/target-acceptance.ts';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const repoTop=path.resolve(root,'..');
@@ -116,6 +119,26 @@ function ciReproducibility(){
 }
 
 /** run the preflight on a deliberately broken COPY: every failure must carry a code, a fix and no absolute path */
+/** the rollback report's baseline must be exactly what the resolver selects now (full SHA), and differ from the current artefact */
+function rollbackBaselineMatches(rollback:any,currentSha:string|null){
+  if(!rollback?.previous?.commit||!currentSha) return false;
+  const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'kimyolab-baseline-'));
+  try{
+    const build=createCommitBuilder(root,tmp,resolveDeployConfig(process.env).basePath);
+    const r=resolveRollbackBaseline(root,{differs:(c:string)=>build(c).sha256!==currentSha});
+    return r.commit===rollback.previous.commit&&rollback.previous.sha256!==currentSha&&/^[0-9a-f]{40}$/.test(r.commit);
+  }catch{ return false; }
+  finally{ fs.rmSync(tmp,{recursive:true,force:true}); }
+}
+
+/** what the CI workflow is configured to run (a fact about the repository, not about a CI run) */
+function ciGate(){
+  const wf=fs.readFileSync(path.join(repoTop,'.github/workflows/kimyolab-verify.yml'),'utf8');
+  const steps={verify:/npm run verify\b/,deployBuild:/npm run deploy:build\b/,preflight:/npm run deploy:preflight\b/,smoke:/npm run deploy:smoke\b/,rollbackDrill:/npm run deploy:rollback-drill\b/,cleanDrill:/npm run deploy:drill\b/,strictReadiness:/npm run deploy:readiness -- --strict/,crossPlatformArtifact:/compare-deploy-manifests\.mjs/};
+  const found=Object.fromEntries(Object.entries(steps).map(([k,re])=>[k,re.test(wf)]));
+  return {configured:Object.values(found).every(Boolean),workflow:'.github/workflows/kimyolab-verify.yml',steps:found};
+}
+
 function diagnosticsSelfTest(){
   const cfg=resolveDeployConfig(process.env); const paths=deployPaths(root,cfg.basePath);
   if(!fs.existsSync(paths.artifact)) return {pass:false,detail:'no artefact to copy'};
@@ -141,13 +164,23 @@ export function buildReadiness(){
   const sha=(art.production as any).sha256??null;
   const smokeCheck=(...ids:string[])=>ids.every(id=>smoke?.checks?.find((c:any)=>c.id===id)?.pass===true);
   const pre=(...ids:string[])=>ids.every(id=>preflight?.checks?.find((c:any)=>c.id===id)?.pass===true);
-  const sameArtifact={preflight:preflight?.checks?.find((c:any)=>c.id==='artifact-checksum')?.detail?.sha256===sha,smoke:smoke?.target?.artifactSha256===sha,rollback:rollback?.current?.sha256===sha,drill:drill?.steps?.find((s:any)=>s.id==='artifact')?.detail?.sha256===sha};
+  const manifestConfig=(art.production as any).config??null, contentVersion=(art.production as any).content?.contentVersion??null;
+  const sameArtifact={
+    preflight:preflight?.checks?.find((c:any)=>c.id==='artifact-checksum')?.detail?.sha256===sha,
+    smoke:smoke?.target?.artifactSha256===sha,
+    rollbackCurrent:rollback?.current?.sha256===sha,
+    drill:drill?.steps?.find((s:any)=>s.id==='artifact')?.detail?.sha256===sha,
+    smokeConfig:JSON.stringify(smoke?.target?.config)===JSON.stringify(manifestConfig),
+    preflightConfig:preflight?.mount===manifestConfig?.basePath&&preflight?.checks?.find((c:any)=>c.id==='config')?.detail?.storageNamespace===manifestConfig?.storageNamespace,
+    contentVersion:smoke?.target?.contentVersion===contentVersion&&preflight?.checks?.find((c:any)=>c.id==='content-manifest')?.detail?.activeVersion===contentVersion,
+    rollbackBaseline:rollbackBaselineMatches(rollback,sha),
+  };
   const diag=diagnosticsSelfTest();
   const C=(id:string,label:string,pass:boolean,evidence:string,detail?:unknown)=>({id,label,pass:Boolean(pass),evidence,...(detail!==undefined?{detail}:{})});
   const checks=[
     C('build-reproducible','production build reproducible',pre('reproducible-build')&&drill?.steps?.find((s:any)=>s.id==='generated-files-reproducible')?.pass===true,'deployment-preflight.json#reproducible-build + deployment-clean-drill.json#generated-files-reproducible'),
     C('artifact-known','deploy artefact known (path, mount, file count, sha256, content version)',Boolean(sha)&&(art.production as any).matchesBuiltDirectory===true,'deployment-artifacts.json#production'),
-    C('evidence-current','all deployment evidence describes THIS artefact',Object.values(sameArtifact).every(Boolean),'sha256 in preflight / smoke / rollback / clean-drill reports',sameArtifact),
+    C('evidence-current','all deployment evidence describes THIS artefact, configuration, content version and the resolved rollback baseline',Object.values(sameArtifact).every(Boolean),'preflight / smoke / rollback / clean-drill reports vs the deploy manifest and the rollback resolver',sameArtifact),
     C('config-documented','configuration documented in one place',audit.violations.filter(v=>/documented/.test(v)).length===0,'deployment-config-audit.json + docs/DEPLOY.md §3'),
     C('no-hardcoded-host','no hardcoded host, domain or deployment path',audit.violations.filter(v=>/hardcoded|undeclared|configuration surface/.test(v)).length===0,'deployment-config-audit.json#violations'),
     C('portal-subpath','portal subpath simulation works (/kimyolab/)',portal?.summary?.status==='READY_IN_SIMULATION'&&portal?.summary?.pass===portal?.summary?.checks,'portal-subpath-readiness.json',portal?.summary),
@@ -168,18 +201,21 @@ export function buildReadiness(){
     C('linux-ci-pinned','Linux verification runner pinned (ubuntu-24.04), no *-latest anywhere',ci.findings.linuxPinned&&ci.findings.noFloatingRunner,'.github/workflows (ci-reproducibility.json#findings)'),
     C('windows-ci-paths','Windows path job pinned (windows-2025) and runs path tests + deploy preflight',ci.findings.windowsPinned&&/deploy:preflight/.test(fs.readFileSync(path.join(repoTop,'.github/workflows/kimyolab-verify.yml'),'utf8')),'.github/workflows/kimyolab-verify.yml'),
     C('actions-node24','GitHub Actions on Node-24 runtime majors; application Node from .nvmrc',ci.findings.actionsOnNode24&&ci.findings.appNodeFromNvmrc,'ci-reproducibility.json#actions'),
+    C('ci-gate-configured','the CI workflow runs verify, build, preflight, smoke, both drills, the cross-platform artefact comparison and strict readiness',ciGate().configured,'.github/workflows/kimyolab-verify.yml (configuration, not a CI result)',ciGate().steps),
   ];
   const passed=checks.filter(c=>c.pass).length;
-  const externalAcceptance=fs.existsSync(path.join(root,'docs','deploy','acceptance'))?fs.readdirSync(path.join(root,'docs','deploy','acceptance')).filter(f=>f.endsWith('.json')):[];
-  const status=passed<checks.length?'NOT_READY':externalAcceptance.length?'READY_FOR_DEPLOYMENT':'READY_IN_SIMULATION';
+  const acceptance=readAcceptance(root,sha&&contentVersion&&manifestConfig?{sha256:sha,contentVersion,basePath:manifestConfig.basePath}:null);
+  const status=passed<checks.length?'NOT_READY':acceptance.valid>0?'READY_FOR_DEPLOYMENT':'READY_IN_SIMULATION';
   const readiness={
     schema:'kimyolab.installation-readiness.v1',
     semantics:'Installation Readiness — a SEPARATE metric: can another technical specialist install KimyoLab with the documented commands, without writing code, discovering paths or repairing the build? It is NOT an input of foundation, learning product or the overall estimate, and it says nothing about learning content, assessment or human governance (they stay separate debts).',
     formula:'percent = passed checks / total checks (every check below is the denominator; no weighting, no hidden items)',
-    statusRule:{NOT_READY:'any check fails',READY_IN_SIMULATION:'every check passes in the simulated environment (the /kimyolab/ mount served by the bundled server, the clean-environment drill, CI)',READY_FOR_DEPLOYMENT:'additionally an operator acceptance record from the REAL target server exists in docs/deploy/acceptance/ — never produced by an agent'},
+    statusRule:{NOT_READY:'any check fails',READY_IN_SIMULATION:'every check passes LOCALLY / in simulation (the /kimyolab/ mount served by the bundled server and the clean-environment drill, on the machine that generated this report). It does not include a remote CI result.',READY_FOR_DEPLOYMENT:'additionally a VALID target-server acceptance record exists (scripts/lib/target-acceptance.ts: schema, this exact artefact sha256, content version and mount, a real non-local HTTPS origin, a human actor, preflight and smoke PASS, decision ACCEPTED). An agent writes only the template; it never writes an accepted record.'},
+    evidenceModel:'The deployment reports are regenerated by every CI run (strict readiness is the CI gate). A committed copy is current only while `evidence-current` passes: it ties every report to THIS artefact sha256, configuration, content version and the resolved rollback baseline.',
     checks,passed,total:checks.length,percent:Math.round(1000*passed/checks.length)/10,status,
-    externalAcceptance:{records:externalAcceptance.length,note:'0 = no real target-server installation has been performed or recorded; no real portal integration is claimed'},
-    ciGreen:'enforced, not self-attested: the CI verify job runs `npm run deploy:readiness -- --strict` after the deployment steps, so a merged commit passed every check on ubuntu-24.04',
+    externalAcceptance:{...acceptance,template:'docs/deploy/acceptance-template.json',note:'valid records = 0 → no real target-server installation has been accepted; no real portal integration is claimed'},
+    ciGateConfigured:ciGate(),
+    ciResult:'not established here: live GitHub CI success is an external merge gate (the PR checks), never asserted by repository-local code',
     separateFrom:{learningProduct:readJson('reports/project-progress.json')?.learningProductProgress?.percent??null,overall:readJson('reports/project-progress.json')?.overallManagementEstimate?.percent??null,note:'unchanged by P2.8'},
     knownDebtNotInThisMetric:{accessibility:'5 BLOCKED_BY_CONTENT activities, human accessibility review 0',feedback:'29 form simulations without a wrong-answer verdict, 6 experiments without enforced step order (P2.9)',content:'assessment, structured theory, human review and release decisions'},
   };

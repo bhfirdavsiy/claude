@@ -27,6 +27,12 @@
         "runtime": "node24",
         "tagCommit": "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
         "tagDate": "2026-04-10"
+      },
+      "actions/download-artifact": {
+        "ref": "v8",
+        "runtime": "node24",
+        "tagCommit": "3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c",
+        "tagDate": "2026-03-11"
       }
     },
     "why": "Node-20 action runtimes are deprecated on GitHub-hosted runners; the v7 majors declare runs.using: node24. The GitHub Action runtime is unrelated to the application Node version."
@@ -74,6 +80,7 @@
       "uses": [
         "actions/checkout@v7",
         "actions/setup-node@v7",
+        "actions/upload-artifact@v7",
         "actions/upload-artifact@v7"
       ],
       "nodeVersionFile": [
@@ -88,7 +95,23 @@
       "uses": [
         "actions/checkout@v7",
         "actions/setup-node@v7",
+        "actions/upload-artifact@v7",
         "actions/upload-artifact@v7"
+      ],
+      "nodeVersionFile": [
+        "kimyolab/.nvmrc"
+      ],
+      "nodeVersion": []
+    },
+    {
+      "workflow": "kimyolab-verify.yml",
+      "job": "cross-platform-artifact",
+      "runsOn": "ubuntu-24.04",
+      "uses": [
+        "actions/checkout@v7",
+        "actions/setup-node@v7",
+        "actions/download-artifact@v8",
+        "actions/download-artifact@v8"
       ],
       "nodeVersionFile": [
         "kimyolab/.nvmrc"

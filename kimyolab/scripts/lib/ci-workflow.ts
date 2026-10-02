@@ -9,6 +9,7 @@ export const VERIFIED_ACTIONS:Record<string,{ref:string;runtime:string;tagCommit
   'actions/checkout':{ref:'v7',runtime:'node24',tagCommit:'3d3c42e5aac5ba805825da76410c181273ba90b1',tagDate:'2026-07-17'},
   'actions/setup-node':{ref:'v7',runtime:'node24',tagCommit:'820762786026740c76f36085b0efc47a31fe5020',tagDate:'2026-07-13'},
   'actions/upload-artifact':{ref:'v7',runtime:'node24',tagCommit:'043fb46d1a93c77aae656e7c1c64a875d1fc6a0a',tagDate:'2026-04-10'},
+  'actions/download-artifact':{ref:'v8',runtime:'node24',tagCommit:'3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c',tagDate:'2026-03-11'},
 };
 /** Runner images the verification is pinned to (a `*-latest` label may move to a new OS version without notice). */
 export const PINNED_RUNNERS={linux:'ubuntu-24.04',windows:'windows-2025'};

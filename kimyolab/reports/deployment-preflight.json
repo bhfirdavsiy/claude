@@ -87,6 +87,10 @@
       "pass": true
     },
     {
+      "id": "line-endings",
+      "pass": true
+    },
+    {
       "id": "reproducible-build",
       "pass": true,
       "detail": {
@@ -99,7 +103,7 @@
     }
   ],
   "summary": {
-    "checks": 15,
-    "pass": 15
+    "checks": 16,
+    "pass": 16
   }
 }

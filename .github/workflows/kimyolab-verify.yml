@@ -26,7 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
-          fetch-depth: 2   # the rollback drill builds the previous mainline commit (HEAD^1) as the known-good release
+          fetch-depth: 0   # the rollback drill resolves the previous known-good MAINLINE release (scripts/lib/rollback-baseline.ts)
       - uses: actions/setup-node@v7
         with:
           node-version-file: kimyolab/.nvmrc
@@ -54,6 +54,11 @@ jobs:
         run: npm run deploy:drill
       - name: Installation readiness must be complete (every published check passes)
         run: npm run deploy:readiness -- --strict
+      - name: Upload the Linux deployment manifest (cross-platform comparison)
+        uses: actions/upload-artifact@v7
+        with:
+          name: deploy-manifest-linux
+          path: kimyolab/dist-deploy/kimyolab.manifest.json
       - name: Upload acceptance, environment and deployment reports
         if: always()
         uses: actions/upload-artifact@v7
@@ -92,9 +97,38 @@ jobs:
         run: |
           npm run deploy:build
           npm run deploy:preflight
+      - name: Upload the Windows deployment manifest (cross-platform comparison)
+        uses: actions/upload-artifact@v7
+        with:
+          name: deploy-manifest-windows
+          path: kimyolab/dist-deploy/kimyolab.manifest.json
       - name: Upload the Windows environment record
         if: always()
         uses: actions/upload-artifact@v7
         with:
           name: kimyolab-windows-environment
           path: kimyolab/reports/ci-environment.observed.json
+
+  cross-platform-artifact:
+    # P2.8: Linux and Windows must build BYTE-IDENTICAL deployment artefacts from the same commit and configuration
+    # (tree sha256, file count and every per-file sha256).
+    needs: [verify, windows-paths]
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: kimyolab
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: kimyolab/.nvmrc
+      - uses: actions/download-artifact@v8
+        with:
+          name: deploy-manifest-linux
+          path: kimyolab/manifests/linux
+      - uses: actions/download-artifact@v8
+        with:
+          name: deploy-manifest-windows
+          path: kimyolab/manifests/windows
+      - name: Compare the Linux and Windows deployment artefacts
+        run: node scripts/compare-deploy-manifests.mjs manifests/linux/kimyolab.manifest.json manifests/windows/kimyolab.manifest.json

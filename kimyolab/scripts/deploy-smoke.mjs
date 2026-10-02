@@ -148,7 +148,7 @@ async function pathHostSmoke(browser) {
     });
     await check('no-page-errors', async () => { if (errors.length) throw fail('DEPLOY_SMOKE_PAGE_ERROR', errors[0]); });
   } finally { await context.close(); if (server) await new Promise((r) => server.close(r)); }
-  return {target: remote ? 'KIMYOLAB_SMOKE_URL' : `dist-deploy/${MOUNT_DIR}/ via the bundled Node server`, mount: BASE, ...(remote ? {} : {artifactSha256: computeTreeHash(ARTIFACT).sha256})};
+  return {target: remote ? 'KIMYOLAB_SMOKE_URL' : `dist-deploy/${MOUNT_DIR}/ via the bundled Node server`, mount: BASE, ...(remote ? {} : (() => { const m = JSON.parse(fs.readFileSync(path.join(root, 'dist-deploy', `${MOUNT_DIR.replaceAll('/', '_')}.manifest.json`), 'utf8')); return {artifactSha256: computeTreeHash(ARTIFACT).sha256, config: m.config, contentVersion: m.content.contentVersion}; })())};
 }
 
 async function standaloneSmoke(browser) {

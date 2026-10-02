@@ -98,7 +98,7 @@ test('CI: verification OS pinned, actions on their Node-24 majors, application N
   const f = workflowFindings(jobs);
   assert.deepEqual([f.linuxPinned, f.windowsPinned, f.noFloatingRunner, f.actionsOnNode24, f.appNodeFromNvmrc], [true, true, true, true, true], JSON.stringify(f));
   assert.deepEqual(PINNED_RUNNERS, {linux: 'ubuntu-24.04', windows: 'windows-2025'});
-  assert.ok(Object.values(VERIFIED_ACTIONS).every((a) => a.ref === 'v7' && a.runtime === 'node24'));
+  assert.ok(Object.values(VERIFIED_ACTIONS).every((a) => /^v\d+$/.test(a.ref) && a.runtime === 'node24'));
   const all = fs.readdirSync(path.resolve(root, '../.github/workflows')).map((x) => fs.readFileSync(path.resolve(root, '../.github/workflows', x), 'utf8')).join('\n');
   assert.doesNotMatch(all, /ubuntu-latest|windows-latest|@v4\b/);
   // a floating label or an old action is reported, not tolerated
@@ -113,8 +113,8 @@ test('Installation Readiness: published checks, honest status, separate from the
   assert.equal(r.percent, Math.round(1000 * r.passed / r.total) / 10);
   assert.ok(r.total >= 20);
   for (const c of r.checks) assert.ok(c.id && c.label && c.evidence, c.id);
-  assert.equal(r.status, r.passed < r.total ? 'NOT_READY' : r.externalAcceptance.records ? 'READY_FOR_DEPLOYMENT' : 'READY_IN_SIMULATION');
-  assert.equal(r.externalAcceptance.records, 0, 'no real target-server acceptance exists; none is fabricated');
+  assert.equal(r.status, r.passed < r.total ? 'NOT_READY' : r.externalAcceptance.valid ? 'READY_FOR_DEPLOYMENT' : 'READY_IN_SIMULATION');
+  assert.equal(r.externalAcceptance.valid, 0, 'no real target-server acceptance exists; none is fabricated');
   assert.notEqual(r.status, 'READY_FOR_DEPLOYMENT');
   const p = json('reports/project-progress.json');
   assert.deepEqual([p.foundationProgress.percent, p.learningProductProgress.percent, p.overallManagementEstimate.percent], [100, 12.189, 47.313]);
@@ -139,4 +139,85 @@ test('reports: config audit clean, artefacts explicit, rollback kept learner evi
   assert.deepEqual(drill.commands, ['npm ci', 'npm run deploy:build', 'npm run deploy:preflight', 'npm run deploy:smoke']);
   const guide = fs.readFileSync(path.join(root, 'docs/DEPLOY.md'), 'utf8');
   for (const c of drill.commands) assert.ok(guide.includes(c), `DEPLOY.md documents "${c}"`);
+});
+
+// ------------------------------------------------------------------ P2.8 closeout (A1–A5)
+import {spawnSync, execFileSync} from 'node:child_process';
+import {resolveRollbackBaseline} from '../scripts/lib/rollback-baseline.ts';
+import {acceptanceProblems, readAcceptance} from '../scripts/lib/target-acceptance.ts';
+
+test('line endings: a CRLF text file in the artefact fails the preflight (cross-platform bytes); .gitattributes disables EOL conversion', () => {
+  const r = variant('crlf', (d) => { const f = path.join(d, 'app-preview', 'app', 'bootstrap.js'); fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace(/\n/g, '\r\n')); });
+  assert.ok(failing(r).includes('DEPLOY_LINE_ENDINGS_NONCANONICAL'));
+  assert.match(fs.readFileSync(path.join(root, '.gitattributes'), 'utf8'), /^\* -text$/m);
+  const cmp = (a, b) => spawnSync(process.execPath, [path.join(root, 'scripts/compare-deploy-manifests.mjs'), a, b], {encoding: 'utf8'});
+  const same = path.join(tmp, 'same.json'); fs.writeFileSync(same, JSON.stringify(manifest));
+  assert.equal(cmp(same, path.join(tmp, 'base.manifest.json')).status, 0);
+  const other = path.join(tmp, 'other.json'); fs.writeFileSync(other, JSON.stringify({...manifest, sha256: 'x', files: manifest.files.map((f, i) => i === 0 ? {...f, sha256: 'y'} : f)}));
+  const r2 = cmp(same, other); assert.equal(r2.status, 1); assert.match(r2.stderr, /DEPLOY_NOT_REPRODUCIBLE/); assert.match(r2.stdout, new RegExp(manifest.files[0].path.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+});
+
+test('rollback baseline: a feature branch with 2+ commits resolves to the MAINLINE base, not HEAD^1; explicit ref wins; post-merge uses the first parent', () => {
+  const repo = fs.mkdtempSync(path.join(os.tmpdir(), 'kl-git-'));
+  const g = (...a) => execFileSync('git', a, {cwd: repo, encoding: 'utf8', env: {...process.env, GIT_AUTHOR_NAME: 't', GIT_AUTHOR_EMAIL: 't@t', GIT_COMMITTER_NAME: 't', GIT_COMMITTER_EMAIL: 't@t'}}).trim();
+  const commit = (file, text) => { fs.writeFileSync(path.join(repo, file), text); g('add', '.'); g('commit', '-q', '-m', text); return g('rev-parse', 'HEAD'); };
+  try {
+    g('init', '-q', '-b', 'main');
+    const m1 = commit('a.txt', 'm1'); const m2 = commit('a.txt', 'm2');
+    g('checkout', '-q', '-b', 'feature'); const f1 = commit('b.txt', 'f1'); commit('b.txt', 'f2');
+    const differs = () => true;
+    const r = resolveRollbackBaseline(repo, {env: {KIMYOLAB_MAINLINE_REF: 'main'}, differs});
+    assert.equal(r.commit, m2, 'the mainline base, not the previous feature commit');
+    assert.notEqual(r.commit, f1); assert.equal(r.method, 'merge-base'); assert.match(r.commit, /^[0-9a-f]{40}$/);
+    // a base whose artefact equals the current deployment is skipped (walk back the mainline first-parent chain)
+    assert.equal(resolveRollbackBaseline(repo, {env: {KIMYOLAB_MAINLINE_REF: 'main'}, differs: (c) => c !== m2}).commit, m1);
+    // explicit ref wins, but must be on the mainline
+    assert.equal(resolveRollbackBaseline(repo, {env: {KIMYOLAB_MAINLINE_REF: 'main', KIMYOLAB_ROLLBACK_FROM: m1}, differs}).commit, m1);
+    assert.throws(() => resolveRollbackBaseline(repo, {env: {KIMYOLAB_MAINLINE_REF: 'main', KIMYOLAB_ROLLBACK_FROM: f1}, differs}), (e) => e.code === 'DEPLOY_ROLLBACK_SOURCE_INVALID');
+    // post-merge on main: HEAD is the deployment → its first parent
+    g('checkout', '-q', 'main'); g('merge', '-q', '--no-ff', 'feature', '-m', 'merge');
+    const p = resolveRollbackBaseline(repo, {env: {KIMYOLAB_MAINLINE_REF: 'main'}, differs});
+    assert.equal(p.commit, m2); assert.equal(p.method, 'first-parent-of-mainline-head');
+  } finally { fs.rmSync(repo, {recursive: true, force: true}); }
+  const rb = json('reports/deployment-rollback-drill.json');
+  assert.match(rb.previous.commit, /^[0-9a-f]{40}$/, 'the committed drill reports the full baseline SHA');
+  assert.ok(['merge-base', 'first-parent-of-mainline-head', 'explicit'].includes(rb.previous.resolution.method));
+});
+
+test('target acceptance is fail-closed: only a human, HTTPS, this-artefact, PASS/PASS, ACCEPTED record counts', () => {
+  const expected = {sha256: manifest.sha256, contentVersion: manifest.content.contentVersion, basePath: '/kimyolab/'};
+  const good = {schema: 'kimyolab.target-acceptance.v1', artifactSha256: expected.sha256, contentVersion: expected.contentVersion, basePath: '/kimyolab/', targetOrigin: 'https://portal.example.uz', acceptedAt: '2026-10-05T10:00:00Z', acceptedBy: 'Operator Name', actorType: 'human', preflightResult: 'PASS', smokeResult: 'PASS', decision: 'ACCEPTED'};
+  assert.deepEqual(acceptanceProblems(good, expected), []);
+  const bad = {
+    'empty JSON': [{}, 'MISSING_artifactSha256'],
+    'wrong artefact': [{...good, artifactSha256: 'f'.repeat(64)}, 'ARTIFACT_MISMATCH'],
+    'wrong basePath': [{...good, basePath: '/other/'}, 'BASE_PATH_MISMATCH'],
+    'localhost target': [{...good, targetOrigin: 'https://localhost:8443'}, 'TARGET_LOCAL'],
+    'private network': [{...good, targetOrigin: 'https://192.168.1.10'}, 'TARGET_LOCAL'],
+    'plain http': [{...good, targetOrigin: 'http://portal.example.uz'}, 'TARGET_NOT_HTTPS'],
+    'automation actor': [{...good, actorType: 'automation'}, 'ACTOR_NOT_HUMAN'],
+    'bot identity': [{...good, acceptedBy: 'github-actions[bot]'}, 'ACTOR_IS_AUTOMATION'],
+    'agent identity': [{...good, acceptedBy: 'Claude agent'}, 'ACTOR_IS_AUTOMATION'],
+    'missing smoke': [{...good, smokeResult: undefined}, 'MISSING_smokeResult'],
+    'failed smoke': [{...good, smokeResult: 'FAIL'}, 'SMOKE_NOT_PASS'],
+    'decision pending': [{...good, decision: 'PENDING'}, 'DECISION_NOT_ACCEPTED'],
+    'stale content version': [{...good, contentVersion: '2026.01.1'}, 'CONTENT_VERSION_MISMATCH'],
+    'not an object': [[], 'NOT_AN_OBJECT'],
+  };
+  for (const [name, [record, code]] of Object.entries(bad)) assert.ok(acceptanceProblems(record, expected).includes(code), `${name}: ${acceptanceProblems(record, expected)}`);
+  // in a repository without valid records, readiness stays READY_IN_SIMULATION; the template never counts
+  assert.equal(readAcceptance(root, expected).valid, 0);
+  assert.ok(!fs.existsSync(path.join(root, 'docs/deploy/acceptance')) || fs.readdirSync(path.join(root, 'docs/deploy/acceptance')).length === 0, 'no acceptance record is ever written by an agent');
+  const tpl = json('docs/deploy/acceptance-template.json');
+  assert.notEqual(tpl.decision, 'ACCEPTED'); assert.ok(acceptanceProblems(tpl, expected).length > 0, 'the template itself does not count');
+  // a fake root with invalid records: status logic only counts valid ones
+  const fake = fs.mkdtempSync(path.join(os.tmpdir(), 'kl-acc-')); fs.mkdirSync(path.join(fake, 'docs/deploy/acceptance'), {recursive: true});
+  for (const [i, [record]] of Object.entries(bad).entries()) fs.writeFileSync(path.join(fake, `docs/deploy/acceptance/${i}.json`), JSON.stringify(record));
+  fs.writeFileSync(path.join(fake, 'docs/deploy/acceptance/broken.json'), '{not json');
+  const res = readAcceptance(fake, expected); fs.rmSync(fake, {recursive: true, force: true});
+  assert.equal(res.valid, 0); assert.equal(res.records.length, Object.keys(bad).length + 1);
+  const r = json('reports/installation-readiness.json');
+  assert.equal(r.status, 'READY_IN_SIMULATION'); assert.equal(r.externalAcceptance.valid, 0);
+  assert.equal(r.ciGreen, undefined, 'no CI-success claim from repository-local code');
+  assert.equal(r.ciGateConfigured.configured, true);
 });

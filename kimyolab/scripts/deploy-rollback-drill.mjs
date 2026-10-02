@@ -1,7 +1,8 @@
 // deploy:rollback-drill (P2.8) — a rollback drill with REAL deployment artefacts (the P0 drill in
 // scripts/rollback-drill.ts only exercises the registry pointer with placeholder bundles):
-//   previous known-good = the deployment artefact built from KIMYOLAB_ROLLBACK_FROM (git ref, default HEAD^1 — the
-//                         previous mainline commit) with ITS OWN builder, for the same mount;
+//   previous known-good = the previous MAINLINE release (scripts/lib/rollback-baseline.ts: KIMYOLAB_ROLLBACK_FROM, else
+//                         the mainline commit this branch is based on, walking back to the first one whose artefact
+//                         differs), built with ITS OWN builder for the same mount;
 //   current             = dist-deploy/<mount>/ (npm run deploy:build).
 // Both go through the existing release registry (scripts/release-registry.ts: promote / rollback). One browser profile
 // stays open on one origin the whole time, so learner storage is the real thing:
@@ -16,12 +17,13 @@ import {fileURLToPath} from 'node:url';
 import {chromium} from '@playwright/test';
 import {promoteRelease, rollbackRelease, readCurrentRelease} from './release-registry.ts';
 import {computeTreeHash} from './deploy-surface-hash.ts';
+import {resolveRollbackBaseline} from './lib/rollback-baseline.ts';
+import {createCommitBuilder} from './lib/commit-artifact.ts';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const BASE = (() => { const b = process.env.KIMYOLAB_BASE_PATH || '/kimyolab/'; return b.endsWith('/') ? b : `${b}/`; })();
 const MOUNT_DIR = BASE.replace(/^\/|\/$/g, '') || 'root';
 const CURRENT = path.join(root, 'dist-deploy', ...MOUNT_DIR.split('/'));
-const FROM = process.env.KIMYOLAB_ROLLBACK_FROM || 'HEAD^1';
 const DB = BASE === '/' ? 'kimyolab-runtime' : `kimyolab@${BASE}.runtime`;
 const MODEL = 'practice.simulation.7.07.planned';
 const steps = [];
@@ -32,27 +34,6 @@ function withManifest(dir, releaseId) {
   const tree = computeTreeHash(dir);   // the artefact itself, before the registry's release-manifest.json is added
   fs.writeFileSync(path.join(dir, 'release-manifest.json'), `${JSON.stringify({releaseId, sha256: tree.sha256, fileCount: tree.fileCount}, null, 2)}\n`);
   return {sha256: tree.sha256, fileCount: tree.fileCount};
-}
-
-/** previous known-good artefact: the older commit, built by the builder of THAT commit, for the same mount */
-function buildPrevious(tmp) {
-  const sha = git(['rev-parse', '--verify', `${FROM}^{commit}`]);
-  if (sha.status !== 0) throw Object.assign(new Error(`git ref ${FROM} is not available (shallow clone? fetch at least 2 commits)`), {code: 'DEPLOY_ROLLBACK_SOURCE_MISSING'});
-  const commit = sha.stdout.trim();
-  const repoTop = git(['rev-parse', '--show-toplevel']).stdout.trim();
-  const sub = path.relative(repoTop, root).split(path.sep).join('/');
-  const src = path.join(tmp, 'previous-src');
-  fs.mkdirSync(src, {recursive: true});
-  const archive = spawnSync('git', ['archive', '--format=tar', commit, sub], {cwd: repoTop, maxBuffer: 1 << 30});
-  if (archive.status !== 0) throw Object.assign(new Error('git archive of the previous commit failed'), {code: 'DEPLOY_ROLLBACK_SOURCE_MISSING'});
-  const untar = spawnSync('tar', ['-x', '-C', src], {input: archive.stdout});
-  if (untar.status !== 0) throw Object.assign(new Error('could not unpack the previous commit'), {code: 'DEPLOY_ROLLBACK_SOURCE_MISSING'});
-  const prevRoot = path.join(src, sub);
-  const out = path.join(tmp, 'previous-artifact');
-  const r = spawnSync(process.execPath, ['--no-warnings', path.join(prevRoot, 'scripts', 'build-production.ts'), out, '--base-path', BASE], {cwd: prevRoot, encoding: 'utf8'});
-  if (r.status !== 0) throw Object.assign(new Error('the previous commit could not be built for this mount'), {code: 'DEPLOY_ROLLBACK_SOURCE_MISSING'});
-  fs.rmSync(path.join(out, 'app.html'), {force: true});
-  return {commit: commit.slice(0, 12), dir: out};
 }
 
 async function evidenceCount(page) {
@@ -69,7 +50,10 @@ const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'kimyolab-rollback-'));
 let report;
 try {
   if (!fs.existsSync(path.join(CURRENT, 'index.html'))) throw Object.assign(new Error(`no current artefact at dist-deploy/${MOUNT_DIR}/ — run npm run deploy:build`), {code: 'DEPLOY_BUILD_INCOMPLETE'});
-  const previous = buildPrevious(tmp);
+  const currentSha = computeTreeHash(CURRENT).sha256;
+  const buildCommit = createCommitBuilder(root, tmp, BASE);
+  const baseline = resolveRollbackBaseline(root, {differs: (commit) => buildCommit(commit).sha256 !== currentSha});
+  const previous = buildCommit(baseline.commit);
   const currentCopy = path.join(tmp, 'current-artifact');
   fs.cpSync(CURRENT, currentCopy, {recursive: true});
   const prevHash = withManifest(previous.dir, 'previous'); const curHash = withManifest(currentCopy, 'current');
@@ -133,7 +117,7 @@ try {
     const servedHash = computeTreeHash(path.join(registry, 'releases', 'current'), ['release-manifest.json']).sha256;
     step('restored-bytes-identical', servedHash === computeTreeHash(CURRENT).sha256, {sha256: servedHash});
   } finally { await context.close(); await browser.close(); if (server) await new Promise((r) => server.close(r)); }
-  report = {status: 'PASS', previous: {source: `${FROM} = ${previous.commit}`, ...prevHash}, current: {source: `dist-deploy/${MOUNT_DIR}/`, ...curHash}};
+  report = {status: 'PASS', previous: {commit: baseline.commit, resolution: {method: baseline.method, mainline: baseline.mainline, mergeBase: baseline.mergeBase, walked: baseline.walked}, builder: 'that commit\'s own scripts/build-production.ts', ...prevHash}, current: {source: `dist-deploy/${MOUNT_DIR}/`, ...curHash}};
 } catch (e) {
   report = {status: 'FAIL', code: e.code ?? 'DEPLOY_ROLLBACK_FAILED', message: String(e.message).split('\n')[0], ...(e.detail ? {detail: e.detail} : {})};
 } finally { fs.rmSync(tmp, {recursive: true, force: true}); }

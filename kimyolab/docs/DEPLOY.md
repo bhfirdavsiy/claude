@@ -25,8 +25,13 @@ npm run deploy:smoke       # real browser against the built artefact (needs Chro
 ```
 
 `deploy:build` rebuilds the content pack and the browser modules from the committed sources and then writes the
-artefact. The same commit with the same configuration always gives the same bytes; `deploy:preflight` rebuilds once
-and compares.
+artefact.
+
+The same commit with the same configuration gives the same bytes **on Linux and on Windows**:
+- `kimyolab/.gitattributes` turns off line-ending conversion on checkout;
+- the preflight rejects CRLF in the artefact's text files;
+- CI compares the Linux and the Windows manifests file by file (the `cross-platform-artifact` job);
+- `deploy:preflight` also rebuilds once and compares.
 
 ## 3. Configuration
 
@@ -58,7 +63,12 @@ proves that the code reads nothing else.
   - `KIMYOLAB_CO_HOSTED_MOUNTS` (preflight, optional) is a comma list of other KimyoLab mounts on the same origin.
   - The preflight fails with `DEPLOY_STORAGE_NAMESPACE_COLLISION` if one of them would share learner storage with this mount.
 - **Smoke against a live site:** `KIMYOLAB_SMOKE_URL=https://<host>/kimyolab/ npm run deploy:smoke` checks an installed site instead of the local artefact.
-- **Rollback drill:** `KIMYOLAB_ROLLBACK_FROM` is the git ref of the previous known-good release. The default is `HEAD^1`.
+- **Rollback drill:** `KIMYOLAB_ROLLBACK_FROM` is the git ref of the previous known-good release, and it always wins. Without it, `scripts/lib/rollback-baseline.ts` resolves the baseline:
+  - on a branch, it starts at the mainline commit the branch is based on (merge-base with `KIMYOLAB_MAINLINE_REF`, default `origin/main`);
+  - on main, it starts at the first parent;
+  - it then walks back along the mainline to the first commit whose artefact differs from the current one.
+
+  The baseline must be on the mainline, and the drill reports its full SHA. Use a full clone (CI: `fetch-depth: 0`).
 - **Optional server tuning** (bundled server only): `KIMYOLAB_SESSION_RATE_LIMIT`, `KIMYOLAB_STATUS_RATE_LIMIT`, `KIMYOLAB_ALLOWED_ORIGINS`.
 
 ## 4. What to upload
@@ -143,6 +153,7 @@ A failed install shows up as a `✗` line with a `DEPLOY_*` code, and the comman
 | `DEPLOY_EXTERNAL_DEPENDENCY` | the shell loads from another origin | remove or vendor it |
 | `DEPLOY_NOT_REPRODUCIBLE` | the artefact is not the build of this commit | rebuild from the commit you deploy |
 | `DEPLOY_CONFIG_MISMATCH` | build and current configuration differ | use the same `KIMYOLAB_*` values |
+| `DEPLOY_LINE_ENDINGS_NONCANONICAL` | text files contain CRLF (an EOL-converting checkout) | check out with the repository `.gitattributes` and rebuild |
 
 ## 7. Rollback
 
@@ -163,4 +174,13 @@ npm run deploy:readiness    # Installation Readiness: every check, its evidence,
 `reports/installation-readiness.json` is a separate metric. It does not enter the learning-product formula.
 
 - **`READY_IN_SIMULATION`:** every check passes on the simulated `/kimyolab/` mount and in the clean drill.
-- **`READY_FOR_DEPLOYMENT`:** also needs an operator acceptance record from the real target server in `docs/deploy/acceptance/`. None exists yet. No real portal integration is claimed.
+- **`READY_IN_SIMULATION`** is a local, simulated result. It does not include a remote CI result: live CI success is the PR's external merge gate.
+- **`READY_FOR_DEPLOYMENT`:** also needs a **valid** target-server acceptance record in `docs/deploy/acceptance/`, written by a human operator. Copy `docs/deploy/acceptance-template.json` to start one.
+  - A record counts only when:
+    - it names this exact artefact sha256, content version and mount;
+    - the target is a real non-local HTTPS origin;
+    - the actor is a human, not a bot, CI or agent identity;
+    - preflight and smoke are both `PASS`;
+    - the decision is `ACCEPTED`.
+  - Anything else does not count.
+  - None exists yet. No real portal integration is claimed.

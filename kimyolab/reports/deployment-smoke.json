@@ -4,7 +4,18 @@
   "target": {
     "target": "dist-deploy/kimyolab/ via the bundled Node server",
     "mount": "/kimyolab/",
-    "artifactSha256": "f61f1cca79ed4e9db2f1c76e3c0556d0aecfa483de569adc1d22ae73599926ba"
+    "artifactSha256": "f61f1cca79ed4e9db2f1c76e3c0556d0aecfa483de569adc1d22ae73599926ba",
+    "config": {
+      "basePath": "/kimyolab/",
+      "portalHomeUrl": null,
+      "assetBase": "/kimyolab/",
+      "contentBase": "/kimyolab/content",
+      "apiBase": "/kimyolab/api/",
+      "storageNamespace": "kimyolab@/kimyolab/",
+      "indexedDbName": "kimyolab@/kimyolab/.runtime",
+      "webLockPrefix": "kimyolab@/kimyolab/.attempt."
+    },
+    "contentVersion": "2026.09.1"
   },
   "standalone": "dist-standalone/KimyoLab_standalone.html (network blocked)",
   "status": "PASS",

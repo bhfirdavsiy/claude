@@ -19,7 +19,7 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 
 export interface PreflightCheck { id:string; pass:boolean; code?:string; message?:string; fix?:string; detail?:unknown }
 /** The published check list: every id always appears in the result (no hidden scoring). */
-export const PREFLIGHT_CHECKS=['config','build-complete','content-manifest','artifact-checksum','content-integrity','base-path','root-asset-leak','content-base','brand-asset','storage-namespace','service-worker','external-dependency','forbidden-files','reproducible-build','config-match'] as const;
+export const PREFLIGHT_CHECKS=['config','build-complete','content-manifest','artifact-checksum','content-integrity','base-path','root-asset-leak','content-base','brand-asset','storage-namespace','service-worker','external-dependency','forbidden-files','line-endings','reproducible-build','config-match'] as const;
 
 const REQUIRED=['index.html','app-preview/app/bootstrap.js','app-preview/ui/tokens/kimyolab.css','content/manifest.json','assets/brand/kimyolab-logo.webp'];
 /** The approved brand delivery asset (P2.2 brand integration): its bytes are fixed; a different logo is a failed install. */
@@ -119,6 +119,11 @@ export function runPreflight(opts:{root:string;env?:Record<string,string|undefin
   const forbidden=computeTreeHash(dir).files.filter(f=>/(^|\/)\./.test(f)||/\.(ts|mjs|map|md|xlsx|env|sh|bat|ps1|cmd|pem|key)$/i.test(f)||/^(src|scripts|tests|docs|reports|review-packets|content-src|schemas|config|source|server|node_modules)\//.test(f)||/package(-lock)?\.json$/.test(f));
   if(forbidden.length) fail('forbidden-files','DEPLOY_FORBIDDEN_FILE',`${forbidden.length} non-public file(s) are in the artefact.`,'rebuild with "npm run deploy:build"; never add files to the artefact by hand.',{files:forbidden.slice(0,20)});
   else ok('forbidden-files');
+
+  // line-endings: build OUTPUT text is canonical (LF only) so every OS ships the same bytes; binaries are untouched
+  const crlf=computeTreeHash(dir).files.filter(f=>/\.(html|js|css|json|ya?ml|svg|txt)$/i.test(f)&&fs.readFileSync(path.join(dir,f)).includes(0x0d));
+  if(crlf.length) fail('line-endings','DEPLOY_LINE_ENDINGS_NONCANONICAL',`${crlf.length} text file(s) contain carriage returns (CRLF).`,'check out with the repository .gitattributes (no EOL conversion) and rebuild; a CRLF checkout builds different bytes than Linux.',{files:crlf.slice(0,20)});
+  else ok('line-endings');
 
   // reproducible-build: rebuilding the same commit with the same inputs gives the same bytes
   if(opts.rebuild!==false&&manifest){
