@@ -61,7 +61,7 @@ function govPanel(p,name){
 function sourcesPicker(slot,name,onChange){var wrap=el('div',{class:'cw-sources',role:'group','aria-label':name+' manbalari'});
   C.acceptableSources.forEach(function(s){var id='cs-'+name.replace(/[^a-z0-9]/gi,'_')+'-'+s.id.replace(/[^a-z0-9]/gi,'_');var cb=el('input',{type:'checkbox',id:id});cb.checked=(slot.sourceRefs||[]).indexOf(s.id)>=0;
     cb.addEventListener('change',function(){slot.sourceRefs=C.acceptableSources.map(function(x){return x.id}).filter(function(x){var c=document.getElementById('cs-'+name.replace(/[^a-z0-9]/gi,'_')+'-'+x.replace(/[^a-z0-9]/gi,'_'));return c&&c.checked});onChange()});
-    wrap.appendChild(el('label',{for:id},[cb,s.id+' ('+s.category+')']))});
+    wrap.appendChild(el('label',{for:id},[cb,s.id+' ('+s.category+', '+(s.canonicalAuthoringEligible?'HUMAN_ACCEPTED':'PROPOSED — kanonik apply uchun yaroqsiz')+')']))});
   if(!C.acceptableSources.length)wrap.appendChild(el('span',{class:'wb-flag',text:'Qabul qilinadigan manba ro‘yxatda yo‘q — avval Manbalar bo‘limida manba qo‘shilsin.'}));
   return wrap}
 function textField(label,value,onInput,multi){var id='f'+Math.random().toString(36).slice(2);var input=multi?el('textarea',{id:id}):el('input',{type:'text',id:id});input.value=value||'';input.addEventListener('input',function(){onInput(input.value)});return el('label',{for:id},[label,input])}
@@ -94,6 +94,8 @@ function renderTheory(){
   ed.appendChild(add);renderTheorySummary(p)}
 function renderTheorySummary(p){var box=clear(document.getElementById('ctSummary'));var r=G.packetToEntry(p);var entry=r.entry;
   var v=G.validateStructuredTheory(entry,registry);var state=G.theoryReviewState(entry);
+  var srcIssues=[];G.contentBlocks(entry).forEach(function(b){G.canonicalSourceIssues(b.block.sourceRefs||[],registry).forEach(function(i){srcIssues.push(i.code+'@'+b.name+':'+i.ref)})});
+  v={issues:v.issues.filter(function(i){return i.code!=='SOURCE_UNREGISTERED'&&i.code!=='SOURCE_NOT_ACCEPTABLE'}).concat(srcIssues.map(function(x){return {code:x.split('@')[0],where:x.split('@')[1]}}))};
   box.appendChild(el('div',{class:'cw-gov '+(state==='APPROVED'&&!v.issues.length&&!r.issues.length?'ok':'warn'),'data-theory-state':state},[el('strong',{text:'Nazariya holati: '+state}),el('div',{text:v.issues.length||r.issues.length?'Apply’ga to‘sqinlar: '+r.issues.concat(v.issues.map(function(i){return i.code+'@'+i.where})).join(', '):'Validatsiya: muammo yo‘q'})]))}
 document.getElementById('ctExport').addEventListener('click',function(){var lu=unitSel.value;var p=packetFor(lu);var out=G.packetWithEntry(p,G.packetToEntry(p).entry);out.slots.version=p.slots.version||null;download('theory-packet.'+lu+'.json',out)});
 document.getElementById('ctImport').addEventListener('change',function(){readFile(this,function(pk){var r=G.packetToEntry(pk);if(r.issues.indexOf('PACKET_SCHEMA')>=0||!pk.learningUnit||!C.packets.some(function(x){return x.learningUnit.id===pk.learningUnit.id})){showTheoryError('Bu fayl nazariya packet’i emas yoki mavzu noma’lum.');return}S.theory[pk.learningUnit.id]=pk;S.unit=pk.learningUnit.id;gradeSel.value='all';save();renderTheory()})});

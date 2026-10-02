@@ -91,7 +91,7 @@ function readme(q:any):string{
 }
 
 export function writeTheoryAuthoring(root:string){
-  assertCanonicalTheoryApproved(collectStructuredTheory(root));
+  assertCanonicalTheoryApproved(collectStructuredTheory(root),root);
   const {audit,queue,packets}=buildTheoryAuthoring(root);
   const w=(rel:string,v:unknown)=>{ fs.mkdirSync(path.dirname(path.join(root,rel)),{recursive:true}); fs.writeFileSync(path.join(root,rel),JSON.stringify(v,null,2)+'\n'); };
   w(THEORY_AUDIT,audit); w(`${THEORY_PACKET_DIR}/queue.json`,queue);

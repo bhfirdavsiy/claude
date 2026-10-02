@@ -61,7 +61,7 @@ for (const name of ['concepts.json','theory-activities.json','practice-activitie
 copy(path.join(source, 'aliases.yaml'), path.join(packRoot, 'aliases.yaml'));
 // P2.3: structured theory — malformed authored entries fail the build; only complete, sourced entries ship
 // P2.4: the repository's canonical structured theory must be dual-review APPROVED (governed apply), or the build stops
-writeJson(path.join(packRoot, STRUCTURED_THEORY_PACK_PATH), structuredTheoryPack(root, assertCanonicalTheoryApproved(collectStructuredTheory(root))));
+writeJson(path.join(packRoot, STRUCTURED_THEORY_PACK_PATH), structuredTheoryPack(root, assertCanonicalTheoryApproved(collectStructuredTheory(root), root)));
 
 // P1.1 (C3): the authored bank (content-src/assessment-items.json) is never shipped as-is. The pack
 // carries a learner-facing prompt layer and a separate answer-key layer that a deployment can withhold.

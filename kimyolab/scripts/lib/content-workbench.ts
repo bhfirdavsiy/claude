@@ -8,6 +8,8 @@ import {fileURLToPath} from 'node:url';
 import {ACCEPTABLE} from '../../src/domain/governance/source-policy.ts';
 import {buildTheoryAuthoring} from '../theory-authoring.ts';
 import {buildTheoryAuthoringStatus,readSourceIntake,sourceReviewQueue} from './content-operations.ts';
+import {loadGovernedSourceRegistry} from './source-registry.ts';
+import {sourceAcceptance} from '../../src/domain/governance/source-policy.ts';
 import {bundleBrowserModules} from './browser-module-bundle.ts';
 import {CONTENT_WORKBENCH_CSS,CONTENT_WORKBENCH_JS} from './content-workbench-client.ts';
 
@@ -19,14 +21,16 @@ export const WORKBENCH_DOMAIN_MODULES=['authoring/authoring-packet.ts','domain/t
 
 export function buildContentWorkbenchModel(root:string){
   const {packets}=buildTheoryAuthoring(root);
-  const registryRaw=JSON.parse(fs.readFileSync(path.join(root,'content-src/source-registry.json'),'utf8'));
+  const governed=loadGovernedSourceRegistry(root);
   const status=buildTheoryAuthoringStatus(root);
   const optionQueue=JSON.parse(fs.readFileSync(path.join(root,'review-packets/option-set-authoring/queue.json'),'utf8'));
   const shared=(packets[0] as any)??{};
   const model={
     schema:'kimyolab.content-workbench.v1',
-    sources:registryRaw.sources.map((s:any)=>({id:s.id,category:s.category,title:s.title,classification:s.classification??null})),
-    acceptableSources:registryRaw.sources.filter((s:any)=>ACCEPTABLE.chemistry.includes(s.category)).map((s:any)=>({id:s.id,category:s.category,title:s.title})),
+    // the pin-verified registry entries (P2.4 closeout A2): what canonical authoring would see
+    sources:[...governed.registry.byId.values()].map(s=>({...s,...sourceAcceptance(s)})),
+    // category-compatible sources an author may cite; `canonicalAuthoringEligible` says whether theory:apply accepts them
+    acceptableSources:[...governed.registry.byId.values()].filter(s=>ACCEPTABLE.chemistry.includes(s.category)).map(s=>({id:s.id,category:s.category,title:s.title,classification:s.classification,canonicalAuthoringEligible:sourceAcceptance(s).canonicalAuthoringEligible})),
     // packets without the two fields every packet shares (added back on export)
     packets:packets.map((p:any)=>{ const {sourceRequirements,reviewChecklist,...rest}=p; return rest; }),
     sourceRequirements:shared.sourceRequirements,reviewChecklist:shared.reviewChecklist,

@@ -1,7 +1,8 @@
 // P2.4 — the governed content workbench in a real browser: an author fills a unit's structured-theory slots (neutral
 // TEST FIXTURE text, never chemistry), a chemistry and a didactic reviewer — two different people — approve the same
-// hashes, an edit makes the reviews stale, and the exported packet passes the governed apply's checks in a sandbox
-// copy. Machine identities, self-review and one person in both roles are refused in the page. Nothing is committed.
+// hashes, an edit makes the reviews stale, and the exported packet reaches the governed apply's checks, where the
+// merely PROPOSED source is the only blocker. Machine identities, self-review and one person in both roles are
+// refused in the page. Nothing is committed.
 import {test,expect} from '@playwright/test';
 import fs from 'node:fs';
 import os from 'node:os';
@@ -17,7 +18,7 @@ const f=structuredFixture();
 async function reviewer(page,id,role){ await page.fill('#wbReviewerId',id); await page.locator('#wbReviewerId').press('Tab'); await page.selectOption('#wbReviewerRole',role); }
 async function approveEveryBlock(page){ const n=await page.locator('#ctEditor [data-block]').count(); for(let i=0;i<n;i+=1) await page.locator('#ctEditor [data-block]').nth(i).locator('[data-review="approved"]').click(); }
 
-test('theory workbench: author → chemistry → didactic → APPROVED; edit → STALE; export passes the apply checks',async({page})=>{
+test('theory workbench: author → chemistry → didactic → APPROVED; edit → STALE; export blocked only by source acceptance',async({page})=>{
   const errors=[];const external=[];
   page.on('pageerror',e=>errors.push(String(e)));
   page.on('request',r=>{ if(!/^(file|blob|data):/.test(r.url())) external.push(r.url()); });
@@ -67,8 +68,13 @@ test('theory workbench: author → chemistry → didactic → APPROVED; edit →
   expect(packet.learningUnit.id).toBe(FIXTURE_UNIT_ID);
   expect(packet.contentHashes.summary).toBe(current);
   expect(packet.slots.summary.reviews.map(r=>[r.reviewerRole,r.reviewedHash])).toEqual([['chemistry',current],['didactic',current]]);
+  // P2.4 closeout (A1): the repository's only category-compatible source is PROPOSED, so the governed apply refuses
+  // this dual-approved packet — and human acceptance of the source is the ONLY remaining blocker, in page and CLI alike
+  await expect(page.locator('#ctSummary')).toContainText('SOURCE_NOT_HUMAN_ACCEPTED');
   const check=spawnSync(process.execPath,['--experimental-strip-types','--no-warnings','scripts/content-operations.ts','theory:check',file],{cwd:root,encoding:'utf8'});
-  expect(check.stdout).toContain('"ok": true');
+  const result=JSON.parse(check.stdout);
+  expect(result.ok).toBe(false); expect(result.review).toBe('APPROVED');
+  expect(result.issues).toEqual(['explanation','workedExamples[0]','misconceptions[0]','summary'].map(b=>`SOURCE_NOT_HUMAN_ACCEPTED:${b}:${FIXTURE_SOURCE}`));
   // an edit after review: STALE, never approved
   await block('summary').locator('textarea').fill(`${f.summary.points.join('\n')}\nQo‘shimcha fixture bandi.`);
   await expect(page.locator('#ctSummary [data-theory-state]')).not.toHaveAttribute('data-theory-state','APPROVED');

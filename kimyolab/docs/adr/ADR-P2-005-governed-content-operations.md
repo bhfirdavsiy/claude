@@ -26,6 +26,22 @@
 - `npm run source:queue` → `review-packets/source-intake/queue.json`.
 - `npm run source:apply -- <intake.json>`: faqat inson; CI/agent muhitida rad etiladi. APPROVED va takrorsiz bo‘lmasa yozmaydi. Registry yozuvi: `classification: HUMAN_ACCEPTED`, `submittedBy`, `acceptedBy`, `acceptedAt`, `reviewedHash`. Registry formati baytma-bayt saqlanadi.
 
+## 1a. Manba qabul qilinishi (P2.4 closeout A1–A2)
+
+Ro‘yxatda bo‘lish va kategoriyaning to‘g‘riligi kanonik nazariya uchun **yetarli emas**. Uchta alohida fakt:
+
+| Fakt | Ma’nosi |
+|---|---|
+| `categoryCompatible` | kategoriya kimyo da’volari uchun qabul qilinadigan (SOURCE_POLICY) |
+| `humanAccepted` | inson manbani governed intake orqali qabul qilgan: `classification: HUMAN_ACCEPTED`, `acceptedBy` (automation emas), `acceptedAt`, `reviewedHash` |
+| `canonicalAuthoringEligible` | ikkalasi ham. Faqat shu manba kanonik structured theory’ni qo‘llab-quvvatlaydi |
+
+- Parse qilingan registry endi `classification`, `acceptedBy`, `acceptedAt`, `reviewedHash`ni saqlaydi (`src/domain/governance/source-policy.ts`).
+- **Pin:** HUMAN_ACCEPTED yozuv faqat ko‘rib chiqilgan intake revision’iga bog‘langan bo‘lsa hisoblanadi (`scripts/lib/source-registry.ts`): `content-src/source-intake/<id>.json` mavjud, APPROVED, hash’i `reviewedHash`ga teng va qaror `acceptedBy`dagi odamniki. Intake keyin tahrirlansa yoki yo‘qolsa, yoki registry qo‘lda HUMAN_ACCEPTED qilinsa — manba qabul qilinmagan hisoblanadi.
+- Taksonomiya (har blok, har manba): `SOURCE_UNREGISTERED`, `SOURCE_CATEGORY_NOT_ACCEPTABLE`, `SOURCE_NOT_HUMAN_ACCEPTED`. `theory:check`, `theory:apply` va build qo‘riqchisi shu taksonomiyani ishlatadi.
+- Mavjud 5 manba qayta tasniflanmadi. `src.curriculum.9.06` PROPOSED bo‘lib qoladi: legacy kontent va hisobotlar uchun ishlaydi, governed apply’ni qanoatlantirmaydi.
+- Hozir: registered 5, category-compatible 1, human-accepted 0, canonical-theory-eligible 0.
+
 ## 2. Structured theory: packet → draft → apply
 
 - **Packet** (`kimyolab.theory-authoring-packet.v1`) — workbench, repozitoriy va apply o‘rtasidagi yagona round-trip format (`src/authoring/authoring-packet.ts`).
@@ -34,8 +50,8 @@
   - 122 ta packet saqlanadi; endi `slots.version` (bo‘sh) bor. Kanonik nazariyasi bor mavzuning packet’i o‘sha kontentni olib yuradi.
 - `npm run theory:import -- <packet.json>` → `authoring-drafts/theory/<lu>.json`: kanonik **emas**, pack’ga kirmaydi.
 - `npm run theory:check -- <packet.json>`: apply tekshiruvlari, yozuvsiz (har qanday muhitda).
-- `npm run theory:apply -- <packet.json>`: faqat inson; CI/agent muhitida rad etiladi. Tekshiradi: packet, mavzu/nazariya bog‘lanishi, JSON Schema, kontrakt (to‘liqlik, placeholder, manba ro‘yxatda va qabul qilinadigan), muallif, ikkala review, hash’lar, self-review, bir kishi ikki rolda. Hammasi to‘g‘ri va **har blok APPROVED** bo‘lsa, `content-src/theory-structured/<theoryId>.json` deterministik yoziladi (kalitlar tartiblangan, massiv tartibi saqlangan), keyin pack va nazariya hisobotlari qayta yaratiladi.
-- **Fail-closed qo‘riqchi:** repozitoriy build’i (`content:pack`) va `content:validate` har kanonik yozuv dual-review APPROVED ekanini qayta tekshiradi (`assertCanonicalTheoryApproved`). Qo‘lda yozilgan yoki keyin tahrirlangan (STALE) fayl build’ni to‘xtatadi. Approval yo‘q → kanonik apply yo‘q.
+- `npm run theory:apply -- <packet.json>`: faqat inson; CI/agent muhitida rad etiladi. Tekshiradi: packet, mavzu/nazariya bog‘lanishi, JSON Schema, kontrakt (to‘liqlik, placeholder), manba (ro‘yxatda, kategoriyasi mos **va inson qabul qilgan**, §1a), muallif, ikkala review, hash’lar, self-review, bir kishi ikki rolda. Hammasi to‘g‘ri va **har blok APPROVED** bo‘lsa, `content-src/theory-structured/<theoryId>.json` deterministik yoziladi (kalitlar tartiblangan, massiv tartibi saqlangan), keyin pack va nazariya hisobotlari qayta yaratiladi.
+- **Fail-closed qo‘riqchi:** repozitoriy build’i (`content:pack`) va `content:validate` har kanonik yozuv dual-review APPROVED ekanini va har manbasi canonical-authoring eligible ekanini qayta tekshiradi (`assertCanonicalTheoryApproved`). Qo‘lda yozilgan yoki keyin tahrirlangan (STALE) fayl build’ni to‘xtatadi. Approval yo‘q → kanonik apply yo‘q.
 
 ## 3. Workbench
 
@@ -54,7 +70,7 @@
 
 ## 5. Hisobot
 
-`reports/theory-authoring-status.json` — faqat faktlar: 122 mavzu, har biri bitta holatda (notStarted, draft, readyForReview, chemistryReviewed, didacticReviewed, approved, changesRequested, missingSource, staleReview); manba sonlari va kategoriyalari, intake holatlari; manba, mualliflik, chemistry va didactic review bo‘yicha bloklangan mavzular. Prioritet balli yo‘q. Progress formulasiga kirmaydi.
+`reports/theory-authoring-status.json` — faqat faktlar: 122 mavzu, har biri bitta holatda (notStarted, draft, readyForReview, chemistryReviewed, didacticReviewed, approved, changesRequested, missingSource, staleReview). Manbalar to‘rt alohida son bilan: `registeredSources`, `categoryCompatibleSources`, `humanAcceptedSources`, `canonicalTheoryEligibleSources`. Bloklar: mualliflikka hali kirmagan mavzular (`unitsNotYetInAuthoring`, hozir 122) alohida; mualliflikdagi mavzular manba/mualliflik/chemistry/didactic bo‘yicha; `canonicalApplyImpossibleForAllUnits` — eligible manba 0 bo‘lsa hech bir mavzu kanonik apply qilinmaydi. “0 manba blokeri” faqat “mualliflikdagi” mavzular uchun va 122 mavzu hali kirmagani bilan birga ko‘rsatiladi. Prioritet balli yo‘q. Progress formulasiga kirmaydi.
 
 ## 6. Learner runtime
 

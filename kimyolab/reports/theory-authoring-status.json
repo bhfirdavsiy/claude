@@ -16,10 +16,14 @@
   "canonicalEntries": 0,
   "workingDrafts": 0,
   "sources": {
-    "registered": 5,
-    "registeredAcceptableForChemistry": 1,
-    "humanAccepted": 0,
+    "registeredSources": 5,
+    "categoryCompatibleSources": 1,
+    "humanAcceptedSources": 0,
+    "canonicalTheoryEligibleSources": 0,
+    "eligibleSourceIds": [],
+    "semantics": "categoryCompatible = the category is acceptable for chemistry claims (SOURCE_POLICY). humanAccepted = a person accepted the source through governed intake (HUMAN_ACCEPTED, pinned to the reviewed intake hash). Only sources that are both are canonical-theory eligible; a PROPOSED source never satisfies theory:apply.",
     "proposedClassification": 5,
+    "unpinnedHumanAccepted": [],
     "categories": {
       "CURRICULUM": 1,
       "INTERNAL_PROPOSAL": 4
@@ -36,10 +40,14 @@
     }
   },
   "blocked": {
-    "bySources": 0,
-    "byAuthoring": 122,
-    "byChemistryReview": 0,
-    "byDidacticReview": 0
+    "semantics": "Blockers of units that HAVE entered authoring are counted by state. Units not yet in authoring are counted separately: their source blocker is not measured per unit yet, but no unit can be canonically applied while canonicalTheoryEligibleSources is 0.",
+    "unitsNotYetInAuthoring": 122,
+    "unitsInAuthoring": 0,
+    "canonicalApplyImpossibleForAllUnits": true,
+    "inAuthoringBySources": 0,
+    "inAuthoringByAuthoring": 0,
+    "inAuthoringByChemistryReview": 0,
+    "inAuthoringByDidacticReview": 0
   },
   "units": [
     {

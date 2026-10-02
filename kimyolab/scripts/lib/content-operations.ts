@@ -11,7 +11,8 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createContentAjv} from './content-schema.ts';
 import {loadSourceRegistry,STRUCTURED_THEORY_DIR,collectStructuredTheory} from './structured-theory.ts';
-import {ACCEPTABLE,parseSourceRegistry} from '../../src/domain/governance/source-policy.ts';
+import {parseSourceRegistry,canonicalSourceIssues} from '../../src/domain/governance/source-policy.ts';
+import {loadGovernedSourceRegistry,sourceReadiness} from './source-registry.ts';
 import {validateStructuredTheory,theoryReviewState,blockGovernance,contentBlocks} from '../../src/domain/theory/structured-theory.ts';
 import {packetToEntry,THEORY_PACKET_SCHEMA} from '../../src/authoring/authoring-packet.ts';
 import {SOURCE_INTAKE_DIR,sourceGovernance,detectSourceDuplicates,validateSourceIntake} from '../../src/authoring/source-intake.ts';
@@ -42,7 +43,11 @@ export function checkTheoryPacket(root:string,packet:any):TheoryCheck{
   const validate=schema('structured-theory.schema.json');
   if(!validate(entry)) issues.push(`SCHEMA:${(validate.errors??[]).map((e:any)=>`${e.instancePath} ${e.message}`).join('; ')}`);
   const v=validateStructuredTheory(entry,loadSourceRegistry(root));
-  for(const i of v.issues) issues.push(`${i.code}:${i.where}`);
+  // source gate (P2.4 closeout A1): the contract's category check is replaced by the canonical-authoring taxonomy —
+  // SOURCE_UNREGISTERED / SOURCE_CATEGORY_NOT_ACCEPTABLE / SOURCE_NOT_HUMAN_ACCEPTED, per block and source
+  for(const i of v.issues) if(i.code!=='SOURCE_UNREGISTERED'&&i.code!=='SOURCE_NOT_ACCEPTABLE') issues.push(`${i.code}:${i.where}`);
+  const {registry}=loadGovernedSourceRegistry(root);
+  for(const {name,block} of contentBlocks(entry)) for(const i of canonicalSourceIssues(Array.isArray(block?.sourceRefs)?block.sourceRefs:[],registry)) issues.push(`${i.code}:${name}:${i.ref}`);
   const review=theoryReviewState(entry);
   if(review!=='APPROVED') issues.push(`NOT_APPROVED:${review}`);
   return {ok:!issues.length,entry,issues:[...new Set(issues)],review};
@@ -134,8 +139,8 @@ type UnitState='notStarted'|'draft'|'missingSource'|'readyForReview'|'chemistryR
 export function unitAuthoringState(entry:any,registry=null as any):{state:UnitState;missingChemistry:boolean;missingDidactic:boolean;sourced:boolean}{
   if(!entry) return {state:'notStarted',missingChemistry:true,missingDidactic:true,sourced:false};
   const blocks=contentBlocks(entry).map(b=>({block:b.block,g:blockGovernance(b.block)}));
-  const v=registry?validateStructuredTheory(entry,registry):null;
-  const sourced=Boolean(v?.sourced);
+  // sourced = every block cites ≥1 source and every cited source is canonical-authoring eligible (P2.4 closeout A1)
+  const sourced=Boolean(registry)&&blocks.length>0&&blocks.every(b=>Array.isArray(b.block?.sourceRefs)&&b.block.sourceRefs.length>0&&!canonicalSourceIssues(b.block.sourceRefs,registry).length);
   const missingChemistry=blocks.some(b=>b.g.chemistry?.decision!=='approved'), missingDidactic=blocks.some(b=>b.g.didactic?.decision!=='approved');
   const states=blocks.map(b=>b.g.state);
   let state:UnitState;
@@ -151,8 +156,9 @@ export function unitAuthoringState(entry:any,registry=null as any):{state:UnitSt
 }
 
 export function buildTheoryAuthoringStatus(root:string){
-  const registry=loadSourceRegistry(root);
+  const {registry,pinIssues}=loadGovernedSourceRegistry(root);
   const registryRaw=readJson(root,'content-src/source-registry.json');
+  const readiness=sourceReadiness(registry);
   const units=(readJson(root,'content-src/learning-units.json') as any[]).map(u=>u.id).sort((a:string,b:string)=>a.localeCompare(b,undefined,{numeric:true}));
   const canonical=new Map(collectStructuredTheory(root).map(c=>[c.entry.learningUnitId,c.entry]));
   const drafts=new Map(readTheoryDrafts(root).map(p=>[p.learningUnit?.id,packetToEntry(p).entry]));
@@ -162,19 +168,27 @@ export function buildTheoryAuthoringStatus(root:string){
   });
   const count=(s:UnitState)=>rows.filter(r=>r.state===s).length;
   const intake=sourceReviewQueue(root);
-  const acceptable=registryRaw.sources.filter((s:any)=>ACCEPTABLE.chemistry.includes(s.category));
   return {schema:'kimyolab.theory-authoring-status.v1',
     semantics:`Facts only, from the repository: canonical entries (${STRUCTURED_THEORY_DIR}/) and working drafts (${THEORY_DRAFT_DIR}/). Each unit is in exactly one state. No priority score. Not part of the learning-product progress formula: drafts, pending reviews and source metadata are not content.`,
     totals:{units:rows.length,notStarted:count('notStarted'),draft:count('draft'),readyForReview:count('readyForReview'),chemistryReviewed:count('chemistryReviewed'),didacticReviewed:count('didacticReviewed'),approved:count('approved'),changesRequested:count('changesRequested'),missingSource:count('missingSource'),staleReview:count('staleReview')},
     canonicalEntries:canonical.size,workingDrafts:drafts.size,
-    sources:{registered:registryRaw.sources.length,registeredAcceptableForChemistry:acceptable.length,
-      humanAccepted:registryRaw.sources.filter((s:any)=>s.classification==='HUMAN_ACCEPTED').length,
+    sources:{registeredSources:readiness.registeredSources,categoryCompatibleSources:readiness.categoryCompatibleSources,
+      humanAcceptedSources:readiness.humanAcceptedSources,canonicalTheoryEligibleSources:readiness.canonicalTheoryEligibleSources,
+      eligibleSourceIds:readiness.eligibleSourceIds,
+      semantics:'categoryCompatible = the category is acceptable for chemistry claims (SOURCE_POLICY). humanAccepted = a person accepted the source through governed intake (HUMAN_ACCEPTED, pinned to the reviewed intake hash). Only sources that are both are canonical-theory eligible; a PROPOSED source never satisfies theory:apply.',
       proposedClassification:registryRaw.sources.filter((s:any)=>s.classification==='PROPOSED').length,
+      unpinnedHumanAccepted:pinIssues,
       categories:Object.fromEntries(Object.entries(registryRaw.sources.reduce((m:any,s:any)=>(m[s.category]=(m[s.category]??0)+1,m),{})).sort()),
       intake:{entries:intake.length,byState:Object.fromEntries(['DRAFT','READY_FOR_REVIEW','APPROVED','CHANGES_REQUESTED','REJECTED'].map(s=>[s,intake.filter(i=>i.state===s).length]))}},
-    blocked:{bySources:count('missingSource'),byAuthoring:count('notStarted')+count('draft')+count('changesRequested'),
-      byChemistryReview:rows.filter(r=>['readyForReview','didacticReviewed','staleReview'].includes(r.state)&&r.missingChemistry).length,
-      byDidacticReview:rows.filter(r=>['readyForReview','chemistryReviewed','staleReview'].includes(r.state)&&r.missingDidactic).length},
+    blocked:{
+      semantics:'Blockers of units that HAVE entered authoring are counted by state. Units not yet in authoring are counted separately: their source blocker is not measured per unit yet, but no unit can be canonically applied while canonicalTheoryEligibleSources is 0.',
+      unitsNotYetInAuthoring:count('notStarted'),
+      unitsInAuthoring:rows.length-count('notStarted'),
+      canonicalApplyImpossibleForAllUnits:readiness.canonicalTheoryEligibleSources===0,
+      inAuthoringBySources:count('missingSource'),
+      inAuthoringByAuthoring:count('draft')+count('changesRequested'),
+      inAuthoringByChemistryReview:rows.filter(r=>['readyForReview','didacticReviewed','staleReview'].includes(r.state)&&r.missingChemistry).length,
+      inAuthoringByDidacticReview:rows.filter(r=>['readyForReview','chemistryReviewed','staleReview'].includes(r.state)&&r.missingDidactic).length},
     units:rows};
 }
 

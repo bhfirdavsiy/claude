@@ -14,6 +14,8 @@ import {blockContentHash,blockGovernance,theoryReviewState,contentBlocks} from '
 import {packetToEntry,packetWithEntry,entryHashes,THEORY_PACKET_SCHEMA} from '../src/authoring/authoring-packet.ts';
 import {sourceGovernance,sourceEntryHash,validateSourceIntake,detectSourceDuplicates,INTAKE_CATEGORIES} from '../src/authoring/source-intake.ts';
 import {validateOptionSetDraft,optionSetGovernance} from '../src/authoring/option-set-draft.ts';
+import {sourceAcceptance,canonicalSourceIssues,parseSourceRegistry} from '../src/domain/governance/source-policy.ts';
+import {loadGovernedSourceRegistry} from '../scripts/lib/source-registry.ts';
 import {checkTheoryPacket,applyTheoryPacket,importTheoryDraft,applySourceIntake,buildTheoryAuthoringStatus,formatSourceRegistry,sourceReviewQueue,canonicalJson,THEORY_STATUS_REPORT} from '../scripts/lib/content-operations.ts';
 import {collectStructuredTheory,assertCanonicalTheoryApproved} from '../scripts/lib/structured-theory.ts';
 import {createContentAjv} from '../scripts/lib/content-schema.ts';
@@ -29,6 +31,18 @@ const CHEM='fixture.chemistry-reviewer', DID='fixture.didactic-reviewer';
 const review=(block,role,reviewerId,{hash=blockContentHash(block),decision='approved'}={})=>({reviewerId,reviewerRole:role,decision,reviewedAt:AT,reviewedHash:hash});
 const approveBlock=(b)=>({...b,reviews:[review(b,'chemistry',CHEM),review(b,'didactic',DID)]});
 const approveAll=(e)=>({...e,explanation:approveBlock(e.explanation),workedExamples:e.workedExamples.map(approveBlock),misconceptions:e.misconceptions.map(approveBlock),summary:approveBlock(e.summary)});
+// P2.4 closeout (A1): canonical theory needs a HUMAN_ACCEPTED source, which only the governed intake can create. The
+// helper runs that real path in a sandbox (intake file → human decision → applySourceIntake); repository data is untouched.
+const ACCEPTED_SOURCE='src.fixture.curriculum';
+function acceptFixtureSource(t,{id=ACCEPTED_SOURCE,category='CURRICULUM'}={}){
+  const e={schema:'kimyolab.source-intake.v1',sourceId:id,category,title:`Fixture ${category.toLowerCase()} ${id}`,authority:'Fixture authority',year:2021,language:'uz-Latn',bibliographic:{},locator:{kind:'section'},submittedBy:'fixture.submitter',status:'ready-for-review',reviews:[]};
+  const ok={...e,reviews:[{reviewerId:'fixture.source-reviewer',decision:'approved',acceptedCategory:category,reviewedAt:'2026-10-01T00:00:00.000Z',reviewedHash:sourceEntryHash(e)}]};
+  fs.mkdirSync(path.join(t,'content-src/source-intake'),{recursive:true});
+  fs.writeFileSync(path.join(t,`content-src/source-intake/${id}.json`),JSON.stringify(ok,null,2));
+  assert.deepEqual(applySourceIntake(t,ok),{applied:true,issues:[]});
+  return id;
+}
+const withSource=(e,id)=>({...e,explanation:{...e.explanation,sourceRefs:[id]},workedExamples:e.workedExamples.map(w=>({...w,sourceRefs:[id]})),misconceptions:e.misconceptions.map(m=>({...m,sourceRefs:[id]})),summary:{...e.summary,sourceRefs:[id]}});
 const unitPacket=(base=root)=>json(`review-packets/theory-authoring/units/${FIXTURE_UNIT_ID}.json`,base);
 const packetOf=(entry,base=root)=>packetWithEntry(unitPacket(base),entry);
 
@@ -111,6 +125,36 @@ test('source queue: repository intake is empty; no source was declared authorita
   assert.equal(q.counts.entries,0);
 });
 
+test('source acceptance (P2.4 closeout A1/A2): category-compatible ≠ human-accepted; only both are canonical-theory eligible',()=>{
+  const {registry}=loadGovernedSourceRegistry(root);
+  const cur=registry.byId.get('src.curriculum.9.06');
+  assert.equal(cur.classification,'PROPOSED','no existing source was reclassified');
+  assert.deepEqual(sourceAcceptance(cur),{registered:true,categoryCompatible:true,humanAccepted:false,canonicalAuthoringEligible:false},'PROPOSED CURRICULUM');
+  assert.deepEqual(sourceAcceptance(registry.byId.get('src.beta1.migration')),{registered:true,categoryCompatible:false,humanAccepted:false,canonicalAuthoringEligible:false},'INTERNAL_PROPOSAL');
+  assert.deepEqual(canonicalSourceIssues(['src.curriculum.9.06','src.beta1.migration','src.not.registered'],registry).map(i=>i.code),['SOURCE_NOT_HUMAN_ACCEPTED','SOURCE_CATEGORY_NOT_ACCEPTABLE','SOURCE_UNREGISTERED']);
+  // a hand-written HUMAN_ACCEPTED record: an automation acceptor or missing pin facts never count
+  const reg=(over)=>parseSourceRegistry({schema:'kimyolab.source-registry.v1',sources:[{id:'src.x',category:'CURRICULUM',title:'x',classification:'HUMAN_ACCEPTED',acceptedBy:'fixture.person',acceptedAt:'2026-10-01T00:00:00Z',reviewedHash:'a'.repeat(64),...over}]}).registry;
+  assert.equal(sourceAcceptance(reg({}).byId.get('src.x')).humanAccepted,true,'well-formed record (still subject to the intake pin below)');
+  for(const acceptedBy of ['claude','github-actions','kimyolab-bot']) assert.equal(sourceAcceptance(reg({acceptedBy}).byId.get('src.x')).humanAccepted,false,`automation may not accept: ${acceptedBy}`);
+  assert.equal(sourceAcceptance(reg({reviewedHash:undefined}).byId.get('src.x')).humanAccepted,false,'unpinned');
+  // through the governed path: accepted and pinned → eligible; HUMAN_ACCEPTED CURRICULUM passes the source gate
+  const t=sandbox(); const id=acceptFixtureSource(t);
+  const g=loadGovernedSourceRegistry(t);
+  assert.deepEqual(g.pinIssues,[]); assert.equal(sourceAcceptance(g.registry.byId.get(id)).canonicalAuthoringEligible,true);
+  const check=checkTheoryPacket(t,packetOf(approveAll(withSource(structuredFixture(),id)),t));
+  assert.ok(!check.issues.some(i=>i.startsWith('SOURCE_')),JSON.stringify(check.issues));
+  // metadata edit after approval: the intake decision is stale and the registry record is no longer pinned → not eligible
+  const file=path.join(t,`content-src/source-intake/${id}.json`); const intake=json(`content-src/source-intake/${id}.json`,t);
+  fs.writeFileSync(file,JSON.stringify({...intake,title:`${intake.title} (edited)`}));
+  assert.equal(sourceGovernance({...intake,title:`${intake.title} (edited)`}).state,'READY_FOR_REVIEW','source decision stale');
+  const after=loadGovernedSourceRegistry(t);
+  assert.deepEqual(after.pinIssues,[{id,issue:'INTAKE_HASH_MISMATCH'}]);
+  assert.equal(sourceAcceptance(after.registry.byId.get(id)).canonicalAuthoringEligible,false);
+  assert.ok(checkTheoryPacket(t,packetOf(approveAll(withSource(structuredFixture(),id)),t)).issues.includes(`SOURCE_NOT_HUMAN_ACCEPTED:summary:${id}`));
+  // a registry record hand-edited to HUMAN_ACCEPTED with no intake behind it is not accepted
+  fs.rmSync(file); assert.deepEqual(loadGovernedSourceRegistry(t).pinIssues,[{id,issue:'INTAKE_MISSING'}]);
+});
+
 // ------------------------------------------------------------------ theory: dual review made operational
 
 test('theory review: one review is not approval; different hashes are not; self-review and one person in both roles fail',()=>{
@@ -163,9 +207,14 @@ test('governed apply: no approval → no canonical apply; an approved packet is 
   const unregistered=approveAll(structuredFixture({summary:{...structuredFixture().summary,sourceRefs:['src.not.registered']}}));
   assert.ok(applyTheoryPacket(t,packetOf(unregistered)).issues.some(i=>i.startsWith('SOURCE_UNREGISTERED')),'an unregistered source cannot enter');
   const internal=approveAll(structuredFixture({summary:{...structuredFixture().summary,sourceRefs:['src.beta1.migration']}}));
-  assert.ok(applyTheoryPacket(t,packetOf(internal)).issues.some(i=>i.startsWith('SOURCE_NOT_ACCEPTABLE')),'INTERNAL_PROPOSAL does not count');
+  assert.ok(applyTheoryPacket(t,packetOf(internal)).issues.includes('SOURCE_CATEGORY_NOT_ACCEPTABLE:summary:src.beta1.migration'),'INTERNAL_PROPOSAL does not count');
+  // P2.4 closeout (A1): a registered, category-compatible but merely PROPOSED source is not enough
+  const proposed=checkTheoryPacket(t,packetOf(approveAll(structuredFixture())));
+  assert.equal(proposed.ok,false);
+  assert.deepEqual(proposed.issues,['explanation','workedExamples[0]','misconceptions[0]','summary'].map(b=>`SOURCE_NOT_HUMAN_ACCEPTED:${b}:${FIXTURE_SOURCE}`),'PROPOSED CURRICULUM → the only blocker is human acceptance');
+  assert.equal(applyTheoryPacket(t,packetOf(approveAll(structuredFixture()))).applied,false);
   assert.equal(fs.existsSync(path.join(t,'content-src/theory-structured',`${FIXTURE_THEORY_ID}.json`)),false,'nothing written');
-  const approved=approveAll(structuredFixture());
+  const approved=approveAll(withSource(structuredFixture(),acceptFixtureSource(t)));
   const ok=applyTheoryPacket(t,packetOf(approved));
   assert.deepEqual(ok,{applied:true,file:`content-src/theory-structured/${FIXTURE_THEORY_ID}.json`,issues:[]});
   const bytes=fs.readFileSync(path.join(t,ok.file),'utf8');
@@ -175,23 +224,32 @@ test('governed apply: no approval → no canonical apply; an approved packet is 
   assert.deepEqual(JSON.parse(bytes),JSON.parse(JSON.stringify(approved)),'content and provenance unchanged');
   const collected=collectStructuredTheory(t);
   assert.equal(theoryReviewState(collected[0].entry),'APPROVED');
-  assert.doesNotThrow(()=>assertCanonicalTheoryApproved(collected));
+  assert.doesNotThrow(()=>assertCanonicalTheoryApproved(collected,t));
 });
 
 test('build guard: a canonical structured entry without dual approval fails closed (hand edits cannot bypass apply)',()=>{
   const t=sandbox();
   fs.mkdirSync(path.join(t,'content-src/theory-structured'),{recursive:true});
-  fs.writeFileSync(path.join(t,'content-src/theory-structured',`${FIXTURE_THEORY_ID}.json`),JSON.stringify(structuredFixture()));
-  assert.throws(()=>assertCanonicalTheoryApproved(collectStructuredTheory(t)),/CANONICAL_THEORY_NOT_APPROVED[\s\S]*NOT_APPROVED:REVIEW_PENDING/);
+  const src=acceptFixtureSource(t);
+  fs.writeFileSync(path.join(t,'content-src/theory-structured',`${FIXTURE_THEORY_ID}.json`),JSON.stringify(withSource(structuredFixture(),src)));
+  assert.throws(()=>assertCanonicalTheoryApproved(collectStructuredTheory(t),t),/CANONICAL_THEORY_NOT_APPROVED[\s\S]*NOT_APPROVED:REVIEW_PENDING/);
   // an approved entry edited by hand afterwards is stale → also refused
-  const edited=approveAll(structuredFixture()); edited.summary.points=['Qo‘lda o‘zgartirilgan band.'];
+  const edited=approveAll(withSource(structuredFixture(),src)); edited.summary.points=['Qo‘lda o‘zgartirilgan band.'];
   fs.writeFileSync(path.join(t,'content-src/theory-structured',`${FIXTURE_THEORY_ID}.json`),JSON.stringify(edited));
-  assert.throws(()=>assertCanonicalTheoryApproved(collectStructuredTheory(t)),/STALE_REVIEW/);
+  assert.throws(()=>assertCanonicalTheoryApproved(collectStructuredTheory(t),t),/STALE_REVIEW/);
+  // fully dual-approved but citing a merely PROPOSED source (written by hand, bypassing apply) → refused
+  fs.writeFileSync(path.join(t,'content-src/theory-structured',`${FIXTURE_THEORY_ID}.json`),JSON.stringify(approveAll(structuredFixture())));
+  assert.throws(()=>assertCanonicalTheoryApproved(collectStructuredTheory(t),t),/SOURCE_NOT_HUMAN_ACCEPTED:summary:src\.curriculum\.9\.06/);
 });
 
 test('theory import: a workbench packet becomes a NON-canonical working draft; status reports it, progress does not move',()=>{
   const t=sandbox();
-  const draft=packetOf({...structuredFixture(),version:'1.0.0'});
+  const src=acceptFixtureSource(t);
+  const fx=(over)=>withSource(structuredFixture(over),src);
+  // a draft citing only the PROPOSED legacy source is source-blocked, not "ready"
+  importTheoryDraft(t,packetOf({...structuredFixture(),version:'1.0.0'}));
+  assert.equal(buildTheoryAuthoringStatus(t).totals.missingSource,1,'PROPOSED source → missingSource');
+  const draft=packetOf({...fx(),version:'1.0.0'});
   const r=importTheoryDraft(t,draft);
   assert.deepEqual([r.imported,r.file],[true,`authoring-drafts/theory/${FIXTURE_UNIT_ID}.json`]);
   assert.equal(fs.existsSync(path.join(t,'content-src/theory-structured',`${FIXTURE_THEORY_ID}.json`)),false,'import is never canonical');
@@ -199,14 +257,16 @@ test('theory import: a workbench packet becomes a NON-canonical working draft; s
   assert.equal(s.workingDrafts,1); assert.equal(s.totals.readyForReview,1); assert.equal(s.totals.notStarted,121);
   const unitRow=s.units.find(u=>u.learningUnitId===FIXTURE_UNIT_ID);
   assert.deepEqual([unitRow.origin,unitRow.state,unitRow.missingChemistry,unitRow.missingDidactic],['draft','readyForReview',true,true]);
-  assert.equal(s.blocked.byChemistryReview,1);
+  assert.equal(s.blocked.inAuthoringByChemistryReview,1); assert.equal(s.blocked.unitsInAuthoring,1); assert.equal(s.blocked.unitsNotYetInAuthoring,121);
+  assert.equal(s.sources.canonicalTheoryEligibleSources,1); assert.equal(s.blocked.canonicalApplyImpossibleForAllUnits,false);
   // chemistry-reviewed only
-  const chemOnly=structuredFixture(); for(const {block} of contentBlocks(chemOnly)) block.reviews=[review(block,'chemistry',CHEM)];
+  const chemOnly=fx(); for(const {block} of contentBlocks(chemOnly)) block.reviews=[review(block,'chemistry',CHEM)];
   importTheoryDraft(t,packetOf({...chemOnly,version:'1.0.0'}));
   assert.equal(buildTheoryAuthoringStatus(t).totals.chemistryReviewed,1);
   // unsourced draft
-  importTheoryDraft(t,packetOf({...structuredFixture({summary:{...structuredFixture().summary,sourceRefs:[]}}),version:'1.0.0'}));
-  const s2=buildTheoryAuthoringStatus(t); assert.equal(s2.totals.missingSource,1); assert.equal(s2.blocked.bySources,1);
+  const unsourced=fx(); unsourced.summary.sourceRefs=[];
+  importTheoryDraft(t,packetOf({...unsourced,version:'1.0.0'}));
+  const s2=buildTheoryAuthoringStatus(t); assert.equal(s2.totals.missingSource,1); assert.equal(s2.blocked.inAuthoringBySources,1);
   assert.equal(importTheoryDraft(t,{schema:'nope'}).imported,false);
 });
 
@@ -215,8 +275,11 @@ test('theory authoring status: current, facts only, 122 units not started, no pr
   assert.deepEqual(JSON.parse(JSON.stringify(buildTheoryAuthoringStatus(root))),s,'run npm run theory:authoring');
   assert.deepEqual(s.totals,{units:122,notStarted:122,draft:0,readyForReview:0,chemistryReviewed:0,didacticReviewed:0,approved:0,changesRequested:0,missingSource:0,staleReview:0});
   assert.deepEqual([s.canonicalEntries,s.workingDrafts],[0,0]);
-  assert.deepEqual([s.sources.registered,s.sources.registeredAcceptableForChemistry,s.sources.humanAccepted],[5,1,0]);
-  assert.deepEqual(s.blocked,{bySources:0,byAuthoring:122,byChemistryReview:0,byDidacticReview:0});
+  // P2.4 closeout (A4): source readiness is reported as four separate facts; nothing is eligible before a human acts
+  assert.deepEqual([s.sources.registeredSources,s.sources.categoryCompatibleSources,s.sources.humanAcceptedSources,s.sources.canonicalTheoryEligibleSources],[5,1,0,0]);
+  assert.deepEqual(s.sources.eligibleSourceIds,[]);
+  const {semantics:_b,...blocked}=s.blocked;
+  assert.deepEqual(blocked,{unitsNotYetInAuthoring:122,unitsInAuthoring:0,canonicalApplyImpossibleForAllUnits:true,inAuthoringBySources:0,inAuthoringByAuthoring:0,inAuthoringByChemistryReview:0,inAuthoringByDidacticReview:0},'0 in-authoring source blockers only because 122 units have not entered authoring');
   const keys=(v)=>v&&typeof v==='object'?Object.entries(v).flatMap(([k,x])=>[k,...keys(x)]):[];
   assert.ok(!keys(s).some(k=>/priority|score|rank/i.test(k)),'no priority score field');
   assert.equal(json('reports/project-progress.json').learningProductProgress.percent,11.688,'infrastructure does not move learning-product progress');
@@ -291,5 +354,6 @@ test('canonical applies are refused in CI / agent environments (a person runs th
     assert.equal(r.status,1,cmd); assert.match(r.stderr,/REFUSED_IN_AUTOMATION/,cmd);
   }
   const check=spawnSync(process.execPath,['--experimental-strip-types','--no-warnings','scripts/content-operations.ts','theory:check',file],{cwd:root,encoding:'utf8',env:{...process.env,CI:'true'}});
-  assert.equal(check.status,0,'the dry check (no write) runs anywhere'); assert.match(check.stdout,/"ok": true/);
+  // the dry check (no write) runs anywhere; against the repository registry this packet's PROPOSED source is the blocker
+  assert.equal(check.status,1); assert.match(check.stdout,/SOURCE_NOT_HUMAN_ACCEPTED:summary:src\.curriculum\.9\.06/); assert.doesNotMatch(check.stdout,/REFUSED_IN_AUTOMATION/);
 });

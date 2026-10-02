@@ -52,3 +52,9 @@ A new textbook, standard or reference is registered through intake, not by editi
 4. A person runs `npm run source:apply -- <intake.json>`. It is refused in CI and agent environments, and it refuses anything not APPROVED or duplicated. The registry record carries `classification: HUMAN_ACCEPTED`, `submittedBy`, `acceptedBy`, `acceptedAt` and the reviewed hash.
 
 The five existing entries keep `classification: PROPOSED`. Reclassifying them is still a reviewed human change.
+
+### Canonical structured theory needs a human-accepted source (P2.4 closeout)
+
+- A category-compatible source is **not** enough for canonical structured theory. A cited source must be registered, category-compatible **and** human-accepted (`HUMAN_ACCEPTED`, with `acceptedBy`, `acceptedAt` and `reviewedHash`, pinned to an intake file that is still APPROVED and still hashes to `reviewedHash`).
+- `theory:check`, `theory:apply` and the build guard report `SOURCE_UNREGISTERED`, `SOURCE_CATEGORY_NOT_ACCEPTABLE` or `SOURCE_NOT_HUMAN_ACCEPTED` per block and source.
+- PROPOSED sources keep working for legacy content, the chemistry KB gates and reports. They never satisfy the governed theory apply.

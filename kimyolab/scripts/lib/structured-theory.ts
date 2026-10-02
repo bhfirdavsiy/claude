@@ -8,7 +8,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {createContentAjv} from './content-schema.ts';
 import {parseSourceRegistry,type SourceRegistry} from '../../src/domain/governance/source-policy.ts';
-import {validateStructuredTheory,theoryReviewState,STRUCTURED_THEORY_PACK_SCHEMA,type StructuredTheory} from '../../src/domain/theory/structured-theory.ts';
+import {validateStructuredTheory,theoryReviewState,contentBlocks,STRUCTURED_THEORY_PACK_SCHEMA,type StructuredTheory} from '../../src/domain/theory/structured-theory.ts';
+import {canonicalSourceIssues} from '../../src/domain/governance/source-policy.ts';
+import {loadGovernedSourceRegistry} from './source-registry.ts';
 
 export const STRUCTURED_THEORY_DIR='content-src/theory-structured';
 const MALFORMED=new Set(['SCHEMA','PLACEHOLDER_TEXT','AUTOMATION_AUTHOR','AUTHOR_MISSING','REVIEW_INVALID','REVIEWER_NOT_HUMAN','SELF_REVIEW','SAME_REVIEWER_BOTH_ROLES','DUPLICATE_ROLE_REVIEW','MEDIA_INVALID']);
@@ -54,10 +56,18 @@ export function structuredTheoryPack(root:string,collected=collectStructuredTheo
 }
 
 /** P2.4 (ADR-P2-005): canonical structured theory enters the repository only through the governed apply
- *  (npm run theory:apply), which requires every block to be dual-review APPROVED. The repository build and validation
- *  re-check it, so a hand-written or edited canonical file without that approval fails closed. */
-export function assertCanonicalTheoryApproved(collected:CollectedTheory[]){
-  const bad=collected.filter(c=>theoryReviewState(c.entry)!=='APPROVED').map(c=>`${c.file}:NOT_APPROVED:${theoryReviewState(c.entry)}`);
+ *  (npm run theory:apply), which requires every block to be dual-review APPROVED and every cited source to be
+ *  canonical-authoring eligible (registered, category-compatible AND human-accepted, pinned to its reviewed intake —
+ *  P2.4 closeout A1). The repository build and validation re-check both, so a hand-written or edited canonical file,
+ *  or one citing a merely PROPOSED source, fails closed. */
+export function assertCanonicalTheoryApproved(collected:CollectedTheory[],root:string){
+  const {registry}=loadGovernedSourceRegistry(root);
+  const bad=collected.flatMap(c=>{
+    const review=theoryReviewState(c.entry);
+    const out=review!=='APPROVED'?[`${c.file}:NOT_APPROVED:${review}`]:[];
+    for(const {name,block} of contentBlocks(c.entry)) for(const i of canonicalSourceIssues(block.sourceRefs??[],registry)) out.push(`${c.file}:${i.code}:${name}:${i.ref}`);
+    return out;
+  });
   if(bad.length) throw new Error(`CANONICAL_THEORY_NOT_APPROVED (use npm run theory:apply)\n${bad.join('\n')}`);
   return collected;
 }
