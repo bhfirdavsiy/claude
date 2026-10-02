@@ -1,0 +1,105 @@
+{
+  "schema": "kimyolab.deployment-preflight.v1",
+  "semantics": "Read-only checks of the built deployment artefact (scripts/deploy-preflight.ts). Fails closed; never repairs a file.",
+  "settings": [
+    "basePath",
+    "portalHomeUrl"
+  ],
+  "status": "PASS",
+  "mount": "/kimyolab/",
+  "checks": [
+    {
+      "id": "config",
+      "pass": true,
+      "detail": {
+        "basePath": "/kimyolab/",
+        "storageNamespace": "kimyolab@/kimyolab/"
+      }
+    },
+    {
+      "id": "build-complete",
+      "pass": true,
+      "detail": {
+        "required": 5
+      }
+    },
+    {
+      "id": "content-manifest",
+      "pass": true,
+      "detail": {
+        "activeVersion": "2026.09.1"
+      }
+    },
+    {
+      "id": "artifact-checksum",
+      "pass": true,
+      "detail": {
+        "files": 215,
+        "sha256": "f61f1cca79ed4e9db2f1c76e3c0556d0aecfa483de569adc1d22ae73599926ba"
+      }
+    },
+    {
+      "id": "content-integrity",
+      "pass": true
+    },
+    {
+      "id": "base-path",
+      "pass": true,
+      "detail": {
+        "basePath": "/kimyolab/"
+      }
+    },
+    {
+      "id": "root-asset-leak",
+      "pass": true
+    },
+    {
+      "id": "content-base",
+      "pass": true,
+      "detail": {
+        "contentBase": "/kimyolab/content"
+      }
+    },
+    {
+      "id": "brand-asset",
+      "pass": true
+    },
+    {
+      "id": "storage-namespace",
+      "pass": true,
+      "detail": {
+        "namespace": "kimyolab@/kimyolab/",
+        "indexedDb": "kimyolab@/kimyolab/.runtime",
+        "webLocks": "kimyolab@/kimyolab/.attempt.",
+        "coHosted": []
+      }
+    },
+    {
+      "id": "service-worker",
+      "pass": true
+    },
+    {
+      "id": "external-dependency",
+      "pass": true
+    },
+    {
+      "id": "forbidden-files",
+      "pass": true
+    },
+    {
+      "id": "reproducible-build",
+      "pass": true,
+      "detail": {
+        "sha256": "f61f1cca79ed4e9db2f1c76e3c0556d0aecfa483de569adc1d22ae73599926ba"
+      }
+    },
+    {
+      "id": "config-match",
+      "pass": true
+    }
+  ],
+  "summary": {
+    "checks": 15,
+    "pass": 15
+  }
+}

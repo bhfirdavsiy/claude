@@ -1,5 +1,9 @@
 name: KimyoLab verify
 
+# P2.8 (CI reproducibility): the verification OS is PINNED (ubuntu-24.04, windows-2025) so a runner-label migration
+# never silently changes what is verified; the actions are on their Node-24 runtime majors (checkout/setup-node/
+# upload-artifact v7, `runs.using: node24`). The APPLICATION Node version is a separate thing and still comes only
+# from kimyolab/.nvmrc. Every run records its real environment (reports/ci-environment.observed.json, uploaded).
 on:
   push:
     paths:
@@ -15,13 +19,15 @@ permissions:
 
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     defaults:
       run:
         working-directory: kimyolab
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 2   # the rollback drill builds the previous mainline commit (HEAD^1) as the known-good release
+      - uses: actions/setup-node@v7
         with:
           node-version-file: kimyolab/.nvmrc
           cache: npm
@@ -30,26 +36,45 @@ jobs:
         run: npm ci
       - name: Install Chromium for E2E
         run: npx playwright install --with-deps chromium
+      - name: Record and check the CI environment (OS, Node, npm, Playwright, Chromium)
+        run: npm run ci:environment
       - name: verify (lint → typecheck → typecheck:next → schema → content → chemistry → unit → integration → E2E → build)
         run: npm run verify
-      - name: Upload P0 acceptance manifest
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: p0-acceptance
-          path: kimyolab/reports/p0-acceptance.json
       - name: Generated browser preview and content pack must be committed
         run: git status --porcelain -- public src schemas | tee /dev/stderr | (! grep .)
+      - name: Deployment build for the /kimyolab/ mount
+        run: npm run deploy:build
+      - name: Deployment preflight (fail closed)
+        run: npm run deploy:preflight
+      - name: Post-install smoke against the built deployment
+        run: npm run deploy:smoke
+      - name: Rollback drill (current → previous known-good → restore, learner storage kept)
+        run: npm run deploy:rollback-drill
+      - name: Clean-environment install drill (tracked files only, fresh npm ci)
+        run: npm run deploy:drill
+      - name: Installation readiness must be complete (every published check passes)
+        run: npm run deploy:readiness -- --strict
+      - name: Upload acceptance, environment and deployment reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: kimyolab-verify-reports
+          path: |
+            kimyolab/reports/p0-acceptance.json
+            kimyolab/reports/ci-environment.observed.json
+            kimyolab/reports/deployment-*.json
+            kimyolab/reports/installation-readiness.json
 
   windows-paths:
     # P0.15.2: public-root resolution and server startup on Windows (drive letters, spaces).
-    runs-on: windows-latest
+    # P2.8: plus the deployment build + preflight from a Windows path (no POSIX-only path assumption in the tooling).
+    runs-on: windows-2025
     defaults:
       run:
         working-directory: kimyolab
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version-file: kimyolab/.nvmrc
           cache: npm
@@ -57,7 +82,19 @@ jobs:
       - run: npm ci
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
+      - name: Record and check the CI environment (OS, Node, npm)
+        run: npm run ci:environment
       - name: Path resolution unit tests
         run: node --test tests/p0-server-paths.test.mjs
       - name: Build and serve dist from a Windows path
         run: node --test --test-concurrency=1 tests/integration/server-assets.test.mjs tests/integration/security-legacy.test.mjs
+      - name: Deployment build + preflight from a Windows path
+        run: |
+          npm run deploy:build
+          npm run deploy:preflight
+      - name: Upload the Windows environment record
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: kimyolab-windows-environment
+          path: kimyolab/reports/ci-environment.observed.json

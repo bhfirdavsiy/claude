@@ -1,0 +1,109 @@
+{
+  "schema": "kimyolab.ci-reproducibility.v1",
+  "semantics": "The DECLARED CI environment, read from the workflow files and the lockfile (deterministic). Each run also records its OBSERVED environment (npm run ci:environment → reports/ci-environment.observed.json, uploaded as a CI artefact and shown in the job summary); the run fails if the application Node major differs from .nvmrc.",
+  "runners": {
+    "pinned": {
+      "linux": "ubuntu-24.04",
+      "windows": "windows-2025"
+    },
+    "why": "a *-latest label can move to a new OS image without notice; the verification OS must change only by a reviewed commit"
+  },
+  "actions": {
+    "verified": {
+      "actions/checkout": {
+        "ref": "v7",
+        "runtime": "node24",
+        "tagCommit": "3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "tagDate": "2026-07-17"
+      },
+      "actions/setup-node": {
+        "ref": "v7",
+        "runtime": "node24",
+        "tagCommit": "820762786026740c76f36085b0efc47a31fe5020",
+        "tagDate": "2026-07-13"
+      },
+      "actions/upload-artifact": {
+        "ref": "v7",
+        "runtime": "node24",
+        "tagCommit": "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+        "tagDate": "2026-04-10"
+      }
+    },
+    "why": "Node-20 action runtimes are deprecated on GitHub-hosted runners; the v7 majors declare runs.using: node24. The GitHub Action runtime is unrelated to the application Node version."
+  },
+  "toolchain": {
+    "applicationNode": {
+      "source": "kimyolab/.nvmrc",
+      "major": "22"
+    },
+    "npmLockfileVersion": 3,
+    "playwright": "1.56.1",
+    "chromium": {
+      "revision": "1194",
+      "version": "141.0.7390.37",
+      "source": "node_modules/playwright-core/browsers.json (installed by npx playwright install chromium)"
+    }
+  },
+  "jobs": [
+    {
+      "workflow": "build-installers.yml",
+      "job": "smoke",
+      "runsOn": "ubuntu-24.04",
+      "uses": [],
+      "nodeVersionFile": [],
+      "nodeVersion": []
+    },
+    {
+      "workflow": "kimyolab-release-freeze.yml",
+      "job": "freeze",
+      "runsOn": "ubuntu-24.04",
+      "uses": [
+        "actions/checkout@v7",
+        "actions/setup-node@v7",
+        "actions/upload-artifact@v7"
+      ],
+      "nodeVersionFile": [
+        "kimyolab/.nvmrc"
+      ],
+      "nodeVersion": []
+    },
+    {
+      "workflow": "kimyolab-verify.yml",
+      "job": "verify",
+      "runsOn": "ubuntu-24.04",
+      "uses": [
+        "actions/checkout@v7",
+        "actions/setup-node@v7",
+        "actions/upload-artifact@v7"
+      ],
+      "nodeVersionFile": [
+        "kimyolab/.nvmrc"
+      ],
+      "nodeVersion": []
+    },
+    {
+      "workflow": "kimyolab-verify.yml",
+      "job": "windows-paths",
+      "runsOn": "windows-2025",
+      "uses": [
+        "actions/checkout@v7",
+        "actions/setup-node@v7",
+        "actions/upload-artifact@v7"
+      ],
+      "nodeVersionFile": [
+        "kimyolab/.nvmrc"
+      ],
+      "nodeVersion": []
+    }
+  ],
+  "findings": {
+    "linuxPinned": true,
+    "windowsPinned": true,
+    "noFloatingRunner": true,
+    "floatingRunners": [],
+    "actionsOnNode24": true,
+    "unverifiedActions": [],
+    "appNodeFromNvmrc": true
+  },
+  "status": "PASS"
+}

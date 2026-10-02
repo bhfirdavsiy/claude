@@ -129,7 +129,14 @@
     "model:expansion": "node --experimental-strip-types scripts/model-interaction-expansion.ts",
     "model:computed": "node --experimental-strip-types scripts/computed-model-interaction.ts",
     "a11y:sweep": "node scripts/accessibility-sweep.mjs",
-    "a11y:report": "node scripts/accessibility-verification.ts"
+    "a11y:report": "node scripts/accessibility-verification.ts",
+    "deploy:build": "npm run -s content:pack && npm run -s preview:build && node scripts/deploy-build.ts",
+    "deploy:preflight": "node scripts/deploy-preflight.ts",
+    "deploy:smoke": "node scripts/deploy-smoke.mjs",
+    "deploy:rollback-drill": "node scripts/deploy-rollback-drill.mjs",
+    "deploy:drill": "node scripts/deploy-drill.mjs",
+    "deploy:readiness": "node scripts/installation-readiness.ts",
+    "ci:environment": "node scripts/ci-environment.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.56.1",

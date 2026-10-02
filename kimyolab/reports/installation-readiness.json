@@ -1,0 +1,208 @@
+{
+  "schema": "kimyolab.installation-readiness.v1",
+  "semantics": "Installation Readiness — a SEPARATE metric: can another technical specialist install KimyoLab with the documented commands, without writing code, discovering paths or repairing the build? It is NOT an input of foundation, learning product or the overall estimate, and it says nothing about learning content, assessment or human governance (they stay separate debts).",
+  "formula": "percent = passed checks / total checks (every check below is the denominator; no weighting, no hidden items)",
+  "statusRule": {
+    "NOT_READY": "any check fails",
+    "READY_IN_SIMULATION": "every check passes in the simulated environment (the /kimyolab/ mount served by the bundled server, the clean-environment drill, CI)",
+    "READY_FOR_DEPLOYMENT": "additionally an operator acceptance record from the REAL target server exists in docs/deploy/acceptance/ — never produced by an agent"
+  },
+  "checks": [
+    {
+      "id": "build-reproducible",
+      "label": "production build reproducible",
+      "pass": true,
+      "evidence": "deployment-preflight.json#reproducible-build + deployment-clean-drill.json#generated-files-reproducible"
+    },
+    {
+      "id": "artifact-known",
+      "label": "deploy artefact known (path, mount, file count, sha256, content version)",
+      "pass": true,
+      "evidence": "deployment-artifacts.json#production"
+    },
+    {
+      "id": "evidence-current",
+      "label": "all deployment evidence describes THIS artefact",
+      "pass": true,
+      "evidence": "sha256 in preflight / smoke / rollback / clean-drill reports",
+      "detail": {
+        "preflight": true,
+        "smoke": true,
+        "rollback": true,
+        "drill": true
+      }
+    },
+    {
+      "id": "config-documented",
+      "label": "configuration documented in one place",
+      "pass": true,
+      "evidence": "deployment-config-audit.json + docs/DEPLOY.md §3"
+    },
+    {
+      "id": "no-hardcoded-host",
+      "label": "no hardcoded host, domain or deployment path",
+      "pass": true,
+      "evidence": "deployment-config-audit.json#violations"
+    },
+    {
+      "id": "portal-subpath",
+      "label": "portal subpath simulation works (/kimyolab/)",
+      "pass": true,
+      "evidence": "portal-subpath-readiness.json",
+      "detail": {
+        "checks": 13,
+        "pass": 13,
+        "status": "READY_IN_SIMULATION"
+      }
+    },
+    {
+      "id": "deep-link-refresh",
+      "label": "direct deep link and refresh work",
+      "pass": true,
+      "evidence": "deployment-smoke.json"
+    },
+    {
+      "id": "assets-content",
+      "label": "assets and content load from the mount",
+      "pass": true,
+      "evidence": "deployment-smoke.json + deployment-preflight.json"
+    },
+    {
+      "id": "storage-namespaced",
+      "label": "learner storage namespaced by mount",
+      "pass": true,
+      "evidence": "deployment-smoke.json + deployment-preflight.json"
+    },
+    {
+      "id": "locks-namespaced",
+      "label": "Web Locks namespaced by mount",
+      "pass": true,
+      "evidence": "deployment-smoke.json#web-locks-namespace"
+    },
+    {
+      "id": "service-worker-safe",
+      "label": "no service worker can escape the mount",
+      "pass": true,
+      "evidence": "deployment-smoke.json + deployment-preflight.json"
+    },
+    {
+      "id": "css-isolated",
+      "label": "CSS isolated from the host page",
+      "pass": true,
+      "evidence": "host-architecture-audit.json#css"
+    },
+    {
+      "id": "outside-scope-404",
+      "label": "nothing is served outside the mount",
+      "pass": true,
+      "evidence": "deployment-smoke.json#outside-mount-404"
+    },
+    {
+      "id": "preflight-passes",
+      "label": "deploy:preflight exists and passes",
+      "pass": true,
+      "evidence": "deployment-preflight.json",
+      "detail": {
+        "checks": 15,
+        "pass": 15
+      }
+    },
+    {
+      "id": "smoke-passes",
+      "label": "deploy:smoke passes against the built artefact",
+      "pass": true,
+      "evidence": "deployment-smoke.json",
+      "detail": {
+        "checks": 23,
+        "pass": 23
+      }
+    },
+    {
+      "id": "standalone-passes",
+      "label": "standalone delivery passes (offline, model-based, progress, brand, integrity)",
+      "pass": true,
+      "evidence": "deployment-smoke.json#standalone-* + standalone-browser-smoke.json + standalone-mobile-smoke.json"
+    },
+    {
+      "id": "integrity-fails-closed",
+      "label": "integrity / checksum enforced and failing closed",
+      "pass": true,
+      "evidence": "deployment-preflight.json + deployment-smoke.json"
+    },
+    {
+      "id": "rollback-drill",
+      "label": "rollback drill passes with real artefacts; learner evidence kept",
+      "pass": true,
+      "evidence": "deployment-rollback-drill.json"
+    },
+    {
+      "id": "diagnostics-actionable",
+      "label": "failures give DEPLOY_* codes, a fix and no absolute path or stack trace",
+      "pass": true,
+      "evidence": "self-test: preflight of a deliberately broken copy",
+      "detail": {
+        "codes": [
+          "DEPLOY_BUILD_INCOMPLETE",
+          "DEPLOY_CHECKSUM_MISMATCH",
+          "DEPLOY_CONTENT_BASE_INVALID",
+          "DEPLOY_CONTENT_MANIFEST_MISSING",
+          "DEPLOY_EXTERNAL_DEPENDENCY"
+        ],
+        "actionable": true,
+        "noAbsolutePathOrStack": true
+      }
+    },
+    {
+      "id": "clean-machine-drill",
+      "label": "clean-environment drill passes with the documented commands",
+      "pass": true,
+      "evidence": "deployment-clean-drill.json",
+      "detail": {
+        "commands": [
+          "npm ci",
+          "npm run deploy:build",
+          "npm run deploy:preflight",
+          "npm run deploy:smoke"
+        ],
+        "seconds": 14
+      }
+    },
+    {
+      "id": "linux-ci-pinned",
+      "label": "Linux verification runner pinned (ubuntu-24.04), no *-latest anywhere",
+      "pass": true,
+      "evidence": ".github/workflows (ci-reproducibility.json#findings)"
+    },
+    {
+      "id": "windows-ci-paths",
+      "label": "Windows path job pinned (windows-2025) and runs path tests + deploy preflight",
+      "pass": true,
+      "evidence": ".github/workflows/kimyolab-verify.yml"
+    },
+    {
+      "id": "actions-node24",
+      "label": "GitHub Actions on Node-24 runtime majors; application Node from .nvmrc",
+      "pass": true,
+      "evidence": "ci-reproducibility.json#actions"
+    }
+  ],
+  "passed": 23,
+  "total": 23,
+  "percent": 100,
+  "status": "READY_IN_SIMULATION",
+  "externalAcceptance": {
+    "records": 0,
+    "note": "0 = no real target-server installation has been performed or recorded; no real portal integration is claimed"
+  },
+  "ciGreen": "enforced, not self-attested: the CI verify job runs `npm run deploy:readiness -- --strict` after the deployment steps, so a merged commit passed every check on ubuntu-24.04",
+  "separateFrom": {
+    "learningProduct": 12.189,
+    "overall": 47.313,
+    "note": "unchanged by P2.8"
+  },
+  "knownDebtNotInThisMetric": {
+    "accessibility": "5 BLOCKED_BY_CONTENT activities, human accessibility review 0",
+    "feedback": "29 form simulations without a wrong-answer verdict, 6 experiments without enforced step order (P2.9)",
+    "content": "assessment, structured theory, human review and release decisions"
+  }
+}

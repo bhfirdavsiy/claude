@@ -4,13 +4,14 @@ import {sha256Buffer,sha256File} from '../src/domain/content/checksum.ts';
 
 export interface PackIntegrityIssue {code:string;path?:string}
 
-export function validateContentPackIntegrity(projectRoot:string){
+// P2.8: `contentDir` lets the deploy preflight run the SAME check on a built artefact (default: the committed pack)
+export function validateContentPackIntegrity(projectRoot:string,contentDir:string=path.join(projectRoot,'public/content')){
   const issues:PackIntegrityIssue[]=[];
-  const pointerFile=path.join(projectRoot,'public/content/manifest.json');
+  const pointerFile=path.join(contentDir,'manifest.json');
   if(!fs.existsSync(pointerFile)) return {valid:false,issues:[{code:'PACK_POINTER_MISSING'}]};
   const pointer=JSON.parse(fs.readFileSync(pointerFile,'utf8'));
   if(!pointer?.activeVersion||!pointer?.checksum||!pointer?.manifest) return {valid:false,issues:[{code:'PACK_POINTER_INVALID'}]};
-  const manifestFile=path.join(projectRoot,'public/content',pointer.manifest);
+  const manifestFile=path.join(contentDir,pointer.manifest);
   if(!fs.existsSync(manifestFile)) return {valid:false,issues:[{code:'PACK_MANIFEST_MISSING',path:pointer.manifest}]};
   const manifest=JSON.parse(fs.readFileSync(manifestFile,'utf8'));
   if(manifest.contentVersion!==pointer.activeVersion) issues.push({code:'PACK_VERSION_POINTER_MISMATCH'});

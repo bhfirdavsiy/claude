@@ -1,0 +1,57 @@
+{
+  "schema": "kimyolab.deployment-artifacts.v1",
+  "semantics": "Exactly what is shipped. The production artefact is a static directory served at the mount; the standalone file is the same product for offline presentation. No build timestamp is recorded: the build is deterministic (same commit + inputs → same sha256, checked by deploy:preflight and deploy:drill).",
+  "production": {
+    "buildCommand": "npm run deploy:build",
+    "outputPath": "dist-deploy/kimyolab/",
+    "manifestPath": "dist-deploy/kimyolab.manifest.json",
+    "uploadInstruction": "upload the CONTENTS of dist-deploy/kimyolab/ so that they are served at /kimyolab/",
+    "requiredServerMount": "/kimyolab/",
+    "entryDocument": "/kimyolab/index.html",
+    "spaFallback": "every /kimyolab/* path that is not a file → /kimyolab/index.html (see docs/DEPLOY.md §5)",
+    "fileCount": 215,
+    "totalBytes": 4436101,
+    "sha256": "f61f1cca79ed4e9db2f1c76e3c0556d0aecfa483de569adc1d22ae73599926ba",
+    "content": {
+      "activeVersion": "2026.09.1",
+      "contentVersion": "2026.09.1",
+      "manifestChecksum": "0ab31a06060903521e2a7e980f71ecddc2b0df6d891eb8627d6d4fd7fc5dacd8"
+    },
+    "config": {
+      "basePath": "/kimyolab/",
+      "portalHomeUrl": null,
+      "assetBase": "/kimyolab/",
+      "contentBase": "/kimyolab/content",
+      "apiBase": "/kimyolab/api/",
+      "storageNamespace": "kimyolab@/kimyolab/",
+      "indexedDbName": "kimyolab@/kimyolab/.runtime",
+      "webLockPrefix": "kimyolab@/kimyolab/.attempt."
+    },
+    "matchesBuiltDirectory": true
+  },
+  "standalone": {
+    "buildCommand": "npm run standalone:build",
+    "path": "dist-standalone/KimyoLab_standalone.html",
+    "alias": "dist-standalone/index.html",
+    "bytes": 5691105,
+    "sha256": "c34c3bcc29ce08d9914d77585475526ae04a5841a954bd766524c3bcc0690763",
+    "delivery": "one HTML file; opens from disk (hash routes, embedded content pack with the same integrity checks); external laboratories that need the network stay network-dependent and say so"
+  },
+  "learnerBundle": {
+    "method": "raw bytes of the committed learner modules (public/app-preview/**/*.js), the shared stylesheet and the standalone file",
+    "before": {
+      "learnerModules": 162,
+      "learnerModuleBytes": 702745,
+      "cssBytes": 33709,
+      "standaloneBytes": 5691105,
+      "source": "P2.7 close (reports/accessibility-gap-summary.json#performance.after)"
+    },
+    "after": {
+      "learnerModules": 162,
+      "learnerModuleBytes": 702745,
+      "standaloneBytes": 5691105,
+      "cssBytes": 33709
+    },
+    "note": "deployment tooling is operator-side (scripts/, never copied into the artefact by the builder)"
+  }
+}

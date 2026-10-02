@@ -103,3 +103,14 @@ Each dimension is an ordered enum. Its normalized level is `index / (count − 1
 - `ACCESSIBILITY_UNVERIFIED` is removed from a unit only when every launchable activity of the unit is VERIFIED. Nothing is cleared in bulk.
 - Accessibility is not an input of foundation, learning product or the overall estimate. `reports/accessibility-gap-summary.json` reports it separately, with the human accessibility review count (0) kept apart from the automated result.
 - No weight was changed. MODEL_BASED, assessment, governance and release numbers are unchanged by P2.7.
+
+## 12. P2.8 — Installation Readiness is a separate metric (ADR-P2-009)
+
+- `reports/installation-readiness.json` answers one question: can another technical specialist install KimyoLab with the documented commands, without writing code, discovering paths or repairing the build?
+- It is computed as `passed checks / total checks`. Every check is published with its evidence, there is no weighting and there are no hidden items.
+- Status:
+  - `NOT_READY` if any check fails;
+  - `READY_IN_SIMULATION` if every check passes on the simulated `/kimyolab/` mount, in the clean-environment drill and in CI;
+  - `READY_FOR_DEPLOYMENT` only with an operator acceptance record from the real target server, which an agent never produces.
+- Evidence that describes a different artefact (sha256) fails the `evidence-current` check, so stale drill reports cannot keep the metric green.
+- It is **not** an input of foundation, learning product or the 0.4 / 0.6 overall estimate. P2.8 changed no learning number and no weight.

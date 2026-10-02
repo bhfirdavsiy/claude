@@ -1,0 +1,223 @@
+{
+  "schema": "kimyolab.deployment-config-audit.v1",
+  "semantics": "Every deploy-sensitive value, how it is supplied and who consumes it (scripts/lib/deploy-config.ts), checked against the code: learner/server sources (comments excluded) may not hardcode a host or the deployment path, may not read an undeclared environment variable, and every setting must be documented in docs/DEPLOY.md.",
+  "onePlace": {
+    "code": "scripts/lib/deploy-config.ts (DEPLOY_SETTINGS)",
+    "guide": "docs/DEPLOY.md §3 Configuration",
+    "defaultMount": "/kimyolab/"
+  },
+  "settings": [
+    {
+      "name": "basePath",
+      "kind": "input",
+      "supply": "env KIMYOLAB_BASE_PATH (deploy:build, deploy:preflight, deploy:smoke, npm start)",
+      "default": "/kimyolab/",
+      "consumers": [
+        "scripts/deploy-build.ts → <meta name=\"kimyolab-base-path\">",
+        "src/app/host.ts (createPathHost)",
+        "server/app.mjs (normalizeMountPath)"
+      ],
+      "note": "the ONLY path the operator chooses; leading and trailing slash; letters, digits, . _ ~ - and / only"
+    },
+    {
+      "name": "portalHomeUrl",
+      "kind": "input",
+      "supply": "env KIMYOLAB_PORTAL_HOME_URL (deploy:build)",
+      "default": "(none — the KimyoLab header links to its own home)",
+      "consumers": [
+        "scripts/deploy-build.ts → <meta name=\"kimyolab-portal-home\">",
+        "src/app/host.ts (resolveHost)"
+      ],
+      "note": "optional link back to the hosting portal; an absolute https URL or a root-absolute path; supplied by the portal owner, never guessed"
+    },
+    {
+      "name": "assetBase",
+      "kind": "derived",
+      "supply": "never configured",
+      "default": "= basePath",
+      "derivedFrom": "basePath",
+      "consumers": [
+        "src/app/host.ts"
+      ],
+      "note": "brand and page assets resolve under the mount"
+    },
+    {
+      "name": "contentBase",
+      "kind": "derived",
+      "supply": "never configured",
+      "default": "= basePath + \"content\"",
+      "derivedFrom": "basePath",
+      "consumers": [
+        "src/app/host.ts",
+        "src/app/content-client.ts"
+      ],
+      "note": "the content pack (manifest + checksummed files) is served under the mount"
+    },
+    {
+      "name": "apiBase",
+      "kind": "derived",
+      "supply": "never configured",
+      "default": "= basePath + \"api/\"",
+      "derivedFrom": "basePath",
+      "consumers": [
+        "src/app/host.ts",
+        "server/app.mjs"
+      ],
+      "note": "only the optional external-lab session API lives here"
+    },
+    {
+      "name": "storageNamespace",
+      "kind": "derived",
+      "supply": "never configured",
+      "default": "\"kimyolab\" for \"/\", \"kimyolab@<basePath>\" otherwise",
+      "derivedFrom": "basePath",
+      "consumers": [
+        "src/app/host.ts (storageNamespaceFor, runtimeDbName, attemptLockPrefix)"
+      ],
+      "note": "IndexedDB name and Web Locks prefix; two mounts on one origin never share learner data or locks"
+    },
+    {
+      "name": "environment/mode",
+      "kind": "build-output",
+      "supply": "none: there is exactly one production build; no dev/prod switch exists in the learner runtime",
+      "default": "production",
+      "consumers": [
+        "scripts/deploy-build.ts"
+      ],
+      "note": "tests build the same artefact; nothing behaves differently \"in production\""
+    },
+    {
+      "name": "publicDeploymentPath",
+      "kind": "build-output",
+      "supply": "derived output directory",
+      "default": "dist-deploy/<mount>/ (dist-deploy/kimyolab/)",
+      "derivedFrom": "basePath",
+      "consumers": [
+        "scripts/deploy-build.ts",
+        "scripts/deploy-preflight.ts"
+      ],
+      "note": "upload THIS directory's contents so that they are served at basePath"
+    },
+    {
+      "name": "contentManifestVersion",
+      "kind": "build-output",
+      "supply": "content pack (content-src → npm run content:pack)",
+      "default": "public/content/manifest.json packVersion",
+      "consumers": [
+        "src/app/content-client.ts",
+        "scripts/deploy-preflight.ts"
+      ],
+      "note": "the pack version and per-file sha256 travel with the artefact; changing content means rebuilding"
+    },
+    {
+      "name": "PORT / HOST",
+      "kind": "server",
+      "supply": "env PORT, HOST (only for the bundled Node server, npm start)",
+      "default": "4173 / 127.0.0.1",
+      "consumers": [
+        "server.mjs"
+      ],
+      "note": "irrelevant when another web server serves the static artefact"
+    },
+    {
+      "name": "KIMYOLAB_PUBLIC_ROOT",
+      "kind": "server",
+      "supply": "env (only for the bundled Node server)",
+      "default": "./dist",
+      "consumers": [
+        "server/paths.mjs"
+      ],
+      "note": "point it at dist-deploy/<mount>/ to serve the deployment artefact"
+    },
+    {
+      "name": "external-lab secrets (NOBOOK_*)",
+      "kind": "server",
+      "supply": "server env only, never in the artefact",
+      "default": "(unset → external NOBOOK lab reports \"not configured\")",
+      "consumers": [
+        "server/app.mjs"
+      ],
+      "note": "optional partner integration; never needed for the KimyoLab product itself"
+    }
+  ],
+  "derivedForDefaultMount": {
+    "basePath": "/kimyolab/",
+    "portalHomeUrl": null,
+    "assetBase": "/kimyolab/",
+    "contentBase": "/kimyolab/content",
+    "apiBase": "/kimyolab/api/",
+    "storageNamespace": "kimyolab@/kimyolab/",
+    "indexedDbName": "kimyolab@/kimyolab/.runtime",
+    "webLockPrefix": "kimyolab@/kimyolab/.attempt.",
+    "mountDir": "kimyolab"
+  },
+  "scanned": {
+    "files": 171,
+    "roots": [
+      "src/**",
+      "server/**",
+      "server.mjs",
+      "index.html"
+    ]
+  },
+  "hostLiterals": [
+    {
+      "file": "src/app/host.ts",
+      "literal": "kimyolab.invalid",
+      "allowed": true,
+      "reason": "reserved .invalid parse base for new URL() — never fetched"
+    },
+    {
+      "file": "src/integrations/external-labs/url-policy.ts",
+      "literal": "nobook.com",
+      "allowed": true,
+      "reason": "external-lab provider allow-list (url-policy): the only origins an external lab may frame"
+    },
+    {
+      "file": "src/integrations/external-labs/url-policy.ts",
+      "literal": "chemai.in",
+      "allowed": true,
+      "reason": "external-lab provider allow-list (url-policy)"
+    },
+    {
+      "file": "server/app.mjs",
+      "literal": "nbapi.nobook.com",
+      "allowed": true,
+      "reason": "external-lab partner API default (server-side, optional, overridable by NOBOOK_AUTH_URL)"
+    }
+  ],
+  "deploymentPathLiterals": [],
+  "environmentVariables": {
+    "deploy": [
+      "KIMYOLAB_BASE_PATH",
+      "KIMYOLAB_PORTAL_HOME_URL",
+      "KIMYOLAB_PUBLIC_ROOT",
+      "KIMYOLAB_CO_HOSTED_MOUNTS",
+      "KIMYOLAB_SMOKE_URL",
+      "KIMYOLAB_ROLLBACK_FROM",
+      "PORT",
+      "HOST"
+    ],
+    "nonDeploy": {
+      "CHROME_BIN": "test/smoke tooling: which Chromium binary to drive",
+      "KIMYOLAB_BROWSER_HOST": "browser-gate tooling",
+      "PROGRAMFILES": "Windows browser discovery (tooling)",
+      "LOCALAPPDATA": "Windows browser discovery (tooling)",
+      "KIMYOLAB_SESSION_RATE_LIMIT": "server tuning (optional; documented in DEPLOY.md)",
+      "KIMYOLAB_STATUS_RATE_LIMIT": "server tuning (optional; documented in DEPLOY.md)",
+      "KIMYOLAB_ALLOWED_ORIGINS": "server CORS allow-list for the optional session API (documented in DEPLOY.md)",
+      "NOBOOK_APP_KEY": "external-lab secret (server env only)",
+      "NOBOOK_APP_SECRET": "external-lab secret (server env only)",
+      "NOBOOK_PID_SCOPE": "external-lab setting",
+      "NOBOOK_EXPERIMENT_URL": "external-lab setting",
+      "NOBOOK_SDK_SHA256": "external-lab setting",
+      "NOBOOK_SDK_VERSION": "external-lab setting",
+      "NOBOOK_AUTH_URL": "external-lab setting",
+      "NOBOOK_IDENTITY_KEY": "external-lab secret (server env only)"
+    },
+    "readButUndeclared": []
+  },
+  "portalHomeUrlNote": "resolved at the host boundary (src/app/host.ts) and written by deploy:build when supplied; no learner screen links to it yet — supplying it changes nothing visible today (reported, not hidden)",
+  "violations": [],
+  "status": "PASS"
+}

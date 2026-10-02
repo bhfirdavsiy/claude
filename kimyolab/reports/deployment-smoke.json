@@ -1,0 +1,135 @@
+{
+  "schema": "kimyolab.deployment-smoke.v1",
+  "semantics": "Post-install smoke of the BUILT deployment (scripts/deploy-smoke.mjs). Answers come from the artefact content pack. Network-dependent external laboratories are not exercised.",
+  "target": {
+    "target": "dist-deploy/kimyolab/ via the bundled Node server",
+    "mount": "/kimyolab/",
+    "artifactSha256": "f61f1cca79ed4e9db2f1c76e3c0556d0aecfa483de569adc1d22ae73599926ba"
+  },
+  "standalone": "dist-standalone/KimyoLab_standalone.html (network blocked)",
+  "status": "PASS",
+  "summary": {
+    "checks": 23,
+    "pass": 23
+  },
+  "checks": [
+    {
+      "id": "home",
+      "pass": true
+    },
+    {
+      "id": "brand-asset",
+      "pass": true
+    },
+    {
+      "id": "content-loading",
+      "pass": true,
+      "detail": {
+        "activeVersion": "2026.09.1"
+      }
+    },
+    {
+      "id": "curriculum",
+      "pass": true
+    },
+    {
+      "id": "back-forward",
+      "pass": true
+    },
+    {
+      "id": "deep-link",
+      "pass": true
+    },
+    {
+      "id": "theory",
+      "pass": true
+    },
+    {
+      "id": "refresh",
+      "pass": true
+    },
+    {
+      "id": "query",
+      "pass": true
+    },
+    {
+      "id": "practice-static-check",
+      "pass": true
+    },
+    {
+      "id": "model-based-activity",
+      "pass": true,
+      "detail": {
+        "locksHeld": []
+      }
+    },
+    {
+      "id": "web-locks-namespace",
+      "pass": true,
+      "detail": {
+        "held": 1,
+        "prefix": "kimyolab@/kimyolab/.attempt."
+      }
+    },
+    {
+      "id": "storage-namespace",
+      "pass": true,
+      "detail": {
+        "database": "kimyolab@/kimyolab/.runtime"
+      }
+    },
+    {
+      "id": "progress-persistence",
+      "pass": true,
+      "detail": {
+        "evidence": 2,
+        "attempts": 2
+      }
+    },
+    {
+      "id": "service-worker",
+      "pass": true
+    },
+    {
+      "id": "outside-mount-404",
+      "pass": true,
+      "detail": {
+        "/": 404,
+        "/index.html": 404,
+        "/content/manifest.json": 404,
+        "/assets/brand/kimyolab-logo.webp": 404
+      }
+    },
+    {
+      "id": "no-page-errors",
+      "pass": true
+    },
+    {
+      "id": "standalone-opens",
+      "pass": true
+    },
+    {
+      "id": "standalone-brand-asset",
+      "pass": true
+    },
+    {
+      "id": "standalone-offline-flow",
+      "pass": true
+    },
+    {
+      "id": "standalone-model-based",
+      "pass": true
+    },
+    {
+      "id": "standalone-progress-persists",
+      "pass": true,
+      "detail": {
+        "evidence": 1
+      }
+    },
+    {
+      "id": "standalone-integrity-fails-closed",
+      "pass": true
+    }
+  ]
+}
