@@ -57,9 +57,11 @@ test('standalone at phone width: navigation, the P2.1 choice form and the verdic
   const context = await browser.newContext({viewport: {width: 375, height: 740}, isMobile: true, hasTouch: true});
   const page = await context.newPage();
   const errors = []; page.on('pageerror', (e) => errors.push(e.message));
-  await page.goto(`${url()}#/practice/practice.simulation.9.23.planned`);
+  // P2.6: subject changed from 9.23 (now the condition-prediction renderer, covered at phone width in host parity and
+  // renderer-condition.spec) to 11.16, a remaining P2.1 legacy choice form
+  await page.goto(`${url()}#/practice/practice.simulation.11.16.planned`);
   const form = page.locator('.kl-question').first();
-  await form.getByRole('radio', {name: 'Kislotali muhit'}).tap();
+  await form.getByRole('radio', {name: 'Ortadi'}).tap();
   await form.getByRole('button').tap();
   await expect(page.locator('.kl-feedback[role="status"]')).toContainText('To‘g‘ri');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);

@@ -895,7 +895,7 @@
       "content": "REVIEW_PENDING",
       "eligibility": "NOT_ELIGIBLE",
       "releaseState": "DECISION_MISSING",
-      "basisHash": "fc6d3a350c3486179ddc2aef67cc9a7e5100eb531cbf3f2f1ffee6a92db4f4ca"
+      "basisHash": "22f5fbeb37ed95dfdf506bf0a0619ec406c633133cf11865ef95d670acd54c57"
     },
     {
       "activityId": "practice.simulation.11.20.planned",
@@ -903,7 +903,7 @@
       "content": "REVIEW_PENDING",
       "eligibility": "NOT_ELIGIBLE",
       "releaseState": "DECISION_MISSING",
-      "basisHash": "b737ae7762488ff403b70f9aa55a902a6286206424dc76128a6b37c71addf00f"
+      "basisHash": "23dc9220af557d4a89f8e445a73ab1ca061b06c5a1bac6f37242e1b8d8dc801a"
     },
     {
       "activityId": "practice.simulation.7.02.planned",
@@ -1111,7 +1111,7 @@
       "content": "REVIEW_PENDING",
       "eligibility": "NOT_ELIGIBLE",
       "releaseState": "DECISION_MISSING",
-      "basisHash": "3fb9840c70599aaa4eb2b478aa7a234f57d48411a69952267940a16de2aa4b76"
+      "basisHash": "482a1c45b4d79dc1405f46afed9d854f9059a7a73896d97a32b0d6248f1f6e72"
     },
     {
       "activityId": "practice.trainer.10.03.planned",

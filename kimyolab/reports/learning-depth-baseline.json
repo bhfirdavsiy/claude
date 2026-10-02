@@ -7618,8 +7618,8 @@
         {
           "activityId": "practice.simulation.9.23.planned",
           "role": "primary",
-          "depth": "STATIC_CHECK",
-          "interaction": "FORM",
+          "depth": "MODEL_BASED",
+          "interaction": "MODEL_INTERACTIVE",
           "canSucceed": "CAN_SUCCEED"
         }
       ],
@@ -7635,7 +7635,9 @@
         "runtimeAvailable": false,
         "availability": "NONE"
       },
-      "rendererRequirements": [],
+      "rendererRequirements": [
+        "condition-prediction"
+      ],
       "runtimeReadiness": {
         "primary": "READY",
         "activities": 1,
@@ -7663,10 +7665,10 @@
       },
       "dimensions": {
         "theory": "MINIMAL",
-        "practice": "STATIC_CHECK",
+        "practice": "MODEL_BASED",
         "assessment": "NONE",
         "mastery": "PARTIAL",
-        "interaction": "FORM",
+        "interaction": "MODEL_INTERACTIVE",
         "governance": "UNREVIEWED"
       },
       "governance": {
@@ -12734,8 +12736,8 @@
         {
           "activityId": "practice.simulation.11.18.planned",
           "role": "primary",
-          "depth": "STATIC_CHECK",
-          "interaction": "FORM",
+          "depth": "MODEL_BASED",
+          "interaction": "MODEL_INTERACTIVE",
           "canSucceed": "CAN_SUCCEED"
         }
       ],
@@ -12751,7 +12753,9 @@
         "runtimeAvailable": false,
         "availability": "NONE"
       },
-      "rendererRequirements": [],
+      "rendererRequirements": [
+        "condition-prediction"
+      ],
       "runtimeReadiness": {
         "primary": "READY",
         "activities": 1,
@@ -12779,10 +12783,10 @@
       },
       "dimensions": {
         "theory": "MINIMAL",
-        "practice": "STATIC_CHECK",
+        "practice": "MODEL_BASED",
         "assessment": "NONE",
         "mastery": "PARTIAL",
-        "interaction": "FORM",
+        "interaction": "MODEL_INTERACTIVE",
         "governance": "UNREVIEWED"
       },
       "governance": {
@@ -12939,8 +12943,8 @@
         {
           "activityId": "practice.simulation.11.20.planned",
           "role": "primary",
-          "depth": "STATIC_CHECK",
-          "interaction": "FORM",
+          "depth": "MODEL_BASED",
+          "interaction": "MODEL_INTERACTIVE",
           "canSucceed": "CAN_SUCCEED"
         }
       ],
@@ -12956,7 +12960,9 @@
         "runtimeAvailable": false,
         "availability": "NONE"
       },
-      "rendererRequirements": [],
+      "rendererRequirements": [
+        "condition-prediction"
+      ],
       "runtimeReadiness": {
         "primary": "READY",
         "activities": 1,
@@ -12984,10 +12990,10 @@
       },
       "dimensions": {
         "theory": "MINIMAL",
-        "practice": "STATIC_CHECK",
+        "practice": "MODEL_BASED",
         "assessment": "NONE",
         "mastery": "PARTIAL",
-        "interaction": "FORM",
+        "interaction": "MODEL_INTERACTIVE",
         "governance": "UNREVIEWED"
       },
       "governance": {
@@ -18901,41 +18907,39 @@
       "capability": "equilibrium-shift",
       "runtimeReadiness": "READY",
       "content": "REVIEW_PENDING",
-      "depth": "STATIC_CHECK",
-      "interaction": "FORM",
-      "reason": "one-field form “simulation” checked against a domain-model value (equilibrium-model)",
-      "classifiedDepth": "STATIC_CHECK",
+      "depth": "MODEL_BASED",
+      "interaction": "MODEL_INTERACTIVE",
+      "reason": "registry renderer: learner choice → domain model → ≥2 distinct modeled outcomes (black-swan PASS)",
+      "classifiedDepth": "MODEL_BASED",
       "canSucceed": "CAN_SUCCEED",
-      "canSucceedDetail": "simulation: 1 command(s); complete=true",
-      "answerSource": "engine-expected",
-      "wrongInput": "FEEDBACK",
+      "canSucceedDetail": "controls 3; complete=true; positive evidence=true",
+      "answerSource": "renderer-intents",
+      "wrongInput": "NOT_APPLICABLE",
       "expectsUntranslatedToken": null,
       "modules": [
-        "equilibrium-model"
+        "equilibrium-model",
+        "condition-trial"
       ],
-      "blackSwan": null,
+      "blackSwan": {
+        "pass": true,
+        "evidence": "own conditions=2; distinct modeled outcomes=2; checks PASS"
+      },
       "steps": 0,
       "renderer": {
-        "kind": "legacy",
-        "capability": null,
-        "uiKind": "simulation"
+        "kind": "registry",
+        "capability": "condition-prediction"
       },
       "accessibility": {
-        "source": "legacy UI — not verified",
-        "keyboard": "UNKNOWN",
-        "screenReader": "UNKNOWN",
-        "nonColor": "UNKNOWN",
-        "reducedMotion": "UNKNOWN",
-        "nonVisualAlternative": "UNKNOWN",
-        "declaredProfile": [
-          "keyboard",
-          "textual-state"
-        ]
+        "source": "renderer contract",
+        "keyboard": true,
+        "nonColorCues": true,
+        "screenReaderSummary": true,
+        "reducedMotion": "static",
+        "nonVisualAlternative": "text-state"
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": [],
-        "localizationMissing": []
+        "englishOnlyLabels": []
       },
       "hardening": null,
       "configKeys": [
@@ -18944,6 +18948,7 @@
         "field",
         "perturbation",
         "reactionId",
+        "rendererRequirement",
         "task",
         "type",
         "version"
@@ -18959,41 +18964,39 @@
       "capability": "medium-redox",
       "runtimeReadiness": "READY",
       "content": "REVIEW_PENDING",
-      "depth": "STATIC_CHECK",
-      "interaction": "FORM",
-      "reason": "one-field form “simulation” checked against a domain-model value (manganese-redox-model)",
-      "classifiedDepth": "STATIC_CHECK",
+      "depth": "MODEL_BASED",
+      "interaction": "MODEL_INTERACTIVE",
+      "reason": "registry renderer: learner choice → domain model → ≥2 distinct modeled outcomes (black-swan PASS)",
+      "classifiedDepth": "MODEL_BASED",
       "canSucceed": "CAN_SUCCEED",
-      "canSucceedDetail": "simulation: 1 command(s); complete=true",
-      "answerSource": "engine-expected",
-      "wrongInput": "FEEDBACK",
+      "canSucceedDetail": "controls 3; complete=true; positive evidence=true",
+      "answerSource": "renderer-intents",
+      "wrongInput": "NOT_APPLICABLE",
       "expectsUntranslatedToken": null,
       "modules": [
-        "manganese-redox-model"
+        "manganese-redox-model",
+        "condition-trial"
       ],
-      "blackSwan": null,
+      "blackSwan": {
+        "pass": true,
+        "evidence": "own conditions=3; distinct modeled outcomes=3; checks PASS"
+      },
       "steps": 0,
       "renderer": {
-        "kind": "legacy",
-        "capability": null,
-        "uiKind": "simulation"
+        "kind": "registry",
+        "capability": "condition-prediction"
       },
       "accessibility": {
-        "source": "legacy UI — not verified",
-        "keyboard": "UNKNOWN",
-        "screenReader": "UNKNOWN",
-        "nonColor": "UNKNOWN",
-        "reducedMotion": "UNKNOWN",
-        "nonVisualAlternative": "UNKNOWN",
-        "declaredProfile": [
-          "keyboard",
-          "textual-state"
-        ]
+        "source": "renderer contract",
+        "keyboard": true,
+        "nonColorCues": true,
+        "screenReaderSummary": true,
+        "reducedMotion": "static",
+        "nonVisualAlternative": "text-state"
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": [],
-        "localizationMissing": []
+        "englishOnlyLabels": []
       },
       "hardening": null,
       "configKeys": [
@@ -19001,6 +19004,7 @@
         "conceptId",
         "field",
         "medium",
+        "rendererRequirement",
         "task",
         "type",
         "version"
@@ -20391,46 +20395,45 @@
       "capability": "manganese-redox-simulation",
       "runtimeReadiness": "READY",
       "content": "REVIEW_PENDING",
-      "depth": "STATIC_CHECK",
-      "interaction": "FORM",
-      "reason": "one-field form “simulation” checked against a domain-model value (manganese-redox-model)",
-      "classifiedDepth": "STATIC_CHECK",
+      "depth": "MODEL_BASED",
+      "interaction": "MODEL_INTERACTIVE",
+      "reason": "registry renderer: learner choice → domain model → ≥2 distinct modeled outcomes (black-swan PASS)",
+      "classifiedDepth": "MODEL_BASED",
       "canSucceed": "CAN_SUCCEED",
-      "canSucceedDetail": "simulation: 1 command(s); complete=true",
-      "answerSource": "config",
-      "wrongInput": "FEEDBACK",
+      "canSucceedDetail": "controls 3; complete=true; positive evidence=true",
+      "answerSource": "renderer-intents",
+      "wrongInput": "NOT_APPLICABLE",
       "expectsUntranslatedToken": null,
       "modules": [
-        "manganese-redox-model"
+        "manganese-redox-model",
+        "condition-trial"
       ],
-      "blackSwan": null,
+      "blackSwan": {
+        "pass": true,
+        "evidence": "own conditions=3; distinct modeled outcomes=3; checks PASS"
+      },
       "steps": 0,
       "renderer": {
-        "kind": "legacy",
-        "capability": null,
-        "uiKind": "simulation"
+        "kind": "registry",
+        "capability": "condition-prediction"
       },
       "accessibility": {
-        "source": "legacy UI — not verified",
-        "keyboard": "UNKNOWN",
-        "screenReader": "UNKNOWN",
-        "nonColor": "UNKNOWN",
-        "reducedMotion": "UNKNOWN",
-        "nonVisualAlternative": "UNKNOWN",
-        "declaredProfile": [
-          "keyboard",
-          "textual-state"
-        ]
+        "source": "renderer contract",
+        "keyboard": true,
+        "nonColorCues": true,
+        "screenReaderSummary": true,
+        "reducedMotion": "static",
+        "nonVisualAlternative": "text-state"
       },
       "localization": {
         "rawIdLabels": [],
-        "englishOnlyLabels": [],
-        "localizationMissing": []
+        "englishOnlyLabels": []
       },
       "hardening": null,
       "configKeys": [
         "capability",
         "conceptId",
+        "rendererRequirement",
         "targetMedium",
         "type",
         "version"
@@ -21407,6 +21410,19 @@
       "status": "MODEL_INTERACTIVE"
     },
     {
+      "module": "condition-trial",
+      "file": "src/domain/chemistry/condition-trial.ts",
+      "modelRecords": null,
+      "usedByActivities": 3,
+      "usedByLearningUnits": 3,
+      "browserExposed": true,
+      "rendererExposed": true,
+      "exposedAs": [
+        "MODEL_INTERACTIVE"
+      ],
+      "status": "MODEL_INTERACTIVE"
+    },
+    {
       "module": "electrolysis-model",
       "file": "src/domain/chemistry/electrolysis-model.ts",
       "modelRecords": 1,
@@ -21450,11 +21466,11 @@
       "usedByActivities": 1,
       "usedByLearningUnits": 1,
       "browserExposed": true,
-      "rendererExposed": false,
+      "rendererExposed": true,
       "exposedAs": [
-        "FORM"
+        "MODEL_INTERACTIVE"
       ],
-      "status": "FORM_OR_SCRIPT_ONLY"
+      "status": "MODEL_INTERACTIVE"
     },
     {
       "module": "faraday-model",
@@ -21568,11 +21584,11 @@
       "usedByActivities": 2,
       "usedByLearningUnits": 2,
       "browserExposed": true,
-      "rendererExposed": false,
+      "rendererExposed": true,
       "exposedAs": [
-        "FORM"
+        "MODEL_INTERACTIVE"
       ],
-      "status": "FORM_OR_SCRIPT_ONLY"
+      "status": "MODEL_INTERACTIVE"
     },
     {
       "module": "nuclear-equation",
@@ -21656,8 +21672,8 @@
     }
   ],
   "renderers": {
-    "registryRendered": 4,
-    "legacyRendered": 141,
+    "registryRendered": 7,
+    "legacyRendered": 138,
     "noRendererRequired": 0,
     "rendererMissingOrUnlaunchable": 1,
     "modelBasedRenderers": [
@@ -21690,6 +21706,19 @@
         "learningUnits": [
           "lu.8.14",
           "lu.8.16"
+        ]
+      },
+      {
+        "capability": "condition-prediction",
+        "activities": [
+          "practice.simulation.11.18.planned",
+          "practice.simulation.11.20.planned",
+          "practice.simulation.9.23.planned"
+        ],
+        "learningUnits": [
+          "lu.11.18",
+          "lu.11.20",
+          "lu.9.23"
         ]
       }
     ],
@@ -21927,22 +21956,6 @@
         "knownBlocker": null
       },
       {
-        "module": "equilibrium-model",
-        "existingDomainModel": true,
-        "modelRecords": 2,
-        "realLearnerChoicePossible": true,
-        "currentUiExposesModel": false,
-        "currentBrowserLimitation": "FORM",
-        "rendererReuse": null,
-        "affectedActivities": [
-          "practice.simulation.11.18.planned"
-        ],
-        "affectedLearningUnits": [
-          "lu.11.18"
-        ],
-        "knownBlocker": null
-      },
-      {
         "module": "faraday-model",
         "existingDomainModel": true,
         "modelRecords": null,
@@ -22028,24 +22041,6 @@
         "affectedLearningUnits": [
           "lu.11.15",
           "lu.11.16"
-        ],
-        "knownBlocker": null
-      },
-      {
-        "module": "manganese-redox-model",
-        "existingDomainModel": true,
-        "modelRecords": 3,
-        "realLearnerChoicePossible": true,
-        "currentUiExposesModel": false,
-        "currentBrowserLimitation": "FORM",
-        "rendererReuse": null,
-        "affectedActivities": [
-          "practice.simulation.11.20.planned",
-          "practice.simulation.9.23.planned"
-        ],
-        "affectedLearningUnits": [
-          "lu.11.20",
-          "lu.9.23"
         ],
         "knownBlocker": null
       },
@@ -22604,24 +22599,24 @@
   },
   "accessibility": {
     "keyboard": {
-      "verified": 4,
-      "unknown": 141
+      "verified": 7,
+      "unknown": 138
     },
     "screenReaderSummary": {
-      "verified": 4,
-      "unknown": 141
+      "verified": 7,
+      "unknown": 138
     },
     "nonColorCues": {
-      "verified": 4,
-      "unknown": 141
+      "verified": 7,
+      "unknown": 138
     },
     "reducedMotion": {
-      "verified": 4,
-      "unknown": 141
+      "verified": 7,
+      "unknown": 138
     },
     "nonVisualAlternative": {
-      "verified": 4,
-      "unknown": 141
+      "verified": 7,
+      "unknown": 138
     }
   },
   "localization": {

@@ -25,7 +25,8 @@ export const ROADMAP:ReadonlyArray<{id:string;label:string}>=[
   {id:'P2.3',label:'structured theory system'},
   {id:'P2.4',label:'governed theory authoring & source operations'},
   {id:'P2.5',label:'model-based reaction interaction expansion'},
-  {id:'P2.6+',label:'assessment / model-based / localization / accessibility / governance expansion'},
+  {id:'P2.6',label:'computed model interaction expansion'},
+  {id:'P2.7+',label:'assessment / model-based / localization / accessibility / governance expansion'},
   {id:'P3',label:'real portal deployment and production pilot'},
 ];
 const milestoneOrder=(a:string,b:string)=>a.localeCompare(b,undefined,{numeric:true});

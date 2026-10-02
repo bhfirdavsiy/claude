@@ -16,6 +16,9 @@ import {isPracticeResultComplete} from '../src/runtime/learning-orchestrator/sel
 import {atomIntent} from '../src/renderers/atom-builder/renderer.ts';
 import {hydrolysisIntent} from '../src/renderers/hydrolysis-medium/renderer.ts';
 import {ionicIntent} from '../src/renderers/ionic-precipitation/renderer.ts';
+import {conditionIntent} from '../src/renderers/condition-prediction/renderer.ts';
+import {EquilibriumModel} from '../src/domain/chemistry/equilibrium-model.ts';
+import {ManganeseRedoxModel} from '../src/domain/chemistry/manganese-redox-model.ts';
 import {HydrolysisModel} from '../src/domain/chemistry/hydrolysis-model.ts';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
@@ -66,7 +69,7 @@ const CANDIDATES:CandidateSpec[]=[
   },
   {
     id:'single-field-simulations',title:'Bitta maydonli “simulyatsiya”lar (beta1/beta2-safe/beta3 simulation)',leadActivityId:'practice.simulation.7.02.planned',
-    family:(s,c)=>c?.type==='simulation'&&['beta1','beta2-safe','beta3-advanced','beta2-organic'].includes(s)&&!(s==='beta3-advanced'&&c.task==='hydrolysis'),modelData:['content-src/chemistry/kinetics.json','content-src/chemistry/equilibrium.json','content-src/chemistry/organic.json'],domainModel:'value compared with a config value or a small model (see modelData for the record counts)',
+    family:(s,c)=>c?.type==='simulation'&&['beta1','beta2-safe','beta3-advanced','beta2-organic'].includes(s)&&!(s==='beta3-advanced'&&c.task==='hydrolysis')&&c.rendererRequirement?.capability!=='condition-prediction',modelData:['content-src/chemistry/kinetics.json','content-src/chemistry/equilibrium.json','content-src/chemistry/organic.json'],domainModel:'value compared with a config value or a small model (see modelData for the record counts)',
     assessment:{pedagogicalValue:'varies',currentLimitation:'the learner types one value into a form field; the “simulation” has no manipulable state',engineMaturity:'uniform but shallow',interactionDepth:'form answer check, not a simulation',accessibilityComplexity:'low',reusePotential:'low as renderer targets until a state model exists per task',blackSwan:'FAIL — a visual layer here would be decoration over a form answer',accessibilityPlan:'n/a until a state model exists',dependencies:['per-task state models (kinetics, equilibrium) before any renderer work']},
     rank:null,evaluateUiPath:false,
   },
@@ -94,6 +97,14 @@ export async function uiPathCanSucceed(client:ContentClient,activityId:string){
       const bySpecies=(f:string)=>(model.chemistry.species??[]).find((x:any)=>x.formula===f)?.id;
       const equation=IonicEngine.from({reactions:model.chemistry.reactions,rules:model.chemistry.solutionRules}).netIonicEquation(c.reactionId).equation;
       commands=[{type:'selectReagent',payload:{slot:'A',speciesId:bySpecies(rx.reactants[0].formula)}},{type:'selectReagent',payload:{slot:'B',speciesId:bySpecies(rx.reactants[1].formula)}},{type:'mix'},{type:'writeEquation',payload:{equation}}].map(a=>ionicIntent(a as any,model.type));
+    }
+    else if(capability==='condition-prediction'){
+      // P2.6: the intents the condition renderer emits — choose the target condition, predict (the domain's outcome), reveal
+      const beta2=c.capability==='manganese-redox-simulation';
+      const condition=beta2?c.targetMedium:c.task==='equilibrium-shift'?c.perturbation:c.medium;
+      const r:any=c.task==='equilibrium-shift'?EquilibriumModel.from(model.chemistry.equilibrium).resolve(c.reactionId,condition):null;
+      const outcome=r?r.shift:ManganeseRedoxModel.from(model.chemistry.manganeseRedox).resolve(condition).product;
+      commands=[{type:'selectCondition',payload:{condition}},{type:'predictOutcome',payload:{outcome}},{type:'reveal'}].map(a=>conditionIntent(a as any,model.type));
     }
     else return {verdict:'NOT_EVALUATED',detail:'no intent script for this capability'};
   }

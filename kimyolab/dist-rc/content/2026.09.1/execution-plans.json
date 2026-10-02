@@ -819,7 +819,11 @@
       "runtime": "beta3-advanced",
       "capability": "equilibrium-shift",
       "configSource": "beta3-advanced",
-      "configVersion": "1.0.0"
+      "configVersion": "2.0.0",
+      "rendererRequirement": {
+        "capability": "condition-prediction",
+        "range": "^1.0.0"
+      }
     },
     {
       "activityId": "practice.simulation.11.20.planned",
@@ -827,7 +831,11 @@
       "runtime": "beta3-advanced",
       "capability": "medium-redox",
       "configSource": "beta3-advanced",
-      "configVersion": "1.0.0"
+      "configVersion": "2.0.0",
+      "rendererRequirement": {
+        "capability": "condition-prediction",
+        "range": "^1.0.0"
+      }
     },
     {
       "activityId": "practice.simulation.7.02.planned",
@@ -1039,7 +1047,11 @@
       "runtime": "beta2-advanced",
       "capability": "manganese-redox-simulation",
       "configSource": "beta2-advanced",
-      "configVersion": "1.0.0"
+      "configVersion": "2.0.0",
+      "rendererRequirement": {
+        "capability": "condition-prediction",
+        "range": "^1.0.0"
+      }
     },
     {
       "activityId": "practice.trainer.10.03.planned",

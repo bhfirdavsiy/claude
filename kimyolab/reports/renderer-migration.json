@@ -2,8 +2,8 @@
   "schema": "kimyolab.renderer-migration.v1",
   "semantics": "Strangler migration: an activity with a rendererRequirement is drawn by the RendererRegistry; every other routed activity keeps the legacy practice renderer unchanged.",
   "totalActivities": 146,
-  "registryRendered": 4,
-  "legacyRendered": 141,
+  "registryRendered": 7,
+  "legacyRendered": 138,
   "rendererBlocked": 0,
   "unrouted": 1,
   "registryActivities": [
@@ -23,8 +23,23 @@
       "runtime": "READY"
     },
     {
+      "activityId": "practice.simulation.9.23.planned",
+      "capability": "condition-prediction",
+      "runtime": "READY"
+    },
+    {
       "activityId": "practice.simulation.11.11.planned",
       "capability": "hydrolysis-medium",
+      "runtime": "READY"
+    },
+    {
+      "activityId": "practice.simulation.11.18.planned",
+      "capability": "condition-prediction",
+      "runtime": "READY"
+    },
+    {
+      "activityId": "practice.simulation.11.20.planned",
+      "capability": "condition-prediction",
       "runtime": "READY"
     }
   ],
@@ -33,7 +48,7 @@
     "trainer": 17,
     "calculation": 10,
     "case": 10,
-    "simulation": 49
+    "simulation": 46
   },
   "futureCandidates": [],
   "notCandidates": [

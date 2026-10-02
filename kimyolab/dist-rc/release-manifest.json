@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-10-02T06:29:08.455Z",
+  "createdAt": "2026-10-02T07:43:48.631Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -63,6 +63,12 @@
       "size": 3231
     },
     {
+      "path": "app-preview/domain/chemistry/condition-trial.js",
+      "sourcePath": "public/app-preview/domain/chemistry/condition-trial.js",
+      "checksum": "30a8b5f9810ff44477a849610b0941e9701232fe17a1f2c4d6c4474fc6ad8b1b",
+      "size": 6773
+    },
+    {
       "path": "app-preview/domain/chemistry/condition-vocabulary.js",
       "sourcePath": "public/app-preview/domain/chemistry/condition-vocabulary.js",
       "checksum": "a2a5697bcf38c1a03ed722466d9bc96b46bd92b24263af497a8c1f4ad67514ff",
@@ -89,8 +95,8 @@
     {
       "path": "app-preview/domain/chemistry/equilibrium-model.js",
       "sourcePath": "public/app-preview/domain/chemistry/equilibrium-model.js",
-      "checksum": "f10fbb009a90d3ed6148547c750d507501c7d6367006714ec4587bbd091f755f",
-      "size": 1265
+      "checksum": "e1bd8f8db263bacde378f5d47a867ee581334840be6ad6b0cc63b5c99d637e7d",
+      "size": 1517
     },
     {
       "path": "app-preview/domain/chemistry/faraday-model.js",
@@ -593,8 +599,20 @@
     {
       "path": "app-preview/renderers/catalog.js",
       "sourcePath": "public/app-preview/renderers/catalog.js",
-      "checksum": "6d1af5e7ffea094b7eecc7880282bcdce9f557f876a42c82cc98880b268cba8d",
-      "size": 2140
+      "checksum": "2fae7469933b9e4754a1b524acc466dcc304fa3a1804aee91c8a0a077f372684",
+      "size": 2851
+    },
+    {
+      "path": "app-preview/renderers/condition-prediction/renderer-model.js",
+      "sourcePath": "public/app-preview/renderers/condition-prediction/renderer-model.js",
+      "checksum": "c2ae4e0af5a411550c23c2b00e6ef9067bc8a32fdc0f64c3739793b90d908794",
+      "size": 9083
+    },
+    {
+      "path": "app-preview/renderers/condition-prediction/renderer.js",
+      "sourcePath": "public/app-preview/renderers/condition-prediction/renderer.js",
+      "checksum": "7ad016da926e124bc48552b898e64a7d7ee23e63f4ce75401a0255048705be8f",
+      "size": 8224
     },
     {
       "path": "app-preview/renderers/contract.js",
@@ -617,8 +635,8 @@
     {
       "path": "app-preview/renderers/index.js",
       "sourcePath": "public/app-preview/renderers/index.js",
-      "checksum": "1b0220249b130b45024c54ab0b674391042ca344a70696579e42b565439ba3d4",
-      "size": 742
+      "checksum": "aa8206122b35249b95a20386d94542c99d83d28e0048ee8987a0af943c4b4815",
+      "size": 872
     },
     {
       "path": "app-preview/renderers/intent.js",
@@ -671,8 +689,8 @@
     {
       "path": "app-preview/runtime/beta2/advanced.js",
       "sourcePath": "public/app-preview/runtime/beta2/advanced.js",
-      "checksum": "61b07bd8c6c5239124f0446d65c1c216b90cc55edbc55aee708a51fecfb487ce",
-      "size": 9344
+      "checksum": "87722a8a12c6356de425c313917a60d20ae7bd98dc52a623ee1a394f3d99726b",
+      "size": 10317
     },
     {
       "path": "app-preview/runtime/beta2/capability.js",
@@ -701,8 +719,8 @@
     {
       "path": "app-preview/runtime/beta3/advanced.js",
       "sourcePath": "public/app-preview/runtime/beta3/advanced.js",
-      "checksum": "c94a913f39d0a339230f6d1e3aaa4a4feda2fb067934d665af398b579c141817",
-      "size": 10876
+      "checksum": "23837d874f9a8d56a47906b1d40582cb37c80541ef286b1d1414648fcc81a06f",
+      "size": 12753
     },
     {
       "path": "app-preview/runtime/beta3/index.js",
@@ -873,6 +891,12 @@
       "size": 2136
     },
     {
+      "path": "app-preview/runtime/reference-slices/condition-practice.js",
+      "sourcePath": "public/app-preview/runtime/reference-slices/condition-practice.js",
+      "checksum": "bf0313dd05fabe15183b72b5f9328e855775e2bc32f533e0a5d09f6627575717",
+      "size": 3284
+    },
+    {
       "path": "app-preview/runtime/reference-slices/config.js",
       "sourcePath": "public/app-preview/runtime/reference-slices/config.js",
       "checksum": "81fc3a9a1bb6eb81f6394ca03a09b569ccdfacc0f4a4a01a8942b192fe11cd59",
@@ -953,8 +977,8 @@
     {
       "path": "app-preview/ui/tokens/kimyolab.css",
       "sourcePath": "public/app-preview/ui/tokens/kimyolab.css",
-      "checksum": "b891f2aadf9d4e373f17ad016ee82c000b43242c21c470377f1d8b6575e3edf5",
-      "size": 30621
+      "checksum": "3f833318077a6104f506e333317b63e2639615a57c8fb57c3426160455224459",
+      "size": 32231
     },
     {
       "path": "assets/brand/kimyolab-logo.webp",
@@ -989,8 +1013,8 @@
     {
       "path": "content/2026.09.1/activity-configs/beta2-advanced.json",
       "sourcePath": "public/content/2026.09.1/activity-configs/beta2-advanced.json",
-      "checksum": "d5d51340625749481a4cc4980a1a330166c60777bfd066d44e0c048eaa903628",
-      "size": 1021
+      "checksum": "ae26fd00755a3c9d90a8f03af5f080b8d1461aed37d17746fa9d119fbad094d9",
+      "size": 1107
     },
     {
       "path": "content/2026.09.1/activity-configs/beta2-organic.json",
@@ -1007,8 +1031,8 @@
     {
       "path": "content/2026.09.1/activity-configs/beta3-advanced.json",
       "sourcePath": "public/content/2026.09.1/activity-configs/beta3-advanced.json",
-      "checksum": "91f5e27cbd2c3e71fd5c864414a8fecda36cd958d20a9bf75354888bbc330e7f",
-      "size": 6015
+      "checksum": "1e4527ef74a8ffc7cb017d28fda2c8177e12a4ddf87e231c628fcf3b8521ee0c",
+      "size": 6187
     },
     {
       "path": "content/2026.09.1/activity-configs/beta3-safe.json",
@@ -1157,8 +1181,8 @@
     {
       "path": "content/2026.09.1/execution-plans.json",
       "sourcePath": "public/content/2026.09.1/execution-plans.json",
-      "checksum": "c0debd72666f3b5a20c5420676abe20ce822b59d8bdd8a4028aa5c4648fbcd6b",
-      "size": 34409
+      "checksum": "b93544f30c0e6a9e83d447a234fbdaf9e7a1ccbece3b0afaa8aa02f093183e87",
+      "size": 34745
     },
     {
       "path": "content/2026.09.1/external-lab-bindings.json",
@@ -1217,8 +1241,8 @@
     {
       "path": "content/2026.09.1/locales/uz-latn/learner-interaction.json",
       "sourcePath": "public/content/2026.09.1/locales/uz-latn/learner-interaction.json",
-      "checksum": "a10c99999c06a79197f5d42d16e0f4a8dfa7928acff7dafffb9a3bb357aab4fe",
-      "size": 13127
+      "checksum": "40521de348a5e7a959a154e1507466a727070d406d74525b9a1af1ecc406aaa8",
+      "size": 16130
     },
     {
       "path": "content/2026.09.1/locales/uz-latn/name-provenance.json",
@@ -1229,7 +1253,7 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "127b7d1e004e170a186bafe4abfa24a7ab6a99d46b5d115d963259530e70b832",
+      "checksum": "cf709f8d177bc1975bfa3e58c4588f0d52d3e37b606793f1b5b0ed23a62b7390",
       "size": 7849
     },
     {
@@ -1259,7 +1283,7 @@
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "75e235c679444cca7cc3e43f049eaa9a82eefa651d52cf3ecb72710f30c33e36",
+      "checksum": "6caa8b777b38b15060b4b39edd84a8926cee813dbb95484190d8b755be44129f",
       "size": 158
     },
     {

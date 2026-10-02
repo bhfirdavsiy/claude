@@ -2,7 +2,7 @@
   "schema": "kimyolab.p2-work-packages.v1",
   "semantics": "Work packages derived from the baseline. Each lists impact facts, coverage, dependencies, blockers, machine work and human work. There is NO priority score: the order below is by category name, and prioritization is a human decision in the next task.",
   "counts": {
-    "packages": 22,
+    "packages": 20,
     "byCategory": {
       "accessibility": 1,
       "assessment expansion": 1,
@@ -11,7 +11,7 @@
       "lab repair": 1,
       "localization": 1,
       "model-based renderer (reuse)": 2,
-      "model-based renderer": 12,
+      "model-based renderer": 10,
       "provenance": 1,
       "theory enrichment": 1
     }
@@ -64,9 +64,7 @@
         "lu.11.15",
         "lu.11.16",
         "lu.11.17",
-        "lu.11.18",
         "lu.11.19",
-        "lu.11.20",
         "lu.11.21",
         "lu.11.22",
         "lu.7.01",
@@ -136,7 +134,6 @@
         "lu.9.20",
         "lu.9.21",
         "lu.9.22",
-        "lu.9.23",
         "lu.9.24",
         "lu.9.25",
         "lu.9.26"
@@ -239,8 +236,6 @@
         "practice.simulation.11.15.planned",
         "practice.simulation.11.16.planned",
         "practice.simulation.11.17.planned",
-        "practice.simulation.11.18.planned",
-        "practice.simulation.11.20.planned",
         "practice.simulation.7.02.planned",
         "practice.simulation.7.06.planned",
         "practice.simulation.7.10.planned",
@@ -265,7 +260,6 @@
         "practice.simulation.9.18.water-hardness",
         "practice.simulation.9.20.cu-ag-au",
         "practice.simulation.9.21.group12",
-        "practice.simulation.9.23.planned",
         "practice.trainer.10.03.planned",
         "practice.trainer.10.05.planned",
         "practice.trainer.10.06.planned",
@@ -286,7 +280,7 @@
       ],
       "facts": {
         "verified": 4,
-        "unknown": 141
+        "unknown": 138
       },
       "dependencies": [],
       "machineWork": [
@@ -458,12 +452,10 @@
         "formOnlyModules": [
           "electrolysis-model",
           "electron-configuration",
-          "equilibrium-model",
           "faraday-model",
           "formula-parser",
           "gas-laws",
           "kinetics-model",
-          "manganese-redox-model",
           "nuclear-equation",
           "organic-knowledge",
           "redox-balancer",
@@ -1011,33 +1003,6 @@
       "blockers": []
     },
     {
-      "id": "wp.model-renderer.equilibrium-model",
-      "category": "model-based renderer",
-      "affectedLearningUnits": [
-        "lu.11.18"
-      ],
-      "affectedActivities": [
-        "practice.simulation.11.18.planned"
-      ],
-      "facts": {
-        "modelRecords": 2,
-        "realLearnerChoicePossible": true,
-        "currentBrowserLimitation": "FORM",
-        "rendererReuse": null
-      },
-      "dependencies": [
-        "chemistry review of the model records"
-      ],
-      "machineWork": [
-        "renderer model + intents, black-swan probes, keyboard/a11y E2E"
-      ],
-      "humanWork": [
-        "chemistry review of model data",
-        "content review of the activities"
-      ],
-      "blockers": []
-    },
-    {
       "id": "wp.model-renderer.faraday-model",
       "category": "model-based renderer",
       "affectedLearningUnits": [
@@ -1133,35 +1098,6 @@
       "affectedActivities": [
         "practice.simulation.11.15.planned",
         "practice.simulation.11.16.planned"
-      ],
-      "facts": {
-        "modelRecords": 3,
-        "realLearnerChoicePossible": true,
-        "currentBrowserLimitation": "FORM",
-        "rendererReuse": null
-      },
-      "dependencies": [
-        "chemistry review of the model records"
-      ],
-      "machineWork": [
-        "renderer model + intents, black-swan probes, keyboard/a11y E2E"
-      ],
-      "humanWork": [
-        "chemistry review of model data",
-        "content review of the activities"
-      ],
-      "blockers": []
-    },
-    {
-      "id": "wp.model-renderer.manganese-redox-model",
-      "category": "model-based renderer",
-      "affectedLearningUnits": [
-        "lu.11.20",
-        "lu.9.23"
-      ],
-      "affectedActivities": [
-        "practice.simulation.11.20.planned",
-        "practice.simulation.9.23.planned"
       ],
       "facts": {
         "modelRecords": 3,

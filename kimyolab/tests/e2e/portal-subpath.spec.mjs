@@ -77,9 +77,10 @@ test('the server serves only the mount: /kimyolab → /kimyolab/, root paths and
 });
 
 test('storage and Web Lock namespaces are the mount’s own (no collision with a root deployment on the same origin)', async ({page}) => {
-  await page.goto(`${server.url}${BASE}practice/practice.simulation.9.23.planned`);
+  // P2.6: subject changed from 9.23 (now the condition-prediction renderer) to 11.16, a remaining legacy choice form
+  await page.goto(`${server.url}${BASE}practice/practice.simulation.11.16.planned`);
   const form = page.locator('.kl-question').first();
-  await form.getByRole('radio', {name: 'Kislotali muhit'}).check();
+  await form.getByRole('radio', {name: 'Ortadi'}).check();
   await form.getByRole('button').click();
   await expect(page.locator('.kl-feedback[role="status"]')).toContainText('To‘g‘ri');
   const state = await page.evaluate(async () => ({
@@ -103,12 +104,13 @@ test('CSS isolation: KimyoLab styles do not restyle a host page; typical portal 
   // (2) a typical portal reset/theme stylesheet loaded after KimyoLab keeps the learner's controls usable
   // (the KimyoLab CSP forbids inline styles; the test context bypasses CSP only to inject the simulated portal sheet)
   const portal = await (await browser.newContext({bypassCSP: true})).newPage();
-  await portal.goto(`${server.url}${BASE}practice/practice.simulation.9.23.planned`);
+  // P2.6: subject changed from 9.23 (now the condition-prediction renderer) to 11.16, a remaining legacy choice form
+  await portal.goto(`${server.url}${BASE}practice/practice.simulation.11.16.planned`);
   await portal.addStyleTag({content: '*{margin:0;padding:0;font-family:serif} a{color:#c00;text-decoration:underline} button{background:#eee;border:0;font-size:12px} input{border:1px solid #999} fieldset{border:0} legend{font-size:10px}'});
   const form = portal.locator('.kl-question').first();
-  await expect(form.getByRole('radio', {name: 'Kislotali muhit'})).toBeVisible();
+  await expect(form.getByRole('radio', {name: 'Ortadi'})).toBeVisible();
   await expect(form.getByRole('button')).toBeVisible();
-  await form.getByRole('radio', {name: 'Kislotali muhit'}).check();
+  await form.getByRole('radio', {name: 'Ortadi'}).check();
   await form.getByRole('button').click();
   await expect(portal.locator('.kl-feedback[role="status"]')).toContainText('To‘g‘ri');
   await portal.context().close();

@@ -1,0 +1,360 @@
+{
+  "schema": "kimyolab.computed-model-interaction-expansion.v1",
+  "semantics": "Facts only. Eligibility comes from reports/computed-model-interaction-audit.json (F1–F8); conversions are the eligible activities whose route was changed; every number is computed from the repository.",
+  "totalCandidates": 75,
+  "eligible": [
+    "practice.simulation.11.18.planned",
+    "practice.simulation.11.20.planned",
+    "practice.simulation.9.23.planned"
+  ],
+  "converted": [
+    "practice.simulation.11.18.planned",
+    "practice.simulation.11.20.planned",
+    "practice.simulation.9.23.planned"
+  ],
+  "blocked": [
+    {
+      "activityId": "practice.experiment.11.2",
+      "reasons": [
+        "BLACK_SWAN_FAIL: one modeled record",
+        "OUT_OF_SCOPE_P26: expanding electrolysis model data is excluded (human chemistry work)"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.10",
+      "reasons": [
+        "BLACK_SWAN_FAIL: one modeled record",
+        "OUT_OF_SCOPE_P26: expanding electrolysis model data is excluded (human chemistry work)"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.11.01.planned",
+      "reasons": [
+        "ANSWER_LEAK: exploring Z shows exactly the string the activity asks the learner to construct (F8); the engine returns only the final string, no stepwise state to build",
+        "MODEL_KNOWN_GAP: the engine fills orbitals in one fixed order for every Z ≤ 36 and has no exception records (e.g. Z=24 → \"1s2 2s2 2p6 3s2 3p6 4s2 3d4\", Z=29 → \"1s2 2s2 2p6 3s2 3p6 4s2 3d9\"); exposing Z as a control would present those outputs — chemistry review decides",
+        "TASK_SEMANTICS_NOT_IN_CONTENT: a prediction trial would need a closed option set of configurations (distractors) that content does not define"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.11.15.planned",
+      "reasons": [
+        "ANSWER_VALIDATOR_ONLY: type the final rate → the engine says correct/wrong",
+        "CALCULATION_INTENT: letting the learner change c0/c1/Δt and see the rate would show the asked value (F8)",
+        "NEW_CHEMISTRY_REQUIRED: a graph needs concentration–time data; the domain has only a two-point average rate"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.11.16.planned",
+      "reasons": [
+        "BLACK_SWAN_FAIL: every modeled factor change has the same effect (increase); a condition trial would be one answer repeated",
+        "NEW_CHEMISTRY_REQUIRED: the title names T, P, V and catalyst — P and V have no records (human chemistry work, not invented here)"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.11.17.planned",
+      "reasons": [
+        "NO_COMPUTED_ENGINE: the runtime compares two config numbers; there is no dynamic-equilibrium model",
+        "NEW_CHEMISTRY_REQUIRED: a rate-vs-time model would have to be authored and reviewed"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.8.06.planned",
+      "reasons": [
+        "NO_COMPUTED_ENGINE_IN_CURRENT_RUNTIME: beta1 compares the config targetState",
+        "ANSWER_LEAK: exploring Z shows exactly the string the activity asks the learner to construct (F8); the engine returns only the final string, no stepwise state to build",
+        "MODEL_KNOWN_GAP: the engine fills orbitals in one fixed order for every Z ≤ 36 and has no exception records (e.g. Z=24 → \"1s2 2s2 2p6 3s2 3p6 4s2 3d4\", Z=29 → \"1s2 2s2 2p6 3s2 3p6 4s2 3d9\"); exposing Z as a control would present those outputs — chemistry review decides"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.8.19.planned",
+      "reasons": [
+        "NO_COMPUTED_ENGINE_IN_CURRENT_RUNTIME: beta1 compares the config targetState",
+        "BLACK_SWAN_FAIL: the kinetics records reach one effect (increase)",
+        "NEW_CHEMISTRY_REQUIRED: surface area is not modeled"
+      ]
+    },
+    {
+      "activityId": "practice.simulation.8.20.planned",
+      "reasons": [
+        "NO_COMPUTED_ENGINE_IN_CURRENT_RUNTIME: beta1 compares the config targetState; the equilibrium model is not bound to this activity",
+        "CONTENT_SCOPE: only \"pressure-increase\" is this activity's own content; using the 11.18-sourced temperature record would extend the task beyond its content (F5/F8) — a curriculum/chemistry decision",
+        "BLACK_SWAN_FAIL: with its own perturbation alone the learner reaches 1 distinct outcome"
+      ]
+    }
+  ],
+  "notEligible": 44,
+  "outOfFamily": 17,
+  "alreadyModelBased": 2,
+  "reasons": {
+    "ANSWER_LEAK": 2,
+    "ANSWER_VALIDATOR_ONLY": 11,
+    "BLACK_SWAN_FAIL": 5,
+    "CALCULATION_INTENT": 5,
+    "CONTENT_SCOPE": 1,
+    "DOMAIN_TRUTH_WOULD_MOVE_TO_UI": 1,
+    "MODEL_KNOWN_GAP": 2,
+    "NEW_CHEMISTRY_REQUIRED": 4,
+    "NO_COMPUTED_ENGINE": 35,
+    "NO_COMPUTED_ENGINE_IN_CURRENT_RUNTIME": 3,
+    "OUT_OF_SCOPE_P26": 2,
+    "RECORD_BASED_NOT_COMPUTED": 17,
+    "TASK_SEMANTICS_NOT_IN_CONTENT": 6
+  },
+  "modelBasedActivities": {
+    "before": 4,
+    "after": 7
+  },
+  "modelBasedUnits": {
+    "before": 6,
+    "after": 9,
+    "total": 122
+  },
+  "progress": {
+    "before": {
+      "foundation": 100,
+      "learningProduct": 11.688,
+      "overall": 47.013
+    },
+    "after": {
+      "foundation": 100,
+      "learningProduct": 12.189,
+      "overall": 47.313
+    },
+    "formulaChanged": false,
+    "cause": "modelBasedInteraction component only (MODEL_BASED units); no governance input moved"
+  },
+  "perActivityBlackSwan": [
+    {
+      "activityId": "practice.simulation.11.18.planned",
+      "kind": "equilibrium-shift",
+      "pass": true,
+      "conditions": [
+        "pressure-increase",
+        "temperature-increase"
+      ],
+      "distinctOutcomes": 2,
+      "pathA": {
+        "condition": "pressure-increase",
+        "outcome": "products"
+      },
+      "pathB": {
+        "condition": "temperature-increase",
+        "outcome": "reactants"
+      },
+      "invalidPath": {
+        "failsClosed": true
+      },
+      "checks": {
+        "modelBased": true,
+        "distinctOutcomesAtLeastTwo": true,
+        "evidenceParity": true,
+        "learnerDecision": true,
+        "predictionBeforeReveal": true,
+        "outcomeHiddenBeforeReveal": true,
+        "wrongPredictionIsEvidenceNotCompletion": true,
+        "oneTrialPerCondition": true,
+        "unmodeledFailsClosed": true,
+        "outcomeOutsideModelRejected": true,
+        "labelsLocalized": true
+      }
+    },
+    {
+      "activityId": "practice.simulation.11.20.planned",
+      "kind": "manganese-medium-product",
+      "pass": true,
+      "conditions": [
+        "acidic",
+        "basic",
+        "neutral"
+      ],
+      "distinctOutcomes": 3,
+      "pathA": {
+        "condition": "acidic",
+        "outcome": "Mn^2+"
+      },
+      "pathB": {
+        "condition": "basic",
+        "outcome": "MnO4^2-"
+      },
+      "invalidPath": {
+        "failsClosed": true
+      },
+      "checks": {
+        "modelBased": true,
+        "distinctOutcomesAtLeastTwo": true,
+        "evidenceParity": true,
+        "learnerDecision": true,
+        "predictionBeforeReveal": true,
+        "outcomeHiddenBeforeReveal": true,
+        "wrongPredictionIsEvidenceNotCompletion": true,
+        "oneTrialPerCondition": true,
+        "unmodeledFailsClosed": true,
+        "outcomeOutsideModelRejected": true,
+        "labelsLocalized": true
+      }
+    },
+    {
+      "activityId": "practice.simulation.9.23.planned",
+      "kind": "manganese-medium-product",
+      "pass": true,
+      "conditions": [
+        "acidic",
+        "basic",
+        "neutral"
+      ],
+      "distinctOutcomes": 3,
+      "pathA": {
+        "condition": "acidic",
+        "outcome": "Mn^2+"
+      },
+      "pathB": {
+        "condition": "basic",
+        "outcome": "MnO4^2-"
+      },
+      "invalidPath": {
+        "failsClosed": true
+      },
+      "checks": {
+        "modelBased": true,
+        "distinctOutcomesAtLeastTwo": true,
+        "evidenceParity": true,
+        "learnerDecision": true,
+        "predictionBeforeReveal": true,
+        "outcomeHiddenBeforeReveal": true,
+        "wrongPredictionIsEvidenceNotCompletion": true,
+        "oneTrialPerCondition": true,
+        "unmodeledFailsClosed": true,
+        "outcomeOutsideModelRejected": true,
+        "labelsLocalized": true
+      }
+    }
+  ],
+  "versioning": {
+    "rule": "evaluation semantics changed (one-field answer → prediction trial): config version 1.0.0 → 2.0.0, new evidence ids (<id>.condition.trial.<n>, <id>.condition) and targetIds (<model>-<condition>-trial); old evidence is never the same scoring context",
+    "activities": [
+      "practice.simulation.11.18.planned",
+      "practice.simulation.11.20.planned",
+      "practice.simulation.9.23.planned"
+    ]
+  },
+  "bundleImpact": {
+    "method": "raw bytes of the committed learner modules (public/app-preview/**/*.js) and of the standalone artifact",
+    "before": {
+      "learnerModules": 158,
+      "learnerModuleBytes": 665773,
+      "rendererModules": 11,
+      "rendererBytes": 51742,
+      "standaloneBytes": 5646313
+    },
+    "after": {
+      "learnerModules": 162,
+      "learnerModuleBytes": 697080,
+      "rendererModules": 13,
+      "rendererBytes": 69890,
+      "standaloneBytes": 5683867
+    },
+    "delta": {
+      "learnerModules": 4,
+      "learnerModuleBytes": 31307,
+      "rendererBytes": 18148,
+      "standaloneBytes": 37554
+    },
+    "dependencies": "none added (DOM + CSS only; no canvas/WebGL/chart library)"
+  },
+  "accessibility": {
+    "declared": {
+      "keyboard": true,
+      "nonColorCues": true,
+      "screenReaderSummary": true,
+      "reducedMotion": "static",
+      "nonVisualAlternative": "text-state"
+    },
+    "automated": [
+      "tests/e2e/renderer-condition.spec.mjs (keyboard-only, aria-live text, ✓/✗ text, reduced motion, 375 px reflow, retry)",
+      "tests/e2e/host-scenarios.mjs (portal + standalone)"
+    ],
+    "result": "enforced by npm run verify (e2e step): a failing spec fails the build",
+    "humanReview": "pending — automated tests do not replace a human accessibility review"
+  },
+  "hostParity": {
+    "status": "PASS",
+    "scenarios": 11,
+    "pass": 11,
+    "converted": [
+      {
+        "id": "manganese-9.23",
+        "status": "PASS"
+      },
+      {
+        "id": "equilibrium-11.18",
+        "status": "PASS"
+      },
+      {
+        "id": "manganese-11.20",
+        "status": "PASS"
+      }
+    ]
+  },
+  "newChemistryRecords": 0,
+  "chemistryRecordCounts": {
+    "reactions": 28,
+    "species": 84,
+    "equilibrium": 2,
+    "manganeseRedox": 3,
+    "kinetics": 3,
+    "hydrolysis": 4,
+    "electrolysis": 1
+  },
+  "newDisplayText": {
+    "catalog": "content-src/locales/uz-latn/learner-interaction.json",
+    "reviewStatus": "pending",
+    "keys": [
+      "answer.equilibrium-perturbation.pressure-increase",
+      "answer.equilibrium-perturbation.temperature-increase",
+      "answer.equilibrium-system.haber",
+      "ui.cond-action-failed",
+      "ui.cond-choose-condition",
+      "ui.cond-correct",
+      "ui.cond-goal",
+      "ui.cond-goal-pending",
+      "ui.cond-goal-reached",
+      "ui.cond-hint-choose",
+      "ui.cond-hint-next",
+      "ui.cond-hint-predict",
+      "ui.cond-hint-reveal",
+      "ui.cond-incorrect",
+      "ui.cond-no-prediction",
+      "ui.cond-predict",
+      "ui.cond-predicted",
+      "ui.cond-reject-already-tried",
+      "ui.cond-reject-invalid",
+      "ui.cond-reject-no-selection",
+      "ui.cond-reject-not-modeled",
+      "ui.cond-reject-outcome",
+      "ui.cond-reject-prediction-locked",
+      "ui.cond-reject-prediction-required",
+      "ui.cond-result",
+      "ui.cond-result-none",
+      "ui.cond-reveal",
+      "ui.cond-row-condition",
+      "ui.cond-row-prediction",
+      "ui.cond-row-result",
+      "ui.cond-row-verdict",
+      "ui.cond-selected",
+      "ui.cond-state",
+      "ui.cond-subject",
+      "ui.cond-system",
+      "ui.cond-title",
+      "ui.cond-trial",
+      "ui.cond-trials",
+      "ui.cond-tried",
+      "ui.cond-verdict-correct",
+      "ui.cond-verdict-incorrect"
+    ],
+    "note": "display translations of existing model ids and renderer UI text (review pending); the haber system label restates the equation already in the equilibrium record explanation"
+  },
+  "translationDebt": [
+    "equilibrium record explanations and manganese observations are English-only and are not shown to learners; only structured results (shift label, product formula) are displayed"
+  ],
+  "humanDecisionsCreated": 0
+}

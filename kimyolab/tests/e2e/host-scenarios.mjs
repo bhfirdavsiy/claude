@@ -116,16 +116,35 @@ export const SCENARIOS = [
     await expect(card.locator('.kl-ionic__result')).toHaveText('✓ Tenglama to‘g‘ri.');
     return {observation: await card.locator('.kl-ionic__observation').textContent()};
   }},
-  {id: 'manganese-9.23', title: 'P2.1 manganese 9.23 invalid + valid choice', async run(page, host) {
+  // P2.6 changed this scenario: 9.23 is a condition-prediction trial (ADR-P2-007). Same id; the P2.1 point (no submit
+  // without a choice, wrong → ✗, correct → ✓) is exercised through the new renderer in both hosts.
+  {id: 'manganese-9.23', title: 'P2.6 manganese 9.23 condition trial: no reveal without a prediction, wrong + right', async run(page, host) {
     await host.open(page, '/practice/practice.simulation.9.23.planned');
-    const form = page.locator('.kl-question').first();
-    await form.getByRole('button').click();
-    await expect(form.getByRole('alert')).toHaveText('Variantni tanlang.');
-    await form.getByRole('radio', {name: 'Ishqoriy muhit'}).check(); await form.getByRole('button').click();
-    await expect(feedback(page)).toContainText('Noto‘g‘ri');
-    await form.getByRole('radio', {name: 'Kislotali muhit'}).check(); await form.getByRole('button').click();
-    await expect(feedback(page)).toContainText('To‘g‘ri');
-    return {verdict: await feedback(page).textContent()};
+    const card = page.locator('[data-renderer="condition-prediction@1.0.0"]');
+    await card.getByRole('radio', {name: 'Ishqoriy muhit', exact: true}).check();
+    await expect(card.locator('[data-action="reveal"]')).toBeDisabled();
+    await card.getByRole('radio', {name: 'Mn²⁺', exact: true}).check(); await card.locator('[data-action="reveal"]').click();
+    await expect(card.locator('.kl-cond__feedback')).toHaveAttribute('data-result', 'incorrect');
+    await card.getByRole('radio', {name: 'Kislotali muhit', exact: true}).check();
+    await card.getByRole('radio', {name: 'Mn²⁺', exact: true}).check(); await card.locator('[data-action="reveal"]').click();
+    await expect(card.locator('.kl-cond__goal-state')).toHaveAttribute('data-goal', 'reached');
+    return {observation: await card.locator('.kl-cond__observation').textContent(), trials: await card.locator('.kl-cond__trials li').allTextContents()};
+  }},
+  {id: 'equilibrium-11.18', title: 'P2.6 equilibrium 11.18 condition trial (beta3)', async run(page, host) {
+    await host.open(page, '/practice/practice.simulation.11.18.planned');
+    const card = page.locator('[data-renderer="condition-prediction@1.0.0"]');
+    await card.getByRole('radio', {name: 'Bosimni oshirish', exact: true}).check();
+    await card.getByRole('radio', {name: 'Mahsulotlar tomonga', exact: true}).check(); await card.locator('[data-action="reveal"]').click();
+    await expect(card.locator('.kl-cond__goal-state')).toHaveAttribute('data-goal', 'reached');
+    return {observation: await card.locator('.kl-cond__observation').textContent()};
+  }},
+  {id: 'manganese-11.20', title: 'P2.6 manganese 11.20 condition trial (beta3)', async run(page, host) {
+    await host.open(page, '/practice/practice.simulation.11.20.planned');
+    const card = page.locator('[data-renderer="condition-prediction@1.0.0"]');
+    await card.getByRole('radio', {name: 'Kislotali muhit', exact: true}).check();
+    await card.getByRole('radio', {name: 'Mn²⁺', exact: true}).check(); await card.locator('[data-action="reveal"]').click();
+    await expect(card.locator('.kl-cond__goal-state')).toHaveAttribute('data-goal', 'reached');
+    return {observation: await card.locator('.kl-cond__observation').textContent()};
   }},
   {id: 'static-check-form', title: 'legacy STATIC_CHECK form (trainer 7.4)', async run(page, host) {
     await host.open(page, '/practice/practice.trainer.7.4');

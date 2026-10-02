@@ -67,14 +67,16 @@ test('advanced electrolysis experiment exposes electrode observation controls an
   assert.ok(result.evidence.some(e=>e.type==='observation'));
 });
 
+// P2.6 changed this test: 9.23 is drawn by the condition-prediction renderer (no legacy UI model: RENDERER_REQUIRED);
+// the medium control is the renderer's condition choice and the session still reaches the target through the model.
 test('advanced manganese simulation exposes medium control and reaches the target model',async()=>{
   const model=await client().loadPractice('practice.simulation.9.23.planned');
   assert.equal(model.executionPlan.configSource,'beta2-advanced');
-  const ui=buildPracticeUiModel(model);
-  assert.equal(ui.kind,'simulation');
-  assert.equal(ui.mode,'generic');
-  assert.deepEqual(ui.controls.map(x=>x.field),['medium']);
+  assert.deepEqual(model.executionPlan.rendererRequirement,{capability:'condition-prediction',range:'^1.0.0'});
+  assert.throws(()=>buildPracticeUiModel(model),/RENDERER_REQUIRED/);
   const session=new ReferencePracticeSession(model,{now});
-  const result=await session.apply({kind:'simulation-action',action:{field:'medium',value:'acidic'}});
+  assert.deepEqual((await session.result()).finalState.condition.conditions,['acidic','basic','neutral']);
+  let result;
+  for(const action of [{type:'selectCondition',payload:{condition:'acidic'}},{type:'predictOutcome',payload:{outcome:'Mn^2+'}},{type:'reveal'}]) result=await session.apply({kind:'simulation-action',action});
   assert.ok(result.evidence.some(e=>e.type==='construction'&&e.achieved===true));
 });

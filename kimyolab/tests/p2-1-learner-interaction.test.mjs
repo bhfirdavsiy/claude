@@ -16,23 +16,34 @@ const MN='practice.simulation.9.23.planned';
 // ------------------------------------------------------------------ 9.23 crash regression (FAILED on the P2.0 code:
 // the session threw MANGANESE_MEDIUM_NOT_MODELED for any medium the model does not know)
 
+// P2.6 changed these two tests: 9.23 is now a condition-prediction trial (ADR-P2-007) drawn by the registry renderer, so
+// the learner no longer submits a typed/chosen `{field:'medium'}` value. The P2.1 guarantee is kept and probed with the
+// SAME inputs on the new protocol: a medium the model does not know is rejected by the domain (CONDITION_NOT_MODELED) —
+// no trial, no evidence, no crash — and the session stays usable (a correct trial on the target completes it). The old
+// one-field command is refused as an invalid action, never a crash.
+const trial=(condition,outcome)=>[{type:'selectCondition',payload:{condition}},{type:'predictOutcome',payload:{outcome}},{type:'reveal'}];
 for(const value of ['kislotali','ACIDIC','','   ','x'.repeat(500),'<img src=x onerror=alert(1)>','кислотная']){
   test(`9.23 regression: learner input ${JSON.stringify(value.slice(0,24))} gives feedback, never a crash`,async()=>{
     const model=await client().loadPractice(MN);
     const s=new ReferencePracticeSession(model,NOW);
-    const r=await s.apply({kind:'simulation-action',action:{field:'medium',value}});
+    const r=await s.apply({kind:'simulation-action',action:{type:'selectCondition',payload:{condition:value}}});
     assert.equal(r.evidence.length,0,'invalid input is not evidence');
-    if(value.trim()) assert.equal(r.outcomes.at(-1).code,'LEARNER_INPUT_INVALID');
-    // the session is still usable afterwards: the correct answer completes it
-    const ok=await s.apply({kind:'simulation-action',action:{field:'medium',value:'acidic'}});
+    assert.equal(r.finalState.condition.rejected,'CONDITION_NOT_MODELED');
+    const legacy=await s.apply({kind:'simulation-action',action:{field:'medium',value}});
+    assert.equal(legacy.evidence.length,0); assert.equal(legacy.finalState.condition.rejected,'CONDITION_ACTION_INVALID');
+    // the session is still usable afterwards: the correct trial on the target (the domain's product) completes it
+    let ok; for(const a of trial('acidic','Mn^2+')) ok=await s.apply({kind:'simulation-action',action:a});
     assert.ok(ok.evidence.some(e=>e.achieved===true&&e.score===1));
   });
 }
 
-test('9.23: a wrong but modelled medium is LEARNER_INCORRECT (score 0), not invalid',async()=>{
-  const model=await client().loadPractice(MN);
-  const r=await new ReferencePracticeSession(model,NOW).apply({kind:'simulation-action',action:{field:'medium',value:'basic'}});
-  assert.equal(r.evidence[0].score,0); assert.equal(r.evidence[0].achieved,false);
+test('9.23: a wrong but modelled prediction is LEARNER_INCORRECT (score 0), not invalid',async()=>{
+  const model=await client().loadPractice(MN); const s=new ReferencePracticeSession(model,NOW);
+  let r; for(const a of trial('acidic','MnO2')) r=await s.apply({kind:'simulation-action',action:a});
+  const answer=r.evidence.find(e=>e.type==='answer');
+  assert.equal(answer.score,0); assert.equal(answer.correct,false);
+  assert.equal(r.evidence.find(e=>e.type==='construction').achieved,false);
+  assert.equal(classifyLearnerOutcome({evidence:[answer]}),LEARNER_INCORRECT);
 });
 
 // ------------------------------------------------------------------ taxonomy (existing outcome shapes, no parallel taxonomy)
@@ -62,10 +73,11 @@ test('SYSTEM_INVARIANT_FAILED still throws: broken content is not learner input'
 
 // ------------------------------------------------------------------ closed domains become choices
 
+// P2.6 removed 9.23 and 11.18 from this table: they are drawn by the condition-prediction renderer now (no legacy form).
+// Their option sets still come from the domain (manganese products, EQUILIBRIUM_SHIFTS) with catalog labels — asserted in
+// tests/p2-6-computed-model-interaction.test.mjs.
 const CHOICES={
-  'practice.simulation.9.23.planned':['medium','manganese-medium',3],
   'practice.simulation.11.16.planned':['effect','kinetics-effect',3],
-  'practice.simulation.11.18.planned':['shift','equilibrium-shift',3],
   'practice.simulation.11.03.planned':['conserved','boolean',2],
   'practice.simulation.11.17.planned':['equilibrium','boolean',2],
   'practice.simulation.10.10.planned':['product','organic-product',12],
@@ -119,7 +131,8 @@ const PARITY=[
   ['simple enum','practice.simulation.11.16.planned','effect',null],
   ['polymer token','practice.simulation.10.13.planned','product','polybutadiene-repeat-unit'],
   ['species choice','practice.simulation.10.10.planned','product','chloromethane'],
-  ['medium choice','practice.simulation.9.23.planned','medium','acidic'],
+  // P2.6 removed the 9.23 'medium choice' row: 9.23 has no legacy form any more (condition-prediction renderer); the
+  // label → canonical id parity of the new renderer is asserted in tests/p2-6-computed-model-interaction.test.mjs.
 ];
 for(const [name,id,field,token] of PARITY){
   test(`evidence parity (${name}): the chosen label gives the same evidence, score and completion as the canonical token`,async()=>{
@@ -150,13 +163,15 @@ test('learner-interaction catalog: valid, pending review, has every shared UI st
   const loc=createLocalizer({interaction:cat}); assert.equal(loc('answer.manganese-medium.acidic'),'Kislotali muhit'); assert.equal(loc('species.x.name'),null);
 });
 
+// P2.6 changed this test's subject from 9.23 (now a condition-prediction renderer, no legacy form) to 11.16, the remaining
+// legacy closed-domain simulation with a single enum field; what is asserted is unchanged.
 test('missing localization never shows a raw id and never breaks chemistry execution',async()=>{
-  const model=await client().loadPractice(MN); const bare={...model,localization:undefined};
+  const model=await client().loadPractice('practice.simulation.11.16.planned'); const bare={...model,localization:undefined};
   const ui=buildPracticeUiModel(bare); const q=ui.controls[0].question;
-  assert.ok(ui.localizationMissing.includes('field.medium')&&ui.localizationMissing.includes('answer.manganese-medium.acidic'));
-  assert.notEqual(q.label,'medium'); for(const c of q.input.choices){ assert.notEqual(c.label,c.value); assert.doesNotMatch(c.label,/acidic|basic|neutral/); }
-  const i=q.input.choices.findIndex(c=>c.value==='acidic');
-  const r=await new ReferencePracticeSession(bare,NOW).apply({kind:'simulation-action',action:{field:'medium',value:answerValue(q,String(i))}});
+  assert.ok(ui.localizationMissing.includes('field.effect')&&ui.localizationMissing.includes('answer.kinetics-effect.increase'));
+  assert.notEqual(q.label,'effect'); for(const c of q.input.choices){ assert.notEqual(c.label,c.value); assert.doesNotMatch(c.label,/increase|decrease|no-change/); }
+  const i=q.input.choices.findIndex(c=>c.value==='increase');
+  const r=await new ReferencePracticeSession(bare,NOW).apply({kind:'simulation-action',action:{field:'effect',value:answerValue(q,String(i))}});
   assert.equal(r.evidence[0].score,1,'chemistry runs without any catalog');
 });
 
@@ -174,7 +189,8 @@ test('leakage: no launchable legacy UI model carries an answer key, and a typed 
     for(const f of typedFields){ const v=cfg.targetState?.[f]??cfg.expected; if(typeof v==='string'&&v.length>2) assert.ok(!JSON.stringify(ui.controls).includes(JSON.stringify(v)),`${a.id}#${f} leaks "${v}"`); }
     if(ui.kind==='trainer') for(const v of cfg.acceptedAnswers??[]) if(ui.prompt.includes(v)&&v.length>2) promptLeaks.push(a.id);
   }
-  assert.ok(checked>=140,`${checked} UI models checked`);
+  // P2.6: 9.23, 11.18 and 11.20 left the legacy UI (condition-prediction renderer), so 141 → 138 legacy models are checked
+  assert.ok(checked>=138,`${checked} UI models checked`);
   // KNOWN LIMITATION (authored content, not changed by P2.1): these prompts show the answer FORMAT with the answer itself
   assert.deepEqual([...new Set(promptLeaks)].sort(),['practice.trainer.7.15.planned','practice.trainer.8.08.planned']);
 });
@@ -185,7 +201,8 @@ test('interaction reliability: no crash on learner input, no raw id, no closed d
   const {reliability:r,answerAudit,labelAudit}=await buildInteractionReports(root);
   assert.equal(r.baseline,P20_BASELINE);
   assert.equal(r.crashOnLearnerInput.after,0); assert.equal(r.rawIdLearnerFacing.after,0); assert.equal(r.closedDomainTextInputs.after,0);
-  assert.equal(r.localizationMissing.keys,0); assert.ok(r.choiceConverted.activities>=13);
+  // P2.6: 9.23 and 11.18 were legacy choice fields and are now condition-prediction trials, so ≥13 → ≥11
+  assert.equal(r.localizationMissing.keys,0); assert.ok(r.choiceConverted.activities>=11);
   assert.ok(r.internalTokenTextInput.after<P20_BASELINE.untranslatedTokenActivities);
   for(const f of answerAudit.fields.filter(x=>x.internalTokenTyped)) assert.equal(f.status,'OPTION_SET_MISSING',f.activityId);
   for(const f of answerAudit.fields.filter(x=>x.input==='choice')) assert.equal(f.optionsContainAnswer,true,f.activityId);
@@ -194,10 +211,13 @@ test('interaction reliability: no crash on learner input, no raw id, no closed d
   assert.deepEqual(onDisk,JSON.parse(JSON.stringify(r)),'committed report is current (run npm run learner:interaction)');
 });
 
-test('progress: UX work does not inflate depth — MODEL_BASED stays 4, STATIC_CHECK stays STATIC_CHECK',()=>{
+// P2.6 changed this test: MODEL_BASED 4 → 7 and STATIC_CHECK 116 → 113 because 9.23, 11.18 and 11.20 became condition
+// trials with a per-activity black-swan (ADR-P2-007) — a model change, not UX work. The point is unchanged: a choice UI
+// alone (every CHOICES activity) is never MODEL_BASED.
+test('progress: UX work does not inflate depth — only the P2.6 model conversions moved MODEL_BASED; a choice UI is not a model',()=>{
   const b=JSON.parse(fs.readFileSync(path.join(root,'reports/learning-depth-baseline.json'),'utf8'));
   const n=(d)=>b.activities.filter(a=>a.depth===d).length;
-  assert.equal(n('MODEL_BASED'),4); assert.equal(n('STATIC_CHECK'),116); assert.equal(n('GUIDED'),25);
+  assert.equal(n('MODEL_BASED'),7); assert.equal(n('STATIC_CHECK'),113); assert.equal(n('GUIDED'),25);
   for(const id of Object.keys(CHOICES)) assert.notEqual(b.activities.find(a=>a.activityId===id).depth,'MODEL_BASED',`${id}: a choice UI is not a model`);
   const p=JSON.parse(fs.readFileSync(path.join(root,'reports/project-progress.json'),'utf8'));
   assert.equal(p.foundationProgress.percent,100,'9.23 was the only failing foundation check');

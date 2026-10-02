@@ -47,10 +47,14 @@ test('electrolysis experiment resolves only curated electrolyte/electrode produc
  assert.equal(result.value.model.anode.product,'Cl2');
 });
 
+// P2.6 changed this test: 9.23 is a condition-prediction trial now (config 2.0.0, ADR-P2-007). The explicit medium is
+// still required (no medium → no trial, no evidence) and the modeled product still comes from ManganeseRedoxModel.
 test('manganese redox simulation requires explicit medium and emits modeled target evidence',async()=>{
  const id='practice.simulation.9.23.planned';
- const result=await router.run(activity(id,'simulation'),{inputs:{[id]:{simulationActions:[{field:'medium',value:'acidic'}]}}});
+ const none=await router.run(activity(id,'simulation'),{inputs:{[id]:{simulationActions:[{type:'reveal'}]}}});
+ assert.equal(none.ok,true); assert.equal(none.value.evidence.length,0);
+ const result=await router.run(activity(id,'simulation'),{inputs:{[id]:{simulationActions:[{type:'selectCondition',payload:{condition:'acidic'}},{type:'predictOutcome',payload:{outcome:'Mn^2+'}},{type:'reveal'}]}}});
  assert.equal(result.ok,true);
- assert.equal(result.value.model.product,'Mn^2+');
+ assert.equal(result.value.finalState.condition.trials[0].actual,'Mn^2+');
  assert.ok(result.value.evidence.some(e=>e.type==='construction'&&e.achieved));
 });

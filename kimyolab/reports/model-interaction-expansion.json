@@ -167,10 +167,10 @@
     "NO_REACHABLE_TARGET": 17,
     "SHELF_TOO_SMALL": 5
   },
-  "modelBasedActivitiesBefore": 4,
-  "modelBasedActivitiesAfter": 4,
-  "modelBasedUnitsBefore": 6,
-  "modelBasedUnitsAfter": 6,
+  "modelBasedActivitiesBefore": 7,
+  "modelBasedActivitiesAfter": 7,
+  "modelBasedUnitsBefore": 9,
+  "modelBasedUnitsAfter": 9,
   "blackSwanPass": {},
   "existingModelBasedBlackSwan": [
     {
@@ -213,8 +213,8 @@
     }
   ],
   "hostParity": {
-    "scenarios": 9,
-    "pass": 9,
+    "scenarios": 11,
+    "pass": 11,
     "status": "PASS"
   },
   "chemistryRecordsAdded": 0,

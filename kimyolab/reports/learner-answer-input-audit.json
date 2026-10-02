@@ -2,16 +2,15 @@
   "schema": "kimyolab.learner-answer-input-audit.v1",
   "semantics": "Every answer field of a launchable legacy-form activity. input=choice: a closed domain from the domain/config (domainSource) rendered as labelled options. input=text|number|formula: open answer. OPTION_SET_MISSING: the engine expects an internal token but the repository holds no option set (only the target) — inventing distractors is new content, so the field stays text and is listed here.",
   "counts": {
-    "fields": 97,
-    "choice": 13,
-    "text": 84,
+    "fields": 94,
+    "choice": 11,
+    "text": 83,
     "internalTokenTyped": 32,
     "closedDomainAsText": 0,
     "byCategory": {
       "ENUM": 32,
-      "MEDIUM": 1,
       "POLYMER_STRUCTURE": 1,
-      "PROCESS": 6,
+      "PROCESS": 5,
       "REACTION_TYPE": 1,
       "SPECIES": 4
     }
@@ -598,20 +597,6 @@
       "closedDomainAsText": false
     },
     {
-      "activityId": "practice.simulation.9.23.planned",
-      "learningUnitId": "lu.9.23",
-      "field": "medium",
-      "label": "Muhit",
-      "input": "choice",
-      "domain": "manganese-medium",
-      "domainSource": "chemistry/manganese-redox.json",
-      "options": 3,
-      "optionsContainAnswer": true,
-      "category": "MEDIUM",
-      "internalTokenTyped": false,
-      "closedDomainAsText": false
-    },
-    {
       "activityId": "practice.trainer.10.03.planned",
       "learningUnitId": "lu.10.03",
       "field": "answer",
@@ -870,34 +855,10 @@
       "closedDomainAsText": false
     },
     {
-      "activityId": "practice.simulation.11.18.planned",
-      "learningUnitId": "lu.11.18",
-      "field": "shift",
-      "label": "Muvozanat siljishi",
-      "input": "choice",
-      "domain": "equilibrium-shift",
-      "domainSource": "EQUILIBRIUM_SHIFTS",
-      "options": 3,
-      "optionsContainAnswer": true,
-      "category": "PROCESS",
-      "internalTokenTyped": false,
-      "closedDomainAsText": false
-    },
-    {
       "activityId": "practice.trainer.11.19.planned",
       "learningUnitId": "lu.11.19",
       "field": "answer",
       "label": "Javob",
-      "input": "text",
-      "answerShape": "FORMULA_OR_SYMBOL",
-      "internalTokenTyped": false,
-      "closedDomainAsText": false
-    },
-    {
-      "activityId": "practice.simulation.11.20.planned",
-      "learningUnitId": "lu.11.20",
-      "field": "product",
-      "label": "Mahsulot",
       "input": "text",
       "answerShape": "FORMULA_OR_SYMBOL",
       "internalTokenTyped": false,

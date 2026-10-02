@@ -18,7 +18,7 @@
       {
         "id": "renderer-registry",
         "pass": true,
-        "detail": "3 registry capabilities"
+        "detail": "4 registry capabilities"
       },
       {
         "id": "chemistry-kb-gate",
@@ -58,7 +58,7 @@
     ]
   },
   "learningProductProgress": {
-    "percent": 11.688,
+    "percent": 12.189,
     "formula": "Σ weight × component (equal weights 1/6)",
     "weights": {
       "learningCoverage": 0.16666666666666666,
@@ -69,8 +69,8 @@
       "localization": 0.16666666666666666
     },
     "components": {
-      "learningCoverage": 31.876,
-      "modelBasedInteraction": 4.918,
+      "learningCoverage": 32.423,
+      "modelBasedInteraction": 7.377,
       "assessmentCoverage": 0,
       "governance": 0,
       "release": 0,
@@ -78,7 +78,7 @@
     }
   },
   "overallManagementEstimate": {
-    "percent": 47.013,
+    "percent": 47.313,
     "formula": "0.4 × foundationProgress + 0.6 × learningProductProgress",
     "weights": {
       "foundation": 0.4,
@@ -92,11 +92,11 @@
       "formula": "foundation checks"
     },
     "learningCoverage": {
-      "percent": 31.876,
+      "percent": 32.423,
       "formula": "mean over units of (theory + practice + assessment levels)/3, levels normalized 0..1"
     },
     "modelBasedInteraction": {
-      "percent": 4.918,
+      "percent": 7.377,
       "formula": "units with ≥1 MODEL_BASED activity the learner can complete / 122"
     },
     "assessmentCoverage": {
@@ -121,12 +121,12 @@
     "milestone": "P0-INTEGRITY"
   },
   "whereWeAreNow": {
-    "milestone": "P2.5",
+    "milestone": "P2.6",
     "foundationPercent": 100,
-    "learningProductPercent": 11.688,
+    "learningProductPercent": 12.189,
     "facts": [
       "122 units, 146 activities",
-      "4 model-based activities in 6 units",
+      "7 model-based activities in 9 units",
       "5 assessment items (0 approved) in 1 unit",
       "0 human approvals, 0 human releases, 0 pilot sign-offs",
       "theory: 0 structured / 122"
@@ -148,11 +148,12 @@
     "P2.1",
     "P2.2",
     "P2.3",
-    "P2.4"
+    "P2.4",
+    "P2.5"
   ],
-  "currentMilestone": "P2.5 — model-based reaction interaction expansion",
+  "currentMilestone": "P2.6 — computed model interaction expansion",
   "nextMilestones": [
-    "P2.6+ — assessment / model-based / localization / accessibility / governance expansion",
+    "P2.7+ — assessment / model-based / localization / accessibility / governance expansion",
     "human review round (workbench): chemistry A–C queues, lu.9.15 assessment",
     "release decisions for the 27 pending activities"
   ],
@@ -177,7 +178,7 @@
   ],
   "uzSummary": [
     "Platforma poydevori: 100% (10/10 tekshiruv o‘tdi).",
-    "O‘quv mahsuloti: 11.688%. 122 ta mavzudan 6 tasida model asosidagi amaliyot bor, 0 tasida tasdiqlangan test bor.",
+    "O‘quv mahsuloti: 12.189%. 122 ta mavzudan 9 tasida model asosidagi amaliyot bor, 0 tasida tasdiqlangan test bor.",
     "Nazariya: 122 ta mavzuning hammasida faqat qisqa xulosa bor (misol, xato tushunchalar va yakun yo‘q).",
     "Inson qarorlari: 0 approval, 0 release, 0 pilot sign-off."
   ]

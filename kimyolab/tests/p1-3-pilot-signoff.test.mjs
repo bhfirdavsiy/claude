@@ -179,7 +179,9 @@ test('renderer foundation report: facts from code, black-swan honesty, only the 
   assert.equal(by['hydrolysis-medium'].learnerUiPath.verdict,'CAN_SUCCEED','the renderer passes the salt/medium to the model');
   assert.equal(by.electrolysis.modelData[0].records,1);
   assert.ok(by.electrolysis.blockers.some(b=>/canned animation/.test(b)),'a one-record model must not be called a simulation');
-  assert.deepEqual(fs.readdirSync(path.join(root,'src/renderers')).filter(f=>fs.statSync(path.join(root,'src/renderers',f)).isDirectory()).sort(),['atom-builder','hydrolysis-medium','ionic-precipitation'],'no electrolysis renderer exists');
+  // P2.6 changed this list: the condition-prediction renderer (ADR-P2-007) was added for 9.23/11.18/11.20; the point of
+  // the assertion — no electrolysis renderer over a one-record model — is unchanged.
+  assert.deepEqual(fs.readdirSync(path.join(root,'src/renderers')).filter(f=>fs.statSync(path.join(root,'src/renderers',f)).isDirectory()).sort(),['atom-builder','condition-prediction','hydrolysis-medium','ionic-precipitation'],'no electrolysis renderer exists');
 });
 
 // ------------------------------------------------------------------ completion fix (found by pilot:status)

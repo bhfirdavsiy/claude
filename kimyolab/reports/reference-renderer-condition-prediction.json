@@ -1,0 +1,213 @@
+{
+  "schema": "kimyolab.reference-renderer-condition-prediction.v1",
+  "capability": "condition-prediction@1.0.0",
+  "status": "PASS",
+  "semantics": "judged per activity: an activity bound to this renderer is model-based only when its own modeled conditions reach ≥2 distinct domain outcomes through the real stack",
+  "activities": [
+    {
+      "activityId": "practice.simulation.11.18.planned",
+      "kind": "equilibrium-shift",
+      "status": "PASS",
+      "checks": {
+        "modelBased": true,
+        "distinctOutcomesAtLeastTwo": true,
+        "evidenceParity": true,
+        "learnerDecision": true,
+        "predictionBeforeReveal": true,
+        "outcomeHiddenBeforeReveal": true,
+        "wrongPredictionIsEvidenceNotCompletion": true,
+        "oneTrialPerCondition": true,
+        "unmodeledFailsClosed": true,
+        "outcomeOutsideModelRejected": true,
+        "labelsLocalized": true
+      },
+      "conditions": [
+        "pressure-increase",
+        "temperature-increase"
+      ],
+      "outcomeOptions": [
+        "reactants",
+        "products",
+        "no-shift"
+      ],
+      "targetCondition": "pressure-increase",
+      "distinctOutcomes": 2,
+      "probes": [
+        {
+          "condition": "pressure-increase",
+          "engineOutcome": "products",
+          "rendererOutcome": "products",
+          "rendererText": "Model natijasi: Mahsulotlar tomonga.",
+          "predicted": "reactants",
+          "correct": false,
+          "score": 0
+        },
+        {
+          "condition": "temperature-increase",
+          "engineOutcome": "reactants",
+          "rendererOutcome": "reactants",
+          "rendererText": "Model natijasi: Reaktantlar tomonga.",
+          "predicted": "reactants",
+          "correct": true,
+          "score": 1
+        }
+      ]
+    },
+    {
+      "activityId": "practice.simulation.11.20.planned",
+      "kind": "manganese-medium-product",
+      "status": "PASS",
+      "checks": {
+        "modelBased": true,
+        "distinctOutcomesAtLeastTwo": true,
+        "evidenceParity": true,
+        "learnerDecision": true,
+        "predictionBeforeReveal": true,
+        "outcomeHiddenBeforeReveal": true,
+        "wrongPredictionIsEvidenceNotCompletion": true,
+        "oneTrialPerCondition": true,
+        "unmodeledFailsClosed": true,
+        "outcomeOutsideModelRejected": true,
+        "labelsLocalized": true
+      },
+      "conditions": [
+        "acidic",
+        "basic",
+        "neutral"
+      ],
+      "outcomeOptions": [
+        "MnO2",
+        "MnO4^2-",
+        "Mn^2+"
+      ],
+      "targetCondition": "acidic",
+      "distinctOutcomes": 3,
+      "probes": [
+        {
+          "condition": "acidic",
+          "engineOutcome": "Mn^2+",
+          "rendererOutcome": "Mn^2+",
+          "rendererText": "Model natijasi: Mn²⁺.",
+          "predicted": "MnO2",
+          "correct": false,
+          "score": 0
+        },
+        {
+          "condition": "basic",
+          "engineOutcome": "MnO4^2-",
+          "rendererOutcome": "MnO4^2-",
+          "rendererText": "Model natijasi: MnO₄²⁻.",
+          "predicted": "MnO2",
+          "correct": false,
+          "score": 0
+        },
+        {
+          "condition": "neutral",
+          "engineOutcome": "MnO2",
+          "rendererOutcome": "MnO2",
+          "rendererText": "Model natijasi: MnO₂.",
+          "predicted": "MnO2",
+          "correct": true,
+          "score": 1
+        }
+      ]
+    },
+    {
+      "activityId": "practice.simulation.9.23.planned",
+      "kind": "manganese-medium-product",
+      "status": "PASS",
+      "checks": {
+        "modelBased": true,
+        "distinctOutcomesAtLeastTwo": true,
+        "evidenceParity": true,
+        "learnerDecision": true,
+        "predictionBeforeReveal": true,
+        "outcomeHiddenBeforeReveal": true,
+        "wrongPredictionIsEvidenceNotCompletion": true,
+        "oneTrialPerCondition": true,
+        "unmodeledFailsClosed": true,
+        "outcomeOutsideModelRejected": true,
+        "labelsLocalized": true
+      },
+      "conditions": [
+        "acidic",
+        "basic",
+        "neutral"
+      ],
+      "outcomeOptions": [
+        "MnO2",
+        "MnO4^2-",
+        "Mn^2+"
+      ],
+      "targetCondition": "acidic",
+      "distinctOutcomes": 3,
+      "probes": [
+        {
+          "condition": "acidic",
+          "engineOutcome": "Mn^2+",
+          "rendererOutcome": "Mn^2+",
+          "rendererText": "Model natijasi: Mn²⁺.",
+          "predicted": "MnO2",
+          "correct": false,
+          "score": 0
+        },
+        {
+          "condition": "basic",
+          "engineOutcome": "MnO4^2-",
+          "rendererOutcome": "MnO4^2-",
+          "rendererText": "Model natijasi: MnO₄²⁻.",
+          "predicted": "MnO2",
+          "correct": false,
+          "score": 0
+        },
+        {
+          "condition": "neutral",
+          "engineOutcome": "MnO2",
+          "rendererOutcome": "MnO2",
+          "rendererText": "Model natijasi: MnO₂.",
+          "predicted": "MnO2",
+          "correct": true,
+          "score": 1
+        }
+      ]
+    }
+  ],
+  "domainSource": [
+    "src/domain/chemistry/condition-trial.ts",
+    "src/domain/chemistry/equilibrium-model.ts",
+    "src/domain/chemistry/manganese-redox-model.ts",
+    "content-src/chemistry/equilibrium.json",
+    "content-src/chemistry/manganese-redox.json"
+  ],
+  "converter": "src/renderers/condition-prediction/renderer-model.ts#toConditionRendererModel",
+  "rendererModelSchema": "kimyolab.renderer.condition-prediction.v1",
+  "intents": {
+    "kinds": [
+      "simulation-action"
+    ],
+    "shape": {
+      "kind": "simulation-action",
+      "action": {
+        "type": "reveal"
+      }
+    }
+  },
+  "accessibility": {
+    "keyboard": true,
+    "nonColorCues": true,
+    "screenReaderSummary": true,
+    "reducedMotion": "static",
+    "nonVisualAlternative": "text-state",
+    "keyboardE2E": {
+      "spec": "tests/e2e/renderer-condition.spec.mjs",
+      "present": true,
+      "keyboardOnly": true
+    }
+  },
+  "knownLimitations": [
+    "equilibrium: one reaction system (haber) with two modeled perturbations (content-src/chemistry/equilibrium.json, review pending)",
+    "manganese: three modeled media → three products (content-src/chemistry/manganese-redox.json, review pending)",
+    "the records' explanations/observations are English-only and are not shown; only structured results (shift label, product formula) are displayed — translation is human work",
+    "perturbation and system labels are new display text in the learner-interaction catalog (review pending)"
+  ]
+}

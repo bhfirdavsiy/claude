@@ -34,12 +34,16 @@ test('report: current, deterministic, every candidate listed with its facts; not
 
 test('eligibility is derived, not a quota: 0 eligible, 0 converted, MODEL_BASED stays 4 activities / 6 units',()=>{
   assert.deepEqual(report.eligible,[]); assert.deepEqual(report.converted,[]); assert.deepEqual(P25_CONVERTED,[]);
-  assert.deepEqual([report.modelBasedActivitiesBefore,report.modelBasedActivitiesAfter,report.modelBasedUnitsBefore,report.modelBasedUnitsAfter],[4,4,6,6]);
+  // P2.6 changed the absolute numbers: this report reads the current baseline, where the P2.6 condition-prediction
+  // conversions (ADR-P2-007) moved MODEL_BASED 4 → 7 activities and 6 → 9 units. What P2.5 asserted is unchanged: the
+  // reaction expansion converted nothing, so before = after.
+  assert.deepEqual([report.modelBasedActivitiesBefore,report.modelBasedActivitiesAfter,report.modelBasedUnitsBefore,report.modelBasedUnitsAfter],[7,7,9,9]);
   assert.equal(report.chemistryRecordsAdded,0);
   const p=json('reports/project-progress.json');
-  assert.equal(p.learningProductProgress.percent,11.688); assert.equal(p.foundationProgress.percent,100);
+  assert.equal(p.learningProductProgress.percent,12.189); assert.equal(p.foundationProgress.percent,100);
   const mb=json('reports/learning-depth-baseline.json').activities.filter(a=>a.depth==='MODEL_BASED').map(a=>a.activityId).sort();
-  assert.deepEqual(mb,['practice.experiment.8.1','practice.experiment.9.14','practice.simulation.11.11.planned','practice.simulation.7.07.planned']);
+  assert.deepEqual(mb,['practice.experiment.8.1','practice.experiment.9.14','practice.simulation.11.11.planned','practice.simulation.11.18.planned','practice.simulation.11.20.planned','practice.simulation.7.07.planned','practice.simulation.9.23.planned']);
+  assert.ok(report.candidates.every(c=>!['practice.simulation.9.23.planned','practice.simulation.11.18.planned','practice.simulation.11.20.planned'].includes(c.activityId)),'the P2.6 conversions are not reaction candidates');
 });
 
 test('shelves come only from each activity\'s own content: no reagent is invented',()=>{

@@ -47,7 +47,7 @@ export const level=(dim:keyof typeof ORDER,v:string)=>{ const o=ORDER[dim] as re
 export const CAPABILITY_MODULES:Record<string,{runtimeFile:string;modules:string[]}>={
   'beta2-advanced|electrolysis-experiment':{runtimeFile:'src/runtime/beta2/advanced.ts',modules:['electrolysis-model']},
   'beta2-advanced|hydrolysis-experiment':{runtimeFile:'src/runtime/beta2/advanced.ts',modules:['hydrolysis-model','hydrolysis-trial']},
-  'beta2-advanced|manganese-redox-simulation':{runtimeFile:'src/runtime/beta2/advanced.ts',modules:['manganese-redox-model']},
+  'beta2-advanced|manganese-redox-simulation':{runtimeFile:'src/runtime/beta2/advanced.ts',modules:['manganese-redox-model','condition-trial']},
   'beta2-advanced|ionic-equation-trainer':{runtimeFile:'src/runtime/beta2/advanced.ts',modules:['ionic-engine']},
   'beta2-organic|*':{runtimeFile:'src/runtime/beta2/organic.ts',modules:['organic-knowledge']},
   'beta3-advanced|electron-configuration':{runtimeFile:'src/runtime/beta3/advanced.ts',modules:['electron-configuration']},
@@ -57,8 +57,8 @@ export const CAPABILITY_MODULES:Record<string,{runtimeFile:string;modules:string
   'beta3-advanced|reaction-rate':{runtimeFile:'src/runtime/beta3/advanced.ts',modules:['kinetics-model']},
   'beta3-advanced|kinetics-factor':{runtimeFile:'src/runtime/beta3/advanced.ts',modules:['kinetics-model']},
   'beta3-advanced|equal-rates':{runtimeFile:'src/runtime/beta3/advanced.ts',modules:[]},
-  'beta3-advanced|equilibrium-shift':{runtimeFile:'src/runtime/beta3/advanced.ts',modules:['equilibrium-model']},
-  'beta3-advanced|medium-redox':{runtimeFile:'src/runtime/beta3/advanced.ts',modules:['manganese-redox-model']},
+  'beta3-advanced|equilibrium-shift':{runtimeFile:'src/runtime/beta3/advanced.ts',modules:['equilibrium-model','condition-trial']},
+  'beta3-advanced|medium-redox':{runtimeFile:'src/runtime/beta3/advanced.ts',modules:['manganese-redox-model','condition-trial']},
   'beta3-advanced|gas-total-moles':{runtimeFile:'src/runtime/beta3/advanced.ts',modules:['gas-laws']},
   'beta3-advanced|ideal-gas-pressure':{runtimeFile:'src/runtime/beta3/advanced.ts',modules:['gas-laws']},
   'beta3-advanced|molar-normal':{runtimeFile:'src/runtime/beta3/advanced.ts',modules:['stoichiometry']},
@@ -159,6 +159,12 @@ function blackSwanPass(root:string,capability:string,activityId:string):{pass:bo
   // distinct integrity-clean modeled outcomes in the real domain. Binding a new activity to the renderer can never
   // inherit the reference activity's evidence.
   if(capability==='ionic-precipitation'){ const r=activityBlackSwan(root,activityId); return r?{pass:r.pass,evidence:r.evidence}:{pass:false,evidence:'no reagent shelf in the activity config'}; }
+  // P2.6 (ADR-P2-007): the condition-prediction renderer is judged PER ACTIVITY too — the activity's own modeled
+  // conditions must reach ≥2 distinct domain outcomes through the real stack (reference report, measured per activity).
+  if(capability==='condition-prediction'){
+    const a=(readOptional(root,'reports/reference-renderer-condition-prediction.json',{activities:[]}).activities??[]).find((x:any)=>x.activityId===activityId);
+    return a?{pass:a.status==='PASS'&&a.checks?.modelBased===true&&a.distinctOutcomes>=2,evidence:`own conditions=${a.conditions.length}; distinct modeled outcomes=${a.distinctOutcomes}; checks ${a.status}`}:{pass:false,evidence:'activity not measured in the condition-prediction report'};
+  }
   const file={'atom-builder':'reports/reference-renderer-atom.json','hydrolysis-medium':'reports/reference-renderer-hydrolysis.json','ionic-precipitation':'reports/reference-renderer-ionic-precipitation.json'}[capability];
   const r=file?readOptional(root,file,null):null;
   if(!r) return {pass:false,evidence:'no reference-renderer report'};

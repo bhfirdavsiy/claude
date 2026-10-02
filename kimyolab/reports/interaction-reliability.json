@@ -17,8 +17,8 @@
     }
   },
   "launchableActivities": 145,
-  "legacyFormActivities": 141,
-  "rendererOwnedActivities": 4,
+  "legacyFormActivities": 138,
+  "rendererOwnedActivities": 7,
   "probeInputs": 18,
   "crashOnLearnerInput": {
     "before": 1,
@@ -65,13 +65,11 @@
     "fields": []
   },
   "choiceConverted": {
-    "fields": 13,
-    "activities": 13,
+    "fields": 11,
+    "activities": 11,
     "byDomain": {
       "boolean": 3,
-      "equilibrium-shift": 1,
       "kinetics-effect": 1,
-      "manganese-medium": 1,
       "organic-class": 1,
       "organic-name": 2,
       "organic-product": 3,

@@ -282,7 +282,9 @@ test('theory authoring status: current, facts only, 122 units not started, no pr
   assert.deepEqual(blocked,{unitsNotYetInAuthoring:122,unitsInAuthoring:0,canonicalApplyImpossibleForAllUnits:true,inAuthoringBySources:0,inAuthoringByAuthoring:0,inAuthoringByChemistryReview:0,inAuthoringByDidacticReview:0},'0 in-authoring source blockers only because 122 units have not entered authoring');
   const keys=(v)=>v&&typeof v==='object'?Object.entries(v).flatMap(([k,x])=>[k,...keys(x)]):[];
   assert.ok(!keys(s).some(k=>/priority|score|rank/i.test(k)),'no priority score field');
-  assert.equal(json('reports/project-progress.json').learningProductProgress.percent,11.688,'infrastructure does not move learning-product progress');
+  // P2.6 changed the value (11.688 → 12.189): the P2.6 model conversions moved the model-based component; the theory
+  // authoring infrastructure still contributes nothing — the theory components are unchanged (0 structured units).
+  assert.equal(json('reports/project-progress.json').learningProductProgress.percent,12.189,'infrastructure does not move learning-product progress');
 });
 
 // ------------------------------------------------------------------ option sets

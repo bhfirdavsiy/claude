@@ -6,7 +6,7 @@
   "assessmentVersion": "0.0.0",
   "scoringVersion": "0.0.0",
   "createdAt": "2026-09-22T00:00:00.000Z",
-  "checksum": "c5f22fbb7829779589528dcc776dd041f9f46063f3a313c24ab581891bd300ee",
+  "checksum": "0ab31a06060903521e2a7e980f71ecddc2b0df6d891eb8627d6d4fd7fc5dacd8",
   "compatibility": {
     "minAppVersion": "20.1.0"
   },
@@ -25,8 +25,8 @@
     },
     {
       "path": "activity-configs/beta2-advanced.json",
-      "checksum": "d5d51340625749481a4cc4980a1a330166c60777bfd066d44e0c048eaa903628",
-      "size": 1021
+      "checksum": "ae26fd00755a3c9d90a8f03af5f080b8d1461aed37d17746fa9d119fbad094d9",
+      "size": 1107
     },
     {
       "path": "activity-configs/beta2-organic.json",
@@ -40,8 +40,8 @@
     },
     {
       "path": "activity-configs/beta3-advanced.json",
-      "checksum": "91f5e27cbd2c3e71fd5c864414a8fecda36cd958d20a9bf75354888bbc330e7f",
-      "size": 6015
+      "checksum": "1e4527ef74a8ffc7cb017d28fda2c8177e12a4ddf87e231c628fcf3b8521ee0c",
+      "size": 6187
     },
     {
       "path": "activity-configs/beta3-safe.json",
@@ -165,8 +165,8 @@
     },
     {
       "path": "execution-plans.json",
-      "checksum": "c0debd72666f3b5a20c5420676abe20ce822b59d8bdd8a4028aa5c4648fbcd6b",
-      "size": 34409
+      "checksum": "b93544f30c0e6a9e83d447a234fbdaf9e7a1ccbece3b0afaa8aa02f093183e87",
+      "size": 34745
     },
     {
       "path": "external-lab-bindings.json",
@@ -215,8 +215,8 @@
     },
     {
       "path": "locales/uz-latn/learner-interaction.json",
-      "checksum": "a10c99999c06a79197f5d42d16e0f4a8dfa7928acff7dafffb9a3bb357aab4fe",
-      "size": 13127
+      "checksum": "40521de348a5e7a959a154e1507466a727070d406d74525b9a1af1ecc406aaa8",
+      "size": 16130
     },
     {
       "path": "locales/uz-latn/name-provenance.json",

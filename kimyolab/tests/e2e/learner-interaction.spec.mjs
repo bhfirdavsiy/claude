@@ -24,15 +24,24 @@ async function choose(page, legend, label) {
   await group.locator('xpath=ancestor::form').getByRole('button').click();
 }
 
+// P2.6 changed this test: 9.23 is drawn by the condition-prediction renderer (ADR-P2-007), not the legacy choice form.
+// The P2.1 regression it guards is unchanged — the medium is chosen from readable labels, a wrong prediction gives a
+// ✗ verdict, the correct one completes, nothing crashes (keyboard-only coverage: tests/e2e/renderer-condition.spec.mjs).
 test('9.23 crash regression: the medium is chosen from readable labels; wrong → "Noto‘g‘ri", correct → "To‘g‘ri", no crash', async ({page}) => {
-  const errors = await open(page, 'practice.simulation.9.23.planned');
-  const group = page.getByRole('group', {name: 'Muhit'});
-  await expect(group.getByRole('radio')).toHaveCount(3);
-  await expect(group.locator('label')).toHaveText(['Ishqoriy muhit', 'Kislotali muhit', 'Neytral muhit']);
-  await choose(page, 'Muhit', 'Ishqoriy muhit');
-  await expect(feedback(page)).toContainText('Noto‘g‘ri');
-  await choose(page, 'Muhit', 'Kislotali muhit');
-  await expect(feedback(page)).toContainText('To‘g‘ri');
+  const errors = []; page.on('pageerror', (e) => errors.push(e.message));
+  await page.goto(`${server.url}/practice/practice.simulation.9.23.planned`);
+  const card = page.locator('[data-renderer="condition-prediction@1.0.0"]');
+  await expect(card.locator('[data-condition]')).toHaveCount(3);
+  await expect(card.locator('fieldset').first().locator('label')).toHaveText(['Kislotali muhit', 'Ishqoriy muhit', 'Neytral muhit']);
+  const trial = async (condition, outcome) => {
+    await card.getByRole('radio', {name: condition, exact: true}).check();
+    await card.getByRole('radio', {name: outcome, exact: true}).check();
+    await card.locator('[data-action="reveal"]').click();
+  };
+  await trial('Ishqoriy muhit', 'Mn²⁺');
+  await expect(card.locator('.kl-cond__feedback')).toContainText('noto‘g‘ri');
+  await trial('Kislotali muhit', 'Mn²⁺');
+  await expect(card.locator('.kl-cond__feedback')).toContainText('to‘g‘ri');
   await expect(page.getByRole('link', {name: 'Mustahkamlashga o‘tish'})).toBeVisible();
   await expect(page.locator('body')).not.toContainText('Amalni bajarib bo‘lmadi');
   expect(errors).toEqual([]);
@@ -62,15 +71,18 @@ test('internal polymer token and species: the learner picks a name, the canonica
   await expect(feedback(page)).toContainText('To‘g‘ri');
 });
 
+// P2.6 changed this test's subject from 9.23 (now the condition-prediction renderer) to 11.16, a remaining legacy
+// choice form; the options are 'Kamayadi', 'O‘zgarmaydi', 'Ortadi', so the correct one is two arrow presses away.
 test('keyboard only: Tab into the choice group, arrows to move, Enter to submit; empty submit is announced as an alert', async ({page}) => {
-  await open(page, 'practice.simulation.9.23.planned');
+  await open(page, 'practice.simulation.11.16.planned');
   const form = page.locator('.kl-question').first();
   await form.getByRole('button').focus();
   await page.keyboard.press('Enter');                                // nothing chosen
   await expect(form.getByRole('alert')).toHaveText('Variantni tanlang.');
   await expect(form.getByRole('radio').first()).toBeFocused();       // focus returns to the group
   await page.keyboard.press('ArrowDown');                            // native radio group: arrow selects the next option
-  await expect(form.getByRole('radio', {name: 'Kislotali muhit'})).toBeChecked();
+  await page.keyboard.press('ArrowDown');
+  await expect(form.getByRole('radio', {name: 'Ortadi'})).toBeChecked();
   await page.keyboard.press('Enter');                                // implicit form submission
   await expect(feedback(page)).toContainText('To‘g‘ri');
   await expect(form.getByRole('alert')).toHaveText('');
@@ -94,7 +106,8 @@ test('missing label fallback: without the catalog the page shows numbered generi
     const {ContentClient} = await import('/app-preview/app/content-client.js');
     const {ReferencePracticeSession} = await import('/app-preview/features/practice/session.js');
     const {renderPractice} = await import('/app-preview/features/practice/render.js');
-    const model = await new ContentClient({baseUrl: '/content'}).loadPractice('practice.simulation.9.23.planned');
+    // P2.6: subject changed from 9.23 (condition-prediction renderer now) to 11.16, a legacy single-choice simulation
+    const model = await new ContentClient({baseUrl: '/content'}).loadPractice('practice.simulation.11.16.planned');
     const bare = {...model, localization: undefined};
     const session = new ReferencePracticeSession(bare, {now: () => '2026-01-01T00:00:00.000Z'});
     const root = document.createElement('div'); document.body.append(root);
@@ -103,6 +116,6 @@ test('missing label fallback: without the catalog the page shows numbered generi
     return {labels, legend: root.querySelector('legend')?.textContent, html: root.innerHTML};
   });
   expect(result.labels).toEqual(['#1', '#2', '#3']);
-  expect(result.legend).not.toBe('medium');
-  for (const token of ['acidic', 'basic', 'neutral', 'medium']) expect(result.html).not.toContain(`>${token}<`);
+  expect(result.legend).not.toBe('effect');
+  for (const token of ['increase', 'decrease', 'no-change', 'effect']) expect(result.html).not.toContain(`>${token}<`);
 });
