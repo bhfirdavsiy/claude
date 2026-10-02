@@ -70,7 +70,9 @@ try{
   const nativeLab=(await cdp.call('Runtime.evaluate',{expression:`(()=>({hash:location.hash,main:document.querySelector('#app-main')?.innerText||'',stepButtons:[...document.querySelectorAll('button')].filter(b=>(b.textContent||'').trim()==='Bajarish').length,workspace:!!document.querySelector('.kl-experiment-stage')}))()`,returnByValue:true})).result.value;
   const firstStepClick=(await cdp.call('Runtime.evaluate',{expression:`(()=>{const b=[...document.querySelectorAll('button')].find(x=>(x.textContent||'').trim()==='Bajarish');if(!b)return false;b.click();return true;})()`,returnByValue:true})).result.value;
   await sleep(700);
-  const nativeAfterStep=(await cdp.call('Runtime.evaluate',{expression:`(()=>({observation:document.querySelector('.kl-experiment-observation')?.textContent||'',done:[...document.querySelectorAll('.kl-experiment-step.is-done')].length,disabled:[...document.querySelectorAll('.kl-experiment-step button[disabled]')].length}))()`,returnByValue:true})).result.value;
+  // P2.7 changed this check: a finished step keeps focus, so it is marked aria-disabled="true" (activation ignored)
+  // instead of the disabled attribute that dropped keyboard focus to <body>; the step is still finished and inert
+  const nativeAfterStep=(await cdp.call('Runtime.evaluate',{expression:`(()=>({observation:document.querySelector('.kl-experiment-observation')?.textContent||'',done:[...document.querySelectorAll('.kl-experiment-step.is-done')].length,disabled:[...document.querySelectorAll('.kl-experiment-step button[aria-disabled="true"]')].length}))()`,returnByValue:true})).result.value;
   const nativeExceptions=cdp.events.filter(e=>e.method==='Runtime.exceptionThrown').length;
   cdp.events.length=0;
   await cdp.call('Runtime.evaluate',{expression:`(()=>{location.hash='#/practice/practice.experiment.7.9';return true;})()`});

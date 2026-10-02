@@ -1,0 +1,376 @@
+{
+  "schema": "kimyolab.accessibility-gap-summary.v1",
+  "semantics": "Accessibility debt reported separately from learning depth, assessment, governance and release (it is not an input of any progress formula). Automated technical verification and human accessibility review are distinct; the human-review count is factual.",
+  "totals": {
+    "activities": 146,
+    "launchable": 145,
+    "notApplicable": 1,
+    "automatedVerified": 140,
+    "failed": 0,
+    "blocked": 5,
+    "humanReviewed": 0,
+    "keyboardPass": 145,
+    "screenReaderSemanticsPass": 145,
+    "nonColorPass": 145,
+    "mobileReflowPass": 145,
+    "reducedMotionPass": 145,
+    "focusVisiblePass": 145,
+    "errorAnnouncementPass": 84,
+    "errorAnnouncementNotApplicable": 61
+  },
+  "beforeFixes": {
+    "base": "2e80fd0",
+    "launchable": 145,
+    "verified": 0,
+    "failed": 145,
+    "failingChecks": {
+      "textScale": 145,
+      "errorAnnouncement": 72,
+      "noFocusLoss": 61,
+      "keyboard": 54,
+      "noKeyboardTrap": 54,
+      "retry": 54,
+      "srTextState": 54,
+      "accessibleName": 51,
+      "nonColor": 16,
+      "reflow320": 16,
+      "targetSize": 11,
+      "wrongAnswer": 10,
+      "statusAnnouncement": 6,
+      "reflow375": 5
+    },
+    "issues": {
+      "TEXT_SCALE_200": 145,
+      "ERROR_NOT_ANNOUNCED": 72,
+      "FOCUS_LOST_AFTER_UPDATE": 61,
+      "KEYBOARD_UNREACHABLE": 54,
+      "AMBIGUOUS_BUTTON_NAME": 51,
+      "TARGET_SMALL": 11,
+      "ERROR_NOT_BOUND_TO_CONTROL": 10,
+      "WRONG_ANSWER_NOT_ANNOUNCED": 10,
+      "HORIZONTAL_SCROLL": 10,
+      "CLIPPED": 7
+    }
+  },
+  "before": {
+    "verifiedByRendererContract": 7,
+    "legacyUnknown": 138,
+    "unitsWithAccessibilityGap": 116,
+    "note": "P2.6 close: only the 7 registry renderers carried a DECLARED accessibility contract; the 138 legacy activities were UNKNOWN. P2.7 replaces declarations with browser measurement for all 145."
+  },
+  "families": [
+    {
+      "family": "calculation",
+      "activities": 10,
+      "byState": {
+        "VERIFIED": 10,
+        "FAILED": 0,
+        "BLOCKED": 0
+      },
+      "failingChecks": {},
+      "issues": {},
+      "specs": [
+        "tests/e2e/accessibility-families.spec.mjs"
+      ]
+    },
+    {
+      "family": "case",
+      "activities": 10,
+      "byState": {
+        "VERIFIED": 10,
+        "FAILED": 0,
+        "BLOCKED": 0
+      },
+      "failingChecks": {},
+      "issues": {},
+      "specs": [
+        "tests/e2e/accessibility-families.spec.mjs"
+      ]
+    },
+    {
+      "family": "form-simulation",
+      "activities": 46,
+      "byState": {
+        "VERIFIED": 46,
+        "FAILED": 0,
+        "BLOCKED": 0
+      },
+      "failingChecks": {},
+      "issues": {},
+      "specs": [
+        "tests/e2e/accessibility-families.spec.mjs",
+        "tests/e2e/learner-interaction.spec.mjs"
+      ]
+    },
+    {
+      "family": "guided-experiment",
+      "activities": 25,
+      "byState": {
+        "VERIFIED": 21,
+        "FAILED": 0,
+        "BLOCKED": 4
+      },
+      "failingChecks": {},
+      "issues": {
+        "CONTENT_COLOR_OBSERVATION_UNDESCRIBED": 4
+      },
+      "specs": [
+        "tests/e2e/accessibility-families.spec.mjs"
+      ]
+    },
+    {
+      "family": "renderer:atom-builder",
+      "activities": 1,
+      "byState": {
+        "VERIFIED": 1,
+        "FAILED": 0,
+        "BLOCKED": 0
+      },
+      "failingChecks": {},
+      "issues": {},
+      "specs": [
+        "tests/e2e/renderer-atom.spec.mjs"
+      ]
+    },
+    {
+      "family": "renderer:condition-prediction",
+      "activities": 3,
+      "byState": {
+        "VERIFIED": 3,
+        "FAILED": 0,
+        "BLOCKED": 0
+      },
+      "failingChecks": {},
+      "issues": {},
+      "specs": [
+        "tests/e2e/renderer-condition.spec.mjs",
+        "tests/e2e/accessibility-families.spec.mjs"
+      ]
+    },
+    {
+      "family": "renderer:hydrolysis-medium",
+      "activities": 2,
+      "byState": {
+        "VERIFIED": 2,
+        "FAILED": 0,
+        "BLOCKED": 0
+      },
+      "failingChecks": {},
+      "issues": {},
+      "specs": [
+        "tests/e2e/renderer-hydrolysis.spec.mjs",
+        "tests/e2e/accessibility-families.spec.mjs"
+      ]
+    },
+    {
+      "family": "renderer:ionic-precipitation",
+      "activities": 1,
+      "byState": {
+        "VERIFIED": 1,
+        "FAILED": 0,
+        "BLOCKED": 0
+      },
+      "failingChecks": {},
+      "issues": {},
+      "specs": [
+        "tests/e2e/renderer-ionic.spec.mjs"
+      ]
+    },
+    {
+      "family": "scripted-experiment",
+      "activities": 30,
+      "byState": {
+        "VERIFIED": 29,
+        "FAILED": 0,
+        "BLOCKED": 1
+      },
+      "failingChecks": {},
+      "issues": {
+        "CONTENT_COLOR_OBSERVATION_UNDESCRIBED": 1
+      },
+      "specs": [
+        "tests/e2e/accessibility-families.spec.mjs"
+      ]
+    },
+    {
+      "family": "trainer",
+      "activities": 17,
+      "byState": {
+        "VERIFIED": 17,
+        "FAILED": 0,
+        "BLOCKED": 0
+      },
+      "failingChecks": {},
+      "issues": {},
+      "specs": [
+        "tests/e2e/accessibility-families.spec.mjs"
+      ]
+    }
+  ],
+  "affectedLearningUnits": {
+    "failed": [],
+    "blocked": [
+      "lu.10.06",
+      "lu.10.12",
+      "lu.10.18",
+      "lu.10.22",
+      "lu.7.15",
+      "lu.7.20",
+      "lu.8.14",
+      "lu.8.16"
+    ],
+    "withAccessibilityGap": [
+      "lu.10.06",
+      "lu.10.12",
+      "lu.10.18",
+      "lu.10.22",
+      "lu.7.15",
+      "lu.7.20",
+      "lu.8.14",
+      "lu.8.16"
+    ],
+    "withAccessibilityGapCount": 8
+  },
+  "standaloneParity": {
+    "representatives": 10,
+    "identical": 10,
+    "activities": [
+      {
+        "activityId": "practice.calculation.11.05.planned",
+        "family": "calculation",
+        "identical": true
+      },
+      {
+        "activityId": "practice.case.10.11",
+        "family": "case",
+        "identical": true
+      },
+      {
+        "activityId": "practice.experiment.10.1",
+        "family": "scripted-experiment",
+        "identical": true
+      },
+      {
+        "activityId": "practice.experiment.10.10",
+        "family": "guided-experiment",
+        "identical": true
+      },
+      {
+        "activityId": "practice.experiment.8.1",
+        "family": "renderer:ionic-precipitation",
+        "identical": true
+      },
+      {
+        "activityId": "practice.experiment.9.14",
+        "family": "renderer:hydrolysis-medium",
+        "identical": true
+      },
+      {
+        "activityId": "practice.simulation.10.02.structure-theory",
+        "family": "form-simulation",
+        "identical": true
+      },
+      {
+        "activityId": "practice.simulation.11.18.planned",
+        "family": "renderer:condition-prediction",
+        "identical": true
+      },
+      {
+        "activityId": "practice.simulation.7.07.planned",
+        "family": "renderer:atom-builder",
+        "identical": true
+      },
+      {
+        "activityId": "practice.trainer.10.03.planned",
+        "family": "trainer",
+        "identical": true
+      }
+    ]
+  },
+  "notApplicable": [
+    {
+      "activityId": "practice.simulation.10.4",
+      "reason": "not routable (ROUTE_NONE)"
+    }
+  ],
+  "feedbackObservations": {
+    "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE": {
+      "activities": 29,
+      "activityIds": [
+        "practice.simulation.10.17.monohydric-alcohols",
+        "practice.simulation.10.19.phenols",
+        "practice.simulation.10.21.carbonyls",
+        "practice.simulation.10.23.esters",
+        "practice.simulation.11.16.planned",
+        "practice.simulation.7.02.planned",
+        "practice.simulation.7.06.planned",
+        "practice.simulation.7.10.planned",
+        "practice.simulation.7.13.planned",
+        "practice.simulation.7.16.planned",
+        "practice.simulation.7.17.planned",
+        "practice.simulation.8.02.planned",
+        "practice.simulation.8.03.planned",
+        "practice.simulation.8.04.planned",
+        "practice.simulation.8.05.planned",
+        "practice.simulation.8.06.planned",
+        "practice.simulation.8.09.planned",
+        "practice.simulation.8.19.planned",
+        "practice.simulation.8.20.planned",
+        "practice.simulation.8.7",
+        "practice.simulation.9.01.planned",
+        "practice.simulation.9.02.planned",
+        "practice.simulation.9.03.planned",
+        "practice.simulation.9.04.planned",
+        "practice.simulation.9.07.planned",
+        "practice.simulation.9.08.planned",
+        "practice.simulation.9.18.water-hardness",
+        "practice.simulation.9.20.cu-ag-au",
+        "practice.simulation.9.21.group12"
+      ],
+      "meaning": "a non-target value is recorded as progress (\"Natija saqlandi. Davom eting.\"): no wrong-answer verdict exists to announce, for any learner — a feedback-design question for P2.8+"
+    },
+    "STEP_ORDER_NOT_ENFORCED_BY_ENGINE": {
+      "activities": 6,
+      "activityIds": [
+        "practice.experiment.10.3",
+        "practice.experiment.10.5",
+        "practice.experiment.10.8",
+        "practice.experiment.10.9",
+        "practice.experiment.11.2",
+        "practice.experiment.9.10"
+      ],
+      "meaning": "the engine accepts the steps in any order: an out-of-order step is not a wrong answer"
+    }
+  },
+  "performance": {
+    "method": "raw bytes of the committed learner modules (public/app-preview/**/*.js), the shared stylesheet and the standalone artifact",
+    "before": {
+      "learnerModules": 162,
+      "learnerModuleBytes": 697911,
+      "rendererModules": 13,
+      "rendererBytes": 70721,
+      "standaloneBytes": 5684732,
+      "cssBytes": 32231
+    },
+    "after": {
+      "learnerModules": 162,
+      "learnerModuleBytes": 702745,
+      "rendererModules": 13,
+      "rendererBytes": 71591,
+      "standaloneBytes": 5691105,
+      "cssBytes": 33709
+    },
+    "delta": {
+      "learnerModules": 0,
+      "learnerModuleBytes": 4834,
+      "cssBytes": 1478,
+      "standaloneBytes": 6373
+    },
+    "dependencies": "none added at runtime; the accessibility harness (tests/helpers/a11y*.mjs) is test-only and dependency-free (Playwright was already a dev dependency)"
+  },
+  "notInScope": [
+    "no human accessibility approval is created or implied",
+    "no progress weight or formula changed — accessibility is reported here, separately",
+    "no chemistry, label translation or colour description was authored: missing ones are BLOCKED_BY_CONTENT"
+  ]
+}

@@ -36,6 +36,8 @@ function cycleHeader(model:LearningHubModel,status:CycleSnapshot,current:Learnin
     const a=link('',stage.href,stageStateClass(stage.id,status,current));
     a.append(el('span',{className:'kl-cycle-step__number',text:String(stage.n)}),el('span',{className:'kl-cycle-step__label',text:stage.label}));
     if(a.classList.contains('is-done')) a.append(el('span',{className:'kl-cycle-step__status',text:'Bajarildi'}));
+    // P2.7: the current stage is announced, not only drawn (class is-current is visual only)
+    if(stage.id===current) a.setAttribute('aria-current','step');
     nav.append(a);
   }
   inner.append(nav); header.append(inner); return header;

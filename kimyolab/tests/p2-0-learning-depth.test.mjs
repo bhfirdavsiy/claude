@@ -162,10 +162,15 @@ test('labs, accessibility and localization are measured, not assumed',()=>{
   const b=reports.baseline;
   assert.equal(b.labs.total,read('content-src/practice-activities.json').filter(a=>a.type==='experiment').length);
   assert.equal(b.labs.cannotSucceed,0); assert.equal(b.labs.external.depth.startsWith('UNKNOWN'),true);
-  const legacy=b.activities.filter(a=>a.accessibility&&a.accessibility.source!=='renderer contract');
-  // P2.6: 141 → 138 legacy activities and 4 → 7 renderer-contract activities (the three condition-prediction conversions)
-  assert.equal(legacy.length,138); assert.ok(legacy.every(a=>a.accessibility.keyboard==='UNKNOWN'),'legacy accessibility is never assumed PASS');
-  assert.equal(b.accessibility.keyboard.verified,7);
+  // P2.7 changed this assertion: accessibility is no longer "renderer contract = verified, legacy = UNKNOWN". Every
+  // launchable activity (registry and legacy alike) gets its state from the re-measured browser sweep
+  // (reports/accessibility-browser-evidence.json, ADR-P2-008). The rule it guards is unchanged: nothing is assumed —
+  // an activity without a passing browser measurement is never VERIFIED, and a declared contract alone counts for nothing.
+  const launchable=b.activities.filter(a=>a.canSucceed!=='NOT_LAUNCHABLE');
+  assert.ok(launchable.every(a=>['VERIFIED','FAILED','BLOCKED'].includes(a.accessibility.state)),'every launchable activity has a measured state');
+  assert.ok(launchable.filter(a=>a.accessibility.state!=='VERIFIED').every(a=>a.accessibility.keyboard!=='VERIFIED'||a.accessibility.blockedBy.length),'not verified is never reported as verified');
+  assert.ok(launchable.every(a=>a.accessibility.humanReview==='NOT_REVIEWED'),'automated verification is not a human review');
+  assert.equal(b.accessibility.keyboard.verified,launchable.filter(a=>a.accessibility.state==='VERIFIED').length);
   assert.deepEqual(b.localization.learningUnitTitles,{'uz-Latn':122,'uz-Cyrl':0,ru:0});
   // P2.1 changed this assertion: P2.0 measured raw-id labels (e.g. "moles" on 11.05) and typed internal tokens as a
   // gap. P2.1 replaced the labels with the learner-interaction catalog and closed domains with choices: raw-id labels

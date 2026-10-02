@@ -100,8 +100,8 @@
     "note": "the defaults are the root namespace values used by Node tests; the browser bootstrap always passes the host namespace"
   },
   "css": {
-    "selectors": 371,
-    "klScoped": 369,
+    "selectors": 397,
+    "klScoped": 395,
     "rootCustomPropertyBlocks": 2,
     "rootNonNamespacedDeclarations": [],
     "global": []

@@ -2,7 +2,7 @@
   "schema": "kimyolab.learning-unit-gap-map.v1",
   "semantics": "Per unit: normalized layer levels (0..1), strongest/weakest layer, blocking gaps with their CATEGORY (learning content / depth / outcome vs governance vs provenance vs localization vs accessibility — never merged), one technical opportunity and one human dependency. Ties broken alphabetically. No priority score.",
   "gapCounts": {
-    "ACCESSIBILITY_UNVERIFIED": 116,
+    "ACCESSIBILITY_UNVERIFIED": 8,
     "ASSESSMENT_NOT_APPROVED": 1,
     "MASTERY_UNREACHABLE": 122,
     "NOT_RELEASED": 122,
@@ -15,7 +15,7 @@
     "UNTRANSLATED_ANSWER_TOKEN": 25
   },
   "gapCountsByCategory": {
-    "ACCESSIBILITY": 116,
+    "ACCESSIBILITY": 8,
     "GOVERNANCE": 245,
     "LEARNING_CONTENT": 243,
     "LEARNING_DEPTH": 113,
@@ -62,10 +62,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -113,10 +109,6 @@
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
           "category": "LOCALIZATION"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
@@ -160,10 +152,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -207,10 +195,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -254,10 +238,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -305,10 +285,6 @@
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
           "category": "LOCALIZATION"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
@@ -395,10 +371,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -442,10 +414,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -493,10 +461,6 @@
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
           "category": "LOCALIZATION"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
@@ -540,10 +504,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "expose domain model formula-parser through a model-based renderer (black-swan must hold)",
@@ -587,10 +547,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "expose domain model formula-parser through a model-based renderer (black-swan must hold)",
@@ -638,10 +594,6 @@
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
           "category": "LOCALIZATION"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
@@ -685,10 +637,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "expose domain model formula-parser through a model-based renderer (black-swan must hold)",
@@ -787,10 +735,6 @@
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
           "category": "LOCALIZATION"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
@@ -834,10 +778,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -881,10 +821,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -928,10 +864,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -1030,10 +962,6 @@
         {
           "gap": "PROVENANCE_DEBT",
           "category": "PROVENANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "reuse renderer ionic-precipitation for practice.experiment.7.11",
@@ -1077,10 +1005,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -1124,10 +1048,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -1175,10 +1095,6 @@
         {
           "gap": "PROVENANCE_DEBT",
           "category": "PROVENANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "reuse renderer ionic-precipitation for practice.experiment.8.6",
@@ -1226,10 +1142,6 @@
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
           "category": "LOCALIZATION"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
@@ -1277,10 +1189,6 @@
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
           "category": "LOCALIZATION"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
@@ -1324,10 +1232,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -1375,10 +1279,6 @@
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
           "category": "LOCALIZATION"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
@@ -1422,10 +1322,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -1469,10 +1365,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -1516,10 +1408,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -1563,10 +1451,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -1614,10 +1498,6 @@
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
           "category": "LOCALIZATION"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
@@ -1665,10 +1545,6 @@
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
           "category": "LOCALIZATION"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
@@ -1716,10 +1592,6 @@
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
           "category": "LOCALIZATION"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
@@ -1763,10 +1635,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -1857,10 +1725,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -1951,10 +1815,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -1998,10 +1858,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -2049,10 +1905,6 @@
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
           "category": "LOCALIZATION"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
@@ -2100,10 +1952,6 @@
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
           "category": "LOCALIZATION"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
@@ -2147,10 +1995,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -2198,10 +2042,6 @@
         {
           "gap": "PROVENANCE_DEBT",
           "category": "PROVENANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "reuse renderer ionic-precipitation for practice.experiment.8.14",
@@ -2245,10 +2085,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -2292,10 +2128,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -2343,10 +2175,6 @@
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
           "category": "LOCALIZATION"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
@@ -2394,10 +2222,6 @@
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
           "category": "LOCALIZATION"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
@@ -2441,10 +2265,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -2488,10 +2308,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -2539,10 +2355,6 @@
         {
           "gap": "PROVENANCE_DEBT",
           "category": "PROVENANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "reuse renderer ionic-precipitation for practice.trainer.9.05.planned",
@@ -2637,10 +2449,6 @@
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
           "category": "LOCALIZATION"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "reuse renderer ionic-precipitation for practice.experiment.9.4",
@@ -2688,10 +2496,6 @@
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
           "category": "LOCALIZATION"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
@@ -2739,10 +2543,6 @@
         {
           "gap": "PROVENANCE_DEBT",
           "category": "PROVENANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "reuse renderer ionic-precipitation for practice.experiment.9.4",
@@ -2786,10 +2586,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -2833,10 +2629,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -2880,10 +2672,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -2927,10 +2715,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -2974,10 +2758,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -3025,10 +2805,6 @@
         {
           "gap": "PROVENANCE_DEBT",
           "category": "PROVENANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "domain model electrolysis-model exists but is blocked (1 modeled record — black-swan FAIL (P1.7/P1.8))",
@@ -3072,10 +2848,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -3119,10 +2891,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -3170,10 +2938,6 @@
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
           "category": "LOCALIZATION"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
@@ -3217,10 +2981,6 @@
         {
           "gap": "PROVENANCE_DEBT",
           "category": "PROVENANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "extend the existing model-based renderer (more modeled records reviewed by a chemist)",
@@ -3268,10 +3028,6 @@
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
           "category": "LOCALIZATION"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
@@ -3323,10 +3079,6 @@
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
           "category": "LOCALIZATION"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "reuse renderer ionic-precipitation for practice.experiment.9.16",
@@ -3370,10 +3122,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -3456,10 +3204,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -3503,10 +3247,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -3550,10 +3290,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -3597,10 +3333,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -3644,10 +3376,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
@@ -3691,10 +3419,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
@@ -3738,10 +3462,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
@@ -3785,10 +3505,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -3879,10 +3595,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
@@ -3926,10 +3638,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
@@ -3973,10 +3681,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
@@ -4020,10 +3724,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
@@ -4067,10 +3767,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
@@ -4161,10 +3857,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
@@ -4208,10 +3900,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
@@ -4255,10 +3943,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
@@ -4302,10 +3986,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -4353,10 +4033,6 @@
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
           "category": "LOCALIZATION"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
@@ -4451,10 +4127,6 @@
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
           "category": "LOCALIZATION"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
@@ -4498,10 +4170,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
@@ -4549,10 +4217,6 @@
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
           "category": "LOCALIZATION"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
@@ -4643,10 +4307,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -4690,10 +4350,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
@@ -4737,10 +4393,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "expose domain model organic-knowledge through a model-based renderer (black-swan must hold)",
@@ -4784,10 +4436,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -4831,10 +4479,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -4878,10 +4522,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "expose domain model electron-configuration through a model-based renderer (black-swan must hold)",
@@ -4925,10 +4565,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -4972,10 +4608,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "expose domain model nuclear-equation through a model-based renderer (black-swan must hold)",
@@ -5023,10 +4655,6 @@
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
           "category": "LOCALIZATION"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
@@ -5070,10 +4698,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -5117,10 +4741,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "expose domain model gas-laws through a model-based renderer (black-swan must hold)",
@@ -5164,10 +4784,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -5211,10 +4827,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "expose domain model gas-laws through a model-based renderer (black-swan must hold)",
@@ -5262,10 +4874,6 @@
         {
           "gap": "UNTRANSLATED_ANSWER_TOKEN",
           "category": "LOCALIZATION"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "replace raw-id labels / untranslated answer tokens in the legacy form UI",
@@ -5313,10 +4921,6 @@
         {
           "gap": "PROVENANCE_DEBT",
           "category": "PROVENANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "reuse renderer ionic-precipitation for practice.trainer.11.10.planned",
@@ -5403,10 +5007,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -5450,10 +5050,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -5497,10 +5093,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "expose domain model stoichiometry through a model-based renderer (black-swan must hold)",
@@ -5544,10 +5136,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "expose domain model kinetics-model through a model-based renderer (black-swan must hold)",
@@ -5591,10 +5179,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "expose domain model kinetics-model through a model-based renderer (black-swan must hold)",
@@ -5638,10 +5222,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "no domain model yet — authoring a model precedes any renderer",
@@ -5724,10 +5304,6 @@
         {
           "gap": "NOT_RELEASED",
           "category": "GOVERNANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "expose domain model redox-balancer through a model-based renderer (black-swan must hold)",
@@ -5814,10 +5390,6 @@
         {
           "gap": "PROVENANCE_DEBT",
           "category": "PROVENANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "domain model electrolysis-model exists but is blocked (1 modeled record — black-swan FAIL (P1.7/P1.8))",
@@ -5865,10 +5437,6 @@
         {
           "gap": "PROVENANCE_DEBT",
           "category": "PROVENANCE"
-        },
-        {
-          "gap": "ACCESSIBILITY_UNVERIFIED",
-          "category": "ACCESSIBILITY"
         }
       ],
       "nextTechnicalOpportunity": "expose domain model faraday-model through a model-based renderer (black-swan must hold)",

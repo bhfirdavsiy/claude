@@ -416,7 +416,7 @@
         },
         "practiceE2E": {
           "verdict": "PASS",
-          "detail": "browser command path (4 command(s)): complete=true, evidence=4, invalid=0, outside-unit=0 | tests/e2e/pilot-practice.spec.mjs"
+          "detail": "browser command path (4 command(s)): complete=true, evidence=4, invalid=0, outside-unit=0 | tests/e2e/accessibility-families.spec.mjs, tests/e2e/pilot-practice.spec.mjs"
         },
         "masteryUX": {
           "verdict": "PASS",
@@ -543,7 +543,7 @@
           "dimension": "ux",
           "kind": "machine",
           "verdict": "PASS",
-          "detail": "tests/e2e/pilot-practice.spec.mjs"
+          "detail": "tests/e2e/accessibility-families.spec.mjs, tests/e2e/pilot-practice.spec.mjs"
         }
       ]
     },

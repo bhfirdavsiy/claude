@@ -8,7 +8,7 @@
 // Accessibility: native controls (keyboard only), labels and syntax help tied to the field, observations as
 // text (colour words, never colour only), a text-state table, an aria-live summary, no motion at all.
                                                                         
-import {el,clear} from '../../ui/components/dom.js';
+import {el,clear,setDisabled} from '../../ui/components/dom.js';
 import {IONIC_PRECIPITATION_CAPABILITY} from '../catalog.js';
 import {commandFor} from '../intent.js';
                                                                                                               
@@ -91,10 +91,12 @@ function mount(root            ,host             ,context                     ) 
       optionsBuilt=true;
     }
     selects.A.value=m.selectedA??''; selects.B.value=m.selectedB??'';
-    mix.disabled=!m.canMix;
     observation.dataset.reactionState=m.reactionState;
     observation.textContent=m.observation?m.observation.text:'Hali aralashtirilmagan.';
-    eqInput.disabled=!m.equation.canWrite; check.disabled=!m.equation.canWrite;
+    // P2.7: the focused control is never disabled into a focus loss (setDisabled hands focus on); the equation
+    // field is enabled first so a finished mix can hand focus to it
+    setDisabled(eqInput,!m.equation.canWrite,()=>eqResult); setDisabled(check,!m.equation.canWrite,()=>eqResult);
+    setDisabled(mix,!m.canMix,()=>m.equation.canWrite?eqInput:observation);
     eqHelp.textContent=m.equation.syntaxHelp;
     eqResult.dataset.result=m.equation.lastResult?(m.equation.lastResult.correct?'correct':'incorrect'):'none';
     eqResult.textContent=m.rejection??(m.equation.lastResult?.text??'');

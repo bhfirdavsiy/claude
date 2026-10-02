@@ -433,7 +433,7 @@
       "title": "legacy STATIC_CHECK form (trainer 7.4)",
       "status": "PASS",
       "facts": {
-        "verdict": "To‘g‘ri. Faoliyat muvaffaqiyatli yakunlandi."
+        "verdict": "✓ To‘g‘ri. Faoliyat muvaffaqiyatli yakunlandi."
       },
       "semantic": {
         "evidence": [
