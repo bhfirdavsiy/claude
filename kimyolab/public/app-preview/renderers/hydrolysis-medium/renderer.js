@@ -8,7 +8,7 @@
 // Accessibility: native form controls (keyboard: Tab + arrow keys + Space/Enter), localized labels (never raw
 // ids), a text-state table, an aria-live summary, text + shape for the verdict (✓/✗, never colour only), no motion.
                                                                         
-import {el,clear} from '../../ui/components/dom.js';
+import {el,clear,setDisabled} from '../../ui/components/dom.js';
 import {HYDROLYSIS_MEDIUM_CAPABILITY} from '../catalog.js';
 import {commandFor} from '../intent.js';
                                                                                                               
@@ -92,16 +92,17 @@ function mount(root            ,host             ,context                     ) 
       if(!input){ const r=radio(`${uid}-salt`,s.id,s.label,{'data-salt':s.id},()=>send({type:'selectSalt',payload:{salt:s.id}})); saltSet.append(r.label); saltInputs.set(s.id,r.input); input=r.input; saltTags.set(s.id,r.tag); }
       if(pending<=1) input.checked=s.selected;
       // a salt tried in this attempt stays visible (checked while it is the current one) but cannot be picked again
-      input.disabled=s.tried&&!s.selected;
+      // P2.7: the focused control is never disabled into a focus loss (setDisabled hands focus on)
+      setDisabled(input,s.tried&&!s.selected,()=>[...saltInputs.values()].find(x=>!x.disabled&&x!==input)??feedback);
       saltTags.get(s.id) .textContent=s.tried?' (sinab ko‘rilgan)':'';
     }
     for(const md of m.media){
       let input=mediumInputs.get(md.id);
       if(!input){ const r=radio(`${uid}-medium`,md.id,md.label,{'data-medium':md.id},()=>send({type:'predictMedium',payload:{medium:md.id}})); mediumSet.append(r.label); mediumInputs.set(md.id,r.input); input=r.input; }
       if(pending<=1) input.checked=md.selected;
-      input.disabled=!m.canPredict;
+      setDisabled(input,!m.canPredict,()=>feedback);
     }
-    reveal.disabled=!m.canReveal;
+    setDisabled(reveal,!m.canReveal,()=>feedback);
     revealHint.textContent=m.step==='chooseSalt'?'Avval tuzni tanlang.':m.step==='predict'?'Indikator qo‘shishdan oldin muhitni bashorat qiling.':m.step==='reveal'?'Endi indikator qo‘shib, bashoratingizni tekshiring.':'Yangi sinov uchun boshqa tuzni tanlang.';
     observation.dataset.observation=m.observation?m.observation.medium:'none';
     observation.textContent=m.observation?m.observation.text:'Indikator hali qo‘shilmagan.';

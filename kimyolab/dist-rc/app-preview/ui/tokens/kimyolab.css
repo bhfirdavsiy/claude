@@ -154,3 +154,16 @@
 .kl-brand-logo{width:44px;height:44px;object-fit:contain;flex:0 0 auto;display:block}
 /* P2.3 — structured theory: plain, readable blocks; labels carry meaning (not colour); reflows at any width/zoom */
 .kl-theory{display:grid;gap:1.1rem}.kl-theory__section{display:grid;gap:.55rem}.kl-theory__section h3{margin:.4rem 0 0;font-size:1.12rem}.kl-theory__section h4{margin:0;font-size:1rem}.kl-theory__example,.kl-theory__misconception{border:1px solid var(--kl-border);border-radius:var(--kl-radius-sm);padding:.8rem 1rem;background:var(--kl-surface-soft);overflow-wrap:anywhere}.kl-theory__source{font-size:.85rem;color:#4b5d73;margin:0}.kl-theory__review{margin:0;padding:.6rem .8rem;border-left:4px solid var(--kl-accent);background:var(--kl-surface-soft);font-weight:700}.kl-theory__figure{margin:0}.kl-theory__figure img{max-width:100%;height:auto}.kl-theory ol,.kl-theory ul{margin:0;padding-left:1.3rem}.kl-theory p{overflow-wrap:anywhere}
+/* P2.7 — accessibility foundation for every learner UI family (shared primitives, not per-activity fixes):
+   focus ring survives typical portal resets (higher specificity than `*:focus{outline:none}`); 44 px option/field
+   targets; a finished step looks finished without colour (text + symbol); verdict symbol beside the sentence. */
+.kl-app :focus-visible,.kl-app input:focus-visible,.kl-app button:focus-visible,.kl-app select:focus-visible,.kl-app textarea:focus-visible,.kl-app a:focus-visible{outline:3px solid var(--kl-accent,#1d5fa8);outline-offset:3px}
+.kl-choice,.kl-check{min-height:44px;display:flex;align-items:center;gap:.6rem}.kl-check input,.kl-choice input{flex:0 0 auto;width:1.2rem;height:1.2rem;margin:0}
+.kl-form input:not([type=radio]):not([type=checkbox]),.kl-field input,.kl-form textarea{min-height:44px;max-width:100%}
+.kl-practice-workspace{min-width:0}.kl-practice-workspace *,.kl-unit-hero h1,.kl-unit-hero p{overflow-wrap:anywhere}
+.kl-experiment-step [aria-disabled=true]{opacity:.75;cursor:default}
+.kl-verdict-mark{font-weight:900}
+@media(max-width:600px){.kl-ionic__field,.kl-ionic__field select,.kl-ionic__equation input{min-width:0;width:100%;max-width:100%}.kl-ionic__field{margin-right:0}}
+/* P2.7 — 200 % text: the site header and its navigation wrap instead of pushing the page sideways */
+.kl-site-header__inner{flex-wrap:wrap;row-gap:.5rem}.kl-nav{flex-wrap:wrap;row-gap:.35rem}
+@media(max-width:700px){.kl-nav{flex-wrap:nowrap}}

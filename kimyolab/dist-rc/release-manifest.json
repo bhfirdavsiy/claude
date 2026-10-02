@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-10-02T08:02:42.478Z",
+  "createdAt": "2026-10-02T12:02:07.801Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -419,8 +419,8 @@
     {
       "path": "app-preview/features/learning-hub/render.js",
       "sourcePath": "public/app-preview/features/learning-hub/render.js",
-      "checksum": "bc6225b645e3a6be3599d27d1485782224ea16f756e0c7fbaaa05603857f9f29",
-      "size": 16786
+      "checksum": "16366c9fc3111ca7c39c86b8eaa68db37cc87c4b4f4d03dfdda850c7824524c0",
+      "size": 16946
     },
     {
       "path": "app-preview/features/localization/element-names.js",
@@ -455,8 +455,8 @@
     {
       "path": "app-preview/features/practice/render.js",
       "sourcePath": "public/app-preview/features/practice/render.js",
-      "checksum": "64cb4da2cc7dc4866aa37ef8b90b5f3e9160291c37f5c7888b032083c344a222",
-      "size": 12727
+      "checksum": "930bf3e0fa594acd96818a0ec401e245f051f620007ce98517b84a2d8c9507ba",
+      "size": 15567
     },
     {
       "path": "app-preview/features/practice/session.js",
@@ -593,8 +593,8 @@
     {
       "path": "app-preview/renderers/atom-builder/renderer.js",
       "sourcePath": "public/app-preview/renderers/atom-builder/renderer.js",
-      "checksum": "02b5a5d3d62bde459866f16b0a137cfcf7fc91a36b0af61d37f5ab054dd57020",
-      "size": 5720
+      "checksum": "a2b9a2c69598954812ccada2e2c547ca17619ae4f7da1b5b7909589a100dd450",
+      "size": 5858
     },
     {
       "path": "app-preview/renderers/catalog.js",
@@ -611,8 +611,8 @@
     {
       "path": "app-preview/renderers/condition-prediction/renderer.js",
       "sourcePath": "public/app-preview/renderers/condition-prediction/renderer.js",
-      "checksum": "e0c36d64364be0601828c9e03d51617dcc7ab1dcb58bba9efedc283cceb1c99d",
-      "size": 8616
+      "checksum": "1dfa3e12a7e9104224e1c80dc8a26086955cd8fd3c8d33a2e9a0d353d1f7e89e",
+      "size": 8852
     },
     {
       "path": "app-preview/renderers/contract.js",
@@ -629,8 +629,8 @@
     {
       "path": "app-preview/renderers/hydrolysis-medium/renderer.js",
       "sourcePath": "public/app-preview/renderers/hydrolysis-medium/renderer.js",
-      "checksum": "2d8402b145000a8b680a4c62b77edbd3325447f34cef7f8323652714fdb1cc55",
-      "size": 8553
+      "checksum": "00e249e9618179cf561f4f524367581cc93201aa3b21d913545dc912269bd174",
+      "size": 8774
     },
     {
       "path": "app-preview/renderers/index.js",
@@ -653,8 +653,8 @@
     {
       "path": "app-preview/renderers/ionic-precipitation/renderer.js",
       "sourcePath": "public/app-preview/renderers/ionic-precipitation/renderer.js",
-      "checksum": "0bfcbd9e06cee4e787ae1055fb7e4faf0978ca7b4a55a1f6221108d545926b64",
-      "size": 7602
+      "checksum": "049da07ed4f8501aa68c3b5e8b0eeb81b991f9f2dcd11ea419b7846682065577",
+      "size": 7877
     },
     {
       "path": "app-preview/renderers/registry.js",
@@ -965,8 +965,8 @@
     {
       "path": "app-preview/ui/components/dom.js",
       "sourcePath": "public/app-preview/ui/components/dom.js",
-      "checksum": "bb997d607313421105b3d52712f598decf64342d9bf81d5b5cc901fcd219133e",
-      "size": 1041
+      "checksum": "4b6615a148baacaac0c98f02202a34b603e0bffe3281a203f6aff5ad7d7e7279",
+      "size": 2005
     },
     {
       "path": "app-preview/ui/host-paths.js",
@@ -977,8 +977,8 @@
     {
       "path": "app-preview/ui/tokens/kimyolab.css",
       "sourcePath": "public/app-preview/ui/tokens/kimyolab.css",
-      "checksum": "3f833318077a6104f506e333317b63e2639615a57c8fb57c3426160455224459",
-      "size": 32231
+      "checksum": "a3a71803e815a0800e8a4cdb900661c053ed53acbf24a75158b3bd0dbd5e1141",
+      "size": 33709
     },
     {
       "path": "assets/brand/kimyolab-logo.webp",

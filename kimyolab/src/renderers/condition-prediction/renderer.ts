@@ -8,7 +8,7 @@
 // Accessibility: native form controls (keyboard: Tab + arrow keys + Space/Enter), fieldset + legend, localized labels
 // (never raw ids), a text-state table, an aria-live summary, text + shape for the verdict (✓/✗), no motion at all.
 import type {PracticeCommand} from '../../features/practice/session.ts';
-import {el,clear} from '../../ui/components/dom.ts';
+import {el,clear,setDisabled} from '../../ui/components/dom.ts';
 import {CONDITION_PREDICTION_CAPABILITY} from '../catalog.ts';
 import {commandFor} from '../intent.ts';
 import type {RendererHost,RendererImplementation,RendererInstance,RendererMountContext} from '../contract.ts';
@@ -87,7 +87,8 @@ function mount(root:HTMLElement,host:RendererHost,context:RendererMountContext):
   // checked radio would swallow the learner's next click). Presentation only — the next update() draws the domain state.
   function pendingCondition(){
     for(const input of outInputs.values()){ input.checked=false; input.disabled=true; }
-    reveal.disabled=true;
+    // P2.7: the focused control is never disabled into a focus loss (setDisabled hands focus on)
+    setDisabled(reveal,true,()=>feedback);
   }
 
   function update(result:unknown){
@@ -105,16 +106,16 @@ function mount(root:HTMLElement,host:RendererHost,context:RendererMountContext):
       if(!input){ const r=radio(`${uid}-condition`,c.id,c.label,{'data-condition':c.id},()=>{ pendingCondition(); send({type:'selectCondition',payload:{condition:c.id}}); }); condSet.append(r.label); condInputs.set(c.id,r.input); condTags.set(c.id,r.tag); input=r.input; }
       if(pending<=1) input.checked=c.selected;
       // a condition tried in this attempt stays visible (checked while current) but cannot be picked again
-      input.disabled=c.tried&&!c.selected;
+      setDisabled(input,c.tried&&!c.selected,()=>[...condInputs.values()].find(x=>!x.disabled&&x!==input)??feedback);
       condTags.get(c.id)!.textContent=c.tried?` ${m.labels.tried}`:'';
     }
     for(const o of m.outcomes){
       let input=outInputs.get(o.id);
       if(!input){ const r=radio(`${uid}-outcome`,o.id,o.label,{'data-outcome':o.id},()=>send({type:'predictOutcome',payload:{outcome:o.id}})); outSet.append(r.label); outInputs.set(o.id,r.input); input=r.input; }
       if(pending<=1) input.checked=o.selected;
-      input.disabled=!m.canPredict;
+      setDisabled(input,!m.canPredict,()=>feedback);
     }
-    reveal.disabled=!m.canReveal;
+    setDisabled(reveal,!m.canReveal,()=>feedback);
     hint.textContent=m.hint;
     observation.dataset.observation=m.observation?'revealed':'none';
     observation.textContent=m.observation?m.observation.text:m.labels.resultNone;

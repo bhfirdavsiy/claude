@@ -95,3 +95,11 @@ Each dimension is an ordered enum. Its normalized level is `index / (count − 1
 - `reports/computed-model-interaction-audit.json` lists every candidate (75) with its facts and reasons; `reports/computed-model-interaction-expansion.json` gives the totals. Both are separate reports, not formula inputs.
 - P2.6 converted 3 activities (9.23, 11.18, 11.20). MODEL_BASED moved from 4 activities / 6 units to 7 activities / 9 units, which moves only the `modelBasedInteraction` component (6/122 → 9/122). No weight or formula was changed, and no governance input moved.
 
+
+## 11. P2.7 — accessibility is measured, reported separately, and never a progress input (ADR-P2-008)
+
+- Every activity has an explicit accessibility state from ONE rule (`scripts/lib/accessibility-verification.ts`): VERIFIED (= AUTOMATED_VERIFIED), FAILED, BLOCKED (BLOCKED_BY_CONTENT) or NOT_APPLICABLE. The facts come from `tests/e2e/accessibility-sweep.spec.mjs`, which drives every launchable activity through the real keyboard flow and is re-run in compare mode by `npm run verify`.
+- A renderer's declared accessibility contract alone no longer counts; registry and legacy activities are measured the same way.
+- `ACCESSIBILITY_UNVERIFIED` is removed from a unit only when every launchable activity of the unit is VERIFIED. Nothing is cleared in bulk.
+- Accessibility is not an input of foundation, learning product or the overall estimate. `reports/accessibility-gap-summary.json` reports it separately, with the human accessibility review count (0) kept apart from the automated result.
+- No weight was changed. MODEL_BASED, assessment, governance and release numbers are unchanged by P2.7.

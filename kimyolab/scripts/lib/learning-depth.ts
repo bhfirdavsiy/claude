@@ -26,6 +26,7 @@ import {parseReviewRegister,reviewStateOf} from '../../src/domain/chemistry/kb-r
 import {classifyTheoryDepth} from '../../src/domain/theory/structured-theory.ts';
 import {collectStructuredTheory,loadSourceRegistry} from './structured-theory.ts';
 import {activityBlackSwan} from './model-interaction.ts';
+import {readA11yEvidence,a11yForDepth} from './accessibility-verification.ts';
 
 const readJson=(root:string,rel:string)=>JSON.parse(fs.readFileSync(path.join(root,rel),'utf8'));
 const readOptional=(root:string,rel:string,fallback:any)=>fs.existsSync(path.join(root,rel))?readJson(root,rel):fallback;
@@ -99,7 +100,8 @@ function modelRecordCount(root:string,module:string):number|null{
 
 /** Commands the rendered legacy UI can send, with values from the config or — if the config has none — the value the
  *  engine itself computed and reports as `expected` (the domain model's answer). Never a guessed value. */
-async function legacyCanSucceed(model:any):Promise<{verdict:string;detail:string;answerSource:string;wrongInput?:string;tokenAnswer?:string|null}>{
+// P2.7: exported with the final command list so the accessibility sweep drives the SAME success path in the browser
+export async function legacyCanSucceed(model:any):Promise<{verdict:string;detail:string;answerSource:string;wrongInput?:string;tokenAnswer?:string|null;commands?:any[]}>{
   const ui:any=buildPracticeUiModel(model);
   const c=model.referenceConfig;
   const run=async(commands:any[])=>{ const s=new ReferencePracticeSession(model,{now:()=>'2026-01-01T00:00:00.000Z'}); let r:any; for(const x of commands) r=await s.apply(x); return r; };
@@ -149,7 +151,7 @@ async function legacyCanSucceed(model:any):Promise<{verdict:string;detail:string
   const authoredAnswers=ui.kind==='trainer'&&Array.isArray(c.acceptedAnswers);
   const typed=commands.filter((x:any)=>questionOf(x)?.input?.kind!=='choice'&&!(authoredAnswers&&x.kind==='trainer-answer')).map((x:any)=>x.action?.value??x.answer).filter((v:any)=>typeof v==='string');
   const tokenAnswer=typed.find((v:string)=>/^[a-z][a-z_-]{2,}$/.test(v)&&v!=='true'&&v!=='false')??null;
-  return {verdict:ok(r)?'CAN_SUCCEED':'CANNOT_SUCCEED',detail:`${ui.kind}: ${commands.length} command(s); complete=${Boolean(r)&&isPracticeResultComplete(model.type,r)}`,answerSource:source,wrongInput,tokenAnswer};
+  return {verdict:ok(r)?'CAN_SUCCEED':'CANNOT_SUCCEED',detail:`${ui.kind}: ${commands.length} command(s); complete=${Boolean(r)&&isPracticeResultComplete(model.type,r)}`,answerSource:source,wrongInput,tokenAnswer,commands};
 }
 
 // ------------------------------------------------------------------ activity classification
@@ -236,6 +238,9 @@ export async function buildLearningDepth(root:string){
   const provenanceDebt=new Set(kb.gate.pending.filter(p=>p.startsWith('SOURCE_NOT_ACCEPTABLE:')).map(p=>p.slice('SOURCE_NOT_ACCEPTABLE:'.length)));
   const pilotIds=new Set(src.pilot.learningUnits.map((u:any)=>u.id));
   const matrix=readOptional(root,'reports/pilot-acceptance-matrix.json',{rows:[]});
+  // P2.7: accessibility comes from the re-measured browser sweep for EVERY launchable activity (registry and legacy
+  // alike, scripts/lib/accessibility-verification.ts) — a renderer's declared contract alone no longer counts
+  const a11yEvidence=readA11yEvidence(root);
 
   // ---- activities
   const activities:any[]=[];
@@ -264,7 +269,7 @@ export async function buildLearningDepth(root:string){
       canSucceed:success.verdict,canSucceedDetail:success.detail,answerSource:success.answerSource,wrongInput:(success as any).wrongInput??'NOT_APPLICABLE',expectsUntranslatedToken:(success as any).tokenAnswer??null,
       modules,blackSwan:requirement?bs:null,steps,
       renderer:requirement?{kind:'registry',capability:requirement.capability}:{kind:'legacy',capability:null,uiKind:ui.kind},
-      accessibility:reg?{source:'renderer contract',...reg.accessibility}:{source:'legacy UI — not verified',keyboard:'UNKNOWN',screenReader:'UNKNOWN',nonColor:'UNKNOWN',reducedMotion:'UNKNOWN',nonVisualAlternative:'UNKNOWN',declaredProfile:a.accessibilityProfile??[]},
+      accessibility:{...a11yForDepth(a11yEvidence,a.id,true,a.accessibilityProfile??[]),...(reg?{rendererContract:reg.accessibility}:{})},
       localization:uiLabelDebt(model),
       hardening:hardening.get(a.id)??null,configKeys:cfg?Object.keys(cfg).sort():[]});
   }
@@ -393,7 +398,8 @@ export async function buildLearningDepth(root:string){
 
   // ---- accessibility
   const launchable=activities.filter(x=>x.canSucceed!=='NOT_LAUNCHABLE');
-  const a11y=Object.fromEntries(['keyboard','screenReaderSummary','nonColorCues','reducedMotion','nonVisualAlternative'].map(k=>[k,{verified:launchable.filter(x=>x.accessibility?.source==='renderer contract'&&x.accessibility[k]&&x.accessibility[k]!=='UNKNOWN').length,unknown:launchable.filter(x=>x.accessibility?.source!=='renderer contract').length}]));
+  const a11y={...Object.fromEntries(['keyboard','screenReaderSummary','nonColorCues','reducedMotion','nonVisualAlternative'].map(k=>[k,{verified:launchable.filter(x=>x.accessibility?.state==='VERIFIED').length,unknown:launchable.filter(x=>x.accessibility?.state!=='VERIFIED').length}])),
+    states:Object.fromEntries(['VERIFIED','FAILED','BLOCKED'].map(s=>[s,launchable.filter(x=>x.accessibility?.state===s).length])),source:'reports/accessibility-browser-evidence.json (automated; human accessibility review: 0)'};
 
   // ---- localization
   const localeDirs=fs.existsSync(path.join(root,'content-src/locales'))?fs.readdirSync(path.join(root,'content-src/locales')).sort():[];

@@ -26,7 +26,8 @@ export const ROADMAP:ReadonlyArray<{id:string;label:string}>=[
   {id:'P2.4',label:'governed theory authoring & source operations'},
   {id:'P2.5',label:'model-based reaction interaction expansion'},
   {id:'P2.6',label:'computed model interaction expansion'},
-  {id:'P2.7+',label:'assessment / model-based / localization / accessibility / governance expansion'},
+  {id:'P2.7',label:'accessibility verification & legacy interaction hardening'},
+  {id:'P2.8+',label:'assessment / model-based / localization / governance expansion'},
   {id:'P3',label:'real portal deployment and production pilot'},
 ];
 const milestoneOrder=(a:string,b:string)=>a.localeCompare(b,undefined,{numeric:true});
@@ -105,7 +106,8 @@ export async function buildDepthReports(base=root){
     if(u.provenanceDebt.assertionsWithoutAcceptableSource) gaps.push('PROVENANCE_DEBT');
     if(acts.some((x:any)=>x.expectsUntranslatedToken)) gaps.push('UNTRANSLATED_ANSWER_TOKEN');
     if(acts.some((x:any)=>x.localization?.rawIdLabels?.length)) gaps.push('RAW_ID_LABELS');
-    if(acts.some((x:any)=>x.accessibility?.source!=='renderer contract')) gaps.push('ACCESSIBILITY_UNVERIFIED');
+    // P2.7: removed only where the browser sweep verified EVERY launchable activity of the unit (no blanket clearing)
+    if(acts.some((x:any)=>x.accessibility&&x.accessibility.state!=='VERIFIED')) gaps.push('ACCESSIBILITY_UNVERIFIED');
     const modules=uniq(acts.flatMap((x:any)=>x.modules??[]));
     const reuse=d.renderer.nextCandidates.find((c:any)=>c.rendererReuse&&c.affectedLearningUnits.includes(u.learningUnitId));
     const exposable=d.renderer.nextCandidates.find((c:any)=>c.existingDomainModel&&c.realLearnerChoicePossible&&c.affectedLearningUnits.includes(u.learningUnitId)&&!c.knownBlocker);
@@ -179,7 +181,7 @@ export async function buildDepthReports(base=root){
     // P2.2: deployment/portal readiness is a SEPARATE metric (reports/portal-subpath-readiness.json). It is reported here
     // for visibility and is NOT an input of foundation, learning product or the 0.4/0.6 overall estimate (ADR-P2-003 §8).
     separateMetrics:(()=>{ const f=path.join(base,'reports/portal-subpath-readiness.json'); if(!fs.existsSync(f)) return {portalSubpathReadiness:null}; const r=JSON.parse(fs.readFileSync(f,'utf8')); return {portalSubpathReadiness:{source:'reports/portal-subpath-readiness.json',status:r.summary.status,checksPassed:r.summary.pass,checks:r.summary.checks,portalIntegrated:r.portalIntegrated,inManagementFormula:false}}; })(),
-    remainingMajorWork:['assessment for 121 units (and review of lu.9.15)','structured theory for 122 units','model-based practice beyond 6 units','source provenance for 127 assertions','uz-Cyrl and ru localization','accessibility verification of 141 legacy activities','human review and release decisions'],
+    remainingMajorWork:['assessment for 121 units (and review of lu.9.15)','structured theory for 122 units','model-based practice beyond 6 units','source provenance for 127 assertions','uz-Cyrl and ru localization',`accessibility: ${A.filter(x=>x.accessibility&&x.accessibility.state!=='VERIFIED').length} launchable activities not automatically verified; human accessibility review of all of them`,'human review and release decisions'],
     uzSummary:[
       `Platforma poydevori: ${P(foundation)}% (${foundationChecks.filter(c=>c.pass).length}/${foundationChecks.length} tekshiruv o‘tdi).`,
       `O‘quv mahsuloti: ${P(learningProduct)}%. ${n} ta mavzudan ${modelLUs.length} tasida model asosidagi amaliyot bor, ${summary.assessmentCoverage.learningUnitsWithApprovedAssessment} tasida tasdiqlangan test bor.`,
@@ -190,7 +192,7 @@ export async function buildDepthReports(base=root){
 
   // ------------------------------------------------ work packages
   const luOf=(ids:string[])=>uniq(A.filter(x=>ids.includes(x.activityId)).flatMap(x=>x.learningUnits)).sort();
-  const legacyUnknownA11y=A.filter(x=>x.accessibility&&x.accessibility.source!=='renderer contract').map(x=>x.activityId);
+  const legacyUnknownA11y=A.filter(x=>x.accessibility&&x.accessibility.state!=='VERIFIED').map(x=>x.activityId);
   const rawIds=A.filter(x=>x.localization?.rawIdLabels?.length||x.expectsUntranslatedToken).map(x=>x.activityId);
   const staticLabs=d.labs.rows.filter((r:any)=>r.class==='static').map((r:any)=>r.activityId);
   const crash=A.filter(x=>String(x.wrongInput).startsWith('THROWS')).map(x=>x.activityId);
@@ -204,7 +206,7 @@ export async function buildDepthReports(base=root){
     {id:'wp.engine-exposure',category:'engine exposure',affectedLearningUnits:[],affectedActivities:[],facts:{unusedModules:d.engines.filter((e:any)=>e.status==='UNUSED').map((e:any)=>e.module),formOnlyModules:d.engines.filter((e:any)=>e.status==='FORM_OR_SCRIPT_ONLY').map((e:any)=>e.module)},dependencies:[],machineWork:['connect unused/form-only models to a learner-facing interaction'],humanWork:['decide which curriculum units need them'],blockers:[]},
     {id:'wp.lab-repair',category:'lab repair',affectedLearningUnits:luOf([...staticLabs,...crash]),affectedActivities:[...staticLabs,...crash],facts:{proceduralLabsWithoutDomainState:staticLabs.length,crashOnWrongInput:crash,cannotSucceed:d.labs.cannotSucceed},dependencies:['reaction/model grounding of lab steps (P1 guided-lab hardening pattern)'],machineWork:['ground procedural steps in the reaction KB / models','fail-closed feedback instead of an exception on unexpected input'],humanWork:['chemistry review of grounded steps'],blockers:[]},
     {id:'wp.theory-enrichment',category:'theory enrichment',affectedLearningUnits:U.filter(u=>u.dimensions.theory!=='STRUCTURED').map(u=>u.learningUnitId),affectedActivities:[],facts:{minimal:U.filter(u=>u.dimensions.theory==='MINIMAL').length,withWorkedExample:U.filter(u=>u.theory.checks.workedExample).length,withMisconception:U.filter(u=>u.theory.checks.misconception).length},dependencies:['theory block schema (worked example, misconception, summary)'],machineWork:['theory block schema + validation'],humanWork:['author explanations, worked examples, misconceptions, summaries','didactic review'],blockers:[]},
-    {id:'wp.accessibility',category:'accessibility',affectedLearningUnits:luOf(legacyUnknownA11y),affectedActivities:legacyUnknownA11y,facts:{verified:4,unknown:legacyUnknownA11y.length},dependencies:[],machineWork:['keyboard/screen-reader E2E for the legacy practice UI families (experiment, form simulation, trainer, calculation, case)'],humanWork:['accessibility review'],blockers:[]},
+    {id:'wp.accessibility',category:'accessibility',affectedLearningUnits:luOf(legacyUnknownA11y),affectedActivities:legacyUnknownA11y,facts:{automatedVerified:A.filter(x=>x.accessibility?.state==='VERIFIED').length,notVerified:legacyUnknownA11y.length,byState:d.accessibility.states,humanReviewed:0},dependencies:[],machineWork:['fix the FAILED families listed in reports/accessibility-gap-summary.json'],humanWork:['accessibility review (screen reader + keyboard) by a person','content labels / colour descriptions for BLOCKED_BY_CONTENT activities'],blockers:[]},
     {id:'wp.localization',category:'localization',affectedLearningUnits:luOf(rawIds),affectedActivities:rawIds,facts:{targets:['uz-Latn','uz-Cyrl','ru'],contentLocales:['uz-Latn'],rawIdLabelActivities:d.localization.rawIdLabels.activities,untranslatedAnswerTokenActivities:d.localization.untranslatedAnswerTokens.activities,hardcodedUzbekUiLiterals:d.localization.hardcodedUzbekUi.literals},dependencies:['locale architecture decision (content packs per locale)'],machineWork:['P2.1 done: label catalog, choice UI for closed domains, shared UI string catalog','choice UI for the remaining token fields once option sets exist'],humanWork:['author option sets for the OPTION_SET_MISSING fields (reports/learner-answer-input-audit.json)','review the uz-Latn learner-interaction catalog','uz-Cyrl and ru translation','terminology review'],blockers:d.localization.untranslatedAnswerTokens.activities?['OPTION_SET_MISSING: only the target token exists in the repository']:[]},
     {id:'wp.human-review',category:'human review',affectedLearningUnits:U.map(u=>u.learningUnitId),affectedActivities:A.map(x=>x.activityId),facts:{chemistryAssertionsPending:d.chemistry.assertions-d.chemistry.approved,assessmentItemsPending:items-approvedItems,activitiesContentPending:A.filter(x=>x.content!=='APPROVED').length,releaseDecisionsMissing:releaseStatus.totals.decisionMissing,pilotSignoffsPending:4},dependencies:['provenance (approvals without an acceptable source do not count)'],machineWork:[],humanWork:['workbench review rounds','release decisions','pilot sign-offs'],blockers:['0 human decisions so far']},
     {id:'wp.provenance',category:'provenance',affectedLearningUnits:U.filter(u=>u.provenanceDebt.assertionsWithoutAcceptableSource>0).map(u=>u.learningUnitId),affectedActivities:[],facts:{assertionsWithoutAcceptableSource:d.chemistry.provenanceDebt,addSourceTasks:tasks.filter(t=>t.action==='add-source').length,note:'PROVENANCE DEBT — sources to register and cite; the learning content exists'},dependencies:['source registry reclassification with evidence (reviewed PR)'],machineWork:[],humanWork:['register textbooks/standards/glossary','cite them via add-source drafts'],blockers:[]},

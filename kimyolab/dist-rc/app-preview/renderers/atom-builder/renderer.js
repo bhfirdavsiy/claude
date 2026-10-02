@@ -6,7 +6,7 @@
 // motion at all (reducedMotion: 'static').
                                                                         
                                                              
-import {el,clear} from '../../ui/components/dom.js';
+import {el,clear,setDisabled} from '../../ui/components/dom.js';
 import {ATOM_BUILDER_CAPABILITY} from '../catalog.js';
                                                                                                               
 import {toAtomRendererModel,NO_ELEMENT_YET_TEXT,                      } from './renderer-model.js';
@@ -70,7 +70,7 @@ function mount(root            ,host             ,context                     ) 
     // an input that is not an atom result throws: the host's error boundary then fails closed
     const m                  =toAtomRendererModel(result,(symbol)=>context.localize?.(`element.${symbol}`)??symbol);
     goal.textContent=`Maqsad: ${m.goal.isotopeLabel} — ${m.goal.summary}`;
-    for(const p of PARTICLE_ORDER){ counts[p] .textContent=String(m[p]); minus[p] .disabled=m[p]===0; }
+    for(const p of PARTICLE_ORDER){ counts[p] .textContent=String(m[p]); setDisabled(minus[p] ,m[p]===0,()=>minus[p] .nextElementSibling?.nextElementSibling               ); } // P2.7: focus moves to the + button, never to <body>
     cells.element .textContent=m.construction==='element'&&m.symbol?(m.elementName&&m.elementName!==m.symbol?`${m.symbol} — ${m.elementName}`:m.symbol):NO_ELEMENT_YET_TEXT;
     cells.atomicNumber .textContent=String(m.atomicNumber);
     cells.massNumber .textContent=String(m.massNumber);

@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "typecheck:next": "node scripts/typecheck-ratchet.mjs",
     "schema:validate": "node scripts/validate-schemas.ts",
-    "content:validate": "node scripts/validate-content.ts && node scripts/validate-external-labs.ts && node scripts/learning-readiness.ts && node scripts/pending-triage.ts && node scripts/pilot-status.ts && node scripts/renderer-foundation-readiness.ts && node scripts/renderer-reports.ts && node scripts/review.ts status && node scripts/learner-interaction.ts && node scripts/theory-authoring.ts && node scripts/learning-depth.ts && node scripts/model-interaction-expansion.ts && node scripts/computed-model-interaction.ts",
+    "content:validate": "node scripts/validate-content.ts && node scripts/validate-external-labs.ts && node scripts/learning-readiness.ts && node scripts/pending-triage.ts && node scripts/pilot-status.ts && node scripts/renderer-foundation-readiness.ts && node scripts/renderer-reports.ts && node scripts/review.ts status && node scripts/learner-interaction.ts && node scripts/theory-authoring.ts && node scripts/learning-depth.ts && node scripts/model-interaction-expansion.ts && node scripts/computed-model-interaction.ts && node scripts/accessibility-verification.ts",
     "chemistry:validate": "node --experimental-strip-types scripts/validate-chemistry.ts && node --experimental-strip-types scripts/chemistry-kb.ts",
     "test": "node --test --test-concurrency=1 tests/*.test.mjs",
     "test:integration": "node --test --test-concurrency=1 tests/integration/*.test.mjs",
@@ -127,7 +127,9 @@
     "source:queue": "node --experimental-strip-types scripts/content-operations.ts source:queue",
     "source:apply": "node --experimental-strip-types scripts/content-operations.ts source:apply",
     "model:expansion": "node --experimental-strip-types scripts/model-interaction-expansion.ts",
-    "model:computed": "node --experimental-strip-types scripts/computed-model-interaction.ts"
+    "model:computed": "node --experimental-strip-types scripts/computed-model-interaction.ts",
+    "a11y:sweep": "node scripts/accessibility-sweep.mjs",
+    "a11y:report": "node scripts/accessibility-verification.ts"
   },
   "devDependencies": {
     "@playwright/test": "1.56.1",
