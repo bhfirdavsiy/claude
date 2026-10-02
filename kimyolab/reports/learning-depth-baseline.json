@@ -15634,7 +15634,7 @@
       ],
       "blackSwan": {
         "pass": true,
-        "evidence": "modelBased=true; distinct modeled outcomes=3"
+        "evidence": "activity shelf (7 reagents): 3 distinct integrity-clean modeled outcome(s) [rxn.agno3-nacl, rxn.bacl2-h2so4, rxn.zncl2-naoh]"
       },
       "steps": 0,
       "renderer": {
