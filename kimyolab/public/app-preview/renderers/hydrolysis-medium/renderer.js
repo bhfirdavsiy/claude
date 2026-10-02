@@ -29,10 +29,16 @@ let instances=0;
 function mount(root            ,host             ,context                     )                 {
   clear(root);
   const uid=`kl-hydro-${++instances}`;
+  // P2.6: `pending` counts queued intents. A result drawn while newer intents are still queued is stale for the radio
+  // selection: re-checking its older choice would undo the learner's latest keypress (arrow keys move from the checked
+  // radio). Only the latest result syncs `checked`; every result still draws text and enabled state.
+  let pending=0;
   const send=(action                       )=>{
+    pending+=1;
     queue=queue.then(async()=>{
       try{ await host.dispatch(hydrolysisIntent(action,context.practiceType)); }
       catch{ status.textContent='Amalni bajarib bo‘lmadi. Qaytadan urinib ko‘ring.'; }
+      finally{ pending-=1; }
     });
   };
   // intents are applied strictly in order; the host draws every engine result through update()
@@ -84,7 +90,7 @@ function mount(root            ,host             ,context                     ) 
     for(const s of m.salts){
       let input=saltInputs.get(s.id);
       if(!input){ const r=radio(`${uid}-salt`,s.id,s.label,{'data-salt':s.id},()=>send({type:'selectSalt',payload:{salt:s.id}})); saltSet.append(r.label); saltInputs.set(s.id,r.input); input=r.input; saltTags.set(s.id,r.tag); }
-      input.checked=s.selected;
+      if(pending<=1) input.checked=s.selected;
       // a salt tried in this attempt stays visible (checked while it is the current one) but cannot be picked again
       input.disabled=s.tried&&!s.selected;
       saltTags.get(s.id) .textContent=s.tried?' (sinab ko‘rilgan)':'';
@@ -92,7 +98,8 @@ function mount(root            ,host             ,context                     ) 
     for(const md of m.media){
       let input=mediumInputs.get(md.id);
       if(!input){ const r=radio(`${uid}-medium`,md.id,md.label,{'data-medium':md.id},()=>send({type:'predictMedium',payload:{medium:md.id}})); mediumSet.append(r.label); mediumInputs.set(md.id,r.input); input=r.input; }
-      input.checked=md.selected; input.disabled=!m.canPredict;
+      if(pending<=1) input.checked=md.selected;
+      input.disabled=!m.canPredict;
     }
     reveal.disabled=!m.canReveal;
     revealHint.textContent=m.step==='chooseSalt'?'Avval tuzni tanlang.':m.step==='predict'?'Indikator qo‘shishdan oldin muhitni bashorat qiling.':m.step==='reveal'?'Endi indikator qo‘shib, bashoratingizni tekshiring.':'Yangi sinov uchun boshqa tuzni tanlang.';

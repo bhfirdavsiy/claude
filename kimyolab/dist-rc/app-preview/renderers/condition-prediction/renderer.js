@@ -31,10 +31,16 @@ function mount(root            ,host             ,context                     ) 
   const uid=`kl-cond-${++instances}`;
   let failedText='';
   let queue              =Promise.resolve();
+  // `pending` counts queued intents. A result drawn while newer intents are still queued is stale for the radio
+  // selection: re-checking its older choice would undo the learner's latest keypress. Only the latest result syncs
+  // `checked`; every result still draws text and enabled state.
+  let pending=0;
   const send=(action                      )=>{
+    pending+=1;
     queue=queue.then(async()=>{
       try{ await host.dispatch(conditionIntent(action,context.practiceType)); }
       catch{ status.textContent=failedText; }
+      finally{ pending-=1; }
     });
   };
 
@@ -97,7 +103,7 @@ function mount(root            ,host             ,context                     ) 
     for(const c of m.conditions){
       let input=condInputs.get(c.id);
       if(!input){ const r=radio(`${uid}-condition`,c.id,c.label,{'data-condition':c.id},()=>{ pendingCondition(); send({type:'selectCondition',payload:{condition:c.id}}); }); condSet.append(r.label); condInputs.set(c.id,r.input); condTags.set(c.id,r.tag); input=r.input; }
-      input.checked=c.selected;
+      if(pending<=1) input.checked=c.selected;
       // a condition tried in this attempt stays visible (checked while current) but cannot be picked again
       input.disabled=c.tried&&!c.selected;
       condTags.get(c.id) .textContent=c.tried?` ${m.labels.tried}`:'';
@@ -105,7 +111,8 @@ function mount(root            ,host             ,context                     ) 
     for(const o of m.outcomes){
       let input=outInputs.get(o.id);
       if(!input){ const r=radio(`${uid}-outcome`,o.id,o.label,{'data-outcome':o.id},()=>send({type:'predictOutcome',payload:{outcome:o.id}})); outSet.append(r.label); outInputs.set(o.id,r.input); input=r.input; }
-      input.checked=o.selected; input.disabled=!m.canPredict;
+      if(pending<=1) input.checked=o.selected;
+      input.disabled=!m.canPredict;
     }
     reveal.disabled=!m.canReveal;
     hint.textContent=m.hint;
