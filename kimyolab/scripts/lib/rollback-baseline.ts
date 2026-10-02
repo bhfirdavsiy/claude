@@ -9,12 +9,20 @@
 //   3. Walk the mainline's first-parent chain from there and take the first commit whose deployment artefact differs
 //      from the current one (a release that changes nothing to deploy is not a rollback target).
 // Every candidate must be a commit and an ancestor of the mainline ref; the result is reported with its full SHA.
+import fs from 'node:fs';
+import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 
 export interface BaselineResolution { commit:string; method:'explicit'|'merge-base'|'first-parent-of-mainline-head'; mainline:string; mergeBase:string|null; walked:string[] }
 
 const git=(cwd:string,args:string[])=>{ const r=spawnSync('git',args,{cwd,encoding:'utf8'}); return {ok:r.status===0,out:(r.stdout??'').trim()}; };
 const isCommit=(cwd:string,ref:string)=>{ const r=git(cwd,['rev-parse','--verify','--quiet',`${ref}^{commit}`]); return r.ok?r.out:null; };
+
+/** The commits at which a shallow clone's history is cut (abbreviated), for the failure facts. */
+function shallowBoundaries(cwd:string):string[]{
+  const p=git(cwd,['rev-parse','--git-path','shallow']);
+  try{ return fs.readFileSync(path.resolve(cwd,p.out),'utf8').split('\n').filter(Boolean).map(x=>x.slice(0,12)); }catch{ return []; }
+}
 
 /** The mainline ref: KIMYOLAB_MAINLINE_REF, else origin/<GITHUB_BASE_REF> in a PR, else origin/main, else main. */
 export function mainlineRef(cwd:string,env:Record<string,string|undefined>=process.env):string|null{
@@ -29,7 +37,7 @@ export function resolveRollbackBaseline(cwd:string,opts:{env?:Record<string,stri
   const fail=(code:string,message:string)=>Object.assign(new Error(message),{code,detail:facts});
   // a shallow clone ends the history early: name that fact instead of a misleading "no previous release" / "no
   // different artefact" (a fact about the clone, not about the history)
-  const shallowFail=(seen:number)=>{ facts.shallow=true; return fail('DEPLOY_ROLLBACK_SOURCE_MISSING',`The clone is shallow: the mainline history ends after ${seen} commit(s). Fetch the full history (git fetch --unshallow origin; CI: actions/checkout fetch-depth: 0).`); };
+  const shallowFail=(seen:number)=>{ facts.shallow=true; facts.shallowBoundaries=shallowBoundaries(cwd); return fail('DEPLOY_ROLLBACK_SOURCE_MISSING',`The clone is shallow: the mainline history ends after ${seen} commit(s). Fetch the full history (git fetch --unshallow origin; CI: actions/checkout fetch-depth: 0).`); };
   const isShallow=()=>git(cwd,['rev-parse','--is-shallow-repository']).out==='true';
   const mainline=mainlineRef(cwd,env);
   if(!mainline) throw fail('DEPLOY_ROLLBACK_SOURCE_MISSING','No mainline ref (origin/main or main) is available: fetch the full history (CI: actions/checkout fetch-depth: 0).');
