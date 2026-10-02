@@ -1,0 +1,121 @@
+{
+  "schema": "kimyolab.deployment-rollback-drill.v1",
+  "semantics": "Real-artefact rollback drill (scripts/deploy-rollback-drill.mjs): current → previous known-good → restore through the release registry, one browser profile on one origin. Learner storage is never touched by a rollback (it lives in the browser under the mount namespace, not in the artefact).",
+  "mount": "/kimyolab/",
+  "storage": "kimyolab@/kimyolab/.runtime",
+  "status": "PASS",
+  "previous": {
+    "commit": "2e80fd084a087d08e080fee3b893d63f1b92a266",
+    "resolution": {
+      "method": "merge-base",
+      "mainline": "origin/main",
+      "mergeBase": "f11c79994e3e49ef2ad4c4f8af5f68c04236b7af",
+      "walked": [
+        "f11c79994e3e49ef2ad4c4f8af5f68c04236b7af",
+        "2e80fd084a087d08e080fee3b893d63f1b92a266"
+      ]
+    },
+    "builder": "that commit's own scripts/build-production.ts",
+    "sha256": "d371306cdcd7ba5497d67919169870aab2e07b79ae70613406f4bfc71f368d77",
+    "fileCount": 215
+  },
+  "current": {
+    "source": "dist-deploy/kimyolab/",
+    "sha256": "f61f1cca79ed4e9db2f1c76e3c0556d0aecfa483de569adc1d22ae73599926ba",
+    "fileCount": 215
+  },
+  "steps": [
+    {
+      "id": "registry-promote",
+      "pass": true,
+      "detail": {
+        "activeRelease": "current",
+        "previousRelease": "previous"
+      }
+    },
+    {
+      "id": "serve-current",
+      "pass": true
+    },
+    {
+      "id": "current-smoke",
+      "pass": true,
+      "detail": {
+        "served": "current"
+      }
+    },
+    {
+      "id": "learner-evidence-recorded",
+      "pass": true,
+      "detail": {
+        "evidence": 1
+      }
+    },
+    {
+      "id": "rollback-pointer",
+      "pass": true,
+      "detail": {
+        "activeRelease": "previous",
+        "previousRelease": "current"
+      }
+    },
+    {
+      "id": "serve-previous",
+      "pass": true
+    },
+    {
+      "id": "previous-smoke",
+      "pass": true,
+      "detail": {
+        "served": "previous"
+      }
+    },
+    {
+      "id": "evidence-kept-after-rollback",
+      "pass": true,
+      "detail": {
+        "before": 1,
+        "after": 1
+      }
+    },
+    {
+      "id": "restore-pointer",
+      "pass": true,
+      "detail": {
+        "activeRelease": "current",
+        "previousRelease": "previous"
+      }
+    },
+    {
+      "id": "serve-restored",
+      "pass": true
+    },
+    {
+      "id": "restored-smoke",
+      "pass": true,
+      "detail": {
+        "served": "current"
+      }
+    },
+    {
+      "id": "evidence-kept-after-restore",
+      "pass": true,
+      "detail": {
+        "before": 1,
+        "after": 1
+      }
+    },
+    {
+      "id": "restored-bytes-identical",
+      "pass": true,
+      "detail": {
+        "sha256": "f61f1cca79ed4e9db2f1c76e3c0556d0aecfa483de569adc1d22ae73599926ba"
+      }
+    }
+  ],
+  "audit": {
+    "scripts/rollback-drill.ts (P0)": "registry pointer drill with placeholder bundles (\"one\"/\"two\"): proves promote/rollback bookkeeping only; kept, superseded for deployment by this drill",
+    "scripts/release-registry.ts": "reused unchanged: promote copies the artefact into releases/<id>, rollback only switches the pointer to the previous release",
+    "scripts/rollback.ts": "content-root rollback (release pointer of the content pack); unrelated to the served artefact"
+  }
+}

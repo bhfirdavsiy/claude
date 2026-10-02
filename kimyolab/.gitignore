@@ -7,3 +7,5 @@ node_modules/
 /reports/p0-release-freeze.json
 /review-output/*.json
 /authoring-output/
+/dist-deploy/
+/reports/ci-environment.observed.json

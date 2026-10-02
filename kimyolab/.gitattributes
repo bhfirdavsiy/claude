@@ -1,3 +1,7 @@
+# P2.8 (cross-platform reproducibility): every file is checked out EXACTLY as committed, on every OS. Without this a
+# Windows checkout (core.autocrlf=true on GitHub runners) turned LF text into CRLF, and the deployment artefact built
+# from it differed from the Linux one (different sha256, +48 KB). The repository bytes are the build input.
+* -text
 # Generated artefacts are collapsed in GitHub diffs so review focuses on
 # src/ → server/ → scripts/ → schemas/ → tests/ (P0.15.4).
 public/app-preview/** linguist-generated=true

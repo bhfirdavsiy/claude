@@ -1,0 +1,14 @@
+{
+  "_instructions": "TEMPLATE ONLY. A human operator copies this file to docs/deploy/acceptance/<date>-<target>.json AFTER installing the artefact on the real target server and running `npm run deploy:preflight` and `KIMYOLAB_SMOKE_URL=<origin><basePath> npm run deploy:smoke` against it. Remove this _instructions field. An agent or CI never writes an accepted record. See scripts/lib/target-acceptance.ts for the rules (a record for another artefact, a local/non-HTTPS origin, an automation identity or a decision other than ACCEPTED does not count).",
+  "schema": "kimyolab.target-acceptance.v1",
+  "artifactSha256": "<sha256 from dist-deploy/kimyolab.manifest.json>",
+  "contentVersion": "<content.contentVersion from the same manifest>",
+  "basePath": "/kimyolab/",
+  "targetOrigin": "https://<real target host>",
+  "acceptedAt": "<ISO 8601 date-time>",
+  "acceptedBy": "<operator name>",
+  "actorType": "human",
+  "preflightResult": "<PASS | FAIL>",
+  "smokeResult": "<PASS | FAIL>",
+  "decision": "<ACCEPTED | REJECTED | PENDING>"
+}

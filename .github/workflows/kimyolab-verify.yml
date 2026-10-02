@@ -1,5 +1,9 @@
 name: KimyoLab verify
 
+# P2.8 (CI reproducibility): the verification OS is PINNED (ubuntu-24.04, windows-2025) so a runner-label migration
+# never silently changes what is verified; the actions are on their Node-24 runtime majors (checkout/setup-node/
+# upload-artifact v7, `runs.using: node24`). The APPLICATION Node version is a separate thing and still comes only
+# from kimyolab/.nvmrc. Every run records its real environment (reports/ci-environment.observed.json, uploaded).
 on:
   push:
     paths:
@@ -15,13 +19,18 @@ permissions:
 
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     defaults:
       run:
         working-directory: kimyolab
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0   # the rollback drill resolves the previous known-good MAINLINE release (scripts/lib/rollback-baseline.ts)
+      - name: History at checkout (diagnostic)
+        working-directory: .
+        run: echo "shallow=$(git rev-parse --is-shallow-repository) first-parent=$(git rev-list --count --first-parent HEAD)"
+      - uses: actions/setup-node@v7
         with:
           node-version-file: kimyolab/.nvmrc
           cache: npm
@@ -30,26 +39,61 @@ jobs:
         run: npm ci
       - name: Install Chromium for E2E
         run: npx playwright install --with-deps chromium
+      - name: Record and check the CI environment (OS, Node, npm, Playwright, Chromium)
+        run: npm run ci:environment
       - name: verify (lint → typecheck → typecheck:next → schema → content → chemistry → unit → integration → E2E → build)
         run: npm run verify
-      - name: Upload P0 acceptance manifest
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: p0-acceptance
-          path: kimyolab/reports/p0-acceptance.json
       - name: Generated browser preview and content pack must be committed
         run: git status --porcelain -- public src schemas | tee /dev/stderr | (! grep .)
+      - name: Deployment build for the /kimyolab/ mount
+        run: npm run deploy:build
+      - name: Deployment preflight (fail closed)
+        run: npm run deploy:preflight
+      - name: Post-install smoke against the built deployment
+        run: npm run deploy:smoke
+      # The rollback baseline needs the mainline history. A pull_request run was observed shallow at the drill
+      # (the walk from the merge base saw one commit) although fetch-depth 0; complete it right before the drill,
+      # report what was there, and fail here if it cannot be completed.
+      - name: Complete mainline history for the rollback baseline
+        working-directory: .
+        run: |
+          echo "before: shallow=$(git rev-parse --is-shallow-repository) boundaries=$(cat "$(git rev-parse --git-path shallow)" 2>/dev/null | tr '\n' ' ')"
+          if [ "$(git rev-parse --is-shallow-repository)" = "true" ]; then git fetch --no-tags --unshallow origin; fi
+          git fetch --no-tags origin '+refs/heads/main:refs/remotes/origin/main'
+          echo "after: shallow=$(git rev-parse --is-shallow-repository) origin/main=$(git rev-parse origin/main) first-parent=$(git rev-list --count --first-parent origin/main)"
+          test "$(git rev-parse --is-shallow-repository)" = "false"
+      - name: Rollback drill (current → previous known-good → restore, learner storage kept)
+        run: npm run deploy:rollback-drill
+      - name: Clean-environment install drill (tracked files only, fresh npm ci)
+        run: npm run deploy:drill
+      - name: Installation readiness must be complete (every published check passes)
+        run: npm run deploy:readiness -- --strict
+      - name: Upload the Linux deployment manifest (cross-platform comparison)
+        uses: actions/upload-artifact@v7
+        with:
+          name: deploy-manifest-linux
+          path: kimyolab/dist-deploy/kimyolab.manifest.json
+      - name: Upload acceptance, environment and deployment reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: kimyolab-verify-reports
+          path: |
+            kimyolab/reports/p0-acceptance.json
+            kimyolab/reports/ci-environment.observed.json
+            kimyolab/reports/deployment-*.json
+            kimyolab/reports/installation-readiness.json
 
   windows-paths:
     # P0.15.2: public-root resolution and server startup on Windows (drive letters, spaces).
-    runs-on: windows-latest
+    # P2.8: plus the deployment build + preflight from a Windows path (no POSIX-only path assumption in the tooling).
+    runs-on: windows-2025
     defaults:
       run:
         working-directory: kimyolab
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version-file: kimyolab/.nvmrc
           cache: npm
@@ -57,7 +101,48 @@ jobs:
       - run: npm ci
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
+      - name: Record and check the CI environment (OS, Node, npm)
+        run: npm run ci:environment
       - name: Path resolution unit tests
         run: node --test tests/p0-server-paths.test.mjs
       - name: Build and serve dist from a Windows path
         run: node --test --test-concurrency=1 tests/integration/server-assets.test.mjs tests/integration/security-legacy.test.mjs
+      - name: Deployment build + preflight from a Windows path
+        run: |
+          npm run deploy:build
+          npm run deploy:preflight
+      - name: Upload the Windows deployment manifest (cross-platform comparison)
+        uses: actions/upload-artifact@v7
+        with:
+          name: deploy-manifest-windows
+          path: kimyolab/dist-deploy/kimyolab.manifest.json
+      - name: Upload the Windows environment record
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: kimyolab-windows-environment
+          path: kimyolab/reports/ci-environment.observed.json
+
+  cross-platform-artifact:
+    # P2.8: Linux and Windows must build BYTE-IDENTICAL deployment artefacts from the same commit and configuration
+    # (tree sha256, file count and every per-file sha256).
+    needs: [verify, windows-paths]
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: kimyolab
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: kimyolab/.nvmrc
+      - uses: actions/download-artifact@v8
+        with:
+          name: deploy-manifest-linux
+          path: kimyolab/manifests/linux
+      - uses: actions/download-artifact@v8
+        with:
+          name: deploy-manifest-windows
+          path: kimyolab/manifests/windows
+      - name: Compare the Linux and Windows deployment artefacts
+        run: node scripts/compare-deploy-manifests.mjs manifests/linux/kimyolab.manifest.json manifests/windows/kimyolab.manifest.json
