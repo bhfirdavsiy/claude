@@ -1,7 +1,7 @@
 import type {StudentPracticePageModel} from './model.ts';
 import {buildPracticeUiModel} from './ui-model.ts';
 import {isPracticeResultComplete} from '../../runtime/learning-orchestrator/selectors.ts';
-import {classifyLearnerOutcome,LEARNER_INCORRECT,LEARNER_INPUT_INVALID,MODEL_NOT_SUPPORTED} from '../../runtime/shared/learner-input.ts';
+import {feedbackState} from '../../runtime/shared/learner-input.ts';
 import {createLocalizer} from '../localization/element-names.ts';
 import {answerValue,createLabeler,type FormQuestionModel,type Labeler} from './form-question.ts';
 
@@ -13,20 +13,21 @@ import {el,clear,link} from '../../ui/components/dom.ts';
 // colour only) derived from the engine's result AFTER a submission, and invalid input is announced with role=alert.
 function feedbackNode(){return el('div',{className:'kl-feedback',attrs:{role:'status','aria-live':'polite'}});}
 function alertNode(){return el('p',{className:'kl-field-error',attrs:{role:'alert'}});}
+// P2.9: the feedback sentence comes from ONE taxonomy (runtime/shared/learner-input.ts) — the category is also
+// exposed as data-feedback for tests; VALID_INTERMEDIATE never claims a verdict, PROCEDURE_BLOCKED is not "wrong".
 function setFeedback(t:Labeler,node:HTMLElement,alert:HTMLElement,result:any){
   alert.textContent='';
-  const last=result?.outcomes?.at?.(-1)??result?.attempts?.at?.(-1)??result?.completion;
-  const category=classifyLearnerOutcome(result??{});
-  if(category===LEARNER_INPUT_INVALID){ node.textContent=t.ui('ui.retry'); alert.textContent=t.ui('ui.input-invalid'); }
-  else if(category===MODEL_NOT_SUPPORTED){ node.textContent=t.ui('ui.retry'); alert.textContent=t.ui('ui.not-modeled'); }
-  else if(last?.status==='invalid'||last?.status==='rejected'||last?.status==='blocked') node.textContent=`${t.ui('ui.incorrect')} ${t.ui('ui.retry')}`;
-  else if(result?.finalState?.status==='complete'||result?.finalState?.status==='correct') node.textContent=`${t.ui('ui.correct')} ${t.ui('ui.complete')}`;
-  else if(category===LEARNER_INCORRECT) node.textContent=`${t.ui('ui.incorrect')} ${t.ui('ui.retry')}`;
-  else if(category==='LEARNER_CORRECT') node.textContent=`${t.ui('ui.correct')} ${t.ui('ui.continue')}`;
-  else node.textContent=t.ui('ui.continue');
+  const state=feedbackState(result??{});
+  switch(state.category){
+    case 'UNSUPPORTED_INPUT': node.textContent=t.ui('ui.retry'); alert.textContent=t.ui(state.notModeled?'ui.not-modeled':'ui.input-invalid'); break;
+    case 'PROCEDURE_BLOCKED': node.textContent=t.ui('ui.retry'); alert.textContent=t.ui('ui.procedure-blocked'); break;
+    case 'INCORRECT': node.textContent=`${t.ui('ui.incorrect')} ${t.ui('ui.retry')}`; break;
+    case 'CORRECT': node.textContent=`${t.ui('ui.correct')} ${t.ui(state.complete?'ui.complete':'ui.continue')}`; break;
+    default: node.textContent=t.ui('ui.intermediate');
+  }
+  node.dataset.feedback=state.category;
   // P2.7: the verdict is also a visible, non-colour symbol (decorative for screen readers: the sentence carries it)
-  const text=node.textContent??'';
-  const verdict=text.startsWith(t.ui('ui.correct'))?'correct':text.startsWith(t.ui('ui.incorrect'))?'incorrect':'none';
+  const verdict=state.category==='CORRECT'?'correct':state.category==='INCORRECT'?'incorrect':'none';
   node.dataset.verdict=verdict;
   if(verdict!=='none') node.prepend(el('span',{className:'kl-verdict-mark',text:verdict==='correct'?'✓ ':'✗ ',attrs:{'aria-hidden':'true'}}));
 }
@@ -90,7 +91,7 @@ export function renderPractice(root:HTMLElement,page:StudentPracticePageModel,se
 
   const nextStage=el('div',{className:'kl-practice-next'});
   const isResultComplete=(result:any)=>isPracticeResultComplete(page.type,result);
-  const run=async(command:any,alert:HTMLElement=el('p'))=>{try{const result=await session.apply(command);setFeedback(t,feedback,alert,result);try{await onResult?.(result);}catch{feedback.textContent=t.ui('ui.save-failed');}if(isResultComplete(result)&&!nextStage.childElementCount){nextStage.append(link(t.ui('ui.next'),`/learn/${page.learningUnit.id}/quiz`,'kl-button kl-button--primary'));}return result;}catch{feedback.textContent=t.ui('ui.error');}};
+  const run=async(command:any,alert:HTMLElement=el('p'))=>{try{const result=await session.apply(command);setFeedback(t,feedback,alert,result);try{await onResult?.(result);}catch{feedback.textContent=t.ui('ui.save-failed');}if(isResultComplete(result)&&!nextStage.childElementCount){nextStage.append(link(t.ui('ui.next'),`/learn/${page.learningUnit.id}/quiz`,'kl-button kl-button--primary'));}return result;}catch{feedback.textContent=t.ui('ui.error');feedback.dataset.feedback='SYSTEM_ERROR';feedback.dataset.verdict='none';}};
 
   if(model.kind==='experiment'){
     const layout=el('div',{className:'kl-experiment-layout'});
@@ -127,8 +128,12 @@ export function renderPractice(root:HTMLElement,page:StudentPracticePageModel,se
         if(!result) return;
         const last=result?.outcomes?.at?.(-1);
         if(last&&last.status!=='accepted') return;
-        row.classList.remove('is-current'); row.classList.add('is-done'); row.removeAttribute('aria-current');
-        const next=row.nextElementSibling as HTMLElement|null; next?.classList.add('is-current'); next?.setAttribute('aria-current','step');
+        row.classList.add('is-done');
+        // P2.9: the "current step" marker goes to the first step that is NOT done (not to the DOM neighbour of the
+        // step just done): where the engine accepts steps in any order the marker never points at a finished step
+        const rows=[...steps.children] as HTMLElement[];
+        for(const r of rows){ r.classList.remove('is-current'); r.removeAttribute('aria-current'); }
+        const next=rows.find(r=>!r.classList.contains('is-done')); next?.classList.add('is-current'); next?.setAttribute('aria-current','step');
         const semantic=`${item.action} ${item.label}`.toLocaleLowerCase('uz');
         stage.classList.toggle('is-heating',/heat|qizdir|alanga|ignite|burn|yoq/.test(semantic));
         stage.classList.toggle('is-active',/gas|gaz|mix|aralashtir|add|qo‘sh|drop|tomiz/.test(semantic));
@@ -142,6 +147,7 @@ export function renderPractice(root:HTMLElement,page:StudentPracticePageModel,se
     layout.append(stage,panel); card.append(layout);
   } else if(model.kind==='simulation'){
       card.append(el('h2',{text:t.ui('ui.model')}));
+      if(model.targetOnly) card.append(el('p',{className:'kl-muted kl-target-only-note',text:t.ui('ui.sim-target-only'),attrs:{'data-feedback-semantics':'target-only'}}));
       for(const control of model.controls){
         const {form,alert}=questionForm(t,control.question,t.ui('ui.apply'),false,value=>void run({kind:'simulation-action',action:{field:control.field,value}},alert));
         form.classList.add('kl-simulation-control'); card.append(form);

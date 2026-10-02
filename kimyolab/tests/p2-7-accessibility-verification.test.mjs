@@ -89,7 +89,12 @@ test('performance: no runtime dependency; the harness is test-only; the bundle d
   assert.deepEqual(Object.keys(pkg.devDependencies).sort(),['@playwright/test','@types/node','ajv','ajv-formats','fake-indexeddb','typescript','vite'],'no accessibility framework added, not even as a dev dependency');
   const perf=summary.performance;
   assert.ok(perf.delta.learnerModules===0,'no new learner module: the fixes live in existing primitives');
-  assert.ok(perf.delta.learnerModuleBytes<8000,`learner module growth stays small (${perf.delta.learnerModuleBytes} B)`);
+  // P2.9: was `perf.delta.learnerModuleBytes<8000`. The report measures the CURRENT build against the P2.6 baseline, so
+  // it now also contains the P2.9 feedback-semantics growth, which P2.9 measures and records separately
+  // (reports/feedback-semantics-expansion.json#bundleDelta); P2.7's own growth (the difference) keeps the same bound
+  const p29=json('reports/feedback-semantics-expansion.json').bundleDelta.delta;
+  const p27=perf.delta.learnerModuleBytes-p29.learnerModuleBytes;
+  assert.ok(p27>0&&p27<8000,`P2.7 learner module growth stays small (${p27} B)`);
   const app=fs.readdirSync(path.join(root,'public/app-preview'),{recursive:true}).map(String);
   assert.ok(!app.some(f=>/a11y/.test(f)),'the accessibility harness never ships');
 });

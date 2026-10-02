@@ -53,7 +53,9 @@ test('legacy choice form: rapid arrow keys land on the intended option; the subm
   const s = state();
   await tabTo(page, group.getByRole('radio').first(), s, {group: true});
   await page.keyboard.press('Space');
-  for (let i = 0; i < 5; i += 1) await page.keyboard.press('ArrowDown');   // no waits: 3 options, 5 presses → index 2
+  // P2.9: was 5 presses → index 2 ('Ortadi' in the former localeCompare order). In the code-point order (ADR-P2-010
+  // §2.2) 'Ortadi' is index 1: 4 presses (wrapping once) still exercises rapid keys without waits
+  for (let i = 0; i < 4; i += 1) await page.keyboard.press('ArrowDown');   // no waits: 3 options, 4 presses → index 1
   await expect(group.getByRole('radio', {name: 'Ortadi', exact: true})).toBeChecked();
   const button = group.locator('xpath=ancestor::form').getByRole('button');
   await expect(button).toHaveAccessibleDescription('Reaksiya tezligiga ta’siri');

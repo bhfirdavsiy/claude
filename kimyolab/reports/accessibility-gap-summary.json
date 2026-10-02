@@ -295,13 +295,12 @@
   ],
   "feedbackObservations": {
     "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE": {
-      "activities": 29,
+      "activities": 28,
       "activityIds": [
         "practice.simulation.10.17.monohydric-alcohols",
         "practice.simulation.10.19.phenols",
         "practice.simulation.10.21.carbonyls",
         "practice.simulation.10.23.esters",
-        "practice.simulation.11.16.planned",
         "practice.simulation.7.02.planned",
         "practice.simulation.7.06.planned",
         "practice.simulation.7.10.planned",
@@ -327,7 +326,7 @@
         "practice.simulation.9.20.cu-ag-au",
         "practice.simulation.9.21.group12"
       ],
-      "meaning": "a non-target value is recorded as progress (\"Natija saqlandi. Davom eting.\"): no wrong-answer verdict exists to announce, for any learner — a feedback-design question for P2.8+"
+      "meaning": "a non-target value is recorded without a verdict (VALID_INTERMEDIATE, P2.9): the config declares no incorrect state, so no wrong answer exists to announce, for any learner — human decision pending (reports/learner-feedback-semantics.json)"
     },
     "STEP_ORDER_NOT_ENFORCED_BY_ENGINE": {
       "activities": 6,
@@ -339,7 +338,7 @@
         "practice.experiment.11.2",
         "practice.experiment.9.10"
       ],
-      "meaning": "the engine accepts the steps in any order: an out-of-order step is not a wrong answer"
+      "meaning": "the engine accepts the steps in any order (no order is declared): an out-of-order step is not a wrong answer — human decision pending (reports/learner-feedback-semantics.json)"
     }
   },
   "performance": {
@@ -354,17 +353,17 @@
     },
     "after": {
       "learnerModules": 162,
-      "learnerModuleBytes": 702745,
+      "learnerModuleBytes": 711053,
       "rendererModules": 13,
       "rendererBytes": 71591,
-      "standaloneBytes": 5691105,
+      "standaloneBytes": 5700083,
       "cssBytes": 33709
     },
     "delta": {
       "learnerModules": 0,
-      "learnerModuleBytes": 4834,
+      "learnerModuleBytes": 13142,
       "cssBytes": 1478,
-      "standaloneBytes": 6373
+      "standaloneBytes": 15351
     },
     "dependencies": "none added at runtime; the accessibility harness (tests/helpers/a11y*.mjs) is test-only and dependency-free (Playwright was already a dev dependency)"
   },

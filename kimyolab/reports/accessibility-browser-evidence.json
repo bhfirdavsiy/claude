@@ -2771,7 +2771,7 @@
         "headings": "PASS",
         "statusAnnouncement": "PASS",
         "errorAnnouncement": "PASS",
-        "wrongAnswer": "NOT_APPLICABLE",
+        "wrongAnswer": "PASS",
         "retry": "PASS",
         "nonColor": "PASS",
         "srTextState": "PASS",
@@ -2784,9 +2784,6 @@
         "noPageError": "PASS"
       },
       "issues": [],
-      "notes": [
-        "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE: a non-target value is accepted as progress, so there is no wrong answer to announce"
-      ],
       "family": "form-simulation"
     },
     {

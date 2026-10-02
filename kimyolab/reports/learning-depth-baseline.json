@@ -23798,7 +23798,7 @@
     },
     "hardcodedUzbekUi": {
       "files": 21,
-      "literals": 156,
+      "literals": 155,
       "byFile": [
         {
           "file": "src/app/bootstrap.ts",
@@ -23830,7 +23830,7 @@
         },
         {
           "file": "src/features/learning-hub/render.ts",
-          "uzbekLiterals": 32
+          "uzbekLiterals": 31
         },
         {
           "file": "src/features/practice/host.ts",

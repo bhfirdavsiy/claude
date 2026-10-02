@@ -32,12 +32,21 @@ export function createLabeler(localize         )        {
   };
 }
 
+/** P2.9: ONE order on every engine. `localeCompare(…,'uz')` depends on the ICU data of the runtime: Node and Chromium
+ *  ordered the kinetics labels for no-change / increase differently, so the option index computed in one runtime pointed at another option
+ *  in the other (the accessibility sweep's "wrong" probe of 11.16 selected the CORRECT answer). Code points of the
+ *  NFC, lower-cased label are the same everywhere. */
+export function codepointOrder(a       ,b       )       {
+  const x=a.normalize('NFC').toLowerCase(), y=b.normalize('NFC').toLowerCase();
+  return x<y?-1:x>y?1:0;
+}
+
 /** Choices in a deterministic order that says nothing about correctness: sorted by their learner-facing label
  *  (booleans keep the yes/no order). Values without a label get a numbered generic label and a recorded gap. */
 export function buildChoices(domain             ,labels        )                {
   const rows=domain.values.map(value=>{ const labelKey=`answer.${domain.domain}.${value}`; return {value,labelKey,text:labels.text(labelKey,'')}; });
   // labelled options by label, unlabelled ones after them by token — then numbered, so no order follows the input
-  if(domain.domain!=='boolean') rows.sort((a,b)=>Number(!a.text)-Number(!b.text)||a.text.localeCompare(b.text,'uz')||(a.value<b.value?-1:a.value>b.value?1:0));
+  if(domain.domain!=='boolean') rows.sort((a,b)=>Number(!a.text)-Number(!b.text)||codepointOrder(a.text,b.text)||codepointOrder(a.value,b.value));
   return rows.map((r,i)=>({value:r.value,labelKey:r.labelKey,label:r.text||labels.ui('ui.option-fallback',{n:i+1})}));
 }
 

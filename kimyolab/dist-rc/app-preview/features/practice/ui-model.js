@@ -10,7 +10,10 @@ import {buildFormQuestion,createLabeler,                      } from './form-que
                                                                                     
                              
                                                                                                                                                     
-                                                                                                                                                        
+                                             
+                                                                                                                  
+                                                                                         
+                                                                                                                                    
                                                                                                                   
                                                                                                 
                                                                                         
@@ -42,7 +45,7 @@ export function buildPracticeUiModel(model                         )            
   }
   if(model.type==='simulation'){
     const fields=model.executionPlan.runtime==='beta2-organic'?[String(c.field??c.property??'value')]:model.executionPlan.runtime==='beta2-advanced'&&model.executionPlan.capability==='manganese-redox-simulation'?['medium']:model.executionPlan.runtime==='beta3-advanced'?[String(c.field??'value')]:(c.controls??[]);
-    return {...common,kind:'simulation',mode:'generic',controls:fields.map((field       ,i       )=>{
+    return {...common,kind:'simulation',mode:'generic',targetOnly:model.executionPlan.runtime==='generic'&&Boolean(c.targetState),controls:fields.map((field       ,i       )=>{
       const value=c.initialState?.[field]??c.expected;const booleanTask=c.task==='nuclear-conservation'||c.task==='equal-rates';const numberTask=typeof value==='number'||c.task==='reaction-rate';
       const label=labels.text(`field.${field}`,fields.length>1?`${labels.ui('ui.answer')} ${i+1}`:labels.ui('ui.answer'));
       const question=buildFormQuestion({id:String(field),label,valueType:booleanTask?'boolean':numberTask?'number':typeof value==='boolean'?'boolean':'text',domain:answerDomainOf(model,String(field)),labels});

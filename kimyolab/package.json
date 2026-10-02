@@ -136,7 +136,8 @@
     "deploy:rollback-drill": "node scripts/deploy-rollback-drill.mjs",
     "deploy:drill": "node scripts/deploy-drill.mjs",
     "deploy:readiness": "node scripts/installation-readiness.ts",
-    "ci:environment": "node scripts/ci-environment.mjs"
+    "ci:environment": "node scripts/ci-environment.mjs",
+    "feedback:semantics": "node --no-warnings scripts/learner-feedback-semantics.ts"
   },
   "devDependencies": {
     "@playwright/test": "1.56.1",

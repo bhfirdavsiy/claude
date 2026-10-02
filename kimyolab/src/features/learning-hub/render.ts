@@ -5,6 +5,15 @@ import type {MasteryViewModel} from '../../domain/mastery/view.ts';
 import {renderMasteryPanel} from '../progress/mastery-render.ts';
 import {renderStructuredTheory} from '../theory/structured-render.ts';
 
+// P2.9: quiz/reflection validation is the page's own, localized and announced (role=alert, bound to the questions,
+// focus moves to the first unanswered one) — novalidate keeps the browser's English, unannounced bubble out of it.
+// Without the learner-interaction catalog (a legacy pack) only the neutral mark and the list are shown, never a raw key.
+const REFLECTION_MIN=8;
+function validationText(model:LearningHubModel,key:'quizUnanswered'|'reflectionIncomplete',vars:Record<string,string|number>):string{
+  const localized=model.validationText?.[key]??'⚠ {list}';
+  return localized.replace(/\{(\w+)\}/g,(_,k)=>String(vars[k]??''));
+}
+
 export type LearningCycleStage='guide'|'practice'|'quiz';
 
 function practiceCard(practice:StudentPracticeModel,learningUnitId:string,primary=false){
@@ -97,18 +106,27 @@ export function renderLearningQuiz(root:HTMLElement,model:LearningHubModel,statu
   refreshMastery();
   const layout=el('div',{className:'kl-shell kl-learning-grid'}); const main=el('div',{className:'kl-learning-main'});
   const card=el('section',{className:'kl-card'}); card.append(el('p',{className:'kl-kicker',text:'3-bosqich · Mustahkamlash'}),el('h2',{text:'Nazariya va tajribani bir-biriga bog‘lang'}),el('p',{className:'kl-section-copy',text:'Bu bosqich mavzuni qayta aytish emas: nazariy tushuncha, amaliy kuzatuv va ilmiy xulosani bir zanjirga keltiring.'}));
-  const form=el('form',{className:'kl-reinforcement-form'});
+  const form=el('form',{className:'kl-reinforcement-form',attrs:{novalidate:''}});
+  const formAlert=el('p',{className:'kl-field-error',attrs:{role:'alert',id:`kl-quiz-${model.id}-error`}});
   const feedback=el('div',{className:'kl-feedback',attrs:{role:'status','aria-live':'polite'}});
   if(model.assessment.items.length){
     card.append(el('p',{className:'kl-muted',text:'Savollar nazariya va amaliyotdagi asosiy tushunchalarni tekshiradi.'}));
     for(const [index,item] of model.assessment.items.entries()){
-      const fieldset=el('fieldset',{className:'kl-quiz-question',attrs:{'data-item-id':item.id}}); fieldset.append(el('legend',{text:`${index+1}. ${item.stem}`}));
+      const fieldset=el('fieldset',{className:'kl-quiz-question',attrs:{'data-item-id':item.id,'aria-describedby':formAlert.id}}); fieldset.append(el('legend',{text:`${index+1}. ${item.stem}`}));
       for(const option of item.options){const label=el('label',{className:'kl-check'});const input=el('input',{attrs:{type:'radio',name:item.id,value:option.id,required:''}});label.append(input,document.createTextNode(` ${option.text}`));fieldset.append(label);} form.append(fieldset);
     }
-    const actions=el('div',{className:'kl-cycle-actions'});actions.append(link('← Amaliyotga qaytish',`/learn/${model.id}/practice`,'kl-button kl-button--secondary'));const submit=el('button',{className:'kl-button kl-button--primary',text:'Javoblarni tekshirish',attrs:{type:'submit'}});actions.append(submit);form.append(actions,feedback);
+    const actions=el('div',{className:'kl-cycle-actions'});actions.append(link('← Amaliyotga qaytish',`/learn/${model.id}/practice`,'kl-button kl-button--secondary'));const submit=el('button',{className:'kl-button kl-button--primary',text:'Javoblarni tekshirish',attrs:{type:'submit'}});actions.append(submit);form.append(formAlert,actions,feedback);
     form.addEventListener('submit',e=>{
       e.preventDefault(); if(!onAssessment) return;
       const data=new FormData(form as HTMLFormElement);
+      const missing=model.assessment.items.map((item,i)=>({item,n:i+1})).filter(x=>!data.get(x.item.id));
+      for(const x of model.assessment.items){const fs=form.querySelector(`[data-item-id="${CSS.escape(x.id)}"]`);if(missing.some(m=>m.item.id===x.id))fs?.setAttribute('aria-invalid','true');else fs?.removeAttribute('aria-invalid');}
+      if(missing.length){
+        formAlert.textContent=validationText(model,'quizUnanswered',{list:missing.map(m=>m.n).join(', ')});
+        (form.querySelector(`[data-item-id="${CSS.escape(missing[0]!.item.id)}"] input`) as HTMLInputElement|null)?.focus();
+        return;
+      }
+      formAlert.textContent='';
       const responses=model.assessment.items.map(item=>({itemId:item.id,selectedOptionId:String(data.get(item.id)??'')}));
       submit.setAttribute('disabled','');
       void onAssessment(responses).then(result=>{
@@ -126,11 +144,11 @@ export function renderLearningQuiz(root:HTMLElement,model:LearningHubModel,statu
       {name:'practiceReflection',title:'2. Amaliyot natijasini yozing',help:`“${model.primaryPractice.title}” faoliyatida nimani kuzatdingiz yoki qanday natija oldingiz?`},
       {name:'connectionReflection',title:'3. Bog‘lanishni tushuntiring',help:'Kuzatilgan natija nazariyadagi qaysi tushuncha yoki qonuniyatni tasdiqlashini yozing.'},
     ];
-    for(const p of prompts){const label=el('label',{className:'kl-field'});label.append(el('strong',{text:p.title}),el('span',{className:'kl-muted',text:p.help}));const ta=el('textarea',{attrs:{name:p.name,required:'',rows:'4',minlength:'8'}});label.append(ta);form.append(label);}
+    for(const p of prompts){const label=el('label',{className:'kl-field'});label.append(el('strong',{text:p.title}),el('span',{className:'kl-muted',text:p.help}));const ta=el('textarea',{attrs:{name:p.name,required:'',rows:'4',minlength:String(REFLECTION_MIN),'aria-describedby':formAlert.id}});label.append(ta);form.append(label);}
     const confidence=el('fieldset',{className:'kl-confidence'});confidence.append(el('legend',{text:'Mavzuni qanchalik tushundingiz?'}));
     for(const [value,labelText] of [['understood','Tushundim'],['partial','Qisman tushundim'],['review','Yana takrorlashim kerak']]){const label=el('label',{className:'kl-check'});const input=el('input',{attrs:{type:'radio',name:'confidence',value,required:''}});label.append(input,document.createTextNode(` ${labelText}`));confidence.append(label);} form.append(confidence);
-    const actions=el('div',{className:'kl-cycle-actions'}); actions.append(link('← Amaliyotga qaytish',`/learn/${model.id}/practice`,'kl-button kl-button--secondary')); const submit=el('button',{className:'kl-button kl-button--primary',text:status.reinforcementComplete?'Mustahkamlashni yangilash':'Mustahkamlashni yakunlash',attrs:{type:'submit'}});actions.append(submit);form.append(actions,feedback);
-    form.addEventListener('submit',e=>{e.preventDefault();if(!onSubmit)return;const data=new FormData(form as HTMLFormElement);const payload={mode:'reflection',conceptReflection:String(data.get('conceptReflection')??'').trim(),practiceReflection:String(data.get('practiceReflection')??'').trim(),connectionReflection:String(data.get('connectionReflection')??'').trim(),confidence:String(data.get('confidence')??'')};if(Object.values(payload).some(v=>!v)){feedback.textContent='Barcha qismlarni to‘ldiring.';return;}submit.setAttribute('disabled','');void onSubmit(payload).then(()=>{refreshMastery();feedback.textContent='Mustahkamlash saqlandi. Endi natijalarni ko‘rishingiz yoki mavzuni qayta ko‘rib chiqishingiz mumkin.';submit.removeAttribute('disabled');}).catch(()=>{feedback.textContent='Natijani saqlab bo‘lmadi. Qayta urinib ko‘ring.';submit.removeAttribute('disabled');});});
+    const actions=el('div',{className:'kl-cycle-actions'}); actions.append(link('← Amaliyotga qaytish',`/learn/${model.id}/practice`,'kl-button kl-button--secondary')); const submit=el('button',{className:'kl-button kl-button--primary',text:status.reinforcementComplete?'Mustahkamlashni yangilash':'Mustahkamlashni yakunlash',attrs:{type:'submit'}});actions.append(submit);form.append(formAlert,actions,feedback);
+    form.addEventListener('submit',e=>{e.preventDefault();if(!onSubmit)return;const data=new FormData(form as HTMLFormElement);const payload={mode:'reflection',conceptReflection:String(data.get('conceptReflection')??'').trim(),practiceReflection:String(data.get('practiceReflection')??'').trim(),connectionReflection:String(data.get('connectionReflection')??'').trim(),confidence:String(data.get('confidence')??'')};const parts=[...prompts.map(p=>({title:p.title,control:form.querySelector(`[name="${p.name}"]`) as HTMLElement|null,ok:String(data.get(p.name)??'').trim().length>=REFLECTION_MIN})),{title:confidence.querySelector('legend')?.textContent??'',control:confidence as HTMLElement,ok:Boolean(payload.confidence),focus:form.querySelector('[name="confidence"]') as HTMLElement|null}];for(const x of parts){if(x.ok)x.control?.removeAttribute('aria-invalid');else x.control?.setAttribute('aria-invalid','true');}const bad=parts.filter(x=>!x.ok);if(bad.length){formAlert.textContent=validationText(model,'reflectionIncomplete',{list:bad.map(x=>x.title).join('; '),min:REFLECTION_MIN});(('focus' in bad[0]!&&bad[0]!.focus)||bad[0]!.control)?.focus();return;}formAlert.textContent='';submit.setAttribute('disabled','');void onSubmit(payload).then(()=>{refreshMastery();feedback.textContent='Mustahkamlash saqlandi. Endi natijalarni ko‘rishingiz yoki mavzuni qayta ko‘rib chiqishingiz mumkin.';submit.removeAttribute('disabled');}).catch(()=>{feedback.textContent='Natijani saqlab bo‘lmadi. Qayta urinib ko‘ring.';submit.removeAttribute('disabled');});});
   }
   card.append(form); main.append(card);
   const side=el('aside',{className:'kl-learning-side',attrs:{'aria-label':'Mustahkamlash yo‘riqnomasi'}});side.append(conceptsCard(model));const w=el('section',{className:'kl-card'});w.append(el('h2',{text:'Qo‘shimcha mustahkamlash'}),el('p',{text:'Mavzuni yozma topshiriqlar bilan davom ettirish uchun ish varaqasidan foydalaning.'}),link('Ish varaqasini ochish',`/worksheet/${model.id}`,'kl-text-link'));side.append(w);const r=el('section',{className:'kl-card'});r.append(el('h2',{text:'Natija'}),link('Natijalarimni ko‘rish','/progress','kl-text-link'));side.append(r);

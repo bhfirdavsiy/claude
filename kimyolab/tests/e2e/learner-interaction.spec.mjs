@@ -50,7 +50,9 @@ test('9.23 crash regression: the medium is chosen from readable labels; wrong �
 test('enum answer (kinetics effect): readable options, correct answer completes', async ({page}) => {
   await open(page, 'practice.simulation.11.16.planned');
   const group = page.getByRole('group', {name: 'Reaksiya tezligiga ta’siri'});
-  await expect(group.locator('label')).toHaveText(['Kamayadi', 'O‘zgarmaydi', 'Ortadi']);
+  // P2.9: was ['Kamayadi', 'O‘zgarmaydi', 'Ortadi'] (Chromium's localeCompare('uz') order). Choices are now ordered by
+  // code points of the NFC lower-cased label — the same in every runtime (ADR-P2-010 §2.2)
+  await expect(group.locator('label')).toHaveText(['Kamayadi', 'Ortadi', 'O‘zgarmaydi']);
   await choose(page, 'Reaksiya tezligiga ta’siri', 'Ortadi');
   await expect(feedback(page)).toContainText('To‘g‘ri');
 });
@@ -73,6 +75,8 @@ test('internal polymer token and species: the learner picks a name, the canonica
 
 // P2.6 changed this test's subject from 9.23 (now the condition-prediction renderer) to 11.16, a remaining legacy
 // choice form; the options are 'Kamayadi', 'O‘zgarmaydi', 'Ortadi', so the correct one is two arrow presses away.
+// P2.9 changed the option order to 'Kamayadi', 'Ortadi', 'O‘zgarmaydi' (code-point order, ADR-P2-010 §2.2), so the
+// correct one is now ONE arrow press away.
 test('keyboard only: Tab into the choice group, arrows to move, Enter to submit; empty submit is announced as an alert', async ({page}) => {
   await open(page, 'practice.simulation.11.16.planned');
   const form = page.locator('.kl-question').first();
@@ -81,7 +85,6 @@ test('keyboard only: Tab into the choice group, arrows to move, Enter to submit;
   await expect(form.getByRole('alert')).toHaveText('Variantni tanlang.');
   await expect(form.getByRole('radio').first()).toBeFocused();       // focus returns to the group
   await page.keyboard.press('ArrowDown');                            // native radio group: arrow selects the next option
-  await page.keyboard.press('ArrowDown');
   await expect(form.getByRole('radio', {name: 'Ortadi'})).toBeChecked();
   await page.keyboard.press('Enter');                                // implicit form submission
   await expect(feedback(page)).toContainText('To‘g‘ri');

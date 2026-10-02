@@ -132,9 +132,10 @@ export class ContentClient {
     const prefix=`${this.baseUrl}/${version}`;
     // P2.3: the structured theory pack is optional for older packs (absent → MINIMAL); when listed, it is integrity-checked
     const structuredTheory=this.files.has(STRUCTURED_THEORY_PACK_PATH)?await this.packJson(version,STRUCTURED_THEORY_PACK_PATH):undefined;
-    // P2.3 closeout (A3): theory section labels come from the learner-interaction catalog (same fail-closed rule)
+    // P2.3 closeout (A3): theory section labels come from the learner-interaction catalog (same fail-closed rule);
+    // P2.9: the quiz/reflection validation text too, so the catalog is loaded whenever the pack ships it
     let interaction;
-    if(structuredTheory){
+    if(structuredTheory||this.files.has(interactionPackPath(DEFAULT_LOCALE))){
       try{interaction=parseInteractionCatalog(await this.packJson(version,interactionPackPath(DEFAULT_LOCALE)));}
       catch(error){throw error instanceof ContentLoadError?error:new ContentLoadError('LOCALIZATION_INVALID',{resource:interactionPackPath(DEFAULT_LOCALE)});}
     }

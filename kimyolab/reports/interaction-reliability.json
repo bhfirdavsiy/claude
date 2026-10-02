@@ -81,11 +81,11 @@
     "list": []
   },
   "uiStrings": {
-    "sharedKeys": 71,
+    "sharedKeys": 76,
     "catalog": "content-src/locales/uz-latn/learner-interaction.json",
     "hardcodedUzbekLiterals": {
       "before": 174,
-      "after": 156,
+      "after": 155,
       "filesBefore": 23,
       "filesAfter": 21,
       "migrated": {
@@ -123,7 +123,7 @@
         },
         {
           "file": "src/features/learning-hub/render.ts",
-          "uzbekLiterals": 32
+          "uzbekLiterals": 31
         },
         {
           "file": "src/features/practice/host.ts",

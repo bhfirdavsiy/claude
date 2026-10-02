@@ -66,6 +66,9 @@ export interface LearningHubModel {
   pilot:boolean;
   /** Unit assessment availability with a learner-facing note (never a raw code). */
   assessmentAvailability:{status:AssessmentAvailability;message?:string};
+  /** P2.9: the quiz/reflection validation message templates from the learner-interaction catalog (only these two
+   *  strings, never the whole catalog: the view model stays free of anything key-like); absent in older packs */
+  validationText?:{quizUnanswered?:string;reflectionIncomplete?:string};
 }
 
 function studentPractice(activity:PracticeActivity,pack?:ReadinessPack):StudentPracticeModel {
@@ -131,5 +134,7 @@ export function buildLearningHubModel(learningUnitId:string,data:LearningHubCont
       const status:AssessmentAvailability=unitReadiness?.assessment.status??'NONE';
       return status==='AVAILABLE'?{status}:{status,message:readinessMessage(unitReadiness?.assessment.reasons.length?unitReadiness.assessment.reasons:['ASSESSMENT_NOT_AVAILABLE'])};
     })(),
+    ...(()=>{ const t=createLocalizer(data.interaction?{interaction:data.interaction}:undefined); const q=t('ui.quiz-unanswered'), r=t('ui.reflection-incomplete');
+      return q||r?{validationText:{...(q?{quizUnanswered:q}:{}),...(r?{reflectionIncomplete:r}:{})}}:{}; })(),
   };
 }

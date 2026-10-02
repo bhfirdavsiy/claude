@@ -10,7 +10,10 @@ import {buildFormQuestion,createLabeler,type FormQuestionModel} from './form-que
 type Common={title:string;goal:string;backHref:string;localizationMissing:string[]};
 export type PracticeUiModel =
   | Common&{kind:'experiment';controls:Array<{action:string;label:string;requiresEquation:boolean}>;equipment:string;materials:string;safety:string}
-  | Common&{kind:'simulation';mode:'generic';controls:Array<{field:string;label:string;valueType:'text'|'number'|'boolean';question:FormQuestionModel}>}
+  | Common&{kind:'simulation';mode:'generic';
+      /** P2.9: the engine knows only the target state (generic config simulation): a non-target value is recorded
+       *  without a verdict, and the page says so instead of letting the learner guess */
+      targetOnly:boolean;controls:Array<{field:string;label:string;valueType:'text'|'number'|'boolean';question:FormQuestionModel}>}
   | Common&{kind:'trainer';expectedInput:'formula'|'text';prompt:string;hints:string[];question:FormQuestionModel}
   | Common&{kind:'calculation';formula:string;steps:Array<{id:string;label:string;unit:string}>}
   | Common&{kind:'case';evidenceOptions:Array<{id:string;label:string}>;minimum:number};
@@ -42,7 +45,7 @@ export function buildPracticeUiModel(model:StudentPracticePageModel):PracticeUiM
   }
   if(model.type==='simulation'){
     const fields=model.executionPlan.runtime==='beta2-organic'?[String(c.field??c.property??'value')]:model.executionPlan.runtime==='beta2-advanced'&&model.executionPlan.capability==='manganese-redox-simulation'?['medium']:model.executionPlan.runtime==='beta3-advanced'?[String(c.field??'value')]:(c.controls??[]);
-    return {...common,kind:'simulation',mode:'generic',controls:fields.map((field:string,i:number)=>{
+    return {...common,kind:'simulation',mode:'generic',targetOnly:model.executionPlan.runtime==='generic'&&Boolean(c.targetState),controls:fields.map((field:string,i:number)=>{
       const value=c.initialState?.[field]??c.expected;const booleanTask=c.task==='nuclear-conservation'||c.task==='equal-rates';const numberTask=typeof value==='number'||c.task==='reaction-rate';
       const label=labels.text(`field.${field}`,fields.length>1?`${labels.ui('ui.answer')} ${i+1}`:labels.ui('ui.answer'));
       const question=buildFormQuestion({id:String(field),label,valueType:booleanTask?'boolean':numberTask?'number':typeof value==='boolean'?'boolean':'text',domain:answerDomainOf(model,String(field)),labels});

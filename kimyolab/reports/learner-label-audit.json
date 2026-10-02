@@ -2802,6 +2802,16 @@
       "rawIdLearnerFacing": false
     },
     {
+      "rawId": "substitution",
+      "shownAs": "answer",
+      "activityId": "practice.trainer.10.06.planned",
+      "learningUnitId": "lu.10.06",
+      "label": "O‘rin olish",
+      "source": "locale",
+      "category": "option token",
+      "rawIdLearnerFacing": false
+    },
+    {
       "rawId": "polymerization",
       "shownAs": "answer",
       "activityId": "practice.trainer.10.06.planned",
@@ -2837,16 +2847,6 @@
       "activityId": "practice.trainer.10.06.planned",
       "learningUnitId": "lu.10.06",
       "label": "Sovunlanish",
-      "source": "locale",
-      "category": "option token",
-      "rawIdLearnerFacing": false
-    },
-    {
-      "rawId": "substitution",
-      "shownAs": "answer",
-      "activityId": "practice.trainer.10.06.planned",
-      "learningUnitId": "lu.10.06",
-      "label": "O‘rin olish",
       "source": "locale",
       "category": "option token",
       "rawIdLearnerFacing": false
