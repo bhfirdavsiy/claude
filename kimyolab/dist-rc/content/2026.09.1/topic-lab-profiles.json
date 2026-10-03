@@ -1,0 +1,1020 @@
+{
+  "schema": "kimyolab.topic-lab-profiles.v1",
+  "profiles": [
+    {
+      "schema": "kimyolab.topic-lab-profile.v1",
+      "profileId": "lab-profile.8.1.chloride-precipitation",
+      "activityId": "practice.experiment.8.1",
+      "activityVersion": "2026.09.1",
+      "learningUnitIds": [
+        "lu.8.14",
+        "lu.8.16"
+      ],
+      "configSource": "reference-slices",
+      "configVersion": "2.0.0",
+      "chemistryTruth": false,
+      "instruction": {
+        "source": "legacyContent",
+        "title": "“Galogenlar” mavzusi bo‘yicha tajribaviy masalalar yechish",
+        "goal": "Xlorid kislota tarkibida vodorod va xlor ionlari mavjudligini tajriba yo‘li bilan isbotlang.",
+        "equipmentText": "",
+        "materialsText": "",
+        "safetyText": "",
+        "steps": [
+          {
+            "index": 0,
+            "text": "Xlorid kislota tarkibida vodorod va xlor ionlari mavjudligini tajriba yo‘li bilan isbotlang.",
+            "operations": [
+              {
+                "verb": "isbotlang",
+                "family": "INFER",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "text": "Berilgan quruq tuz natriy xlorid ekanini tajriba bilan isbotlang.",
+            "operations": [
+              {
+                "verb": "isbotlang",
+                "family": "INFER",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "text": "Probirkadagi eritma natriy yodid ekanini isbotlang.",
+            "operations": [
+              {
+                "verb": "isbotlang",
+                "family": "INFER",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "text": "Rux xlorid tuzini tajriba yo‘li bilan to‘rt xil usulda oling.",
+            "operations": [
+              {
+                "verb": "oling",
+                "family": "PREPARE_SUBSTANCE",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "text": "Berilgan quruq tuz namunasining bromid ekanini isbotlang.",
+            "operations": [
+              {
+                "verb": "isbotlang",
+                "family": "INFER",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 5,
+            "text": "Ikki probirkadagi NaCl va Na2CO3 tuzlarini tajriba yo‘li bilan farqlang.",
+            "operations": [
+              {
+                "verb": "farqlang",
+                "family": "COMPARE",
+                "status": "MAPPED"
+              }
+            ]
+          }
+        ],
+        "sourceRefs": [
+          {
+            "id": "src.legacy.8.1",
+            "title": "8-sinf darsligi, 124-bet"
+          }
+        ],
+        "groundedSteps": [
+          1
+        ]
+      },
+      "apparatus": [
+        {
+          "id": "tube-1",
+          "kind": "test-tube",
+          "labelKey": "ui.dlab-app-tube-1",
+          "source": "legacyContent.steps[5] (\"Ikki probirkadagi …\")",
+          "isContainer": true
+        },
+        {
+          "id": "tube-2",
+          "kind": "test-tube",
+          "labelKey": "ui.dlab-app-tube-2",
+          "source": "legacyContent.steps[5] (\"Ikki probirkadagi …\")",
+          "isContainer": true
+        }
+      ],
+      "substances": [
+        {
+          "id": "agno3",
+          "speciesId": "species.agno3",
+          "labelKey": "species.agno3.name",
+          "role": "reagent",
+          "source": "config.reagentShelf",
+          "undeclaredParts": [],
+          "soluteSpeciesId": null
+        },
+        {
+          "id": "nacl",
+          "speciesId": "species.nacl",
+          "labelKey": "species.nacl.name",
+          "role": "reagent",
+          "source": "config.reagentShelf",
+          "undeclaredParts": [],
+          "soluteSpeciesId": null
+        },
+        {
+          "id": "bacl2",
+          "speciesId": "species.bacl2",
+          "labelKey": "species.bacl2.name",
+          "role": "reagent",
+          "source": "config.reagentShelf",
+          "undeclaredParts": [],
+          "soluteSpeciesId": null
+        },
+        {
+          "id": "h2so4",
+          "speciesId": "species.h2so4",
+          "labelKey": "species.h2so4.name",
+          "role": "reagent",
+          "source": "config.reagentShelf",
+          "undeclaredParts": [],
+          "soluteSpeciesId": null
+        },
+        {
+          "id": "zncl2",
+          "speciesId": "species.zncl2",
+          "labelKey": "species.zncl2.name",
+          "role": "reagent",
+          "source": "config.reagentShelf",
+          "undeclaredParts": [],
+          "soluteSpeciesId": null
+        },
+        {
+          "id": "naoh",
+          "speciesId": "species.naoh",
+          "labelKey": "species.naoh.name",
+          "role": "reagent",
+          "source": "config.reagentShelf",
+          "undeclaredParts": [],
+          "soluteSpeciesId": null
+        },
+        {
+          "id": "nano3",
+          "speciesId": "species.nano3",
+          "labelKey": "species.nano3.name",
+          "role": "reagent",
+          "source": "config.reagentShelf",
+          "undeclaredParts": [],
+          "soluteSpeciesId": null
+        }
+      ],
+      "initialState": {
+        "setUp": [
+          "tube-1",
+          "tube-2"
+        ],
+        "contents": {}
+      },
+      "allowedFamilies": [
+        "ADD_SUBSTANCE",
+        "MIX",
+        "RECORD",
+        "WASH"
+      ],
+      "familyApparatus": {},
+      "limits": {
+        "quantities": [],
+        "electrodes": []
+      },
+      "procedure": {
+        "mode": "FLEXIBLE",
+        "steps": [],
+        "humanDecision": null,
+        "orderSource": "No order is declared: the instruction states problems (\"… isbotlang\"), and the config (reference-slices, reagentShelf) lets the learner choose reagents. Only state preconditions apply (two solutions before mixing; an observed reaction before recording)."
+      },
+      "observationTargets": [
+        {
+          "id": "mix",
+          "labelKey": "ui.dlab-target-mix",
+          "producedBy": "ReactionMatcher",
+          "source": "chemistry/reactions.json (record observations)",
+          "kind": "reaction-observation",
+          "kindSource": "the matched reaction record's observations"
+        }
+      ],
+      "completionGoal": {
+        "kind": "ionic-target",
+        "targetReactionId": "rxn.agno3-nacl"
+      },
+      "guidance": {
+        "levels": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "defaultLevel": 1,
+        "revealsFinalAnswer": false
+      },
+      "safety": {
+        "virtualOnly": true,
+        "notes": [],
+        "forbiddenFamilies": []
+      },
+      "chemistry": {
+        "authority": "ionic-mixing",
+        "reagentShelf": [
+          "species.agno3",
+          "species.nacl",
+          "species.bacl2",
+          "species.h2so4",
+          "species.zncl2",
+          "species.naoh",
+          "species.nano3"
+        ],
+        "targetReactionId": "rxn.agno3-nacl",
+        "source": "config(reference-slices)",
+        "maxSolutionsPerContainer": 2
+      },
+      "gaps": [
+        {
+          "code": "APPARATUS_NOT_DECLARED",
+          "detail": "legacyContent.equipment is empty; the two test tubes come from the wording of step 6."
+        },
+        {
+          "code": "MATERIALS_NOT_DECLARED",
+          "detail": "legacyContent.materials is empty; the substances are the config reagentShelf."
+        },
+        {
+          "code": "QUANTITY_NOT_DECLARED",
+          "detail": "No volume is declared, so no quantity parameter is offered."
+        },
+        {
+          "code": "INSTRUCTION_IS_PROBLEM_SET",
+          "detail": "Six problems; only problem 2 (\"natriy xlorid ekanini … isbotlang\") is grounded, by the config target rxn.agno3-nacl. Problems 1 and 3–6 are not offered."
+        },
+        {
+          "code": "ACTION_FROM_RUNTIME_NOT_INSTRUCTION",
+          "detail": "WASH (empty a tube) is not in the instruction. It keeps the existing runtime's behaviour, which lets the learner mix any number of reagent pairs."
+        }
+      ]
+    },
+    {
+      "schema": "kimyolab.topic-lab-profile.v1",
+      "profileId": "lab-profile.11.2.electrolysis",
+      "activityId": "practice.experiment.11.2",
+      "activityVersion": "2026.09.1",
+      "learningUnitIds": [
+        "lu.11.21",
+        "lu.11.22"
+      ],
+      "configSource": "beta3-advanced",
+      "configVersion": "1.0.0",
+      "chemistryTruth": false,
+      "instruction": {
+        "source": "legacyContent",
+        "title": "Platforma uchun demonstratsion tajriba nomzodi: elektroliz",
+        "goal": "Elektrolizyorga CuCl2 eritmasini quying.",
+        "equipmentText": "Elektrolizyor yoki elektrolitik vanna, elektrodlar, o‘zgarmas tok manbai.",
+        "materialsText": "CuCl2 eritmasi.",
+        "safetyText": "Elektr toki va xlor hosil bo‘lish ehtimoli sabab faqat o‘qituvchi demonstratsiyasi yoki raqamli simulyatsiya shaklida tavsiya etiladi.",
+        "steps": [
+          {
+            "index": 0,
+            "text": "Elektrolizyorga CuCl2 eritmasini quying.",
+            "operations": [
+              {
+                "verb": "quying",
+                "family": "ADD_SUBSTANCE",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "text": "Eritmaga ikki elektrod tushiring. Bir elektrodni manfiy qutbga, ikkinchisini musbat qutbga ulang.",
+            "operations": [
+              {
+                "verb": "tushiring",
+                "family": "SETUP_APPARATUS",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "ulang",
+                "family": "ELECTRIC_CURRENT",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "text": "Manfiy elektrod katod, musbat elektrod anod ekanini belgilang.",
+            "operations": [
+              {
+                "verb": "belgilang",
+                "family": "RECORD",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "text": "Tok manbaini ulang. Cu2+ kationlarining katod tomon, Cl− anionlarining anod tomon harakatlanishini kuzating.",
+            "operations": [
+              {
+                "verb": "ulang",
+                "family": "ELECTRIC_CURRENT",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "kuzating",
+                "family": "OBSERVE",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "text": "Katodda mis ajralishi va anodda xlor hosil bo‘lishini tushuntiring.",
+            "operations": [
+              {
+                "verb": "tushuntiring",
+                "family": "EXPLAIN",
+                "status": "MAPPED"
+              }
+            ]
+          }
+        ],
+        "sourceRefs": [
+          {
+            "id": "src.legacy.11.2",
+            "title": "11-sinf darsligi, 138–139-betlar"
+          }
+        ],
+        "groundedSteps": [
+          0,
+          1,
+          3,
+          4
+        ]
+      },
+      "apparatus": [
+        {
+          "id": "cell",
+          "kind": "electrolysis-cell",
+          "labelKey": "ui.dlab-app-cell",
+          "source": "legacyContent.equipment (\"Elektrolizyor yoki elektrolitik vanna\")",
+          "isContainer": true
+        },
+        {
+          "id": "electrodes",
+          "kind": "electrodes",
+          "labelKey": "ui.dlab-app-electrodes",
+          "source": "legacyContent.equipment (\"elektrodlar\") + legacyContent.steps[1]",
+          "isContainer": false
+        },
+        {
+          "id": "dc-source",
+          "kind": "dc-source",
+          "labelKey": "ui.dlab-app-dc-source",
+          "source": "legacyContent.equipment (\"o‘zgarmas tok manbai\")",
+          "isContainer": false
+        }
+      ],
+      "substances": [
+        {
+          "speciesId": "species.cucl2",
+          "soluteSpeciesId": null,
+          "undeclaredParts": [],
+          "id": "cucl2-solution",
+          "labelKey": "ui.dlab-sub-cucl2-solution",
+          "role": "reagent",
+          "source": "legacyContent.materials (\"CuCl2 eritmasi.\")"
+        }
+      ],
+      "initialState": {
+        "setUp": [
+          "cell"
+        ],
+        "contents": {}
+      },
+      "allowedFamilies": [
+        "ADD_SUBSTANCE",
+        "SETUP_APPARATUS",
+        "ELECTRIC_CURRENT",
+        "OBSERVE"
+      ],
+      "familyApparatus": {},
+      "limits": {
+        "quantities": [],
+        "electrodes": [
+          "inert"
+        ]
+      },
+      "procedure": {
+        "mode": "HUMAN_DECISION_REQUIRED",
+        "steps": [
+          {
+            "id": "fill",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "cucl2-solution",
+              "container": "cell"
+            },
+            "required": true,
+            "instructionStep": 0,
+            "source": "legacyContent.steps[0]",
+            "dependencies": []
+          },
+          {
+            "id": "electrodes",
+            "family": "SETUP_APPARATUS",
+            "match": {
+              "apparatus": "electrodes"
+            },
+            "required": true,
+            "instructionStep": 1,
+            "source": "legacyContent.steps[1]",
+            "dependencies": []
+          },
+          {
+            "id": "power",
+            "family": "SETUP_APPARATUS",
+            "match": {
+              "apparatus": "dc-source"
+            },
+            "required": true,
+            "instructionStep": 1,
+            "source": "legacyContent.steps[1] (\"… qutbga ulang\")",
+            "dependencies": []
+          },
+          {
+            "id": "connectCurrent",
+            "family": "ELECTRIC_CURRENT",
+            "match": {
+              "container": "cell"
+            },
+            "required": true,
+            "instructionStep": 3,
+            "source": "config requiredActions connectCurrent + legacyContent.steps[3]",
+            "dependencies": []
+          },
+          {
+            "id": "observeCathode",
+            "family": "OBSERVE",
+            "match": {
+              "target": "cathode"
+            },
+            "required": true,
+            "instructionStep": 4,
+            "source": "config requiredActions observeCathode",
+            "dependencies": []
+          },
+          {
+            "id": "observeAnode",
+            "family": "OBSERVE",
+            "match": {
+              "target": "anode"
+            },
+            "required": true,
+            "instructionStep": 4,
+            "source": "config requiredActions observeAnode",
+            "dependencies": []
+          }
+        ],
+        "humanDecision": {
+          "question": "Is a step order REQUIRED for this experiment? If yes, give the dependencies (which step requires which), not only a list, and the reason (safety, chemistry, didactics).",
+          "packet": "review-packets/feedback-semantics/practice.experiment.11.2.md",
+          "options": [
+            "A. No order required.",
+            "B. An order is required (dependencies + reason).",
+            "C. The activity needs a content change."
+          ],
+          "selected": null
+        },
+        "orderSource": "Not declared. The config (beta3-advanced, requiredActions) is a set; P2.9 left the order question open (review-packets/feedback-semantics/practice.experiment.11.2.md)."
+      },
+      "observationTargets": [
+        {
+          "id": "cathode",
+          "labelKey": "ui.dlab-target-cathode",
+          "producedBy": "ElectrolysisModel",
+          "source": "chemistry/electrolysis.json (cathode)",
+          "kind": "deposit",
+          "kindSource": "chemistry/electrolysis.json cathode.observation (\"Copper-colored deposit forms at the cathode.\")"
+        },
+        {
+          "id": "anode",
+          "labelKey": "ui.dlab-target-anode",
+          "producedBy": "ElectrolysisModel",
+          "source": "chemistry/electrolysis.json (anode)",
+          "kind": "gas",
+          "kindSource": "chemistry/electrolysis.json anode.observation (\"Gas is evolved at the anode …\")"
+        }
+      ],
+      "completionGoal": {
+        "kind": "observations",
+        "targets": [
+          "cathode",
+          "anode"
+        ]
+      },
+      "guidance": {
+        "levels": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "defaultLevel": 1,
+        "revealsFinalAnswer": false
+      },
+      "safety": {
+        "virtualOnly": true,
+        "notes": [
+          {
+            "text": "Elektr toki va xlor hosil bo‘lish ehtimoli sabab faqat o‘qituvchi demonstratsiyasi yoki raqamli simulyatsiya shaklida tavsiya etiladi.",
+            "source": "legacyContent.safety"
+          }
+        ],
+        "forbiddenFamilies": []
+      },
+      "chemistry": {
+        "authority": "electrolysis",
+        "query": {
+          "electrolyte": "CuCl2",
+          "phase": "aq",
+          "electrode": "inert"
+        },
+        "electrolyteSubstanceId": "cucl2-solution",
+        "source": "config(beta3-advanced).query"
+      },
+      "gaps": [
+        {
+          "code": "ELECTRODE_MATERIAL_NOT_IN_INSTRUCTION",
+          "detail": "The instruction says \"ikki elektrod\" and does not name a material. The config query declares electrode: inert, which is the only record ElectrolysisModel holds."
+        },
+        {
+          "code": "RECORD_CHECKER_MISSING",
+          "detail": "Steps 3 and 5 and the tasks (\"belgilang\", \"tushuntiring\", \"jarayonlarini yozing\") have no domain checker, so RECORD and EXPLAIN are not offered."
+        },
+        {
+          "code": "ION_MIGRATION_NOT_MODELED",
+          "detail": "Step 4 (\"… harakatlanishini kuzating\") has no model output, so it is not offered as an observation."
+        },
+        {
+          "code": "OBSERVATION_TEXT_NOT_LOCALIZED",
+          "detail": "The ElectrolysisModel observation sentences are English and their review is pending. The UI shows the modeled product and the observation kind, not the English sentence."
+        }
+      ]
+    },
+    {
+      "schema": "kimyolab.topic-lab-profile.v1",
+      "profileId": "lab-profile.7.2.salt-purification",
+      "activityId": "practice.experiment.7.2",
+      "activityVersion": "2026.09.1",
+      "learningUnitIds": [
+        "lu.7.03",
+        "lu.7.21"
+      ],
+      "configSource": "reference-slices",
+      "configVersion": "1.0.0",
+      "chemistryTruth": false,
+      "instruction": {
+        "source": "legacyContent",
+        "title": "Aralashmalar tarkibidan sof moddani ajratish: ifloslangan osh tuzini tozalash",
+        "goal": "20 ml distillangan suvga ifloslangan osh tuzidan oz-ozdan soling va shisha tayoqcha bilan aralashtiring. Tuz erimay qolguncha davom eting.",
+        "equipmentText": "Shtativ, spirt lampa, voronka, shisha tayoqcha, stakanlar, buyum oynasi, probirka tutqichi, filtr qog‘ozi.",
+        "materialsText": "Ifloslangan osh tuzi, distillangan suv.",
+        "safetyText": "",
+        "steps": [
+          {
+            "index": 0,
+            "text": "20 ml distillangan suvga ifloslangan osh tuzidan oz-ozdan soling va shisha tayoqcha bilan aralashtiring. Tuz erimay qolguncha davom eting.",
+            "operations": [
+              {
+                "verb": "soling",
+                "family": "ADD_SUBSTANCE",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "aralashtiring",
+                "family": "MIX",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "eting",
+                "family": "CONTINUE",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "text": "Kvadrat filtr qog‘ozini to‘rt buklang, chetini yoy shaklida qirqing, konus ko‘rinishida oching va voronkaga joylashtiring. Filtr qog‘ozining yuqori cheti voronka chetidan taxminan 0,5 sm past bo‘lsin.",
+            "operations": [
+              {
+                "verb": "buklang",
+                "family": "SETUP_APPARATUS",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "qirqing",
+                "family": "SETUP_APPARATUS",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "oching",
+                "family": "SETUP_APPARATUS",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "joylashtiring",
+                "family": "SETUP_APPARATUS",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "text": "Loyqa eritmani shisha tayoqcha orqali filtrlang. Voronkadan o‘tgan tiniq eritma filtrat hisoblanadi.",
+            "operations": [
+              {
+                "verb": "filtrlang",
+                "family": "FILTER",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "text": "Filtratni chinni kosachaga quying va shtativda qizdirib bug‘lating. Sachrashning oldini olish uchun aralashtiring.",
+            "operations": [
+              {
+                "verb": "quying",
+                "family": "ADD_SUBSTANCE",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "bug‘lating",
+                "family": "EVAPORATE",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "aralashtiring",
+                "family": "MIX",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "text": "Tuz kristallari paydo bo‘la boshlaganda qizdirishni to‘xtating. Ajratilgan sof tuzni kuzating.",
+            "operations": [
+              {
+                "verb": "to‘xtating",
+                "family": "STOP_HEAT",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "kuzating",
+                "family": "OBSERVE",
+                "status": "MAPPED"
+              }
+            ]
+          }
+        ],
+        "sourceRefs": [
+          {
+            "id": "src.legacy.7.2",
+            "title": "7-sinf darsligi, 24–25-betlar"
+          }
+        ],
+        "groundedSteps": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "apparatus": [
+        {
+          "id": "beaker",
+          "kind": "beaker",
+          "labelKey": "ui.dlab-app-beaker",
+          "source": "legacyContent.equipment (\"stakanlar\") + legacyContent.steps[0]",
+          "isContainer": true
+        },
+        {
+          "id": "glass-rod",
+          "kind": "stirring-rod",
+          "labelKey": "ui.dlab-app-glass-rod",
+          "source": "legacyContent.equipment (\"shisha tayoqcha\") + legacyContent.steps[0]",
+          "isContainer": false
+        },
+        {
+          "id": "funnel",
+          "kind": "funnel",
+          "labelKey": "ui.dlab-app-funnel",
+          "source": "legacyContent.equipment (\"voronka\") + legacyContent.steps[1]",
+          "isContainer": false
+        },
+        {
+          "id": "filter-paper",
+          "kind": "filter-paper",
+          "labelKey": "ui.dlab-app-filter-paper",
+          "source": "legacyContent.equipment (\"filtr qog‘ozi\") + legacyContent.steps[1]",
+          "isContainer": false
+        },
+        {
+          "id": "receiver",
+          "kind": "receiver",
+          "labelKey": "ui.dlab-app-receiver",
+          "source": "legacyContent.equipment (\"stakanlar\") + legacyContent.steps[2] (filtrat)",
+          "isContainer": true
+        },
+        {
+          "id": "stand",
+          "kind": "stand",
+          "labelKey": "ui.dlab-app-stand",
+          "source": "legacyContent.equipment (\"Shtativ\") + legacyContent.steps[3]",
+          "isContainer": false
+        },
+        {
+          "id": "spirit-lamp",
+          "kind": "heat-source",
+          "labelKey": "ui.dlab-app-spirit-lamp",
+          "source": "legacyContent.equipment (\"spirt lampa\")",
+          "isContainer": false
+        },
+        {
+          "id": "dish",
+          "kind": "evaporating-dish",
+          "labelKey": "ui.dlab-app-dish",
+          "source": "legacyContent.steps[3] (\"chinni kosacha\")",
+          "isContainer": false
+        }
+      ],
+      "substances": [
+        {
+          "speciesId": "species.h2o",
+          "soluteSpeciesId": null,
+          "undeclaredParts": [],
+          "id": "water",
+          "labelKey": "ui.dlab-sub-distilled-water",
+          "role": "solvent",
+          "source": "legacyContent.materials (\"distillangan suv\") + legacyContent.steps[0]"
+        },
+        {
+          "speciesId": null,
+          "soluteSpeciesId": "species.nacl",
+          "undeclaredParts": [
+            {
+              "id": "impurity",
+              "description": "The instruction does not identify the impurity; it states only that the solution is turbid and is filtered.",
+              "source": "legacyContent.steps[2] (\"Loyqa eritmani … filtrlang\")",
+              "insoluble": true
+            }
+          ],
+          "id": "contaminated-salt",
+          "labelKey": "ui.dlab-sub-contaminated-salt",
+          "role": "sample",
+          "source": "legacyContent.materials (\"Ifloslangan osh tuzi\")"
+        }
+      ],
+      "initialState": {
+        "setUp": [],
+        "contents": {}
+      },
+      "allowedFamilies": [
+        "SETUP_APPARATUS",
+        "ADD_SUBSTANCE",
+        "MIX",
+        "FILTER",
+        "EVAPORATE",
+        "OBSERVE"
+      ],
+      "familyApparatus": {
+        "MIX": {
+          "kinds": [
+            "stirring-rod"
+          ],
+          "source": "legacyContent.steps[0] (\"shisha tayoqcha bilan aralashtiring\")"
+        },
+        "EVAPORATE": {
+          "kinds": [
+            "heat-source",
+            "stand",
+            "evaporating-dish"
+          ],
+          "source": "legacyContent.steps[3] (\"chinni kosachaga quying va shtativda qizdirib bug‘lating\")"
+        }
+      },
+      "limits": {
+        "quantities": [
+          {
+            "substanceId": "water",
+            "value": 20,
+            "unit": "ml",
+            "source": "legacyContent.steps[0] (\"20 ml distillangan suvga …\")"
+          }
+        ],
+        "electrodes": []
+      },
+      "procedure": {
+        "mode": "STRICT",
+        "steps": [
+          {
+            "id": "apparatus",
+            "family": "SETUP_APPARATUS",
+            "match": {
+              "apparatus": "beaker"
+            },
+            "dependencies": [],
+            "required": true,
+            "instructionStep": 0,
+            "source": "config.scenario.steps[apparatus]"
+          },
+          {
+            "id": "water",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "water",
+              "container": "beaker"
+            },
+            "dependencies": [
+              "apparatus"
+            ],
+            "required": true,
+            "instructionStep": 0,
+            "source": "config.scenario.steps[water]"
+          },
+          {
+            "id": "mixture",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "contaminated-salt",
+              "container": "beaker"
+            },
+            "dependencies": [
+              "water"
+            ],
+            "required": true,
+            "instructionStep": 0,
+            "source": "config.scenario.steps[mixture]"
+          },
+          {
+            "id": "dissolve",
+            "family": "MIX",
+            "match": {
+              "container": "beaker"
+            },
+            "dependencies": [
+              "mixture"
+            ],
+            "required": true,
+            "instructionStep": 0,
+            "source": "config.scenario.steps[dissolve]"
+          },
+          {
+            "id": "filter",
+            "family": "FILTER",
+            "match": {
+              "container": "beaker"
+            },
+            "dependencies": [
+              "dissolve"
+            ],
+            "required": true,
+            "instructionStep": 2,
+            "source": "config.scenario.steps[filter]"
+          },
+          {
+            "id": "evaporate",
+            "family": "EVAPORATE",
+            "match": {
+              "container": "receiver"
+            },
+            "dependencies": [
+              "filter"
+            ],
+            "required": true,
+            "instructionStep": 3,
+            "source": "config.scenario.steps[evaporate]"
+          },
+          {
+            "id": "observe",
+            "family": "OBSERVE",
+            "match": {
+              "target": "crystals"
+            },
+            "dependencies": [
+              "evaporate"
+            ],
+            "required": true,
+            "instructionStep": 4,
+            "source": "config.scenario.steps[observe]"
+          }
+        ],
+        "humanDecision": null,
+        "orderSource": "config(reference-slices).scenario.steps[].dependencies (declared: apparatus → water → mixture → dissolve → filter → evaporate → observe)"
+      },
+      "observationTargets": [
+        {
+          "id": "turbid",
+          "labelKey": "ui.dlab-target-turbid",
+          "producedBy": "INSTRUCTION_TEXT",
+          "source": "legacyContent.steps[2] (\"Loyqa eritmani …\")",
+          "kind": "turbid-mixture",
+          "kindSource": "legacyContent.steps[2]"
+        },
+        {
+          "id": "filtrate",
+          "labelKey": "ui.dlab-target-filtrate",
+          "producedBy": "INSTRUCTION_TEXT",
+          "source": "legacyContent.steps[2] (\"Voronkadan o‘tgan tiniq eritma filtrat hisoblanadi.\")",
+          "kind": "clear-filtrate",
+          "kindSource": "legacyContent.steps[2]"
+        },
+        {
+          "id": "crystals",
+          "labelKey": "ui.dlab-target-crystals",
+          "producedBy": "INSTRUCTION_TEXT",
+          "source": "legacyContent.steps[4] (\"Tuz kristallari paydo bo‘la boshlaganda …\")",
+          "kind": "state-change",
+          "kindSource": "legacyContent.steps[4]; the existing adapter records {type: state-change, from: filtrate, to: crystals}"
+        }
+      ],
+      "completionGoal": {
+        "kind": "all-required-steps"
+      },
+      "guidance": {
+        "levels": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "defaultLevel": 1,
+        "revealsFinalAnswer": false
+      },
+      "safety": {
+        "virtualOnly": true,
+        "notes": [
+          {
+            "text": "Sachrashning oldini olish uchun aralashtiring.",
+            "source": "legacyContent.steps[3]"
+          }
+        ],
+        "forbiddenFamilies": []
+      },
+      "chemistry": {
+        "authority": "dissolution",
+        "solventSubstanceId": "water",
+        "source": "IonicEngine.dissociate (chemistry/solubility.json)"
+      },
+      "gaps": [
+        {
+          "code": "SAFETY_TEXT_EMPTY",
+          "detail": "legacyContent.safety is empty; the only safety sentence is in step 4 (spattering)."
+        },
+        {
+          "code": "EQUIPMENT_LIST_INCOMPLETE",
+          "detail": "\"chinni kosacha\" is used in step 4 but is not in legacyContent.equipment."
+        },
+        {
+          "code": "APPARATUS_WITHOUT_OPERATION",
+          "detail": "\"buyum oynasi\" and \"probirka tutqichi\" are listed, but no step uses them, so they are not offered."
+        },
+        {
+          "code": "QUANTITY_NOT_DECLARED",
+          "detail": "The salt is added \"oz-ozdan\" (little by little) with no amount, so only the water has a quantity (20 ml)."
+        },
+        {
+          "code": "IMPURITY_UNDECLARED",
+          "detail": "The impurity's identity is not declared; it is carried as an undeclared insoluble part, never as a species."
+        },
+        {
+          "code": "OBSERVATION_FROM_INSTRUCTION_TEXT",
+          "detail": "No filtration, evaporation or crystallisation model exists. The turbid / filtrate / crystals observations are the instruction's own sentences (INSTRUCTION_TEXT), as in the existing adapter."
+        },
+        {
+          "code": "REAGENT_LIST_UNRELATED",
+          "detail": "legacyContent.reagents lists Zn, Al, KI, etanol, which no step uses; they are not offered."
+        }
+      ]
+    }
+  ]
+}

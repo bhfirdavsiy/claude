@@ -8,6 +8,7 @@ export type AppRoute =
   | {name:'learning-practice';learningUnitId:string}
   | {name:'learning-quiz';learningUnitId:string}
   | {name:'practice';practiceActivityId:string}
+  | {name:'dynamic-lab';practiceActivityId:string}
   | {name:'worksheet';learningUnitId:string}
   | {name:'progress'}
   | {name:'search'}
@@ -26,6 +27,9 @@ export function parseAppRoute(pathname:string):AppRoute {
   if(worksheet) return {name:'worksheet',learningUnitId:decodeURIComponent(worksheet[1])};
   const practice=path.match(/^\/practice\/(practice\.(?:experiment|simulation|trainer|calculation|case)\.[A-Za-z0-9.-]+)$/);
   if(practice) return {name:'practice',practiceActivityId:decodeURIComponent(practice[1])};
+  // P2.10: guided dynamic lab vertical slices (feature flag guidedDynamicLabV1; the page checks the flag)
+  const dynamicLab=path.match(/^\/dynamic-lab\/(practice\.experiment\.[A-Za-z0-9.-]+)$/);
+  if(dynamicLab) return {name:'dynamic-lab',practiceActivityId:decodeURIComponent(dynamicLab[1]!)};
   const staged=path.match(/^\/learn\/(lu\.(?:7|8|9|10|11)\.[A-Za-z0-9.-]+)\/(guide|practice|quiz)$/);
   if(staged){
     const learningUnitId=decodeURIComponent(staged[1]);

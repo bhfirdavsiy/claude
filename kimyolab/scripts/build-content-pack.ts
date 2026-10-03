@@ -12,6 +12,8 @@ import { parseElementNameCatalog, parseInteractionCatalog, parseSpeciesNameCatal
 import { readReleasePointer, writeReleasePointerAtomic } from './release-pointer-io.ts';
 import { structuredTheoryPack, collectStructuredTheory, assertCanonicalTheoryApproved } from './lib/structured-theory.ts';
 import { STRUCTURED_THEORY_PACK_PATH } from '../src/domain/theory/structured-theory.ts';
+import { TOPIC_LAB_PROFILE_PACK_PATH } from '../src/domain/lab/topic-lab-profile.ts';
+import { compileTopicLabProfiles } from './lib/topic-lab-profiles.ts';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const source = path.join(root, 'content-src');
@@ -114,6 +116,10 @@ if (fs.existsSync(activityConfigsSource)) {
   if (readiness.fatal.length) { for (const f of readiness.fatal) console.error(f); throw new Error(`READINESS_COMPILE_FAILED: ${readiness.fatal.length}`); }
   writeJson(path.join(packRoot, READINESS_PACK_PATH), readiness.pack);
 }
+
+// P2.10: guided dynamic lab profiles — overlays compiled against the repository facts and validated (v1); a
+// profile that contradicts its activity, config or species fails the build
+writeJson(path.join(packRoot, TOPIC_LAB_PROFILE_PACK_PATH), compileTopicLabProfiles(root));
 
 const chemistrySource = path.join(source, 'chemistry');
 const chemistryTarget = path.join(packRoot, 'chemistry');

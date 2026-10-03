@@ -1,0 +1,143 @@
+{
+  "schema": "kimyolab.topic-lab-profile-overlays.v1",
+  "note": "P2.10 (ADR-P2-011). Authored part of the topic lab profiles of the guidedDynamicLabV1 vertical slices. Only what the repository does not already state lives here; instruction steps, safety text, source refs, learning units, versions, the reagent shelf, the target reaction, the electrolysis query and declared step dependencies are DERIVED at build time (compileTopicLabProfile). A profile is not chemistry truth: outcomes come only from the named chemistry authority.",
+  "overlays": [
+    {
+      "profileId": "lab-profile.8.1.chloride-precipitation",
+      "activityId": "practice.experiment.8.1",
+      "groundedSteps": [1],
+      "apparatus": [
+        {"id": "tube-1", "kind": "test-tube", "labelKey": "ui.dlab-app-tube-1", "source": "legacyContent.steps[5] (\"Ikki probirkadagi …\")", "isContainer": true},
+        {"id": "tube-2", "kind": "test-tube", "labelKey": "ui.dlab-app-tube-2", "source": "legacyContent.steps[5] (\"Ikki probirkadagi …\")", "isContainer": true}
+      ],
+      "substances": [],
+      "substancesFrom": "config.reagentShelf",
+      "initialState": {"setUp": ["tube-1", "tube-2"], "contents": {}},
+      "allowedFamilies": ["ADD_SUBSTANCE", "MIX", "RECORD", "WASH"],
+      "limits": {"quantities": []},
+      "procedure": {
+        "mode": "FLEXIBLE",
+        "orderSource": "No order is declared: the instruction states problems (\"… isbotlang\"), and the config (reference-slices, reagentShelf) lets the learner choose reagents. Only state preconditions apply (two solutions before mixing; an observed reaction before recording).",
+        "steps": []
+      },
+      "observationTargets": [
+        {"id": "mix", "labelKey": "ui.dlab-target-mix", "producedBy": "ReactionMatcher", "source": "chemistry/reactions.json (record observations)", "kind": "reaction-observation", "kindSource": "the matched reaction record's observations"}
+      ],
+      "completionGoal": {"kind": "ionic-target"},
+      "guidance": {"levels": [1, 2, 3, 4], "defaultLevel": 1},
+      "safety": {"notes": [], "forbiddenFamilies": []},
+      "chemistry": {"authority": "ionic-mixing"},
+      "gaps": [
+        {"code": "APPARATUS_NOT_DECLARED", "detail": "legacyContent.equipment is empty; the two test tubes come from the wording of step 6."},
+        {"code": "MATERIALS_NOT_DECLARED", "detail": "legacyContent.materials is empty; the substances are the config reagentShelf."},
+        {"code": "QUANTITY_NOT_DECLARED", "detail": "No volume is declared, so no quantity parameter is offered."},
+        {"code": "INSTRUCTION_IS_PROBLEM_SET", "detail": "Six problems; only problem 2 (\"natriy xlorid ekanini … isbotlang\") is grounded, by the config target rxn.agno3-nacl. Problems 1 and 3–6 are not offered."},
+        {"code": "ACTION_FROM_RUNTIME_NOT_INSTRUCTION", "detail": "WASH (empty a tube) is not in the instruction. It keeps the existing runtime's behaviour, which lets the learner mix any number of reagent pairs."}
+      ]
+    },
+    {
+      "profileId": "lab-profile.11.2.electrolysis",
+      "activityId": "practice.experiment.11.2",
+      "groundedSteps": [0, 1, 3, 4],
+      "apparatus": [
+        {"id": "cell", "kind": "electrolysis-cell", "labelKey": "ui.dlab-app-cell", "source": "legacyContent.equipment (\"Elektrolizyor yoki elektrolitik vanna\")", "isContainer": true},
+        {"id": "electrodes", "kind": "electrodes", "labelKey": "ui.dlab-app-electrodes", "source": "legacyContent.equipment (\"elektrodlar\") + legacyContent.steps[1]", "isContainer": false},
+        {"id": "dc-source", "kind": "dc-source", "labelKey": "ui.dlab-app-dc-source", "source": "legacyContent.equipment (\"o‘zgarmas tok manbai\")", "isContainer": false}
+      ],
+      "substances": [
+        {"id": "cucl2-solution", "speciesId": "species.cucl2", "labelKey": "ui.dlab-sub-cucl2-solution", "role": "reagent", "source": "legacyContent.materials (\"CuCl2 eritmasi.\")"}
+      ],
+      "initialState": {"setUp": ["cell"], "contents": {}},
+      "allowedFamilies": ["ADD_SUBSTANCE", "SETUP_APPARATUS", "ELECTRIC_CURRENT", "OBSERVE"],
+      "limits": {"quantities": []},
+      "procedure": {
+        "mode": "HUMAN_DECISION_REQUIRED",
+        "orderSource": "Not declared. The config (beta3-advanced, requiredActions) is a set; P2.9 left the order question open (review-packets/feedback-semantics/practice.experiment.11.2.md).",
+        "steps": [
+          {"id": "fill", "family": "ADD_SUBSTANCE", "match": {"substance": "cucl2-solution", "container": "cell"}, "required": true, "instructionStep": 0, "source": "legacyContent.steps[0]"},
+          {"id": "electrodes", "family": "SETUP_APPARATUS", "match": {"apparatus": "electrodes"}, "required": true, "instructionStep": 1, "source": "legacyContent.steps[1]"},
+          {"id": "power", "family": "SETUP_APPARATUS", "match": {"apparatus": "dc-source"}, "required": true, "instructionStep": 1, "source": "legacyContent.steps[1] (\"… qutbga ulang\")"},
+          {"id": "connectCurrent", "family": "ELECTRIC_CURRENT", "match": {"container": "cell"}, "required": true, "instructionStep": 3, "source": "config requiredActions connectCurrent + legacyContent.steps[3]"},
+          {"id": "observeCathode", "family": "OBSERVE", "match": {"target": "cathode"}, "required": true, "instructionStep": 4, "source": "config requiredActions observeCathode"},
+          {"id": "observeAnode", "family": "OBSERVE", "match": {"target": "anode"}, "required": true, "instructionStep": 4, "source": "config requiredActions observeAnode"}
+        ],
+        "humanDecision": {
+          "question": "Is a step order REQUIRED for this experiment? If yes, give the dependencies (which step requires which), not only a list, and the reason (safety, chemistry, didactics).",
+          "options": ["A. No order required.", "B. An order is required (dependencies + reason).", "C. The activity needs a content change."]
+        }
+      },
+      "observationTargets": [
+        {"id": "cathode", "labelKey": "ui.dlab-target-cathode", "producedBy": "ElectrolysisModel", "source": "chemistry/electrolysis.json (cathode)", "kind": "deposit", "kindSource": "chemistry/electrolysis.json cathode.observation (\"Copper-colored deposit forms at the cathode.\")"},
+        {"id": "anode", "labelKey": "ui.dlab-target-anode", "producedBy": "ElectrolysisModel", "source": "chemistry/electrolysis.json (anode)", "kind": "gas", "kindSource": "chemistry/electrolysis.json anode.observation (\"Gas is evolved at the anode …\")"}
+      ],
+      "completionGoal": {"kind": "observations", "targets": ["cathode", "anode"]},
+      "guidance": {"levels": [1, 2, 3, 4], "defaultLevel": 1},
+      "safety": {"notes": [], "forbiddenFamilies": []},
+      "chemistry": {"authority": "electrolysis", "electrolyteSubstanceId": "cucl2-solution"},
+      "gaps": [
+        {"code": "ELECTRODE_MATERIAL_NOT_IN_INSTRUCTION", "detail": "The instruction says \"ikki elektrod\" and does not name a material. The config query declares electrode: inert, which is the only record ElectrolysisModel holds."},
+        {"code": "RECORD_CHECKER_MISSING", "detail": "Steps 3 and 5 and the tasks (\"belgilang\", \"tushuntiring\", \"jarayonlarini yozing\") have no domain checker, so RECORD and EXPLAIN are not offered."},
+        {"code": "ION_MIGRATION_NOT_MODELED", "detail": "Step 4 (\"… harakatlanishini kuzating\") has no model output, so it is not offered as an observation."},
+        {"code": "OBSERVATION_TEXT_NOT_LOCALIZED", "detail": "The ElectrolysisModel observation sentences are English and their review is pending. The UI shows the modeled product and the observation kind, not the English sentence."}
+      ]
+    },
+    {
+      "profileId": "lab-profile.7.2.salt-purification",
+      "activityId": "practice.experiment.7.2",
+      "groundedSteps": [0, 1, 2, 3, 4],
+      "apparatus": [
+        {"id": "beaker", "kind": "beaker", "labelKey": "ui.dlab-app-beaker", "source": "legacyContent.equipment (\"stakanlar\") + legacyContent.steps[0]", "isContainer": true},
+        {"id": "glass-rod", "kind": "stirring-rod", "labelKey": "ui.dlab-app-glass-rod", "source": "legacyContent.equipment (\"shisha tayoqcha\") + legacyContent.steps[0]", "isContainer": false},
+        {"id": "funnel", "kind": "funnel", "labelKey": "ui.dlab-app-funnel", "source": "legacyContent.equipment (\"voronka\") + legacyContent.steps[1]", "isContainer": false},
+        {"id": "filter-paper", "kind": "filter-paper", "labelKey": "ui.dlab-app-filter-paper", "source": "legacyContent.equipment (\"filtr qog‘ozi\") + legacyContent.steps[1]", "isContainer": false},
+        {"id": "receiver", "kind": "receiver", "labelKey": "ui.dlab-app-receiver", "source": "legacyContent.equipment (\"stakanlar\") + legacyContent.steps[2] (filtrat)", "isContainer": true},
+        {"id": "stand", "kind": "stand", "labelKey": "ui.dlab-app-stand", "source": "legacyContent.equipment (\"Shtativ\") + legacyContent.steps[3]", "isContainer": false},
+        {"id": "spirit-lamp", "kind": "heat-source", "labelKey": "ui.dlab-app-spirit-lamp", "source": "legacyContent.equipment (\"spirt lampa\")", "isContainer": false},
+        {"id": "dish", "kind": "evaporating-dish", "labelKey": "ui.dlab-app-dish", "source": "legacyContent.steps[3] (\"chinni kosacha\")", "isContainer": false}
+      ],
+      "substances": [
+        {"id": "water", "speciesId": "species.h2o", "labelKey": "ui.dlab-sub-distilled-water", "role": "solvent", "source": "legacyContent.materials (\"distillangan suv\") + legacyContent.steps[0]"},
+        {"id": "contaminated-salt", "speciesId": null, "soluteSpeciesId": "species.nacl", "labelKey": "ui.dlab-sub-contaminated-salt", "role": "sample", "source": "legacyContent.materials (\"Ifloslangan osh tuzi\")",
+         "undeclaredParts": [{"id": "impurity", "description": "The instruction does not identify the impurity; it states only that the solution is turbid and is filtered.", "source": "legacyContent.steps[2] (\"Loyqa eritmani … filtrlang\")", "insoluble": true}]}
+      ],
+      "initialState": {"setUp": [], "contents": {}},
+      "allowedFamilies": ["SETUP_APPARATUS", "ADD_SUBSTANCE", "MIX", "FILTER", "EVAPORATE", "OBSERVE"],
+      "familyApparatus": {
+        "MIX": {"kinds": ["stirring-rod"], "source": "legacyContent.steps[0] (\"shisha tayoqcha bilan aralashtiring\")"},
+        "EVAPORATE": {"kinds": ["heat-source", "stand", "evaporating-dish"], "source": "legacyContent.steps[3] (\"chinni kosachaga quying va shtativda qizdirib bug‘lating\")"}
+      },
+      "limits": {"quantities": [{"substanceId": "water", "value": 20, "unit": "ml", "source": "legacyContent.steps[0] (\"20 ml distillangan suvga …\")"}]},
+      "procedure": {
+        "mode": "STRICT",
+        "orderSource": "config(reference-slices).scenario.steps[].dependencies (declared: apparatus → water → mixture → dissolve → filter → evaporate → observe)",
+        "stepMap": {
+          "selectApparatus": {"family": "SETUP_APPARATUS", "match": {"apparatus": "beaker"}, "instructionStep": 0},
+          "addWater": {"family": "ADD_SUBSTANCE", "match": {"substance": "water", "container": "beaker"}, "instructionStep": 0},
+          "addMixture": {"family": "ADD_SUBSTANCE", "match": {"substance": "contaminated-salt", "container": "beaker"}, "instructionStep": 0},
+          "mix": {"family": "MIX", "match": {"container": "beaker"}, "instructionStep": 0},
+          "filter": {"family": "FILTER", "match": {"container": "beaker"}, "instructionStep": 2},
+          "evaporate": {"family": "EVAPORATE", "match": {"container": "receiver"}, "instructionStep": 3},
+          "observe": {"family": "OBSERVE", "match": {"target": "crystals"}, "instructionStep": 4}
+        }
+      },
+      "observationTargets": [
+        {"id": "turbid", "labelKey": "ui.dlab-target-turbid", "producedBy": "INSTRUCTION_TEXT", "source": "legacyContent.steps[2] (\"Loyqa eritmani …\")", "kind": "turbid-mixture", "kindSource": "legacyContent.steps[2]"},
+        {"id": "filtrate", "labelKey": "ui.dlab-target-filtrate", "producedBy": "INSTRUCTION_TEXT", "source": "legacyContent.steps[2] (\"Voronkadan o‘tgan tiniq eritma filtrat hisoblanadi.\")", "kind": "clear-filtrate", "kindSource": "legacyContent.steps[2]"},
+        {"id": "crystals", "labelKey": "ui.dlab-target-crystals", "producedBy": "INSTRUCTION_TEXT", "source": "legacyContent.steps[4] (\"Tuz kristallari paydo bo‘la boshlaganda …\")", "kind": "state-change", "kindSource": "legacyContent.steps[4]; the existing adapter records {type: state-change, from: filtrate, to: crystals}"}
+      ],
+      "completionGoal": {"kind": "all-required-steps"},
+      "guidance": {"levels": [1, 2, 3, 4], "defaultLevel": 1},
+      "safety": {"notes": [{"text": "Sachrashning oldini olish uchun aralashtiring.", "source": "legacyContent.steps[3]"}], "forbiddenFamilies": []},
+      "chemistry": {"authority": "dissolution", "solventSubstanceId": "water"},
+      "gaps": [
+        {"code": "SAFETY_TEXT_EMPTY", "detail": "legacyContent.safety is empty; the only safety sentence is in step 4 (spattering)."},
+        {"code": "EQUIPMENT_LIST_INCOMPLETE", "detail": "\"chinni kosacha\" is used in step 4 but is not in legacyContent.equipment."},
+        {"code": "APPARATUS_WITHOUT_OPERATION", "detail": "\"buyum oynasi\" and \"probirka tutqichi\" are listed, but no step uses them, so they are not offered."},
+        {"code": "QUANTITY_NOT_DECLARED", "detail": "The salt is added \"oz-ozdan\" (little by little) with no amount, so only the water has a quantity (20 ml)."},
+        {"code": "IMPURITY_UNDECLARED", "detail": "The impurity's identity is not declared; it is carried as an undeclared insoluble part, never as a species."},
+        {"code": "OBSERVATION_FROM_INSTRUCTION_TEXT", "detail": "No filtration, evaporation or crystallisation model exists. The turbid / filtrate / crystals observations are the instruction's own sentences (INSTRUCTION_TEXT), as in the existing adapter."},
+        {"code": "REAGENT_LIST_UNRELATED", "detail": "legacyContent.reagents lists Zn, Al, KI, etanol, which no step uses; they are not offered."}
+      ]
+    }
+  ]
+}

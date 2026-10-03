@@ -17,6 +17,8 @@ import {renderWorksheet} from '../features/worksheet/render.ts';
 import {renderLabs} from '../features/labs/render.ts';
 import {renderCurriculum} from '../features/curriculum/render.ts';
 import {renderExternalLab} from '../features/labs/external-render.ts';
+import {renderDynamicLab,renderDynamicLabUnavailable} from '../features/dynamic-lab/render.ts';
+import {isFeatureEnabled} from './feature-flags.ts';
 
 const mainElement=document.getElementById('app-main');
 if(!(mainElement instanceof HTMLElement)) throw new Error('APP_MAIN_MISSING');
@@ -37,6 +39,8 @@ function navigateInternal(href:string){ host.navigate(href); }
 for(const anchor of document.querySelectorAll<HTMLAnchorElement>('a[data-kl-route]')) anchor.setAttribute('href',host.href(anchor.dataset.klRoute??'/'));
 for(const image of document.querySelectorAll<HTMLImageElement>('img[data-kl-asset]')) image.setAttribute('src',host.assetUrl(image.dataset.klAsset??''));
 
+// one learner sentence for "the activity could not be loaded" (classic practice page and dynamic lab)
+const ACTIVITY_LOAD_ERROR='Faoliyatni yuklab bo‘lmadi.';
 let activePractice:PracticeAttemptSession|undefined;
 let activeAssessment:AssessmentSessionState|undefined;
 
@@ -64,7 +68,20 @@ async function renderCurrent(){
       let persistError:unknown;
       // P1.4 strangler seam: a rendererRequirement → RendererRegistry; otherwise the legacy practice renderer.
       renderPracticePage(main,page,{apply:async(command)=>{const out=await progressService.applyPracticeCommand(attemptSession,command);persistError=out.persistError;return out.result;},current:()=>practiceEngine.result(),retry:()=>{void renderCurrent();}},rendererRegistry,async()=>{if(persistError)throw persistError;});}
-    catch(error){renderError(main,contentErrorMessage(error,'Faoliyatni yuklab bo‘lmadi.'));}
+    catch(error){renderError(main,contentErrorMessage(error,ACTIVITY_LOAD_ERROR));}
+    return;
+  }
+  if(route.name==='dynamic-lab'){
+    // P2.10: behind guidedDynamicLabV1. No attempt, evidence or progress is written; the classic route is unchanged.
+    renderLoading(main);
+    try{
+      const page=await client.loadPractice(route.practiceActivityId);
+      if(!isFeatureEnabled('guidedDynamicLabV1',active.searchParams)){ renderDynamicLabUnavailable(main,page,'flag-off'); return; }
+      const profile=await client.loadTopicLabProfile(route.practiceActivityId);
+      if(!profile){ renderDynamicLabUnavailable(main,page,'no-profile'); return; }
+      renderDynamicLab(main,page,profile);
+    }
+    catch(error){renderError(main,contentErrorMessage(error,ACTIVITY_LOAD_ERROR));}
     return;
   }
   if(route.name==='learning-unit'||route.name==='learning-guide'||route.name==='learning-practice'||route.name==='learning-quiz'){

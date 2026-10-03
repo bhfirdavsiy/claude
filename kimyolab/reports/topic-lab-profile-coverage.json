@@ -1,0 +1,1354 @@
+{
+  "schema": "kimyolab.topic-lab-profile-coverage.v1",
+  "phase": "P2.10",
+  "profileSchema": "kimyolab.topic-lab-profile.v1",
+  "semantics": "PROFILED = a validated kimyolab.topic-lab-profile.v1 exists (vertical slice). PROFILE_CANDIDATE = every instruction operation maps to a family with a domain handler and the config names a chemistry authority. BLOCKED = the listed blockers must be resolved first (no profile is written by guessing). No mass migration: candidates are not profiled in P2.10.",
+  "summary": {
+    "experiments": 57,
+    "BLOCKED": 54,
+    "PROFILED": 3
+  },
+  "rows": [
+    {
+      "activityId": "practice.experiment.10.1",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "COMPARE",
+        "HEAT",
+        "OBSERVE",
+        "RECORD"
+      ],
+      "familiesWithoutHandler": [
+        "COMPARE",
+        "HEAT"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:COMPARE",
+        "NO_DOMAIN_HANDLER:HEAT"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.10.10",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "COMPARE",
+        "INFER",
+        "OBSERVE",
+        "PREPARE_SUBSTANCE"
+      ],
+      "familiesWithoutHandler": [
+        "COMPARE",
+        "INFER",
+        "PREPARE_SUBSTANCE"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:COMPARE",
+        "NO_DOMAIN_HANDLER:INFER",
+        "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.10.2",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "HEAT",
+        "OBSERVE",
+        "PASS_GAS"
+      ],
+      "familiesWithoutHandler": [
+        "HEAT",
+        "PASS_GAS"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:HEAT",
+        "NO_DOMAIN_HANDLER:PASS_GAS"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.10.22.carboxylic-acid",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [],
+      "familiesWithoutHandler": [],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_INSTRUCTION_STEPS"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.10.3",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "HEAT",
+        "OBSERVE",
+        "PASS_GAS",
+        "PREPARE_SUBSTANCE"
+      ],
+      "familiesWithoutHandler": [
+        "HEAT",
+        "PASS_GAS",
+        "PREPARE_SUBSTANCE"
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        "NO_DOMAIN_HANDLER:HEAT",
+        "NO_DOMAIN_HANDLER:PASS_GAS",
+        "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+        "ORDER_DECISION_OPEN"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.10.5",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "INFER",
+        "OBSERVE",
+        "PREPARE_SUBSTANCE",
+        "SEPARATE",
+        "STUDY"
+      ],
+      "familiesWithoutHandler": [
+        "INFER",
+        "PREPARE_SUBSTANCE",
+        "SEPARATE",
+        "STUDY"
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        "NO_DOMAIN_HANDLER:INFER",
+        "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+        "NO_DOMAIN_HANDLER:SEPARATE",
+        "NO_DOMAIN_HANDLER:STUDY",
+        "ORDER_DECISION_OPEN"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.10.6",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "HEAT",
+        "OBSERVE"
+      ],
+      "familiesWithoutHandler": [
+        "HEAT"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:HEAT"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.10.7",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "COLLECT_GAS",
+        "OBSERVE",
+        "REPEAT",
+        "SEPARATE",
+        "SETUP_APPARATUS"
+      ],
+      "familiesWithoutHandler": [
+        "COLLECT_GAS",
+        "REPEAT",
+        "SEPARATE"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "AMBIGUOUS_OPERATION:yig‘ing",
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:COLLECT_GAS",
+        "NO_DOMAIN_HANDLER:REPEAT",
+        "NO_DOMAIN_HANDLER:SEPARATE"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.10.8",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "HEAT",
+        "MIX",
+        "OBSERVE",
+        "SEPARATE"
+      ],
+      "familiesWithoutHandler": [
+        "HEAT",
+        "SEPARATE"
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        "NO_DOMAIN_HANDLER:HEAT",
+        "NO_DOMAIN_HANDLER:SEPARATE",
+        "ORDER_DECISION_OPEN"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.10.9",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "HEAT",
+        "INFER",
+        "OBSERVE",
+        "TEST"
+      ],
+      "familiesWithoutHandler": [
+        "HEAT",
+        "INFER",
+        "TEST"
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        "NO_DOMAIN_HANDLER:HEAT",
+        "NO_DOMAIN_HANDLER:INFER",
+        "NO_DOMAIN_HANDLER:TEST",
+        "ORDER_DECISION_OPEN"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.11.2",
+      "status": "PROFILED",
+      "profileId": "lab-profile.11.2.electrolysis",
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "ELECTRIC_CURRENT",
+        "EXPLAIN",
+        "OBSERVE",
+        "RECORD",
+        "SETUP_APPARATUS"
+      ],
+      "familiesWithoutHandler": [
+        "EXPLAIN"
+      ],
+      "chemistryAuthority": "electrolysis",
+      "orderMode": "HUMAN_DECISION_REQUIRED",
+      "blockers": [],
+      "profileGaps": [
+        "ELECTRODE_MATERIAL_NOT_IN_INSTRUCTION",
+        "RECORD_CHECKER_MISSING",
+        "ION_MIGRATION_NOT_MODELED",
+        "OBSERVATION_TEXT_NOT_LOCALIZED"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.1",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "BRING_NEAR",
+        "COMPARE",
+        "HEAT",
+        "OBSERVE",
+        "SEAL",
+        "SETUP_APPARATUS",
+        "STOP_HEAT",
+        "STUDY",
+        "TEST"
+      ],
+      "familiesWithoutHandler": [
+        "BRING_NEAR",
+        "COMPARE",
+        "HEAT",
+        "SEAL",
+        "STOP_HEAT",
+        "STUDY",
+        "TEST"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:BRING_NEAR",
+        "NO_DOMAIN_HANDLER:COMPARE",
+        "NO_DOMAIN_HANDLER:HEAT",
+        "NO_DOMAIN_HANDLER:SEAL",
+        "NO_DOMAIN_HANDLER:STOP_HEAT",
+        "NO_DOMAIN_HANDLER:STUDY",
+        "NO_DOMAIN_HANDLER:TEST",
+        "UNMAPPED_OPERATION:qaratmang"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.7.10",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "COLLECT_GAS",
+        "EXPLAIN",
+        "HEAT",
+        "OBSERVE",
+        "TEST"
+      ],
+      "familiesWithoutHandler": [
+        "COLLECT_GAS",
+        "EXPLAIN",
+        "HEAT",
+        "TEST"
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        "NO_DOMAIN_HANDLER:COLLECT_GAS",
+        "NO_DOMAIN_HANDLER:EXPLAIN",
+        "NO_DOMAIN_HANDLER:HEAT",
+        "NO_DOMAIN_HANDLER:TEST"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.7.11",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "COMPARE",
+        "EXPLAIN",
+        "OBSERVE",
+        "RECORD"
+      ],
+      "familiesWithoutHandler": [
+        "COMPARE",
+        "EXPLAIN"
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        "NO_DOMAIN_HANDLER:COMPARE",
+        "NO_DOMAIN_HANDLER:EXPLAIN"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.7.12",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "COMPARE",
+        "OBSERVE"
+      ],
+      "familiesWithoutHandler": [
+        "COMPARE"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:COMPARE"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.7.13",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "COMPARE",
+        "MIX",
+        "OBSERVE",
+        "TEST"
+      ],
+      "familiesWithoutHandler": [
+        "COMPARE",
+        "TEST"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:COMPARE",
+        "NO_DOMAIN_HANDLER:TEST"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.7.2",
+      "status": "PROFILED",
+      "profileId": "lab-profile.7.2.salt-purification",
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "CONTINUE",
+        "EVAPORATE",
+        "FILTER",
+        "MIX",
+        "OBSERVE",
+        "SETUP_APPARATUS",
+        "STOP_HEAT"
+      ],
+      "familiesWithoutHandler": [
+        "CONTINUE",
+        "STOP_HEAT"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": "STRICT",
+      "blockers": [],
+      "profileGaps": [
+        "SAFETY_TEXT_EMPTY",
+        "EQUIPMENT_LIST_INCOMPLETE",
+        "APPARATUS_WITHOUT_OPERATION",
+        "QUANTITY_NOT_DECLARED",
+        "IMPURITY_UNDECLARED",
+        "OBSERVATION_FROM_INSTRUCTION_TEXT",
+        "REAGENT_LIST_UNRELATED"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.3",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "COMPARE",
+        "HEAT",
+        "MIX",
+        "OBSERVE",
+        "PREPARE_SUBSTANCE",
+        "WAIT",
+        "WASH"
+      ],
+      "familiesWithoutHandler": [
+        "COMPARE",
+        "HEAT",
+        "PREPARE_SUBSTANCE",
+        "WAIT"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:COMPARE",
+        "NO_DOMAIN_HANDLER:HEAT",
+        "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+        "NO_DOMAIN_HANDLER:WAIT"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.7.6",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "HEAT",
+        "OBSERVE",
+        "RECORD",
+        "TRANSFER"
+      ],
+      "familiesWithoutHandler": [
+        "HEAT",
+        "TRANSFER"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:HEAT",
+        "NO_DOMAIN_HANDLER:TRANSFER"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.7.7",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "COLLECT_GAS",
+        "HEAT",
+        "IGNITE",
+        "MIX",
+        "OBSERVE",
+        "RECORD",
+        "SETUP_APPARATUS",
+        "STOP_HEAT"
+      ],
+      "familiesWithoutHandler": [
+        "COLLECT_GAS",
+        "HEAT",
+        "IGNITE",
+        "STOP_HEAT"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:COLLECT_GAS",
+        "NO_DOMAIN_HANDLER:HEAT",
+        "NO_DOMAIN_HANDLER:IGNITE",
+        "NO_DOMAIN_HANDLER:STOP_HEAT"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.7.8",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "BRING_NEAR",
+        "COLLECT_GAS",
+        "HEAT",
+        "OBSERVE",
+        "PASS_GAS",
+        "SEAL",
+        "TEST"
+      ],
+      "familiesWithoutHandler": [
+        "BRING_NEAR",
+        "COLLECT_GAS",
+        "HEAT",
+        "PASS_GAS",
+        "SEAL",
+        "TEST"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:BRING_NEAR",
+        "NO_DOMAIN_HANDLER:COLLECT_GAS",
+        "NO_DOMAIN_HANDLER:HEAT",
+        "NO_DOMAIN_HANDLER:PASS_GAS",
+        "NO_DOMAIN_HANDLER:SEAL",
+        "NO_DOMAIN_HANDLER:TEST"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.7.9",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "COMPARE",
+        "OBSERVE",
+        "PREPARE_SUBSTANCE",
+        "RECORD"
+      ],
+      "familiesWithoutHandler": [
+        "COMPARE",
+        "PREPARE_SUBSTANCE"
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        "NO_DOMAIN_HANDLER:COMPARE",
+        "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.1",
+      "status": "PROFILED",
+      "profileId": "lab-profile.8.1.chloride-precipitation",
+      "instructionFamilies": [
+        "COMPARE",
+        "INFER",
+        "PREPARE_SUBSTANCE"
+      ],
+      "familiesWithoutHandler": [
+        "COMPARE",
+        "INFER",
+        "PREPARE_SUBSTANCE"
+      ],
+      "chemistryAuthority": "ionic-mixing",
+      "orderMode": "FLEXIBLE",
+      "blockers": [],
+      "profileGaps": [
+        "APPARATUS_NOT_DECLARED",
+        "MATERIALS_NOT_DECLARED",
+        "QUANTITY_NOT_DECLARED",
+        "INSTRUCTION_IS_PROBLEM_SET",
+        "ACTION_FROM_RUNTIME_NOT_INSTRUCTION"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.10",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "OBSERVE",
+        "TRANSFER"
+      ],
+      "familiesWithoutHandler": [
+        "TRANSFER"
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        "NO_DOMAIN_HANDLER:TRANSFER"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.11",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "COMPARE",
+        "MIX",
+        "SETTLE"
+      ],
+      "familiesWithoutHandler": [
+        "COMPARE",
+        "SETTLE"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:COMPARE",
+        "NO_DOMAIN_HANDLER:SETTLE"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.12",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "PASS_GAS",
+        "RECORD"
+      ],
+      "familiesWithoutHandler": [
+        "PASS_GAS"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:PASS_GAS"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.12.planned",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [],
+      "familiesWithoutHandler": [],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_INSTRUCTION_STEPS"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.13",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "OBSERVE"
+      ],
+      "familiesWithoutHandler": [],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.14",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "BRING_NEAR",
+        "COLLECT_GAS",
+        "HEAT",
+        "OBSERVE",
+        "SEAL"
+      ],
+      "familiesWithoutHandler": [
+        "BRING_NEAR",
+        "COLLECT_GAS",
+        "HEAT",
+        "SEAL"
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        "NO_DOMAIN_HANDLER:BRING_NEAR",
+        "NO_DOMAIN_HANDLER:COLLECT_GAS",
+        "NO_DOMAIN_HANDLER:HEAT",
+        "NO_DOMAIN_HANDLER:SEAL"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.15",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "PASS_GAS",
+        "RECORD"
+      ],
+      "familiesWithoutHandler": [
+        "PASS_GAS"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:PASS_GAS"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.2",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "EXPLAIN",
+        "INFER",
+        "RECORD"
+      ],
+      "familiesWithoutHandler": [
+        "EXPLAIN",
+        "INFER"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:EXPLAIN",
+        "NO_DOMAIN_HANDLER:INFER"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.3",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "BRING_NEAR",
+        "COLLECT_GAS",
+        "EXPLAIN",
+        "HEAT",
+        "INFER",
+        "MIX",
+        "OBSERVE",
+        "PREPARE_SUBSTANCE",
+        "RECORD",
+        "SETUP_APPARATUS",
+        "TEST"
+      ],
+      "familiesWithoutHandler": [
+        "BRING_NEAR",
+        "COLLECT_GAS",
+        "EXPLAIN",
+        "HEAT",
+        "INFER",
+        "PREPARE_SUBSTANCE",
+        "TEST"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:BRING_NEAR",
+        "NO_DOMAIN_HANDLER:COLLECT_GAS",
+        "NO_DOMAIN_HANDLER:EXPLAIN",
+        "NO_DOMAIN_HANDLER:HEAT",
+        "NO_DOMAIN_HANDLER:INFER",
+        "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+        "NO_DOMAIN_HANDLER:TEST"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.4",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "COMPARE",
+        "HEAT",
+        "INFER",
+        "PREPARE_SUBSTANCE"
+      ],
+      "familiesWithoutHandler": [
+        "COMPARE",
+        "HEAT",
+        "INFER",
+        "PREPARE_SUBSTANCE"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:COMPARE",
+        "NO_DOMAIN_HANDLER:HEAT",
+        "NO_DOMAIN_HANDLER:INFER",
+        "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.5",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "EXPLAIN",
+        "INFER"
+      ],
+      "familiesWithoutHandler": [
+        "EXPLAIN",
+        "INFER"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:EXPLAIN",
+        "NO_DOMAIN_HANDLER:INFER"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.6",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "MIX",
+        "REPEAT",
+        "SEPARATE"
+      ],
+      "familiesWithoutHandler": [
+        "REPEAT",
+        "SEPARATE"
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        "NO_DOMAIN_HANDLER:REPEAT",
+        "NO_DOMAIN_HANDLER:SEPARATE"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.8",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "EXPLAIN",
+        "OBSERVE",
+        "RECORD",
+        "TRANSFER"
+      ],
+      "familiesWithoutHandler": [
+        "EXPLAIN",
+        "TRANSFER"
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        "NO_DOMAIN_HANDLER:EXPLAIN",
+        "NO_DOMAIN_HANDLER:TRANSFER"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.9",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "FILTER",
+        "MIX",
+        "TEST"
+      ],
+      "familiesWithoutHandler": [
+        "TEST"
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        "NO_DOMAIN_HANDLER:TEST"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.1",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "FILTER",
+        "HEAT",
+        "OBSERVE",
+        "PASS_GAS",
+        "SEAL",
+        "SEPARATE",
+        "TEST"
+      ],
+      "familiesWithoutHandler": [
+        "HEAT",
+        "PASS_GAS",
+        "SEAL",
+        "SEPARATE",
+        "TEST"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:HEAT",
+        "NO_DOMAIN_HANDLER:PASS_GAS",
+        "NO_DOMAIN_HANDLER:SEAL",
+        "NO_DOMAIN_HANDLER:SEPARATE",
+        "NO_DOMAIN_HANDLER:TEST"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.10",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "ELECTRIC_CURRENT",
+        "OBSERVE",
+        "SETUP_APPARATUS"
+      ],
+      "familiesWithoutHandler": [],
+      "chemistryAuthority": "electrolysis",
+      "orderMode": null,
+      "blockers": [
+        "ORDER_DECISION_OPEN"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.11",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "COMPARE",
+        "OBSERVE"
+      ],
+      "familiesWithoutHandler": [
+        "COMPARE"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:COMPARE"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.12",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "COMPARE",
+        "PASS_GAS"
+      ],
+      "familiesWithoutHandler": [
+        "COMPARE",
+        "PASS_GAS"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:COMPARE",
+        "NO_DOMAIN_HANDLER:PASS_GAS"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.13",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "OBSERVE",
+        "PREPARE_SUBSTANCE",
+        "SEPARATE"
+      ],
+      "familiesWithoutHandler": [
+        "PREPARE_SUBSTANCE",
+        "SEPARATE"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+        "NO_DOMAIN_HANDLER:SEPARATE"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.14",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "EXPLAIN",
+        "OBSERVE"
+      ],
+      "familiesWithoutHandler": [
+        "EXPLAIN"
+      ],
+      "chemistryAuthority": "hydrolysis",
+      "orderMode": null,
+      "blockers": [
+        "NO_DOMAIN_HANDLER:EXPLAIN"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.15",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "OBSERVE",
+        "PREPARE_SUBSTANCE",
+        "TEST"
+      ],
+      "familiesWithoutHandler": [
+        "PREPARE_SUBSTANCE",
+        "TEST"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+        "NO_DOMAIN_HANDLER:TEST"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.16",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "OBSERVE",
+        "PREPARE_SUBSTANCE",
+        "SEPARATE"
+      ],
+      "familiesWithoutHandler": [
+        "PREPARE_SUBSTANCE",
+        "SEPARATE"
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+        "NO_DOMAIN_HANDLER:SEPARATE"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.17",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "COMPARE",
+        "OBSERVE"
+      ],
+      "familiesWithoutHandler": [
+        "COMPARE"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:COMPARE"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.18",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "OBSERVE",
+        "PREPARE_SUBSTANCE"
+      ],
+      "familiesWithoutHandler": [
+        "PREPARE_SUBSTANCE"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.19",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "COMPARE",
+        "OBSERVE"
+      ],
+      "familiesWithoutHandler": [
+        "COMPARE"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:COMPARE"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.2",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "COMPARE",
+        "HEAT",
+        "INFER",
+        "PASS_GAS",
+        "SELECT"
+      ],
+      "familiesWithoutHandler": [
+        "COMPARE",
+        "HEAT",
+        "INFER",
+        "PASS_GAS",
+        "SELECT"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:COMPARE",
+        "NO_DOMAIN_HANDLER:HEAT",
+        "NO_DOMAIN_HANDLER:INFER",
+        "NO_DOMAIN_HANDLER:PASS_GAS",
+        "NO_DOMAIN_HANDLER:SELECT"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.20",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "COMPARE",
+        "PASS_GAS",
+        "RECORD"
+      ],
+      "familiesWithoutHandler": [
+        "COMPARE",
+        "PASS_GAS"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:COMPARE",
+        "NO_DOMAIN_HANDLER:PASS_GAS"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.3",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "EXPLAIN",
+        "INFER",
+        "PREPARE_SUBSTANCE"
+      ],
+      "familiesWithoutHandler": [
+        "EXPLAIN",
+        "INFER",
+        "PREPARE_SUBSTANCE"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:EXPLAIN",
+        "NO_DOMAIN_HANDLER:INFER",
+        "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.4",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "OBSERVE",
+        "RECORD",
+        "TEST"
+      ],
+      "familiesWithoutHandler": [
+        "TEST"
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        "NO_DOMAIN_HANDLER:TEST"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.5",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "OBSERVE",
+        "PASS_GAS",
+        "TEST"
+      ],
+      "familiesWithoutHandler": [
+        "PASS_GAS",
+        "TEST"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:PASS_GAS",
+        "NO_DOMAIN_HANDLER:TEST"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.6",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "PASS_GAS"
+      ],
+      "familiesWithoutHandler": [
+        "PASS_GAS"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:PASS_GAS"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.7",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "HEAT",
+        "INFER",
+        "OBSERVE",
+        "PASS_GAS",
+        "RECORD",
+        "SETUP_APPARATUS"
+      ],
+      "familiesWithoutHandler": [
+        "HEAT",
+        "INFER",
+        "PASS_GAS"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:HEAT",
+        "NO_DOMAIN_HANDLER:INFER",
+        "NO_DOMAIN_HANDLER:PASS_GAS"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.8",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "OBSERVE",
+        "PASS_GAS",
+        "TEST"
+      ],
+      "familiesWithoutHandler": [
+        "PASS_GAS",
+        "TEST"
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+        "NO_DOMAIN_HANDLER:PASS_GAS",
+        "NO_DOMAIN_HANDLER:TEST"
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.9",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        "ADD_SUBSTANCE",
+        "OBSERVE"
+      ],
+      "familiesWithoutHandler": [],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG"
+      ],
+      "profileGaps": []
+    }
+  ]
+}

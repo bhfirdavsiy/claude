@@ -1,0 +1,212 @@
+{
+  "schema": "kimyolab.lab-migration-equivalence.v1",
+  "phase": "P2.10",
+  "semantics": "Old vs new on the SAME built content pack, per dimension. MIGRATION_EQUIVALENT only when every dimension is EQUIVALENT; otherwise the old runtime stays the canonical one. Even an equivalent slice is only ELIGIBLE: a migration is a human decision, never taken here.",
+  "summary": {
+    "slices": 3,
+    "migrationEquivalent": 0,
+    "keepOldRuntime": [
+      "practice.experiment.8.1",
+      "practice.experiment.11.2",
+      "practice.experiment.7.2"
+    ]
+  },
+  "slices": [
+    {
+      "activityId": "practice.experiment.8.1",
+      "profileId": "lab-profile.8.1.chloride-precipitation",
+      "oldRuntime": {
+        "runtime": "reference-slice",
+        "capability": "slice.8.16.chloride-precipitation",
+        "renderer": "ionic-precipitation"
+      },
+      "scenario": "BaCl2+H2SO4, NaCl+NaNO3 (not modeled), AgNO3+NaCl, then the net ionic equation — the same choices in both runtimes",
+      "dimensions": {
+        "instruction": {
+          "status": "DIFFERENT",
+          "detail": "new: the instruction steps, their operations and the grounded step (2) are part of the profile; old: the reagent shelf only",
+          "evidence": "topic-lab-profiles.json instruction"
+        },
+        "chemistryResult": {
+          "status": "EQUIVALENT",
+          "detail": "the same evaluateIonicMixing outcomes, reaction ids and coverage codes for every pair",
+          "evidence": "runs both: old ReferencePracticeSession vs new applyLabAction on the built pack"
+        },
+        "observations": {
+          "status": "EQUIVALENT",
+          "detail": "the observation data is the reaction record’s own observation in both",
+          "evidence": "runs both"
+        },
+        "safety": {
+          "status": "EQUIVALENT",
+          "detail": "neither runtime has safety text for 8.1 (legacyContent.safety is empty)",
+          "evidence": "profile.safety.notes = []"
+        },
+        "completion": {
+          "status": "EQUIVALENT",
+          "detail": "old complete=true, new complete=true (target observed + correct net ionic equation)",
+          "evidence": "runs both"
+        },
+        "evidence": {
+          "status": "DIFFERENT",
+          "detail": "new: evidence CANDIDATES only (persisted:false); the old runtime writes observation/answer/construction evidence through the orchestrator",
+          "evidence": "LabActionResult.evidenceCandidate"
+        },
+        "accessibility": {
+          "status": "NOT_PROVEN",
+          "detail": "the new route has its own e2e accessibility checks (tests/e2e/guided-dynamic-lab.spec.mjs); it is not part of the P2.7 sweep (140/5/0/1 unchanged)",
+          "evidence": "e2e"
+        },
+        "portalStandaloneParity": {
+          "status": "EQUIVALENT",
+          "detail": "both runtimes run identically on the portal and the standalone host",
+          "evidence": "tests/e2e/guided-dynamic-lab.spec.mjs runs on both hosts"
+        }
+      },
+      "newOnly": {
+        "filterInTopic": "ACTION_NOT_ALLOWED_IN_TOPIC",
+        "replayDeterministic": true
+      },
+      "migrationStatus": "NOT_MIGRATION_EQUIVALENT",
+      "blockingDimensions": [
+        "instruction",
+        "evidence",
+        "accessibility"
+      ],
+      "decision": "KEEP_OLD_RUNTIME"
+    },
+    {
+      "activityId": "practice.experiment.11.2",
+      "profileId": "lab-profile.11.2.electrolysis",
+      "oldRuntime": {
+        "runtime": "beta3-advanced",
+        "capability": "electrolysis",
+        "renderer": "legacy"
+      },
+      "scenario": "fill → electrodes → power → current → observe cathode and anode; and the reverse order",
+      "dimensions": {
+        "instruction": {
+          "status": "DIFFERENT",
+          "detail": "new: the five instruction steps, the apparatus and materials of the text; old: three action buttons",
+          "evidence": "profile.instruction"
+        },
+        "chemistryResult": {
+          "status": "EQUIVALENT",
+          "detail": "cathode product: old Cu, new Cu (same ElectrolysisModel record)",
+          "evidence": "runs both"
+        },
+        "observations": {
+          "status": "DIFFERENT",
+          "detail": "old 11.2 records only the cathode observation (anode evidence absent); new also reports the anode product Cl2 from the same model record",
+          "evidence": "runs both"
+        },
+        "safety": {
+          "status": "EQUIVALENT",
+          "detail": "the same legacy safety sentence",
+          "evidence": "profile.safety.notes ← legacyContent.safety"
+        },
+        "completion": {
+          "status": "DIFFERENT",
+          "detail": "old completes in any order without filling the cell (reverse order complete=true); new needs the electrolyte, electrodes and power before current, and observations only count while current flows (reverse order complete=false)",
+          "evidence": "runs both"
+        },
+        "evidence": {
+          "status": "DIFFERENT",
+          "detail": "new: candidates only (persisted:false)",
+          "evidence": "LabActionResult.evidenceCandidate"
+        },
+        "accessibility": {
+          "status": "NOT_PROVEN",
+          "detail": "covered by the route’s own e2e checks, not by the P2.7 sweep",
+          "evidence": "e2e"
+        },
+        "portalStandaloneParity": {
+          "status": "EQUIVALENT",
+          "detail": "both hosts",
+          "evidence": "tests/e2e/guided-dynamic-lab.spec.mjs"
+        }
+      },
+      "orderDecision": {
+        "mode": "HUMAN_DECISION_REQUIRED",
+        "packet": "review-packets/feedback-semantics/practice.experiment.11.2.md",
+        "selected": null
+      },
+      "newOnly": {
+        "replayDeterministic": true
+      },
+      "migrationStatus": "NOT_MIGRATION_EQUIVALENT",
+      "blockingDimensions": [
+        "instruction",
+        "observations",
+        "completion",
+        "evidence",
+        "accessibility"
+      ],
+      "decision": "KEEP_OLD_RUNTIME"
+    },
+    {
+      "activityId": "practice.experiment.7.2",
+      "profileId": "lab-profile.7.2.salt-purification",
+      "oldRuntime": {
+        "runtime": "reference-slice",
+        "capability": "slice.7.03.separation",
+        "renderer": "legacy"
+      },
+      "scenario": "the declared sequence apparatus → water → mixture → dissolve → filter → evaporate → observe; and adding water first",
+      "dimensions": {
+        "instruction": {
+          "status": "DIFFERENT",
+          "detail": "new: the apparatus, materials, 20 ml limit and step sentences of the instruction; old: seven unlabeled config action types",
+          "evidence": "profile.instruction"
+        },
+        "chemistryResult": {
+          "status": "DIFFERENT",
+          "detail": "new: dissolution of NaCl is checked against the solubility data (IonicEngine.dissociate); old: no chemistry authority is consulted",
+          "evidence": "runs both"
+        },
+        "observations": {
+          "status": "EQUIVALENT",
+          "detail": "final observation kind: old state-change (filtrate→crystals), new state-change from the instruction sentence legacyContent.steps[4] (\"Tuz kristallari paydo bo‘la boshlaganda …\"); new also reports the turbid mixture and the clear filtrate (instruction text)",
+          "evidence": "runs both"
+        },
+        "safety": {
+          "status": "DIFFERENT",
+          "detail": "new shows the instruction’s spattering sentence (step 4); old shows none (legacyContent.safety is empty)",
+          "evidence": "profile.safety.notes"
+        },
+        "completion": {
+          "status": "EQUIVALENT",
+          "detail": "declared order enforced by both: early water rejected old=true new=true; complete old=true new=true",
+          "evidence": "runs both"
+        },
+        "evidence": {
+          "status": "DIFFERENT",
+          "detail": "new: candidates only (persisted:false)",
+          "evidence": "LabActionResult.evidenceCandidate"
+        },
+        "accessibility": {
+          "status": "NOT_PROVEN",
+          "detail": "covered by the route’s own e2e checks, not by the P2.7 sweep",
+          "evidence": "e2e"
+        },
+        "portalStandaloneParity": {
+          "status": "EQUIVALENT",
+          "detail": "both hosts",
+          "evidence": "tests/e2e/guided-dynamic-lab.spec.mjs"
+        }
+      },
+      "newOnly": {
+        "replayDeterministic": true
+      },
+      "migrationStatus": "NOT_MIGRATION_EQUIVALENT",
+      "blockingDimensions": [
+        "instruction",
+        "chemistryResult",
+        "safety",
+        "evidence",
+        "accessibility"
+      ],
+      "decision": "KEEP_OLD_RUNTIME"
+    }
+  ]
+}

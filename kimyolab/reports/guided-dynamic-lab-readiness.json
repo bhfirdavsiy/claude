@@ -1,0 +1,201 @@
+{
+  "schema": "kimyolab.guided-dynamic-lab-readiness.v1",
+  "phase": "P2.10",
+  "decision": "NOT_A_RELEASE_OR_PILOT_DECISION",
+  "semantics": "What exists, what is proven and what is still a human decision. The agent does not decide chemistry truth, release or pilot sign-off.",
+  "featureFlag": {
+    "name": "guidedDynamicLabV1",
+    "default": false,
+    "enable": "?ff=guidedDynamicLabV1",
+    "route": "/dynamic-lab/<activityId>",
+    "oldRuntime": "unchanged and still the canonical route (/practice/<activityId>)"
+  },
+  "contracts": [
+    {
+      "id": "kimyolab.topic-lab-profile.v1",
+      "path": "src/domain/lab/topic-lab-profile.ts",
+      "chemistryTruth": false
+    },
+    {
+      "id": "kimyolab.lab-state.v1",
+      "path": "src/domain/lab/lab-runtime.ts"
+    },
+    {
+      "id": "applyLabAction",
+      "path": "src/domain/lab/lab-runtime.ts",
+      "signature": "applyLabAction(state, action, topicProfile) → {nextState, chemistryEvents, observations, procedural, guidance, evidenceCandidate, unsupported, error}"
+    },
+    {
+      "id": "lab-action-catalog",
+      "path": "src/domain/lab/action-catalog.ts"
+    }
+  ],
+  "slices": [
+    {
+      "activityId": "practice.experiment.8.1",
+      "profileId": "lab-profile.8.1.chloride-precipitation",
+      "chemistryAuthority": "ionic-mixing",
+      "orderMode": "FLEXIBLE",
+      "completion": "ionic-target",
+      "migration": "NOT_MIGRATION_EQUIVALENT",
+      "profileGaps": [
+        "APPARATUS_NOT_DECLARED",
+        "MATERIALS_NOT_DECLARED",
+        "QUANTITY_NOT_DECLARED",
+        "INSTRUCTION_IS_PROBLEM_SET",
+        "ACTION_FROM_RUNTIME_NOT_INSTRUCTION"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.11.2",
+      "profileId": "lab-profile.11.2.electrolysis",
+      "chemistryAuthority": "electrolysis",
+      "orderMode": "HUMAN_DECISION_REQUIRED",
+      "completion": "observations",
+      "migration": "NOT_MIGRATION_EQUIVALENT",
+      "profileGaps": [
+        "ELECTRODE_MATERIAL_NOT_IN_INSTRUCTION",
+        "RECORD_CHECKER_MISSING",
+        "ION_MIGRATION_NOT_MODELED",
+        "OBSERVATION_TEXT_NOT_LOCALIZED"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.2",
+      "profileId": "lab-profile.7.2.salt-purification",
+      "chemistryAuthority": "dissolution",
+      "orderMode": "STRICT",
+      "completion": "all-required-steps",
+      "migration": "NOT_MIGRATION_EQUIVALENT",
+      "profileGaps": [
+        "SAFETY_TEXT_EMPTY",
+        "EQUIPMENT_LIST_INCOMPLETE",
+        "APPARATUS_WITHOUT_OPERATION",
+        "QUANTITY_NOT_DECLARED",
+        "IMPURITY_UNDECLARED",
+        "OBSERVATION_FROM_INSTRUCTION_TEXT",
+        "REAGENT_LIST_UNRELATED"
+      ]
+    }
+  ],
+  "sliceJustification": {
+    "precipitation": "8.1: the only experiment whose config is a learner-chosen reagent shelf over ReactionMatcher records (ionic-mixing); a precipitate forms while FILTER is not in its instruction (ACTION_NOT_ALLOWED_IN_TOPIC).",
+    "gas": "11.2: the gas slice the chemistry supports. ElectrolysisModel holds exactly one record (CuCl2, aq, inert), which 11.2’s config queries, and its instruction does not contradict it. 9.10 is NOT used: its instruction connects a copper anode (active) and electrolyses KI, neither of which is modeled.",
+    "multiStep": "7.2: the only experiment with DECLARED step dependencies (reference slice), seven steps over dissolution, filtration and evaporation (thermal), with an instruction quantity (20 ml)."
+  },
+  "counts": {
+    "experimentsInventoried": 57,
+    "operations": 350,
+    "mappedOperations": 348,
+    "ambiguousOperations": 1,
+    "unmappedOperations": 1,
+    "families": 29,
+    "familiesWithHandler": 9,
+    "profiled": 3,
+    "profileCandidates": 0,
+    "blocked": 54,
+    "migrationEquivalent": 0
+  },
+  "humanDecisions": [
+    {
+      "activityId": "practice.experiment.10.3",
+      "question": "experiment step order (carried forward from P2.9)",
+      "packet": "review-packets/feedback-semantics/practice.experiment.10.3.md",
+      "selected": null
+    },
+    {
+      "activityId": "practice.experiment.10.5",
+      "question": "experiment step order (carried forward from P2.9)",
+      "packet": "review-packets/feedback-semantics/practice.experiment.10.5.md",
+      "selected": null
+    },
+    {
+      "activityId": "practice.experiment.10.8",
+      "question": "experiment step order (carried forward from P2.9)",
+      "packet": "review-packets/feedback-semantics/practice.experiment.10.8.md",
+      "selected": null
+    },
+    {
+      "activityId": "practice.experiment.10.9",
+      "question": "experiment step order (carried forward from P2.9)",
+      "packet": "review-packets/feedback-semantics/practice.experiment.10.9.md",
+      "selected": null
+    },
+    {
+      "activityId": "practice.experiment.11.2",
+      "question": "experiment step order (carried forward from P2.9)",
+      "packet": "review-packets/feedback-semantics/practice.experiment.11.2.md",
+      "selected": null
+    },
+    {
+      "activityId": "practice.experiment.9.10",
+      "question": "experiment step order (carried forward from P2.9)",
+      "packet": "review-packets/feedback-semantics/practice.experiment.9.10.md",
+      "selected": null
+    },
+    {
+      "activityId": null,
+      "question": "migrate any slice from the old runtime (none is MIGRATION_EQUIVALENT)",
+      "packet": null,
+      "selected": null
+    },
+    {
+      "activityId": null,
+      "question": "assign PRIMARY / SUPPLEMENTARY / EXPLORE roles to external labs (no evidence beyond the shared learning unit)",
+      "packet": null,
+      "selected": null
+    }
+  ],
+  "definitionOfDone": [
+    {
+      "item": "all experiments inventoried",
+      "status": "MET"
+    },
+    {
+      "item": "every operation mapped to an action or an explicit gap",
+      "status": "MET"
+    },
+    {
+      "item": "schemas and runtime exist; unsupported chemistry fails closed",
+      "status": "MET"
+    },
+    {
+      "item": "order represented honestly (STRICT only where declared; open decisions stay HUMAN_DECISION_REQUIRED)",
+      "status": "MET"
+    },
+    {
+      "item": "2–3 vertical slices end-to-end behind guidedDynamicLabV1",
+      "status": "MET"
+    },
+    {
+      "item": "old runtime available; no mass migration",
+      "status": "MET"
+    },
+    {
+      "item": "migration equivalence proven for a slice",
+      "status": "NOT_MET"
+    },
+    {
+      "item": "release / pilot sign-off",
+      "status": "HUMAN"
+    }
+  ],
+  "bundleDelta": {
+    "before": {
+      "learnerModules": 162,
+      "learnerModuleBytes": 714004,
+      "standaloneBytes": 5704269
+    },
+    "after": {
+      "learnerModules": 168,
+      "learnerModuleBytes": 810760,
+      "standaloneBytes": 5851984
+    },
+    "delta": {
+      "learnerModules": 6,
+      "learnerModuleBytes": 96756,
+      "standaloneBytes": 147715
+    },
+    "newModules": "src/app/feature-flags.ts, src/domain/lab/{action-catalog,topic-lab-profile,lab-runtime,lab-domain}.ts, src/features/dynamic-lab/render.ts"
+  }
+}
