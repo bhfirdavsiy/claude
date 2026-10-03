@@ -28,7 +28,12 @@ export class ExperimentEngine {
 
   dispatch(action:LabAction):ExperimentActionResult {
     const step=this.scenario.steps.find(s=>this.eligible(s,action));
-    if(!step) return {status:'invalid',code:'INVALID_ACTION',feedbackKey:'experiment.invalid-action'};
+    if(!step){
+      // P2.9: same rejection (status/code unchanged, no state change, no evidence); the reason only says WHY, so the
+      // learner hears "do the earlier step first" instead of "your input is invalid" when a declared dependency is open
+      const blocked=this.scenario.steps.some(s=>s.allowedActions.includes(action.type)&&!this.state.completedStepIds.includes(s.id)&&!s.dependencies.every(id=>this.state.completedStepIds.includes(id)));
+      return blocked?{status:'invalid',code:'INVALID_ACTION',feedbackKey:'experiment.invalid-action',reason:'STEP_DEPENDENCY_UNMET'}:{status:'invalid',code:'INVALID_ACTION',feedbackKey:'experiment.invalid-action'};
+    }
     const evaluated=this.evaluator(this.getState(),clone(action),clone(step));
     if(evaluated.status!=='accepted'){
       if(evaluated.status==='unsafe') this.state.warnings.push(evaluated.code);

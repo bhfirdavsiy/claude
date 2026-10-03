@@ -5940,7 +5940,7 @@
       "groupSemantics": "PASS",
       "statusAnnouncement": "PASS",
       "errorAnnouncement": "PASS",
-      "wrongAnswerAnnouncement": "NOT_APPLICABLE",
+      "wrongAnswerAnnouncement": "PASS",
       "nonColorEquivalence": "PASS",
       "zoomReflow": "PASS",
       "mobileTargetSize": "PASS",
@@ -5956,7 +5956,7 @@
         "headings": "PASS",
         "statusAnnouncement": "PASS",
         "errorAnnouncement": "PASS",
-        "wrongAnswer": "NOT_APPLICABLE",
+        "wrongAnswer": "PASS",
         "retry": "PASS",
         "nonColor": "PASS",
         "srTextState": "PASS",
@@ -5976,10 +5976,7 @@
         ],
         "standaloneParity": "family representative covers the standalone host"
       },
-      "unresolvedIssues": [],
-      "notes": [
-        "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE: a non-target value is accepted as progress, so there is no wrong answer to announce"
-      ]
+      "unresolvedIssues": []
     },
     {
       "activityId": "practice.simulation.11.17.planned",

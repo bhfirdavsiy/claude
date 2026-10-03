@@ -1,0 +1,1884 @@
+{
+  "schema": "kimyolab.learner-feedback-semantics.v1",
+  "semantics": "Audit of what each activity's engine can judge and what the learner hears. No scoring, no chemistry decision, no approval. A HUMAN_DECISION_REQUIRED row waits for a reviewer; nothing here pre-selects the answer.",
+  "scope": "reports/accessibility-gap-summary.json#feedbackObservations @ f11c799 (P2.7)",
+  "taxonomy": {
+    "categories": [
+      "CORRECT",
+      "INCORRECT",
+      "VALID_INTERMEDIATE",
+      "UNSUPPORTED_INPUT",
+      "PROCEDURE_BLOCKED",
+      "SYSTEM_ERROR"
+    ],
+    "module": "src/runtime/shared/learner-input.ts",
+    "catalog": "content-src/locales/uz-latn/learner-interaction.json (ui.*)"
+  },
+  "states": [
+    "SEMANTICS_CLEAR",
+    "TECHNICAL_FIX_ELIGIBLE",
+    "HUMAN_DECISION_REQUIRED",
+    "CONTENT_REQUIRED"
+  ],
+  "summary": {
+    "activities": 35,
+    "simulations": 29,
+    "experiments": 6,
+    "SEMANTICS_CLEAR": 1,
+    "TECHNICAL_FIX_ELIGIBLE": 0,
+    "HUMAN_DECISION_REQUIRED": 34,
+    "CONTENT_REQUIRED": 0,
+    "reviewPackets": 34,
+    "evidenceSemanticsChanged": 0,
+    "scoringChanged": 0
+  },
+  "activities": [
+    {
+      "activityId": "practice.simulation.10.17.monohydric-alcohols",
+      "activityType": "simulation",
+      "title": "Bir atomli spirtlar: tuzilish–xossa modeli",
+      "configSource": "content-src/activity-configs/beta2-safe.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta2-safe.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "compound": "ethanol",
+        "functionalGroup": "-OH",
+        "class": "monohydric-alcohol"
+      },
+      "initial": {
+        "compound": "ethanol",
+        "functionalGroup": "",
+        "class": ""
+      },
+      "controls": [
+        "functionalGroup",
+        "class"
+      ],
+      "fixedContext": {
+        "compound": "ethanol"
+      },
+      "fieldLabels": {
+        "functionalGroup": "Funksional guruh",
+        "class": "Birikmalar sinfi"
+      },
+      "startsBlank": true,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Bir atomli spirtlarning funksional guruhi, eruvchanligi va tipik xossalarini molekula tuzilishi bilan bog‘lang.",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.10.17.monohydric-alcohols.md"
+    },
+    {
+      "activityId": "practice.simulation.10.19.phenols",
+      "activityType": "simulation",
+      "title": "Fenol va aromatik spirtlarni taqqoslash modeli",
+      "configSource": "content-src/activity-configs/beta2-safe.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta2-safe.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "compound": "phenol",
+        "ohAttachedTo": "aromatic-ring",
+        "class": "phenol"
+      },
+      "initial": {
+        "compound": "phenol",
+        "ohAttachedTo": "",
+        "class": ""
+      },
+      "controls": [
+        "ohAttachedTo",
+        "class"
+      ],
+      "fixedContext": {
+        "compound": "phenol"
+      },
+      "fieldLabels": {
+        "ohAttachedTo": "OH guruhi birikkan qism",
+        "class": "Birikmalar sinfi"
+      },
+      "startsBlank": true,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Fenol va aromatik spirtlarda OH guruhining bog‘lanish joyi hamda xossalardagi farqni taqqoslang.",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.10.19.phenols.md"
+    },
+    {
+      "activityId": "practice.simulation.10.21.carbonyls",
+      "activityType": "simulation",
+      "title": "Aldegid va ketonlarni farqlash modeli",
+      "configSource": "content-src/activity-configs/beta2-safe.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta2-safe.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "compound": "propanone",
+        "carbonylPosition": "internal",
+        "class": "ketone"
+      },
+      "initial": {
+        "compound": "propanone",
+        "carbonylPosition": "",
+        "class": ""
+      },
+      "controls": [
+        "carbonylPosition",
+        "class"
+      ],
+      "fixedContext": {
+        "compound": "propanone"
+      },
+      "fieldLabels": {
+        "carbonylPosition": "Karbonil guruhning o‘rni",
+        "class": "Birikmalar sinfi"
+      },
+      "startsBlank": true,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Karbonil guruhining joylashuvi va sifat belgilariga ko‘ra aldegid hamda ketonlarni farqlang.",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.10.21.carbonyls.md"
+    },
+    {
+      "activityId": "practice.simulation.10.23.esters",
+      "activityType": "simulation",
+      "title": "Murakkab efirlar: hosil bo‘lish va tuzilish modeli",
+      "configSource": "content-src/activity-configs/beta2-safe.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta2-safe.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "acidPart": "ethanoic-acid",
+        "alcoholPart": "ethanol",
+        "functionalGroup": "-COO-"
+      },
+      "initial": {
+        "acidPart": "ethanoic-acid",
+        "alcoholPart": "ethanol",
+        "functionalGroup": ""
+      },
+      "controls": [
+        "functionalGroup"
+      ],
+      "fixedContext": {
+        "acidPart": "ethanoic-acid",
+        "alcoholPart": "ethanol"
+      },
+      "fieldLabels": {
+        "functionalGroup": "Funksional guruh"
+      },
+      "startsBlank": true,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Kislota va spirt qismlaridan murakkab efir hosil bo‘lishini hamda funksional guruhini modelda bog‘lang.",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.10.23.esters.md"
+    },
+    {
+      "activityId": "practice.simulation.11.16.planned",
+      "activityType": "simulation",
+      "title": "T, P, V, katalizator omillarini o‘zgartirish virtual tajribasi",
+      "configSource": "content-src/activity-configs/beta3-advanced.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "beta3-advanced",
+        "semantics": "CLOSED_DOMAIN_MODEL",
+        "detail": "the kinetics model (content-src/chemistry/kinetics.json) gives ONE effect for temperature/increase; the answer domain is closed (increase | decrease | no-change)"
+      },
+      "canonicalIncorrect": {
+        "defined": true,
+        "source": "KINETICS_EFFECTS + kinetics model: every other value of the closed domain is not the modeled effect"
+      },
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (no option chosen → localized alert)",
+        "nonTarget": "INCORRECT",
+        "target": "CORRECT"
+      },
+      "state": "SEMANTICS_CLEAR",
+      "finding": "The engine already judged a wrong option INCORRECT (score 0). The P2.7 note came from the accessibility harness: the option order was computed with localeCompare(…,'uz') in Node and rendered in Chromium, whose ICU data order the labels differently — the \"wrong\" probe clicked the correct option. Fixed in the product (code-point order, src/features/practice/form-question.ts).",
+      "decision": null,
+      "technicalFixesApplied": [
+        "choice-order",
+        "feedback-taxonomy"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": null
+    },
+    {
+      "activityId": "practice.simulation.7.02.planned",
+      "activityType": "simulation",
+      "title": "Modda xossalarini tasniflash simulyatori",
+      "configSource": "content-src/activity-configs/beta1.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta1.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "property": "density",
+        "classification": "physical"
+      },
+      "initial": {
+        "property": "",
+        "classification": ""
+      },
+      "controls": [
+        "property",
+        "classification"
+      ],
+      "fixedContext": {},
+      "fieldLabels": {
+        "property": "Xossa",
+        "classification": "Turkumi"
+      },
+      "startsBlank": true,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Modda xossalarini tasniflash simulyatori",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.7.02.planned.md"
+    },
+    {
+      "activityId": "practice.simulation.7.06.planned",
+      "activityType": "simulation",
+      "title": "Jism → modda → molekula/atom masshtab simulyatsiyasi",
+      "configSource": "content-src/activity-configs/beta1.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta1.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "scale": "atom"
+      },
+      "initial": {
+        "scale": "body"
+      },
+      "controls": [
+        "scale"
+      ],
+      "fixedContext": {},
+      "fieldLabels": {
+        "scale": "Zarracha darajasi"
+      },
+      "startsBlank": false,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Jism → modda → molekula/atom masshtab simulyatsiyasi",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.7.06.planned.md"
+    },
+    {
+      "activityId": "practice.simulation.7.10.planned",
+      "activityType": "simulation",
+      "title": "Yadro konstruktori: izotop/izobar/izotonni aniqlash",
+      "configSource": "content-src/activity-configs/beta1.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta1.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "protons": 6,
+        "neutrons": 8,
+        "label": "isotope"
+      },
+      "initial": {
+        "protons": 0,
+        "neutrons": 0,
+        "label": ""
+      },
+      "controls": [
+        "protons",
+        "neutrons",
+        "label"
+      ],
+      "fixedContext": {},
+      "fieldLabels": {
+        "protons": "Protonlar soni",
+        "neutrons": "Neytronlar soni",
+        "label": "Nomlanishi"
+      },
+      "startsBlank": true,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Yadro konstruktori: izotop/izobar/izotonni aniqlash",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.7.10.planned.md"
+    },
+    {
+      "activityId": "practice.simulation.7.13.planned",
+      "activityType": "simulation",
+      "title": "Molekulalarni oddiy/murakkab modda sifatida tasniflash",
+      "configSource": "content-src/activity-configs/beta1.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta1.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "formula": "H2O",
+        "classification": "complex"
+      },
+      "initial": {
+        "formula": "",
+        "classification": ""
+      },
+      "controls": [
+        "formula",
+        "classification"
+      ],
+      "fixedContext": {},
+      "fieldLabels": {
+        "formula": "Formula",
+        "classification": "Turkumi"
+      },
+      "startsBlank": true,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Molekulalarni oddiy/murakkab modda sifatida tasniflash",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.7.13.planned.md"
+    },
+    {
+      "activityId": "practice.simulation.7.16.planned",
+      "activityType": "simulation",
+      "title": "Element oilalari bo‘yicha rangli tasnif va filtrlash",
+      "configSource": "content-src/activity-configs/beta1.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta1.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "element": "Cl",
+        "family": "halogen"
+      },
+      "initial": {
+        "element": "",
+        "family": ""
+      },
+      "controls": [
+        "element",
+        "family"
+      ],
+      "fixedContext": {},
+      "fieldLabels": {
+        "element": "Element",
+        "family": "Elementlar oilasi"
+      },
+      "startsBlank": true,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Element oilalari bo‘yicha rangli tasnif va filtrlash",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.7.16.planned.md"
+    },
+    {
+      "activityId": "practice.simulation.7.17.planned",
+      "activityType": "simulation",
+      "title": "Interaktiv davriy jadval: guruh/davr/element pasporti",
+      "configSource": "content-src/activity-configs/beta1.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta1.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "element": "Na",
+        "group": 1,
+        "period": 3
+      },
+      "initial": {
+        "element": "",
+        "group": 0,
+        "period": 0
+      },
+      "controls": [
+        "element",
+        "group",
+        "period"
+      ],
+      "fixedContext": {},
+      "fieldLabels": {
+        "element": "Element",
+        "group": "Guruh raqami",
+        "period": "Davr raqami"
+      },
+      "startsBlank": true,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Interaktiv davriy jadval: guruh/davr/element pasporti",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.7.17.planned.md"
+    },
+    {
+      "activityId": "practice.simulation.8.02.planned",
+      "activityType": "simulation",
+      "title": "Tarixiy tasniflash usullarini vaqt chizig‘ida solishtirish",
+      "configSource": "content-src/activity-configs/beta1.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta1.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "scientist": "Dobereiner",
+        "system": "triads"
+      },
+      "initial": {
+        "scientist": "",
+        "system": ""
+      },
+      "controls": [
+        "scientist",
+        "system"
+      ],
+      "fixedContext": {},
+      "fieldLabels": {
+        "scientist": "Olim",
+        "system": "Tasniflash tizimi"
+      },
+      "startsBlank": true,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Tarixiy tasniflash usullarini vaqt chizig‘ida solishtirish",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.8.02.planned.md"
+    },
+    {
+      "activityId": "practice.simulation.8.03.planned",
+      "activityType": "simulation",
+      "title": "Davriy trend filtrlari va element pasporti",
+      "configSource": "content-src/activity-configs/beta1.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta1.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "comparison": "Na>Li",
+        "trend": "atomic-radius-down-group"
+      },
+      "initial": {
+        "comparison": "",
+        "trend": ""
+      },
+      "controls": [
+        "comparison",
+        "trend"
+      ],
+      "fixedContext": {},
+      "fieldLabels": {
+        "comparison": "Taqqoslash",
+        "trend": "Qonuniyat"
+      },
+      "startsBlank": true,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Davriy trend filtrlari va element pasporti",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.8.03.planned.md"
+    },
+    {
+      "activityId": "practice.simulation.8.04.planned",
+      "activityType": "simulation",
+      "title": "Yadro konstruktori",
+      "configSource": "content-src/activity-configs/beta1.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta1.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "protons": 8,
+        "neutrons": 8
+      },
+      "initial": {
+        "protons": 0,
+        "neutrons": 0
+      },
+      "controls": [
+        "protons",
+        "neutrons"
+      ],
+      "fixedContext": {},
+      "fieldLabels": {
+        "protons": "Protonlar soni",
+        "neutrons": "Neytronlar soni"
+      },
+      "startsBlank": true,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Yadro konstruktori",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.8.04.planned.md"
+    },
+    {
+      "activityId": "practice.simulation.8.05.planned",
+      "activityType": "simulation",
+      "title": "Izotop/izobar juftliklarini qurish va tasniflash",
+      "configSource": "content-src/activity-configs/beta1.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta1.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "pair": "C-12/C-14",
+        "relation": "isotope"
+      },
+      "initial": {
+        "pair": "",
+        "relation": ""
+      },
+      "controls": [
+        "pair",
+        "relation"
+      ],
+      "fixedContext": {},
+      "fieldLabels": {
+        "pair": "Juftlik",
+        "relation": "O‘zaro munosabat"
+      },
+      "startsBlank": true,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Izotop/izobar juftliklarini qurish va tasniflash",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.8.05.planned.md"
+    },
+    {
+      "activityId": "practice.simulation.8.06.planned",
+      "activityType": "simulation",
+      "title": "Orbital va energetik pog‘onacha konstruktori",
+      "configSource": "content-src/activity-configs/beta1.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta1.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "element": "O",
+        "configuration": "1s2 2s2 2p4"
+      },
+      "initial": {
+        "element": "",
+        "configuration": ""
+      },
+      "controls": [
+        "element",
+        "configuration"
+      ],
+      "fixedContext": {},
+      "fieldLabels": {
+        "element": "Element",
+        "configuration": "Elektron konfiguratsiya"
+      },
+      "startsBlank": true,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Orbital va energetik pog‘onacha konstruktori",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.8.06.planned.md"
+    },
+    {
+      "activityId": "practice.simulation.8.09.planned",
+      "activityType": "simulation",
+      "title": "Elektromanfiylik gradienti va juftlik taqqoslash",
+      "configSource": "content-src/activity-configs/beta1.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta1.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "pair": "F/Cl",
+        "moreElectronegative": "F"
+      },
+      "initial": {
+        "pair": "",
+        "moreElectronegative": ""
+      },
+      "controls": [
+        "pair",
+        "moreElectronegative"
+      ],
+      "fixedContext": {},
+      "fieldLabels": {
+        "pair": "Juftlik",
+        "moreElectronegative": "Elektromanfiyligi kattaroq element"
+      },
+      "startsBlank": true,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Elektromanfiylik gradienti va juftlik taqqoslash",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.8.09.planned.md"
+    },
+    {
+      "activityId": "practice.simulation.8.19.planned",
+      "activityType": "simulation",
+      "title": "Reaksiya tezligiga T, konsentratsiya va sirt ta’siri simulyatsiyasi; oddiy virtual tajriba",
+      "configSource": "content-src/activity-configs/beta1.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta1.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "temperature": 50,
+        "concentration": 2,
+        "surface": "powder",
+        "rate": "faster"
+      },
+      "initial": {
+        "temperature": 20,
+        "concentration": 1,
+        "surface": "chunk",
+        "rate": ""
+      },
+      "controls": [
+        "temperature",
+        "concentration",
+        "surface",
+        "rate"
+      ],
+      "fixedContext": {},
+      "fieldLabels": {
+        "temperature": "Harorat",
+        "concentration": "Konsentratsiya",
+        "surface": "Sirt holati",
+        "rate": "Reaksiya tezligi"
+      },
+      "startsBlank": false,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Reaksiya tezligiga T, konsentratsiya va sirt ta’siri simulyatsiyasi; oddiy virtual tajriba",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.8.19.planned.md"
+    },
+    {
+      "activityId": "practice.simulation.8.20.planned",
+      "activityType": "simulation",
+      "title": "Dinamik muvozanat va Le-Shatele simulyatori",
+      "configSource": "content-src/activity-configs/beta1.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta1.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "system": "N2+3H2<->2NH3",
+        "pressure": "increase",
+        "shift": "right"
+      },
+      "initial": {
+        "system": "N2+3H2<->2NH3",
+        "pressure": "normal",
+        "shift": ""
+      },
+      "controls": [
+        "pressure",
+        "shift"
+      ],
+      "fixedContext": {
+        "system": "N2+3H2<->2NH3"
+      },
+      "fieldLabels": {
+        "pressure": "Bosim",
+        "shift": "Muvozanat siljishi"
+      },
+      "startsBlank": false,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Dinamik muvozanat va Le-Shatele simulyatori",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.8.20.planned.md"
+    },
+    {
+      "activityId": "practice.simulation.8.7",
+      "activityType": "simulation",
+      "title": "Turli kimyoviy bog‘lanishli moddalar kristall panjaralari modellarini tayyorlash",
+      "configSource": "content-src/activity-configs/beta1.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta1.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "substance": "HCl",
+        "bondType": "polar-covalent",
+        "lattice": "molecular"
+      },
+      "initial": {
+        "substance": "",
+        "bondType": "",
+        "lattice": ""
+      },
+      "controls": [
+        "substance",
+        "bondType",
+        "lattice"
+      ],
+      "fixedContext": {},
+      "fieldLabels": {
+        "substance": "Modda",
+        "bondType": "Bog‘lanish turi",
+        "lattice": "Kristall panjara turi"
+      },
+      "startsBlank": true,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "KCl ning ion bog‘lanishli modda ekanini aniqlang va ion bog‘lanishli moddalarga misollar keltiring.",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.8.7.md"
+    },
+    {
+      "activityId": "practice.simulation.9.01.planned",
+      "activityType": "simulation",
+      "title": "Davriy jadval–elektron tuzilish–bog‘lanish takrorlash paneli",
+      "configSource": "content-src/activity-configs/beta2-safe.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta2-safe.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "mode": "periodic-bonding"
+      },
+      "initial": {
+        "mode": ""
+      },
+      "controls": [
+        "mode"
+      ],
+      "fixedContext": {},
+      "fieldLabels": {
+        "mode": "Tahlil usuli"
+      },
+      "startsBlank": true,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Davriy jadval–elektron tuzilish–bog‘lanish takrorlash paneli",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.9.01.planned.md"
+    },
+    {
+      "activityId": "practice.simulation.9.02.planned",
+      "activityType": "simulation",
+      "title": "Elektrolit/noelektrolit o‘tkazuvchanlik virtual tajribasi",
+      "configSource": "content-src/activity-configs/beta2-safe.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta2-safe.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "sample": "NaCl(aq)",
+        "conductivity": "high"
+      },
+      "initial": {
+        "sample": "distilled-water",
+        "conductivity": "none"
+      },
+      "controls": [
+        "sample",
+        "conductivity"
+      ],
+      "fixedContext": {},
+      "fieldLabels": {
+        "sample": "Namuna",
+        "conductivity": "Elektr o‘tkazuvchanlik"
+      },
+      "startsBlank": false,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Elektrolit/noelektrolit o‘tkazuvchanlik virtual tajribasi",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.9.02.planned.md"
+    },
+    {
+      "activityId": "practice.simulation.9.03.planned",
+      "activityType": "simulation",
+      "title": "Dissotsiatsiya animatsiyasi va ion yozuv trenajyori",
+      "configSource": "content-src/activity-configs/beta2-safe.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta2-safe.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "species": "HCl",
+        "ions": "H+ + Cl-"
+      },
+      "initial": {
+        "species": "HCl",
+        "ions": ""
+      },
+      "controls": [
+        "species",
+        "ions"
+      ],
+      "fixedContext": {},
+      "fieldLabels": {
+        "species": "Zarracha",
+        "ions": "Ionlar"
+      },
+      "startsBlank": false,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Dissotsiatsiya animatsiyasi va ion yozuv trenajyori",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.9.03.planned.md"
+    },
+    {
+      "activityId": "practice.simulation.9.04.planned",
+      "activityType": "simulation",
+      "title": "Dissotsiatsiyalanish darajasi slayderi va α hisoblash",
+      "configSource": "content-src/activity-configs/beta2-safe.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta2-safe.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "electrolyte": "HCl",
+        "alpha": 1
+      },
+      "initial": {
+        "electrolyte": "CH3COOH",
+        "alpha": 0.1
+      },
+      "controls": [
+        "electrolyte",
+        "alpha"
+      ],
+      "fixedContext": {},
+      "fieldLabels": {
+        "electrolyte": "Elektrolit",
+        "alpha": "Dissotsilanish darajasi (α)"
+      },
+      "startsBlank": false,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Dissotsiatsiyalanish darajasi slayderi va α hisoblash",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.9.04.planned.md"
+    },
+    {
+      "activityId": "practice.simulation.9.07.planned",
+      "activityType": "simulation",
+      "title": "Uglerod guruhi trendi va materiallar case’i",
+      "configSource": "content-src/activity-configs/beta2-safe.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta2-safe.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "element": "Si",
+        "property": "semiconductor"
+      },
+      "initial": {
+        "element": "C",
+        "property": "nonmetal"
+      },
+      "controls": [
+        "element",
+        "property"
+      ],
+      "fixedContext": {},
+      "fieldLabels": {
+        "element": "Element",
+        "property": "Xossa"
+      },
+      "startsBlank": false,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Uglerod guruhi trendi va materiallar case’i",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.9.07.planned.md"
+    },
+    {
+      "activityId": "practice.simulation.9.08.planned",
+      "activityType": "simulation",
+      "title": "Grafit–olmos–fulleren 3D tuzilma taqqoslash",
+      "configSource": "content-src/activity-configs/beta2-safe.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta2-safe.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "allotrope": "diamond",
+        "structure": "tetrahedral-network"
+      },
+      "initial": {
+        "allotrope": "graphite",
+        "structure": "layered"
+      },
+      "controls": [
+        "allotrope",
+        "structure"
+      ],
+      "fixedContext": {},
+      "fieldLabels": {
+        "allotrope": "Allotropik shakl",
+        "structure": "Tuzilishi"
+      },
+      "startsBlank": false,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Grafit–olmos–fulleren 3D tuzilma taqqoslash",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.9.08.planned.md"
+    },
+    {
+      "activityId": "practice.simulation.9.18.water-hardness",
+      "activityType": "simulation",
+      "title": "Suv qattiqligi va uni yumshatish modeli",
+      "configSource": "content-src/activity-configs/beta2-safe.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta2-safe.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "hardness": "temporary",
+        "treatment": "boiling"
+      },
+      "initial": {
+        "hardness": "unknown",
+        "treatment": "none"
+      },
+      "controls": [
+        "hardness",
+        "treatment"
+      ],
+      "fixedContext": {},
+      "fieldLabels": {
+        "hardness": "Qattiqlik turi",
+        "treatment": "Yumshatish usuli"
+      },
+      "startsBlank": false,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Vaqtinchalik va doimiy qattiqlikni manba ionlari hamda mos yumshatish usuli bilan bog‘lang.",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.9.18.water-hardness.md"
+    },
+    {
+      "activityId": "practice.simulation.9.20.cu-ag-au",
+      "activityType": "simulation",
+      "title": "Mis, kumush va oltin: xossa–qo‘llanish taqqoslash modeli",
+      "configSource": "content-src/activity-configs/beta2-safe.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta2-safe.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "metal": "Au",
+        "reactivity": "very-low",
+        "use": "jewelry"
+      },
+      "initial": {
+        "metal": "Cu",
+        "reactivity": "low",
+        "use": "conductor"
+      },
+      "controls": [
+        "metal",
+        "reactivity",
+        "use"
+      ],
+      "fixedContext": {},
+      "fieldLabels": {
+        "metal": "Metall",
+        "reactivity": "Faollik darajasi",
+        "use": "Qo‘llanilishi"
+      },
+      "startsBlank": false,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Cu, Ag va Au ning nisbiy faolligi, fizik xossalari va qo‘llanishini taqqoslang.",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.9.20.cu-ag-au.md"
+    },
+    {
+      "activityId": "practice.simulation.9.21.group12",
+      "activityType": "simulation",
+      "title": "II guruh yonaki guruhcha elementlari trend modeli",
+      "configSource": "content-src/activity-configs/beta2-safe.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
+      "engine": {
+        "runtime": "generic",
+        "semantics": "TARGET_STATE_ONLY",
+        "detail": "content-src/activity-configs/beta2-safe.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared."
+      },
+      "canonicalIncorrect": {
+        "defined": false,
+        "source": "none: the config holds only initialState and targetState"
+      },
+      "target": {
+        "element": "Hg",
+        "roomState": "liquid"
+      },
+      "initial": {
+        "element": "Zn",
+        "roomState": "solid"
+      },
+      "controls": [
+        "element",
+        "roomState"
+      ],
+      "fixedContext": {},
+      "fieldLabels": {
+        "element": "Element",
+        "roomState": "Xona haroratidagi agregat holati"
+      },
+      "startsBlank": false,
+      "learnerHears": {
+        "empty": "UNSUPPORTED_INPUT (localized alert, nothing recorded)",
+        "nonTarget": "VALID_INTERMEDIATE (recorded, explicitly not judged; the page states that only the target state is checked)",
+        "target": "CORRECT + complete"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "A non-target value can be chemically valid (another substance, another true pair, an exploratory setting) or wrong; the config cannot tell which, and a verdict cannot be inferred from field names or labels.",
+      "decision": {
+        "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
+        "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
+      },
+      "goal": "Zn, Cd va Hg uchun guruh bo‘yicha xossa va birikmalar trendini taqqoslang.",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "valid-intermediate"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.simulation.9.21.group12.md"
+    },
+    {
+      "activityId": "practice.experiment.10.3",
+      "activityType": "experiment",
+      "title": "Etilenning olinishi va xossalarini o‘rganish",
+      "configSource": "content-src/activity-configs/beta2-organic.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "STEP_ORDER_NOT_ENFORCED_BY_ENGINE",
+      "engine": {
+        "runtime": "beta2-organic",
+        "semantics": "SET_COMPLETION",
+        "detail": "complete when every required action has been done at least once, in any order; evidence only at completion. The order of the array is not declared as an order (content-src/activity-configs/beta2-organic.json)."
+      },
+      "requiredActions": [
+        "generateEthene",
+        "addBromineWater",
+        "record"
+      ],
+      "orderDeclared": false,
+      "legacySteps": [
+        "Probirkaga 2–3 ml etanol va 6–9 ml konsentrlangan H2SO4 qo‘shing, bir oz qum soling va ehtiyotkor qizdiring. Etilen gazini oling.",
+        "Etilenni bromli suvdan o‘tkazing va eritmaning rangsizlanishini kuzating.",
+        "Etilenni kislotalangan KMnO4 eritmasidan o‘tkazing va rang o‘zgarishini kuzating."
+      ],
+      "learnerHears": {
+        "validOrder": "VALID_INTERMEDIATE per step, CORRECT + complete at the last one",
+        "otherOrder": "the same (accepted, no verdict)",
+        "repeat": "a done step stays done (button aria-disabled)"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "The numbered list and the legacy textbook steps suggest a sequence, but no config, domain model or engine declares one. Enforcing the array position would impose an order the content never stated (a procedural/chemistry judgement).",
+      "decision": {
+        "question": "Is a step order REQUIRED for this experiment? If yes, give the dependencies (which step requires which), not only a list, and the reason (safety, chemistry, didactics).",
+        "unlocks": "declared step dependencies in the config → the engine rejects an early step as PROCEDURE_BLOCKED (no evidence, step stays open); config version 2.0.0"
+      },
+      "goal": "Probirkaga 2–3 ml etanol va 6–9 ml konsentrlangan H2SO4 qo‘shing, bir oz qum soling va ehtiyotkor qizdiring. Etilen gazini oling.",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "current-step-marker"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.experiment.10.3.md"
+    },
+    {
+      "activityId": "practice.experiment.10.5",
+      "activityType": "experiment",
+      "title": "Ko‘p atomli spirtlarga oid tajribalar",
+      "configSource": "content-src/activity-configs/beta2-organic.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "STEP_ORDER_NOT_ENFORCED_BY_ENGINE",
+      "engine": {
+        "runtime": "beta2-organic",
+        "semantics": "SET_COMPLETION",
+        "detail": "complete when every required action has been done at least once, in any order; evidence only at completion. The order of the array is not declared as an order (content-src/activity-configs/beta2-organic.json)."
+      },
+      "requiredActions": [
+        "prepareCuOH2",
+        "addGlycerol",
+        "record"
+      ],
+      "orderDeclared": false,
+      "legacySteps": [
+        "CuSO4 eritmasi va ishqor yordamida yangi Cu(OH)2 cho‘kmasini tayyorlang.",
+        "Cho‘kmani ikki probirkaga bo‘ling.",
+        "Birinchi probirkaga bolalar kremidan olingan namuna, ikkinchisiga saqich ekstraktini qo‘shing.",
+        "To‘q ko‘k eritma hosil bo‘lishini kuzating va ko‘p atomli spirtlar mavjudligini xulosa qiling.",
+        "Darslikda berilgan tarkib bo‘yicha antifriz tayyorlash bosqichlarini o‘rganing."
+      ],
+      "learnerHears": {
+        "validOrder": "VALID_INTERMEDIATE per step, CORRECT + complete at the last one",
+        "otherOrder": "the same (accepted, no verdict)",
+        "repeat": "a done step stays done (button aria-disabled)"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "The numbered list and the legacy textbook steps suggest a sequence, but no config, domain model or engine declares one. Enforcing the array position would impose an order the content never stated (a procedural/chemistry judgement).",
+      "decision": {
+        "question": "Is a step order REQUIRED for this experiment? If yes, give the dependencies (which step requires which), not only a list, and the reason (safety, chemistry, didactics).",
+        "unlocks": "declared step dependencies in the config → the engine rejects an early step as PROCEDURE_BLOCKED (no evidence, step stays open); config version 2.0.0"
+      },
+      "goal": "CuSO4 eritmasi va ishqor yordamida yangi Cu(OH)2 cho‘kmasini tayyorlang.",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "current-step-marker"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.experiment.10.5.md"
+    },
+    {
+      "activityId": "practice.experiment.10.8",
+      "activityType": "experiment",
+      "title": "Yog‘lardan sovun olish",
+      "configSource": "content-src/activity-configs/beta2-organic.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "STEP_ORDER_NOT_ENFORCED_BY_ENGINE",
+      "engine": {
+        "runtime": "beta2-organic",
+        "semantics": "SET_COMPLETION",
+        "detail": "complete when every required action has been done at least once, in any order; evidence only at completion. The order of the array is not declared as an order (content-src/activity-configs/beta2-organic.json)."
+      },
+      "requiredActions": [
+        "mixFatAlkali",
+        "heat",
+        "observe"
+      ],
+      "orderDeclared": false,
+      "legacySteps": [
+        "Yog‘ namunasi va ishqorni darslikdagi nisbatda aralashtiring.",
+        "Aralashmani ehtiyotkor qizdiring va muntazam aralashtiring.",
+        "Sovunlanish jarayonini kuzating.",
+        "Osh tuzi qo‘shib sovunni eritmadan ajrating.",
+        "Hosil bo‘lgan sovun namunasi xossalarini kuzating."
+      ],
+      "learnerHears": {
+        "validOrder": "VALID_INTERMEDIATE per step, CORRECT + complete at the last one",
+        "otherOrder": "the same (accepted, no verdict)",
+        "repeat": "a done step stays done (button aria-disabled)"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "The numbered list and the legacy textbook steps suggest a sequence, but no config, domain model or engine declares one. Enforcing the array position would impose an order the content never stated (a procedural/chemistry judgement).",
+      "decision": {
+        "question": "Is a step order REQUIRED for this experiment? If yes, give the dependencies (which step requires which), not only a list, and the reason (safety, chemistry, didactics).",
+        "unlocks": "declared step dependencies in the config → the engine rejects an early step as PROCEDURE_BLOCKED (no evidence, step stays open); config version 2.0.0"
+      },
+      "goal": "Yog‘ namunasi va ishqorni darslikdagi nisbatda aralashtiring.",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "current-step-marker"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.experiment.10.8.md"
+    },
+    {
+      "activityId": "practice.experiment.10.9",
+      "activityType": "experiment",
+      "title": "Uglevodlarga oid tajribalar",
+      "configSource": "content-src/activity-configs/beta2-organic.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "STEP_ORDER_NOT_ENFORCED_BY_ENGINE",
+      "engine": {
+        "runtime": "beta2-organic",
+        "semantics": "SET_COMPLETION",
+        "detail": "complete when every required action has been done at least once, in any order; evidence only at completion. The order of the array is not declared as an order (content-src/activity-configs/beta2-organic.json)."
+      },
+      "requiredActions": [
+        "addCuSO4",
+        "addNaOH",
+        "heat",
+        "observe"
+      ],
+      "orderDeclared": false,
+      "legacySteps": [
+        "Uzum sharbati yoki glyukozaga CuSO4 va NaOH qo‘shib, so‘ng qizdiring. Rang va cho‘kma o‘zgarishini kuzating.",
+        "Saxaroza eritmasiga CuSO4 va NaOH qo‘shib ko‘p gidroksil guruhlariga xos to‘q ko‘k rangni kuzating.",
+        "Saxarozani kislota ishtirokida qaynatib gidrolizlang va hosil bo‘lgan glyukozani sifat reaksiyasi bilan tekshiring.",
+        "Kraxmalni kislota bilan qizdirib gidrolizlang. Jarayon davomida yod eritmasi bilan tekshiring va oxirida Cu2+ reaksiyasi orqali glyukoza hosil bo‘lishini aniqlang.",
+        "Sellyulozaning ammiakli mis gidroksid eritmasidagi xatti-harakatini kuzating."
+      ],
+      "learnerHears": {
+        "validOrder": "VALID_INTERMEDIATE per step, CORRECT + complete at the last one",
+        "otherOrder": "the same (accepted, no verdict)",
+        "repeat": "a done step stays done (button aria-disabled)"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "The numbered list and the legacy textbook steps suggest a sequence, but no config, domain model or engine declares one. Enforcing the array position would impose an order the content never stated (a procedural/chemistry judgement).",
+      "decision": {
+        "question": "Is a step order REQUIRED for this experiment? If yes, give the dependencies (which step requires which), not only a list, and the reason (safety, chemistry, didactics).",
+        "unlocks": "declared step dependencies in the config → the engine rejects an early step as PROCEDURE_BLOCKED (no evidence, step stays open); config version 2.0.0"
+      },
+      "goal": "Uzum sharbati yoki glyukozaga CuSO4 va NaOH qo‘shib, so‘ng qizdiring. Rang va cho‘kma o‘zgarishini kuzating.",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "current-step-marker"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.experiment.10.9.md"
+    },
+    {
+      "activityId": "practice.experiment.11.2",
+      "activityType": "experiment",
+      "title": "Platforma uchun demonstratsion tajriba nomzodi: elektroliz",
+      "configSource": "content-src/activity-configs/beta3-advanced.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "STEP_ORDER_NOT_ENFORCED_BY_ENGINE",
+      "engine": {
+        "runtime": "beta3-advanced",
+        "semantics": "SET_COMPLETION",
+        "detail": "complete when every required action has been done at least once, in any order; evidence only at completion. The order of the array is not declared as an order (content-src/activity-configs/beta3-advanced.json)."
+      },
+      "requiredActions": [
+        "connectCurrent",
+        "observeCathode",
+        "observeAnode"
+      ],
+      "orderDeclared": false,
+      "legacySteps": [
+        "Elektrolizyorga CuCl2 eritmasini quying.",
+        "Eritmaga ikki elektrod tushiring. Bir elektrodni manfiy qutbga, ikkinchisini musbat qutbga ulang.",
+        "Manfiy elektrod katod, musbat elektrod anod ekanini belgilang.",
+        "Tok manbaini ulang. Cu2+ kationlarining katod tomon, Cl− anionlarining anod tomon harakatlanishini kuzating.",
+        "Katodda mis ajralishi va anodda xlor hosil bo‘lishini tushuntiring."
+      ],
+      "learnerHears": {
+        "validOrder": "VALID_INTERMEDIATE per step, CORRECT + complete at the last one",
+        "otherOrder": "the same (accepted, no verdict)",
+        "repeat": "a done step stays done (button aria-disabled)"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "The numbered list and the legacy textbook steps suggest a sequence, but no config, domain model or engine declares one. Enforcing the array position would impose an order the content never stated (a procedural/chemistry judgement).",
+      "decision": {
+        "question": "Is a step order REQUIRED for this experiment? If yes, give the dependencies (which step requires which), not only a list, and the reason (safety, chemistry, didactics).",
+        "unlocks": "declared step dependencies in the config → the engine rejects an early step as PROCEDURE_BLOCKED (no evidence, step stays open); config version 2.0.0"
+      },
+      "goal": "Elektrolizyorga CuCl2 eritmasini quying.",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "current-step-marker"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.experiment.11.2.md"
+    },
+    {
+      "activityId": "practice.experiment.9.10",
+      "activityType": "experiment",
+      "title": "Mis(II)-xlorid va kaliy yodid eritmalarining elektrolizi",
+      "configSource": "content-src/activity-configs/beta2-advanced.json",
+      "configVersion": "1.0.0",
+      "p27Observation": "STEP_ORDER_NOT_ENFORCED_BY_ENGINE",
+      "engine": {
+        "runtime": "beta2-advanced",
+        "semantics": "SET_COMPLETION",
+        "detail": "complete when every required action has been done at least once, in any order; evidence only at completion. The order of the array is not declared as an order (src/runtime/beta2/advanced.ts)."
+      },
+      "requiredActions": [
+        "connectCurrent",
+        "observeCathode",
+        "observeAnode"
+      ],
+      "orderDeclared": false,
+      "legacySteps": [
+        "U-simon nayning 3/4 qismigacha CuCl2 eritmasi quying. Bir tomonga mis, ikkinchi tomonga grafit elektrod tushiring. Grafitni katod, misni anod sifatida ulang.",
+        "Katodda sof mis ajralishini kuzating. Elektrod qutblarini almashtirib, anod va katoddagi o‘zgarishlarni kuzating.",
+        "Elektrolizyorga 2 M KI eritmasi quying, grafit elektrodlarni ulang. Katodda vodorod pufakchalari, anodda yod ajralishini kuzating.",
+        "Tokni uzing, yod ajralgan tomonga 1–2 tomchi kraxmal eritmasi tomizing va rang o‘zgarishini kuzating."
+      ],
+      "learnerHears": {
+        "validOrder": "VALID_INTERMEDIATE per step, CORRECT + complete at the last one",
+        "otherOrder": "the same (accepted, no verdict)",
+        "repeat": "a done step stays done (button aria-disabled)"
+      },
+      "state": "HUMAN_DECISION_REQUIRED",
+      "finding": "The numbered list and the legacy textbook steps suggest a sequence, but no config, domain model or engine declares one. Enforcing the array position would impose an order the content never stated (a procedural/chemistry judgement).",
+      "decision": {
+        "question": "Is a step order REQUIRED for this experiment? If yes, give the dependencies (which step requires which), not only a list, and the reason (safety, chemistry, didactics).",
+        "unlocks": "declared step dependencies in the config → the engine rejects an early step as PROCEDURE_BLOCKED (no evidence, step stays open); config version 2.0.0"
+      },
+      "goal": "U-simon nayning 3/4 qismigacha CuCl2 eritmasi quying. Bir tomonga mis, ikkinchi tomonga grafit elektrod tushiring. Grafitni katod, misni anod sifatida ulang.",
+      "technicalFixesApplied": [
+        "feedback-taxonomy",
+        "current-step-marker"
+      ],
+      "evidenceSemanticsChanged": false,
+      "scoringChanged": false,
+      "reviewPacket": "review-packets/feedback-semantics/practice.experiment.9.10.md"
+    }
+  ]
+}

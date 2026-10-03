@@ -20,6 +20,6 @@ export interface ExperimentState {
 }
 export type ExperimentActionResult =
   | {status:'accepted';evidence?:Evidence[]}
-  | {status:'invalid';code:string;feedbackKey:string}
+  | {status:'invalid';code:string;feedbackKey:string;reason?:'STEP_DEPENDENCY_UNMET'}
   | {status:'unsafe';code:string;feedbackKey:string};
 export type ExperimentActionEvaluator=(state:ExperimentState,action:LabAction,step:ExperimentStep)=>ExperimentActionResult;

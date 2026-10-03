@@ -19,6 +19,7 @@ import {promoteRelease, rollbackRelease, readCurrentRelease} from './release-reg
 import {computeTreeHash} from './deploy-surface-hash.ts';
 import {resolveRollbackBaseline} from './lib/rollback-baseline.ts';
 import {createCommitBuilder} from './lib/commit-artifact.ts';
+import {immutableUrlCollisions} from './lib/content-revision.ts';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const BASE = (() => { const b = process.env.KIMYOLAB_BASE_PATH || '/kimyolab/'; return b.endsWith('/') ? b : `${b}/`; })();
@@ -61,6 +62,11 @@ try {
   promoteRelease(registry, 'previous', previous.dir);
   promoteRelease(registry, 'current', currentCopy);
   step('registry-promote', readCurrentRelease(registry).activeRelease === 'current', readCurrentRelease(registry));
+  // P2.9: no immutable (revision-qualified) content URL serves different bytes in the two releases, so a browser that
+  // cached one release can never mix its pack into the other; the pointer of each release names its exact pack
+  const collisions = immutableUrlCollisions(path.join(previous.dir, 'content'), path.join(currentCopy, 'content'));
+  const pointerOf = (dir) => JSON.parse(fs.readFileSync(path.join(dir, 'content', 'manifest.json'), 'utf8'));
+  step('immutable-urls-stable', collisions.length === 0, {collisions: collisions.slice(0, 10), previousPack: pointerOf(previous.dir).manifest, currentPack: pointerOf(currentCopy).manifest});
 
   const {createKimyoLabServer} = await import('../server/app.mjs');
   let server = null; let port = 0;

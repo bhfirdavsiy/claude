@@ -140,3 +140,10 @@ It then runs exactly the documented commands (`npm ci`, `deploy:build`, `deploy:
   - An agent writes only `docs/deploy/acceptance-template.json`.
   - Negative tests cover: empty, wrong sha, wrong mount, localhost, private IP, http, automation actor, bot or agent identity, missing or failed smoke, pending decision, stale content version.
 - **Installation Readiness:** 24 checks (added `ci-gate-configured`).
+
+## 6. P2.9 addendum — content revision
+
+- The preflight has 17 checks: `content-revision` was added (ADR-P2-010 §7).
+- The deployment artefact serves the pack at `content/<contentVersion>/<contentRevision>/`. Only those URLs are immutable.
+- The rollback drill adds the step `immutable-urls-stable`.
+- The semantic `contentVersion` is unchanged.

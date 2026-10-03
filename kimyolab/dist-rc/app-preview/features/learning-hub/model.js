@@ -66,6 +66,9 @@ import {createLocalizer,                       } from '../localization/element-n
                 
                                                                                     
                                                                          
+                                                                                                                 
+                                                                                                                 
+                                                                        
  
 
 function studentPractice(activity                 ,pack               )                      {
@@ -131,5 +134,7 @@ export function buildLearningHubModel(learningUnitId       ,data                
       const status                       =unitReadiness?.assessment.status??'NONE';
       return status==='AVAILABLE'?{status}:{status,message:readinessMessage(unitReadiness?.assessment.reasons.length?unitReadiness.assessment.reasons:['ASSESSMENT_NOT_AVAILABLE'])};
     })(),
+    ...(()=>{ const t=createLocalizer(data.interaction?{interaction:data.interaction}:undefined); const q=t('ui.quiz-unanswered'), r=t('ui.reflection-incomplete');
+      return q||r?{validationText:{...(q?{quizUnanswered:q}:{}),...(r?{reflectionIncomplete:r}:{})}}:{}; })(),
   };
 }

@@ -153,9 +153,11 @@ export async function auditActivity(page, open, plan) {
       const text = await runOps(page, plan.wrong, state).catch((e) => { state.issues.add(`WRONG_PROBE:${e.message}`); return ''; });
       const accepted = plan.wrong[0].op === 'step' && (await page.locator(`${WORKSPACE} .kl-experiment-step button`).nth(plan.wrong[0].index).getAttribute('aria-disabled')) === 'true';
       if (accepted) { wrongOk = null; state.notes.add('STEP_ORDER_NOT_ENFORCED_BY_ENGINE: the out-of-order step was accepted, so there is no wrong answer to announce'); }
-      // the engine judged nothing: a non-target value is recorded as progress ("Natija saqlandi. Davom eting.") for EVERY
-      // learner — a feedback-design question, not an accessibility inequivalence (reported as a note, never as a pass)
-      else if (/Davom eting/.test(text) && !VERDICT_WRONG.test(text)) { wrongOk = null; state.notes.add('ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE: a non-target value is accepted as progress, so there is no wrong answer to announce'); }
+      // the engine judged nothing: a non-target value is recorded as progress for EVERY learner — a feedback-design
+      // question, not an accessibility inequivalence (reported as a note, never as a pass).
+      // P2.9: detected by the feedback taxonomy category (data-feedback=VALID_INTERMEDIATE) instead of the former
+      // sentence "Natija saqlandi. Davom eting.", which the taxonomy replaced; the note itself is unchanged.
+      else if ((await page.locator(`${WORKSPACE} .kl-feedback[role=status]`).first().getAttribute('data-feedback')) === 'VALID_INTERMEDIATE' && !VERDICT_WRONG.test(text)) { wrongOk = null; state.notes.add('ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE: a non-target value is accepted as progress, so there is no wrong answer to announce'); }
       else { wrongOk = VERDICT_WRONG.test(text); if (!wrongOk) state.issues.add('WRONG_ANSWER_NOT_ANNOUNCED'); }
       if (isRenderer) { await reopen(); }
       else retried = true;

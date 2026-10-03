@@ -11,6 +11,7 @@ import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {computeTreeHash} from './deploy-surface-hash.ts';
 import {resolveDeployConfig,deployPaths,DeployError,rel} from './lib/deploy-config.ts';
+import {applyRevisionLayout} from './lib/content-revision.ts';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 
@@ -26,6 +27,9 @@ export function buildDeployArtifact(config:ReturnType<typeof resolveDeployConfig
     const meta=`<meta name="kimyolab-portal-home" content="${config.portalHomeUrl.replace(/"/g,'&quot;')}">`;
     fs.writeFileSync(file,html.replace(/(<meta\s+name="kimyolab-base-path"[^>]*>)/i,`$1\n  ${meta}`),'utf8');
   }
+  // P2.9: the pack is served at content/<contentVersion>/<contentRevision>/ (immutable, revision = pack hash) and the
+  // pointer names that directory; the semantic contentVersion is unchanged (scripts/lib/content-revision.ts)
+  const revision=applyRevisionLayout(path.join(artifactDir,'content'));
   const tree=computeTreeHash(artifactDir);
   const pointer=JSON.parse(fs.readFileSync(path.join(artifactDir,'content','manifest.json'),'utf8'));
   const content=JSON.parse(fs.readFileSync(path.join(artifactDir,'content',pointer.manifest),'utf8'));
@@ -34,7 +38,7 @@ export function buildDeployArtifact(config:ReturnType<typeof resolveDeployConfig
     schema:'kimyolab.deploy-manifest.v1',
     mount:config.basePath,entry:'index.html',
     config:{basePath:config.basePath,portalHomeUrl:config.portalHomeUrl,assetBase:config.assetBase,contentBase:config.contentBase,apiBase:config.apiBase,storageNamespace:config.storageNamespace,indexedDbName:config.indexedDbName,webLockPrefix:config.webLockPrefix},
-    content:{activeVersion:pointer.activeVersion,contentVersion:content.contentVersion,manifestChecksum:pointer.checksum},
+    content:{activeVersion:pointer.activeVersion,contentVersion:content.contentVersion,contentRevision:revision.contentRevision,manifestChecksum:pointer.checksum},
     fileCount:tree.fileCount,totalBytes:files.reduce((n,f)=>n+f.bytes,0),sha256:tree.sha256,files,
   };
 }

@@ -32,10 +32,34 @@ for(const url of allowed){
   test(`GET ${url} → 200`,async()=>{assert.equal((await rawRequest(server.url,url)).status,200,url);});
 }
 
-test('GET /content/<active-version>/... → 200 with immutable caching',async()=>{
+// P2.9: was "→ 200 with immutable caching". A pack served at its SEMANTIC version only (/content/<version>/…, the source
+// layout) can change bytes without a version change, so it is now revalidated (no-cache); only the deployment layout's
+// revision-qualified URL (/content/<version>/<revision>/…, revision = pack hash) is immutable (ADR-P2-010 §7).
+test('GET /content/<active-version>/... (source layout) → 200, revalidated, never immutable',async()=>{
   const r=await rawRequest(server.url,`/content/${activeVersion}/concepts.json`);
   assert.equal(r.status,200);
-  assert.match(String(r.headers['cache-control']),/immutable/);
+  assert.equal(String(r.headers['cache-control']),'no-cache');
+});
+
+test('deployment layout: /content/<version>/<revision>/... → 200 immutable; pointer and manifest revalidated; the semantic-only path is gone',async()=>{
+  const {applyRevisionLayout}=await import('../../scripts/lib/content-revision.ts');
+  const dist=cloneDist();
+  const {contentVersion,contentRevision}=applyRevisionLayout(path.join(dist,'content'));
+  const deployed=await startServer({publicRoot:dist});
+  try{
+    const file=await rawRequest(deployed.url,`/content/${contentVersion}/${contentRevision}/concepts.json`);
+    assert.equal(file.status,200); assert.match(String(file.headers['cache-control']),/immutable/);
+    for(const url of ['/content/manifest.json',`/content/${contentVersion}/${contentRevision}/manifest.json`]){
+      const r=await rawRequest(deployed.url,url); assert.equal(r.status,200,url); assert.equal(String(r.headers['cache-control']),'no-cache',url);
+    }
+    assert.equal((await rawRequest(deployed.url,`/content/${contentVersion}/concepts.json`)).status,404,'no un-revisioned copy is served');
+    assert.match(contentRevision,/^[a-f0-9]{64}$/,'the revision is the full 64-hex pack checksum');
+    // only the FULL revision path is immutable: a copy under a truncated 16-hex directory is never cached as immutable
+    const short=contentRevision.slice(0,16);
+    fs.cpSync(path.join(dist,'content',contentVersion,contentRevision),path.join(dist,'content',contentVersion,short),{recursive:true});
+    const truncated=await rawRequest(deployed.url,`/content/${contentVersion}/${short}/concepts.json`);
+    assert.doesNotMatch(String(truncated.headers['cache-control']??''),/immutable/,'a 16-hex path is not immutable');
+  }finally{ await deployed.close(); fs.rmSync(dist,{recursive:true,force:true}); }
 });
 
 const traversal=[

@@ -57,7 +57,7 @@ function configAudit(){
     for(const m of code.matchAll(/\benv(?:\.|\[['"])([A-Z][A-Z0-9_]{3,})/g)) env.add(m[1]!);
   }
   const deployDoc=fs.existsSync(path.join(root,'docs/DEPLOY.md'))?fs.readFileSync(path.join(root,'docs/DEPLOY.md'),'utf8'):'';
-  const envNames=['KIMYOLAB_BASE_PATH','KIMYOLAB_PORTAL_HOME_URL','KIMYOLAB_PUBLIC_ROOT','KIMYOLAB_CO_HOSTED_MOUNTS','KIMYOLAB_SMOKE_URL','KIMYOLAB_ROLLBACK_FROM','PORT','HOST'];
+  const envNames=['KIMYOLAB_BASE_PATH','KIMYOLAB_PORTAL_HOME_URL','KIMYOLAB_PUBLIC_ROOT','KIMYOLAB_CO_HOSTED_MOUNTS','KIMYOLAB_SMOKE_URL','KIMYOLAB_ROLLBACK_FROM','KIMYOLAB_PREVIOUS_ARTIFACT','PORT','HOST'];
   const undocumentedSettings=DEPLOY_SETTINGS.filter(s=>!deployDoc.includes(s.name.split(' ')[0]!)).map(s=>s.name);
   const undocumentedEnv=[...envNames,...[...env].filter(e=>!(e in NON_DEPLOY_ENV))].filter(e=>!deployDoc.includes(e));
   const unknownEnv=[...env].filter(e=>!envNames.includes(e)&&!(e in NON_DEPLOY_ENV)).sort();

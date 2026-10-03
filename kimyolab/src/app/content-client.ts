@@ -1,4 +1,5 @@
 import { evaluateContentPackCompatibility } from '../runtime/compatibility/content-pack.ts';
+import { contentRevisionOf, packLocation } from '../runtime/compatibility/release-pointer.ts';
 import { APP_COMPATIBILITY } from './app-version.ts';
 import { buildLearningHubModel, type LearningHubModel } from '../features/learning-hub/model.ts';
 import { buildPracticePageModel, type StudentPracticePageModel } from '../features/practice/model.ts';
@@ -76,8 +77,9 @@ export class ContentClient {
   }
 
   /** Pack data file: raw bytes are hashed and compared with manifest.files[path] before parsing (fail-closed). */
-  private packJson(version:string,rel:string):Promise<any>{
-    const url=`${this.baseUrl}/${version}/${rel}`;
+  private packJson(_version:string,rel:string):Promise<any>{
+    // P2.9: the pack location comes from the pointer (<version>/ or, in a deployment, <version>/<revision>/)
+    const url=`${this.packBase}/${rel}`;
     const cached=this.#cache.get(url);
     if(cached) return cached;
     const pending=(async()=>{
@@ -108,7 +110,11 @@ export class ContentClient {
   private async resolveVersion(){
     const pointer=await this.json(`${this.baseUrl}/manifest.json`);
     if(!pointer||typeof pointer.activeVersion!=='string'||typeof pointer.checksum!=='string'||typeof pointer.manifest!=='string'||!/^[A-Za-z0-9.-]+$/.test(pointer.activeVersion)) throw new ContentLoadError('CONTENT_MANIFEST_INVALID',{resource:`${this.baseUrl}/manifest.json`});
-    const manifestUrl=`${this.baseUrl}/${pointer.activeVersion}/manifest.json`;
+    // P2.9: the pointer names the exact pack: <version>/manifest.json, or <version>/<revision>/manifest.json in a
+    // deployment, whose revision must be the one derived from the pack's own checksum (fail closed otherwise)
+    const location=packLocation(pointer);
+    if(!location) throw new ContentLoadError('CONTENT_MANIFEST_INVALID',{resource:`${this.baseUrl}/manifest.json`});
+    const manifestUrl=`${this.baseUrl}/${location.dir}/manifest.json`;
     const packManifest=await this.json(manifestUrl);
     const compatibility=evaluateContentPackCompatibility(pointer,packManifest,APP_COMPATIBILITY);
     if(compatibility.status==='block') throw new ContentLoadError(compatibility.code,{resource:manifestUrl});
@@ -117,24 +123,28 @@ export class ContentClient {
     if(!files.length||files.some(f=>!f||typeof f.path!=='string'||!/^[a-f0-9]{64}$/.test(String(f.checksum))||!Number.isInteger(f.size))) throw new ContentLoadError('CONTENT_INTEGRITY_ERROR',{resource:manifestUrl});
     const aggregate=await sha256Hex(utf8(files.map(f=>`${f.path}:${f.checksum}:${f.size}`).join('\n')));
     if(aggregate!==packManifest.checksum) throw new ContentLoadError('CONTENT_INTEGRITY_ERROR',{resource:manifestUrl});
+    if(location.revision!==null&&location.revision!==contentRevisionOf(packManifest.checksum)) throw new ContentLoadError('CONTENT_INTEGRITY_ERROR',{resource:manifestUrl});
+    this.packBase=`${this.baseUrl}/${location.dir}`;
     this.files=new Map(files.map(f=>[f.path,f]));
     this.manifestCache=packManifest;
     this.activeVersion=compatibility.version; return this.activeVersion;
   }
 
   private manifestCache?:any;
+  private packBase='';
 
   async loadLearningHub(learningUnitId:string):Promise<LearningHubModel>{
     const match=learningUnitId.match(/^lu\.(7|8|9|10|11)\.[A-Za-z0-9.-]+$/);
     if(!match) throw new ContentLoadError('LEARNING_UNIT_ID_INVALID');
     const grade=Number(match[1]);
     const version=await this.version();
-    const prefix=`${this.baseUrl}/${version}`;
+    const prefix=this.packBase;
     // P2.3: the structured theory pack is optional for older packs (absent → MINIMAL); when listed, it is integrity-checked
     const structuredTheory=this.files.has(STRUCTURED_THEORY_PACK_PATH)?await this.packJson(version,STRUCTURED_THEORY_PACK_PATH):undefined;
-    // P2.3 closeout (A3): theory section labels come from the learner-interaction catalog (same fail-closed rule)
+    // P2.3 closeout (A3): theory section labels come from the learner-interaction catalog (same fail-closed rule);
+    // P2.9: the quiz/reflection validation text too, so the catalog is loaded whenever the pack ships it
     let interaction;
-    if(structuredTheory){
+    if(structuredTheory||this.files.has(interactionPackPath(DEFAULT_LOCALE))){
       try{interaction=parseInteractionCatalog(await this.packJson(version,interactionPackPath(DEFAULT_LOCALE)));}
       catch(error){throw error instanceof ContentLoadError?error:new ContentLoadError('LOCALIZATION_INVALID',{resource:interactionPackPath(DEFAULT_LOCALE)});}
     }
@@ -158,7 +168,7 @@ export class ContentClient {
   async loadPractice(practiceActivityId:string):Promise<StudentPracticePageModel>{
     if(!/^practice\.(?:experiment|simulation|trainer|calculation|case)\.[A-Za-z0-9.-]+$/.test(practiceActivityId)) throw new ContentLoadError('PRACTICE_ACTIVITY_ID_INVALID');
     const version=await this.version();
-    const prefix=`${this.baseUrl}/${version}`;
+    const prefix=this.packBase;
     // P1.1 (D8): routing is read from the compiled execution plan — never guessed from which config file
     // happens to contain the activity. Only the plan's own config source is loaded.
     const [packManifest,practices,mappings,planPack,reactions,solutionRules,hydrolysis,electrolysis,manganeseRedox,organic,kinetics,equilibrium,species,conditionVocabulary]=await Promise.all([
@@ -235,7 +245,7 @@ export class ContentClient {
   }
 
   async loadLabCatalog():Promise<LabCatalogModel>{
-    const version=await this.version(); const prefix=`${this.baseUrl}/${version}`;
+    const version=await this.version(); const prefix=this.packBase;
     const [practices,mappings,externalRaw,groups,referenceConfigs,guidedConfigs,beta1Configs,beta2Configs,beta2AdvancedConfigs,beta2OrganicConfigs,beta3Configs,beta3AdvancedConfigs]=await Promise.all([
       this.packJson(version,`practice-activities.json`),
       this.packJson(version,`mapping-links.json`),
@@ -307,7 +317,7 @@ export class ContentClient {
   }
 
   async loadSearchIndex(){
-    const version=await this.version(); const prefix=`${this.baseUrl}/${version}`;
+    const version=await this.version(); const prefix=this.packBase;
     const [groups,practices,mappings,concepts]=await Promise.all([
       Promise.all([7,8,9,10,11].map(g=>this.packJson(version,`learning-units/grade-${g}.json`))),
       this.packJson(version,`practice-activities.json`),this.packJson(version,`mapping-links.json`),this.packJson(version,`concepts.json`),

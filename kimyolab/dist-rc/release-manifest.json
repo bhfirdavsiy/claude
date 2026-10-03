@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-10-02T12:02:07.801Z",
+  "createdAt": "2026-10-03T07:57:12.042Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -17,8 +17,8 @@
     {
       "path": "app-preview/app/content-client.js",
       "sourcePath": "public/app-preview/app/content-client.js",
-      "checksum": "2c6d4b81677dc1f26666ba4f6ab9cd8c635b5066bf442f9419cc24113e976979",
-      "size": 22744
+      "checksum": "3fc8e144f08c2e9be02a568ee089fcf70579acb523035e353a48b6e83253dda4",
+      "size": 23665
     },
     {
       "path": "app-preview/app/host.js",
@@ -341,14 +341,14 @@
     {
       "path": "app-preview/engines/experiment/engine.js",
       "sourcePath": "public/app-preview/engines/experiment/engine.js",
-      "checksum": "28a3690292e6889a0c5ec17da60d895be20dcb359346e988b6b55f8b3e7280cf",
-      "size": 2896
+      "checksum": "38b6639d3342ca7a07bd8861a54b1f66716c4cc0fd03e75ee68962fd9612768a",
+      "size": 3471
     },
     {
       "path": "app-preview/engines/experiment/types.js",
       "sourcePath": "public/app-preview/engines/experiment/types.js",
-      "checksum": "9916623aaeb89ba8db3c38a1989914de48d520490eb682b28ea60fb14f99801d",
-      "size": 1018
+      "checksum": "d3a91cd95f50f9b2983f08869099d764834b235347daff7a6cea7a591610a26d",
+      "size": 1050
     },
     {
       "path": "app-preview/engines/index.js",
@@ -413,20 +413,20 @@
     {
       "path": "app-preview/features/learning-hub/model.js",
       "sourcePath": "public/app-preview/features/learning-hub/model.js",
-      "checksum": "9831cd6b707ecc2ed8172e577a5868b5890197e26b1100899e3ba897727c8903",
-      "size": 6750
+      "checksum": "9fbe30b30731604f0d6360301348a2e1eb44219c6545c6ecac37b06fc7b21d9a",
+      "size": 7326
     },
     {
       "path": "app-preview/features/learning-hub/render.js",
       "sourcePath": "public/app-preview/features/learning-hub/render.js",
-      "checksum": "16366c9fc3111ca7c39c86b8eaa68db37cc87c4b4f4d03dfdda850c7824524c0",
-      "size": 16946
+      "checksum": "f5f72c5df86ab22dfe682ca8a99b58f59a2d93c5186c3259d51aa7b8e522747f",
+      "size": 19149
     },
     {
       "path": "app-preview/features/localization/element-names.js",
       "sourcePath": "public/app-preview/features/localization/element-names.js",
-      "checksum": "5ccb6509ef691774f4ef34ba892613c89b7a207773ee46aa9867041c26dc6012",
-      "size": 7600
+      "checksum": "dd4dad7491f7610059b274470f530b28c3bbf0c6964a62a1333278758f85690d",
+      "size": 7787
     },
     {
       "path": "app-preview/features/practice/answer-domain.js",
@@ -437,8 +437,8 @@
     {
       "path": "app-preview/features/practice/form-question.js",
       "sourcePath": "public/app-preview/features/practice/form-question.js",
-      "checksum": "a2cb7b4fc7a41bd0867540224379be38209bd956e1e9bd73a4e57d5fccf74a09",
-      "size": 4466
+      "checksum": "3dc4e37ef24ee5364ccca2cce2183fa139f0a79c72e6151fc50c7a60b25e7784",
+      "size": 5051
     },
     {
       "path": "app-preview/features/practice/host.js",
@@ -455,8 +455,8 @@
     {
       "path": "app-preview/features/practice/render.js",
       "sourcePath": "public/app-preview/features/practice/render.js",
-      "checksum": "930bf3e0fa594acd96818a0ec401e245f051f620007ce98517b84a2d8c9507ba",
-      "size": 15567
+      "checksum": "aeb028f7f369fe3f5f09044c69016deb5b4f2ad59f1c5d98fb1e734da64b03fe",
+      "size": 15942
     },
     {
       "path": "app-preview/features/practice/session.js",
@@ -467,8 +467,8 @@
     {
       "path": "app-preview/features/practice/ui-model.js",
       "sourcePath": "public/app-preview/features/practice/ui-model.js",
-      "checksum": "5cd13fe6484f22ddb83caceece8cabe0062d2f77e26032bcf4077a9745b6f603",
-      "size": 6014
+      "checksum": "081bd74cf368c5cf4b440c9d6d0fd3435a3801cbf04e2db10ceb00acc819af7d",
+      "size": 6320
     },
     {
       "path": "app-preview/features/progress/liveness.js",
@@ -749,8 +749,8 @@
     {
       "path": "app-preview/runtime/compatibility/release-pointer.js",
       "sourcePath": "public/app-preview/runtime/compatibility/release-pointer.js",
-      "checksum": "44039977906c349f98514d4f3368274bfaf98c5a1646336ed10dc552782d8b11",
-      "size": 1052
+      "checksum": "ec8a6b138eee1b0b29e971fc151faa0c2fb74ccb367771592efaf889e113b9ac",
+      "size": 3242
     },
     {
       "path": "app-preview/runtime/compatibility/version-range.js",
@@ -959,8 +959,8 @@
     {
       "path": "app-preview/runtime/shared/learner-input.js",
       "sourcePath": "public/app-preview/runtime/shared/learner-input.js",
-      "checksum": "f75b68352c9ec50d7c1bf5661a0c8ae4f57c27f61cbdbe95a0d4c3161b8e5036",
-      "size": 1986
+      "checksum": "a7aab2ad8cce10a594a9e04a310e1e5937d19096f07f07e58c4515c470baf45d",
+      "size": 5295
     },
     {
       "path": "app-preview/ui/components/dom.js",
@@ -1241,8 +1241,8 @@
     {
       "path": "content/2026.09.1/locales/uz-latn/learner-interaction.json",
       "sourcePath": "public/content/2026.09.1/locales/uz-latn/learner-interaction.json",
-      "checksum": "40521de348a5e7a959a154e1507466a727070d406d74525b9a1af1ecc406aaa8",
-      "size": 16130
+      "checksum": "fb76d757acf54593b489218beec51c9278d391a440c3fcbee5e13baa2c408643",
+      "size": 16688
     },
     {
       "path": "content/2026.09.1/locales/uz-latn/name-provenance.json",
@@ -1253,7 +1253,7 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "cf709f8d177bc1975bfa3e58c4588f0d52d3e37b606793f1b5b0ed23a62b7390",
+      "checksum": "e1ff1bd9532bb0fa148b7e4d83411a670bb2192468003fca2a3ee1204a055e0e",
       "size": 7849
     },
     {
@@ -1283,7 +1283,7 @@
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "6caa8b777b38b15060b4b39edd84a8926cee813dbb95484190d8b755be44129f",
+      "checksum": "9f87f74d0c90587a73db9f7bf1ab4e8cba7b70e516e126e7c55982af5362207b",
       "size": 158
     },
     {
