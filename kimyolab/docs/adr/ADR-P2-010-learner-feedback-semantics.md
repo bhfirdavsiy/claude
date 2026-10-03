@@ -99,3 +99,33 @@ States:
 - **Treat every non-target value as INCORRECT.** This would invent chemistry: many are true statements about another substance.
 - **Enforce the array order of `requiredActions`.** The order was never declared, so this would impose a procedure from data layout.
 - **Keep the browser's validation.** It is unlocalized, unannounced, and bypassed the page's own messages.
+
+## 7. Content revision: semantic version vs deploy/cache identity
+
+### Finding
+
+The rollback drill failed between main and this branch. The five new catalog strings change the bytes of `locales/uz-latn/learner-interaction.json`, but the pack keeps `contentVersion` `2026.09.1`, and the server cached every `/content/2026.09.1/…` file as `immutable` for a year. As a result:
+
+- After an upgrade or a rollback, a returning learner's browser mixes a cached file of one pack with the manifest of the other.
+- The integrity check then fails closed and shows an error page, in both directions.
+- The content version has never changed since the baseline. Every earlier content change was exposed to the same problem; it had simply never been deployed.
+
+### Decision (taken by a human; options were presented, none pre-chosen)
+
+The semantic version is **not** bumped and immutable caching is **not** weakened. Instead the two identities are separated.
+
+- **`contentVersion` stays semantic** (`2026.09.1`). Activity versions, pending review targets, approval records and evidence are untouched: changed deployment bytes are not a content release.
+- **`contentRevision` is the deploy/cache identity:** the first 16 hex of the pack's canonical aggregate checksum, which covers every file's path, sha256 and size (`src/runtime/compatibility/release-pointer.ts`).
+- **Layout.** The deployment artefact serves the pack at `content/<contentVersion>/<contentRevision>/` (`scripts/lib/content-revision.ts`, applied by `deploy:build`). The pointer `content/manifest.json` names that exact directory, and the client verifies that the revision is the hash of the pack it receives.
+- **Caching.** Only revision-qualified URLs are immutable (`server/app.mjs`; the nginx and Apache EXAMPLES in DEPLOY.md). The pointer, the manifests and any semantic-only pack path are revalidated.
+- **Deploy and rollback** switch the pointer, and with it the whole pack, in one step. The rollback drill runs the real registry switch and adds `immutable-urls-stable`: no immutable URL serves different bytes in the two releases.
+- **Fail-closed preflight check 17, `content-revision`:**
+  - `DEPLOY_CONTENT_REVISION_INVALID` — the revision is not derived from the pack hash, an unlisted or edited file sits under the revision directory, or an un-revisioned copy or a source-layout pointer is present.
+  - `DEPLOY_IMMUTABLE_URL_REUSED` — with `KIMYOLAB_PREVIOUS_ARTIFACT`, an immutable URL of the previous release serves different bytes.
+- **Source build unchanged.** It keeps the semantic layout (`public/content/<version>/`), and the bundled server never caches that layout as immutable.
+
+### Measured
+
+- Preflight 17/17, smoke 23/23, rollback drill PASS (baseline: main), including `immutable-urls-stable`.
+- Unit tests: layout, five fail-closed cases, honest new revision versus forged reuse, and the client rejecting a forged revision.
+- HTTP surface test: the revision path is immutable, the pointer and manifests are `no-cache`, and no un-revisioned copy is served.

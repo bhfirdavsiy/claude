@@ -107,7 +107,9 @@ export function createKimyoLabServer(options = {}) {
   function loadActiveBindings() {
     const pointer = readPointer();
     if (!pointer || typeof pointer.activeVersion !== 'string' || !/^[A-Za-z0-9.-]+$/.test(pointer.activeVersion)) throw apiError(S.INTERNAL, 'CONTENT_POINTER_INVALID', 'Active content pointer is invalid.');
-    const packDir = path.join(publicRoot, 'content', pointer.activeVersion);
+    // P2.9: the pack location comes from the pointer (<version>/ or a deployment's <version>/<revision>/)
+    const packRel = /^[A-Za-z0-9.-]+(?:\/[a-f0-9]{16})?\/manifest\.json$/.test(String(pointer.manifest ?? '')) && String(pointer.manifest).startsWith(`${pointer.activeVersion}/`) ? path.posix.dirname(pointer.manifest) : pointer.activeVersion;
+    const packDir = path.join(publicRoot, 'content', ...packRel.split('/'));
     const manifest = JSON.parse(fs.readFileSync(path.join(packDir, 'manifest.json'), 'utf8'));
     const entry = (manifest.files ?? []).find((f) => f.path === 'external-lab-bindings.json');
     const bytes = fs.readFileSync(path.join(packDir, 'external-lab-bindings.json'));
@@ -259,7 +261,10 @@ export function createKimyoLabServer(options = {}) {
     let stat;
     try { stat = fs.statSync(real); } catch { return notFound(res); }
     if (!stat.isFile()) return notFound(res);
-    const immutable = /^\/content\/[^/]+\/.+/.test(logical) && !logical.endsWith('/manifest.json');
+    // P2.9: only a REVISION-qualified pack URL (/content/<version>/<revision>/…, revision = 16 hex of the pack's
+    // aggregate checksum) is immutable: its bytes can never change. Anything else under /content/ — the pointer, a
+    // manifest, a pack served at the semantic version alone — is revalidated, so changed bytes always reach the learner.
+    const immutable = /^\/content\/[A-Za-z0-9.-]+\/[a-f0-9]{16}\/.+/.test(logical) && !logical.endsWith('/manifest.json');
     res.writeHead(200, headers({'Content-Type': TYPES[path.extname(real).toLowerCase()], 'Content-Length': String(stat.size), 'Cache-Control': immutable ? 'public, max-age=31536000, immutable' : 'no-cache'}));
     if (req.method === 'HEAD') return res.end();
     fs.createReadStream(real).on('error', () => res.destroy()).pipe(res);

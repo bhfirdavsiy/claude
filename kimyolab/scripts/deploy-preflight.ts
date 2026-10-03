@@ -8,6 +8,7 @@ import os from 'node:os';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
+import {revisionLayoutProblems,immutableUrlCollisions} from './lib/content-revision.ts';
 import {computeTreeHash} from './deploy-surface-hash.ts';
 import {validateContentPackIntegrity} from './content-pack-integrity.ts';
 import {rootAbsoluteUrls} from './lib/host-build.ts';
@@ -19,7 +20,7 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 
 export interface PreflightCheck { id:string; pass:boolean; code?:string; message?:string; fix?:string; detail?:unknown }
 /** The published check list: every id always appears in the result (no hidden scoring). */
-export const PREFLIGHT_CHECKS=['config','build-complete','content-manifest','artifact-checksum','content-integrity','base-path','root-asset-leak','content-base','brand-asset','storage-namespace','service-worker','external-dependency','forbidden-files','line-endings','reproducible-build','config-match'] as const;
+export const PREFLIGHT_CHECKS=['config','build-complete','content-manifest','artifact-checksum','content-integrity','content-revision','base-path','root-asset-leak','content-base','brand-asset','storage-namespace','service-worker','external-dependency','forbidden-files','line-endings','reproducible-build','config-match'] as const;
 
 const REQUIRED=['index.html','app-preview/app/bootstrap.js','app-preview/ui/tokens/kimyolab.css','content/manifest.json','assets/brand/kimyolab-logo.webp'];
 /** The approved brand delivery asset (P2.2 brand integration): its bytes are fixed; a different logo is a failed install. */
@@ -69,6 +70,17 @@ export function runPreflight(opts:{root:string;env?:Record<string,string|undefin
   // content-integrity: the same checks the app runs before it trusts a pack (fail closed in the browser too)
   const integrity=validateContentPackIntegrity(opts.root,path.join(dir,'content'));
   if(integrity.valid) ok('content-integrity'); else fail('content-integrity','DEPLOY_CHECKSUM_MISMATCH','The content pack does not match its own checksums.','rebuild the pack ("npm run content:pack") and the artefact; never edit content files after the build.',{issues:integrity.issues.slice(0,20)});
+
+  // content-revision (P2.9): the pack is served at content/<contentVersion>/<contentRevision>/, the revision is derived
+  // from the pack's own hash, every byte there is covered by that hash and nothing else is served from content/ — so an
+  // immutable content URL can never serve different bytes. With KIMYOLAB_PREVIOUS_ARTIFACT (a previous release
+  // directory) it also proves that no immutable URL of that release serves different bytes here.
+  const revisionProblems=revisionLayoutProblems(path.join(dir,'content'));
+  const previousArtifact=(opts.env??process.env).KIMYOLAB_PREVIOUS_ARTIFACT;
+  const collisions=previousArtifact&&fs.existsSync(path.join(previousArtifact,'content'))?immutableUrlCollisions(path.join(previousArtifact,'content'),path.join(dir,'content')):[];
+  if(revisionProblems.length) fail('content-revision','DEPLOY_CONTENT_REVISION_INVALID',`The content pack is not served at a revision derived from its own hash (${revisionProblems.slice(0,3).join(', ')}${revisionProblems.length>3?', …':''}).`,'rebuild with "npm run deploy:build"; never move, add or edit files under content/ after the build.',{problems:revisionProblems});
+  else if(collisions.length) fail('content-revision','DEPLOY_IMMUTABLE_URL_REUSED',`${collisions.length} immutable content URL(s) serve different bytes than in the previous release.`,'the content revision must change whenever pack bytes change: rebuild with "npm run deploy:build".',{collisions:collisions.slice(0,10)});
+  else { const p=JSON.parse(fs.readFileSync(path.join(dir,'content','manifest.json'),'utf8')); ok('content-revision',{contentVersion:p.activeVersion,contentRevision:p.activeRevision,comparedWithPrevious:Boolean(previousArtifact)}); }
 
   const htmlFile=path.join(dir,'index.html');
   const html=fs.existsSync(htmlFile)?fs.readFileSync(htmlFile,'utf8'):'';

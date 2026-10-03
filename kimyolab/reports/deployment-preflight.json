@@ -35,12 +35,21 @@
       "pass": true,
       "detail": {
         "files": 215,
-        "sha256": "65eadca1d4f9e91272f279611fa4cee87878b6c9456297de9fee73a3ce5b6f71"
+        "sha256": "5b74417e0aa2329b18a98809266d1f5ae152c25b5a8f58e880bdb6c32c2ba809"
       }
     },
     {
       "id": "content-integrity",
       "pass": true
+    },
+    {
+      "id": "content-revision",
+      "pass": true,
+      "detail": {
+        "contentVersion": "2026.09.1",
+        "contentRevision": "4f3dc600dcab382d",
+        "comparedWithPrevious": false
+      }
     },
     {
       "id": "base-path",
@@ -94,7 +103,7 @@
       "id": "reproducible-build",
       "pass": true,
       "detail": {
-        "sha256": "65eadca1d4f9e91272f279611fa4cee87878b6c9456297de9fee73a3ce5b6f71"
+        "sha256": "5b74417e0aa2329b18a98809266d1f5ae152c25b5a8f58e880bdb6c32c2ba809"
       }
     },
     {
@@ -103,7 +112,7 @@
     }
   ],
   "summary": {
-    "checks": 16,
-    "pass": 16
+    "checks": 17,
+    "pass": 17
   }
 }

@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-10-02T17:03:23.173Z",
+  "createdAt": "2026-10-03T07:22:52.711Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -17,8 +17,8 @@
     {
       "path": "app-preview/app/content-client.js",
       "sourcePath": "public/app-preview/app/content-client.js",
-      "checksum": "07b577f8ab8c06bf5bf9a7346efc9a12cd5ca9c9434297b9ca56ea13073f40b7",
-      "size": 22904
+      "checksum": "3fc8e144f08c2e9be02a568ee089fcf70579acb523035e353a48b6e83253dda4",
+      "size": 23665
     },
     {
       "path": "app-preview/app/host.js",
@@ -749,8 +749,8 @@
     {
       "path": "app-preview/runtime/compatibility/release-pointer.js",
       "sourcePath": "public/app-preview/runtime/compatibility/release-pointer.js",
-      "checksum": "44039977906c349f98514d4f3368274bfaf98c5a1646336ed10dc552782d8b11",
-      "size": 1052
+      "checksum": "29160ec2156353136eebee78ccae86354639a436bf1e2a9eca84eca6fdf338cf",
+      "size": 2718
     },
     {
       "path": "app-preview/runtime/compatibility/version-range.js",

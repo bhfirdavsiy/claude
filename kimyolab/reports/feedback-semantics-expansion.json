@@ -46,6 +46,19 @@
       "affects": "option ORDER only (values, evidence and correctness unchanged); fixed the false P2.7 note on 11.16"
     },
     {
+      "id": "content-revision",
+      "what": "the deployment artefact serves the pack at content/<contentVersion>/<contentRevision>/ (revision = 16 hex of the pack aggregate checksum); only revision-qualified URLs are immutable; the semantic contentVersion, activity versions, review targets and evidence are unchanged (human decision, ADR-P2-010 §7)",
+      "files": [
+        "src/runtime/compatibility/release-pointer.ts",
+        "scripts/lib/content-revision.ts",
+        "scripts/deploy-build.ts",
+        "scripts/deploy-preflight.ts",
+        "server/app.mjs",
+        "src/app/content-client.ts"
+      ],
+      "affects": "deployment caching and rollback only; found by the rollback drill (new catalog bytes under an unchanged, immutably cached version)"
+    },
+    {
       "id": "quiz-validation",
       "what": "quiz and reflection forms: novalidate + localized role=alert listing the unanswered questions / incomplete parts, aria-invalid on them, focus to the first one (the browser's English bubble no longer answers)",
       "files": [
@@ -83,13 +96,13 @@
     },
     "after": {
       "learnerModules": 162,
-      "learnerModuleBytes": 711053,
-      "standaloneBytes": 5700083
+      "learnerModuleBytes": 713480,
+      "standaloneBytes": 5703740
     },
     "delta": {
       "learnerModules": 0,
-      "learnerModuleBytes": 8308,
-      "standaloneBytes": 8978
+      "learnerModuleBytes": 10735,
+      "standaloneBytes": 12635
     }
   }
 }

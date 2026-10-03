@@ -69,6 +69,9 @@ proves that the code reads nothing else.
   - it then walks back along the mainline to the first commit whose artefact differs from the current one.
 
   The baseline must be on the mainline, and the drill reports its full SHA. Use a full clone (CI: `fetch-depth: 0` plus an explicit `git fetch --unshallow` when the checkout is still shallow). A shallow clone fails with a message that says so.
+- **Previous-release check:** `KIMYOLAB_PREVIOUS_ARTIFACT` (preflight, optional) is the directory of the previous release.
+  - The preflight then proves that no immutable content URL serves different bytes than it did there (`DEPLOY_IMMUTABLE_URL_REUSED`).
+  - The rollback drill always runs this check.
 - **Optional server tuning** (bundled server only): `KIMYOLAB_SESSION_RATE_LIMIT`, `KIMYOLAB_STATUS_RATE_LIMIT`, `KIMYOLAB_ALLOWED_ORIGINS`.
 
 ## 4. What to upload
@@ -78,13 +81,31 @@ Upload the **contents** of `dist-deploy/kimyolab/` so that they are served at `/
 ```
 dist-deploy/kimyolab/index.html            →  https://<host>/kimyolab/index.html   (entry document)
 dist-deploy/kimyolab/app-preview/…          →  https://<host>/kimyolab/app-preview/…
-dist-deploy/kimyolab/content/…              →  https://<host>/kimyolab/content/…
+dist-deploy/kimyolab/content/manifest.json  →  https://<host>/kimyolab/content/manifest.json   (pointer: names the pack)
+dist-deploy/kimyolab/content/<contentVersion>/<contentRevision>/…  →  https://<host>/kimyolab/content/<contentVersion>/<contentRevision>/…
 dist-deploy/kimyolab/assets/…               →  https://<host>/kimyolab/assets/…
 ```
 
 - **Manifest:** keep `dist-deploy/kimyolab.manifest.json` with your release records. It lists every file with its sha256.
 - **Artefact facts:** file count, total size, tree sha256 and content version are in `reports/deployment-artifacts.json`.
 - **Do not edit the artefact.** Any change after the build fails the preflight with `DEPLOY_CHECKSUM_MISMATCH`.
+
+### Content version and content revision
+
+Two different identities are involved:
+
+| Identity | Example | What it means | Changes when |
+|---|---|---|---|
+| `contentVersion` | `2026.09.1` | **Semantic.** Activity versions, review targets and learner evidence refer to it. | Only by a content release decision. |
+| `contentRevision` | `4f3dc600dcab382d` | **Deploy and cache identity.** The first 16 hex of the pack's aggregate checksum (every file's path, sha256 and size). | Whenever any byte of the pack changes. |
+
+How they work together:
+
+- The artefact serves the pack at `content/<contentVersion>/<contentRevision>/`.
+- The pointer `content/manifest.json` names that exact directory, and the app verifies that the revision is the hash of the pack it receives.
+- **One revision-qualified URL can never serve two different byte sequences.** Such URLs may therefore be cached as immutable.
+- Deploying or rolling back switches the pointer, and with it the whole pack, in one step. A learner's browser can never mix files of two packs.
+- A new revision under the same `contentVersion` is normal: for example, new interface text in the catalog. It changes no activity version, review target or evidence.
 
 The standalone presentation file (`dist-standalone/KimyoLab_standalone.html`, `npm run standalone:build`) is the same
 product as one offline HTML file. It is not a server deployment.
@@ -94,6 +115,10 @@ product as one offline HTML file. It is not a server deployment.
 The requirement is the same whatever server you use:
 
 1. Files under `/kimyolab/` are served as they are. Use `Content-Type` by extension; `.js` must be `text/javascript`.
+   - **Caching:**
+     - Only `/kimyolab/content/<contentVersion>/<contentRevision>/…` (16 hex) may be cached as `immutable`, and never its `manifest.json`.
+     - The pointer `/kimyolab/content/manifest.json`, the pack `manifest.json`, `index.html` and the app modules must be revalidated (`no-cache`).
+     - A long-lived cache on any other path can mix an old and a new release in a learner's browser.
 2. Any other path under `/kimyolab/` that is not a file serves `/kimyolab/index.html` with status 200. These are app routes such as `/kimyolab/learn/lu.7.12/practice` or `/kimyolab/practice/<id>` (deep links and refresh).
 3. Requests **outside** `/kimyolab/` are not part of KimyoLab.
 4. Send the same security headers as the bundled server (`server/app.mjs`): `Content-Security-Policy` (self only), `X-Content-Type-Options: nosniff`, `Referrer-Policy: no-referrer`.
@@ -117,6 +142,14 @@ Adapt them to the portal's real server and confirm them with `KIMYOLAB_SMOKE_URL
 location /kimyolab/ {
     alias /srv/kimyolab/;                     # = contents of dist-deploy/kimyolab/
     try_files $uri /kimyolab/index.html;
+    add_header Cache-Control "no-cache";
+    add_header X-Content-Type-Options nosniff;
+    add_header Referrer-Policy no-referrer;
+}
+# only the revision-qualified pack files are immutable (their bytes can never change)
+location ~ ^/kimyolab/content/[A-Za-z0-9.-]+/[a-f0-9]{16}/(?!manifest\.json$).+ {
+    alias /srv/kimyolab/content/;             # regex location: map the captured path explicitly in a real config
+    add_header Cache-Control "public, max-age=31536000, immutable";
     add_header X-Content-Type-Options nosniff;
     add_header Referrer-Policy no-referrer;
 }
@@ -127,9 +160,13 @@ location /kimyolab/ {
 Alias /kimyolab/ /srv/kimyolab/
 <Directory /srv/kimyolab/>
     FallbackResource /kimyolab/index.html
+    Header set Cache-Control "no-cache"
     Header set X-Content-Type-Options nosniff
     Header set Referrer-Policy no-referrer
 </Directory>
+<LocationMatch "^/kimyolab/content/[A-Za-z0-9.-]+/[a-f0-9]{16}/(?!manifest\.json$)">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+</LocationMatch>
 ```
 
 ## 6. After installing: smoke
@@ -154,6 +191,8 @@ A failed install shows up as a `✗` line with a `DEPLOY_*` code, and the comman
 | `DEPLOY_NOT_REPRODUCIBLE` | the artefact is not the build of this commit | rebuild from the commit you deploy |
 | `DEPLOY_CONFIG_MISMATCH` | build and current configuration differ | use the same `KIMYOLAB_*` values |
 | `DEPLOY_LINE_ENDINGS_NONCANONICAL` | text files contain CRLF (an EOL-converting checkout) | check out with the repository `.gitattributes` and rebuild |
+| `DEPLOY_CONTENT_REVISION_INVALID` | the pack is not at a revision derived from its own hash, or files under `content/` were added, moved or edited | rebuild with `npm run deploy:build`; never touch `content/` after the build |
+| `DEPLOY_IMMUTABLE_URL_REUSED` | an immutable content URL of the previous release (`KIMYOLAB_PREVIOUS_ARTIFACT`) serves different bytes here | rebuild with `npm run deploy:build`: changed pack bytes must get a new revision |
 
 ## 7. Rollback
 

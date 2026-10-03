@@ -108,8 +108,8 @@
       "pass": true,
       "evidence": "deployment-preflight.json",
       "detail": {
-        "checks": 16,
-        "pass": 16
+        "checks": 17,
+        "pass": 17
       }
     },
     {
@@ -151,6 +151,7 @@
           "DEPLOY_CHECKSUM_MISMATCH",
           "DEPLOY_CONTENT_BASE_INVALID",
           "DEPLOY_CONTENT_MANIFEST_MISSING",
+          "DEPLOY_CONTENT_REVISION_INVALID",
           "DEPLOY_EXTERNAL_DEPENDENCY"
         ],
         "actionable": true,
@@ -169,7 +170,7 @@
           "npm run deploy:preflight",
           "npm run deploy:smoke"
         ],
-        "seconds": 14
+        "seconds": 20
       }
     },
     {

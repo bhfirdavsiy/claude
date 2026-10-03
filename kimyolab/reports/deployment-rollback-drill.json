@@ -5,23 +5,22 @@
   "storage": "kimyolab@/kimyolab/.runtime",
   "status": "PASS",
   "previous": {
-    "commit": "2e80fd084a087d08e080fee3b893d63f1b92a266",
+    "commit": "abdb379de6fd3f2b89f346b074d9616f02ac7c3d",
     "resolution": {
       "method": "merge-base",
       "mainline": "origin/main",
-      "mergeBase": "f11c79994e3e49ef2ad4c4f8af5f68c04236b7af",
+      "mergeBase": "abdb379de6fd3f2b89f346b074d9616f02ac7c3d",
       "walked": [
-        "f11c79994e3e49ef2ad4c4f8af5f68c04236b7af",
-        "2e80fd084a087d08e080fee3b893d63f1b92a266"
+        "abdb379de6fd3f2b89f346b074d9616f02ac7c3d"
       ]
     },
     "builder": "that commit's own scripts/build-production.ts",
-    "sha256": "d371306cdcd7ba5497d67919169870aab2e07b79ae70613406f4bfc71f368d77",
+    "sha256": "f61f1cca79ed4e9db2f1c76e3c0556d0aecfa483de569adc1d22ae73599926ba",
     "fileCount": 215
   },
   "current": {
     "source": "dist-deploy/kimyolab/",
-    "sha256": "f61f1cca79ed4e9db2f1c76e3c0556d0aecfa483de569adc1d22ae73599926ba",
+    "sha256": "5b74417e0aa2329b18a98809266d1f5ae152c25b5a8f58e880bdb6c32c2ba809",
     "fileCount": 215
   },
   "steps": [
@@ -31,6 +30,15 @@
       "detail": {
         "activeRelease": "current",
         "previousRelease": "previous"
+      }
+    },
+    {
+      "id": "immutable-urls-stable",
+      "pass": true,
+      "detail": {
+        "collisions": [],
+        "previousPack": "2026.09.1/manifest.json",
+        "currentPack": "2026.09.1/4f3dc600dcab382d/manifest.json"
       }
     },
     {
@@ -109,7 +117,7 @@
       "id": "restored-bytes-identical",
       "pass": true,
       "detail": {
-        "sha256": "f61f1cca79ed4e9db2f1c76e3c0556d0aecfa483de569adc1d22ae73599926ba"
+        "sha256": "5b74417e0aa2329b18a98809266d1f5ae152c25b5a8f58e880bdb6c32c2ba809"
       }
     }
   ],
