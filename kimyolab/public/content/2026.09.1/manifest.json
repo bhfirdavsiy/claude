@@ -6,7 +6,7 @@
   "assessmentVersion": "0.0.0",
   "scoringVersion": "0.0.0",
   "createdAt": "2026-09-22T00:00:00.000Z",
-  "checksum": "96bee77f817cfb2fbbf43fcf0ae4498ebc6d46242a73f4f6854e32d297f0d528",
+  "checksum": "ec73d14c28ea0c206601d81bb1bf102adec2eec761dc7c4535ecfb1968f6d4a0",
   "compatibility": {
     "minAppVersion": "20.1.0"
   },
@@ -215,8 +215,8 @@
     },
     {
       "path": "locales/uz-latn/learner-interaction.json",
-      "checksum": "ef892f03f3ff53f3e9d73482d059f3ce995b187364d7935687953c0ce2970e2d",
-      "size": 30288
+      "checksum": "175697d9702b23a1e4c991f50f2bc0787aba21ec00cc0a2e0018b2738325d388",
+      "size": 31018
     },
     {
       "path": "locales/uz-latn/name-provenance.json",
@@ -245,8 +245,8 @@
     },
     {
       "path": "topic-lab-profiles.json",
-      "checksum": "77efe4d40932899b651520dee2b8ae4b97d51ebb7722d432f0d92b97a8aaa817",
-      "size": 54651
+      "checksum": "c5812b386c0c71bae071ab800a9d4e2859d5b54659cef1ac004a3fe00a5cf0dc",
+      "size": 61882
     }
   ]
 }

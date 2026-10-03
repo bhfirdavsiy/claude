@@ -243,7 +243,7 @@
         },
         "completion": {
           "status": "DIFFERENT",
-          "detail": "old: every step clicked (complete=true); new: the bound reactions observed and a modeled gas collected (complete=true)",
+          "detail": "old: every step clicked (complete=true); new: the bound reactions observed and a modeled gas collected (complete=true), and that is PARTIAL_INSTRUCTION: 4 instruction operation(s) are not offered",
           "evidence": "runs both"
         },
         "evidence": {
@@ -291,7 +291,6 @@
       "newOnly": {
         "replayDeterministic": true,
         "unsupportedOutcomes": [
-          "REACTION_NOT_MODELED",
           "REACTION_NOT_MODELED"
         ]
       },
@@ -337,7 +336,7 @@
         },
         "completion": {
           "status": "DIFFERENT",
-          "detail": "old: every step clicked (complete=true); new: the bound reactions observed and a modeled gas collected (complete=true)",
+          "detail": "old: every step clicked (complete=true); new: the bound reactions observed and a modeled gas collected (complete=true), and that is PARTIAL_INSTRUCTION: 4 instruction operation(s) are not offered",
           "evidence": "runs both"
         },
         "evidence": {

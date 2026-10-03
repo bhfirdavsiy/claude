@@ -903,7 +903,7 @@
       "gaps": [],
       "profileGaps": [
         "TEST_NOT_OFFERED",
-        "CU_HCL_NOT_IN_REACTION_RECORDS",
+        "MODEL_SOURCE_GAP_CU_HCL",
         "RECORD_CHECKER_MISSING",
         "HEAT_SOURCE_NOT_NAMED",
         "APPARATUS_WITHOUT_OPERATION"
@@ -1861,7 +1861,7 @@
       "gaps": [],
       "profileGaps": [
         "SCHOOL_MODEL_STEP_BOUND",
-        "INSTRUCTION_MODEL_OBSERVATION_CONFLICT",
+        "SOURCE_CONFLICT_REVIEW_REQUIRED",
         "QUANTITY_AS_RATIO",
         "HEAT_SOURCE_NOT_NAMED",
         "APPARATUS_NOT_DECLARED",

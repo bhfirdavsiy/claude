@@ -510,6 +510,11 @@
     "ui.dlab-reason-REACTION_CONDITIONS_NOT_MET": "Reaksiya yozuvidagi sharoit hozir bajarilmagan.",
     "ui.dlab-reason-REACTION_CONDITION_REQUIRED": "Reaksiya yozuvi sharoitni talab qiladi, lekin u aniqlanmagan.",
     "ui.dlab-reason-HEATING_EFFECT_NOT_MODELED": "Qizdirish idishdagi moddalarga qanday ta’sir qilishi modellashtirilmagan.",
-    "ui.dlab-reason-NO_TIME_MODEL": "Vaqt o‘tishi modellashtirilmagan: holat o‘zgarmaydi."
+    "ui.dlab-reason-NO_TIME_MODEL": "Vaqt o‘tishi modellashtirilmagan: holat o‘zgarmaydi.",
+    "ui.dlab-complete-partial": "Yo‘riqnomaning bu laboratoriyada qo‘llab-quvvatlanadigan qismi bajarildi. Qolgan qadamlar bu yerda hali yo‘q. Natija saqlanmaydi (sinov rejimi).",
+    "ui.dlab-partial-notice": "Bu laboratoriya yo‘riqnomaning faqat bir qismini qo‘llab-quvvatlaydi. Qolgan qadamlarni odatdagi amaliy mashg‘ulotda bajaring.",
+    "ui.dlab-err-ACTION_NOT_IN_INSTRUCTION_SCOPE": "Yo‘riqnoma bu amalni shu tajriba uchun ko‘rsatmagan, shuning uchun u bajarilmaydi.",
+    "ui.dlab-reason-COMBINATION_NOT_IN_INSTRUCTION": "Yo‘riqnomada bu moddalar bir idishda birga ishlatilmaydi.",
+    "ui.dlab-reason-NOT_STATED_FOR_THIS_TRIAL": "Yo‘riqnoma bu idishdagi tajriba uchun bunday amalni ko‘rsatmagan."
   }
 }

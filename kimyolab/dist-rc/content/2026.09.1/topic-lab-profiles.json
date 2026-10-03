@@ -200,7 +200,8 @@
         "mode": "FLEXIBLE",
         "steps": [],
         "humanDecision": null,
-        "orderSource": "No order is declared: the instruction states problems (\"… isbotlang\"), and the config (reference-slices, reagentShelf) lets the learner choose reagents. Only state preconditions apply (two solutions before mixing; an observed reaction before recording)."
+        "orderSource": "No order is declared: the instruction states problems (\"… isbotlang\"), and the config (reference-slices, reagentShelf) lets the learner choose reagents. Only state preconditions apply (two solutions before mixing; an observed reaction before recording).",
+        "scope": "TOPIC"
       },
       "observationTargets": [
         {
@@ -215,6 +216,47 @@
       "completionGoal": {
         "kind": "ionic-target",
         "targetReactionId": "rxn.agno3-nacl"
+      },
+      "completionScope": {
+        "kind": "PARTIAL_INSTRUCTION",
+        "uncovered": [
+          {
+            "instructionStep": 0,
+            "verb": "isbotlang",
+            "family": "INFER",
+            "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+          },
+          {
+            "instructionStep": 1,
+            "verb": "isbotlang",
+            "family": "INFER",
+            "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+          },
+          {
+            "instructionStep": 2,
+            "verb": "isbotlang",
+            "family": "INFER",
+            "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+          },
+          {
+            "instructionStep": 3,
+            "verb": "oling",
+            "family": "PREPARE_SUBSTANCE",
+            "reason": "NOT_OFFERED"
+          },
+          {
+            "instructionStep": 4,
+            "verb": "isbotlang",
+            "family": "INFER",
+            "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+          },
+          {
+            "instructionStep": 5,
+            "verb": "farqlang",
+            "family": "COMPARE",
+            "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+          }
+        ]
       },
       "guidance": {
         "levels": [
@@ -502,7 +544,8 @@
           ],
           "selected": null
         },
-        "orderSource": "Not declared. The config (beta3-advanced, requiredActions) is a set; P2.9 left the order question open (review-packets/feedback-semantics/practice.experiment.11.2.md)."
+        "orderSource": "Not declared. The config (beta3-advanced, requiredActions) is a set; P2.9 left the order question open (review-packets/feedback-semantics/practice.experiment.11.2.md).",
+        "scope": "TOPIC"
       },
       "observationTargets": [
         {
@@ -527,6 +570,23 @@
         "targets": [
           "cathode",
           "anode"
+        ]
+      },
+      "completionScope": {
+        "kind": "PARTIAL_INSTRUCTION",
+        "uncovered": [
+          {
+            "instructionStep": 2,
+            "verb": "belgilang",
+            "family": "RECORD",
+            "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+          },
+          {
+            "instructionStep": 4,
+            "verb": "tushuntiring",
+            "family": "EXPLAIN",
+            "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+          }
         ]
       },
       "guidance": {
@@ -928,7 +988,8 @@
           }
         ],
         "humanDecision": null,
-        "orderSource": "config(reference-slices).scenario.steps[].dependencies (declared: apparatus → water → mixture → dissolve → filter → evaporate → observe)"
+        "orderSource": "config(reference-slices).scenario.steps[].dependencies (declared: apparatus → water → mixture → dissolve → filter → evaporate → observe)",
+        "scope": "TOPIC"
       },
       "observationTargets": [
         {
@@ -958,6 +1019,17 @@
       ],
       "completionGoal": {
         "kind": "all-required-steps"
+      },
+      "completionScope": {
+        "kind": "PARTIAL_INSTRUCTION",
+        "uncovered": [
+          {
+            "instructionStep": 4,
+            "verb": "to‘xtating",
+            "family": "STOP_HEAT",
+            "reason": "NOT_OFFERED"
+          }
+        ]
       },
       "guidance": {
         "levels": [
@@ -1253,6 +1325,7 @@
             "required": true,
             "instructionStep": 0,
             "source": "legacyContent.steps[0]",
+            "trial": "mg-h2so4",
             "dependencies": []
           },
           {
@@ -1264,6 +1337,7 @@
             "required": true,
             "instructionStep": 0,
             "source": "legacyContent.steps[0]",
+            "trial": "mg-h2so4",
             "dependencies": []
           },
           {
@@ -1273,6 +1347,7 @@
             "required": true,
             "instructionStep": 0,
             "source": "legacyContent.steps[0] (\"ajralgan gazni yig‘ing\")",
+            "trial": "mg-h2so4",
             "dependencies": []
           },
           {
@@ -1284,6 +1359,7 @@
             "required": true,
             "instructionStep": 1,
             "source": "legacyContent.steps[1]",
+            "trial": "zn-hcl",
             "dependencies": []
           },
           {
@@ -1295,6 +1371,7 @@
             "required": true,
             "instructionStep": 1,
             "source": "legacyContent.steps[1]",
+            "trial": "zn-hcl",
             "dependencies": []
           },
           {
@@ -1304,6 +1381,17 @@
             "required": false,
             "instructionStep": 1,
             "source": "legacyContent.steps[1] (\"zarur bo‘lsa biroz qizdiring\")",
+            "trial": "zn-hcl",
+            "dependencies": []
+          },
+          {
+            "id": "collect-gas-zn",
+            "family": "COLLECT_GAS",
+            "match": {},
+            "required": true,
+            "instructionStep": 1,
+            "source": "legacyContent.steps[1] (\"gazni yig‘ing\")",
+            "trial": "zn-hcl",
             "dependencies": []
           },
           {
@@ -1315,11 +1403,79 @@
             "required": true,
             "instructionStep": 2,
             "source": "legacyContent.steps[2]",
+            "trial": "cu-hcl",
+            "dependencies": []
+          },
+          {
+            "id": "add-hcl-cu",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "hcl-dilute"
+            },
+            "required": true,
+            "instructionStep": 2,
+            "source": "legacyContent.steps[2]",
+            "trial": "cu-hcl",
             "dependencies": []
           }
         ],
         "humanDecision": null,
-        "orderSource": "No order is declared: the config (guided-labs) runs on the generic runtime, whose order is only the array position (ORDER_FROM_ARRAY_POSITION). The three metal–acid trials are independent; only state preconditions apply."
+        "orderSource": "No order is declared: the config (guided-labs) runs on the generic runtime, whose order is only the array position (ORDER_FROM_ARRAY_POSITION). The three metal–acid trials are independent; only state preconditions apply.",
+        "scope": "INSTRUCTION_TRIALS",
+        "trials": [
+          {
+            "id": "mg-h2so4",
+            "instructionSteps": [
+              0
+            ],
+            "substances": [
+              "mg",
+              "h2so4-dilute"
+            ],
+            "families": [
+              "ADD_SUBSTANCE",
+              "COLLECT_GAS"
+            ],
+            "source": "legacyContent.steps[0] (\"Magniy ustiga suyultirilgan H2SO4 quying, ajralgan gazni yig‘ing …\")",
+            "reactionIds": [
+              "rxn.mg-h2so4"
+            ]
+          },
+          {
+            "id": "zn-hcl",
+            "instructionSteps": [
+              1
+            ],
+            "substances": [
+              "zn",
+              "hcl-dilute"
+            ],
+            "families": [
+              "ADD_SUBSTANCE",
+              "HEAT",
+              "COLLECT_GAS"
+            ],
+            "source": "legacyContent.steps[1] (\"Rux granulalari ustiga HCl quying … zarur bo‘lsa biroz qizdiring, gazni yig‘ing …\")",
+            "reactionIds": [
+              "rxn.zn-hcl"
+            ]
+          },
+          {
+            "id": "cu-hcl",
+            "instructionSteps": [
+              2
+            ],
+            "substances": [
+              "cu",
+              "hcl-dilute"
+            ],
+            "families": [
+              "ADD_SUBSTANCE"
+            ],
+            "source": "legacyContent.steps[2] (\"Mis qirindilari ustiga suyultirilgan HCl quying\"; the step states no heating operation — \"Qizdirilganda ham\" is not an imperative)",
+            "reactionIds": []
+          }
+        ]
       },
       "observationTargets": [
         {
@@ -1338,6 +1494,35 @@
           "rxn.zn-hcl"
         ],
         "gasCollected": true
+      },
+      "completionScope": {
+        "kind": "PARTIAL_INSTRUCTION",
+        "uncovered": [
+          {
+            "instructionStep": 0,
+            "verb": "tekshiring",
+            "family": "TEST",
+            "reason": "NOT_OFFERED"
+          },
+          {
+            "instructionStep": 1,
+            "verb": "tekshiring",
+            "family": "TEST",
+            "reason": "NOT_OFFERED"
+          },
+          {
+            "instructionStep": 2,
+            "verb": "kuzating",
+            "family": "OBSERVE",
+            "reason": "OBSERVATION_NOT_PRODUCED"
+          },
+          {
+            "instructionStep": 3,
+            "verb": "izohlang",
+            "family": "EXPLAIN",
+            "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+          }
+        ]
       },
       "guidance": {
         "levels": [
@@ -1377,8 +1562,8 @@
           "detail": "\"gugurt alangasi bilan tekshiring\": the flame test needs the oxygen of the air, which no source declares, and ignition is not a lab action here. It is not offered."
         },
         {
-          "code": "CU_HCL_NOT_IN_REACTION_RECORDS",
-          "detail": "Step 3 (Cu + dilute HCl): ReactionMatcher has no record, so the lab shows no outcome (UNSUPPORTED_CHEMISTRY), also when heated. The step-bound school model school.cu-hcl.no-reaction exists but is not consumed by the dynamic lab."
+          "code": "MODEL_SOURCE_GAP_CU_HCL",
+          "detail": "Step 3 (Cu + dilute HCl): no ReactionMatcher record covers this pair, so the lab shows no outcome (UNSUPPORTED_CHEMISTRY, fail closed). The step-bound school model school.cu-hcl.no-reaction is not a reaction record and is not consumed. This is a missing model/source, not a choice: it stays fail-closed until a reviewed source exists."
         },
         {
           "code": "RECORD_CHECKER_MISSING",
@@ -1386,7 +1571,7 @@
         },
         {
           "code": "HEAT_SOURCE_NOT_NAMED",
-          "detail": "The equipment lists no burner. Heating comes only from the instruction verb, and its level from \"biroz qizdiring\" (gently-heated)."
+          "detail": "The equipment lists no burner. Heating comes only from the instruction verb, and its level from \"biroz qizdiring\" (gently-heated). Heating is in scope only for the Zn + HCl trial (step 2); the Cu + HCl trial states no heating operation, so HEAT there is ACTION_NOT_IN_INSTRUCTION_SCOPE."
         },
         {
           "code": "APPARATUS_WITHOUT_OPERATION",
@@ -1573,6 +1758,7 @@
             "required": true,
             "instructionStep": 0,
             "source": "legacyContent.steps[0]",
+            "trial": "nh4cl-lime",
             "dependencies": []
           },
           {
@@ -1584,6 +1770,7 @@
             "required": true,
             "instructionStep": 0,
             "source": "legacyContent.steps[0]",
+            "trial": "nh4cl-lime",
             "dependencies": []
           },
           {
@@ -1595,6 +1782,7 @@
             "required": true,
             "instructionStep": 0,
             "source": "legacyContent.steps[0] (\"… tiqin bilan yoping\")",
+            "trial": "nh4cl-lime",
             "dependencies": []
           },
           {
@@ -1606,6 +1794,7 @@
             "required": true,
             "instructionStep": 1,
             "source": "legacyContent.steps[1]",
+            "trial": "nh4cl-lime",
             "dependencies": []
           },
           {
@@ -1615,11 +1804,36 @@
             "required": true,
             "instructionStep": 1,
             "source": "legacyContent.steps[1] (\"ajralgan gazni probirkalarga yig‘ing\")",
+            "trial": "nh4cl-lime",
             "dependencies": []
           }
         ],
         "humanDecision": null,
-        "orderSource": "No order is declared: the config (guided-labs) runs on the generic runtime, whose order is only the array position (ORDER_FROM_ARRAY_POSITION). Only state preconditions apply; the reaction itself needs the heating the instruction states."
+        "orderSource": "No order is declared: the config (guided-labs) runs on the generic runtime, whose order is only the array position (ORDER_FROM_ARRAY_POSITION). Only state preconditions apply; the reaction itself needs the heating the instruction states.",
+        "scope": "INSTRUCTION_TRIALS",
+        "trials": [
+          {
+            "id": "nh4cl-lime",
+            "instructionSteps": [
+              0,
+              1
+            ],
+            "substances": [
+              "nh4cl",
+              "slaked-lime"
+            ],
+            "families": [
+              "ADD_SUBSTANCE",
+              "SEAL",
+              "HEAT",
+              "COLLECT_GAS"
+            ],
+            "source": "legacyContent.steps[0–1] (\"… aralashmasini probirkaga soling va … tiqin bilan yoping\", \"Aralashmani biroz qizdiring va ajralgan gazni probirkalarga yig‘ing\")",
+            "reactionIds": [
+              "rxn.nh4cl-caoh2"
+            ]
+          }
+        ]
       },
       "observationTargets": [
         {
@@ -1637,6 +1851,35 @@
           "rxn.nh4cl-caoh2"
         ],
         "gasCollected": true
+      },
+      "completionScope": {
+        "kind": "PARTIAL_INSTRUCTION",
+        "uncovered": [
+          {
+            "instructionStep": 2,
+            "verb": "kuzating",
+            "family": "OBSERVE",
+            "reason": "OBSERVATION_NOT_PRODUCED"
+          },
+          {
+            "instructionStep": 3,
+            "verb": "tuting",
+            "family": "BRING_NEAR",
+            "reason": "NOT_OFFERED"
+          },
+          {
+            "instructionStep": 4,
+            "verb": "yaqinlashtiring",
+            "family": "BRING_NEAR",
+            "reason": "NOT_OFFERED"
+          },
+          {
+            "instructionStep": 4,
+            "verb": "kuzating",
+            "family": "OBSERVE",
+            "reason": "OBSERVATION_NOT_PRODUCED"
+          }
+        ]
       },
       "guidance": {
         "levels": [
@@ -1667,8 +1910,8 @@
           "detail": "Steps 3–4 (water rising into the tube, phenolphthalein paper) are covered only by the step-bound school models school.ammonia.water-solubility and school.ammonia.indicator; they are not offered."
         },
         {
-          "code": "INSTRUCTION_MODEL_OBSERVATION_CONFLICT",
-          "detail": "Step 5: the instruction says \"oq tutunni kuzating\" (white smoke), but the record rxn.nh3-hcl states no-visible-change. Neither source is overridden; the step is not offered until chemistry review resolves it."
+          "code": "SOURCE_CONFLICT_REVIEW_REQUIRED",
+          "detail": "Step 5: the instruction says \"oq tutunni kuzating\" (white smoke), but the record rxn.nh3-hcl states no-visible-change. The two sources conflict; neither is chosen as correct. The step is not offered until a chemistry source review resolves it (resolution: null)."
         },
         {
           "code": "QUANTITY_AS_RATIO",

@@ -53,6 +53,22 @@ export interface ProcedureStep {
   required:boolean;
   instructionStep:number|null;
   source:ProfileSource;
+  /** P2.11 closeout: the instruction trial this step belongs to (it completes only inside that trial) */
+  trial?:string;
+}
+/** P2.11 closeout: one fixed trial the instruction prescribes (e.g. 7.10: “Mis qirindilari ustiga suyultirilgan HCl
+ *  quying”) — which substances go together and which operations the instruction states FOR THIS TRIAL. With trials, an
+ *  action outside them is ACTION_NOT_IN_INSTRUCTION_SCOPE: a fixed trial is never turned into a free sandbox. */
+export interface InstructionTrial {
+  id:string; instructionSteps:number[]; substances:string[]; families:LabActionFamily[]; source:ProfileSource;
+  /** the bound reaction records that model this trial's observation; [] = the lab produces no observation for it */
+  reactionIds:string[];
+}
+/** P2.11 closeout: does reaching the completion goal finish the WHOLE instruction, or only the part this profile supports?
+ *  Derived from the instruction's own operations; `uncovered` lists every operation the profile does not offer. */
+export interface CompletionScope {
+  kind:'FULL_INSTRUCTION'|'PARTIAL_INSTRUCTION';
+  uncovered:Array<{instructionStep:number;verb:string;family:LabActionFamily|null;reason:'AMBIGUOUS_OR_UNMAPPED'|'NOT_OFFERED'|'NOT_OFFERED_FOR_THIS_TRIAL'|'LEARNER_RESPONSE_NOT_OFFERED'|'OBSERVATION_NOT_PRODUCED'}>;
 }
 export interface HumanDecision { question:string; packet:string|null; options:string[]; selected:null }
 export interface ObservationTarget {
@@ -108,9 +124,13 @@ export interface TopicLabProfile {
   /** apparatus kinds a family needs in THIS topic when the instruction names them (overrides the catalog default) */
   familyApparatus:Partial<Record<LabActionFamily,{kinds:string[];source:ProfileSource}>>;
   limits:{quantities:ProfileQuantityLimit[];electrodes:Array<'inert'|'active'>;heating?:ProfileHeating};
-  procedure:{mode:OrderMode;steps:ProcedureStep[];humanDecision:HumanDecision|null;orderSource:ProfileSource};
+  procedure:{mode:OrderMode;steps:ProcedureStep[];humanDecision:HumanDecision|null;orderSource:ProfileSource;
+    /** 'INSTRUCTION_TRIALS': actions are bound to the instruction's fixed trials · 'TOPIC': the topic's families are the
+     *  scope (P2.10 slices: 8.1's learner-chosen reagent shelf, 11.2's single cell, 7.2's single STRICT procedure) */
+    scope:'INSTRUCTION_TRIALS'|'TOPIC';trials?:InstructionTrial[]};
   observationTargets:ObservationTarget[];
   completionGoal:CompletionGoal;
+  completionScope:CompletionScope;
   guidance:{levels:GuidanceLevel[];defaultLevel:GuidanceLevel;revealsFinalAnswer:false};
   safety:{virtualOnly:true;notes:Array<{text:string;source:ProfileSource}>;forbiddenFamilies:LabActionFamily[]};
   chemistry:ChemistryBinding;
@@ -160,6 +180,26 @@ export function topicLabProfileProblems(raw:unknown):string[]{
     if(!d||!text(d.question)||d.selected!==null) out.push('HUMAN_DECISION_PRESELECTED_OR_MISSING');
   }
   if(p.procedure?.mode==='STRICT'&&hasCycle(p.procedure.steps??[])) out.push('ORDER_CYCLE');
+  const trials=p.procedure?.trials??[];
+  if(!['INSTRUCTION_TRIALS','TOPIC'].includes(p.procedure?.scope)||(p.procedure?.scope==='INSTRUCTION_TRIALS')!==(trials.length>0)) out.push('PROCEDURE_SCOPE');
+  const trialIds=new Set(trials.map(t=>t.id));
+  if(trialIds.size!==trials.length) out.push('TRIAL_ID_DUPLICATE');
+  for(const t of trials){
+    if(!text(t.id)||!text(t.source)||!t.substances?.length||!t.families?.length||!t.instructionSteps?.length) out.push(`TRIAL:${String(t?.id)}`);
+    for(const x of t.substances??[]) if(!substances.has(x)) out.push(`TRIAL_SUBSTANCE_UNKNOWN:${t.id}:${x}`);
+    for(const f of t.families??[]) if(!(p.allowedFamilies??[]).includes(f)) out.push(`TRIAL_FAMILY_NOT_ALLOWED:${t.id}:${f}`);
+    for(const i of t.instructionSteps??[]) if(!p.instruction?.steps?.[i]) out.push(`TRIAL_INSTRUCTION_STEP:${t.id}:${i}`);
+    const bound=p.chemistry?.authority==='reaction-matcher'?p.chemistry.reactionIds:[];
+    if(!Array.isArray(t.reactionIds)) out.push(`TRIAL_REACTIONS:${t.id}`);
+    for(const r of t.reactionIds??[]) if(!bound.includes(r)) out.push(`TRIAL_REACTION_NOT_BOUND:${t.id}:${r}`);
+  }
+  for(const st of p.procedure?.steps??[]) if(st.trial!==undefined){
+    const t=trials.find(x=>x.id===st.trial);
+    if(!t) out.push(`STEP_TRIAL_UNKNOWN:${st.id}`);
+    else if(!t.families.includes(st.family)||(st.match.substance&&!t.substances.includes(st.match.substance))) out.push(`STEP_OUTSIDE_TRIAL:${st.id}`);
+  }
+  const cs=p.completionScope;
+  if(!cs||!['FULL_INSTRUCTION','PARTIAL_INSTRUCTION'].includes(cs.kind)||!Array.isArray(cs.uncovered)||(cs.kind==='FULL_INSTRUCTION')!==(cs.uncovered.length===0)) out.push('COMPLETION_SCOPE');
   if(p.procedure?.mode&&p.procedure.mode!=='HUMAN_DECISION_REQUIRED'&&!text(p.procedure.orderSource)) out.push('ORDER_SOURCE');
   for(const t of p.observationTargets??[]) if(!text(t.id)||!['ReactionMatcher','ElectrolysisModel','INSTRUCTION_TEXT'].includes(t.producedBy)||!text(t.source)) out.push(`OBSERVATION_TARGET:${String(t?.id)}`);
   const g=p.guidance;
@@ -205,7 +245,7 @@ export interface TopicLabProfileOverlay {
   allowedFamilies:LabActionFamily[];
   familyApparatus?:Partial<Record<LabActionFamily,{kinds:string[];source:ProfileSource}>>;
   limits:{quantities:ProfileQuantityLimit[];heating?:ProfileHeating};
-  procedure:{mode:OrderMode;orderSource:ProfileSource;stepMap?:Record<string,{family:LabActionFamily;match:Record<string,string>;instructionStep:number|null}>;steps?:Array<Omit<ProcedureStep,'dependencies'>&{dependencies?:string[]}>;humanDecision?:{question:string;options:string[]}|null};
+  procedure:{mode:OrderMode;orderSource:ProfileSource;stepMap?:Record<string,{family:LabActionFamily;match:Record<string,string>;instructionStep:number|null}>;steps?:Array<Omit<ProcedureStep,'dependencies'>&{dependencies?:string[]}>;humanDecision?:{question:string;options:string[]}|null;trials?:InstructionTrial[]};
   observationTargets:ObservationTarget[];
   completionGoal:{kind:'all-required-steps'}|{kind:'ionic-target'}|{kind:'observations';targets:string[]}|{kind:'reactions';reactionIds:string[];gasCollected:boolean};
   guidance:{levels:GuidanceLevel[];defaultLevel:GuidanceLevel};
@@ -274,6 +314,8 @@ export function compileTopicLabProfile(overlay:TopicLabProfileOverlay,src:Profil
     :overlay.completionGoal.kind==='observations'?{kind:'observations',targets:[...overlay.completionGoal.targets]}
     :overlay.completionGoal.kind==='reactions'?{kind:'reactions',reactionIds:[...overlay.completionGoal.reactionIds],gasCollected:overlay.completionGoal.gasCollected}
     :{kind:'all-required-steps'};
+  const trials=(overlay.procedure.trials??[]).map(t=>({...t,instructionSteps:[...t.instructionSteps],substances:[...t.substances],families:[...t.families],reactionIds:[...t.reactionIds]}));
+  const completionScope=deriveCompletionScope(steps,overlay.allowedFamilies,procedureSteps,trials);
   const safetyNotes=[...(legacy.safety?[{text:legacy.safety,source:'legacyContent.safety'}]:[]),...(Array.isArray(config.safetyNotes)?config.safetyNotes.map((t:string)=>({text:t,source:'config.safetyNotes'})):[]),...overlay.safety.notes];
   const profile:TopicLabProfile={
     schema:TOPIC_LAB_PROFILE_SCHEMA,
@@ -291,13 +333,34 @@ export function compileTopicLabProfile(overlay:TopicLabProfileOverlay,src:Profil
     allowedFamilies:[...overlay.allowedFamilies],
     familyApparatus:Object.fromEntries(Object.entries(overlay.familyApparatus??{}).map(([k,v])=>[k,{kinds:[...v!.kinds],source:v!.source}])),
     limits:{quantities:overlay.limits.quantities.map(q=>({...q})),electrodes:chemistry.authority==='electrolysis'?[chemistry.query.electrode]:[],...(overlay.limits.heating?{heating:{...overlay.limits.heating}}:{})},
-    procedure:{mode:overlay.procedure.mode,steps:procedureSteps,humanDecision,orderSource:overlay.procedure.orderSource},
+    procedure:{mode:overlay.procedure.mode,steps:procedureSteps,humanDecision,orderSource:overlay.procedure.orderSource,scope:trials.length?'INSTRUCTION_TRIALS':'TOPIC',...(trials.length?{trials}:{})},
     observationTargets:overlay.observationTargets.map(t=>({...t})),
     completionGoal,
+    completionScope,
     guidance:{levels:[...overlay.guidance.levels],defaultLevel:overlay.guidance.defaultLevel,revealsFinalAnswer:false},
     safety:{virtualOnly:true,notes:safetyNotes,forbiddenFamilies:[...overlay.safety.forbiddenFamilies]},
     chemistry,
     gaps:overlay.gaps.map(g=>({...g})),
   };
   return assertTopicLabProfile(profile);
+}
+
+/** P2.11 closeout: which of the instruction's own operations this profile offers. An operation is covered when its family
+ *  is a topic action (and, with trials, stated for a trial of that instruction step); an observation is covered when the
+ *  instruction step it belongs to is carried by the profile's procedure; control and safety rules are not actions.
+ *  Anything else makes the completion PARTIAL_INSTRUCTION — reaching the goal then never claims the whole lab. */
+export function deriveCompletionScope(steps:TopicLabProfile['instruction']['steps'],allowed:LabActionFamily[],procedure:ProcedureStep[],trials:InstructionTrial[]):CompletionScope{
+  const uncovered:CompletionScope['uncovered']=[];
+  for(const st of steps) for(const op of st.operations){
+    const f=op.family;
+    if(!f||op.status!=='MAPPED'){ uncovered.push({instructionStep:st.index,verb:op.verb,family:null,reason:'AMBIGUOUS_OR_UNMAPPED'}); continue; }
+    const kind=familyKind(f);
+    if(kind==='CONTROL'||kind==='SAFETY_RULE') continue;
+    if(kind==='LEARNER_RESPONSE'){ if(!allowed.includes(f)) uncovered.push({instructionStep:st.index,verb:op.verb,family:f,reason:'LEARNER_RESPONSE_NOT_OFFERED'}); continue; }
+    // with trials an observation is produced only where a bound record models that trial (Cu + HCl: none)
+    if(f==='OBSERVE'){ const produced=allowed.includes(f)||(trials.length?trials.some(t=>t.instructionSteps.includes(st.index)&&t.reactionIds.length>0):procedure.some(p=>p.instructionStep===st.index)); if(!produced) uncovered.push({instructionStep:st.index,verb:op.verb,family:f,reason:'OBSERVATION_NOT_PRODUCED'}); continue; }
+    if(!allowed.includes(f)){ uncovered.push({instructionStep:st.index,verb:op.verb,family:f,reason:'NOT_OFFERED'}); continue; }
+    if(trials.length&&!trials.some(t=>t.instructionSteps.includes(st.index)&&t.families.includes(f))) uncovered.push({instructionStep:st.index,verb:op.verb,family:f,reason:'NOT_OFFERED_FOR_THIS_TRIAL'});
+  }
+  return {kind:uncovered.length?'PARTIAL_INSTRUCTION':'FULL_INSTRUCTION',uncovered};
 }

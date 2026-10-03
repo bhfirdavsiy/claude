@@ -67,7 +67,7 @@ export function renderDynamicLab(root            ,page                         ,
   const title=el('h1',{text:page.title,attrs:{tabindex:'-1'}});
   hi.append(link(t.ui('ui.dlab-open-classic'),`/practice/${page.id}`,'kl-back-link'),el('p',{className:'kl-kicker',text:t.ui('ui.dlab-kicker')}),title,el('p',{className:'kl-notice',text:t.ui('ui.dlab-not-saved')}));
   head.append(hi);
-  const shell=el('div',{className:'kl-shell kl-practice-workspace kl-dlab',attrs:{'data-dynamic-lab':profile.profileId,'data-order-mode':profile.procedure.mode}});
+  const shell=el('div',{className:'kl-shell kl-practice-workspace kl-dlab',attrs:{'data-dynamic-lab':profile.profileId,'data-order-mode':profile.procedure.mode,'data-completion-scope':profile.completionScope.kind}});
 
   // the four stages: an ordered list of in-page links (not a carousel); the current one is marked
   const flow=el('nav',{className:'kl-dlab__flow',attrs:{'aria-label':t.ui('ui.dlab-flow')}});
@@ -86,6 +86,7 @@ export function renderDynamicLab(root            ,page                         ,
   if(profile.instruction.equipmentText) instruction.append(el('p',{text:t.ui('ui.lab-equipment',{text:profile.instruction.equipmentText})}));
   if(profile.instruction.materialsText) instruction.append(el('p',{text:t.ui('ui.lab-materials',{text:profile.instruction.materialsText})}));
   goal.append(instruction,el('p',{className:'kl-dlab__order',text:t.ui(`ui.dlab-order-${profile.procedure.mode}`)}));
+  if(profile.completionScope.kind==='PARTIAL_INSTRUCTION') goal.append(el('p',{className:'kl-notice kl-dlab__scope',text:t.ui('ui.dlab-partial-notice')}));
   for(const n of profile.safety.notes) goal.append(el('p',{className:'kl-notice kl-dlab__safety',text:t.ui('ui.lab-safety',{text:n.text})}));
 
   // Amal: object → action → parameters
@@ -244,7 +245,8 @@ export function renderDynamicLab(root            ,page                         ,
     for(const o of r.observations) parts.push(observationText(o));
     const eq=r.chemistryEvents.find(e=>e.type==='equation'); if(eq) parts.push(t.ui(eq.detail.correct?'ui.dlab-equation-correct':'ui.dlab-equation-incorrect'));
     if(r.procedural.completedStep){ const s=profile.procedure.steps.find(x=>x.id===r.procedural.completedStep); if(s?.instructionStep!==null&&s?.instructionStep!==undefined) parts.push(t.ui('ui.dlab-step-done',{n:s.instructionStep+1})); }
-    if(r.nextState.complete&&!state.complete) parts.push(t.ui('ui.dlab-complete'));
+    // P2.11 closeout: “the lab's goal is reached” only when the profile carries the WHOLE instruction
+    if(r.nextState.complete&&!state.complete) parts.push(t.ui(profile.completionScope.kind==='FULL_INSTRUCTION'?'ui.dlab-complete':'ui.dlab-complete-partial'));
     return parts.join(' ');
   }
 

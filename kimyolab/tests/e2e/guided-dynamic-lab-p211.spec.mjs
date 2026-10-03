@@ -1,6 +1,7 @@
 // P2.11 — the new slices in real Chromium on BOTH hosts (portal /kimyolab/ and the standalone file).
 //   7.10 → metal + dilute acid: the gas comes from the reaction record; with two gas sources the learner chooses which
-//          one to collect; Cu + HCl fails closed (no record), also when heated; completion; nothing persisted
+//          one to collect; Cu + HCl fails closed (no record); heating the Cu trial or an arbitrary pairing is refused by
+//          the instruction scope; partial completion is never announced as the whole lab; nothing persisted
 //   8.14 → nothing forms before heating (the record requires it); seal, heat, collect; completion
 //   no engine or developer names visible; 320 px reflow and 44 px targets on the new controls
 import {test, expect} from '@playwright/test';
@@ -43,14 +44,27 @@ for (const name of ['portal', 'standalone']) {
     await list(page).locator('[data-action-family=COLLECT_GAS][data-action-from=tube-1]').click();
     await expect(result(page)).toContainText('H2 gazi yig‘ildi (manba: 1-probirka)');
     await expect(page.locator(`${LAB}[data-complete=true]`)).toBeVisible();
+    // closeout: the profile carries only part of the instruction — never announced as the whole lab
+    await expect(page.locator(`${LAB}[data-completion-scope=PARTIAL_INSTRUCTION]`)).toBeVisible();
+    await expect(result(page)).toContainText('Yo‘riqnomaning bu laboratoriyada qo‘llab-quvvatlanadigan qismi bajarildi.');
+    await expect(result(page)).not.toContainText('maqsadiga erishildi');
+    await expect(page.locator(`${LAB} .kl-dlab__scope`)).toContainText('faqat bir qismini');
     await expect(page.locator(`${LAB} .kl-dlab__observations li[data-observation-kind=gas-collected]`)).toHaveAttribute('data-grounding', 'PROCEDURE');
     // Cu + dilute HCl: no reaction record → no observation is invented, also after heating
     await addTo(page, 'cu', 'tube-3'); await addTo(page, 'hcl-dilute', 'tube-3');
     await expect(result(page)).toHaveAttribute('data-status', 'unsupported');
     await expect(result(page)).toContainText('reaksiya yozuvi yo‘q');
+    // closeout: the Cu trial states no heating — HEAT is refused by the instruction scope, before any chemistry
     await object(page, 'apparatus:tube-3');
+    await expect(list(page).locator('[data-action-family=HEAT]')).toHaveAttribute('data-category', 'unavailable');
     await list(page).locator('[data-action-family=HEAT]').click();
-    await expect(result(page)).toHaveAttribute('data-status', 'unsupported');
+    await expect(result(page)).toHaveAttribute('data-status', 'rejected');
+    await expect(result(page)).toHaveAttribute('data-code', 'ACTION_NOT_IN_INSTRUCTION_SCOPE');
+    await expect(result(page)).toContainText('Yo‘riqnoma bu amalni shu tajriba uchun ko‘rsatmagan');
+    // an arbitrary pairing is refused too (Mg is not a partner of HCl in this instruction)
+    await addTo(page, 'mg', 'tube-3');
+    await expect(result(page)).toHaveAttribute('data-code', 'ACTION_NOT_IN_INSTRUCTION_SCOPE');
+    await expect(result(page)).toContainText('bir idishda birga ishlatilmaydi');
     await expect(page.locator(`${LAB} .kl-dlab__observations li`)).toHaveCount(3);
     await expect(page.locator(`${LAB} .kl-dlab__state`)).toContainText('3-probirka');
     // learner-facing text names no engine and leaks no developer term
@@ -85,6 +99,8 @@ for (const name of ['portal', 'standalone']) {
     await list(page).locator('[data-action-family=COLLECT_GAS]').click();
     await expect(result(page)).toContainText('NH3 gazi yig‘ildi');
     await expect(page.locator(`${LAB}[data-complete=true]`)).toBeVisible();
+    await expect(result(page)).toContainText('qo‘llab-quvvatlanadigan qismi bajarildi');
+    await expect(result(page)).not.toContainText('maqsadiga erishildi');
     expect(await page.locator(LAB).innerText()).not.toMatch(DEV_TERMS);
     const s = await semantics(page);
     expect(s.unnamed).toEqual([]); expect(s.duplicateIds).toBe(0); expect(s.h1).toBe(1);

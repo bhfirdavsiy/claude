@@ -22,7 +22,7 @@ import {evaluateIonicMixing,                                                    
                                                        
 import {classifyMatch,                    } from '../chemistry/reaction-matcher.js';
 import {familyDefinition,LAB_ACTION_FAMILIES,                    } from './action-catalog.js';
-                                                                                                       
+                                                                                                                        
 
 export const LAB_STATE_SCHEMA='kimyolab.lab-state.v1';
 
@@ -100,7 +100,9 @@ export function observationGrounding(o                                  )       
 
                          
                                                                                                             
-                                                                                      
+                                                                                     
+                                                                                                                       
+                                     
                                                                                                           
 
                                   
@@ -167,7 +169,46 @@ export function createLabState(profile                )         {
 
 const paramText=(a          ,k       )=>typeof a.params?.[k]==='string'?String(a.params[k]):null;
 const matches=(step              ,action          )=>step.family===action.family&&Object.entries(step.match).every(([k,v])=>String(action.params?.[k]??'')===v);
-const stepFor=(profile                ,action          )=>profile.procedure.steps.find(s=>matches(s,action));
+// ---- P2.11 closeout: instruction scope (fixed trials) ------------------------------------------------------------
+/** the profile substances a learner put into a container (products and passed gases are not instruction substances) */
+function addedSet(state         ,profile                ,container            )         {
+  const c=container?state.containers[container]:undefined;
+  if(!c) return [];
+  return [...new Set(c.contents.filter(e=>profile.substances.some(s=>s.id===e.substanceId)&&!e.source.startsWith('ReactionMatcher')&&!e.source.startsWith('PASS_GAS')).map(e=>e.substanceId))].sort();
+}
+/** the container an action's scope is judged on: COLLECT_GAS → its gas source (`from`, or the only source) */
+function scopeContainer(state         ,action          )            {
+  if(action.family==='COLLECT_GAS'){ const from=paramText(action,'from'); if(from) return from; const src=gasSources(state,paramText(action,'container')??''); return src.length===1?src[0] :null; }
+  if(action.family==='TRANSFER'||action.family==='PASS_GAS') return paramText(action,'from');
+  return paramText(action,'container');
+}
+/** the instruction trials an action belongs to. With no trials (the topic itself is the scope) → null. */
+function trialsForAction(state         ,action          ,profile                )                        {
+  const trials=profile.procedure.trials;
+  if(!trials?.length) return null;
+  const family=action.family                   ;
+  let set=addedSet(state,profile,scopeContainer(state,action));
+  if(family==='ADD_SUBSTANCE'){ const sub=paramText(action,'substance'); if(sub) set=[...new Set([...set,sub])].sort(); }
+  if(family==='TRANSFER') set=[...new Set([...set,...addedSet(state,profile,paramText(action,'to'))])].sort();
+  const consistent=trials.filter(t=>set.every(x=>t.substances.includes(x)));
+  // ADD: the resulting combination must be one trial's; a container action: EVERY trial its contents can still belong to
+  // must state the family (an empty container cannot tell its trial yet → the state preconditions decide)
+  if(family==='ADD_SUBSTANCE'||family==='TRANSFER') return consistent.filter(t=>t.families.includes(family));
+  if(!set.length) return trials.filter(t=>t.families.includes(family));
+  return consistent.length&&consistent.every(t=>t.families.includes(family))?consistent:[];
+}
+function scopePrecheck(state         ,action          ,profile                )              {
+  const t=trialsForAction(state,action,profile);
+  if(t===null||t.length) return null;
+  return {category:'unavailable',code:'ACTION_NOT_IN_INSTRUCTION_SCOPE',detail:action.family==='ADD_SUBSTANCE'||action.family==='TRANSFER'?'COMBINATION_NOT_IN_INSTRUCTION':'NOT_STATED_FOR_THIS_TRIAL'};
+}
+/** the procedure step an action completes; a trial-bound step only for an action inside that trial */
+const stepFor=(profile                ,action          ,state         )=>profile.procedure.steps.find(s=>{
+  if(!matches(s,action)) return false;
+  if(!s.trial) return true;
+  const t=trialsForAction(state,action,profile);
+  return t!==null&&t.some(x=>x.id===s.trial);
+});
 const ORDERED=(p                )=>p.procedure.mode==='STRICT'||p.procedure.mode==='DEPENDENCY_GRAPH';
 
 function phasesOf(c               ){
@@ -206,8 +247,11 @@ export function precheckLabAction(state         ,action          ,profile       
       :typeof v==='string';
     if(!ok) return {category:'unavailable',code:'PARAMETER_INVALID',detail:`${param.name}=${String(v)}`};
   }
+  // P2.11 closeout: the instruction's own trials bound the action (a fixed trial is never turned into a sandbox)
+  const scope=scopePrecheck(state,action,profile);
+  if(scope) return scope;
   // declared order (STRICT / DEPENDENCY_GRAPH only): the step's declared dependencies must be complete
-  const step=stepFor(profile,action);
+  const step=stepFor(profile,action,state);
   if(step&&ORDERED(profile)&&!state.completedSteps.includes(step.id)){
     const open=step.dependencies.filter(d=>!state.completedSteps.includes(d));
     if(open.length) return {category:'procedural-dependency',code:'PROCEDURE_BLOCKED',detail:'STEP_DEPENDENCY_UNMET',blockedBy:open};
@@ -430,6 +474,8 @@ export function createLabRuntime(domain          ){
     if(state.profileId!==profile.profileId) return reject(state,{category:'unavailable',code:'PROFILE_MISMATCH',detail:`${state.profileId} != ${profile.profileId}`});
     const pre=precheckLabAction(state,action,profile);
     if(pre) return reject(state,pre);
+    // the step is identified on the state BEFORE the action (e.g. the gas source before it is collected)
+    const step=stepFor(profile,action,state);
     const next=clone(state);
     const events                                   =[];
     const observations                 =[];
@@ -626,7 +672,6 @@ export function createLabRuntime(domain          ){
       if(!r.modeled&&(r.notModeled.length||action.family==='HEAT')){
         for(const k of Object.keys(next.containers)) next.containers[k] .phases=phasesOf(next.containers[k] );
         next.observations.push(...observations);
-        const step=stepFor(profile,action);
         if(step&&!next.completedSteps.includes(step.id)) next.completedSteps.push(step.id);
         next.actionLog.push(clone(action));
         next.complete=isComplete(next,profile,domain);
@@ -637,13 +682,12 @@ export function createLabRuntime(domain          ){
     }
     for(const k of Object.keys(next.containers)) next.containers[k] .phases=phasesOf(next.containers[k] );
     next.observations.push(...observations);
-    const step=stepFor(profile,action);
     let completedStep            =null;
     if(step&&!next.completedSteps.includes(step.id)){ next.completedSteps.push(step.id); completedStep=step.id; }
     next.actionLog.push(clone(action));
     const wasComplete=state.complete;
     next.complete=isComplete(next,profile,domain);
-    if(next.complete&&!wasComplete) evidence={kind:'completion',id:`${profile.activityId}.dynamic.complete`,persisted:false,detail:{goal:profile.completionGoal.kind,...(evidence?{last:evidence}:{})}};
+    if(next.complete&&!wasComplete) evidence={kind:'completion',id:`${profile.activityId}.dynamic.complete`,persisted:false,detail:{goal:profile.completionGoal.kind,completionScope:profile.completionScope.kind,...(evidence?{last:evidence}:{})}};
     const recommended=completedStep!==null;
     return {status:'accepted',nextState:next,chemistryEvents:events,observations,procedural:{completedStep,blockedBy:[],reason:null},guidance:{category:recommended?'recommended':'possible',code:next.complete?'COMPLETE':procedureCode??(recommended?'STEP_DONE':'ACCEPTED')},evidenceCandidate:evidence,unsupported:null,error:null};
   }
@@ -670,7 +714,7 @@ export function availableActions(state         ,profile                )        
   const containers=profile.apparatus.filter(a=>a.isContainer).map(a=>a.id);
   const push=(action          )=>{
     const pre=precheckLabAction(state,action,profile,{learnerTextPending:true});
-    const step=stepFor(profile,action)??null;
+    const step=stepFor(profile,action,state)??null;
     let category                 =pre?pre.category:'possible';
     if(!pre&&step&&!state.completedSteps.includes(step.id)) category='recommended';
     out.push({action,category,code:pre?(pre.code==='PROCEDURE_BLOCKED'?'STEP_DEPENDENCY_UNMET':pre.detail):null,blockedBy:pre?.blockedBy??[],step:step?.id??null,instructionStep:step?.instructionStep??null});

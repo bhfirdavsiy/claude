@@ -31,7 +31,7 @@ A lab action exists only where the topic's own instruction (`legacyContent.steps
 
 ## 2. Capability registry (`src/domain/lab/capability-registry.ts`)
 
-- **Identity:** `kimyolab.capability-registry.v1`, version `1.0.0`. Bump the version on any change of shape or resolution.
+- **Identity:** `kimyolab.capability-registry.v1`, version `1.1.0` (1.0.0 at first; the closeout changed how SUPPORTED is resolved, §7.2). Bump the version on any change of shape or resolution.
 - **Built** by `buildCapabilityRegistry(data)`. It is **derived**, never hand-listed.
 
 | Part | Derived from |
@@ -50,8 +50,8 @@ A lab action exists only where the topic's own instruction (`legacyContent.steps
 
 | Status | Meaning |
 |---|---|
-| SUPPORTED | A handler exists and an authority covers exactly the formulas written in the step. For ReactionMatcher this means a record with **exactly these reactants**. Knowing each formula separately is not enough: Cu + HCl gives AUTHORITY_REQUIRED. |
-| AUTHORITY_AT_RUNTIME | A chemistry handler exists, but the step names no formula. Coverage is decided at run time from the substances actually present, and is **not** claimed here. |
+| SUPPORTED | A reaction record has **exactly** the reactants written in the step. Knowing each formula separately is not enough: Cu + HCl gives AUTHORITY_REQUIRED (registry 1.1.0, §7.2). |
+| AUTHORITY_AT_RUNTIME | A chemistry handler exists, but what the step needs is decided from the runtime state (basis NO_FORMULA_IN_STEP, PART_OF_RECORD or FORMULA_KNOWN_ONLY, §7.2). Nothing is claimed here. |
 | PROCEDURE_ONLY | A deterministic procedure; no chemistry is decided. |
 | AUTHORITY_REQUIRED | A handler exists, but no authority of that handler covers the substances. It fails closed. |
 | UNSUPPORTED_ACTION | No safe handler exists. |
@@ -98,20 +98,20 @@ All new handlers are deterministic and replayable. A rejection never changes the
 
 | Slice | Capability (different from 8.1, 11.2, 7.2) | Why |
 |---|---|---|
-| 7.10 metal + dilute acid | Contact reactions under conditions the instruction declares. The gas comes from the reaction record, and the learner chooses which source to collect from. **Cu + HCl has no record and fails closed, even when heated.** | It is the largest blocker family (HEAT, COLLECT_GAS), and its records `rxn.mg-h2so4` and `rxn.zn-hcl` match the instruction. |
+| 7.10 metal + dilute acid | Contact reactions under conditions the instruction declares. The gas comes from the reaction record, and the learner chooses which source to collect from. **Cu + HCl has no record and fails closed; heating that trial is outside the instruction scope (§7.1).** | It is the largest blocker family (HEAT, COLLECT_GAS), and its records `rxn.mg-h2so4` and `rxn.zn-hcl` match the instruction. |
 | 8.14 ammonia | **Heating is the gate:** `rxn.nh4cl-caoh2` requires gentle heating, which the instruction states ("biroz qizdiring"). Before heating it reports REACTION_CONDITIONS_NOT_MET. Then seal, heat and collect. | A condition-gated reaction. The school lab model stays step-bound. |
 
 ### Recorded gaps (none of them is resolved by assumption)
 
 - **7.10:**
   - TEST_NOT_OFFERED: the match-flame test has no safe handler;
-  - CU_HCL_NOT_IN_REACTION_RECORDS;
+  - MODEL_SOURCE_GAP_CU_HCL (fail closed, §7.4);
   - RECORD_CHECKER_MISSING;
   - HEAT_SOURCE_NOT_NAMED;
   - APPARATUS_WITHOUT_OPERATION.
 - **8.14:**
   - SCHOOL_MODEL_STEP_BOUND;
-  - INSTRUCTION_MODEL_OBSERVATION_CONFLICT: the instruction says "oq tutun" while `rxn.nh3-hcl` records no visible change. This is a human decision;
+  - SOURCE_CONFLICT_REVIEW_REQUIRED: the instruction says "oq tutun" while `rxn.nh3-hcl` records no visible change. It waits for a source review (§7.4);
   - QUANTITY_AS_RATIO;
   - HEAT_SOURCE_NOT_NAMED;
   - APPARATUS_NOT_DECLARED;
@@ -151,3 +151,66 @@ The P2.10 reports are kept. Two new reports are added:
 - Nothing is persisted by the dynamic lab.
 - No fake approval, fake model result or invented instruction action.
 - The old runtimes are retained.
+
+## 7. Closeout: instruction scope, capability truth and partial completion
+
+### 7.1 Instruction scope (fixed trials)
+
+`allowedFamilies` alone is not the scope. A profile whose instruction prescribes fixed trials carries
+`procedure.scope: 'INSTRUCTION_TRIALS'` and `procedure.trials`.
+
+- **What a trial is:** the substances that go together, and the operations the instruction states **for that trial**. Each trial also lists the bound records that model its observation.
+- **Adding a substance:** the resulting combination in the container must belong to a single trial. Otherwise the action is `ACTION_NOT_IN_INSTRUCTION_SCOPE / COMBINATION_NOT_IN_INSTRUCTION`.
+  - 7.10 refuses Mg + HCl, Cu + H2SO4 and Zn + H2SO4, even where a record exists.
+  - The tube labels are not the instruction's, so a trial may run in any tube.
+- **Container actions:** HEAT, SEAL and COLLECT_GAS (judged on the gas source) must be stated by **every** trial the container's contents can still belong to. Otherwise the action is `NOT_STATED_FOR_THIS_TRIAL`.
+  - The check runs at the domain boundary, before any chemistry, and the state is unchanged.
+- **7.10:**
+  - Zn + HCl may be heated ("zarur bo‘lsa biroz qizdiring").
+  - Cu + HCl may not: step 3 states no heating operation. "Qizdirilganda ham …" is not an imperative.
+- **Steps:** a procedure step may name its `trial`. It is then completed only by an action inside that trial.
+- **The P2.10 slices keep `scope: 'TOPIC'`:**
+  - 8.1's instruction offers a learner-chosen reagent shelf, and its flexible pairing is unchanged;
+  - 11.2 has a single cell;
+  - 7.2 has a single STRICT procedure.
+
+### 7.2 Capability registry 1.1.0: what SUPPORTED means
+
+| Status | When |
+|---|---|
+| `SUPPORTED` | A reaction record has **exactly** the reactants written in the step. For one formula, that means a single-reactant record. |
+| `AUTHORITY_AT_RUNTIME` | The handler exists, but what the step needs is decided from the runtime state. |
+| `AUTHORITY_REQUIRED` | No authority of the handler models it. It fails closed. |
+
+`AUTHORITY_AT_RUNTIME` carries a `basis`:
+
+| Basis | Meaning |
+|---|---|
+| `NO_FORMULA_IN_STEP` | The step names no formula. |
+| `PART_OF_RECORD` | The formulas are part of a record; the other reagent, often named only in Uzbek, comes from the state. |
+| `FORMULA_KNOWN_ONLY` | Only a dissociation rule or an electrolyte record knows the formula. |
+
+- **Never support:** an authority merely knowing a formula. A dissociation rule or an electrolyte record does not give the other reagent, the phase or the electrode.
+- **Recount:** SUPPORTED went from 34 to 5. The before-state is recorded in `capability-registry-coverage.json#closeout`.
+
+### 7.3 Full vs partial completion
+
+`completionScope` is derived from the instruction's own operations.
+
+- **FULL_INSTRUCTION:** every state, observation and learner-response operation is offered.
+- **PARTIAL_INSTRUCTION:** anything else, with the list of uncovered operations.
+  - A trial's observation counts as produced only when a bound record models that trial. 7.10's Cu trial has none.
+- **Validator:** it refuses a FULL claim that has uncovered operations.
+- **What the learner sees:** "Laboratoriya maqsadiga erishildi" appears only for FULL_INSTRUCTION. A partial profile shows:
+  - when the goal is reached: "Yo‘riqnomaning bu laboratoriyada qo‘llab-quvvatlanadigan qismi bajarildi. Qolgan qadamlar bu yerda hali yo‘q.";
+  - in the goal section, from the start: a notice that only part of the instruction is supported.
+- **Current result:** all five profiles are PARTIAL.
+  - 8.1, 11.2 and 7.2 include learner responses without a checker; 7.2 also has "qizdirishni to‘xtating", which it does not offer.
+  - 7.10: TEST, the Cu observation and EXPLAIN.
+  - 8.14: steps 3–5.
+
+### 7.4 Gaps and conflicts are not choices
+
+- **7.10, Cu + HCl:** `MODEL_SOURCE_GAP_CU_HCL`. No record exists, so it fails closed. It is listed in readiness `sourceGaps` and is no longer a human choice.
+- **8.14, "oq tutun" vs `rxn.nh3-hcl` no-visible-change:** `SOURCE_CONFLICT_REVIEW_REQUIRED`. It is listed in readiness `sourceConflictReviews` with `resolution: null`. Neither source is chosen.
+- **Human decisions:** 10 → 8. These are the six P2.9 order questions, the migration and the external-lab roles, all with `selected: null`.

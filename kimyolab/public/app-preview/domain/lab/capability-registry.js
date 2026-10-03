@@ -17,11 +17,12 @@ import {parseConditionVocabulary} from '../chemistry/condition-vocabulary.js';
 
 export const CAPABILITY_REGISTRY_SCHEMA='kimyolab.capability-registry.v1';
 /** bump on any change of the registry's shape or of how a capability is resolved */
-export const CAPABILITY_REGISTRY_VERSION='1.0.0';
+export const CAPABILITY_REGISTRY_VERSION='1.1.0';
 
                                                                                                                                               
                              
-                                                                                              
+                                                                                                               
+                                                    
                                                                              
                                                                                                                           
                                                                                                             
@@ -108,7 +109,7 @@ export function resolveSubstance(registry                   ,formula       ){
 }
 
 /** instruction operation (+ the formulas it involves) → capability status and the authority that would run it. */
-export function resolveOperation(registry                   ,op                                             ,formulas         =[])                                                                                          {
+export function resolveOperation(registry                   ,op                                             ,formulas         =[])                                                                                                                                                            {
   if(op.status==='AMBIGUOUS') return {status:'AMBIGUOUS',family:null,authority:null,reason:'no context rule resolved the verb'};
   if(op.status==='UNMAPPED_OPERATION'||!op.family) return {status:'UNMAPPED',family:null,authority:null,reason:'verb not in the lexicon'};
   const kind=familyKind(op.family);
@@ -120,20 +121,31 @@ export function resolveOperation(registry                   ,op                 
   if(a.procedureOnly) return {status:'PROCEDURE_ONLY',family:op.family,authority:'PROCEDURE',reason:'deterministic procedure; no chemistry decided'};
   // a chemistry handler: the first of its authorities that knows every formula involved
   const chem=a.authorities.filter(x=>x!=='INSTRUCTION_TEXT');
-  if(!formulas.length) return {status:'AUTHORITY_AT_RUNTIME',family:op.family,authority:chem.join('|')||'PROCEDURE',reason:`handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)${a.requiresProfileAuthority?` (only under a ${a.requiresProfileAuthority} profile; elsewhere it fails closed)`:''}`};
+  if(!formulas.length) return {status:'AUTHORITY_AT_RUNTIME',basis:'NO_FORMULA_IN_STEP',family:op.family,authority:chem.join('|')||'PROCEDURE',reason:`handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)${a.requiresProfileAuthority?` (only under a ${a.requiresProfileAuthority} profile; elsewhere it fails closed)`:''}`};
+  // P2.11 closeout: an authority SUPPORTS an operation only when it models exactly this operation:
+  //   ReactionMatcher — a record whose reactant set is exactly these formulas (a single-formula record for one formula);
+  //                     formulas that are only PART of a record's reactants → AUTHORITY_AT_RUNTIME (the other reagent
+  //                     comes from the runtime state); merely appearing somewhere in a record is never support
+  //   IonicEngine / ElectrolysisModel — knowing a formula (a dissociation rule, an electrolyte record) is not support for
+  //                     the step: what it meets (the other reagent, often named only in Uzbek), the phase and the electrode
+  //                     come from the runtime state → AUTHORITY_AT_RUNTIME, never SUPPORTED from the step text
+  const key=uniq(formulas).join('+');
+  const sets=registry.authorities.ReactionMatcher.reactantSets;
+  let atRuntime            =null; let basis                                      ='FORMULA_KNOWN_ONLY';
   for(const auth of chem){
-    // ReactionMatcher answers for a COMBINATION: a record with exactly these reactants (its conditions are checked at
-    // run time against the actual lab conditions); knowing each formula separately is not enough
-    if(auth==='ReactionMatcher'&&formulas.length>1){
-      const key=uniq(formulas).join('+');
-      const hits=registry.authorities.ReactionMatcher.reactantSets.filter(r=>r.reactants.join('+')===key);
-      if(hits.length) return {status:'SUPPORTED',family:op.family,authority:auth,reason:`record ${hits.map(h=>h.reactionId).join(', ')}${hits.some(h=>h.conditionTags.length)?` (requires: ${uniq(hits.flatMap(h=>h.conditionTags)).join(', ')})`:''}`};
+    if(auth==='ReactionMatcher'){
+      const exact=sets.filter(r=>r.reactants.join('+')===key);
+      if(exact.length) return {status:'SUPPORTED',family:op.family,authority:auth,reason:`record ${exact.map(h=>h.reactionId).join(', ')}${exact.some(h=>h.conditionTags.length)?` (requires: ${uniq(exact.flatMap(h=>h.conditionTags)).join(', ')})`:''}`};
+      const partial=sets.filter(r=>formulas.every(f=>r.reactants.includes(f)));
+      if(partial.length&&!atRuntime) basis='PART_OF_RECORD';
+      if(partial.length&&!atRuntime) atRuntime=`${formulas.join(' + ')} ${formulas.length>1?'are':'is'} part of ${partial.length} record(s) (${partial.slice(0,3).map(h=>h.reactionId).join(', ')}${partial.length>3?', …':''}); the other reagent comes from the runtime state`;
       continue;
     }
-    const knows=(f       )=>registry.species.some(s=>s.formula===f&&s.authorities.includes(auth               ));
-    if(formulas.every(knows)) return {status:'SUPPORTED',family:op.family,authority:auth,reason:`${auth} knows ${formulas.join(', ')}`};
+    if(auth==='IonicEngine'&&formulas.length===1&&registry.authorities.IonicEngine.dissociationFormulas.includes(formulas[0] )&&!atRuntime) atRuntime=`IonicEngine dissociates ${formulas[0]}; what it meets is decided from the runtime state`;
+    if(auth==='ElectrolysisModel'&&formulas.length===1&&registry.authorities.ElectrolysisModel.queries.some(q=>q.electrolyte===formulas[0])&&!atRuntime) atRuntime=`ElectrolysisModel has a ${formulas[0]} record; phase and electrode are decided from the runtime query`;
   }
-  return {status:'AUTHORITY_REQUIRED',family:op.family,authority:null,reason:`no authority of this handler covers ${formulas.join(' + ')} (fails closed)`};
+  if(atRuntime) return {status:'AUTHORITY_AT_RUNTIME',basis,family:op.family,authority:chem.join('|'),reason:atRuntime};
+  return {status:'AUTHORITY_REQUIRED',family:op.family,authority:null,reason:`no authority of this handler models ${formulas.join(' + ')} (fails closed)`};
 }
 
 /** registry ↔ runtime consistency: every implemented family declares its semantics and vice versa */

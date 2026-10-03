@@ -31,7 +31,7 @@
     },
     {
       "id": "kimyolab.capability-registry.v1",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "src/domain/lab/capability-registry.ts",
       "derivedFrom": [
         "LAB_ACTION_FAMILIES",
@@ -51,7 +51,48 @@
         "mix": "MODEL_BASED"
       },
       "orderMode": "FLEXIBLE",
+      "scope": "TOPIC",
+      "trials": [],
       "completion": "ionic-target",
+      "completionScope": "PARTIAL_INSTRUCTION",
+      "uncoveredInstructionOperations": [
+        {
+          "instructionStep": 0,
+          "verb": "isbotlang",
+          "family": "INFER",
+          "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+        },
+        {
+          "instructionStep": 1,
+          "verb": "isbotlang",
+          "family": "INFER",
+          "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+        },
+        {
+          "instructionStep": 2,
+          "verb": "isbotlang",
+          "family": "INFER",
+          "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+        },
+        {
+          "instructionStep": 3,
+          "verb": "oling",
+          "family": "PREPARE_SUBSTANCE",
+          "reason": "NOT_OFFERED"
+        },
+        {
+          "instructionStep": 4,
+          "verb": "isbotlang",
+          "family": "INFER",
+          "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+        },
+        {
+          "instructionStep": 5,
+          "verb": "farqlang",
+          "family": "COMPARE",
+          "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+        }
+      ],
       "migration": "NOT_MIGRATION_EQUIVALENT",
       "profileGaps": [
         "APPARATUS_NOT_DECLARED",
@@ -70,7 +111,24 @@
         "anode": "MODEL_BASED"
       },
       "orderMode": "HUMAN_DECISION_REQUIRED",
+      "scope": "TOPIC",
+      "trials": [],
       "completion": "observations",
+      "completionScope": "PARTIAL_INSTRUCTION",
+      "uncoveredInstructionOperations": [
+        {
+          "instructionStep": 2,
+          "verb": "belgilang",
+          "family": "RECORD",
+          "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+        },
+        {
+          "instructionStep": 4,
+          "verb": "tushuntiring",
+          "family": "EXPLAIN",
+          "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+        }
+      ],
       "migration": "NOT_MIGRATION_EQUIVALENT",
       "profileGaps": [
         "ELECTRODE_MATERIAL_NOT_IN_INSTRUCTION",
@@ -89,7 +147,18 @@
         "crystals": "INSTRUCTION_TEXT"
       },
       "orderMode": "STRICT",
+      "scope": "TOPIC",
+      "trials": [],
       "completion": "all-required-steps",
+      "completionScope": "PARTIAL_INSTRUCTION",
+      "uncoveredInstructionOperations": [
+        {
+          "instructionStep": 4,
+          "verb": "to‘xtating",
+          "family": "STOP_HEAT",
+          "reason": "NOT_OFFERED"
+        }
+      ],
       "migration": "NOT_MIGRATION_EQUIVALENT",
       "profileGaps": [
         "SAFETY_TEXT_EMPTY",
@@ -109,11 +178,83 @@
         "reaction": "MODEL_BASED"
       },
       "orderMode": "FLEXIBLE",
+      "scope": "INSTRUCTION_TRIALS",
+      "trials": [
+        {
+          "id": "mg-h2so4",
+          "instructionSteps": [
+            0
+          ],
+          "substances": [
+            "mg",
+            "h2so4-dilute"
+          ],
+          "families": [
+            "ADD_SUBSTANCE",
+            "COLLECT_GAS"
+          ]
+        },
+        {
+          "id": "zn-hcl",
+          "instructionSteps": [
+            1
+          ],
+          "substances": [
+            "zn",
+            "hcl-dilute"
+          ],
+          "families": [
+            "ADD_SUBSTANCE",
+            "HEAT",
+            "COLLECT_GAS"
+          ]
+        },
+        {
+          "id": "cu-hcl",
+          "instructionSteps": [
+            2
+          ],
+          "substances": [
+            "cu",
+            "hcl-dilute"
+          ],
+          "families": [
+            "ADD_SUBSTANCE"
+          ]
+        }
+      ],
       "completion": "reactions",
+      "completionScope": "PARTIAL_INSTRUCTION",
+      "uncoveredInstructionOperations": [
+        {
+          "instructionStep": 0,
+          "verb": "tekshiring",
+          "family": "TEST",
+          "reason": "NOT_OFFERED"
+        },
+        {
+          "instructionStep": 1,
+          "verb": "tekshiring",
+          "family": "TEST",
+          "reason": "NOT_OFFERED"
+        },
+        {
+          "instructionStep": 2,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "reason": "OBSERVATION_NOT_PRODUCED"
+        },
+        {
+          "instructionStep": 3,
+          "verb": "izohlang",
+          "family": "EXPLAIN",
+          "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+        }
+      ],
       "migration": "NOT_MIGRATION_EQUIVALENT",
       "profileGaps": [
         "TEST_NOT_OFFERED",
-        "CU_HCL_NOT_IN_REACTION_RECORDS",
+        "MODEL_SOURCE_GAP_CU_HCL",
         "RECORD_CHECKER_MISSING",
         "HEAT_SOURCE_NOT_NAMED",
         "APPARATUS_WITHOUT_OPERATION"
@@ -127,11 +268,58 @@
         "reaction": "MODEL_BASED"
       },
       "orderMode": "FLEXIBLE",
+      "scope": "INSTRUCTION_TRIALS",
+      "trials": [
+        {
+          "id": "nh4cl-lime",
+          "instructionSteps": [
+            0,
+            1
+          ],
+          "substances": [
+            "nh4cl",
+            "slaked-lime"
+          ],
+          "families": [
+            "ADD_SUBSTANCE",
+            "SEAL",
+            "HEAT",
+            "COLLECT_GAS"
+          ]
+        }
+      ],
       "completion": "reactions",
+      "completionScope": "PARTIAL_INSTRUCTION",
+      "uncoveredInstructionOperations": [
+        {
+          "instructionStep": 2,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "reason": "OBSERVATION_NOT_PRODUCED"
+        },
+        {
+          "instructionStep": 3,
+          "verb": "tuting",
+          "family": "BRING_NEAR",
+          "reason": "NOT_OFFERED"
+        },
+        {
+          "instructionStep": 4,
+          "verb": "yaqinlashtiring",
+          "family": "BRING_NEAR",
+          "reason": "NOT_OFFERED"
+        },
+        {
+          "instructionStep": 4,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "reason": "OBSERVATION_NOT_PRODUCED"
+        }
+      ],
       "migration": "NOT_MIGRATION_EQUIVALENT",
       "profileGaps": [
         "SCHOOL_MODEL_STEP_BOUND",
-        "INSTRUCTION_MODEL_OBSERVATION_CONFLICT",
+        "SOURCE_CONFLICT_REVIEW_REQUIRED",
         "QUANTITY_AS_RATIO",
         "HEAT_SOURCE_NOT_NAMED",
         "APPARATUS_NOT_DECLARED",
@@ -203,18 +391,6 @@
       "selected": null
     },
     {
-      "activityId": "practice.experiment.8.14",
-      "question": "the instruction says “oq tutun” where rxn.nh3-hcl records no visible change — which is the reviewed truth?",
-      "packet": "profile gap INSTRUCTION_MODEL_OBSERVATION_CONFLICT",
-      "selected": null
-    },
-    {
-      "activityId": "practice.experiment.7.10",
-      "question": "Cu + dilute HCl: add a reviewed no-reaction record, or keep the step failing closed?",
-      "packet": "profile gap CU_HCL_NOT_IN_REACTION_RECORDS",
-      "selected": null
-    },
-    {
       "activityId": null,
       "question": "assign PRIMARY / SUPPLEMENTARY / EXPLORE roles to external labs (no evidence beyond the shared learning unit)",
       "packet": null,
@@ -259,6 +435,18 @@
       "status": "MET"
     },
     {
+      "item": "P2.11 closeout: instruction scope — trial-bound profiles reject actions the instruction does not state for that trial",
+      "status": "MET"
+    },
+    {
+      "item": "P2.11 closeout: SUPPORTED only for an exact reaction record; a formula known somewhere is never support",
+      "status": "MET"
+    },
+    {
+      "item": "P2.11 closeout: every profile states FULL_INSTRUCTION or PARTIAL_INSTRUCTION completion",
+      "status": "MET"
+    },
+    {
       "item": "old runtime available; no mass migration",
       "status": "MET"
     },
@@ -269,6 +457,22 @@
     {
       "item": "release / pilot sign-off",
       "status": "HUMAN"
+    }
+  ],
+  "sourceGaps": [
+    {
+      "activityId": "practice.experiment.7.10",
+      "code": "MODEL_SOURCE_GAP_CU_HCL",
+      "behaviour": "FAIL_CLOSED",
+      "detail": "Step 3 (Cu + dilute HCl): no ReactionMatcher record covers this pair, so the lab shows no outcome (UNSUPPORTED_CHEMISTRY, fail closed). The step-bound school model school.cu-hcl.no-reaction is not a reaction record and is not consumed. This is a missing model/source, not a choice: it stays fail-closed until a reviewed source exists."
+    }
+  ],
+  "sourceConflictReviews": [
+    {
+      "activityId": "practice.experiment.8.14",
+      "status": "SOURCE_CONFLICT_REVIEW_REQUIRED",
+      "detail": "Step 5: the instruction says \"oq tutunni kuzating\" (white smoke), but the record rxn.nh3-hcl states no-visible-change. The two sources conflict; neither is chosen as correct. The step is not offered until a chemistry source review resolves it (resolution: null).",
+      "resolution": null
     }
   ],
   "futureGates": [
@@ -294,13 +498,13 @@
     },
     "after": {
       "learnerModules": 169,
-      "learnerModuleBytes": 848838,
-      "standaloneBytes": 5906801
+      "learnerModuleBytes": 860191,
+      "standaloneBytes": 5925360
     },
     "delta": {
       "learnerModules": 7,
-      "learnerModuleBytes": 134834,
-      "standaloneBytes": 202532
+      "learnerModuleBytes": 146187,
+      "standaloneBytes": 221091
     },
     "cumulativeSince": "P2.9",
     "phases": {
@@ -311,8 +515,8 @@
       },
       "P2.11": {
         "learnerModules": 1,
-        "learnerModuleBytes": 32331,
-        "standaloneBytes": 48654
+        "learnerModuleBytes": 43684,
+        "standaloneBytes": 67213
       }
     },
     "newModules": "P2.10: src/app/feature-flags.ts, src/domain/lab/{action-catalog,topic-lab-profile,lab-runtime,lab-domain}.ts, src/features/dynamic-lab/render.ts; P2.11: src/domain/lab/capability-registry.ts (compiled with the app modules, imported by no learner route and absent from the standalone file; the standalone growth is the new handlers, catalog strings and two profiles)"

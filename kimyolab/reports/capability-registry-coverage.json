@@ -3,10 +3,41 @@
   "phase": "P2.11",
   "registry": {
     "schema": "kimyolab.capability-registry.v1",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "problems": []
   },
-  "semantics": "Every instruction operation of the 57 experiments resolved against the capability registry (derived from the action catalog, the runtime handler declaration and the engine data). SUPPORTED = a handler exists and an authority covers the formulas written in the step (for ReactionMatcher: a record with exactly these reactants; its conditions are checked at run time); AUTHORITY_AT_RUNTIME = a chemistry handler exists but the step names no formula, so coverage is decided at run time and is NOT claimed here; PROCEDURE_ONLY = deterministic procedure, no chemistry decided; AUTHORITY_REQUIRED = a handler exists but no authority covers the substances (fails closed); UNSUPPORTED_ACTION = no safe handler; LEARNER_RESPONSE / CONTROL / SAFETY_RULE are not state transitions; AMBIGUOUS / UNMAPPED get no family. Formulas are only those written in the step text — nothing is inferred from Uzbek names.",
+  "semantics": "Every instruction operation of the 57 experiments resolved against the capability registry (derived from the action catalog, the runtime handler declaration and the engine data). SUPPORTED = a reaction record has EXACTLY the reactants written in the step (one formula: a single-reactant record; its conditions are checked at run time) — an authority merely knowing a formula is never support; AUTHORITY_AT_RUNTIME = a chemistry handler exists, but what the step needs is decided from the runtime state (basis NO_FORMULA_IN_STEP; PART_OF_RECORD: the formulas are part of a record whose other reagent comes from the state; FORMULA_KNOWN_ONLY: a dissociation rule or electrolyte record only) and is NOT claimed here; AUTHORITY_REQUIRED = no authority of the handler models it (fails closed); PROCEDURE_ONLY = deterministic procedure, no chemistry decided; UNSUPPORTED_ACTION = no safe handler; LEARNER_RESPONSE / CONTROL / SAFETY_RULE are not state transitions; AMBIGUOUS / UNMAPPED get no family. Formulas are only those written in the step text — nothing is inferred from Uzbek names.",
+  "closeout": {
+    "before": {
+      "source": "reports/capability-registry-coverage.json @ c011222",
+      "version": "1.0.0",
+      "byStatus": {
+        "AMBIGUOUS": 2,
+        "AUTHORITY_AT_RUNTIME": 136,
+        "AUTHORITY_REQUIRED": 18,
+        "CONTROL": 1,
+        "LEARNER_RESPONSE": 72,
+        "PROCEDURE_ONLY": 39,
+        "SAFETY_RULE": 1,
+        "SUPPORTED": 34,
+        "UNSUPPORTED_ACTION": 47
+      }
+    },
+    "after": {
+      "version": "1.1.0",
+      "byStatus": {
+        "AMBIGUOUS": 2,
+        "AUTHORITY_AT_RUNTIME": 163,
+        "AUTHORITY_REQUIRED": 20,
+        "CONTROL": 1,
+        "LEARNER_RESPONSE": 72,
+        "PROCEDURE_ONLY": 39,
+        "SAFETY_RULE": 1,
+        "SUPPORTED": 5,
+        "UNSUPPORTED_ACTION": 47
+      }
+    }
+  },
   "actions": [
     {
       "family": "SETUP_APPARATUS",
@@ -805,14 +836,19 @@
     "operations": 350,
     "byStatus": {
       "AMBIGUOUS": 2,
-      "AUTHORITY_AT_RUNTIME": 136,
-      "AUTHORITY_REQUIRED": 18,
+      "AUTHORITY_AT_RUNTIME": 163,
+      "AUTHORITY_REQUIRED": 20,
       "CONTROL": 1,
       "LEARNER_RESPONSE": 72,
       "PROCEDURE_ONLY": 39,
       "SAFETY_RULE": 1,
-      "SUPPORTED": 34,
+      "SUPPORTED": 5,
       "UNSUPPORTED_ACTION": 47
+    },
+    "authorityAtRuntimeByBasis": {
+      "FORMULA_KNOWN_ONLY": 3,
+      "NO_FORMULA_IN_STEP": 136,
+      "PART_OF_RECORD": 24
     },
     "unsupportedByFamily": {
       "BRING_NEAR": 6,
@@ -824,7 +860,7 @@
       "TEST": 16
     },
     "authorityRequiredByFamily": {
-      "ADD_SUBSTANCE": 10,
+      "ADD_SUBSTANCE": 12,
       "ELECTRIC_CURRENT": 1,
       "HEAT": 4,
       "PASS_GAS": 3
@@ -847,6 +883,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -855,6 +892,7 @@
           "verb": "suyuqlantiring",
           "family": "HEAT",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         },
@@ -900,6 +938,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -920,15 +959,17 @@
           "step": 0,
           "verb": "qizdiring",
           "family": "HEAT",
-          "status": "SUPPORTED",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "PART_OF_RECORD",
           "authority": "ReactionMatcher",
-          "reason": "ReactionMatcher knows CuO"
+          "reason": "CuO is part of 2 record(s) (rxn.cuo-hcl, rxn.h2-cuo); the other reagent comes from the runtime state"
         },
         {
           "step": 1,
           "verb": "o‘tkazing",
           "family": "PASS_GAS",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         },
@@ -937,6 +978,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -945,6 +987,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -953,6 +996,7 @@
           "verb": "qizdiring",
           "family": "HEAT",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         },
@@ -961,6 +1005,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         }
@@ -977,25 +1022,28 @@
           "step": 0,
           "verb": "qo‘shing",
           "family": "ADD_SUBSTANCE",
-          "status": "SUPPORTED",
-          "authority": "ReactionMatcher",
-          "reason": "ReactionMatcher knows H2SO4"
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "PART_OF_RECORD",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "H2SO4 is part of 4 record(s) (rxn.bacl2-h2so4, rxn.mg-h2so4, rxn.nacl-h2so4, …); the other reagent comes from the runtime state"
         },
         {
           "step": 0,
           "verb": "soling",
           "family": "ADD_SUBSTANCE",
-          "status": "SUPPORTED",
-          "authority": "ReactionMatcher",
-          "reason": "ReactionMatcher knows H2SO4"
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "PART_OF_RECORD",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "H2SO4 is part of 4 record(s) (rxn.bacl2-h2so4, rxn.mg-h2so4, rxn.nacl-h2so4, …); the other reagent comes from the runtime state"
         },
         {
           "step": 0,
           "verb": "qizdiring",
           "family": "HEAT",
-          "status": "SUPPORTED",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "PART_OF_RECORD",
           "authority": "ReactionMatcher",
-          "reason": "ReactionMatcher knows H2SO4"
+          "reason": "H2SO4 is part of 4 record(s) (rxn.bacl2-h2so4, rxn.mg-h2so4, rxn.nacl-h2so4, …); the other reagent comes from the runtime state"
         },
         {
           "step": 0,
@@ -1010,6 +1058,7 @@
           "verb": "o‘tkazing",
           "family": "PASS_GAS",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         },
@@ -1018,6 +1067,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1027,13 +1077,14 @@
           "family": "PASS_GAS",
           "status": "AUTHORITY_REQUIRED",
           "authority": null,
-          "reason": "no authority of this handler covers KMnO4 (fails closed)"
+          "reason": "no authority of this handler models KMnO4 (fails closed)"
         },
         {
           "step": 2,
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         }
@@ -1063,6 +1114,7 @@
           "verb": "qo‘shing",
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1071,6 +1123,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1101,13 +1154,14 @@
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_REQUIRED",
           "authority": null,
-          "reason": "no authority of this handler covers OH (fails closed)"
+          "reason": "no authority of this handler models OH (fails closed)"
         },
         {
           "step": 0,
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1117,7 +1171,7 @@
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_REQUIRED",
           "authority": null,
-          "reason": "no authority of this handler covers OH (fails closed)"
+          "reason": "no authority of this handler models OH (fails closed)"
         },
         {
           "step": 1,
@@ -1125,13 +1179,14 @@
           "family": "HEAT",
           "status": "AUTHORITY_REQUIRED",
           "authority": null,
-          "reason": "no authority of this handler covers OH (fails closed)"
+          "reason": "no authority of this handler models OH (fails closed)"
         },
         {
           "step": 2,
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         }
@@ -1169,6 +1224,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1190,6 +1246,7 @@
           "verb": "aralashtiring",
           "family": "MIX",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1198,6 +1255,7 @@
           "verb": "qizdiring",
           "family": "HEAT",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         },
@@ -1206,6 +1264,7 @@
           "verb": "aralashtiring",
           "family": "MIX",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1214,6 +1273,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1230,6 +1290,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         }
@@ -1244,13 +1305,14 @@
           "family": "HEAT",
           "status": "AUTHORITY_REQUIRED",
           "authority": null,
-          "reason": "no authority of this handler covers CuSO4 + NaOH (fails closed)"
+          "reason": "no authority of this handler models CuSO4 + NaOH (fails closed)"
         },
         {
           "step": 0,
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1259,6 +1321,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1267,6 +1330,7 @@
           "verb": "gidrolizlang",
           "family": "HEAT",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         },
@@ -1283,6 +1347,7 @@
           "verb": "gidrolizlang",
           "family": "HEAT",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         },
@@ -1307,6 +1372,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         }
@@ -1319,9 +1385,10 @@
           "step": 0,
           "verb": "quying",
           "family": "ADD_SUBSTANCE",
-          "status": "SUPPORTED",
-          "authority": "ReactionMatcher",
-          "reason": "ReactionMatcher knows CuCl2"
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "FORMULA_KNOWN_ONLY",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "ElectrolysisModel has a CuCl2 record; phase and electrode are decided from the runtime query"
         },
         {
           "step": 1,
@@ -1336,6 +1403,7 @@
           "verb": "ulang",
           "family": "ELECTRIC_CURRENT",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1352,6 +1420,7 @@
           "verb": "ulang",
           "family": "ELECTRIC_CURRENT",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1360,6 +1429,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1429,6 +1499,7 @@
           "verb": "to‘ldiring",
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1445,6 +1516,7 @@
           "verb": "yoqing",
           "family": "HEAT",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         },
@@ -1477,6 +1549,7 @@
           "verb": "qizdiring",
           "family": "HEAT",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         },
@@ -1525,6 +1598,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         }
@@ -1537,9 +1611,10 @@
           "step": 0,
           "verb": "quying",
           "family": "ADD_SUBSTANCE",
-          "status": "SUPPORTED",
-          "authority": "ReactionMatcher",
-          "reason": "ReactionMatcher knows H2SO4"
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "PART_OF_RECORD",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "H2SO4 is part of 4 record(s) (rxn.bacl2-h2so4, rxn.mg-h2so4, rxn.nacl-h2so4, …); the other reagent comes from the runtime state"
         },
         {
           "step": 0,
@@ -1561,15 +1636,17 @@
           "step": 1,
           "verb": "quying",
           "family": "ADD_SUBSTANCE",
-          "status": "SUPPORTED",
-          "authority": "ReactionMatcher",
-          "reason": "ReactionMatcher knows HCl"
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "PART_OF_RECORD",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "HCl is part of 7 record(s) (rxn.caco3-hcl, rxn.cuo-hcl, rxn.na2s-hcl, …); the other reagent comes from the runtime state"
         },
         {
           "step": 1,
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1577,9 +1654,10 @@
           "step": 1,
           "verb": "qizdiring",
           "family": "HEAT",
-          "status": "SUPPORTED",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "PART_OF_RECORD",
           "authority": "ReactionMatcher",
-          "reason": "ReactionMatcher knows HCl"
+          "reason": "HCl is part of 7 record(s) (rxn.caco3-hcl, rxn.cuo-hcl, rxn.na2s-hcl, …); the other reagent comes from the runtime state"
         },
         {
           "step": 1,
@@ -1601,15 +1679,17 @@
           "step": 2,
           "verb": "quying",
           "family": "ADD_SUBSTANCE",
-          "status": "SUPPORTED",
-          "authority": "ReactionMatcher",
-          "reason": "ReactionMatcher knows HCl"
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "PART_OF_RECORD",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "HCl is part of 7 record(s) (rxn.caco3-hcl, rxn.cuo-hcl, rxn.na2s-hcl, …); the other reagent comes from the runtime state"
         },
         {
           "step": 2,
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1630,15 +1710,17 @@
           "step": 0,
           "verb": "soling",
           "family": "ADD_SUBSTANCE",
-          "status": "SUPPORTED",
-          "authority": "ReactionMatcher",
-          "reason": "ReactionMatcher knows CaO"
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "PART_OF_RECORD",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "CaO is part of 1 record(s) (rxn.cao-water); the other reagent comes from the runtime state"
         },
         {
           "step": 0,
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1647,6 +1729,7 @@
           "verb": "quying",
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1655,6 +1738,7 @@
           "verb": "quying",
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1692,6 +1776,7 @@
           "verb": "quying",
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1716,6 +1801,7 @@
           "verb": "ko‘ring",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1724,6 +1810,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1753,6 +1840,7 @@
           "verb": "qo‘shing",
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1761,6 +1849,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1777,6 +1866,7 @@
           "verb": "aralashtiring",
           "family": "MIX",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1798,6 +1888,7 @@
           "verb": "soling",
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1806,6 +1897,7 @@
           "verb": "aralashtiring",
           "family": "MIX",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1862,6 +1954,7 @@
           "verb": "quying",
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1878,6 +1971,7 @@
           "verb": "aralashtiring",
           "family": "MIX",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1894,6 +1988,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         }
@@ -1915,6 +2010,7 @@
           "verb": "ishqalang",
           "family": "MIX",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1947,6 +2043,7 @@
           "verb": "ishqalang",
           "family": "MIX",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1963,6 +2060,7 @@
           "verb": "qizdiring",
           "family": "HEAT",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         },
@@ -1971,6 +2069,7 @@
           "verb": "tushiring",
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -1979,6 +2078,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2008,6 +2108,7 @@
           "verb": "quying",
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2016,6 +2117,7 @@
           "verb": "o‘tkazing",
           "family": "TRANSFER",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2024,6 +2126,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2032,6 +2135,7 @@
           "verb": "qizdiring",
           "family": "HEAT",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         },
@@ -2040,6 +2144,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2048,6 +2153,7 @@
           "verb": "soling",
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2069,6 +2175,7 @@
           "verb": "yoqing",
           "family": "HEAT",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         },
@@ -2085,6 +2192,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2093,6 +2201,7 @@
           "verb": "soling",
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2109,6 +2218,7 @@
           "verb": "qizdiring",
           "family": "HEAT",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         },
@@ -2125,6 +2235,7 @@
           "verb": "tushiring",
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2133,6 +2244,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2141,6 +2253,7 @@
           "verb": "chayqating",
           "family": "MIX",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2157,6 +2270,7 @@
           "verb": "tushiring",
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2173,6 +2287,7 @@
           "verb": "qizdiring",
           "family": "HEAT",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         },
@@ -2181,6 +2296,7 @@
           "verb": "tushiring",
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2189,6 +2305,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         }
@@ -2202,6 +2319,7 @@
           "verb": "soling",
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2226,6 +2344,7 @@
           "verb": "qo‘shing",
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2234,6 +2353,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2266,6 +2386,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2274,6 +2395,7 @@
           "verb": "yoqing",
           "family": "HEAT",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         },
@@ -2290,6 +2412,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2298,6 +2421,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2305,15 +2429,17 @@
           "step": 7,
           "verb": "o‘tkazing",
           "family": "PASS_GAS",
-          "status": "SUPPORTED",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "PART_OF_RECORD",
           "authority": "ReactionMatcher",
-          "reason": "ReactionMatcher knows CuO"
+          "reason": "CuO is part of 2 record(s) (rxn.cuo-hcl, rxn.h2-cuo); the other reagent comes from the runtime state"
         },
         {
           "step": 7,
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         }
@@ -2359,6 +2485,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2391,6 +2518,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2408,13 +2536,14 @@
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_REQUIRED",
           "authority": null,
-          "reason": "no authority of this handler covers CO2 + CaCO3 + HCl (fails closed)"
+          "reason": "no authority of this handler models CO2 + CaCO3 + HCl (fails closed)"
         },
         {
           "step": 4,
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2489,6 +2618,7 @@
           "verb": "ko‘chiring",
           "family": "TRANSFER",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2498,7 +2628,7 @@
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_REQUIRED",
           "authority": null,
-          "reason": "no authority of this handler covers NaBr + NaI (fails closed)"
+          "reason": "no authority of this handler models NaBr + NaI (fails closed)"
         },
         {
           "step": 1,
@@ -2506,13 +2636,14 @@
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_REQUIRED",
           "authority": null,
-          "reason": "no authority of this handler covers NaBr + NaI (fails closed)"
+          "reason": "no authority of this handler models NaBr + NaI (fails closed)"
         },
         {
           "step": 1,
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2520,15 +2651,17 @@
           "step": 2,
           "verb": "qo‘shing",
           "family": "ADD_SUBSTANCE",
-          "status": "SUPPORTED",
-          "authority": "ReactionMatcher",
-          "reason": "ReactionMatcher knows NaI"
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "PART_OF_RECORD",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "NaI is part of 1 record(s) (rxn.agno3-nai); the other reagent comes from the runtime state"
         },
         {
           "step": 2,
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2536,15 +2669,17 @@
           "step": 3,
           "verb": "qo‘shing",
           "family": "ADD_SUBSTANCE",
-          "status": "SUPPORTED",
-          "authority": "ReactionMatcher",
-          "reason": "ReactionMatcher knows NaCl"
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "PART_OF_RECORD",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "NaCl is part of 2 record(s) (rxn.agno3-nacl, rxn.nacl-h2so4); the other reagent comes from the runtime state"
         },
         {
           "step": 3,
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         }
@@ -2558,6 +2693,7 @@
           "verb": "soling",
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2566,6 +2702,7 @@
           "verb": "aralashtiring",
           "family": "MIX",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2574,6 +2711,7 @@
           "verb": "qo‘shing",
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2582,6 +2720,7 @@
           "verb": "chayqating",
           "family": "MIX",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2611,6 +2750,7 @@
           "verb": "kechiring",
           "family": "PASS_GAS",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         },
@@ -2637,21 +2777,23 @@
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_REQUIRED",
           "authority": null,
-          "reason": "no authority of this handler covers CuSO4 + H2SO4 + Na2SO4 + SO4 (fails closed)"
+          "reason": "no authority of this handler models CuSO4 + H2SO4 + Na2SO4 + SO4 (fails closed)"
         },
         {
           "step": 1,
           "verb": "qo‘shing",
           "family": "ADD_SUBSTANCE",
-          "status": "SUPPORTED",
-          "authority": "ReactionMatcher",
-          "reason": "ReactionMatcher knows BaCl2"
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "PART_OF_RECORD",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "BaCl2 is part of 1 record(s) (rxn.bacl2-h2so4); the other reagent comes from the runtime state"
         },
         {
           "step": 2,
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         }
@@ -2664,9 +2806,10 @@
           "step": 0,
           "verb": "soling",
           "family": "ADD_SUBSTANCE",
-          "status": "SUPPORTED",
-          "authority": "ReactionMatcher",
-          "reason": "ReactionMatcher knows NH4Cl"
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "PART_OF_RECORD",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "NH4Cl is part of 1 record(s) (rxn.nh4cl-caoh2); the other reagent comes from the runtime state"
         },
         {
           "step": 0,
@@ -2681,6 +2824,7 @@
           "verb": "qizdiring",
           "family": "HEAT",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         },
@@ -2697,6 +2841,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2721,6 +2866,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         }
@@ -2734,6 +2880,7 @@
           "verb": "kechiring",
           "family": "PASS_GAS",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         },
@@ -2807,17 +2954,19 @@
           "step": 1,
           "verb": "aralashtiring",
           "family": "MIX",
-          "status": "SUPPORTED",
-          "authority": "ReactionMatcher",
-          "reason": "ReactionMatcher knows NH4Cl"
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "PART_OF_RECORD",
+          "authority": "ReactionMatcher|IonicEngine",
+          "reason": "NH4Cl is part of 1 record(s) (rxn.nh4cl-caoh2); the other reagent comes from the runtime state"
         },
         {
           "step": 1,
           "verb": "qizdiring",
           "family": "HEAT",
-          "status": "SUPPORTED",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "PART_OF_RECORD",
           "authority": "ReactionMatcher",
-          "reason": "ReactionMatcher knows NH4Cl"
+          "reason": "NH4Cl is part of 1 record(s) (rxn.nh4cl-caoh2); the other reagent comes from the runtime state"
         },
         {
           "step": 2,
@@ -2848,6 +2997,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2864,6 +3014,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -2908,17 +3059,19 @@
           "step": 0,
           "verb": "soling",
           "family": "ADD_SUBSTANCE",
-          "status": "SUPPORTED",
-          "authority": "ReactionMatcher",
-          "reason": "ReactionMatcher knows NH4Cl"
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "PART_OF_RECORD",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "NH4Cl is part of 1 record(s) (rxn.nh4cl-caoh2); the other reagent comes from the runtime state"
         },
         {
           "step": 0,
           "verb": "qizdiring",
           "family": "HEAT",
-          "status": "SUPPORTED",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "PART_OF_RECORD",
           "authority": "ReactionMatcher",
-          "reason": "ReactionMatcher knows NH4Cl"
+          "reason": "NH4Cl is part of 1 record(s) (rxn.nh4cl-caoh2); the other reagent comes from the runtime state"
         },
         {
           "step": 0,
@@ -3014,17 +3167,19 @@
           "step": 0,
           "verb": "quying",
           "family": "ADD_SUBSTANCE",
-          "status": "SUPPORTED",
-          "authority": "ReactionMatcher",
-          "reason": "ReactionMatcher knows NaOH"
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "PART_OF_RECORD",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "NaOH is part of 2 record(s) (rxn.naoh-hcl, rxn.zncl2-naoh); the other reagent comes from the runtime state"
         },
         {
           "step": 1,
           "verb": "qo‘shing",
           "family": "ADD_SUBSTANCE",
-          "status": "SUPPORTED",
-          "authority": "ReactionMatcher",
-          "reason": "ReactionMatcher knows ZnCl2"
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "PART_OF_RECORD",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "ZnCl2 is part of 1 record(s) (rxn.zncl2-naoh); the other reagent comes from the runtime state"
         },
         {
           "step": 2,
@@ -3068,6 +3223,7 @@
           "verb": "ko‘chiring",
           "family": "TRANSFER",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -3077,21 +3233,23 @@
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_REQUIRED",
           "authority": null,
-          "reason": "no authority of this handler covers HCl + NaBr + NaCl + NaI (fails closed)"
+          "reason": "no authority of this handler models HCl + NaBr + NaCl + NaI (fails closed)"
         },
         {
           "step": 2,
           "verb": "qo‘shing",
           "family": "ADD_SUBSTANCE",
-          "status": "SUPPORTED",
-          "authority": "ReactionMatcher",
-          "reason": "ReactionMatcher knows AgNO3"
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "PART_OF_RECORD",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "AgNO3 is part of 3 record(s) (rxn.agno3-nabr, rxn.agno3-nacl, rxn.agno3-nai); the other reagent comes from the runtime state"
         },
         {
           "step": 3,
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -3108,6 +3266,7 @@
           "verb": "to‘ldiring",
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -3116,6 +3275,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -3124,6 +3284,7 @@
           "verb": "tomizing",
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -3145,6 +3306,7 @@
           "verb": "aralashtiring",
           "family": "MIX",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -3173,17 +3335,19 @@
           "step": 0,
           "verb": "soling",
           "family": "ADD_SUBSTANCE",
-          "status": "SUPPORTED",
-          "authority": "ReactionMatcher",
-          "reason": "ReactionMatcher knows HCl"
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "PART_OF_RECORD",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "HCl is part of 7 record(s) (rxn.caco3-hcl, rxn.cuo-hcl, rxn.na2s-hcl, …); the other reagent comes from the runtime state"
         },
         {
           "step": 0,
           "verb": "quying",
           "family": "ADD_SUBSTANCE",
-          "status": "SUPPORTED",
-          "authority": "ReactionMatcher",
-          "reason": "ReactionMatcher knows HCl"
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "PART_OF_RECORD",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "HCl is part of 7 record(s) (rxn.caco3-hcl, rxn.cuo-hcl, rxn.na2s-hcl, …); the other reagent comes from the runtime state"
         },
         {
           "step": 1,
@@ -3198,6 +3362,7 @@
           "verb": "tushiring",
           "family": "PASS_GAS",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         },
@@ -3206,6 +3371,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -3214,6 +3380,7 @@
           "verb": "o‘tkazing",
           "family": "PASS_GAS",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         },
@@ -3222,6 +3389,7 @@
           "verb": "tomizing",
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -3231,7 +3399,7 @@
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_REQUIRED",
           "authority": null,
-          "reason": "no authority of this handler covers CO2 + NaOH (fails closed)"
+          "reason": "no authority of this handler models CO2 + NaOH (fails closed)"
         },
         {
           "step": 4,
@@ -3239,7 +3407,7 @@
           "family": "PASS_GAS",
           "status": "AUTHORITY_REQUIRED",
           "authority": null,
-          "reason": "no authority of this handler covers CO2 + NaOH (fails closed)"
+          "reason": "no authority of this handler models CO2 + NaOH (fails closed)"
         },
         {
           "step": 5,
@@ -3261,9 +3429,9 @@
           "step": 5,
           "verb": "qo‘shing",
           "family": "ADD_SUBSTANCE",
-          "status": "SUPPORTED",
-          "authority": "IonicEngine",
-          "reason": "IonicEngine knows AgNO3, HCl"
+          "status": "AUTHORITY_REQUIRED",
+          "authority": null,
+          "reason": "no authority of this handler models AgNO3 + HCl (fails closed)"
         },
         {
           "step": 5,
@@ -3277,9 +3445,9 @@
           "step": 5,
           "verb": "qo‘shing",
           "family": "ADD_SUBSTANCE",
-          "status": "SUPPORTED",
-          "authority": "IonicEngine",
-          "reason": "IonicEngine knows AgNO3, HCl"
+          "status": "AUTHORITY_REQUIRED",
+          "authority": null,
+          "reason": "no authority of this handler models AgNO3 + HCl (fails closed)"
         },
         {
           "step": 5,
@@ -3287,7 +3455,7 @@
           "family": "HEAT",
           "status": "AUTHORITY_REQUIRED",
           "authority": null,
-          "reason": "no authority of this handler covers AgNO3 + HCl (fails closed)"
+          "reason": "no authority of this handler models AgNO3 + HCl (fails closed)"
         }
       ]
     },
@@ -3298,9 +3466,10 @@
           "step": 0,
           "verb": "quying",
           "family": "ADD_SUBSTANCE",
-          "status": "SUPPORTED",
-          "authority": "ReactionMatcher",
-          "reason": "ReactionMatcher knows CuCl2"
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "FORMULA_KNOWN_ONLY",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "ElectrolysisModel has a CuCl2 record; phase and electrode are decided from the runtime query"
         },
         {
           "step": 0,
@@ -3314,15 +3483,17 @@
           "step": 0,
           "verb": "ulang",
           "family": "ELECTRIC_CURRENT",
-          "status": "SUPPORTED",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "FORMULA_KNOWN_ONLY",
           "authority": "ElectrolysisModel",
-          "reason": "ElectrolysisModel knows CuCl2"
+          "reason": "ElectrolysisModel has a CuCl2 record; phase and electrode are decided from the runtime query"
         },
         {
           "step": 1,
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -3331,6 +3502,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -3338,9 +3510,10 @@
           "step": 2,
           "verb": "quying",
           "family": "ADD_SUBSTANCE",
-          "status": "SUPPORTED",
-          "authority": "ReactionMatcher",
-          "reason": "ReactionMatcher knows KI"
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "PART_OF_RECORD",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "KI is part of 1 record(s) (rxn.br2-ki); the other reagent comes from the runtime state"
         },
         {
           "step": 2,
@@ -3348,13 +3521,14 @@
           "family": "ELECTRIC_CURRENT",
           "status": "AUTHORITY_REQUIRED",
           "authority": null,
-          "reason": "no authority of this handler covers KI (fails closed)"
+          "reason": "no authority of this handler models KI (fails closed)"
         },
         {
           "step": 2,
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -3363,6 +3537,7 @@
           "verb": "uzing",
           "family": "ELECTRIC_CURRENT",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -3371,6 +3546,7 @@
           "verb": "tomizing",
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -3379,6 +3555,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         }
@@ -3392,6 +3569,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -3413,6 +3591,7 @@
           "verb": "kechiring",
           "family": "PASS_GAS",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         },
@@ -3450,6 +3629,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         }
@@ -3463,6 +3643,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -3492,6 +3673,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -3529,6 +3711,7 @@
           "verb": "qo‘shing",
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -3537,6 +3720,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         }
@@ -3550,6 +3734,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -3587,6 +3772,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         }
@@ -3601,7 +3787,7 @@
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_REQUIRED",
           "authority": null,
-          "reason": "no authority of this handler covers II + III (fails closed)"
+          "reason": "no authority of this handler models II + III (fails closed)"
         },
         {
           "step": 1,
@@ -3616,6 +3802,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         }
@@ -3662,7 +3849,7 @@
           "family": "PASS_GAS",
           "status": "AUTHORITY_REQUIRED",
           "authority": null,
-          "reason": "no authority of this handler covers CO2 + Na2CO3 (fails closed)"
+          "reason": "no authority of this handler models CO2 + Na2CO3 (fails closed)"
         },
         {
           "step": 4,
@@ -3670,7 +3857,7 @@
           "family": "HEAT",
           "status": "AUTHORITY_REQUIRED",
           "authority": null,
-          "reason": "no authority of this handler covers CO2 + Na2CO3 (fails closed)"
+          "reason": "no authority of this handler models CO2 + Na2CO3 (fails closed)"
         }
       ]
     },
@@ -3682,6 +3869,7 @@
           "verb": "kechiring",
           "family": "PASS_GAS",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         },
@@ -3748,6 +3936,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -3769,6 +3958,7 @@
           "verb": "kechiring",
           "family": "PASS_GAS",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         },
@@ -3777,6 +3967,7 @@
           "verb": "bering",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -3798,6 +3989,7 @@
           "verb": "kechiring",
           "family": "PASS_GAS",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         }
@@ -3811,6 +4003,7 @@
           "verb": "kechiring",
           "family": "PASS_GAS",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         },
@@ -3843,6 +4036,7 @@
           "verb": "qizdiring",
           "family": "HEAT",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         },
@@ -3851,6 +4045,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         }
@@ -3864,6 +4059,7 @@
           "verb": "kechiring",
           "family": "PASS_GAS",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
         },
@@ -3880,6 +4076,7 @@
           "verb": "bering",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         }
@@ -3894,13 +4091,14 @@
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_REQUIRED",
           "authority": null,
-          "reason": "no authority of this handler covers AgNO3 + CuSO4 + NO3 (fails closed)"
+          "reason": "no authority of this handler models AgNO3 + CuSO4 + NO3 (fails closed)"
         },
         {
           "step": 1,
           "verb": "soling",
           "family": "ADD_SUBSTANCE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         },
@@ -3909,6 +4107,7 @@
           "verb": "kuzating",
           "family": "OBSERVE",
           "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
           "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
           "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
         }
