@@ -32,6 +32,10 @@ async function chooseReagent(page, card, slot, speciesId) {
     const current = await select.inputValue();
     if (current === speciesId) return;
     await page.keyboard.press(values.indexOf(speciesId) > values.indexOf(current) ? 'ArrowDown' : 'ArrowUp');
+    // P2.11: was a bare loop. On a slow CI runner (pull request #27, verify on 5d9566d) the value was read again before
+    // the arrow key had moved the selection, so the next press overshot the target and the loop ran out. Each press now
+    // waits for the selection to move; the keyboard path and the expected reagents are unchanged.
+    await expect.poll(() => select.inputValue()).not.toBe(current);
   }
   throw new Error(`reagent not reachable with the keyboard: ${speciesId}`);
 }
