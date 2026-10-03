@@ -341,3 +341,21 @@ test('closeout decisions: Cu + HCl is a model/source gap (fail closed), 8.14 a s
   assert.equal(eq.summary.migrationEquivalent,0); for(const s of eq.slices) assert.equal(s.decision,'KEEP_OLD_RUNTIME');
 });
 
+test('final consistency: P2.11 generated summaries describe the closeout semantics (no stale wording)',()=>{
+  const r=json(LAB_REPORTS.readiness);
+  const j=r.sliceJustification;
+  // 7.10: only instruction-permitted trial combinations reach chemistry; Cu + HCl heating is a scope rejection
+  assert.doesNotMatch(j.contactReactionGas,/whatever the learner/i);
+  assert.doesNotMatch(j.contactReactionGas,/even when heated/i);
+  assert.match(j.contactReactionGas,/only the trial combinations the instruction permits/);
+  assert.match(j.contactReactionGas,/rejected before chemistry evaluation \(ACTION_NOT_IN_INSTRUCTION_SCOPE\)/);
+  assert.match(j.contactReactionGas,/MODEL_SOURCE_GAP_CU_HCL/);
+  // 8.14: a source conflict review, never a human decision
+  assert.doesNotMatch(j.heatingGate,/is a recorded human decision/);
+  assert.match(j.heatingGate,/SOURCE_CONFLICT_REVIEW_REQUIRED/);
+  assert.ok(!r.humanDecisions.some(d=>d.activityId==='practice.experiment.8.14'));
+  // the same sweep over every generated P2.11 report and the P2.11 docs
+  const texts=[...Object.values(LAB_REPORTS).map(read),read('docs/adr/ADR-P2-012-capability-registry.md'),read('docs/reviews/p2.11-kill-critic.md')];
+  for(const t of texts){ assert.doesNotMatch(t,/whatever the learner puts together/i); assert.doesNotMatch(t,/fails closed,? even when heated/i); assert.doesNotMatch(t,/nh3-hcl[^.\n]*(?<!not )\b(is|as) (a |the )?(recorded )?human decision/i); }
+});
+

@@ -83,7 +83,7 @@ All new handlers are deterministic and replayable. A rejection never changes the
 
 ### Reaction-matcher profiles (`chemistry.authority: 'reaction-matcher'`)
 
-- **What is matched:** every pair of **learner-added** substances in a container is matched with `conditionPolicy: 'require-record-conditions'` under the container's **actual conditions**:
+- **What is matched:** every pair of **learner-added** substances in a container — and only combinations the instruction's trials permit can get into a container (§7.1) — is matched with `conditionPolicy: 'require-record-conditions'` under the container's **actual conditions**:
   - temperature: the heating level, or `room`;
   - ignition: `absent`;
   - any dimension the instruction declares for a present substance, such as `acid-concentration: dilute` from "suyultirilgan H2SO4".

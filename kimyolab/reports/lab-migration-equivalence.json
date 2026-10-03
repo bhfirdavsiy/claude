@@ -228,7 +228,7 @@
         },
         "chemistryResult": {
           "status": "DIFFERENT",
-          "detail": "old: the step’s configured observation appears on a click, whatever was added; new: ReactionMatcher evaluates the substances actually in the container under the actual conditions (declared acid concentration, the instruction’s heating) and fails closed when no record applies",
+          "detail": "old: the step’s configured observation appears on a click, whatever was added; new: ReactionMatcher evaluates the substances actually in the container — only combinations the instruction’s trials permit can get there — under the actual conditions (declared acid concentration, the heating stated for the trial) and fails closed when no record applies",
           "evidence": "runs both"
         },
         "observations": {
@@ -321,7 +321,7 @@
         },
         "chemistryResult": {
           "status": "DIFFERENT",
-          "detail": "old: the step’s configured observation appears on a click, whatever was added; new: ReactionMatcher evaluates the substances actually in the container under the actual conditions (declared acid concentration, the instruction’s heating) and fails closed when no record applies",
+          "detail": "old: the step’s configured observation appears on a click, whatever was added; new: ReactionMatcher evaluates the substances actually in the container — only combinations the instruction’s trials permit can get there — under the actual conditions (declared acid concentration, the heating stated for the trial) and fails closed when no record applies",
           "evidence": "runs both"
         },
         "observations": {
