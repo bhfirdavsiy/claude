@@ -2,8 +2,8 @@
 //
 //   contentVersion  (e.g. 2026.09.1) is SEMANTIC. Activity versions, review targets and learner evidence refer to it;
 //                   it changes only by a content release decision, never because deployment bytes changed.
-//   contentRevision is the DEPLOY/CACHE identity: the first 16 hex of the pack's canonical aggregate checksum (every
-//                   file's path, sha256 and size). Any changed byte changes it.
+//   contentRevision is the DEPLOY/CACHE identity: the FULL canonical aggregate checksum of the pack (SHA-256 over every
+//                   file's path, sha256 and size; 64 lowercase hex, never truncated). Any changed byte changes it.
 //
 // In the deployment artefact the pack lives at content/<contentVersion>/<contentRevision>/ and the pointer
 // (content/manifest.json, revalidated on every load) names that exact directory. Only such a revision-qualified URL
@@ -56,6 +56,7 @@ export function revisionLayoutProblems(contentDir:string):string[]{
   const manifest=readJson(manifestFile);
   if(manifest.contentVersion!==pointer.activeVersion) problems.push('PACK_VERSION_MISMATCH');
   if(manifest.checksum!==pointer.checksum) problems.push('PACK_CHECKSUM_MISMATCH');
+  if(pointer.activeRevision!==pointer.checksum) problems.push('POINTER_REVISION_NOT_CHECKSUM');
   const listed=(manifest.files??[]) as Array<{path:string;checksum:string;size:number}>;
   const aggregate=crypto.createHash('sha256').update(listed.map(f=>`${f.path}:${f.checksum}:${f.size}`).join('\n')).digest('hex');
   if(aggregate!==manifest.checksum) problems.push('PACK_AGGREGATE_MISMATCH');

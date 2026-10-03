@@ -53,6 +53,12 @@ test('deployment layout: /content/<version>/<revision>/... → 200 immutable; po
       const r=await rawRequest(deployed.url,url); assert.equal(r.status,200,url); assert.equal(String(r.headers['cache-control']),'no-cache',url);
     }
     assert.equal((await rawRequest(deployed.url,`/content/${contentVersion}/concepts.json`)).status,404,'no un-revisioned copy is served');
+    assert.match(contentRevision,/^[a-f0-9]{64}$/,'the revision is the full 64-hex pack checksum');
+    // only the FULL revision path is immutable: a copy under a truncated 16-hex directory is never cached as immutable
+    const short=contentRevision.slice(0,16);
+    fs.cpSync(path.join(dist,'content',contentVersion,contentRevision),path.join(dist,'content',contentVersion,short),{recursive:true});
+    const truncated=await rawRequest(deployed.url,`/content/${contentVersion}/${short}/concepts.json`);
+    assert.doesNotMatch(String(truncated.headers['cache-control']??''),/immutable/,'a 16-hex path is not immutable');
   }finally{ await deployed.close(); fs.rmSync(dist,{recursive:true,force:true}); }
 });
 

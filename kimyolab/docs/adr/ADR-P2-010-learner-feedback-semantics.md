@@ -115,7 +115,9 @@ The rollback drill failed between main and this branch. The five new catalog str
 The semantic version is **not** bumped and immutable caching is **not** weakened. Instead the two identities are separated.
 
 - **`contentVersion` stays semantic** (`2026.09.1`). Activity versions, pending review targets, approval records and evidence are untouched: changed deployment bytes are not a content release.
-- **`contentRevision` is the deploy/cache identity:** the first 16 hex of the pack's canonical aggregate checksum, which covers every file's path, sha256 and size (`src/runtime/compatibility/release-pointer.ts`).
+- **`contentRevision` is the deploy/cache identity:** the pack's FULL canonical aggregate checksum, which covers every file's path, sha256 and size: 64 lowercase hex (`src/runtime/compatibility/release-pointer.ts`).
+  - It is not truncated and no second hash is introduced. The first implementation used a 16-hex prefix; the closeout review found that too weak for the documented immutable-URL contract, and it was replaced by the full checksum.
+  - A pointer whose revision is not 64 lowercase hex, or is not exactly the pack's checksum, fails closed. Nothing is normalized or shortened.
 - **Layout.** The deployment artefact serves the pack at `content/<contentVersion>/<contentRevision>/` (`scripts/lib/content-revision.ts`, applied by `deploy:build`). The pointer `content/manifest.json` names that exact directory, and the client verifies that the revision is the hash of the pack it receives.
 - **Caching.** Only revision-qualified URLs are immutable (`server/app.mjs`; the nginx and Apache EXAMPLES in DEPLOY.md). The pointer, the manifests and any semantic-only pack path are revalidated.
 - **Deploy and rollback** switch the pointer, and with it the whole pack, in one step. The rollback drill runs the real registry switch and adds `immutable-urls-stable`: no immutable URL serves different bytes in the two releases.

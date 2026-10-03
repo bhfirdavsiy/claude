@@ -47,7 +47,7 @@
     },
     {
       "id": "content-revision",
-      "what": "the deployment artefact serves the pack at content/<contentVersion>/<contentRevision>/ (revision = 16 hex of the pack aggregate checksum); only revision-qualified URLs are immutable; the semantic contentVersion, activity versions, review targets and evidence are unchanged (human decision, ADR-P2-010 §7)",
+      "what": "the deployment artefact serves the pack at content/<contentVersion>/<contentRevision>/ (revision = the full 64-hex canonical pack aggregate checksum, never truncated); only revision-qualified URLs are immutable; the semantic contentVersion, activity versions, review targets and evidence are unchanged (human decision, ADR-P2-010 §7)",
       "files": [
         "src/runtime/compatibility/release-pointer.ts",
         "scripts/lib/content-revision.ts",
@@ -96,13 +96,13 @@
     },
     "after": {
       "learnerModules": 162,
-      "learnerModuleBytes": 713480,
-      "standaloneBytes": 5703740
+      "learnerModuleBytes": 714004,
+      "standaloneBytes": 5704269
     },
     "delta": {
       "learnerModules": 0,
-      "learnerModuleBytes": 10735,
-      "standaloneBytes": 12635
+      "learnerModuleBytes": 11259,
+      "standaloneBytes": 13164
     }
   }
 }

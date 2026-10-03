@@ -150,42 +150,96 @@ test('invariants: config versions untouched, no UI module writes mastery',()=>{
 });
 
 // ---- P2.9 content revision: semantic contentVersion vs deploy/cache contentRevision (ADR-P2-010 §7) ----
+// contentRevision = the pack's FULL canonical aggregate checksum (64 lowercase hex). Cases A–H of the closeout review.
 import os from 'node:os';
 import crypto from 'node:crypto';
 import {applyRevisionLayout,revisionLayoutProblems,immutableUrlCollisions,contentRevisionOf} from '../scripts/lib/content-revision.ts';
-import {packLocation} from '../src/runtime/compatibility/release-pointer.ts';
+import {packLocation,CONTENT_REVISION_LENGTH} from '../src/runtime/compatibility/release-pointer.ts';
+import {promoteRelease,rollbackRelease,readCurrentRelease} from '../scripts/release-registry.ts';
+import {spawnSync} from 'node:child_process';
 
-function sourcePackCopy(){
-  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'kl-rev-'));
-  fs.cpSync(path.join(root,'public/content'),dir,{recursive:true});
-  return dir;
+const tmpdir=(p)=>fs.mkdtempSync(path.join(os.tmpdir(),p));
+function sourcePackCopy(){ const dir=tmpdir('kl-rev-'); fs.cpSync(path.join(root,'public/content'),dir,{recursive:true}); return dir; }
+const readPointer=(dir)=>JSON.parse(fs.readFileSync(path.join(dir,'manifest.json'),'utf8'));
+const writePointer=(dir,p)=>fs.writeFileSync(path.join(dir,'manifest.json'),JSON.stringify(p));
+/** change one byte of one pack file in a SOURCE-layout copy and reseal its manifest + pointer (an honest rebuild) */
+function changeOneByte(dir){
+  const pointer=readPointer(dir), vDir=path.join(dir,pointer.activeVersion), mf=path.join(vDir,'manifest.json');
+  const m=JSON.parse(fs.readFileSync(mf,'utf8')); const entry=m.files.find(f=>f.path==='concepts.json'); const file=path.join(vDir,'concepts.json');
+  fs.writeFileSync(file,fs.readFileSync(file,'utf8')+'\n');
+  const bytes=fs.readFileSync(file); entry.size=bytes.length; entry.checksum=crypto.createHash('sha256').update(bytes).digest('hex');
+  m.checksum=crypto.createHash('sha256').update(m.files.map(f=>`${f.path}:${f.checksum}:${f.size}`).join('\n')).digest('hex');
+  fs.writeFileSync(mf,JSON.stringify(m)); writePointer(dir,{...pointer,checksum:m.checksum});
 }
+const fetchFrom=(base)=>async(url)=>{ const rel=url.replace(/^\/content\//,''); const f=path.join(base,...rel.split('/')); if(!fs.existsSync(f)) return {ok:false,status:404}; const b=fs.readFileSync(f); return {ok:true,status:200,json:async()=>JSON.parse(b.toString('utf8')),arrayBuffer:async()=>b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength)}; };
+const load=(dir)=>new ContentClient({fetchImpl:fetchFrom(dir),baseUrl:'/content'}).loadPractice('practice.simulation.7.02.planned');
 
-test('content revision: the deployment layout keeps contentVersion and serves the pack at <version>/<hash-revision>/',()=>{
+test('content revision = the FULL 64-hex canonical pack checksum; contentVersion and the semantic records stay',()=>{
+  assert.equal(CONTENT_REVISION_LENGTH,64);
   const dir=sourcePackCopy();
   try{
-    const source=JSON.parse(fs.readFileSync(path.join(dir,'manifest.json'),'utf8'));
+    const source=readPointer(dir);
     const {contentVersion,contentRevision}=applyRevisionLayout(dir);
+    assert.match(contentRevision,/^[a-f0-9]{64}$/);
+    assert.equal(contentRevision,source.checksum,'the revision IS the canonical pack checksum (no truncation, no second hash)');
+    const m=JSON.parse(fs.readFileSync(path.join(dir,contentVersion,contentRevision,'manifest.json'),'utf8'));
+    assert.equal(crypto.createHash('sha256').update(m.files.map(f=>`${f.path}:${f.checksum}:${f.size}`).join('\n')).digest('hex'),contentRevision,'… recomputed from the file list');
     assert.equal(contentVersion,source.activeVersion,'the SEMANTIC version is unchanged');
-    assert.equal(contentRevision,contentRevisionOf(source.checksum));
-    const pointer=JSON.parse(fs.readFileSync(path.join(dir,'manifest.json'),'utf8'));
-    assert.deepEqual(pointer,{activeVersion:contentVersion,activeRevision:contentRevision,checksum:source.checksum,manifest:`${contentVersion}/${contentRevision}/manifest.json`});
-    assert.deepEqual(packLocation(pointer),{dir:`${contentVersion}/${contentRevision}`,revision:contentRevision});
+    assert.deepEqual(readPointer(dir),{activeVersion:contentVersion,activeRevision:contentRevision,checksum:source.checksum,manifest:`${contentVersion}/${contentRevision}/manifest.json`});
     assert.deepEqual(revisionLayoutProblems(dir),[]);
-    // the semantic records are not touched: activity versions and review targets still name the content version
-    const activities=JSON.parse(read('content-src/practice-activities.json'));
-    assert.ok(activities.every(a=>a.version===contentVersion));
+    // activity versions, review targets and approval registers are byte-identical to main (the P2.8 merge abdb379)
+    for(const f of ['content-src/practice-activities.json','content-src/theory-activities.json','content-src/manifest.yaml','review-packets/beta1-approval-register.json','review-packets/beta2-approval-register.json','review-packets/beta3-approval-register.json']){
+      const base=spawnSync('git',['show',`abdb379de6fd3f2b89f346b074d9616f02ac7c3d:kimyolab/${f}`],{cwd:root,encoding:'utf8',maxBuffer:1<<28});
+      if(base.status===0) assert.equal(read(f),base.stdout,`${f} unchanged`);
+    }
   }finally{ fs.rmSync(dir,{recursive:true,force:true}); }
 });
 
-test('content revision fails closed: edited byte, stray file, wrong revision name, un-revisioned copy, source pointer',()=>{
+test('A: identical pack bytes → the same full revision; B: one changed byte, same contentVersion → a different full revision',()=>{
+  const a=sourcePackCopy(), b=sourcePackCopy(), c=sourcePackCopy();
+  try{
+    const ra=applyRevisionLayout(a), rb=applyRevisionLayout(b);
+    assert.equal(rb.contentRevision,ra.contentRevision,'A: same bytes, same revision');
+    changeOneByte(c); const rc=applyRevisionLayout(c);
+    assert.equal(rc.contentVersion,ra.contentVersion,'B: same semantic version');
+    assert.notEqual(rc.contentRevision,ra.contentRevision,'B: different revision');
+    assert.match(rc.contentRevision,/^[a-f0-9]{64}$/);
+    assert.deepEqual(immutableUrlCollisions(a,c),[],'different revisions share no immutable URL');
+  }finally{ for(const d of [a,b,c]) fs.rmSync(d,{recursive:true,force:true}); }
+});
+
+test('C/D: a truncated 16-hex revision and a forged 64-hex revision are rejected (client, preflight layout, pointer parser); nothing is normalized',async()=>{
+  const forge=(revision)=>{ const d=sourcePackCopy(); const {contentVersion,contentRevision}=applyRevisionLayout(d); fs.renameSync(path.join(d,contentVersion,contentRevision),path.join(d,contentVersion,revision)); writePointer(d,{...readPointer(d),activeRevision:revision,manifest:`${contentVersion}/${revision}/manifest.json`}); return {d,contentVersion,contentRevision}; };
+  // C: the old 16-hex prefix of the real checksum
+  const real=readPointer(path.join(root,'public/content')).checksum;
+  const c=forge(real.slice(0,16));
+  try{
+    assert.equal(packLocation(readPointer(c.d)),null,'a 16-hex revision is not a pack location');
+    await assert.rejects(load(c.d),(e)=>e.code==='CONTENT_MANIFEST_INVALID');
+    assert.match(revisionLayoutProblems(c.d).join(' '),/POINTER_REVISION_MISSING|POINTER_NOT_REVISION_QUALIFIED/);
+  }finally{ fs.rmSync(c.d,{recursive:true,force:true}); }
+  // D: well-formed 64 hex that is not the pack checksum
+  const d=forge('f'.repeat(64));
+  try{
+    assert.ok(packLocation(readPointer(d.d)),'syntactically a location');
+    await assert.rejects(load(d.d),(e)=>e.code==='CONTENT_INTEGRITY_ERROR');
+    assert.match(revisionLayoutProblems(d.d).join(' '),/REVISION_NOT_DERIVED_FROM_PACK/);
+    assert.match(revisionLayoutProblems(d.d).join(' '),/POINTER_REVISION_NOT_CHECKSUM/);
+  }finally{ fs.rmSync(d.d,{recursive:true,force:true}); }
+  // upper case / padded values are not normalized into a valid revision
+  for(const bad of [real.toUpperCase(),` ${real}`,real.slice(0,63)]) assert.equal(packLocation({activeVersion:'2026.09.1',activeRevision:bad,manifest:`2026.09.1/${bad}/manifest.json`}),null,JSON.stringify(bad));
+  assert.throws(()=>contentRevisionOf(real.slice(0,16)),/CONTENT_CHECKSUM_INVALID/);
+  assert.equal(contentRevisionOf(real),real);
+});
+
+test('fail closed: edited byte, stray file, manifest checksum, un-revisioned copy, source-layout pointer in a deployment',()=>{
   const mk=()=>{ const d=sourcePackCopy(); const r=applyRevisionLayout(d); return {d,...r,pack:path.join(d,r.contentVersion,r.contentRevision)}; };
   const cases=[
     ['edited byte',({pack})=>{ const f=path.join(pack,'concepts.json'); fs.writeFileSync(f,fs.readFileSync(f,'utf8').replace(/"/,' "')); },/FILE_CHECKSUM_MISMATCH:concepts\.json/],
     ['stray immutable file',({pack})=>fs.writeFileSync(path.join(pack,'extra.json'),'{}'),/UNLISTED_FILE:extra\.json/],
-    ['revision not derived from the pack',({d,contentVersion,contentRevision})=>{ const wrong='0'.repeat(16); fs.renameSync(path.join(d,contentVersion,contentRevision),path.join(d,contentVersion,wrong)); const p=JSON.parse(fs.readFileSync(path.join(d,'manifest.json'),'utf8')); fs.writeFileSync(path.join(d,'manifest.json'),JSON.stringify({...p,activeRevision:wrong,manifest:`${contentVersion}/${wrong}/manifest.json`})); },/REVISION_NOT_DERIVED_FROM_PACK/],
+    ['manifest checksum differs',({pack})=>{ const f=path.join(pack,'manifest.json'); const m=JSON.parse(fs.readFileSync(f,'utf8')); fs.writeFileSync(f,JSON.stringify({...m,checksum:'0'.repeat(64)})); },/PACK_CHECKSUM_MISMATCH/],
     ['un-revisioned copy beside the revision',({d,contentVersion})=>fs.writeFileSync(path.join(d,contentVersion,'concepts.json'),'[]'),/OUTSIDE_REVISION:/],
-    ['source-layout pointer',({d,contentVersion})=>{ const p=JSON.parse(fs.readFileSync(path.join(d,'manifest.json'),'utf8')); fs.writeFileSync(path.join(d,'manifest.json'),JSON.stringify({activeVersion:p.activeVersion,checksum:p.checksum,manifest:`${contentVersion}/manifest.json`})); },/POINTER_NOT_REVISION_QUALIFIED|POINTER_REVISION_MISSING/],
+    ['source-layout pointer',({d,contentVersion})=>{ const p=readPointer(d); writePointer(d,{activeVersion:p.activeVersion,checksum:p.checksum,manifest:`${contentVersion}/manifest.json`}); },/POINTER_NOT_REVISION_QUALIFIED|POINTER_REVISION_MISSING/],
   ];
   for(const [name,mutate,expected] of cases){
     const ctx=mk();
@@ -194,43 +248,25 @@ test('content revision fails closed: edited byte, stray file, wrong revision nam
   }
 });
 
-test('one immutable URL never serves two byte sequences: changed bytes → new revision; a forged reuse is caught',()=>{
-  const a=sourcePackCopy(), b=sourcePackCopy();
+test('E/F: upgrade selects the new pack atomically; rollback returns to the previous artefact; no immutable URL changes bytes',async()=>{
+  const artifact=(changed)=>{ const dir=tmpdir('kl-rel-'); const content=path.join(dir,'content'); fs.cpSync(path.join(root,'public/content'),content,{recursive:true}); if(changed) changeOneByte(content); const r=applyRevisionLayout(content); fs.writeFileSync(path.join(dir,'release-manifest.json'),JSON.stringify({releaseId:changed?'current':'previous',contentRevision:r.contentRevision})); return {dir,content,...r}; };
+  const prev=artifact(false), cur=artifact(true), registry=tmpdir('kl-registry-');
   try{
-    const ra=applyRevisionLayout(a);
-    // release B: one changed byte in the pack (e.g. a new catalog string) — rebuilt the honest way, it gets a new revision
-    const vDir=path.join(b,ra.contentVersion), mf=path.join(vDir,'manifest.json');
-    const m=JSON.parse(fs.readFileSync(mf,'utf8'));
-    const target=m.files.find(f=>f.path==='concepts.json'); const file=path.join(vDir,'concepts.json');
-    fs.writeFileSync(file,fs.readFileSync(file,'utf8')+'\n');
-    const bytes=fs.readFileSync(file); target.size=bytes.length; target.checksum=crypto.createHash('sha256').update(bytes).digest('hex');
-    m.checksum=crypto.createHash('sha256').update(m.files.map(f=>`${f.path}:${f.checksum}:${f.size}`).join('\n')).digest('hex');
-    fs.writeFileSync(mf,JSON.stringify(m));
-    const pointer=JSON.parse(fs.readFileSync(path.join(b,'manifest.json'),'utf8')); fs.writeFileSync(path.join(b,'manifest.json'),JSON.stringify({...pointer,checksum:m.checksum}));
-    const rb=applyRevisionLayout(b);
-    assert.notEqual(rb.contentRevision,ra.contentRevision,'changed bytes → a different revision');
-    assert.equal(rb.contentVersion,ra.contentVersion,'… under the SAME semantic content version');
-    assert.deepEqual(immutableUrlCollisions(a,b),[]);
-    // a forged release that reuses A's revision directory with B's bytes is detected
-    fs.renameSync(path.join(b,rb.contentVersion,rb.contentRevision),path.join(b,rb.contentVersion,ra.contentRevision));
-    assert.deepEqual(immutableUrlCollisions(a,b),[`${ra.contentVersion}/${ra.contentRevision}/concepts.json`]);
-  }finally{ fs.rmSync(a,{recursive:true,force:true}); fs.rmSync(b,{recursive:true,force:true}); }
-});
-
-test('the client loads the pack the pointer names and refuses a revision that is not the pack hash',async()=>{
-  const dir=sourcePackCopy();
-  try{
-    const {contentVersion,contentRevision}=applyRevisionLayout(dir);
-    const fetchFrom=(base)=>async(url)=>{ const rel=url.replace(/^\/content\//,''); const f=path.join(base,...rel.split('/')); if(!fs.existsSync(f)) return {ok:false,status:404}; const b=fs.readFileSync(f); return {ok:true,status:200,json:async()=>JSON.parse(b.toString('utf8')),arrayBuffer:async()=>b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength)}; };
-    const page=await new ContentClient({fetchImpl:fetchFrom(dir),baseUrl:'/content'}).loadPractice('practice.simulation.7.02.planned');
-    assert.equal(page.contentVersion,contentVersion);
-    // a pointer naming another revision directory (bytes identical, name forged) fails closed
-    const wrong='f'.repeat(16);
-    fs.renameSync(path.join(dir,contentVersion,contentRevision),path.join(dir,contentVersion,wrong));
-    const p=JSON.parse(fs.readFileSync(path.join(dir,'manifest.json'),'utf8'));
-    fs.writeFileSync(path.join(dir,'manifest.json'),JSON.stringify({...p,activeRevision:wrong,manifest:`${contentVersion}/${wrong}/manifest.json`}));
-    await assert.rejects(new ContentClient({fetchImpl:fetchFrom(dir),baseUrl:'/content'}).loadPractice('practice.simulation.7.02.planned'),(e)=>e.code==='CONTENT_INTEGRITY_ERROR');
-    // a pointer whose revision field and path disagree is not a pack location at all
-    assert.equal(packLocation({activeVersion:contentVersion,activeRevision:contentRevision,manifest:`${contentVersion}/manifest.json`}),null);
-  }finally{ fs.rmSync(dir,{recursive:true,force:true}); }
+    promoteRelease(registry,'previous',prev.dir); promoteRelease(registry,'current',cur.dir);
+    const active=()=>path.join(registry,'releases',readCurrentRelease(registry).activeRelease,'content');
+    // E: the active release's pointer names exactly its own revision, and the client loads that pack
+    assert.equal(readCurrentRelease(registry).activeRelease,'current');
+    assert.equal(readPointer(active()).activeRevision,cur.contentRevision);
+    assert.equal((await load(active())).contentVersion,cur.contentVersion);
+    // F: rollback switches the whole artefact (pointer + pack) back
+    rollbackRelease(registry);
+    assert.equal(readCurrentRelease(registry).activeRelease,'previous');
+    assert.equal(readPointer(active()).activeRevision,prev.contentRevision);
+    assert.equal((await load(active())).contentVersion,prev.contentVersion);
+    assert.notEqual(prev.contentRevision,cur.contentRevision);
+    assert.deepEqual(immutableUrlCollisions(path.join(registry,'releases','previous','content'),path.join(registry,'releases','current','content')),[]);
+    // a forged release reusing the previous revision directory with the new bytes is caught
+    fs.renameSync(path.join(cur.content,cur.contentVersion,cur.contentRevision),path.join(cur.content,cur.contentVersion,prev.contentRevision));
+    assert.deepEqual(immutableUrlCollisions(prev.content,cur.content),[`${prev.contentVersion}/${prev.contentRevision}/concepts.json`]);
+  }finally{ for(const d of [prev.dir,cur.dir,registry]) fs.rmSync(d,{recursive:true,force:true}); }
 });

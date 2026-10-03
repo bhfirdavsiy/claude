@@ -97,7 +97,7 @@ Two different identities are involved:
 | Identity | Example | What it means | Changes when |
 |---|---|---|---|
 | `contentVersion` | `2026.09.1` | **Semantic.** Activity versions, review targets and learner evidence refer to it. | Only by a content release decision. |
-| `contentRevision` | `4f3dc600dcab382d` | **Deploy and cache identity.** The first 16 hex of the pack's aggregate checksum (every file's path, sha256 and size). | Whenever any byte of the pack changes. |
+| `contentRevision` | `4f3dc600dcab382d89ac902ae350e52007b6169eff075dcbb7d5a149db2129e5` | **Deploy and cache identity.** The pack's full canonical aggregate checksum (SHA-256 over every file's path, sha256 and size): 64 lowercase hex, never truncated. | Whenever any byte of the pack changes. |
 
 How they work together:
 
@@ -116,7 +116,7 @@ The requirement is the same whatever server you use:
 
 1. Files under `/kimyolab/` are served as they are. Use `Content-Type` by extension; `.js` must be `text/javascript`.
    - **Caching:**
-     - Only `/kimyolab/content/<contentVersion>/<contentRevision>/…` (16 hex) may be cached as `immutable`, and never its `manifest.json`.
+     - Only `/kimyolab/content/<contentVersion>/<contentRevision>/…` (64 hex) may be cached as `immutable`, and never its `manifest.json`.
      - The pointer `/kimyolab/content/manifest.json`, the pack `manifest.json`, `index.html` and the app modules must be revalidated (`no-cache`).
      - A long-lived cache on any other path can mix an old and a new release in a learner's browser.
 2. Any other path under `/kimyolab/` that is not a file serves `/kimyolab/index.html` with status 200. These are app routes such as `/kimyolab/learn/lu.7.12/practice` or `/kimyolab/practice/<id>` (deep links and refresh).
@@ -147,7 +147,7 @@ location /kimyolab/ {
     add_header Referrer-Policy no-referrer;
 }
 # only the revision-qualified pack files are immutable (their bytes can never change)
-location ~ ^/kimyolab/content/[A-Za-z0-9.-]+/[a-f0-9]{16}/(?!manifest\.json$).+ {
+location ~ ^/kimyolab/content/[A-Za-z0-9.-]+/[a-f0-9]{64}/(?!manifest\.json$).+ {
     alias /srv/kimyolab/content/;             # regex location: map the captured path explicitly in a real config
     add_header Cache-Control "public, max-age=31536000, immutable";
     add_header X-Content-Type-Options nosniff;
@@ -164,7 +164,7 @@ Alias /kimyolab/ /srv/kimyolab/
     Header set X-Content-Type-Options nosniff
     Header set Referrer-Policy no-referrer
 </Directory>
-<LocationMatch "^/kimyolab/content/[A-Za-z0-9.-]+/[a-f0-9]{16}/(?!manifest\.json$)">
+<LocationMatch "^/kimyolab/content/[A-Za-z0-9.-]+/[a-f0-9]{64}/(?!manifest\.json$)">
     Header set Cache-Control "public, max-age=31536000, immutable"
 </LocationMatch>
 ```

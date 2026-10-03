@@ -47,7 +47,7 @@
       "pass": true,
       "detail": {
         "exitCode": 0,
-        "seconds": 5
+        "seconds": 1.9
       }
     },
     {
@@ -55,7 +55,7 @@
       "pass": true,
       "detail": {
         "exitCode": 0,
-        "seconds": 1.3
+        "seconds": 1.5
       }
     },
     {
@@ -63,7 +63,7 @@
       "pass": true,
       "detail": {
         "exitCode": 0,
-        "seconds": 0.7
+        "seconds": 0.8
       }
     },
     {
@@ -71,15 +71,15 @@
       "pass": true,
       "detail": {
         "exitCode": 0,
-        "seconds": 9
+        "seconds": 8.9
       }
     },
     {
       "id": "generated-files-reproducible",
       "pass": true,
       "detail": {
-        "committed": "a70dc35b632a43c99d801654a486205339890458afae8b8399f26f7f7959e092",
-        "rebuilt": "a70dc35b632a43c99d801654a486205339890458afae8b8399f26f7f7959e092"
+        "committed": "dde23848ba6807f088b35cb5f076bcd533decc5fd2a99b42631cc78f3914b280",
+        "rebuilt": "dde23848ba6807f088b35cb5f076bcd533decc5fd2a99b42631cc78f3914b280"
       }
     },
     {
@@ -95,9 +95,9 @@
       "detail": {
         "mount": "/kimyolab/",
         "fileCount": 215,
-        "sha256": "5b74417e0aa2329b18a98809266d1f5ae152c25b5a8f58e880bdb6c32c2ba809"
+        "sha256": "f3a01de983825af04b6fa5ee2368ab2b9663f04ec50969df4d4908cd511b6110"
       }
     }
   ],
-  "seconds": 20
+  "seconds": 14
 }

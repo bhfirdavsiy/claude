@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-10-03T07:22:52.711Z",
+  "createdAt": "2026-10-03T07:57:12.042Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -749,8 +749,8 @@
     {
       "path": "app-preview/runtime/compatibility/release-pointer.js",
       "sourcePath": "public/app-preview/runtime/compatibility/release-pointer.js",
-      "checksum": "29160ec2156353136eebee78ccae86354639a436bf1e2a9eca84eca6fdf338cf",
-      "size": 2718
+      "checksum": "ec8a6b138eee1b0b29e971fc151faa0c2fb74ccb367771592efaf889e113b9ac",
+      "size": 3242
     },
     {
       "path": "app-preview/runtime/compatibility/version-range.js",
