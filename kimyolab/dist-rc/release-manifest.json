@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-10-03T14:01:51.146Z",
+  "createdAt": "2026-10-03T14:29:40.947Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -299,8 +299,8 @@
     {
       "path": "app-preview/domain/lab/action-catalog.js",
       "sourcePath": "public/app-preview/domain/lab/action-catalog.js",
-      "checksum": "cf25d02510c42cff2ebadfe204da08c544f91d387d0600e7157a23d7c829466b",
-      "size": 18039
+      "checksum": "9bdf7c8feb777a109bf7bbf30addf4befa50ab0e19af2f834bfe6328fcd2f8dd",
+      "size": 18226
     },
     {
       "path": "app-preview/domain/lab/lab-domain.js",

@@ -209,13 +209,13 @@
     },
     "after": {
       "learnerModules": 168,
-      "learnerModuleBytes": 816320,
-      "standaloneBytes": 5857955
+      "learnerModuleBytes": 816507,
+      "standaloneBytes": 5858147
     },
     "delta": {
       "learnerModules": 6,
-      "learnerModuleBytes": 102316,
-      "standaloneBytes": 153686
+      "learnerModuleBytes": 102503,
+      "standaloneBytes": 153878
     },
     "newModules": "src/app/feature-flags.ts, src/domain/lab/{action-catalog,topic-lab-profile,lab-runtime,lab-domain}.ts, src/features/dynamic-lab/render.ts"
   }

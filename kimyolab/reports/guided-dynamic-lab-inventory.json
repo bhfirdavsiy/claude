@@ -1273,7 +1273,7 @@
           "operations": [
             {
               "verb": "yig‘ing",
-              "family": "COLLECT_GAS",
+              "family": null,
               "status": "AMBIGUOUS"
             },
             {
@@ -1289,7 +1289,7 @@
           "operations": [
             {
               "verb": "bajaring",
-              "family": "SEPARATE",
+              "family": null,
               "status": "AMBIGUOUS"
             }
           ]

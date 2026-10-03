@@ -179,7 +179,8 @@ export function buildCatalog(inventory=buildInventory()){
     semantics:'Canonical action families of the guided dynamic lab, each with an operation KIND: STATE_ACTION (may change LabState; needs a domain/procedure handler, else ACTION_UNSUPPORTED), OBSERVATION_ACTION (inspects an existing state/event; never produces an outcome), LEARNER_RESPONSE (pedagogical response; needs a checker, else LEARNER_RESPONSE_CHECKER_MISSING — never a missing chemistry handler), CONTROL (lab-level, e.g. RESET) and SAFETY_RULE (an instruction prohibition, not an action). Derived from the instruction steps (verb lexicon) and the explicit config action types of the existing runtimes. Only STATE/OBSERVATION/LEARNER_RESPONSE families can be offered, and only through a topic lab profile.',
     summary:{families:families.length,byKind:Object.fromEntries(OPERATION_KINDS.map(k=>[k,families.filter(f=>f.kind===k).map(f=>f.family)])),withDomainHandler:families.filter(f=>(f.domainHandler as any).implemented===true).length,learnerResponsesWithChecker:families.filter(f=>f.checker?.implemented).map(f=>f.family),derivedFromRepository:families.filter(f=>f.evidence==='DERIVED_FROM_REPOSITORY').length,operations:ops.length,unmappedOperations:unmapped.length,genericStepActionTypes:configActions.filter(c=>/^(guided\.)?step\.\d+$/.test(c.type)).length,unknownConfigActionTypes:unknownConfig},
     families,
-    lexicon:Object.entries(INSTRUCTION_VERBS).map(([verb,rule])=>({verb,family:rule.family,ambiguous:Boolean(rule.ambiguous),occurrences:ops.filter(o=>o.verb===verb).length})).sort((a,b)=>a.verb.localeCompare(b.verb,'en')),
+    // an ambiguous verb has no family of its own: only its context rules can resolve it (unresolved → family null)
+    lexicon:Object.entries(INSTRUCTION_VERBS).map(([verb,rule])=>({verb,family:rule.ambiguous?null:rule.family,ambiguous:Boolean(rule.ambiguous),contextFamilies:rule.ambiguous?[...new Set(rule.context.map(c=>c.family))]:[],occurrences:ops.filter(o=>o.verb===verb).length,unresolved:ops.filter(o=>o.verb===verb&&o.status==='AMBIGUOUS').length})).sort((a,b)=>a.verb.localeCompare(b.verb,'en')),
     configActionTypes:Object.entries(CONFIG_ACTION_TYPES).map(([type,family])=>({type,family,occurrences:configActions.filter(c=>c.type===type).length})).sort((a,b)=>a.type.localeCompare(b.type,'en')),
     gaps:{
       unmappedOperations:Object.entries(count(unmapped.map(o=>o.verb||'(no imperative verb)'))).map(([verb,n])=>({verb,occurrences:n,activities:[...new Set(unmapped.filter(o=>(o.verb||'(no imperative verb)')===verb).map(o=>o.activityId))].sort()})),
@@ -250,7 +251,7 @@ export function buildCoverage(inventory=buildInventory(),profiles:TopicLabProfil
     if(e.orderSemantics.decisionPacket) gaps.push({code:'ORDER_DECISION_OPEN',category:'HUMAN_DECISION_REQUIRED'});
     const uniq=(xs:Finding[])=>[...new Map(xs.map(x=>[x.code,x])).values()].sort((a,b)=>a.code.localeCompare(b.code,'en'));
     const status=profile?'PROFILED':blockers.length?'BLOCKED':'PROFILE_CANDIDATE';
-    return {activityId:e.activityId,status,profileId:profile?.profileId??null,instructionFamilies:families.map(f=>({family:f,kind:familyKind(f)})),chemistryAuthority:authority,orderMode:profile?.procedure.mode??null,
+    return {activityId:e.activityId,status,profileId:profile?.profileId??null,instructionFamilies:families.map(f=>({family:f,kind:familyKind(f),fromVerbs:[...new Set(ops.filter(o=>o.status==='MAPPED'&&o.family===f).map(o=>o.verb))].sort()})),chemistryAuthority:authority,orderMode:profile?.procedure.mode??null,
       blockers:profile?[]:uniq(blockers),gaps:profile?[]:uniq(gaps),profileGaps:profile?.gaps.map(g=>g.code)??[]};
   });
   const perCategory=(key:'blockers'|'gaps')=>{ const o:Record<string,number>={}; for(const r of rows) for(const c of new Set(r[key].map(x=>x.category))) o[c]=(o[c]??0)+1; return Object.fromEntries(Object.entries(o).sort(([a],[b])=>a.localeCompare(b,'en'))); };
@@ -271,6 +272,7 @@ export function buildCoverage(inventory=buildInventory(),profiles:TopicLabProfil
         'an open order question is a HUMAN_DECISION_REQUIRED gap (a profile can carry HUMAN_DECISION_REQUIRED, as 11.2 does), no longer a blocker',
         'a missing chemistry authority blocks only experiments with composition-changing state actions',
         '"qaratmang" is a SAFETY_RULE, no longer an unmapped operation; "bajaring" (10.7) names no single operation and is AMBIGUOUS',
+        'an ambiguous verb with no matching context has NO family (family null): it is an AMBIGUOUS_OPERATION blocker only and never yields a family or a NO_DOMAIN_HANDLER blocker for a guessed family',
         'REPEAT (8.6: repeat the procedure with CuCl2) is a state action and stays a blocker without a handler',
         'new blockers that the first pass missed: a task naming no operation (CONTENT_REQUIRED), an ungrounded composition-changing guided step, an instruction substance unknown to the authority (e.g. KI in 9.10)',
       ],

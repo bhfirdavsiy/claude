@@ -592,8 +592,8 @@
         "no drag required"
       ],
       "coverage": {
-        "instructionOperations": 8,
-        "ambiguousOperations": 1,
+        "instructionOperations": 7,
+        "ambiguousOperations": 0,
         "configActionTypes": [],
         "activities": 7,
         "exampleActivities": [
@@ -704,16 +704,16 @@
         "no drag required"
       ],
       "coverage": {
-        "instructionOperations": 7,
-        "ambiguousOperations": 1,
+        "instructionOperations": 6,
+        "ambiguousOperations": 0,
         "configActionTypes": [],
-        "activities": 6,
+        "activities": 5,
         "exampleActivities": [
-          "practice.experiment.10.7",
           "practice.experiment.7.10",
           "practice.experiment.7.7",
           "practice.experiment.7.8",
-          "practice.experiment.8.14"
+          "practice.experiment.8.14",
+          "practice.experiment.8.3"
         ]
       },
       "evidence": "DERIVED_FROM_REPOSITORY"
@@ -1587,439 +1587,611 @@
       "verb": "ajrating",
       "family": "SEPARATE",
       "ambiguous": false,
-      "occurrences": 2
+      "contextFamilies": [],
+      "occurrences": 2,
+      "unresolved": 0
     },
     {
       "verb": "aniqlang",
       "family": "INFER",
       "ambiguous": false,
-      "occurrences": 13
+      "contextFamilies": [],
+      "occurrences": 13,
+      "unresolved": 0
     },
     {
       "verb": "aralashtiring",
       "family": "MIX",
       "ambiguous": false,
-      "occurrences": 8
+      "contextFamilies": [],
+      "occurrences": 8,
+      "unresolved": 0
     },
     {
       "verb": "bajaring",
-      "family": "SEPARATE",
+      "family": null,
       "ambiguous": true,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 1
     },
     {
       "verb": "belgilang",
       "family": "RECORD",
       "ambiguous": false,
-      "occurrences": 2
+      "contextFamilies": [],
+      "occurrences": 2,
+      "unresolved": 0
     },
     {
       "verb": "bering",
-      "family": "EXPLAIN",
+      "family": null,
       "ambiguous": true,
-      "occurrences": 3
+      "contextFamilies": [
+        "OBSERVE",
+        "EXPLAIN"
+      ],
+      "occurrences": 3,
+      "unresolved": 0
     },
     {
       "verb": "berkiting",
       "family": "SEAL",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "bo‘ling",
       "family": "SEPARATE",
       "ambiguous": false,
-      "occurrences": 5
+      "contextFamilies": [],
+      "occurrences": 5,
+      "unresolved": 0
     },
     {
       "verb": "bug‘lating",
       "family": "EVAPORATE",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "buklang",
       "family": "SETUP_APPARATUS",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "chayqating",
       "family": "MIX",
       "ambiguous": false,
-      "occurrences": 3
+      "contextFamilies": [],
+      "occurrences": 3,
+      "unresolved": 0
     },
     {
       "verb": "chiqing",
       "family": "STUDY",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "eting",
-      "family": "CONTINUE",
+      "family": null,
       "ambiguous": true,
-      "occurrences": 2
+      "contextFamilies": [
+        "CONTINUE",
+        "RECORD"
+      ],
+      "occurrences": 2,
+      "unresolved": 0
     },
     {
       "verb": "farqlang",
       "family": "COMPARE",
       "ambiguous": false,
-      "occurrences": 5
+      "contextFamilies": [],
+      "occurrences": 5,
+      "unresolved": 0
     },
     {
       "verb": "filtrlang",
       "family": "FILTER",
       "ambiguous": false,
-      "occurrences": 3
+      "contextFamilies": [],
+      "occurrences": 3,
+      "unresolved": 0
     },
     {
       "verb": "gidrolizlang",
       "family": "HEAT",
       "ambiguous": false,
-      "occurrences": 2
+      "contextFamilies": [],
+      "occurrences": 2,
+      "unresolved": 0
     },
     {
       "verb": "ifodalang",
       "family": "RECORD",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "isbotlang",
       "family": "INFER",
       "ambiguous": false,
-      "occurrences": 8
+      "contextFamilies": [],
+      "occurrences": 8,
+      "unresolved": 0
     },
     {
       "verb": "ishqalang",
       "family": "MIX",
       "ambiguous": false,
-      "occurrences": 2
+      "contextFamilies": [],
+      "occurrences": 2,
+      "unresolved": 0
     },
     {
       "verb": "izohlang",
       "family": "EXPLAIN",
       "ambiguous": false,
-      "occurrences": 3
+      "contextFamilies": [],
+      "occurrences": 3,
+      "unresolved": 0
     },
     {
       "verb": "joylashtiring",
       "family": "SETUP_APPARATUS",
       "ambiguous": false,
-      "occurrences": 5
+      "contextFamilies": [],
+      "occurrences": 5,
+      "unresolved": 0
     },
     {
       "verb": "kechiring",
       "family": "PASS_GAS",
       "ambiguous": false,
-      "occurrences": 8
+      "contextFamilies": [],
+      "occurrences": 8,
+      "unresolved": 0
     },
     {
       "verb": "kiriting",
-      "family": "RECORD",
+      "family": null,
       "ambiguous": true,
-      "occurrences": 2
+      "contextFamilies": [
+        "RECORD",
+        "BRING_NEAR"
+      ],
+      "occurrences": 2,
+      "unresolved": 0
     },
     {
       "verb": "ko‘chiring",
       "family": "TRANSFER",
       "ambiguous": false,
-      "occurrences": 2
+      "contextFamilies": [],
+      "occurrences": 2,
+      "unresolved": 0
     },
     {
       "verb": "ko‘ring",
       "family": "OBSERVE",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "ko‘rsating",
       "family": "EXPLAIN",
       "ambiguous": false,
-      "occurrences": 2
+      "contextFamilies": [],
+      "occurrences": 2,
+      "unresolved": 0
     },
     {
       "verb": "kuting",
       "family": "WAIT",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "kuzating",
       "family": "OBSERVE",
       "ambiguous": false,
-      "occurrences": 64
+      "contextFamilies": [],
+      "occurrences": 64,
+      "unresolved": 0
     },
     {
       "verb": "loyqalantiring",
       "family": "PASS_GAS",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "mahkamlang",
       "family": "SETUP_APPARATUS",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "moslang",
       "family": "SETUP_APPARATUS",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "namlang",
       "family": "WASH",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "nomlang",
       "family": "RECORD",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "o‘chiring",
       "family": "STOP_HEAT",
       "ambiguous": false,
-      "occurrences": 2
+      "contextFamilies": [],
+      "occurrences": 2,
+      "unresolved": 0
     },
     {
       "verb": "o‘rganing",
       "family": "STUDY",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "o‘tkazing",
-      "family": "PASS_GAS",
+      "family": null,
       "ambiguous": true,
-      "occurrences": 7
+      "contextFamilies": [
+        "TRANSFER",
+        "PASS_GAS"
+      ],
+      "occurrences": 7,
+      "unresolved": 0
     },
     {
       "verb": "oching",
       "family": "SETUP_APPARATUS",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "oling",
       "family": "PREPARE_SUBSTANCE",
       "ambiguous": false,
-      "occurrences": 10
+      "contextFamilies": [],
+      "occurrences": 10,
+      "unresolved": 0
     },
     {
       "verb": "qaratmang",
       "family": "SAFETY_PROHIBITION",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "qiling",
-      "family": "RECORD",
+      "family": null,
       "ambiguous": true,
-      "occurrences": 7
+      "contextFamilies": [
+        "RECORD",
+        "INFER",
+        "PREPARE_SUBSTANCE"
+      ],
+      "occurrences": 7,
+      "unresolved": 0
     },
     {
       "verb": "qirqing",
       "family": "SETUP_APPARATUS",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "qizdiring",
       "family": "HEAT",
       "ambiguous": false,
-      "occurrences": 18
+      "contextFamilies": [],
+      "occurrences": 18,
+      "unresolved": 0
     },
     {
       "verb": "qo‘shing",
       "family": "ADD_SUBSTANCE",
       "ambiguous": false,
-      "occurrences": 22
+      "contextFamilies": [],
+      "occurrences": 22,
+      "unresolved": 0
     },
     {
       "verb": "qo‘ying",
       "family": "SETUP_APPARATUS",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "quying",
       "family": "ADD_SUBSTANCE",
       "ambiguous": false,
-      "occurrences": 17
+      "contextFamilies": [],
+      "occurrences": 17,
+      "unresolved": 0
     },
     {
       "verb": "soling",
       "family": "ADD_SUBSTANCE",
       "ambiguous": false,
-      "occurrences": 11
+      "contextFamilies": [],
+      "occurrences": 11,
+      "unresolved": 0
     },
     {
       "verb": "solishtiring",
       "family": "COMPARE",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "sozlang",
       "family": "SETUP_APPARATUS",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "surting",
       "family": "WASH",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "suyuqlantiring",
       "family": "HEAT",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "takrorlang",
       "family": "REPEAT",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "tanishing",
       "family": "STUDY",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "tanlang",
       "family": "SELECT",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "taqqoslang",
       "family": "COMPARE",
       "ambiguous": false,
-      "occurrences": 14
+      "contextFamilies": [],
+      "occurrences": 14,
+      "unresolved": 0
     },
     {
       "verb": "tayyorlang",
       "family": "PREPARE_SUBSTANCE",
       "ambiguous": false,
-      "occurrences": 2
+      "contextFamilies": [],
+      "occurrences": 2,
+      "unresolved": 0
     },
     {
       "verb": "tekshiring",
       "family": "TEST",
       "ambiguous": false,
-      "occurrences": 16
+      "contextFamilies": [],
+      "occurrences": 16,
+      "unresolved": 0
     },
     {
       "verb": "tindiring",
       "family": "SETTLE",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "to‘ldiring",
       "family": "ADD_SUBSTANCE",
       "ambiguous": false,
-      "occurrences": 2
+      "contextFamilies": [],
+      "occurrences": 2,
+      "unresolved": 0
     },
     {
       "verb": "to‘xtating",
       "family": "STOP_HEAT",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "tomizing",
       "family": "ADD_SUBSTANCE",
       "ambiguous": false,
-      "occurrences": 4
+      "contextFamilies": [],
+      "occurrences": 4,
+      "unresolved": 0
     },
     {
       "verb": "tushiring",
-      "family": "ADD_SUBSTANCE",
+      "family": null,
       "ambiguous": true,
-      "occurrences": 7
+      "contextFamilies": [
+        "SETUP_APPARATUS",
+        "PASS_GAS",
+        "ADD_SUBSTANCE"
+      ],
+      "occurrences": 7,
+      "unresolved": 0
     },
     {
       "verb": "tushuntiring",
       "family": "EXPLAIN",
       "ambiguous": false,
-      "occurrences": 3
+      "contextFamilies": [],
+      "occurrences": 3,
+      "unresolved": 0
     },
     {
       "verb": "tuting",
-      "family": "BRING_NEAR",
+      "family": null,
       "ambiguous": true,
-      "occurrences": 3
+      "contextFamilies": [
+        "SETUP_APPARATUS",
+        "BRING_NEAR"
+      ],
+      "occurrences": 3,
+      "unresolved": 0
     },
     {
       "verb": "tuzing",
       "family": "RECORD",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "ulang",
       "family": "ELECTRIC_CURRENT",
       "ambiguous": false,
-      "occurrences": 4
+      "contextFamilies": [],
+      "occurrences": 4,
+      "unresolved": 0
     },
     {
       "verb": "uzing",
       "family": "ELECTRIC_CURRENT",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "yaqinlashtiring",
       "family": "BRING_NEAR",
       "ambiguous": false,
-      "occurrences": 3
+      "contextFamilies": [],
+      "occurrences": 3,
+      "unresolved": 0
     },
     {
       "verb": "yig‘ing",
-      "family": "COLLECT_GAS",
+      "family": null,
       "ambiguous": true,
-      "occurrences": 9
+      "contextFamilies": [
+        "SETUP_APPARATUS",
+        "COLLECT_GAS"
+      ],
+      "occurrences": 9,
+      "unresolved": 1
     },
     {
       "verb": "yondiring",
       "family": "IGNITE",
       "ambiguous": false,
-      "occurrences": 1
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
     },
     {
       "verb": "yoping",
       "family": "SEAL",
       "ambiguous": false,
-      "occurrences": 3
+      "contextFamilies": [],
+      "occurrences": 3,
+      "unresolved": 0
     },
     {
       "verb": "yoqing",
       "family": "HEAT",
       "ambiguous": false,
-      "occurrences": 3
+      "contextFamilies": [],
+      "occurrences": 3,
+      "unresolved": 0
     },
     {
       "verb": "yozing",
       "family": "RECORD",
       "ambiguous": false,
-      "occurrences": 7
+      "contextFamilies": [],
+      "occurrences": 7,
+      "unresolved": 0
     },
     {
       "verb": "yuving",
       "family": "WASH",
       "ambiguous": false,
-      "occurrences": 2
+      "contextFamilies": [],
+      "occurrences": 2,
+      "unresolved": 0
     }
   ],
   "configActionTypes": [

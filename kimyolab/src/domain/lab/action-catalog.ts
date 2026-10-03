@@ -120,25 +120,29 @@ export const LAB_ACTION_FAMILIES:readonly LabActionDefinition[]=Object.freeze([
 
 export const familyDefinition=(family:LabActionFamily)=>LAB_ACTION_FAMILIES.find(d=>d.family===family);
 
-interface VerbRule { family:LabActionFamily; ambiguous?:boolean; context?:Array<{ifPreceding:RegExp;family:LabActionFamily}> }
+/** An unambiguous verb names its family. An ambiguous verb has NO family of its own: only a matching context rule
+ *  resolves it; unresolved, the operation stays AMBIGUOUS with family null (never a placeholder family). */
+export type VerbRule=
+  | {family:LabActionFamily;ambiguous?:false}
+  | {ambiguous:true;context:Array<{ifPreceding:RegExp;family:LabActionFamily}>};
 
 /** Imperative verbs found in legacyContent.steps (P2.10 audit) → family. Declared classification, not chemistry. */
 export const INSTRUCTION_VERBS:Readonly<Record<string,VerbRule>>=Object.freeze({
   'kuzating':{family:'OBSERVE'},'ko‘ring':{family:'OBSERVE'},'chiqing':{family:'STUDY'},
   'qo‘shing':{family:'ADD_SUBSTANCE'},'quying':{family:'ADD_SUBSTANCE'},'soling':{family:'ADD_SUBSTANCE'},'tomizing':{family:'ADD_SUBSTANCE'},'to‘ldiring':{family:'ADD_SUBSTANCE'},
-  'tushiring':{family:'ADD_SUBSTANCE',ambiguous:true,context:[{ifPreceding:/elektrod/,family:'SETUP_APPARATUS'},{ifPreceding:/nay/,family:'PASS_GAS'},{ifPreceding:/(?:idish|kosacha)ga$/,family:'ADD_SUBSTANCE'}]},
-  'kiriting':{family:'RECORD',ambiguous:true,context:[{ifPreceding:/jadval/,family:'RECORD'},{ifPreceding:/cho‘p|idish/,family:'BRING_NEAR'}]},
+  'tushiring':{ambiguous:true,context:[{ifPreceding:/elektrod/,family:'SETUP_APPARATUS'},{ifPreceding:/nay/,family:'PASS_GAS'},{ifPreceding:/(?:idish|kosacha)ga$/,family:'ADD_SUBSTANCE'}]},
+  'kiriting':{ambiguous:true,context:[{ifPreceding:/jadval/,family:'RECORD'},{ifPreceding:/cho‘p|idish/,family:'BRING_NEAR'}]},
   'qizdiring':{family:'HEAT'},'yoqing':{family:'HEAT'},'suyuqlantiring':{family:'HEAT'},'gidrolizlang':{family:'HEAT'},
   'o‘chiring':{family:'STOP_HEAT'},'to‘xtating':{family:'STOP_HEAT'},
   'bug‘lating':{family:'EVAPORATE'},'filtrlang':{family:'FILTER'},'tindiring':{family:'SETTLE'},
   'ajrating':{family:'SEPARATE'},'bo‘ling':{family:'SEPARATE'},
   'aralashtiring':{family:'MIX'},'chayqating':{family:'MIX'},'ishqalang':{family:'MIX'},
   'kechiring':{family:'PASS_GAS'},'loyqalantiring':{family:'PASS_GAS'},
-  'o‘tkazing':{family:'PASS_GAS',ambiguous:true,context:[{ifPreceding:/stakan|idish/,family:'TRANSFER'},{ifPreceding:/dan\b|co2/,family:'PASS_GAS'}]},
+  'o‘tkazing':{ambiguous:true,context:[{ifPreceding:/stakan|idish/,family:'TRANSFER'},{ifPreceding:/dan\b|co2/,family:'PASS_GAS'}]},
   'ko‘chiring':{family:'TRANSFER'},
-  'yig‘ing':{family:'COLLECT_GAS',ambiguous:true,context:[{ifPreceding:/apparat|asbob|sxema/,family:'SETUP_APPARATUS'},{ifPreceding:/gaz|ammiak|vodorod|kislorod/,family:'COLLECT_GAS'}]},
+  'yig‘ing':{ambiguous:true,context:[{ifPreceding:/apparat|asbob|sxema/,family:'SETUP_APPARATUS'},{ifPreceding:/gaz|ammiak|vodorod|kislorod/,family:'COLLECT_GAS'}]},
   'yoping':{family:'SEAL'},'berkiting':{family:'SEAL'},
-  'yondiring':{family:'IGNITE'},'yaqinlashtiring':{family:'BRING_NEAR'},'tuting':{family:'BRING_NEAR',ambiguous:true,context:[{ifPreceding:/qiya$/,family:'SETUP_APPARATUS'},{ifPreceding:/ustida|oqimiga|alanga/,family:'BRING_NEAR'}]},
+  'yondiring':{family:'IGNITE'},'yaqinlashtiring':{family:'BRING_NEAR'},'tuting':{ambiguous:true,context:[{ifPreceding:/qiya$/,family:'SETUP_APPARATUS'},{ifPreceding:/ustida|oqimiga|alanga/,family:'BRING_NEAR'}]},
   'ulang':{family:'ELECTRIC_CURRENT'},'uzing':{family:'ELECTRIC_CURRENT'},
   'joylashtiring':{family:'SETUP_APPARATUS'},'mahkamlang':{family:'SETUP_APPARATUS'},'sozlang':{family:'SETUP_APPARATUS'},'moslang':{family:'SETUP_APPARATUS'},
   'qo‘ying':{family:'SETUP_APPARATUS'},'buklang':{family:'SETUP_APPARATUS'},'qirqing':{family:'SETUP_APPARATUS'},'oching':{family:'SETUP_APPARATUS'},
@@ -146,14 +150,14 @@ export const INSTRUCTION_VERBS:Readonly<Record<string,VerbRule>>=Object.freeze({
   'tekshiring':{family:'TEST'},'aniqlang':{family:'INFER'},'isbotlang':{family:'INFER'},
   'taqqoslang':{family:'COMPARE'},'solishtiring':{family:'COMPARE'},'farqlang':{family:'COMPARE'},
   'yozing':{family:'RECORD'},'ifodalang':{family:'RECORD'},'tuzing':{family:'RECORD'},'nomlang':{family:'RECORD'},'belgilang':{family:'RECORD'},
-  'qiling':{family:'RECORD',ambiguous:true,context:[{ifPreceding:/qayd$/,family:'RECORD'},{ifPreceding:/xulosa$/,family:'INFER'},{ifPreceding:/hosil$/,family:'PREPARE_SUBSTANCE'}]},
-  'eting':{family:'CONTINUE',ambiguous:true,context:[{ifPreceding:/davom$/,family:'CONTINUE'},{ifPreceding:/qayd$/,family:'RECORD'}]},
+  'qiling':{ambiguous:true,context:[{ifPreceding:/qayd$/,family:'RECORD'},{ifPreceding:/xulosa$/,family:'INFER'},{ifPreceding:/hosil$/,family:'PREPARE_SUBSTANCE'}]},
+  'eting':{ambiguous:true,context:[{ifPreceding:/davom$/,family:'CONTINUE'},{ifPreceding:/qayd$/,family:'RECORD'}]},
   'izohlang':{family:'EXPLAIN'},'tushuntiring':{family:'EXPLAIN'},'ko‘rsating':{family:'EXPLAIN'},
-  'bering':{family:'EXPLAIN',ambiguous:true,context:[{ifPreceding:/e’tibor$/,family:'OBSERVE'},{ifPreceding:/ma’lumot$|javob$|izoh$/,family:'EXPLAIN'}]},
+  'bering':{ambiguous:true,context:[{ifPreceding:/e’tibor$/,family:'OBSERVE'},{ifPreceding:/ma’lumot$|javob$|izoh$/,family:'EXPLAIN'}]},
   'oling':{family:'PREPARE_SUBSTANCE'},'tayyorlang':{family:'PREPARE_SUBSTANCE'},
   'yuving':{family:'WASH'},'surting':{family:'WASH'},'namlang':{family:'WASH'},
   'tanlang':{family:'SELECT'},'o‘rganing':{family:'STUDY'},'tanishing':{family:'STUDY'},
-  'takrorlang':{family:'REPEAT'},'qaratmang':{family:'SAFETY_PROHIBITION'},'bajaring':{family:'SEPARATE',ambiguous:true,context:[]},
+  'takrorlang':{family:'REPEAT'},'qaratmang':{family:'SAFETY_PROHIBITION'},'bajaring':{ambiguous:true,context:[]},
 });
 
 /** Words ending like an imperative that are NOT verbs (nouns, genitive forms, adverbs). Declared, small, audited. */
@@ -161,6 +165,7 @@ const NOT_VERBS=new Set(['rang','so‘ng','teng','ning']);
 
 export interface InstructionOperation {
   verb:string;
+  /** MAPPED → the family; AMBIGUOUS (no context rule matched) and UNMAPPED_OPERATION → null, never a guess */
   family:LabActionFamily|null;
   status:'MAPPED'|'AMBIGUOUS'|'UNMAPPED_OPERATION';
 }
@@ -178,7 +183,7 @@ export function classifyInstructionStep(text:string):InstructionOperation[]{
     // nearest context first: the object word right before the verb decides before words further back (≤ 8)
     let hit:{family:LabActionFamily}|undefined;
     for(let n=1;n<=Math.min(8,i)&&!hit;n++){ const preceding=words.slice(i-n,i).join(' '); hit=rule.context?.find(c=>c.ifPreceding.test(preceding)); }
-    out.push(hit?{verb:word,family:hit.family,status:'MAPPED'}:{verb:word,family:rule.family,status:'AMBIGUOUS'});
+    out.push(hit?{verb:word,family:hit.family,status:'MAPPED'}:{verb:word,family:null,status:'AMBIGUOUS'});
   });
   if(!out.length) out.push({verb:'',family:null,status:'UNMAPPED_OPERATION'});
   return out;

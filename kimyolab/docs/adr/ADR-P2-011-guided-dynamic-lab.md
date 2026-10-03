@@ -192,3 +192,11 @@
 
 - "Migration equivalence proven for a slice" is no longer a P2.10 Definition-of-Done item: zero migrations is an allowed P2.10 outcome.
 - It is now the future gate **P2.11 migration gate** (`futureGates`, `decision: null`).
+
+### Final semantic correction: an unresolved verb has no family
+
+- An ambiguous verb no longer carries a default family. Only a matching context rule resolves it. Unresolved, the operation is `AMBIGUOUS` with `family: null`: it is an `AMBIGUOUS_OPERATION` blocker and nothing else.
+- This holds for every ambiguous verb (tushiring, kiriting, o‘tkazing, yig‘ing, tuting, qiling, eting, bering, bajaring).
+- **Effect** (the only change across the 57 experiments): 10.7 no longer lists `COLLECT_GAS` or `NO_DOMAIN_HANDLER:COLLECT_GAS`, which came from the unresolved "Kondensatni yig‘ing".
+- 10.7 keeps `SEPARATE` and `NO_DOMAIN_HANDLER:SEPARATE`, because step 2 itself says "ajrating". Each coverage family now lists the verbs it comes from (`fromVerbs`).
+- "bajaring" never yields a family.

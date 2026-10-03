@@ -52,7 +52,7 @@ test('audit: every experiment is inventoried from the repository; every operatio
 
 test('lexicon: classification only; unknown verbs and steps without a verb are UNMAPPED, ambiguous ones need context',()=>{
   assert.deepEqual(classifyInstructionStep('Filtratni chinni kosachaga quying va bug‘lating.').map(o=>o.family),['ADD_SUBSTANCE','EVAPORATE']);
-  assert.equal(classifyInstructionStep('Kondensatni yig‘ing.')[0].status,'AMBIGUOUS');
+  assert.deepEqual(classifyInstructionStep('Kondensatni yig‘ing.')[0],{verb:'yig‘ing',family:null,status:'AMBIGUOUS'});
   assert.equal(classifyInstructionStep('Gaz o‘tkazgichli apparatni yig‘ing.')[0].family,'SETUP_APPARATUS');
   // P2.10 closeout: was UNMAPPED_OPERATION. A prohibition is classified as a SAFETY_RULE (not a learner action)
   assert.deepEqual(classifyInstructionStep('Probirkani o‘zingizga qaratmang.').map(o=>[o.family,o.status]),[['SAFETY_PROHIBITION','MAPPED']]);
@@ -62,7 +62,8 @@ test('lexicon: classification only; unknown verbs and steps without a verb are U
   assert.equal(classifyInstructionStep('Suvning rangi.')[0].status,'UNMAPPED_OPERATION');
   assert.equal(classifyInstructionStep('Bosqichlarni o‘rganing.')[0].family,'STUDY');
   const families=new Set(LAB_ACTION_FAMILIES.map(d=>d.family));
-  for(const rule of Object.values(INSTRUCTION_VERBS)) assert.ok(families.has(rule.family));
+  // final correction: an ambiguous rule carries no family of its own, only context families
+  for(const rule of Object.values(INSTRUCTION_VERBS)){ if(rule.ambiguous){ assert.equal(rule.family,undefined); for(const c of rule.context) assert.ok(families.has(c.family)); } else assert.ok(families.has(rule.family)); }
   assert.equal(new Set(LAB_ACTION_FAMILIES.map(d=>d.id)).size,LAB_ACTION_FAMILIES.length);
 });
 
@@ -287,4 +288,45 @@ test('closeout readiness: zero migrations is not an unmet P2.10 item; the migrat
   assert.ok(r.definitionOfDone.filter(d=>d.status!=='HUMAN').every(d=>d.status==='MET'));
   const gate=r.futureGates.find(g=>g.gate==='P2.11 migration gate');
   assert.equal(gate.decision,null); assert.equal(gate.currentlyEquivalentSlices,0);
+});
+
+// ------------------------------------------------------------------ P2.10 final semantic correction
+
+test('final: an unresolved ambiguous verb gets NO family — "bajaring" is not SEPARATE (or anything else)',()=>{
+  assert.deepEqual(classifyInstructionStep('Ekstraksiya va filtrlash ishlarini bajaring.'),[{verb:'bajaring',family:null,status:'AMBIGUOUS'}]);
+  assert.deepEqual(classifyInstructionStep('Darslikdagi ishlarni bajaring.'),[{verb:'bajaring',family:null,status:'AMBIGUOUS'}]);
+  // the invariant for EVERY ambiguous verb: unresolved context → family null
+  for(const [verb,rule] of Object.entries(INSTRUCTION_VERBS)) if(rule.ambiguous) assert.deepEqual(classifyInstructionStep(`Narsani ${verb}.`).map(o=>[o.family,o.status]),[[null,'AMBIGUOUS']],verb);
+  const inv=json(LAB_REPORTS.inventory);
+  for(const e of inv.experiments) for(const st of e.steps) for(const o of st.operations) if(o.status!=='MAPPED') assert.equal(o.family,null,`${e.activityId}: ${o.verb}`);
+});
+
+test('final: an unresolved verb never creates a family or a state-handler blocker; 10.7 keeps only instruction-derived ones',()=>{
+  const cov=json(LAB_REPORTS.coverage);
+  const r=cov.rows.find(x=>x.activityId==='practice.experiment.10.7');
+  assert.deepEqual(r.blockers.map(b=>b.code),['AMBIGUOUS_OPERATION:bajaring','AMBIGUOUS_OPERATION:yig‘ing','NO_DOMAIN_HANDLER:SEPARATE']);
+  assert.ok(!r.instructionFamilies.some(f=>f.family==='COLLECT_GAS'),'"Kondensatni yig‘ing" is unresolved: no COLLECT_GAS');
+  // SEPARATE stays because step 2 itself says "ajrating" — never because of "bajaring"
+  assert.deepEqual(r.instructionFamilies.find(f=>f.family==='SEPARATE').fromVerbs,['ajrating']);
+  for(const row of cov.rows) for(const f of row.instructionFamilies){ assert.ok(f.fromVerbs.length>0,`${row.activityId}: ${f.family} has no mapped verb`); assert.ok(!f.fromVerbs.includes('bajaring')); }
+  for(const row of cov.rows) for(const b of row.blockers.filter(x=>x.code.startsWith('NO_DOMAIN_HANDLER:'))){ const fam=b.code.split(':')[1]; assert.ok(row.instructionFamilies.some(f=>f.family===fam&&f.fromVerbs.length),`${row.activityId}: ${b.code} must come from a mapped verb`); }
+});
+
+test('final: context-resolved ambiguous verbs still resolve; qaratmang stays SAFETY_RULE; takrorlang = REPEAT only as in 8.6',()=>{
+  assert.equal(classifyInstructionStep('Gaz o‘tkazgichli apparatni yig‘ing.')[0].family,'SETUP_APPARATUS');
+  assert.equal(classifyInstructionStep('Ajralgan gazni probirkaga yig‘ing.')[0].family,'COLLECT_GAS');
+  assert.equal(classifyInstructionStep('Grafit elektrod tushiring.')[0].family,'SETUP_APPARATUS');
+  assert.equal(classifyInstructionStep('Etilenni bromli suvdan o‘tkazing.')[0].family,'PASS_GAS');
+  assert.equal(classifyInstructionStep('Kuzatuvni qayd qiling.')[0].family,'RECORD');
+  assert.equal(classifyInstructionStep('Tuz erimay qolguncha davom eting.')[0].family,'CONTINUE');
+  assert.equal(classifyInstructionStep('Probirkani qiya tuting.')[0].family,'SETUP_APPARATUS');
+  const q=classifyInstructionStep('Og‘zini o‘zingizga qaratmang.')[0];
+  assert.equal(q.family,'SAFETY_PROHIBITION'); assert.equal(familyKind(q.family),'SAFETY_RULE');
+  // takrorlang occurs only in 8.6 ("Shunga o‘xshash tajribani CuCl2 eritmasi bilan takrorlang") = repeat the procedure → REPEAT (state)
+  const steps=json('content-src/practice-activities.json').filter(a=>a.type==='experiment').flatMap(a=>(a.legacyContent?.steps??[]).map(t=>({id:a.id,t})));
+  const hits=steps.filter(x=>classifyInstructionStep(x.t).some(o=>o.verb==='takrorlang'));
+  assert.deepEqual(hits.map(h=>h.id),['practice.experiment.8.6']);
+  assert.match(hits[0].t,/tajribani CuCl2 eritmasi bilan takrorlang/);
+  assert.equal(classifyInstructionStep(hits[0].t).find(o=>o.verb==='takrorlang').family,'REPEAT');
+  assert.equal(familyKind('REPEAT'),'STATE_ACTION');
 });

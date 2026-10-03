@@ -61,6 +61,7 @@
       "an open order question is a HUMAN_DECISION_REQUIRED gap (a profile can carry HUMAN_DECISION_REQUIRED, as 11.2 does), no longer a blocker",
       "a missing chemistry authority blocks only experiments with composition-changing state actions",
       "\"qaratmang\" is a SAFETY_RULE, no longer an unmapped operation; \"bajaring\" (10.7) names no single operation and is AMBIGUOUS",
+      "an ambiguous verb with no matching context has NO family (family null): it is an AMBIGUOUS_OPERATION blocker only and never yields a family or a NO_DOMAIN_HANDLER blocker for a guessed family",
       "REPEAT (8.6: repeat the procedure with CuCl2) is a state action and stays a blocker without a handler",
       "new blockers that the first pass missed: a task naming no operation (CONTENT_REQUIRED), an ungrounded composition-changing guided step, an instruction substance unknown to the authority (e.g. KI in 9.10)"
     ]
@@ -73,19 +74,32 @@
       "instructionFamilies": [
         {
           "family": "COMPARE",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "taqqoslang"
+          ]
         },
         {
           "family": "HEAT",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "suyuqlantiring"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "RECORD",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "qiling",
+            "tuzing"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -119,19 +133,31 @@
       "instructionFamilies": [
         {
           "family": "COMPARE",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "farqlang"
+          ]
         },
         {
           "family": "INFER",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "aniqlang"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "PREPARE_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "oling"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -169,15 +195,24 @@
       "instructionFamilies": [
         {
           "family": "HEAT",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "PASS_GAS",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "o‘tkazing"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -226,23 +261,39 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing",
+            "soling"
+          ]
         },
         {
           "family": "HEAT",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "PASS_GAS",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "o‘tkazing"
+          ]
         },
         {
           "family": "PREPARE_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "oling"
+          ]
         }
       ],
       "chemistryAuthority": "reaction-records",
@@ -284,27 +335,45 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing"
+          ]
         },
         {
           "family": "INFER",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "qiling"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "PREPARE_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "tayyorlang"
+          ]
         },
         {
           "family": "SEPARATE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "bo‘ling"
+          ]
         },
         {
           "family": "STUDY",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "o‘rganing"
+          ]
         }
       ],
       "chemistryAuthority": "reaction-records",
@@ -354,15 +423,24 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing"
+          ]
         },
         {
           "family": "HEAT",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -390,20 +468,25 @@
       "profileId": null,
       "instructionFamilies": [
         {
-          "family": "COLLECT_GAS",
-          "kind": "STATE_ACTION"
-        },
-        {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "SEPARATE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "ajrating"
+          ]
         },
         {
           "family": "SETUP_APPARATUS",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "joylashtiring"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -416,10 +499,6 @@
         {
           "code": "AMBIGUOUS_OPERATION:yig‘ing",
           "category": "AMBIGUOUS_OPERATION"
-        },
-        {
-          "code": "NO_DOMAIN_HANDLER:COLLECT_GAS",
-          "category": "STATE_HANDLER_MISSING"
         },
         {
           "code": "NO_DOMAIN_HANDLER:SEPARATE",
@@ -436,19 +515,31 @@
       "instructionFamilies": [
         {
           "family": "HEAT",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring"
+          ]
         },
         {
           "family": "MIX",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "aralashtiring"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "SEPARATE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "ajrating"
+          ]
         }
       ],
       "chemistryAuthority": "reaction-records",
@@ -478,19 +569,32 @@
       "instructionFamilies": [
         {
           "family": "HEAT",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "gidrolizlang",
+            "qizdiring"
+          ]
         },
         {
           "family": "INFER",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "aniqlang"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "TEST",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "tekshiring"
+          ]
         }
       ],
       "chemistryAuthority": "reaction-records",
@@ -532,27 +636,45 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "quying"
+          ]
         },
         {
           "family": "ELECTRIC_CURRENT",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "ulang"
+          ]
         },
         {
           "family": "EXPLAIN",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "tushuntiring"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "RECORD",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "belgilang"
+          ]
         },
         {
           "family": "SETUP_APPARATUS",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "tushiring"
+          ]
         }
       ],
       "chemistryAuthority": "electrolysis",
@@ -573,47 +695,86 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "to‘ldiring"
+          ]
         },
         {
           "family": "BRING_NEAR",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yaqinlashtiring"
+          ]
         },
         {
           "family": "COMPARE",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "farqlang"
+          ]
         },
         {
           "family": "HEAT",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring",
+            "yoqing"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "SAFETY_PROHIBITION",
-          "kind": "SAFETY_RULE"
+          "kind": "SAFETY_RULE",
+          "fromVerbs": [
+            "qaratmang"
+          ]
         },
         {
           "family": "SEAL",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yoping"
+          ]
         },
         {
           "family": "SETUP_APPARATUS",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "joylashtiring",
+            "mahkamlang",
+            "moslang",
+            "sozlang",
+            "tuting"
+          ]
         },
         {
           "family": "STOP_HEAT",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "o‘chiring"
+          ]
         },
         {
           "family": "STUDY",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "chiqing",
+            "tanishing"
+          ]
         },
         {
           "family": "TEST",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "tekshiring"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -679,27 +840,45 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "quying"
+          ]
         },
         {
           "family": "COLLECT_GAS",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yig‘ing"
+          ]
         },
         {
           "family": "EXPLAIN",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "izohlang"
+          ]
         },
         {
           "family": "HEAT",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "TEST",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "tekshiring"
+          ]
         }
       ],
       "chemistryAuthority": "reaction-records",
@@ -733,23 +912,39 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "quying",
+            "soling"
+          ]
         },
         {
           "family": "COMPARE",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "taqqoslang"
+          ]
         },
         {
           "family": "EXPLAIN",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "tushuntiring"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "RECORD",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "yozing"
+          ]
         }
       ],
       "chemistryAuthority": "reaction-records",
@@ -783,15 +978,26 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "quying"
+          ]
         },
         {
           "family": "COMPARE",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "solishtiring",
+            "taqqoslang"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "ko‘ring",
+            "kuzating"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -821,23 +1027,38 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing"
+          ]
         },
         {
           "family": "COMPARE",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "taqqoslang"
+          ]
         },
         {
           "family": "MIX",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "aralashtiring"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "TEST",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "tekshiring"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -867,35 +1088,63 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "quying",
+            "soling"
+          ]
         },
         {
           "family": "CONTINUE",
-          "kind": "CONTROL"
+          "kind": "CONTROL",
+          "fromVerbs": [
+            "eting"
+          ]
         },
         {
           "family": "EVAPORATE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "bug‘lating"
+          ]
         },
         {
           "family": "FILTER",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "filtrlang"
+          ]
         },
         {
           "family": "MIX",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "aralashtiring"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "SETUP_APPARATUS",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "buklang",
+            "joylashtiring",
+            "oching",
+            "qirqing"
+          ]
         },
         {
           "family": "STOP_HEAT",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "to‘xtating"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -919,35 +1168,61 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "tushiring"
+          ]
         },
         {
           "family": "COMPARE",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "taqqoslang"
+          ]
         },
         {
           "family": "HEAT",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring"
+          ]
         },
         {
           "family": "MIX",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "ishqalang"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "PREPARE_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "tayyorlang"
+          ]
         },
         {
           "family": "WAIT",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "kuting"
+          ]
         },
         {
           "family": "WASH",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "namlang",
+            "surting",
+            "yuving"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -985,23 +1260,39 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "quying",
+            "soling"
+          ]
         },
         {
           "family": "HEAT",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "RECORD",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "qiling"
+          ]
         },
         {
           "family": "TRANSFER",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "o‘tkazing"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -1035,39 +1326,68 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "soling",
+            "tushiring"
+          ]
         },
         {
           "family": "COLLECT_GAS",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yig‘ing"
+          ]
         },
         {
           "family": "HEAT",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring",
+            "yoqing"
+          ]
         },
         {
           "family": "IGNITE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yondiring"
+          ]
         },
         {
           "family": "MIX",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "chayqating"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "RECORD",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "qiling"
+          ]
         },
         {
           "family": "SETUP_APPARATUS",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yig‘ing"
+          ]
         },
         {
           "family": "STOP_HEAT",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "o‘chiring"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -1109,35 +1429,61 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing",
+            "soling"
+          ]
         },
         {
           "family": "BRING_NEAR",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "kiriting",
+            "tuting"
+          ]
         },
         {
           "family": "COLLECT_GAS",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yig‘ing"
+          ]
         },
         {
           "family": "HEAT",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yoqing"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "PASS_GAS",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "o‘tkazing"
+          ]
         },
         {
           "family": "SEAL",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yoping"
+          ]
         },
         {
           "family": "TEST",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "tekshiring"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -1182,23 +1528,40 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing",
+            "tomizing"
+          ]
         },
         {
           "family": "COMPARE",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "taqqoslang"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "PREPARE_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "oling",
+            "qiling"
+          ]
         },
         {
           "family": "RECORD",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "yozing"
+          ]
         }
       ],
       "chemistryAuthority": "reaction-records",
@@ -1228,15 +1591,24 @@
       "instructionFamilies": [
         {
           "family": "COMPARE",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "farqlang"
+          ]
         },
         {
           "family": "INFER",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "isbotlang"
+          ]
         },
         {
           "family": "PREPARE_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "oling"
+          ]
         }
       ],
       "chemistryAuthority": "ionic-mixing",
@@ -1258,15 +1630,25 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing",
+            "quying"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "TRANSFER",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "ko‘chiring"
+          ]
         }
       ],
       "chemistryAuthority": "reaction-records",
@@ -1299,19 +1681,33 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing",
+            "soling"
+          ]
         },
         {
           "family": "COMPARE",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "taqqoslang"
+          ]
         },
         {
           "family": "MIX",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "aralashtiring",
+            "chayqating"
+          ]
         },
         {
           "family": "SETTLE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "tindiring"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -1349,11 +1745,17 @@
       "instructionFamilies": [
         {
           "family": "PASS_GAS",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "kechiring"
+          ]
         },
         {
           "family": "RECORD",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "kiriting"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -1399,11 +1801,18 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing",
+            "quying"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -1428,27 +1837,46 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "soling"
+          ]
         },
         {
           "family": "BRING_NEAR",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "tuting",
+            "yaqinlashtiring"
+          ]
         },
         {
           "family": "COLLECT_GAS",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yig‘ing"
+          ]
         },
         {
           "family": "HEAT",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "SEAL",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yoping"
+          ]
         }
       ],
       "chemistryAuthority": "reaction-records",
@@ -1485,11 +1913,17 @@
       "instructionFamilies": [
         {
           "family": "PASS_GAS",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "kechiring"
+          ]
         },
         {
           "family": "RECORD",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "yozing"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -1523,15 +1957,25 @@
       "instructionFamilies": [
         {
           "family": "EXPLAIN",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "ko‘rsating"
+          ]
         },
         {
           "family": "INFER",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "aniqlang",
+            "isbotlang"
+          ]
         },
         {
           "family": "RECORD",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "yozing"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -1565,47 +2009,80 @@
       "instructionFamilies": [
         {
           "family": "BRING_NEAR",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yaqinlashtiring"
+          ]
         },
         {
           "family": "COLLECT_GAS",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yig‘ing"
+          ]
         },
         {
           "family": "EXPLAIN",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "izohlang"
+          ]
         },
         {
           "family": "HEAT",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring"
+          ]
         },
         {
           "family": "INFER",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "aniqlang"
+          ]
         },
         {
           "family": "MIX",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "aralashtiring"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "PREPARE_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "oling"
+          ]
         },
         {
           "family": "RECORD",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "belgilang"
+          ]
         },
         {
           "family": "SETUP_APPARATUS",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yig‘ing"
+          ]
         },
         {
           "family": "TEST",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "tekshiring"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -1659,23 +2136,39 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "soling"
+          ]
         },
         {
           "family": "COMPARE",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "farqlang"
+          ]
         },
         {
           "family": "HEAT",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring"
+          ]
         },
         {
           "family": "INFER",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "aniqlang",
+            "isbotlang"
+          ]
         },
         {
           "family": "PREPARE_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qiling"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -1713,11 +2206,17 @@
       "instructionFamilies": [
         {
           "family": "EXPLAIN",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "bering"
+          ]
         },
         {
           "family": "INFER",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "aniqlang"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -1747,19 +2246,32 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing",
+            "quying"
+          ]
         },
         {
           "family": "MIX",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "chayqating"
+          ]
         },
         {
           "family": "REPEAT",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "takrorlang"
+          ]
         },
         {
           "family": "SEPARATE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "bo‘ling"
+          ]
         }
       ],
       "chemistryAuthority": "reaction-records",
@@ -1792,23 +2304,41 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing",
+            "quying",
+            "tomizing",
+            "to‘ldiring"
+          ]
         },
         {
           "family": "EXPLAIN",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "izohlang"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "RECORD",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "yozing"
+          ]
         },
         {
           "family": "TRANSFER",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "ko‘chiring"
+          ]
         }
       ],
       "chemistryAuthority": "reaction-records",
@@ -1850,15 +2380,24 @@
       "instructionFamilies": [
         {
           "family": "FILTER",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "filtrlang"
+          ]
         },
         {
           "family": "MIX",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "aralashtiring"
+          ]
         },
         {
           "family": "TEST",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "tekshiring"
+          ]
         }
       ],
       "chemistryAuthority": "reaction-records",
@@ -1883,35 +2422,63 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing",
+            "quying",
+            "soling",
+            "tomizing"
+          ]
         },
         {
           "family": "FILTER",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "filtrlang"
+          ]
         },
         {
           "family": "HEAT",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "PASS_GAS",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "o‘tkazing",
+            "tushiring"
+          ]
         },
         {
           "family": "SEAL",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "berkiting"
+          ]
         },
         {
           "family": "SEPARATE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "bo‘ling"
+          ]
         },
         {
           "family": "TEST",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "tekshiring"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -1952,19 +2519,33 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "quying",
+            "tomizing"
+          ]
         },
         {
           "family": "ELECTRIC_CURRENT",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "ulang",
+            "uzing"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "SETUP_APPARATUS",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "tushiring"
+          ]
         }
       ],
       "chemistryAuthority": "electrolysis",
@@ -1990,11 +2571,17 @@
       "instructionFamilies": [
         {
           "family": "COMPARE",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "taqqoslang"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -2020,11 +2607,17 @@
       "instructionFamilies": [
         {
           "family": "COMPARE",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "taqqoslang"
+          ]
         },
         {
           "family": "PASS_GAS",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "kechiring"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -2058,15 +2651,24 @@
       "instructionFamilies": [
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "PREPARE_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "oling"
+          ]
         },
         {
           "family": "SEPARATE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "bo‘ling"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -2095,11 +2697,17 @@
       "instructionFamilies": [
         {
           "family": "EXPLAIN",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "tushuntiring"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         }
       ],
       "chemistryAuthority": "hydrolysis",
@@ -2120,15 +2728,24 @@
       "instructionFamilies": [
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "PREPARE_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "oling"
+          ]
         },
         {
           "family": "TEST",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "tekshiring"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -2157,19 +2774,31 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "PREPARE_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "oling"
+          ]
         },
         {
           "family": "SEPARATE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "bo‘ling"
+          ]
         }
       ],
       "chemistryAuthority": "reaction-records",
@@ -2194,11 +2823,17 @@
       "instructionFamilies": [
         {
           "family": "COMPARE",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "taqqoslang"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -2224,11 +2859,17 @@
       "instructionFamilies": [
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "PREPARE_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "oling"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -2253,15 +2894,24 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing"
+          ]
         },
         {
           "family": "COMPARE",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "taqqoslang"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -2287,23 +2937,38 @@
       "instructionFamilies": [
         {
           "family": "COMPARE",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "farqlang"
+          ]
         },
         {
           "family": "HEAT",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring"
+          ]
         },
         {
           "family": "INFER",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "aniqlang"
+          ]
         },
         {
           "family": "PASS_GAS",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "loyqalantiring"
+          ]
         },
         {
           "family": "SELECT",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "tanlang"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -2345,15 +3010,24 @@
       "instructionFamilies": [
         {
           "family": "COMPARE",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "taqqoslang"
+          ]
         },
         {
           "family": "PASS_GAS",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "kechiring"
+          ]
         },
         {
           "family": "RECORD",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "eting"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -2391,15 +3065,24 @@
       "instructionFamilies": [
         {
           "family": "EXPLAIN",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "ko‘rsating"
+          ]
         },
         {
           "family": "INFER",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "aniqlang"
+          ]
         },
         {
           "family": "PREPARE_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qiling"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -2433,15 +3116,24 @@
       "instructionFamilies": [
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "RECORD",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "ifodalang"
+          ]
         },
         {
           "family": "TEST",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "tekshiring"
+          ]
         }
       ],
       "chemistryAuthority": "reaction-records",
@@ -2471,15 +3163,24 @@
       "instructionFamilies": [
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "bering"
+          ]
         },
         {
           "family": "PASS_GAS",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "kechiring"
+          ]
         },
         {
           "family": "TEST",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "tekshiring"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -2508,7 +3209,10 @@
       "instructionFamilies": [
         {
           "family": "PASS_GAS",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "kechiring"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -2537,27 +3241,45 @@
       "instructionFamilies": [
         {
           "family": "HEAT",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring"
+          ]
         },
         {
           "family": "INFER",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "aniqlang"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         },
         {
           "family": "PASS_GAS",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "kechiring"
+          ]
         },
         {
           "family": "RECORD",
-          "kind": "LEARNER_RESPONSE"
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "nomlang"
+          ]
         },
         {
           "family": "SETUP_APPARATUS",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘ying"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -2603,15 +3325,24 @@
       "instructionFamilies": [
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "bering"
+          ]
         },
         {
           "family": "PASS_GAS",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "kechiring"
+          ]
         },
         {
           "family": "TEST",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "tekshiring"
+          ]
         }
       ],
       "chemistryAuthority": null,
@@ -2640,11 +3371,18 @@
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
-          "kind": "STATE_ACTION"
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "quying",
+            "soling"
+          ]
         },
         {
           "family": "OBSERVE",
-          "kind": "OBSERVATION_ACTION"
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
         }
       ],
       "chemistryAuthority": null,
