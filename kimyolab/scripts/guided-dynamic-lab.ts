@@ -14,9 +14,10 @@ import {classifyInstructionStep,COMPOSITION_CHANGING_FAMILIES,CONFIG_ACTION_TYPE
 import {deriveActivityExecutionPlan,type ConfigSource} from '../src/runtime/practice-router/execution-plan.ts';
 import {TOPIC_LAB_PROFILE_SCHEMA,type TopicLabProfile} from '../src/domain/lab/topic-lab-profile.ts';
 import {compileTopicLabProfiles,loadConfigs,openOrderPackets} from './lib/topic-lab-profiles.ts';
-import {createLabRuntime,createLabState,observationGrounding,type LabAction} from '../src/domain/lab/lab-runtime.ts';
+import {createLabRuntime,createLabState,HANDLER_SEMANTICS,observationGrounding,type LabAction} from '../src/domain/lab/lab-runtime.ts';
 import {createLabDomain} from '../src/domain/lab/lab-domain.ts';
 import {FEATURE_FLAGS} from '../src/app/feature-flags.ts';
+import {buildCapabilityRegistry,registryProblems,resolveOperation,resolveSubstance,CAPABILITY_REGISTRY_SCHEMA,CAPABILITY_REGISTRY_VERSION,type CapabilityRegistry} from '../src/domain/lab/capability-registry.ts';
 
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const readJson=(root:string,rel:string)=>JSON.parse(fs.readFileSync(path.join(root,rel),'utf8'));
@@ -26,6 +27,8 @@ export const LAB_REPORTS={
   coverage:'reports/topic-lab-profile-coverage.json',
   readiness:'reports/guided-dynamic-lab-readiness.json',
   equivalence:'reports/lab-migration-equivalence.json',
+  capability:'reports/capability-registry-coverage.json',
+  substances:'reports/substance-model-coverage.json',
 } as const;
 
 const segments=(t:string|undefined)=>(t??'').replace(/\.$/,'').split(/,\s*/).map(s=>s.trim()).filter(Boolean);
@@ -194,6 +197,10 @@ export const P210_INITIAL_COVERAGE={source:'reports/topic-lab-profile-coverage.j
   rowsPerBlocker:{NO_CHEMISTRY_AUTHORITY_IN_CONFIG:38,NO_DOMAIN_HANDLER:49,NO_INSTRUCTION_STEPS:2,ORDER_DECISION_OPEN:5,AMBIGUOUS_OPERATION:1,UNMAPPED_OPERATION:1},
   rowsWithLearnerResponseCountedAsMissingHandler:26};
 
+/** The coverage report as P2.10 closed it (a6f959e), so P2.11's change is reported as a delta, not hidden. */
+export const P210_FINAL_COVERAGE={source:'reports/topic-lab-profile-coverage.json @ a6f959e',summary:{experiments:57,BLOCKED:53,PROFILE_CANDIDATE:1,PROFILED:3},
+  rowsPerBlockerCategory:{AMBIGUOUS_OPERATION:1,CHEMISTRY_AUTHORITY_MISSING:36,CONTENT_REQUIRED:7,INSTRUCTION_NOT_COVERED_BY_AUTHORITY:7,OBSERVATION_HANDLER_MISSING:12,STATE_HANDLER_MISSING:38}};
+
 type Finding={code:string;category:string};
 /** Multi-element formula tokens in instruction text (CuCl2, KI, CO2); single letters such as the "M" of "2 M" are not. */
 const FORMULA=/\b(?:[A-Z][a-z]?\d*){2,}\b/g;
@@ -216,6 +223,9 @@ export function buildCoverage(inventory=buildInventory(),profiles:TopicLabProfil
     for(const f of families){
       const kind=familyKind(f);
       if((kind==='STATE_ACTION'||kind==='OBSERVATION_ACTION')&&!handlers.has(f)) blockers.push({code:`NO_DOMAIN_HANDLER:${f}`,category:kind==='STATE_ACTION'?'STATE_HANDLER_MISSING':'OBSERVATION_HANDLER_MISSING'});
+      // a handler whose consequence needs a condition-aware authority (HEAT, PASS_GAS) fails closed under any other one
+      const needs=HANDLER_SEMANTICS[f]?.requiresProfileAuthority;
+      if(handlers.has(f)&&needs&&!(needs==='reaction-matcher'&&authority==='reaction-records')) blockers.push({code:`HANDLER_NEEDS_AUTHORITY:${f}`,category:'CHEMISTRY_AUTHORITY_MISSING'});
       // a learner response is never a missing chemistry handler: the net-ionic checker exists only for ionic-mixing topics
       if(kind==='LEARNER_RESPONSE'&&!(f==='RECORD'&&authority==='ionic-mixing')) gaps.push({code:`LEARNER_RESPONSE_CHECKER_MISSING:${f}`,category:'LEARNER_RESPONSE_CHECKER_MISSING'});
       if(kind==='SAFETY_RULE') gaps.push({code:'SAFETY_RULE_IN_INSTRUCTION',category:'SAFETY_RULE'});
@@ -277,6 +287,76 @@ export function buildCoverage(inventory=buildInventory(),profiles:TopicLabProfil
         'new blockers that the first pass missed: a task naming no operation (CONTENT_REQUIRED), an ungrounded composition-changing guided step, an instruction substance unknown to the authority (e.g. KI in 9.10)',
       ],
     },
+    p211:{
+      before:P210_FINAL_COVERAGE,
+      after:{summary,rowsPerBlockerCategory:perCategory('blockers')},
+      changes:[
+        'new handlers (capability registry 1.0.0): HEAT, STOP_HEAT (ReactionMatcher conditions), PASS_GAS (ReactionMatcher), TRANSFER, COLLECT_GAS, SEAL, WAIT (procedure) — their NO_DOMAIN_HANDLER blockers are gone wherever the instruction uses them; HEAT and PASS_GAS have a consequence only under a reaction-record authority, so elsewhere they stay blockers (HANDLER_NEEDS_AUTHORITY, fails closed)',
+        'two new vertical slices: 7.10 (metal + dilute acid → gas, collection) and 8.14 (gas only under the instruction’s gentle heating, collection) are PROFILED',
+        'nothing else is unblocked by assumption: experiments still lacking a chemistry authority, grounded steps, known substances or content stay BLOCKED',
+      ],
+    },
+    rows,
+  };
+}
+
+// ------------------------------------------------------------------ P2.11 capability registry + substance coverage
+
+const FORMULA_TOKEN=/\b(?:[A-Z][a-z]?\d*){2,}\b|\b(?:Mg|Zn|Cu|Fe|Al|Ag|Na|Ca|K|S|C|P)\b(?=[\s,.;)]|$)/g;
+function chemistryData(root:string){
+  const j=(rel:string)=>readJson(root,`content-src/chemistry/${rel}`);
+  return {reactions:j('reactions.json'),solutionRules:j('solubility.json'),species:j('species.json'),electrolysis:j('electrolysis.json'),conditionVocabulary:j('condition-vocabulary.json'),schoolLabModels:j('school-lab-models.json'),qualitativeTests:j('qualitative-tests.json')};
+}
+export function loadRegistry(root=ROOT):CapabilityRegistry{ return buildCapabilityRegistry(chemistryData(root)); }
+
+export const P211_REGISTRY_1_0_0={source:'reports/capability-registry-coverage.json @ c011222',version:'1.0.0',byStatus:{AMBIGUOUS:2,AUTHORITY_AT_RUNTIME:136,AUTHORITY_REQUIRED:18,CONTROL:1,LEARNER_RESPONSE:72,PROCEDURE_ONLY:39,SAFETY_RULE:1,SUPPORTED:34,UNSUPPORTED_ACTION:47}};
+export function buildCapabilityCoverage(inventory:any,registry:CapabilityRegistry){
+  const rows=inventory.experiments.map((e:any)=>({
+    activityId:e.activityId,
+    operations:e.steps.flatMap((st:any)=>st.operations.map((o:any)=>{
+      const formulas=[...new Set<string>(st.text.match(FORMULA_TOKEN)??[])].sort();
+      const r=resolveOperation(registry,o,(o.family&&registry.actions.find(a=>a.family===o.family)?.handler==='CHEMISTRY')?formulas:[]);
+      return {step:st.index,verb:o.verb,family:o.family,status:r.status,...(r.basis?{basis:r.basis}:{}),authority:r.authority,reason:r.reason};
+    })),
+  }));
+  const all=rows.flatMap((r:any)=>r.operations);
+  return {
+    schema:'kimyolab.capability-registry-coverage.v1',
+    phase:'P2.11',
+    registry:{schema:CAPABILITY_REGISTRY_SCHEMA,version:CAPABILITY_REGISTRY_VERSION,problems:registryProblems(registry)},
+    semantics:'Every instruction operation of the 57 experiments resolved against the capability registry (derived from the action catalog, the runtime handler declaration and the engine data). SUPPORTED = a reaction record has EXACTLY the reactants written in the step (one formula: a single-reactant record; its conditions are checked at run time) — an authority merely knowing a formula is never support; AUTHORITY_AT_RUNTIME = a chemistry handler exists, but what the step needs is decided from the runtime state (basis NO_FORMULA_IN_STEP; PART_OF_RECORD: the formulas are part of a record whose other reagent comes from the state; FORMULA_KNOWN_ONLY: a dissociation rule or electrolyte record only) and is NOT claimed here; AUTHORITY_REQUIRED = no authority of the handler models it (fails closed); PROCEDURE_ONLY = deterministic procedure, no chemistry decided; UNSUPPORTED_ACTION = no safe handler; LEARNER_RESPONSE / CONTROL / SAFETY_RULE are not state transitions; AMBIGUOUS / UNMAPPED get no family. Formulas are only those written in the step text — nothing is inferred from Uzbek names.',
+    // P2.11 closeout: the registry 1.0.0 counted a formula known to some authority as SUPPORTED; 1.1.0 needs an exact record
+    closeout:{before:P211_REGISTRY_1_0_0,after:{version:CAPABILITY_REGISTRY_VERSION,byStatus:count(all.map((o:any)=>o.status))}},
+    actions:registry.actions,
+    authorities:registry.authorities,
+    summary:{operations:all.length,byStatus:count(all.map((o:any)=>o.status)),authorityAtRuntimeByBasis:count(all.filter((o:any)=>o.status==='AUTHORITY_AT_RUNTIME').map((o:any)=>o.basis)),unsupportedByFamily:count(all.filter((o:any)=>o.status==='UNSUPPORTED_ACTION').map((o:any)=>o.family)),authorityRequiredByFamily:count(all.filter((o:any)=>o.status==='AUTHORITY_REQUIRED').map((o:any)=>o.family))},
+    rows,
+  };
+}
+
+export function buildSubstanceCoverage(root:string,inventory:any,coverage:any,registry:CapabilityRegistry,profiles:TopicLabProfile[]){
+  const activities=readJson(root,'content-src/practice-activities.json') as any[];
+  const bound:Record<string,string[]>={'ionic-mixing':['IonicEngine','ReactionMatcher'],'electrolysis':['ElectrolysisModel'],'reaction-records':['ReactionMatcher'],'hydrolysis':[]};
+  const rows=inventory.experiments.map((e:any)=>{
+    const materials=String(activities.find(a=>a.id===e.activityId)?.legacyContent?.materials??'');
+    const authority=coverage.rows.find((r:any)=>r.activityId===e.activityId)?.chemistryAuthority??null;
+    const segs=materials.replace(/\.$/,'').split(/[,;]\s*/).map(x=>x.trim()).filter(Boolean);
+    const items=segs.map(seg=>{
+      const formulas=[...new Set<string>(seg.match(FORMULA_TOKEN)??[])];
+      if(!formulas.length) return {text:seg,formula:null,speciesId:null,authorities:[],status:'NAME_NOT_RESOLVED',note:'an Uzbek name: a canonical species needs a content decision (never guessed)'};
+      return formulas.map(f=>{ const r=resolveSubstance(registry,f); const inBound=authority?(bound[authority]??[]).some(a=>r.authorities.includes(a as any)):false;
+        return {text:seg,formula:f,speciesId:r.speciesId,authorities:r.authorities,status:r.status==='UNKNOWN_SUBSTANCE'?'UNKNOWN_SUBSTANCE':inBound?'COVERED_BY_BOUND_AUTHORITY':r.authorities.length?'KNOWN_TO_OTHER_AUTHORITY':'SPECIES_WITHOUT_AUTHORITY'}; });
+    }).flat();
+    const profile=profiles.find(p=>p.activityId===e.activityId);
+    return {activityId:e.activityId,boundAuthority:authority,materials:items,
+      profileSubstances:profile?profile.substances.map(s=>{ const sp=s.speciesId?registry.species.find(x=>x.speciesId===s.speciesId):null; return {id:s.id,speciesId:s.speciesId,formula:sp?.formula??null,authorities:sp?.authorities??[],source:s.source}; }):null};
+  });
+  const all=rows.flatMap((r:any)=>r.materials);
+  return {
+    schema:'kimyolab.substance-model-coverage.v1',
+    phase:'P2.11',
+    semantics:'instruction substance → canonical species → supporting authority. Only formulas written in the materials text are resolved; an Uzbek name stays NAME_NOT_RESOLVED until content maps it. KNOWN_TO_OTHER_AUTHORITY means the species exists in some authority but not in the one the experiment is bound to (e.g. 9.10: KI is in a ReactionMatcher record, but ElectrolysisModel has no KI record) — it stays a blocker.',
+    summary:{materialItems:all.length,byStatus:count(all.map((m:any)=>m.status))},
     rows,
   };
 }
@@ -401,8 +481,49 @@ async function equivalence72(root:string,profile:TopicLabProfile){
   };
 }
 
+/** P2.11 — the new slices' scripts: the instruction's own sequence, expressed as lab actions */
+const REACTION_SCRIPTS:Record<string,LabAction[]>={
+  'practice.experiment.7.10':[{family:'ADD_SUBSTANCE',params:{substance:'mg',container:'tube-1'}},{family:'ADD_SUBSTANCE',params:{substance:'h2so4-dilute',container:'tube-1'}},{family:'COLLECT_GAS',params:{container:'gas-collector',from:'tube-1'}},{family:'ADD_SUBSTANCE',params:{substance:'zn',container:'tube-2'}},{family:'ADD_SUBSTANCE',params:{substance:'hcl-dilute',container:'tube-2'}},{family:'COLLECT_GAS',params:{container:'gas-collector',from:'tube-2'}},{family:'ADD_SUBSTANCE',params:{substance:'cu',container:'tube-3'}},{family:'ADD_SUBSTANCE',params:{substance:'hcl-dilute',container:'tube-3'}}],
+  'practice.experiment.8.14':[{family:'ADD_SUBSTANCE',params:{substance:'nh4cl',container:'reaction-tube'}},{family:'ADD_SUBSTANCE',params:{substance:'slaked-lime',container:'reaction-tube'}},{family:'SEAL',params:{container:'reaction-tube'}},{family:'HEAT',params:{container:'reaction-tube'}},{family:'COLLECT_GAS',params:{container:'collector-tube'}}],
+};
+
+async function equivalenceReactionMatcher(root:string,profile:TopicLabProfile){
+  const page=await packPractice(root,profile.activityId);
+  const steps=(page as any).referenceConfig?.scenario?.steps??[];
+  const configSteps=readJson(root,`content-src/activity-configs/${profile.configSource}.json`)[profile.activityId].scenario.steps as any[];
+  const old=await oldRun(page,configSteps.map((st:any)=>({type:st.actionType})));
+  const neu=newRun(page,profile,REACTION_SCRIPTS[profile.activityId]!);
+  const goal=profile.completionGoal.kind==='reactions'?profile.completionGoal.reactionIds:[];
+  const oldObs=(old.result.evidence??[]).filter((e:any)=>e.type==='observation');
+  const comparisons=goal.map(id=>{
+    const stepIdx=configSteps.findIndex((st:any)=>(st.reactionIds??[]).includes(id));
+    const o=oldObs.find((e:any)=>String(e.stepId??e.id).includes(configSteps[stepIdx]?.id??'§'))?.observation??null;
+    const n=neu.state.observations.find(x=>x.producedBy==='ReactionMatcher'&&x.source.endsWith(`#${id}`))?.data??null;
+    return {reactionId:id,old:o,new:n,equal:JSON.stringify(o)===JSON.stringify(n)};
+  });
+  const sameObs=comparisons.length>0&&comparisons.every(c=>c.equal);
+  void steps;
+  return {
+    activityId:profile.activityId,profileId:profile.profileId,
+    oldRuntime:{runtime:page.executionPlan.runtime,capability:page.executionPlan.capability,renderer:page.executionPlan.rendererRequirement?.capability??'legacy'},
+    scenario:'old: every guided step button in config order; new: the instruction sequence as lab actions (REACTION_SCRIPTS)',
+    dimensions:{
+      instruction:dim('DIFFERENT','old: every instruction sentence is a button (including the flame test, the step-bound school-model steps and the explanation); new: only the operations the registry can execute are offered, the rest are recorded profile gaps','profile.gaps'),
+      chemistryResult:dim('DIFFERENT','old: the step’s configured observation appears on a click, whatever was added; new: ReactionMatcher evaluates the substances actually in the container — only combinations the instruction’s trials permit can get there — under the actual conditions (declared acid concentration, the heating stated for the trial) and fails closed when no record applies','runs both'),
+      observations:dim(sameObs?'EQUIVALENT':'DIFFERENT',`the record observation for each completion reaction: ${comparisons.map(c=>`${c.reactionId} ${c.equal?'equal':'differs'}`).join(', ')}`,'runs both'),
+      safety:dim('EQUIVALENT','the same legacy safety text (or none) in both','profile.safety.notes ← legacyContent.safety'),
+      completion:dim('DIFFERENT',`old: every step clicked (complete=${old.result.finalState?.status==='complete'}); new: the bound reactions observed and a modeled gas collected (complete=${neu.state.complete}), and that is ${profile.completionScope.kind}: ${profile.completionScope.uncovered.length} instruction operation(s) are not offered`,'runs both'),
+      evidence:dim('DIFFERENT','new: candidates only (persisted:false)','LabActionResult.evidenceCandidate'),
+      accessibility:dim('NOT_PROVEN','covered by the route’s own e2e checks, not by the P2.7 sweep','e2e'),
+      portalStandaloneParity:dim('EQUIVALENT','both hosts','tests/e2e/guided-dynamic-lab.spec.mjs'),
+    },
+    observationComparisons:comparisons,
+    newOnly:{replayDeterministic:neu.replayEqual,unsupportedOutcomes:neu.results.filter(r=>r.status==='unsupported').map(r=>r.unsupported?.detail)},
+  };
+}
+
 export async function buildEquivalence(root=ROOT,profiles:TopicLabProfile[]=compileTopicLabProfiles(root).profiles){
-  const runners:Record<string,(r:string,p:TopicLabProfile)=>Promise<any>>={'ionic-mixing':equivalence81,'electrolysis':equivalence112,'dissolution':equivalence72};
+  const runners:Record<string,(r:string,p:TopicLabProfile)=>Promise<any>>={'ionic-mixing':equivalence81,'electrolysis':equivalence112,'dissolution':equivalence72,'reaction-matcher':equivalenceReactionMatcher};
   const slices=[];
   for(const p of profiles){
     const row=await runners[p.chemistry.authority]!(root,p);
@@ -411,28 +532,35 @@ export async function buildEquivalence(root=ROOT,profiles:TopicLabProfile[]=comp
   }
   return {
     schema:'kimyolab.lab-migration-equivalence.v1',
-    phase:'P2.10',
+    phase:'P2.11',
     semantics:'Old vs new on the SAME built content pack, per dimension. MIGRATION_EQUIVALENT only when every dimension is EQUIVALENT; otherwise the old runtime stays the canonical one. Even an equivalent slice is only ELIGIBLE: a migration is a human decision, never taken here.',
     summary:{slices:slices.length,migrationEquivalent:slices.filter(s=>s.migrationStatus==='MIGRATION_EQUIVALENT').length,keepOldRuntime:slices.filter(s=>s.decision==='KEEP_OLD_RUNTIME').map(s=>s.activityId)},
     slices,
   };
 }
 
-/** P2.10's own bundle growth: the P2.9 closing build (reports/feedback-semantics-expansion.json#bundleDelta.after @ 22e5687)
- *  vs the current build. Earlier phases' bound checks subtract this recorded delta instead of absorbing it. */
+/** The guided lab's bundle growth since the P2.9 closing build (reports/feedback-semantics-expansion.json#bundleDelta.after
+ *  @ 22e5687) vs the current build. `delta` stays CUMULATIVE since P2.9 (P2.10 + P2.11), because the earlier phases'
+ *  bound checks subtract exactly this recorded delta instead of absorbing it; `phases` splits it per phase. */
 export const P29_BUNDLE_AFTER={learnerModules:162,learnerModuleBytes:714004,standaloneBytes:5704269};
+/** P2.10's recorded growth (reports/guided-dynamic-lab-readiness.json#bundleDelta.delta @ a6f959e) */
+export const P210_BUNDLE_DELTA={learnerModules:6,learnerModuleBytes:102503,standaloneBytes:153878};
 export function bundleDelta(root:string,now:{learnerModules:number;learnerModuleBytes:number;standaloneBytes:number}){
+  void root;
   const before=P29_BUNDLE_AFTER;
   const after={learnerModules:now.learnerModules,learnerModuleBytes:now.learnerModuleBytes,standaloneBytes:now.standaloneBytes};
-  return {before,after,delta:{learnerModules:after.learnerModules-before.learnerModules,learnerModuleBytes:after.learnerModuleBytes-before.learnerModuleBytes,standaloneBytes:after.standaloneBytes-before.standaloneBytes},
-    newModules:'src/app/feature-flags.ts, src/domain/lab/{action-catalog,topic-lab-profile,lab-runtime,lab-domain}.ts, src/features/dynamic-lab/render.ts'};
+  const delta={learnerModules:after.learnerModules-before.learnerModules,learnerModuleBytes:after.learnerModuleBytes-before.learnerModuleBytes,standaloneBytes:after.standaloneBytes-before.standaloneBytes};
+  const p211={learnerModules:delta.learnerModules-P210_BUNDLE_DELTA.learnerModules,learnerModuleBytes:delta.learnerModuleBytes-P210_BUNDLE_DELTA.learnerModuleBytes,standaloneBytes:delta.standaloneBytes-P210_BUNDLE_DELTA.standaloneBytes};
+  return {before,after,delta,cumulativeSince:'P2.9',
+    phases:{'P2.10':P210_BUNDLE_DELTA,'P2.11':p211},
+    newModules:'P2.10: src/app/feature-flags.ts, src/domain/lab/{action-catalog,topic-lab-profile,lab-runtime,lab-domain}.ts, src/features/dynamic-lab/render.ts; P2.11: src/domain/lab/capability-registry.ts (compiled with the app modules, imported by no learner route and absent from the standalone file; the standalone growth is the new handlers, catalog strings and two profiles)'};
 }
 
-export function buildReadiness(inventory:any,catalog:any,coverage:any,equivalence:any,profiles:TopicLabProfile[],bundle?:unknown){
+export function buildReadiness(inventory:any,catalog:any,coverage:any,equivalence:any,profiles:TopicLabProfile[],bundle?:unknown,capability?:any,substances?:any){
   const flag=FEATURE_FLAGS.guidedDynamicLabV1;
   return {
     schema:'kimyolab.guided-dynamic-lab-readiness.v1',
-    phase:'P2.10',
+    phase:'P2.11',
     decision:'NOT_A_RELEASE_OR_PILOT_DECISION',
     semantics:'What exists, what is proven and what is still a human decision. The agent does not decide chemistry truth, release or pilot sign-off.',
     featureFlag:{name:'guidedDynamicLabV1',default:flag.default,enable:flag.enable,route:'/dynamic-lab/<activityId>',oldRuntime:'unchanged and still the canonical route (/practice/<activityId>)'},
@@ -441,13 +569,16 @@ export function buildReadiness(inventory:any,catalog:any,coverage:any,equivalenc
       {id:'kimyolab.lab-state.v1',path:'src/domain/lab/lab-runtime.ts'},
       {id:'applyLabAction',path:'src/domain/lab/lab-runtime.ts',signature:'applyLabAction(state, action, topicProfile) → {nextState, chemistryEvents, observations, procedural, guidance, evidenceCandidate, unsupported, error}'},
       {id:'lab-action-catalog',path:'src/domain/lab/action-catalog.ts'},
+      {id:CAPABILITY_REGISTRY_SCHEMA,version:CAPABILITY_REGISTRY_VERSION,path:'src/domain/lab/capability-registry.ts',derivedFrom:['LAB_ACTION_FAMILIES','HANDLER_SEMANTICS','content-src/chemistry/*'],problems:capability?.registry?.problems??null,pipeline:'yo‘riqnoma → operation extraction (classifyInstructionStep) → capability resolution (resolveOperation) → lab profile (compileTopicLabProfiles)'},
     ],
     slices:profiles.map(p=>({activityId:p.activityId,profileId:p.profileId,chemistryAuthority:p.chemistry.authority,
-      observationGrounding:Object.fromEntries(p.observationTargets.map(t=>[t.id,observationGrounding({producedBy:t.producedBy})])),orderMode:p.procedure.mode,completion:p.completionGoal.kind,migration:equivalence.slices.find((s:any)=>s.activityId===p.activityId)?.migrationStatus??null,profileGaps:p.gaps.map(g=>g.code)})),
+      observationGrounding:Object.fromEntries(p.observationTargets.map(t=>[t.id,observationGrounding({producedBy:t.producedBy})])),orderMode:p.procedure.mode,scope:p.procedure.scope,trials:(p.procedure.trials??[]).map(t=>({id:t.id,instructionSteps:t.instructionSteps,substances:t.substances,families:t.families})),completion:p.completionGoal.kind,completionScope:p.completionScope.kind,uncoveredInstructionOperations:p.completionScope.uncovered,migration:equivalence.slices.find((s:any)=>s.activityId===p.activityId)?.migrationStatus??null,profileGaps:p.gaps.map(g=>g.code)})),
     sliceJustification:{
       precipitation:'8.1: the only experiment whose config is a learner-chosen reagent shelf over ReactionMatcher records (ionic-mixing); a precipitate forms while FILTER is not in its instruction (ACTION_NOT_ALLOWED_IN_TOPIC).',
       gas:'11.2: the gas slice the chemistry supports. ElectrolysisModel holds exactly one record (CuCl2, aq, inert), which 11.2’s config queries, and its instruction does not contradict it. 9.10 is NOT used: its instruction connects a copper anode (active) and electrolyses KI, neither of which is modeled.',
       multiStep:'7.2: the only experiment with DECLARED step dependencies (reference slice), seven steps over dissolution, filtration and evaporation (thermal), with an instruction quantity (20 ml).',
+      contactReactionGas:'7.10 (P2.11): a new capability — ReactionMatcher evaluates only the trial combinations the instruction permits (Mg + dilute H2SO4, Zn + dilute HCl, Cu + dilute HCl), under the conditions the instruction declares (dilute acids; room temperature, or the gentle heating stated for the Zn + HCl trial only); out-of-scope combinations and actions are rejected before chemistry evaluation (ACTION_NOT_IN_INSTRUCTION_SCOPE); gas is collected from the tube it formed in. Cu + HCl itself has no record: when the pair is evaluated it fails closed (MODEL_SOURCE_GAP_CU_HCL); HEAT is not stated for that trial, so it is rejected by the instruction scope and never reaches chemistry.',
+      heatingGate:'8.14 (P2.11): a new capability — the reaction record requires heating, so nothing forms until the learner heats (HEAT is the gate, not a button); the tube is sealed and the gas collected. The school lab model stays step-bound. The instruction’s “oq tutun” and rxn.nh3-hcl (no-visible-change) conflict: SOURCE_CONFLICT_REVIEW_REQUIRED (sourceConflictReviews, resolution: null) — not a human decision, and neither source is chosen.',
     },
     counts:{experimentsInventoried:inventory.summary.experiments,operations:inventory.summary.operations,mappedOperations:inventory.summary.mapped,ambiguousOperations:inventory.summary.ambiguous,unmappedOperations:inventory.summary.unmapped,families:catalog.summary.families,familiesWithHandler:catalog.summary.withDomainHandler,profiled:coverage.summary.PROFILED??0,profileCandidates:coverage.summary.PROFILE_CANDIDATE??0,blocked:coverage.summary.BLOCKED??0,migrationEquivalent:equivalence.summary.migrationEquivalent},
     humanDecisions:[
@@ -460,13 +591,25 @@ export function buildReadiness(inventory:any,catalog:any,coverage:any,equivalenc
       {item:'every operation mapped to an action or an explicit gap',status:inventory.summary.operations===inventory.summary.mapped+inventory.summary.ambiguous+inventory.summary.unmapped?'MET':'NOT_MET'},
       {item:'schemas and runtime exist; unsupported chemistry fails closed',status:'MET'},
       {item:'order represented honestly (STRICT only where declared; open decisions stay HUMAN_DECISION_REQUIRED)',status:'MET'},
-      {item:'2–3 vertical slices end-to-end behind guidedDynamicLabV1',status:profiles.length>=2&&profiles.length<=3?'MET':'NOT_MET'},
+      {item:'P2.10: 2–3 vertical slices end-to-end behind guidedDynamicLabV1',status:['practice.experiment.8.1','practice.experiment.11.2','practice.experiment.7.2'].every(id=>profiles.some(p=>p.activityId===id))?'MET':'NOT_MET'},
+      {item:'P2.11: capability registry versioned, derived and consistent with the runtime',status:capability&&capability.registry.version===CAPABILITY_REGISTRY_VERSION&&capability.registry.problems.length===0?'MET':'NOT_MET'},
+      {item:'P2.11: every instruction operation resolved against the registry (no guessed family)',status:capability&&capability.summary.operations===inventory.summary.operations?'MET':'NOT_MET'},
+      {item:'P2.11: substance coverage reported (unknown substances stay blockers)',status:substances?'MET':'NOT_MET'},
+      {item:'P2.11: new slices with a different capability each, end-to-end',status:['practice.experiment.7.10','practice.experiment.8.14'].every(id=>profiles.some(p=>p.activityId===id))?'MET':'NOT_MET'},
+      {item:'P2.11 closeout: instruction scope — trial-bound profiles reject actions the instruction does not state for that trial',status:profiles.filter(p=>p.chemistry.authority==='reaction-matcher').every(p=>p.procedure.scope==='INSTRUCTION_TRIALS')?'MET':'NOT_MET'},
+      {item:'P2.11 closeout: SUPPORTED only for an exact reaction record; a formula known somewhere is never support',status:capability&&capability.rows.every((r:any)=>r.operations.every((o:any)=>o.status!=='SUPPORTED'||/^record /.test(o.reason)))?'MET':'NOT_MET'},
+      {item:'P2.11 closeout: every profile states FULL_INSTRUCTION or PARTIAL_INSTRUCTION completion',status:profiles.every(p=>p.completionScope&&(p.completionScope.kind==='FULL_INSTRUCTION')===(p.completionScope.uncovered.length===0))?'MET':'NOT_MET'},
       {item:'old runtime available; no mass migration',status:equivalence.summary.migrationEquivalent===0?'MET':'NOT_MET'},
-      {item:'equivalence reported honestly per slice and dimension (zero migrations is an allowed P2.10 outcome)',status:equivalence.slices.length===profiles.length?'MET':'NOT_MET'},
+      {item:'equivalence reported honestly per slice and dimension (zero migrations is an allowed outcome)',status:equivalence.slices.length===profiles.length?'MET':'NOT_MET'},
       {item:'release / pilot sign-off',status:'HUMAN'},
     ],
+    // P2.11 closeout: not choices. A missing model/source fails closed; a conflict between two sources waits for a source
+    // review and neither side is chosen as correct
+    sourceGaps:profiles.flatMap(p=>p.gaps.filter(g=>g.code.startsWith('MODEL_SOURCE_GAP')).map(g=>({activityId:p.activityId,code:g.code,behaviour:'FAIL_CLOSED',detail:g.detail}))),
+    sourceConflictReviews:profiles.flatMap(p=>p.gaps.filter(g=>g.code==='SOURCE_CONFLICT_REVIEW_REQUIRED').map(g=>({activityId:p.activityId,status:'SOURCE_CONFLICT_REVIEW_REQUIRED',detail:g.detail,resolution:null}))),
     futureGates:[
       {gate:'P2.11 migration gate',question:'migrate a slice from the classic runtime',condition:'every equivalence dimension EQUIVALENT (incl. persisted evidence), then a human migration decision',currentlyEquivalentSlices:equivalence.summary.migrationEquivalent,decision:null},
+      {gate:'P2.12+ capability expansion',question:'TEST, SEPARATE, PREPARE_SUBSTANCE, BRING_NEAR, IGNITE, SETTLE, REPEAT have no safe general semantics yet',condition:'a reviewed authority (qualitative tests bound to the instruction, separation model) per family',decision:null},
     ],
     bundleDelta:bundle??null,
   };
@@ -479,10 +622,14 @@ export async function guidedDynamicLabOutputs(root=ROOT):Promise<Record<string,s
   const coverage=buildCoverage(inventory,profiles,root);
   const equivalence=await buildEquivalence(root,profiles);
   const {bundle}=await import('./lib/computed-model-interaction.ts');
-  const readiness=buildReadiness(inventory,catalog,coverage,equivalence,profiles,bundleDelta(root,bundle(root) as any));
+  const registry=loadRegistry(root);
+  const capability=buildCapabilityCoverage(inventory,registry);
+  const substances=buildSubstanceCoverage(root,inventory,coverage,registry,profiles);
+  const readiness=buildReadiness(inventory,catalog,coverage,equivalence,profiles,bundleDelta(root,bundle(root) as any),capability,substances);
   const out:Record<string,string>={};
   const put=(rel:string,v:unknown)=>{ out[rel]=`${JSON.stringify(v,null,2)}\n`; };
   put(LAB_REPORTS.inventory,inventory); put(LAB_REPORTS.catalog,catalog); put(LAB_REPORTS.coverage,coverage); put(LAB_REPORTS.readiness,readiness); put(LAB_REPORTS.equivalence,equivalence);
+  put(LAB_REPORTS.capability,capability); put(LAB_REPORTS.substances,substances);
   return out;
 }
 

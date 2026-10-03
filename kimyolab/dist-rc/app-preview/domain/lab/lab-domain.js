@@ -16,7 +16,7 @@ export function createLabDomain(data                 )          {
   const ionicEngine=IonicEngine.from({reactions:data.reactions       ,rules:data.solutionRules       });
   const mixing=vocabulary?.contexts['solution-mixing'];
   return {
-    species,ionicEngine,
+    species,ionicEngine,matcher,
     ionic:{species,matcher,ionic:ionicEngine,...(mixing?{mixingConditions:{dimensions:{...mixing.dimensions}}}:{})},
     ...(data.electrolysis?{electrolysis:ElectrolysisModel.from(data.electrolysis)}:{}),
   };

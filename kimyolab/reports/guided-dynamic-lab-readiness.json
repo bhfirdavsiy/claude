@@ -1,6 +1,6 @@
 {
   "schema": "kimyolab.guided-dynamic-lab-readiness.v1",
-  "phase": "P2.10",
+  "phase": "P2.11",
   "decision": "NOT_A_RELEASE_OR_PILOT_DECISION",
   "semantics": "What exists, what is proven and what is still a human decision. The agent does not decide chemistry truth, release or pilot sign-off.",
   "featureFlag": {
@@ -28,6 +28,18 @@
     {
       "id": "lab-action-catalog",
       "path": "src/domain/lab/action-catalog.ts"
+    },
+    {
+      "id": "kimyolab.capability-registry.v1",
+      "version": "1.1.0",
+      "path": "src/domain/lab/capability-registry.ts",
+      "derivedFrom": [
+        "LAB_ACTION_FAMILIES",
+        "HANDLER_SEMANTICS",
+        "content-src/chemistry/*"
+      ],
+      "problems": [],
+      "pipeline": "yo‘riqnoma → operation extraction (classifyInstructionStep) → capability resolution (resolveOperation) → lab profile (compileTopicLabProfiles)"
     }
   ],
   "slices": [
@@ -39,7 +51,48 @@
         "mix": "MODEL_BASED"
       },
       "orderMode": "FLEXIBLE",
+      "scope": "TOPIC",
+      "trials": [],
       "completion": "ionic-target",
+      "completionScope": "PARTIAL_INSTRUCTION",
+      "uncoveredInstructionOperations": [
+        {
+          "instructionStep": 0,
+          "verb": "isbotlang",
+          "family": "INFER",
+          "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+        },
+        {
+          "instructionStep": 1,
+          "verb": "isbotlang",
+          "family": "INFER",
+          "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+        },
+        {
+          "instructionStep": 2,
+          "verb": "isbotlang",
+          "family": "INFER",
+          "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+        },
+        {
+          "instructionStep": 3,
+          "verb": "oling",
+          "family": "PREPARE_SUBSTANCE",
+          "reason": "NOT_OFFERED"
+        },
+        {
+          "instructionStep": 4,
+          "verb": "isbotlang",
+          "family": "INFER",
+          "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+        },
+        {
+          "instructionStep": 5,
+          "verb": "farqlang",
+          "family": "COMPARE",
+          "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+        }
+      ],
       "migration": "NOT_MIGRATION_EQUIVALENT",
       "profileGaps": [
         "APPARATUS_NOT_DECLARED",
@@ -58,7 +111,24 @@
         "anode": "MODEL_BASED"
       },
       "orderMode": "HUMAN_DECISION_REQUIRED",
+      "scope": "TOPIC",
+      "trials": [],
       "completion": "observations",
+      "completionScope": "PARTIAL_INSTRUCTION",
+      "uncoveredInstructionOperations": [
+        {
+          "instructionStep": 2,
+          "verb": "belgilang",
+          "family": "RECORD",
+          "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+        },
+        {
+          "instructionStep": 4,
+          "verb": "tushuntiring",
+          "family": "EXPLAIN",
+          "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+        }
+      ],
       "migration": "NOT_MIGRATION_EQUIVALENT",
       "profileGaps": [
         "ELECTRODE_MATERIAL_NOT_IN_INSTRUCTION",
@@ -77,7 +147,18 @@
         "crystals": "INSTRUCTION_TEXT"
       },
       "orderMode": "STRICT",
+      "scope": "TOPIC",
+      "trials": [],
       "completion": "all-required-steps",
+      "completionScope": "PARTIAL_INSTRUCTION",
+      "uncoveredInstructionOperations": [
+        {
+          "instructionStep": 4,
+          "verb": "to‘xtating",
+          "family": "STOP_HEAT",
+          "reason": "NOT_OFFERED"
+        }
+      ],
       "migration": "NOT_MIGRATION_EQUIVALENT",
       "profileGaps": [
         "SAFETY_TEXT_EMPTY",
@@ -88,12 +169,170 @@
         "OBSERVATION_FROM_INSTRUCTION_TEXT",
         "REAGENT_LIST_UNRELATED"
       ]
+    },
+    {
+      "activityId": "practice.experiment.7.10",
+      "profileId": "lab-profile.7.10.metal-acid-gas",
+      "chemistryAuthority": "reaction-matcher",
+      "observationGrounding": {
+        "reaction": "MODEL_BASED"
+      },
+      "orderMode": "FLEXIBLE",
+      "scope": "INSTRUCTION_TRIALS",
+      "trials": [
+        {
+          "id": "mg-h2so4",
+          "instructionSteps": [
+            0
+          ],
+          "substances": [
+            "mg",
+            "h2so4-dilute"
+          ],
+          "families": [
+            "ADD_SUBSTANCE",
+            "COLLECT_GAS"
+          ]
+        },
+        {
+          "id": "zn-hcl",
+          "instructionSteps": [
+            1
+          ],
+          "substances": [
+            "zn",
+            "hcl-dilute"
+          ],
+          "families": [
+            "ADD_SUBSTANCE",
+            "HEAT",
+            "COLLECT_GAS"
+          ]
+        },
+        {
+          "id": "cu-hcl",
+          "instructionSteps": [
+            2
+          ],
+          "substances": [
+            "cu",
+            "hcl-dilute"
+          ],
+          "families": [
+            "ADD_SUBSTANCE"
+          ]
+        }
+      ],
+      "completion": "reactions",
+      "completionScope": "PARTIAL_INSTRUCTION",
+      "uncoveredInstructionOperations": [
+        {
+          "instructionStep": 0,
+          "verb": "tekshiring",
+          "family": "TEST",
+          "reason": "NOT_OFFERED"
+        },
+        {
+          "instructionStep": 1,
+          "verb": "tekshiring",
+          "family": "TEST",
+          "reason": "NOT_OFFERED"
+        },
+        {
+          "instructionStep": 2,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "reason": "OBSERVATION_NOT_PRODUCED"
+        },
+        {
+          "instructionStep": 3,
+          "verb": "izohlang",
+          "family": "EXPLAIN",
+          "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+        }
+      ],
+      "migration": "NOT_MIGRATION_EQUIVALENT",
+      "profileGaps": [
+        "TEST_NOT_OFFERED",
+        "MODEL_SOURCE_GAP_CU_HCL",
+        "RECORD_CHECKER_MISSING",
+        "HEAT_SOURCE_NOT_NAMED",
+        "APPARATUS_WITHOUT_OPERATION"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.14",
+      "profileId": "lab-profile.8.14.ammonia-heating",
+      "chemistryAuthority": "reaction-matcher",
+      "observationGrounding": {
+        "reaction": "MODEL_BASED"
+      },
+      "orderMode": "FLEXIBLE",
+      "scope": "INSTRUCTION_TRIALS",
+      "trials": [
+        {
+          "id": "nh4cl-lime",
+          "instructionSteps": [
+            0,
+            1
+          ],
+          "substances": [
+            "nh4cl",
+            "slaked-lime"
+          ],
+          "families": [
+            "ADD_SUBSTANCE",
+            "SEAL",
+            "HEAT",
+            "COLLECT_GAS"
+          ]
+        }
+      ],
+      "completion": "reactions",
+      "completionScope": "PARTIAL_INSTRUCTION",
+      "uncoveredInstructionOperations": [
+        {
+          "instructionStep": 2,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "reason": "OBSERVATION_NOT_PRODUCED"
+        },
+        {
+          "instructionStep": 3,
+          "verb": "tuting",
+          "family": "BRING_NEAR",
+          "reason": "NOT_OFFERED"
+        },
+        {
+          "instructionStep": 4,
+          "verb": "yaqinlashtiring",
+          "family": "BRING_NEAR",
+          "reason": "NOT_OFFERED"
+        },
+        {
+          "instructionStep": 4,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "reason": "OBSERVATION_NOT_PRODUCED"
+        }
+      ],
+      "migration": "NOT_MIGRATION_EQUIVALENT",
+      "profileGaps": [
+        "SCHOOL_MODEL_STEP_BOUND",
+        "SOURCE_CONFLICT_REVIEW_REQUIRED",
+        "QUANTITY_AS_RATIO",
+        "HEAT_SOURCE_NOT_NAMED",
+        "APPARATUS_NOT_DECLARED",
+        "SAFETY_TEXT_EMPTY"
+      ]
     }
   ],
   "sliceJustification": {
     "precipitation": "8.1: the only experiment whose config is a learner-chosen reagent shelf over ReactionMatcher records (ionic-mixing); a precipitate forms while FILTER is not in its instruction (ACTION_NOT_ALLOWED_IN_TOPIC).",
     "gas": "11.2: the gas slice the chemistry supports. ElectrolysisModel holds exactly one record (CuCl2, aq, inert), which 11.2’s config queries, and its instruction does not contradict it. 9.10 is NOT used: its instruction connects a copper anode (active) and electrolyses KI, neither of which is modeled.",
-    "multiStep": "7.2: the only experiment with DECLARED step dependencies (reference slice), seven steps over dissolution, filtration and evaporation (thermal), with an instruction quantity (20 ml)."
+    "multiStep": "7.2: the only experiment with DECLARED step dependencies (reference slice), seven steps over dissolution, filtration and evaporation (thermal), with an instruction quantity (20 ml).",
+    "contactReactionGas": "7.10 (P2.11): a new capability — ReactionMatcher evaluates only the trial combinations the instruction permits (Mg + dilute H2SO4, Zn + dilute HCl, Cu + dilute HCl), under the conditions the instruction declares (dilute acids; room temperature, or the gentle heating stated for the Zn + HCl trial only); out-of-scope combinations and actions are rejected before chemistry evaluation (ACTION_NOT_IN_INSTRUCTION_SCOPE); gas is collected from the tube it formed in. Cu + HCl itself has no record: when the pair is evaluated it fails closed (MODEL_SOURCE_GAP_CU_HCL); HEAT is not stated for that trial, so it is rejected by the instruction scope and never reaches chemistry.",
+    "heatingGate": "8.14 (P2.11): a new capability — the reaction record requires heating, so nothing forms until the learner heats (HEAT is the gate, not a button); the tube is sealed and the gas collected. The school lab model stays step-bound. The instruction’s “oq tutun” and rxn.nh3-hcl (no-visible-change) conflict: SOURCE_CONFLICT_REVIEW_REQUIRED (sourceConflictReviews, resolution: null) — not a human decision, and neither source is chosen."
   },
   "counts": {
     "experimentsInventoried": 57,
@@ -102,10 +341,10 @@
     "ambiguousOperations": 2,
     "unmappedOperations": 0,
     "families": 31,
-    "familiesWithHandler": 8,
-    "profiled": 3,
+    "familiesWithHandler": 15,
+    "profiled": 5,
     "profileCandidates": 1,
-    "blocked": 53,
+    "blocked": 51,
     "migrationEquivalent": 0
   },
   "humanDecisions": [
@@ -176,7 +415,35 @@
       "status": "MET"
     },
     {
-      "item": "2–3 vertical slices end-to-end behind guidedDynamicLabV1",
+      "item": "P2.10: 2–3 vertical slices end-to-end behind guidedDynamicLabV1",
+      "status": "MET"
+    },
+    {
+      "item": "P2.11: capability registry versioned, derived and consistent with the runtime",
+      "status": "MET"
+    },
+    {
+      "item": "P2.11: every instruction operation resolved against the registry (no guessed family)",
+      "status": "MET"
+    },
+    {
+      "item": "P2.11: substance coverage reported (unknown substances stay blockers)",
+      "status": "MET"
+    },
+    {
+      "item": "P2.11: new slices with a different capability each, end-to-end",
+      "status": "MET"
+    },
+    {
+      "item": "P2.11 closeout: instruction scope — trial-bound profiles reject actions the instruction does not state for that trial",
+      "status": "MET"
+    },
+    {
+      "item": "P2.11 closeout: SUPPORTED only for an exact reaction record; a formula known somewhere is never support",
+      "status": "MET"
+    },
+    {
+      "item": "P2.11 closeout: every profile states FULL_INSTRUCTION or PARTIAL_INSTRUCTION completion",
       "status": "MET"
     },
     {
@@ -184,12 +451,28 @@
       "status": "MET"
     },
     {
-      "item": "equivalence reported honestly per slice and dimension (zero migrations is an allowed P2.10 outcome)",
+      "item": "equivalence reported honestly per slice and dimension (zero migrations is an allowed outcome)",
       "status": "MET"
     },
     {
       "item": "release / pilot sign-off",
       "status": "HUMAN"
+    }
+  ],
+  "sourceGaps": [
+    {
+      "activityId": "practice.experiment.7.10",
+      "code": "MODEL_SOURCE_GAP_CU_HCL",
+      "behaviour": "FAIL_CLOSED",
+      "detail": "Step 3 (Cu + dilute HCl): no ReactionMatcher record covers this pair, so the lab shows no outcome (UNSUPPORTED_CHEMISTRY, fail closed). The step-bound school model school.cu-hcl.no-reaction is not a reaction record and is not consumed. This is a missing model/source, not a choice: it stays fail-closed until a reviewed source exists."
+    }
+  ],
+  "sourceConflictReviews": [
+    {
+      "activityId": "practice.experiment.8.14",
+      "status": "SOURCE_CONFLICT_REVIEW_REQUIRED",
+      "detail": "Step 5: the instruction says \"oq tutunni kuzating\" (white smoke), but the record rxn.nh3-hcl states no-visible-change. The two sources conflict; neither is chosen as correct. The step is not offered until a chemistry source review resolves it (resolution: null).",
+      "resolution": null
     }
   ],
   "futureGates": [
@@ -198,6 +481,12 @@
       "question": "migrate a slice from the classic runtime",
       "condition": "every equivalence dimension EQUIVALENT (incl. persisted evidence), then a human migration decision",
       "currentlyEquivalentSlices": 0,
+      "decision": null
+    },
+    {
+      "gate": "P2.12+ capability expansion",
+      "question": "TEST, SEPARATE, PREPARE_SUBSTANCE, BRING_NEAR, IGNITE, SETTLE, REPEAT have no safe general semantics yet",
+      "condition": "a reviewed authority (qualitative tests bound to the instruction, separation model) per family",
       "decision": null
     }
   ],
@@ -208,15 +497,28 @@
       "standaloneBytes": 5704269
     },
     "after": {
-      "learnerModules": 168,
-      "learnerModuleBytes": 816507,
-      "standaloneBytes": 5858147
+      "learnerModules": 169,
+      "learnerModuleBytes": 860191,
+      "standaloneBytes": 5925360
     },
     "delta": {
-      "learnerModules": 6,
-      "learnerModuleBytes": 102503,
-      "standaloneBytes": 153878
+      "learnerModules": 7,
+      "learnerModuleBytes": 146187,
+      "standaloneBytes": 221091
     },
-    "newModules": "src/app/feature-flags.ts, src/domain/lab/{action-catalog,topic-lab-profile,lab-runtime,lab-domain}.ts, src/features/dynamic-lab/render.ts"
+    "cumulativeSince": "P2.9",
+    "phases": {
+      "P2.10": {
+        "learnerModules": 6,
+        "learnerModuleBytes": 102503,
+        "standaloneBytes": 153878
+      },
+      "P2.11": {
+        "learnerModules": 1,
+        "learnerModuleBytes": 43684,
+        "standaloneBytes": 67213
+      }
+    },
+    "newModules": "P2.10: src/app/feature-flags.ts, src/domain/lab/{action-catalog,topic-lab-profile,lab-runtime,lab-domain}.ts, src/features/dynamic-lab/render.ts; P2.11: src/domain/lab/capability-registry.ts (compiled with the app modules, imported by no learner route and absent from the standalone file; the standalone growth is the new handlers, catalog strings and two profiles)"
   }
 }

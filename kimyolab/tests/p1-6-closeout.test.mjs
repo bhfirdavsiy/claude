@@ -43,6 +43,9 @@ test('condition policy is explicit: no caller gets enforcement (or its absence) 
   const callers={
     'src/runtime/reference-slices/experiment-adapter.ts':"conditionPolicy:'filter-by-query'",     // legacy scenario path
     'src/domain/chemistry/ionic-mixing.ts':"conditionPolicy:'require-record-conditions'",           // mixing two solutions
+    // P2.11: the guided lab runtime evaluates substances in a container under the ACTUAL lab conditions (ADR-P2-012);
+    // it states the enforcing policy explicitly, like ionic mixing
+    'src/domain/lab/lab-runtime.ts':"conditionPolicy:'require-record-conditions'",
   };
   for(const [file,policy] of Object.entries(callers)){
     const src=fs.readFileSync(path.join(root,file),'utf8');

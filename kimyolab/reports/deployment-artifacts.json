@@ -9,14 +9,14 @@
     "requiredServerMount": "/kimyolab/",
     "entryDocument": "/kimyolab/index.html",
     "spaFallback": "every /kimyolab/* path that is not a file → /kimyolab/index.html (see docs/DEPLOY.md §5)",
-    "fileCount": 222,
-    "totalBytes": 4596046,
-    "sha256": "d0028d281293ef4592252e7c96860420dc955a51de4e69d1106e93b64af82b8c",
+    "fileCount": 223,
+    "totalBytes": 4672557,
+    "sha256": "93860447586c0de72e5b906b92658a1eb69e6962cbb77bc3c1d5b9af8c9275ad",
     "content": {
       "activeVersion": "2026.09.1",
       "contentVersion": "2026.09.1",
-      "contentRevision": "4e6d6cd7c87a7b176be4e451d9d0f05c2b0a5a2c8f0e19c08c9d80ae623b53b5",
-      "manifestChecksum": "4e6d6cd7c87a7b176be4e451d9d0f05c2b0a5a2c8f0e19c08c9d80ae623b53b5"
+      "contentRevision": "ec73d14c28ea0c206601d81bb1bf102adec2eec761dc7c4535ecfb1968f6d4a0",
+      "manifestChecksum": "ec73d14c28ea0c206601d81bb1bf102adec2eec761dc7c4535ecfb1968f6d4a0"
     },
     "config": {
       "basePath": "/kimyolab/",
@@ -34,8 +34,8 @@
     "buildCommand": "npm run standalone:build",
     "path": "dist-standalone/KimyoLab_standalone.html",
     "alias": "dist-standalone/index.html",
-    "bytes": 5858147,
-    "sha256": "9d25e357fb3ef7f58b7d94334a2703c395fb0904f97a4fcabd4e1c6f7584b509",
+    "bytes": 5925360,
+    "sha256": "db0f829f468811aa0e55f7aa76da7a2b7d181682035f2e9cad1fc74176199aef",
     "delivery": "one HTML file; opens from disk (hash routes, embedded content pack with the same integrity checks); external laboratories that need the network stay network-dependent and say so"
   },
   "learnerBundle": {
@@ -48,9 +48,9 @@
       "source": "P2.7 close (reports/accessibility-gap-summary.json#performance.after)"
     },
     "after": {
-      "learnerModules": 168,
-      "learnerModuleBytes": 816507,
-      "standaloneBytes": 5858147,
+      "learnerModules": 169,
+      "learnerModuleBytes": 860191,
+      "standaloneBytes": 5925360,
       "cssBytes": 35636
     },
     "note": "deployment tooling is operator-side (scripts/, never copied into the artefact by the builder)"

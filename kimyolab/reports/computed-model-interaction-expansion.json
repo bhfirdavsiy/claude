@@ -247,17 +247,17 @@
       "standaloneBytes": 5646313
     },
     "after": {
-      "learnerModules": 168,
-      "learnerModuleBytes": 816507,
+      "learnerModules": 169,
+      "learnerModuleBytes": 860191,
       "rendererModules": 13,
       "rendererBytes": 71591,
-      "standaloneBytes": 5858147
+      "standaloneBytes": 5925360
     },
     "delta": {
-      "learnerModules": 10,
-      "learnerModuleBytes": 150734,
+      "learnerModules": 11,
+      "learnerModuleBytes": 194418,
       "rendererBytes": 19849,
-      "standaloneBytes": 211834
+      "standaloneBytes": 279047
     },
     "dependencies": "none added (DOM + CSS only; no canvas/WebGL/chart library)"
   },

@@ -47,7 +47,7 @@
         "SAFETY_PROHIBITION"
       ]
     },
-    "withDomainHandler": 8,
+    "withDomainHandler": 15,
     "learnerResponsesWithChecker": [
       "RECORD"
     ],
@@ -203,24 +203,22 @@
           "valuesFrom": "profile.containers"
         }
       ],
-      "apparatusRequirements": [
-        "container"
-      ],
+      "apparatusRequirements": [],
       "statePreconditions": [
-        "source container has contents"
+        "source container has contents",
+        "target is another container"
       ],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
       "topicAction": true,
       "domainHandler": {
         "required": true,
-        "implemented": false,
-        "authority": null,
-        "result": "ACTION_UNSUPPORTED"
+        "implemented": true,
+        "authority": "procedure (contents move); in a reaction-matcher topic the target is re-evaluated by ReactionMatcher"
       },
       "checker": null,
       "renderer": {
         "required": true,
-        "implemented": false,
+        "implemented": true,
         "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
       },
       "accessibility": [
@@ -307,25 +305,22 @@
           "valuesFrom": "profile.containers"
         }
       ],
-      "apparatusRequirements": [
-        "heat-source"
-      ],
+      "apparatusRequirements": [],
       "statePreconditions": [
-        "heat source set up",
-        "container has contents"
+        "container has contents",
+        "the topic binds a condition-aware authority (reaction-matcher)"
       ],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
       "topicAction": true,
       "domainHandler": {
         "required": true,
-        "implemented": false,
-        "authority": null,
-        "result": "ACTION_UNSUPPORTED"
+        "implemented": true,
+        "authority": "ReactionMatcher with the ACTUAL conditions (temperature dimension of the condition vocabulary)"
       },
       "checker": null,
       "renderer": {
         "required": true,
-        "implemented": false,
+        "implemented": true,
         "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
       },
       "accessibility": [
@@ -363,9 +358,7 @@
           "valuesFrom": "profile.containers"
         }
       ],
-      "apparatusRequirements": [
-        "heat-source"
-      ],
+      "apparatusRequirements": [],
       "statePreconditions": [
         "container is being heated"
       ],
@@ -373,14 +366,13 @@
       "topicAction": true,
       "domainHandler": {
         "required": true,
-        "implemented": false,
-        "authority": null,
-        "result": "ACTION_UNSUPPORTED"
+        "implemented": true,
+        "authority": "procedure (heating ends; later evaluations use room conditions; no cooling model)"
       },
       "checker": null,
       "renderer": {
         "required": true,
-        "implemented": false,
+        "implemented": true,
         "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
       },
       "accessibility": [
@@ -624,24 +616,22 @@
           "valuesFrom": "profile.containers"
         }
       ],
-      "apparatusRequirements": [
-        "gas delivery tube"
-      ],
+      "apparatusRequirements": [],
       "statePreconditions": [
-        "a gas is being produced"
+        "a modeled gas exists in the source container",
+        "the target holds a substance"
       ],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
       "topicAction": true,
       "domainHandler": {
         "required": true,
-        "implemented": false,
-        "authority": null,
-        "result": "ACTION_UNSUPPORTED"
+        "implemented": true,
+        "authority": "ReactionMatcher (the gas + each substance of the target)"
       },
       "checker": null,
       "renderer": {
         "required": true,
-        "implemented": false,
+        "implemented": true,
         "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
       },
       "accessibility": [
@@ -675,26 +665,30 @@
           "type": "container",
           "required": true,
           "valuesFrom": "profile.containers"
+        },
+        {
+          "name": "from",
+          "type": "container",
+          "required": false,
+          "valuesFrom": "profile.containers"
         }
       ],
-      "apparatusRequirements": [
-        "gas collection vessel"
-      ],
+      "apparatusRequirements": [],
       "statePreconditions": [
-        "a gas is being produced"
+        "the target is a gas-collection vessel",
+        "a modeled gas exists in another container"
       ],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
       "topicAction": true,
       "domainHandler": {
         "required": true,
-        "implemented": false,
-        "authority": null,
-        "result": "ACTION_UNSUPPORTED"
+        "implemented": true,
+        "authority": "procedure: moves a gas that an authority produced (its identity comes from that authority)"
       },
       "checker": null,
       "renderer": {
         "required": true,
-        "implemented": false,
+        "implemented": true,
         "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
       },
       "accessibility": [
@@ -733,19 +727,20 @@
       "apparatusRequirements": [
         "stopper"
       ],
-      "statePreconditions": [],
+      "statePreconditions": [
+        "container not sealed yet"
+      ],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
       "topicAction": true,
       "domainHandler": {
         "required": true,
-        "implemented": false,
-        "authority": null,
-        "result": "ACTION_UNSUPPORTED"
+        "implemented": true,
+        "authority": "procedure only (sealed flag)"
       },
       "checker": null,
       "renderer": {
         "required": true,
-        "implemented": false,
+        "implemented": true,
         "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
       },
       "accessibility": [
@@ -929,14 +924,13 @@
       "topicAction": true,
       "domainHandler": {
         "required": true,
-        "implemented": false,
-        "authority": null,
-        "result": "ACTION_UNSUPPORTED"
+        "implemented": true,
+        "authority": "procedure only: no time model, nothing changes"
       },
       "checker": null,
       "renderer": {
         "required": true,
-        "implemented": false,
+        "implemented": true,
         "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
       },
       "accessibility": [

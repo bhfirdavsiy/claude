@@ -37,7 +37,12 @@ export const ORDER_MODES                     =['STRICT','FLEXIBLE','DEPENDENCY_G
                                                                                                     
                                                                                             
                               
+                                                                                                                      
+                                                                                                 
+                                                                                  
  
+/** P2.11: the heating the instruction states ("biroz qizdiring" → gently-heated); absent → generic 'heated' */
+                                                                                                          
                                                                                                              
                                 
             
@@ -48,6 +53,22 @@ export const ORDER_MODES                     =['STRICT','FLEXIBLE','DEPENDENCY_G
                    
                               
                        
+                                                                                                         
+                
+ 
+/** P2.11 closeout: one fixed trial the instruction prescribes (e.g. 7.10: “Mis qirindilari ustiga suyultirilgan HCl
+ *  quying”) — which substances go together and which operations the instruction states FOR THIS TRIAL. With trials, an
+ *  action outside them is ACTION_NOT_IN_INSTRUCTION_SCOPE: a fixed trial is never turned into a free sandbox. */
+                                   
+                                                                                                              
+                                                                                                                    
+                       
+ 
+/** P2.11 closeout: does reaching the completion goal finish the WHOLE instruction, or only the part this profile supports?
+ *  Derived from the instruction's own operations; `uncovered` lists every operation the profile does not offer. */
+                                  
+                                                
+                                                                                                                                                                                                                        
  
                                                                                                        
                                     
@@ -64,10 +85,15 @@ export const ORDER_MODES                     =['STRICT','FLEXIBLE','DEPENDENCY_G
                            
                                
                                                  
-                                           
+                                          
+                                                                                                                       
+                                                                 
                              
                                                                                                                             
                                                                                                                                                       
+                                                                            
+                                                                                                                    
+                                                                                                           
                                                                              
 
                                   
@@ -97,10 +123,14 @@ export const ORDER_MODES                     =['STRICT','FLEXIBLE','DEPENDENCY_G
                                     
                                                                                                                      
                                                                                          
-                                                                                
-                                                                                                              
+                                                                                                        
+                                                                                                             
+                                                                                                                         
+                                                                                                                      
+                                                                   
                                          
                                 
+                                  
                                                                                         
                                                                                                                 
                              
@@ -150,14 +180,42 @@ export function topicLabProfileProblems(raw        )         {
     if(!d||!text(d.question)||d.selected!==null) out.push('HUMAN_DECISION_PRESELECTED_OR_MISSING');
   }
   if(p.procedure?.mode==='STRICT'&&hasCycle(p.procedure.steps??[])) out.push('ORDER_CYCLE');
+  const trials=p.procedure?.trials??[];
+  if(!['INSTRUCTION_TRIALS','TOPIC'].includes(p.procedure?.scope)||(p.procedure?.scope==='INSTRUCTION_TRIALS')!==(trials.length>0)) out.push('PROCEDURE_SCOPE');
+  const trialIds=new Set(trials.map(t=>t.id));
+  if(trialIds.size!==trials.length) out.push('TRIAL_ID_DUPLICATE');
+  for(const t of trials){
+    if(!text(t.id)||!text(t.source)||!t.substances?.length||!t.families?.length||!t.instructionSteps?.length) out.push(`TRIAL:${String(t?.id)}`);
+    for(const x of t.substances??[]) if(!substances.has(x)) out.push(`TRIAL_SUBSTANCE_UNKNOWN:${t.id}:${x}`);
+    for(const f of t.families??[]) if(!(p.allowedFamilies??[]).includes(f)) out.push(`TRIAL_FAMILY_NOT_ALLOWED:${t.id}:${f}`);
+    for(const i of t.instructionSteps??[]) if(!p.instruction?.steps?.[i]) out.push(`TRIAL_INSTRUCTION_STEP:${t.id}:${i}`);
+    const bound=p.chemistry?.authority==='reaction-matcher'?p.chemistry.reactionIds:[];
+    if(!Array.isArray(t.reactionIds)) out.push(`TRIAL_REACTIONS:${t.id}`);
+    for(const r of t.reactionIds??[]) if(!bound.includes(r)) out.push(`TRIAL_REACTION_NOT_BOUND:${t.id}:${r}`);
+  }
+  for(const st of p.procedure?.steps??[]) if(st.trial!==undefined){
+    const t=trials.find(x=>x.id===st.trial);
+    if(!t) out.push(`STEP_TRIAL_UNKNOWN:${st.id}`);
+    else if(!t.families.includes(st.family)||(st.match.substance&&!t.substances.includes(st.match.substance))) out.push(`STEP_OUTSIDE_TRIAL:${st.id}`);
+  }
+  const cs=p.completionScope;
+  if(!cs||!['FULL_INSTRUCTION','PARTIAL_INSTRUCTION'].includes(cs.kind)||!Array.isArray(cs.uncovered)||(cs.kind==='FULL_INSTRUCTION')!==(cs.uncovered.length===0)) out.push('COMPLETION_SCOPE');
   if(p.procedure?.mode&&p.procedure.mode!=='HUMAN_DECISION_REQUIRED'&&!text(p.procedure.orderSource)) out.push('ORDER_SOURCE');
   for(const t of p.observationTargets??[]) if(!text(t.id)||!['ReactionMatcher','ElectrolysisModel','INSTRUCTION_TEXT'].includes(t.producedBy)||!text(t.source)) out.push(`OBSERVATION_TARGET:${String(t?.id)}`);
   const g=p.guidance;
   if(!g||!Array.isArray(g.levels)||!g.levels.includes(g.defaultLevel)||g.revealsFinalAnswer!==false) out.push('GUIDANCE');
-  if(!p.completionGoal||!['all-required-steps','ionic-target','observations'].includes(p.completionGoal.kind)) out.push('COMPLETION_GOAL');
+  if(!p.completionGoal||!['all-required-steps','ionic-target','observations','reactions'].includes(p.completionGoal.kind)) out.push('COMPLETION_GOAL');
+  if(p.completionGoal?.kind==='reactions'){
+    const bound=p.chemistry?.authority==='reaction-matcher'?p.chemistry.reactionIds:[];
+    if(!p.completionGoal.reactionIds.length) out.push('COMPLETION_REACTIONS_EMPTY');
+    for(const r of p.completionGoal.reactionIds) if(!bound.includes(r)) out.push(`COMPLETION_REACTION_NOT_BOUND:${r}`);
+  }
+  if(p.limits?.heating&&(!['heated','gently-heated','strongly-heated'].includes(p.limits.heating.level)||!text(p.limits.heating.source))) out.push('HEATING_LIMIT');
+  for(const s of p.substances??[]) for(const d of s.declaredConditions??[]) if(!text(d.dimension)||!text(d.value)||!text(d.source)) out.push(`SUBSTANCE_CONDITION:${s.id}`);
   if(p.completionGoal?.kind==='observations') for(const t of p.completionGoal.targets) if(!(p.observationTargets??[]).some(o=>o.id===t)) out.push(`COMPLETION_TARGET_UNKNOWN:${t}`);
   const c=p.chemistry                              ;
-  if(!c||!['ionic-mixing','electrolysis','dissolution'].includes(c.authority)) out.push('CHEMISTRY_BINDING');
+  if(!c||!['ionic-mixing','electrolysis','dissolution','reaction-matcher'].includes(c.authority)) out.push('CHEMISTRY_BINDING');
+  if(c?.authority==='reaction-matcher'&&(!strings(c.reactionIds)||!c.reactionIds.length)) out.push('CHEMISTRY_BINDING_REACTIONS');
   return out;
 }
 
@@ -186,13 +244,13 @@ export function assertTopicLabProfile(raw        )                {
                                                                  
                                     
                                                                                           
-                                             
-                                                                                                                                                                                                                                                                                                 
+                                                                     
+                                                                                                                                                                                                                                                                                                                            
                                          
-                                                                                                          
+                                                                                                                                                                       
                                                                
                                                                                                
-                                                                                                                                                    
+                                                                                                                                                                                   
                                           
  
 
@@ -243,12 +301,21 @@ export function compileTopicLabProfile(overlay                       ,src       
   }else if(overlay.chemistry.authority==='electrolysis'){
     if(!config.query||!text(config.query.electrolyte)) throw new Error(`TOPIC_LAB_PROFILE_ELECTROLYSIS_CONFIG:${overlay.profileId}`);
     chemistry={authority:'electrolysis',query:{...config.query},electrolyteSubstanceId:overlay.chemistry.electrolyteSubstanceId,source:`config(${src.configSource}).query`};
+  }else if(overlay.chemistry.authority==='reaction-matcher'){
+    // derived: the reaction records the config grounds the instruction steps on (never authored here)
+    const ids=[...new Set        ((config?.scenario?.steps??[]).flatMap((st    )=>st.reactionIds??(st.reactionId?[st.reactionId]:[])))];
+    if(!ids.length) throw new Error(`TOPIC_LAB_PROFILE_REACTIONS_NOT_GROUNDED:${overlay.profileId}`);
+    chemistry={authority:'reaction-matcher',reactionIds:ids,source:`config(${src.configSource}).scenario.steps[].reactionIds`};
   }else{
     chemistry={authority:'dissolution',solventSubstanceId:overlay.chemistry.solventSubstanceId,source:'IonicEngine.dissociate (chemistry/solubility.json)'};
   }
   const completionGoal               =overlay.completionGoal.kind==='ionic-target'
     ?{kind:'ionic-target',targetReactionId:(chemistry       ).targetReactionId}
-    :overlay.completionGoal.kind==='observations'?{kind:'observations',targets:[...overlay.completionGoal.targets]}:{kind:'all-required-steps'};
+    :overlay.completionGoal.kind==='observations'?{kind:'observations',targets:[...overlay.completionGoal.targets]}
+    :overlay.completionGoal.kind==='reactions'?{kind:'reactions',reactionIds:[...overlay.completionGoal.reactionIds],gasCollected:overlay.completionGoal.gasCollected}
+    :{kind:'all-required-steps'};
+  const trials=(overlay.procedure.trials??[]).map(t=>({...t,instructionSteps:[...t.instructionSteps],substances:[...t.substances],families:[...t.families],reactionIds:[...t.reactionIds]}));
+  const completionScope=deriveCompletionScope(steps,overlay.allowedFamilies,procedureSteps,trials);
   const safetyNotes=[...(legacy.safety?[{text:legacy.safety,source:'legacyContent.safety'}]:[]),...(Array.isArray(config.safetyNotes)?config.safetyNotes.map((t       )=>({text:t,source:'config.safetyNotes'})):[]),...overlay.safety.notes];
   const profile                ={
     schema:TOPIC_LAB_PROFILE_SCHEMA,
@@ -265,14 +332,35 @@ export function compileTopicLabProfile(overlay                       ,src       
     initialState:{setUp:[...overlay.initialState.setUp],contents:Object.fromEntries(Object.entries(overlay.initialState.contents).map(([k,v])=>[k,[...v]]))},
     allowedFamilies:[...overlay.allowedFamilies],
     familyApparatus:Object.fromEntries(Object.entries(overlay.familyApparatus??{}).map(([k,v])=>[k,{kinds:[...v .kinds],source:v .source}])),
-    limits:{quantities:overlay.limits.quantities.map(q=>({...q})),electrodes:chemistry.authority==='electrolysis'?[chemistry.query.electrode]:[]},
-    procedure:{mode:overlay.procedure.mode,steps:procedureSteps,humanDecision,orderSource:overlay.procedure.orderSource},
+    limits:{quantities:overlay.limits.quantities.map(q=>({...q})),electrodes:chemistry.authority==='electrolysis'?[chemistry.query.electrode]:[],...(overlay.limits.heating?{heating:{...overlay.limits.heating}}:{})},
+    procedure:{mode:overlay.procedure.mode,steps:procedureSteps,humanDecision,orderSource:overlay.procedure.orderSource,scope:trials.length?'INSTRUCTION_TRIALS':'TOPIC',...(trials.length?{trials}:{})},
     observationTargets:overlay.observationTargets.map(t=>({...t})),
     completionGoal,
+    completionScope,
     guidance:{levels:[...overlay.guidance.levels],defaultLevel:overlay.guidance.defaultLevel,revealsFinalAnswer:false},
     safety:{virtualOnly:true,notes:safetyNotes,forbiddenFamilies:[...overlay.safety.forbiddenFamilies]},
     chemistry,
     gaps:overlay.gaps.map(g=>({...g})),
   };
   return assertTopicLabProfile(profile);
+}
+
+/** P2.11 closeout: which of the instruction's own operations this profile offers. An operation is covered when its family
+ *  is a topic action (and, with trials, stated for a trial of that instruction step); an observation is covered when the
+ *  instruction step it belongs to is carried by the profile's procedure; control and safety rules are not actions.
+ *  Anything else makes the completion PARTIAL_INSTRUCTION — reaching the goal then never claims the whole lab. */
+export function deriveCompletionScope(steps                                        ,allowed                  ,procedure                ,trials                   )                {
+  const uncovered                             =[];
+  for(const st of steps) for(const op of st.operations){
+    const f=op.family;
+    if(!f||op.status!=='MAPPED'){ uncovered.push({instructionStep:st.index,verb:op.verb,family:null,reason:'AMBIGUOUS_OR_UNMAPPED'}); continue; }
+    const kind=familyKind(f);
+    if(kind==='CONTROL'||kind==='SAFETY_RULE') continue;
+    if(kind==='LEARNER_RESPONSE'){ if(!allowed.includes(f)) uncovered.push({instructionStep:st.index,verb:op.verb,family:f,reason:'LEARNER_RESPONSE_NOT_OFFERED'}); continue; }
+    // with trials an observation is produced only where a bound record models that trial (Cu + HCl: none)
+    if(f==='OBSERVE'){ const produced=allowed.includes(f)||(trials.length?trials.some(t=>t.instructionSteps.includes(st.index)&&t.reactionIds.length>0):procedure.some(p=>p.instructionStep===st.index)); if(!produced) uncovered.push({instructionStep:st.index,verb:op.verb,family:f,reason:'OBSERVATION_NOT_PRODUCED'}); continue; }
+    if(!allowed.includes(f)){ uncovered.push({instructionStep:st.index,verb:op.verb,family:f,reason:'NOT_OFFERED'}); continue; }
+    if(trials.length&&!trials.some(t=>t.instructionSteps.includes(st.index)&&t.families.includes(f))) uncovered.push({instructionStep:st.index,verb:op.verb,family:f,reason:'NOT_OFFERED_FOR_THIS_TRIAL'});
+  }
+  return {kind:uncovered.length?'PARTIAL_INSTRUCTION':'FULL_INSTRUCTION',uncovered};
 }
