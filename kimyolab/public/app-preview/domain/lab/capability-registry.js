@@ -102,6 +102,11 @@ export function buildCapabilityRegistry(data             )                   {
   };
 }
 
+/** The formulas WRITTEN in an instruction text (P2.11 coverage, P2.12 Content Studio): multi-element formulas and the
+ *  single-element symbols used in the instruction corpus. Uzbek names are never turned into formulas. */
+export const FORMULA_TOKEN=/\b(?:[A-Z][a-z]?\d*){2,}\b|\b(?:Mg|Zn|Cu|Fe|Al|Ag|Na|Ca|K|S|C|P)\b(?=[\s,.;)]|$)/g;
+export const formulasInText=(text       )=>[...new Set        (String(text).match(FORMULA_TOKEN)??[])].sort();
+
 /** formula → the species and the authorities that know it (unknown stays explicit, never guessed) */
 export function resolveSubstance(registry                   ,formula       ){
   const hits=registry.species.filter(s=>s.formula===formula);

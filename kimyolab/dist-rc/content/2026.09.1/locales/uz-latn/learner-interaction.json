@@ -515,6 +515,15 @@
     "ui.dlab-partial-notice": "Bu laboratoriya yo‘riqnomaning faqat bir qismini qo‘llab-quvvatlaydi. Qolgan qadamlarni odatdagi amaliy mashg‘ulotda bajaring.",
     "ui.dlab-err-ACTION_NOT_IN_INSTRUCTION_SCOPE": "Yo‘riqnoma bu amalni shu tajriba uchun ko‘rsatmagan, shuning uchun u bajarilmaydi.",
     "ui.dlab-reason-COMBINATION_NOT_IN_INSTRUCTION": "Yo‘riqnomada bu moddalar bir idishda birga ishlatilmaydi.",
-    "ui.dlab-reason-NOT_STATED_FOR_THIS_TRIAL": "Yo‘riqnoma bu idishdagi tajriba uchun bunday amalni ko‘rsatmagan."
+    "ui.dlab-reason-NOT_STATED_FOR_THIS_TRIAL": "Yo‘riqnoma bu idishdagi tajriba uchun bunday amalni ko‘rsatmagan.",
+    "ui.excerpt-kicker": "Darslikdan o‘qish",
+    "ui.excerpt-source": "Manba",
+    "ui.excerpt-pages": "Darslikdagi sahifalar",
+    "ui.excerpt-file": "Fayl",
+    "ui.excerpt-file-size": "PDF, taxminan {kb} KB",
+    "ui.excerpt-open": "Darslik qismini ochish",
+    "ui.excerpt-viewer": "Darslik qismi: {title}",
+    "ui.excerpt-download": "PDF faylni yuklab olish",
+    "ui.excerpt-note": "Bu darslikdan olingan qism. U faqat bosganingizda yuklanadi."
   }
 }

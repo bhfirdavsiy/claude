@@ -225,7 +225,8 @@ test('reports: generator-equal; readiness P2.11; no migration; human decisions o
   for(const id of ['practice.experiment.7.10','practice.experiment.8.14']){ const s=eq.slices.find(x=>x.activityId===id); assert.equal(Object.keys(s.dimensions).length,8); assert.equal(s.newOnly.replayDeterministic,true); }
   const b=r.bundleDelta;
   assert.equal(b.cumulativeSince,'P2.9');
-  for(const k of ['learnerModules','learnerModuleBytes','standaloneBytes']) assert.equal(b.phases['P2.10'][k]+b.phases['P2.11'][k],b.delta[k],k);
+  // P2.12: the cumulative delta now also carries P2.12's own growth (the learner excerpt renderer), recorded as its own phase
+  for(const k of ['learnerModules','learnerModuleBytes','standaloneBytes']) assert.equal(b.phases['P2.10'][k]+b.phases['P2.11'][k]+(b.phases['P2.12']?.[k]??0),b.delta[k],k);
   const cov=json(LAB_REPORTS.coverage);
   assert.equal(cov.p211.before.summary.PROFILED,3); assert.equal(cov.p211.after.summary.PROFILED,5);
 });

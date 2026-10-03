@@ -9,3 +9,4 @@ node_modules/
 /authoring-output/
 /dist-deploy/
 /reports/ci-environment.observed.json
+/dist-studio/
