@@ -12,7 +12,7 @@
 // repository does not already state. compileTopicLabProfile() takes the instruction steps, safety text, source refs,
 // learning units, activity/config versions, reagent shelf, target reaction, electrolysis query and declared step
 // dependencies from the existing content and config.
-import {classifyInstructionStep,LAB_ACTION_FAMILIES,type InstructionOperation,type LabActionFamily} from './action-catalog.ts';
+import {classifyInstructionStep,familyKind,LAB_ACTION_FAMILIES,TOPIC_ACTION_KINDS,type InstructionOperation,type LabActionFamily} from './action-catalog.ts';
 
 export const TOPIC_LAB_PROFILE_SCHEMA='kimyolab.topic-lab-profile.v1';
 export const TOPIC_LAB_PROFILE_PACK_PATH='topic-lab-profiles.json';
@@ -127,6 +127,8 @@ export function topicLabProfileProblems(raw:unknown):string[]{
   for(const s of p.substances??[]) if(!text(s.id)||!text(s.labelKey)||!text(s.source)||!['reagent','solvent','sample'].includes(s.role)||!Array.isArray(s.undeclaredParts)) out.push(`SUBSTANCE:${String(s?.id)}`);
   if(!Array.isArray(p.allowedFamilies)||!p.allowedFamilies.length) out.push('ALLOWED_FAMILIES');
   for(const f of p.allowedFamilies??[]) if(!FAMILIES.has(f)) out.push(`FAMILY_UNKNOWN:${f}`);
+    // P2.10 closeout: RESET is lab-level control and a prohibition is not an action — neither is a topic action
+    else if(!TOPIC_ACTION_KINDS.has(familyKind(f))) out.push(`FAMILY_NOT_A_TOPIC_ACTION:${f}`);
   for(const f of p.safety?.forbiddenFamilies??[]) if((p.allowedFamilies??[]).includes(f)) out.push(`FAMILY_ALLOWED_AND_FORBIDDEN:${f}`);
   if(p.safety?.virtualOnly!==true) out.push('SAFETY_VIRTUAL_ONLY');
   const kinds=new Set((p.apparatus??[]).map(a=>a.kind));

@@ -235,7 +235,7 @@ export function renderDynamicLab(root:HTMLElement,page:StudentPracticePageModel,
       const detail=opt(`ui.dlab-reason-${r.error.detail}`);
       return detail?`${base} ${detail}`:base;
     }
-    if(r.unsupported){ const detail=opt(`ui.dlab-reason-${r.unsupported.detail}`); return `${t.ui(r.unsupported.code==='UNSUPPORTED_CHEMISTRY'?'ui.dlab-unsupported-chemistry':'ui.dlab-unsupported-action')}${detail?` ${detail}`:''}`; }
+    if(r.unsupported){ const detail=opt(`ui.dlab-reason-${r.unsupported.detail}`); const key=r.unsupported.code==='UNSUPPORTED_CHEMISTRY'?'ui.dlab-unsupported-chemistry':r.unsupported.code==='LEARNER_RESPONSE_CHECKER_MISSING'?'ui.dlab-unsupported-response':'ui.dlab-unsupported-action'; return `${t.ui(key)}${detail?` ${detail}`:''}`; }
     const parts=[t.ui('ui.dlab-accepted',{action:actionText(a)})];
     const consequence=opt(`ui.dlab-reason-${r.guidance.code}`); if(consequence) parts.push(consequence);
     for(const o of r.observations) parts.push(observationText(o));
@@ -289,8 +289,8 @@ export function renderDynamicLab(root:HTMLElement,page:StudentPracticePageModel,
     clear(obsList); clear(sources);
     obsEmpty.hidden=state.observations.length>0;
     for(const o of state.observations){
-      obsList.append(el('li',{text:observationText(o),attrs:{'data-observation-kind':o.kind,'data-produced-by':o.producedBy}}));
-      sources.append(el('li',{text:`${observationText(o)} — ${t.ui('ui.dlab-why-source',{source:sourceText(o)})}`}));
+      obsList.append(el('li',{text:observationText(o),attrs:{'data-observation-kind':o.kind,'data-produced-by':o.producedBy,'data-grounding':o.grounding}}));
+      sources.append(el('li',{text:`${observationText(o)} — ${t.ui('ui.dlab-why-source',{source:sourceText(o)})}`,attrs:{'data-grounding':o.grounding}}));
     }
   }
 

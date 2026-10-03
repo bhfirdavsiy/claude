@@ -189,8 +189,7 @@
       "allowedFamilies": [
         "ADD_SUBSTANCE",
         "MIX",
-        "RECORD",
-        "WASH"
+        "RECORD"
       ],
       "familyApparatus": {},
       "limits": {
@@ -265,8 +264,8 @@
           "detail": "Six problems; only problem 2 (\"natriy xlorid ekanini … isbotlang\") is grounded, by the config target rxn.agno3-nacl. Problems 1 and 3–6 are not offered."
         },
         {
-          "code": "ACTION_FROM_RUNTIME_NOT_INSTRUCTION",
-          "detail": "WASH (empty a tube) is not in the instruction. It keeps the existing runtime's behaviour, which lets the learner mix any number of reagent pairs."
+          "code": "PAIRS_PER_ATTEMPT_LIMITED_BY_CONTAINERS",
+          "detail": "The instruction neither contains nor authorizes WASH, so it is not offered (ACTION_NOT_ALLOWED_IN_TOPIC). One attempt can mix one pair per tube (two tubes). To test another pair, the learner uses the lab-level RESET, which restores the initial state and is not chemistry. The existing runtime let a learner mix any number of pairs in one attempt; that convenience is not reproduced."
         }
       ]
     },

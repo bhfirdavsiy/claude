@@ -1,13 +1,59 @@
 {
   "schema": "kimyolab.lab-action-catalog.v1",
   "phase": "P2.10",
-  "semantics": "Canonical action families of the guided dynamic lab. Derived from the instruction steps (verb lexicon) and the explicit config action types of the existing runtimes. A family is offered in a topic only through its topic lab profile; domainHandler.implemented=false means the dynamic lab answers ACTION_UNSUPPORTED (fail closed).",
+  "semantics": "Canonical action families of the guided dynamic lab, each with an operation KIND: STATE_ACTION (may change LabState; needs a domain/procedure handler, else ACTION_UNSUPPORTED), OBSERVATION_ACTION (inspects an existing state/event; never produces an outcome), LEARNER_RESPONSE (pedagogical response; needs a checker, else LEARNER_RESPONSE_CHECKER_MISSING — never a missing chemistry handler), CONTROL (lab-level, e.g. RESET) and SAFETY_RULE (an instruction prohibition, not an action). Derived from the instruction steps (verb lexicon) and the explicit config action types of the existing runtimes. Only STATE/OBSERVATION/LEARNER_RESPONSE families can be offered, and only through a topic lab profile.",
   "summary": {
-    "families": 29,
-    "withDomainHandler": 9,
-    "derivedFromRepository": 29,
+    "families": 31,
+    "byKind": {
+      "STATE_ACTION": [
+        "SETUP_APPARATUS",
+        "ADD_SUBSTANCE",
+        "TRANSFER",
+        "MIX",
+        "HEAT",
+        "STOP_HEAT",
+        "EVAPORATE",
+        "FILTER",
+        "SETTLE",
+        "SEPARATE",
+        "PASS_GAS",
+        "COLLECT_GAS",
+        "SEAL",
+        "IGNITE",
+        "BRING_NEAR",
+        "ELECTRIC_CURRENT",
+        "WAIT",
+        "PREPARE_SUBSTANCE",
+        "WASH",
+        "REPEAT"
+      ],
+      "OBSERVATION_ACTION": [
+        "OBSERVE",
+        "TEST"
+      ],
+      "LEARNER_RESPONSE": [
+        "COMPARE",
+        "INFER",
+        "RECORD",
+        "EXPLAIN",
+        "SELECT",
+        "STUDY"
+      ],
+      "CONTROL": [
+        "RESET",
+        "CONTINUE"
+      ],
+      "SAFETY_RULE": [
+        "SAFETY_PROHIBITION"
+      ]
+    },
+    "withDomainHandler": 8,
+    "learnerResponsesWithChecker": [
+      "RECORD"
+    ],
+    "derivedFromRepository": 30,
     "operations": 350,
-    "unmappedOperations": 1,
+    "unmappedOperations": 0,
     "genericStepActionTypes": 176,
     "unknownConfigActionTypes": []
   },
@@ -15,6 +61,7 @@
     {
       "id": "lab.setup",
       "family": "SETUP_APPARATUS",
+      "kind": "STATE_ACTION",
       "parameters": [
         {
           "name": "apparatus",
@@ -28,11 +75,13 @@
         "apparatus listed by the topic profile"
       ],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
         "required": true,
         "implemented": true,
         "authority": null
       },
+      "checker": null,
       "renderer": {
         "required": true,
         "implemented": true,
@@ -64,6 +113,7 @@
     {
       "id": "lab.add",
       "family": "ADD_SUBSTANCE",
+      "kind": "STATE_ACTION",
       "parameters": [
         {
           "name": "substance",
@@ -93,11 +143,13 @@
         "quantity within the declared limit (when declared)"
       ],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
         "required": true,
         "implemented": true,
         "authority": "SpeciesRegistry + IonicEngine.dissociate; ReactionMatcher via evaluateIonicMixing when two solutions meet"
       },
+      "checker": null,
       "renderer": {
         "required": true,
         "implemented": true,
@@ -136,6 +188,7 @@
     {
       "id": "lab.transfer",
       "family": "TRANSFER",
+      "kind": "STATE_ACTION",
       "parameters": [
         {
           "name": "from",
@@ -157,12 +210,14 @@
         "source container has contents"
       ],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
         "required": true,
         "implemented": false,
         "authority": null,
         "result": "ACTION_UNSUPPORTED"
       },
+      "checker": null,
       "renderer": {
         "required": true,
         "implemented": false,
@@ -190,6 +245,7 @@
     {
       "id": "lab.mix",
       "family": "MIX",
+      "kind": "STATE_ACTION",
       "parameters": [
         {
           "name": "container",
@@ -203,11 +259,13 @@
         "two solutions in the container (ionic mixing) or a solvent and a sample (dissolution)"
       ],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
         "required": true,
         "implemented": true,
         "authority": "evaluateIonicMixing (ReactionMatcher) or IonicEngine.dissociate (dissolution of a declared solute)"
       },
+      "checker": null,
       "renderer": {
         "required": true,
         "implemented": true,
@@ -240,6 +298,7 @@
     {
       "id": "lab.heat",
       "family": "HEAT",
+      "kind": "STATE_ACTION",
       "parameters": [
         {
           "name": "container",
@@ -256,12 +315,14 @@
         "container has contents"
       ],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
         "required": true,
         "implemented": false,
         "authority": null,
         "result": "ACTION_UNSUPPORTED"
       },
+      "checker": null,
       "renderer": {
         "required": true,
         "implemented": false,
@@ -293,6 +354,7 @@
     {
       "id": "lab.stop-heat",
       "family": "STOP_HEAT",
+      "kind": "STATE_ACTION",
       "parameters": [
         {
           "name": "container",
@@ -308,12 +370,14 @@
         "container is being heated"
       ],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
         "required": true,
         "implemented": false,
         "authority": null,
         "result": "ACTION_UNSUPPORTED"
       },
+      "checker": null,
       "renderer": {
         "required": true,
         "implemented": false,
@@ -341,6 +405,7 @@
     {
       "id": "lab.evaporate",
       "family": "EVAPORATE",
+      "kind": "STATE_ACTION",
       "parameters": [
         {
           "name": "container",
@@ -357,11 +422,13 @@
         "container holds a filtrate (solution)"
       ],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
         "required": true,
         "implemented": true,
         "authority": "procedure only: the observation comes from the instruction text (no evaporation model exists)"
       },
+      "checker": null,
       "renderer": {
         "required": true,
         "implemented": true,
@@ -389,6 +456,7 @@
     {
       "id": "lab.filter",
       "family": "FILTER",
+      "kind": "STATE_ACTION",
       "parameters": [
         {
           "name": "container",
@@ -407,11 +475,13 @@
         "filter set up"
       ],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
         "required": true,
         "implemented": true,
         "authority": "procedure only: separates the declared insoluble part from the solution"
       },
+      "checker": null,
       "renderer": {
         "required": true,
         "implemented": true,
@@ -441,6 +511,7 @@
     {
       "id": "lab.settle",
       "family": "SETTLE",
+      "kind": "STATE_ACTION",
       "parameters": [
         {
           "name": "container",
@@ -454,12 +525,14 @@
         "container has a suspension"
       ],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
         "required": true,
         "implemented": false,
         "authority": null,
         "result": "ACTION_UNSUPPORTED"
       },
+      "checker": null,
       "renderer": {
         "required": true,
         "implemented": false,
@@ -485,6 +558,7 @@
     {
       "id": "lab.separate",
       "family": "SEPARATE",
+      "kind": "STATE_ACTION",
       "parameters": [
         {
           "name": "container",
@@ -498,12 +572,14 @@
         "container has more than one phase"
       ],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
         "required": true,
         "implemented": false,
         "authority": null,
         "result": "ACTION_UNSUPPORTED"
       },
+      "checker": null,
       "renderer": {
         "required": true,
         "implemented": false,
@@ -516,8 +592,8 @@
         "no drag required"
       ],
       "coverage": {
-        "instructionOperations": 7,
-        "ambiguousOperations": 0,
+        "instructionOperations": 8,
+        "ambiguousOperations": 1,
         "configActionTypes": [],
         "activities": 7,
         "exampleActivities": [
@@ -533,6 +609,7 @@
     {
       "id": "lab.pass-gas",
       "family": "PASS_GAS",
+      "kind": "STATE_ACTION",
       "parameters": [
         {
           "name": "from",
@@ -554,12 +631,14 @@
         "a gas is being produced"
       ],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
         "required": true,
         "implemented": false,
         "authority": null,
         "result": "ACTION_UNSUPPORTED"
       },
+      "checker": null,
       "renderer": {
         "required": true,
         "implemented": false,
@@ -589,6 +668,7 @@
     {
       "id": "lab.collect-gas",
       "family": "COLLECT_GAS",
+      "kind": "STATE_ACTION",
       "parameters": [
         {
           "name": "container",
@@ -604,12 +684,14 @@
         "a gas is being produced"
       ],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
         "required": true,
         "implemented": false,
         "authority": null,
         "result": "ACTION_UNSUPPORTED"
       },
+      "checker": null,
       "renderer": {
         "required": true,
         "implemented": false,
@@ -639,6 +721,7 @@
     {
       "id": "lab.seal",
       "family": "SEAL",
+      "kind": "STATE_ACTION",
       "parameters": [
         {
           "name": "container",
@@ -652,12 +735,14 @@
       ],
       "statePreconditions": [],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
         "required": true,
         "implemented": false,
         "authority": null,
         "result": "ACTION_UNSUPPORTED"
       },
+      "checker": null,
       "renderer": {
         "required": true,
         "implemented": false,
@@ -686,6 +771,7 @@
     {
       "id": "lab.ignite",
       "family": "IGNITE",
+      "kind": "STATE_ACTION",
       "parameters": [
         {
           "name": "target",
@@ -701,12 +787,14 @@
         "safety rule of the topic allows it"
       ],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
         "required": true,
         "implemented": false,
         "authority": null,
         "result": "ACTION_UNSUPPORTED"
       },
+      "checker": null,
       "renderer": {
         "required": true,
         "implemented": false,
@@ -732,6 +820,7 @@
     {
       "id": "lab.bring-near",
       "family": "BRING_NEAR",
+      "kind": "STATE_ACTION",
       "parameters": [
         {
           "name": "target",
@@ -743,12 +832,14 @@
       "apparatusRequirements": [],
       "statePreconditions": [],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
         "required": true,
         "implemented": false,
         "authority": null,
         "result": "ACTION_UNSUPPORTED"
       },
+      "checker": null,
       "renderer": {
         "required": true,
         "implemented": false,
@@ -777,6 +868,7 @@
     {
       "id": "lab.current",
       "family": "ELECTRIC_CURRENT",
+      "kind": "STATE_ACTION",
       "parameters": [
         {
           "name": "container",
@@ -794,11 +886,13 @@
         "electrodes inserted"
       ],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
         "required": true,
         "implemented": true,
         "authority": "ElectrolysisModel.resolve (electrolyte, phase, electrode)"
       },
+      "checker": null,
       "renderer": {
         "required": true,
         "implemented": true,
@@ -827,16 +921,19 @@
     {
       "id": "lab.wait",
       "family": "WAIT",
+      "kind": "STATE_ACTION",
       "parameters": [],
       "apparatusRequirements": [],
       "statePreconditions": [],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
         "required": true,
         "implemented": false,
         "authority": null,
         "result": "ACTION_UNSUPPORTED"
       },
+      "checker": null,
       "renderer": {
         "required": true,
         "implemented": false,
@@ -862,6 +959,7 @@
     {
       "id": "lab.observe",
       "family": "OBSERVE",
+      "kind": "OBSERVATION_ACTION",
       "parameters": [
         {
           "name": "target",
@@ -875,11 +973,13 @@
         "the observed process has happened in the state"
       ],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
         "required": true,
         "implemented": true,
         "authority": "the authority that produced the state (ReactionMatcher record, ElectrolysisModel record, instruction text)"
       },
+      "checker": null,
       "renderer": {
         "required": true,
         "implemented": true,
@@ -914,6 +1014,7 @@
     {
       "id": "lab.test",
       "family": "TEST",
+      "kind": "OBSERVATION_ACTION",
       "parameters": [
         {
           "name": "target",
@@ -925,12 +1026,14 @@
       "apparatusRequirements": [],
       "statePreconditions": [],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
         "required": true,
         "implemented": false,
         "authority": null,
         "result": "ACTION_UNSUPPORTED"
       },
+      "checker": null,
       "renderer": {
         "required": true,
         "implemented": false,
@@ -960,15 +1063,19 @@
     {
       "id": "lab.compare",
       "family": "COMPARE",
+      "kind": "LEARNER_RESPONSE",
       "parameters": [],
       "apparatusRequirements": [],
       "statePreconditions": [],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
-        "required": true,
+        "required": false,
+        "reason": "a learner response never changes LabState; it needs a checker, a rubric or a human/content decision"
+      },
+      "checker": {
         "implemented": false,
-        "authority": null,
-        "result": "ACTION_UNSUPPORTED"
+        "result": "LEARNER_RESPONSE_CHECKER_MISSING"
       },
       "renderer": {
         "required": true,
@@ -999,15 +1106,19 @@
     {
       "id": "lab.infer",
       "family": "INFER",
+      "kind": "LEARNER_RESPONSE",
       "parameters": [],
       "apparatusRequirements": [],
       "statePreconditions": [],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
-        "required": true,
+        "required": false,
+        "reason": "a learner response never changes LabState; it needs a checker, a rubric or a human/content decision"
+      },
+      "checker": {
         "implemented": false,
-        "authority": null,
-        "result": "ACTION_UNSUPPORTED"
+        "result": "LEARNER_RESPONSE_CHECKER_MISSING"
       },
       "renderer": {
         "required": true,
@@ -1038,6 +1149,7 @@
     {
       "id": "lab.record",
       "family": "RECORD",
+      "kind": "LEARNER_RESPONSE",
       "parameters": [
         {
           "name": "text",
@@ -1051,10 +1163,14 @@
         "a modeled reaction was observed"
       ],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
-        "required": true,
+        "required": false,
+        "reason": "a learner response never changes LabState; it needs a checker, a rubric or a human/content decision"
+      },
+      "checker": {
         "implemented": true,
-        "authority": "IonicEngine.netIonicEquation + compareNetIonic (via evaluateIonicMixing)"
+        "checker": "net ionic equation: IonicEngine.netIonicEquation + compareNetIonic (ionic-mixing topics only)"
       },
       "renderer": {
         "required": true,
@@ -1087,6 +1203,7 @@
     {
       "id": "lab.explain",
       "family": "EXPLAIN",
+      "kind": "LEARNER_RESPONSE",
       "parameters": [
         {
           "name": "text",
@@ -1098,11 +1215,14 @@
       "apparatusRequirements": [],
       "statePreconditions": [],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
-        "required": true,
+        "required": false,
+        "reason": "a learner response never changes LabState; it needs a checker, a rubric or a human/content decision"
+      },
+      "checker": {
         "implemented": false,
-        "authority": null,
-        "result": "ACTION_UNSUPPORTED"
+        "result": "LEARNER_RESPONSE_CHECKER_MISSING"
       },
       "renderer": {
         "required": true,
@@ -1133,6 +1253,7 @@
     {
       "id": "lab.prepare",
       "family": "PREPARE_SUBSTANCE",
+      "kind": "STATE_ACTION",
       "parameters": [
         {
           "name": "substance",
@@ -1144,12 +1265,14 @@
       "apparatusRequirements": [],
       "statePreconditions": [],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
         "required": true,
         "implemented": false,
         "authority": null,
         "result": "ACTION_UNSUPPORTED"
       },
+      "checker": null,
       "renderer": {
         "required": true,
         "implemented": false,
@@ -1182,6 +1305,7 @@
     {
       "id": "lab.wash",
       "family": "WASH",
+      "kind": "STATE_ACTION",
       "parameters": [
         {
           "name": "container",
@@ -1195,11 +1319,13 @@
         "container is not empty"
       ],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
         "required": true,
         "implemented": true,
         "authority": null
       },
+      "checker": null,
       "renderer": {
         "required": true,
         "implemented": true,
@@ -1225,6 +1351,7 @@
     {
       "id": "lab.select",
       "family": "SELECT",
+      "kind": "LEARNER_RESPONSE",
       "parameters": [
         {
           "name": "substance",
@@ -1236,11 +1363,14 @@
       "apparatusRequirements": [],
       "statePreconditions": [],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
-        "required": true,
+        "required": false,
+        "reason": "a learner response never changes LabState; it needs a checker, a rubric or a human/content decision"
+      },
+      "checker": {
         "implemented": false,
-        "authority": null,
-        "result": "ACTION_UNSUPPORTED"
+        "result": "LEARNER_RESPONSE_CHECKER_MISSING"
       },
       "renderer": {
         "required": true,
@@ -1270,15 +1400,19 @@
     {
       "id": "lab.study",
       "family": "STUDY",
+      "kind": "LEARNER_RESPONSE",
       "parameters": [],
       "apparatusRequirements": [],
       "statePreconditions": [],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
-        "required": true,
+        "required": false,
+        "reason": "a learner response never changes LabState; it needs a checker, a rubric or a human/content decision"
+      },
+      "checker": {
         "implemented": false,
-        "authority": null,
-        "result": "ACTION_UNSUPPORTED"
+        "result": "LEARNER_RESPONSE_CHECKER_MISSING"
       },
       "renderer": {
         "required": true,
@@ -1306,16 +1440,19 @@
     {
       "id": "lab.repeat",
       "family": "REPEAT",
+      "kind": "STATE_ACTION",
       "parameters": [],
       "apparatusRequirements": [],
       "statePreconditions": [],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
       "domainHandler": {
         "required": true,
         "implemented": false,
         "authority": null,
         "result": "ACTION_UNSUPPORTED"
       },
+      "checker": null,
       "renderer": {
         "required": true,
         "implemented": false,
@@ -1328,13 +1465,82 @@
         "no drag required"
       ],
       "coverage": {
-        "instructionOperations": 2,
+        "instructionOperations": 1,
         "ambiguousOperations": 0,
         "configActionTypes": [],
-        "activities": 2,
+        "activities": 1,
         "exampleActivities": [
-          "practice.experiment.10.7",
           "practice.experiment.8.6"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.reset",
+      "family": "RESET",
+      "kind": "CONTROL",
+      "parameters": [],
+      "apparatusRequirements": [],
+      "statePreconditions": [],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": false,
+      "domainHandler": {
+        "required": false,
+        "reason": "lab-level control (RESET = runtime.reset(profile)); never chemistry"
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": false,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 0,
+        "ambiguousOperations": 0,
+        "configActionTypes": [],
+        "activities": 0,
+        "exampleActivities": []
+      },
+      "evidence": "DECLARED_WITHOUT_OCCURRENCE"
+    },
+    {
+      "id": "lab.safety-prohibition",
+      "family": "SAFETY_PROHIBITION",
+      "kind": "SAFETY_RULE",
+      "parameters": [],
+      "apparatusRequirements": [],
+      "statePreconditions": [],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": false,
+      "domainHandler": {
+        "required": false,
+        "reason": "a prohibition in the instruction text; carried as a safety note, never offered as an action"
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": false,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 1,
+        "ambiguousOperations": 0,
+        "configActionTypes": [],
+        "activities": 1,
+        "exampleActivities": [
+          "practice.experiment.7.1"
         ]
       },
       "evidence": "DERIVED_FROM_REPOSITORY"
@@ -1342,16 +1548,17 @@
     {
       "id": "lab.continue",
       "family": "CONTINUE",
+      "kind": "CONTROL",
       "parameters": [],
       "apparatusRequirements": [],
       "statePreconditions": [],
       "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": false,
       "domainHandler": {
-        "required": true,
-        "implemented": false,
-        "authority": null,
-        "result": "ACTION_UNSUPPORTED"
+        "required": false,
+        "reason": "lab-level control (RESET = runtime.reset(profile)); never chemistry"
       },
+      "checker": null,
       "renderer": {
         "required": true,
         "implemented": false,
@@ -1396,8 +1603,8 @@
     },
     {
       "verb": "bajaring",
-      "family": "REPEAT",
-      "ambiguous": false,
+      "family": "SEPARATE",
+      "ambiguous": true,
       "occurrences": 1
     },
     {
@@ -1603,6 +1810,12 @@
       "family": "PREPARE_SUBSTANCE",
       "ambiguous": false,
       "occurrences": 10
+    },
+    {
+      "verb": "qaratmang",
+      "family": "SAFETY_PROHIBITION",
+      "ambiguous": false,
+      "occurrences": 1
     },
     {
       "verb": "qiling",
@@ -1942,15 +2155,7 @@
     }
   ],
   "gaps": {
-    "unmappedOperations": [
-      {
-        "verb": "qaratmang",
-        "occurrences": 1,
-        "activities": [
-          "practice.experiment.7.1"
-        ]
-      }
-    ],
+    "unmappedOperations": [],
     "genericStepActions": "guided.step.N / step.N carry no operation; their label text is classified by the lexicon instead"
   }
 }

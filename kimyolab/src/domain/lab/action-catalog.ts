@@ -14,7 +14,36 @@
 export type LabActionFamily=
   |'SETUP_APPARATUS'|'ADD_SUBSTANCE'|'TRANSFER'|'MIX'|'HEAT'|'STOP_HEAT'|'EVAPORATE'|'FILTER'|'SETTLE'|'SEPARATE'
   |'PASS_GAS'|'COLLECT_GAS'|'SEAL'|'IGNITE'|'BRING_NEAR'|'ELECTRIC_CURRENT'|'WAIT'|'OBSERVE'|'TEST'|'COMPARE'
-  |'INFER'|'RECORD'|'EXPLAIN'|'PREPARE_SUBSTANCE'|'WASH'|'SELECT'|'STUDY'|'REPEAT'|'CONTINUE';
+  |'INFER'|'RECORD'|'EXPLAIN'|'PREPARE_SUBSTANCE'|'WASH'|'SELECT'|'STUDY'|'REPEAT'|'CONTINUE'|'RESET'|'SAFETY_PROHIBITION';
+
+/** P2.10 closeout: what an operation IS, kept apart so a learner task is never reported as missing chemistry.
+ *   STATE_ACTION       — a physical/procedural operation that may change LabState (needs a domain/procedure handler);
+ *   OBSERVATION_ACTION — inspects a state/event that already exists; never produces an outcome of its own;
+ *   LEARNER_RESPONSE   — a pedagogical response (compare, infer, record, explain, study, choose); it never changes
+ *                        chemistry state and needs a CHECKER, a rubric or a human/content decision — not a handler;
+ *   CONTROL            — lab-level control (RESET, restart/repeat, continue); never chemistry;
+ *   SAFETY_RULE        — a prohibition in the instruction text ("… qaratmang"); not a learner action at all. */
+export type LabOperationKind='STATE_ACTION'|'OBSERVATION_ACTION'|'LEARNER_RESPONSE'|'CONTROL'|'SAFETY_RULE';
+export const OPERATION_KINDS:readonly LabOperationKind[]=['STATE_ACTION','OBSERVATION_ACTION','LEARNER_RESPONSE','CONTROL','SAFETY_RULE'];
+const KIND:Readonly<Record<LabActionFamily,LabOperationKind>>={
+  SETUP_APPARATUS:'STATE_ACTION',ADD_SUBSTANCE:'STATE_ACTION',TRANSFER:'STATE_ACTION',MIX:'STATE_ACTION',HEAT:'STATE_ACTION',STOP_HEAT:'STATE_ACTION',
+  EVAPORATE:'STATE_ACTION',FILTER:'STATE_ACTION',SETTLE:'STATE_ACTION',SEPARATE:'STATE_ACTION',PASS_GAS:'STATE_ACTION',COLLECT_GAS:'STATE_ACTION',
+  SEAL:'STATE_ACTION',IGNITE:'STATE_ACTION',BRING_NEAR:'STATE_ACTION',ELECTRIC_CURRENT:'STATE_ACTION',WAIT:'STATE_ACTION',WASH:'STATE_ACTION',
+  PREPARE_SUBSTANCE:'STATE_ACTION',
+  OBSERVE:'OBSERVATION_ACTION',TEST:'OBSERVATION_ACTION',
+  COMPARE:'LEARNER_RESPONSE',INFER:'LEARNER_RESPONSE',RECORD:'LEARNER_RESPONSE',EXPLAIN:'LEARNER_RESPONSE',STUDY:'LEARNER_RESPONSE',SELECT:'LEARNER_RESPONSE',
+  // REPEAT in the repository means "repeat the procedure with another substance" (8.6), i.e. it re-runs state actions —
+  // a restart is RESET (CONTROL); no instruction step uses "repeat" to mean restart
+  REPEAT:'STATE_ACTION',
+  RESET:'CONTROL',CONTINUE:'CONTROL',
+  SAFETY_PROHIBITION:'SAFETY_RULE',
+};
+/** State actions whose outcome depends on chemistry (a substance is added, mixed, heated, burned, electrolysed,
+ *  produced or passed through another): an experiment containing one needs a chemistry authority, or it fails closed.
+ *  Purely physical handling (set up, seal, filter, settle, wait, transfer, …) does not. Declared, not inferred. */
+export const COMPOSITION_CHANGING_FAMILIES:ReadonlySet<LabActionFamily>=new Set(['ADD_SUBSTANCE','MIX','HEAT','EVAPORATE','PASS_GAS','IGNITE','BRING_NEAR','ELECTRIC_CURRENT','PREPARE_SUBSTANCE','REPEAT']);
+/** Only these kinds may be offered by a topic profile (RESET is lab-level; a prohibition is not an action). */
+export const TOPIC_ACTION_KINDS:ReadonlySet<LabOperationKind>=new Set(['STATE_ACTION','OBSERVATION_ACTION','LEARNER_RESPONSE']);
 
 export interface LabActionParameter {
   name:string;
@@ -26,6 +55,7 @@ export interface LabActionParameter {
 
 export interface LabActionDefinition {
   family:LabActionFamily;
+  kind:LabOperationKind;
   /** canonical id used in the lab-state contract and in action logs */
   id:string;
   parameters:LabActionParameter[];
@@ -34,8 +64,11 @@ export interface LabActionDefinition {
   apparatusRequirements:string[];
   /** state facts that must hold (checked at the domain boundary by applyLabAction) */
   statePreconditions:string[];
-  /** the guided dynamic lab has a domain handler for this family (otherwise ACTION_UNSUPPORTED) */
+  /** applyLabAction implements this family (STATE/OBSERVATION: a domain handler, else ACTION_UNSUPPORTED; LEARNER_RESPONSE:
+   *  a checker, else LEARNER_RESPONSE_CHECKER_MISSING; CONTROL/SAFETY_RULE: never a topic action) */
   domainHandler:boolean;
+  /** LEARNER_RESPONSE only: the checker that judges the response, or null (no correctness is ever fabricated) */
+  checker:string|null;
   /** which chemistry authority the handler orchestrates, when any (never an invented outcome) */
   chemistryAuthority:string|null;
   /** a renderer exists for this family in the dynamic lab (generic object → action → parameter UI) */
@@ -46,7 +79,9 @@ export interface LabActionDefinition {
 
 const KEYBOARD=['keyboard: object button → action button → parameter form','accessible name from the catalog','result announced in a polite live region','no drag required'];
 const p=(name:string,type:LabActionParameter['type'],valuesFrom:LabActionParameter['valuesFrom'],required=true):LabActionParameter=>({name,type,required,valuesFrom});
-const def=(family:LabActionFamily,id:string,parameters:LabActionParameter[],apparatusRequirements:string[],statePreconditions:string[],domainHandler:boolean,chemistryAuthority:string|null,renderer=domainHandler,extraA11y:string[]=[]):LabActionDefinition=>({family,id,parameters,apparatusRequirements,statePreconditions,domainHandler,chemistryAuthority,renderer,accessibility:[...KEYBOARD,...extraA11y]});
+const CHECKERS:Partial<Record<LabActionFamily,string>>={RECORD:'net ionic equation: IonicEngine.netIonicEquation + compareNetIonic (ionic-mixing topics only)'};
+const def=(family:LabActionFamily,id:string,parameters:LabActionParameter[],apparatusRequirements:string[],statePreconditions:string[],domainHandler:boolean,chemistryAuthority:string|null,renderer=domainHandler,extraA11y:string[]=[]):LabActionDefinition=>({family,kind:KIND[family],id,parameters,apparatusRequirements,statePreconditions,domainHandler,checker:KIND[family]==='LEARNER_RESPONSE'?CHECKERS[family]??null:null,chemistryAuthority,renderer,accessibility:[...KEYBOARD,...extraA11y]});
+export const familyKind=(family:LabActionFamily)=>KIND[family];
 
 /** The canonical families. `domainHandler` is TRUE only where applyLabAction (apply-lab-action.ts) implements it. */
 export const LAB_ACTION_FAMILIES:readonly LabActionDefinition[]=Object.freeze([
@@ -71,13 +106,15 @@ export const LAB_ACTION_FAMILIES:readonly LabActionDefinition[]=Object.freeze([
   def('TEST','lab.test',[p('target','target','profile.observationTargets')],[],[],false,null),
   def('COMPARE','lab.compare',[],[],[],false,null),
   def('INFER','lab.infer',[],[],[],false,null),
-  def('RECORD','lab.record',[p('text','text','learner-text')],[],['a modeled reaction was observed'],true,'IonicEngine.netIonicEquation + compareNetIonic (via evaluateIonicMixing)'),
+  def('RECORD','lab.record',[p('text','text','learner-text')],[],['a modeled reaction was observed'],true,null),
   def('EXPLAIN','lab.explain',[p('text','text','learner-text')],[],[],false,null),
   def('PREPARE_SUBSTANCE','lab.prepare',[p('substance','substance','profile.substances')],[],[],false,null),
   def('WASH','lab.wash',[p('container','container','profile.containers')],[],['container is not empty'],true,null),
   def('SELECT','lab.select',[p('substance','substance','profile.substances')],[],[],false,null),
   def('STUDY','lab.study',[],[],[],false,null),
   def('REPEAT','lab.repeat',[],[],[],false,null),
+  def('RESET','lab.reset',[],[],[],false,null),
+  def('SAFETY_PROHIBITION','lab.safety-prohibition',[],[],[],false,null),
   def('CONTINUE','lab.continue',[],[],[],false,null),
 ]);
 
@@ -116,7 +153,7 @@ export const INSTRUCTION_VERBS:Readonly<Record<string,VerbRule>>=Object.freeze({
   'oling':{family:'PREPARE_SUBSTANCE'},'tayyorlang':{family:'PREPARE_SUBSTANCE'},
   'yuving':{family:'WASH'},'surting':{family:'WASH'},'namlang':{family:'WASH'},
   'tanlang':{family:'SELECT'},'o‘rganing':{family:'STUDY'},'tanishing':{family:'STUDY'},
-  'takrorlang':{family:'REPEAT'},'bajaring':{family:'REPEAT'},
+  'takrorlang':{family:'REPEAT'},'qaratmang':{family:'SAFETY_PROHIBITION'},'bajaring':{family:'SEPARATE',ambiguous:true,context:[]},
 });
 
 /** Words ending like an imperative that are NOT verbs (nouns, genitive forms, adverbs). Declared, small, audited. */

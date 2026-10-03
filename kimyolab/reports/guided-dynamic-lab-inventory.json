@@ -8,8 +8,8 @@
     "instructionSteps": 213,
     "operations": 350,
     "mapped": 348,
-    "ambiguous": 1,
-    "unmapped": 1,
+    "ambiguous": 2,
+    "unmapped": 0,
     "byRuntime": {
       "beta2-advanced": 2,
       "beta2-organic": 4,
@@ -170,7 +170,7 @@
         "profileId": null
       },
       "gaps": [
-        "NO_DOMAIN_HANDLER:COMPARE",
+        "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
         "NO_DOMAIN_HANDLER:HEAT",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
@@ -366,8 +366,8 @@
       },
       "gaps": [
         "APPARATUS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:COMPARE",
-        "NO_DOMAIN_HANDLER:INFER",
+        "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+        "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
         "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
@@ -1024,10 +1024,10 @@
       },
       "gaps": [
         "APPARATUS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:INFER",
+        "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
+        "LEARNER_RESPONSE_CHECKER_MISSING:STUDY",
         "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
         "NO_DOMAIN_HANDLER:SEPARATE",
-        "NO_DOMAIN_HANDLER:STUDY",
         "ORDER_DECISION_OPEN",
         "QUANTITY_NOT_DECLARED"
       ]
@@ -1289,8 +1289,8 @@
           "operations": [
             {
               "verb": "bajaring",
-              "family": "REPEAT",
-              "status": "MAPPED"
+              "family": "SEPARATE",
+              "status": "AMBIGUOUS"
             }
           ]
         }
@@ -1364,8 +1364,8 @@
         "profileId": null
       },
       "gaps": [
+        "AMBIGUOUS_OPERATION:bajaring",
         "AMBIGUOUS_OPERATION:yig‘ing",
-        "NO_DOMAIN_HANDLER:REPEAT",
         "NO_DOMAIN_HANDLER:SEPARATE",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
@@ -1701,8 +1701,8 @@
       },
       "gaps": [
         "APPARATUS_NOT_DECLARED",
+        "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
         "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:INFER",
         "NO_DOMAIN_HANDLER:TEST",
         "ORDER_DECISION_OPEN",
         "QUANTITY_NOT_DECLARED",
@@ -1895,7 +1895,7 @@
         "profileId": "lab-profile.11.2.electrolysis"
       },
       "gaps": [
-        "NO_DOMAIN_HANDLER:EXPLAIN",
+        "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
         "ORDER_DECISION_OPEN",
         "QUANTITY_NOT_DECLARED"
       ]
@@ -2022,8 +2022,8 @@
             },
             {
               "verb": "qaratmang",
-              "family": null,
-              "status": "UNMAPPED_OPERATION"
+              "family": "SAFETY_PROHIBITION",
+              "status": "MAPPED"
             },
             {
               "verb": "qizdiring",
@@ -2130,18 +2130,18 @@
         "profileId": null
       },
       "gaps": [
+        "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+        "LEARNER_RESPONSE_CHECKER_MISSING:STUDY",
         "MATERIALS_NOT_DECLARED",
         "NO_DOMAIN_HANDLER:BRING_NEAR",
-        "NO_DOMAIN_HANDLER:COMPARE",
         "NO_DOMAIN_HANDLER:HEAT",
         "NO_DOMAIN_HANDLER:SEAL",
         "NO_DOMAIN_HANDLER:STOP_HEAT",
-        "NO_DOMAIN_HANDLER:STUDY",
         "NO_DOMAIN_HANDLER:TEST",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
-        "STEPS_NOT_GROUNDED",
-        "UNMAPPED_OPERATION:qaratmang"
+        "SAFETY_RULE_IN_INSTRUCTION",
+        "STEPS_NOT_GROUNDED"
       ]
     },
     {
@@ -2356,8 +2356,8 @@
         "profileId": null
       },
       "gaps": [
+        "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
         "NO_DOMAIN_HANDLER:COLLECT_GAS",
-        "NO_DOMAIN_HANDLER:EXPLAIN",
         "NO_DOMAIN_HANDLER:HEAT",
         "NO_DOMAIN_HANDLER:TEST",
         "ORDER_FROM_ARRAY_POSITION",
@@ -2554,8 +2554,8 @@
         "profileId": null
       },
       "gaps": [
-        "NO_DOMAIN_HANDLER:COMPARE",
-        "NO_DOMAIN_HANDLER:EXPLAIN",
+        "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+        "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
         "SAFETY_TEXT_EMPTY"
@@ -2716,7 +2716,7 @@
         "profileId": null
       },
       "gaps": [
-        "NO_DOMAIN_HANDLER:COMPARE",
+        "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
         "ORDER_FROM_ARRAY_POSITION",
         "SAFETY_TEXT_EMPTY",
         "STEPS_NOT_GROUNDED"
@@ -2862,7 +2862,7 @@
       },
       "gaps": [
         "APPARATUS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:COMPARE",
+        "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
         "NO_DOMAIN_HANDLER:TEST",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED"
@@ -3074,7 +3074,6 @@
         "profileId": "lab-profile.7.2.salt-purification"
       },
       "gaps": [
-        "NO_DOMAIN_HANDLER:CONTINUE",
         "NO_DOMAIN_HANDLER:STOP_HEAT",
         "SAFETY_TEXT_EMPTY"
       ]
@@ -3261,7 +3260,7 @@
         "profileId": null
       },
       "gaps": [
-        "NO_DOMAIN_HANDLER:COMPARE",
+        "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
         "NO_DOMAIN_HANDLER:HEAT",
         "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
         "NO_DOMAIN_HANDLER:WAIT",
@@ -4148,7 +4147,7 @@
         "profileId": null
       },
       "gaps": [
-        "NO_DOMAIN_HANDLER:COMPARE",
+        "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
         "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
         "ORDER_FROM_ARRAY_POSITION",
         "SAFETY_TEXT_EMPTY"
@@ -4345,9 +4344,9 @@
       },
       "gaps": [
         "APPARATUS_NOT_DECLARED",
+        "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+        "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
         "MATERIALS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:COMPARE",
-        "NO_DOMAIN_HANDLER:INFER",
         "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
         "QUANTITY_NOT_DECLARED",
         "SAFETY_TEXT_EMPTY"
@@ -4715,7 +4714,7 @@
       },
       "gaps": [
         "APPARATUS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:COMPARE",
+        "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
         "NO_DOMAIN_HANDLER:SETTLE",
         "ORDER_FROM_ARRAY_POSITION",
         "STEPS_NOT_GROUNDED"
@@ -5478,9 +5477,9 @@
       },
       "gaps": [
         "APPARATUS_NOT_DECLARED",
+        "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
+        "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
         "MATERIALS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:EXPLAIN",
-        "NO_DOMAIN_HANDLER:INFER",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED"
       ]
@@ -5708,11 +5707,11 @@
         "profileId": null
       },
       "gaps": [
+        "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
+        "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
         "NO_DOMAIN_HANDLER:BRING_NEAR",
         "NO_DOMAIN_HANDLER:COLLECT_GAS",
-        "NO_DOMAIN_HANDLER:EXPLAIN",
         "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:INFER",
         "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
         "NO_DOMAIN_HANDLER:TEST",
         "ORDER_FROM_ARRAY_POSITION"
@@ -5873,10 +5872,10 @@
       },
       "gaps": [
         "APPARATUS_NOT_DECLARED",
+        "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+        "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
         "MATERIALS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:COMPARE",
         "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:INFER",
         "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
         "ORDER_FROM_ARRAY_POSITION",
         "SAFETY_TEXT_EMPTY"
@@ -6010,9 +6009,9 @@
       },
       "gaps": [
         "APPARATUS_NOT_DECLARED",
+        "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
+        "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
         "MATERIALS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:EXPLAIN",
-        "NO_DOMAIN_HANDLER:INFER",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
         "SAFETY_TEXT_EMPTY"
@@ -6429,7 +6428,7 @@
       },
       "gaps": [
         "APPARATUS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:EXPLAIN",
+        "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
         "NO_DOMAIN_HANDLER:TRANSFER",
         "ORDER_FROM_ARRAY_POSITION",
         "SAFETY_TEXT_EMPTY"
@@ -7100,8 +7099,8 @@
       },
       "gaps": [
         "APPARATUS_NOT_DECLARED",
+        "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
         "MATERIALS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:COMPARE",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
         "SAFETY_TEXT_EMPTY"
@@ -7203,8 +7202,8 @@
       },
       "gaps": [
         "APPARATUS_NOT_DECLARED",
+        "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
         "MATERIALS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:COMPARE",
         "NO_DOMAIN_HANDLER:PASS_GAS",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
@@ -7497,8 +7496,8 @@
       },
       "gaps": [
         "APPARATUS_NOT_DECLARED",
+        "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
         "MATERIALS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:EXPLAIN",
         "QUANTITY_NOT_DECLARED",
         "SAFETY_TEXT_EMPTY"
       ]
@@ -7934,8 +7933,8 @@
       },
       "gaps": [
         "APPARATUS_NOT_DECLARED",
+        "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
         "MATERIALS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:COMPARE",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
         "SAFETY_TEXT_EMPTY"
@@ -8212,8 +8211,8 @@
       },
       "gaps": [
         "APPARATUS_NOT_DECLARED",
+        "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
         "MATERIALS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:COMPARE",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
         "SAFETY_TEXT_EMPTY"
@@ -8368,12 +8367,12 @@
       },
       "gaps": [
         "APPARATUS_NOT_DECLARED",
+        "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+        "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
+        "LEARNER_RESPONSE_CHECKER_MISSING:SELECT",
         "MATERIALS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:COMPARE",
         "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:INFER",
         "NO_DOMAIN_HANDLER:PASS_GAS",
-        "NO_DOMAIN_HANDLER:SELECT",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
         "SAFETY_TEXT_EMPTY"
@@ -8508,8 +8507,8 @@
       },
       "gaps": [
         "APPARATUS_NOT_DECLARED",
+        "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
         "MATERIALS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:COMPARE",
         "NO_DOMAIN_HANDLER:PASS_GAS",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
@@ -8635,9 +8634,9 @@
       },
       "gaps": [
         "APPARATUS_NOT_DECLARED",
+        "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
+        "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
         "MATERIALS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:EXPLAIN",
-        "NO_DOMAIN_HANDLER:INFER",
         "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
@@ -9127,9 +9126,9 @@
         "profileId": null
       },
       "gaps": [
+        "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
         "MATERIALS_NOT_DECLARED",
         "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:INFER",
         "NO_DOMAIN_HANDLER:PASS_GAS",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",

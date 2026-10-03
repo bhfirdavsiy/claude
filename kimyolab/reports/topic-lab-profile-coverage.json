@@ -2,11 +2,68 @@
   "schema": "kimyolab.topic-lab-profile-coverage.v1",
   "phase": "P2.10",
   "profileSchema": "kimyolab.topic-lab-profile.v1",
-  "semantics": "PROFILED = a validated kimyolab.topic-lab-profile.v1 exists (vertical slice). PROFILE_CANDIDATE = every instruction operation maps to a family with a domain handler and the config names a chemistry authority. BLOCKED = the listed blockers must be resolved first (no profile is written by guessing). No mass migration: candidates are not profiled in P2.10.",
+  "semantics": "PROFILED = a validated kimyolab.topic-lab-profile.v1 exists (vertical slice). BLOCKED = at least one BLOCKER: a state/observation action without a safe handler; a composition-changing action without a chemistry authority, or a guided step that changes composition without a reaction record or model (fail closed); an instruction substance the authority does not know; an unmapped or ambiguous operation; or missing instruction content (no steps, or a \"prove/identify by experiment\" task that names no operation while the config supplies none). PROFILE_CANDIDATE = no blocker; it may still carry GAPS that are not missing chemistry: LEARNER_RESPONSE_CHECKER_MISSING (a response with no checker is never judged), HUMAN_DECISION_REQUIRED (open order question), SAFETY_RULE (a prohibition to carry as a safety note). A candidate is NOT profiled: no profile is written by guessing and nothing is migrated.",
   "summary": {
     "experiments": 57,
-    "BLOCKED": 54,
+    "BLOCKED": 53,
+    "PROFILE_CANDIDATE": 1,
     "PROFILED": 3
+  },
+  "rowsPerBlockerCategory": {
+    "AMBIGUOUS_OPERATION": 1,
+    "CHEMISTRY_AUTHORITY_MISSING": 36,
+    "CONTENT_REQUIRED": 7,
+    "INSTRUCTION_NOT_COVERED_BY_AUTHORITY": 7,
+    "OBSERVATION_HANDLER_MISSING": 12,
+    "STATE_HANDLER_MISSING": 38
+  },
+  "rowsPerGapCategory": {
+    "HUMAN_DECISION_REQUIRED": 5,
+    "LEARNER_RESPONSE_CHECKER_MISSING": 31,
+    "SAFETY_RULE": 1
+  },
+  "reclassification": {
+    "before": {
+      "source": "reports/topic-lab-profile-coverage.json @ b59e640",
+      "summary": {
+        "experiments": 57,
+        "BLOCKED": 54,
+        "PROFILED": 3
+      },
+      "rowsPerBlocker": {
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG": 38,
+        "NO_DOMAIN_HANDLER": 49,
+        "NO_INSTRUCTION_STEPS": 2,
+        "ORDER_DECISION_OPEN": 5,
+        "AMBIGUOUS_OPERATION": 1,
+        "UNMAPPED_OPERATION": 1
+      },
+      "rowsWithLearnerResponseCountedAsMissingHandler": 26
+    },
+    "after": {
+      "summary": {
+        "experiments": 57,
+        "BLOCKED": 53,
+        "PROFILE_CANDIDATE": 1,
+        "PROFILED": 3
+      },
+      "rowsPerBlockerCategory": {
+        "AMBIGUOUS_OPERATION": 1,
+        "CHEMISTRY_AUTHORITY_MISSING": 36,
+        "CONTENT_REQUIRED": 7,
+        "INSTRUCTION_NOT_COVERED_BY_AUTHORITY": 7,
+        "OBSERVATION_HANDLER_MISSING": 12,
+        "STATE_HANDLER_MISSING": 38
+      }
+    },
+    "changes": [
+      "learner responses (COMPARE, INFER, RECORD, EXPLAIN, STUDY, SELECT) are LEARNER_RESPONSE_CHECKER_MISSING gaps, no longer NO_DOMAIN_HANDLER blockers",
+      "an open order question is a HUMAN_DECISION_REQUIRED gap (a profile can carry HUMAN_DECISION_REQUIRED, as 11.2 does), no longer a blocker",
+      "a missing chemistry authority blocks only experiments with composition-changing state actions",
+      "\"qaratmang\" is a SAFETY_RULE, no longer an unmapped operation; \"bajaring\" (10.7) names no single operation and is AMBIGUOUS",
+      "REPEAT (8.6: repeat the procedure with CuCl2) is a state action and stays a blocker without a handler",
+      "new blockers that the first pass missed: a task naming no operation (CONTENT_REQUIRED), an ungrounded composition-changing guided step, an instruction substance unknown to the authority (e.g. KI in 9.10)"
+    ]
   },
   "rows": [
     {
@@ -14,21 +71,44 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "COMPARE",
-        "HEAT",
-        "OBSERVE",
-        "RECORD"
-      ],
-      "familiesWithoutHandler": [
-        "COMPARE",
-        "HEAT"
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:COMPARE",
-        "NO_DOMAIN_HANDLER:HEAT"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -37,23 +117,48 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "COMPARE",
-        "INFER",
-        "OBSERVE",
-        "PREPARE_SUBSTANCE"
-      ],
-      "familiesWithoutHandler": [
-        "COMPARE",
-        "INFER",
-        "PREPARE_SUBSTANCE"
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "INFER",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "PREPARE_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:COMPARE",
-        "NO_DOMAIN_HANDLER:INFER",
-        "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -62,21 +167,40 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "HEAT",
-        "OBSERVE",
-        "PASS_GAS"
-      ],
-      "familiesWithoutHandler": [
-        "HEAT",
-        "PASS_GAS"
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "PASS_GAS",
+          "kind": "STATE_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:PASS_GAS"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
       ],
+      "gaps": [],
       "profileGaps": []
     },
     {
@@ -84,13 +208,15 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [],
-      "familiesWithoutHandler": [],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_INSTRUCTION_STEPS"
+        {
+          "code": "NO_INSTRUCTION_STEPS",
+          "category": "CONTENT_REQUIRED"
+        }
       ],
+      "gaps": [],
       "profileGaps": []
     },
     {
@@ -98,24 +224,56 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "HEAT",
-        "OBSERVE",
-        "PASS_GAS",
-        "PREPARE_SUBSTANCE"
-      ],
-      "familiesWithoutHandler": [
-        "HEAT",
-        "PASS_GAS",
-        "PREPARE_SUBSTANCE"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "PASS_GAS",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "PREPARE_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        }
       ],
       "chemistryAuthority": "reaction-records",
       "orderMode": null,
       "blockers": [
-        "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:PASS_GAS",
-        "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
-        "ORDER_DECISION_OPEN"
+        {
+          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:H2SO4",
+          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
+        },
+        {
+          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:KMnO4",
+          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "ORDER_DECISION_OPEN",
+          "category": "HUMAN_DECISION_REQUIRED"
+        }
       ],
       "profileGaps": []
     },
@@ -124,27 +282,68 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "INFER",
-        "OBSERVE",
-        "PREPARE_SUBSTANCE",
-        "SEPARATE",
-        "STUDY"
-      ],
-      "familiesWithoutHandler": [
-        "INFER",
-        "PREPARE_SUBSTANCE",
-        "SEPARATE",
-        "STUDY"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "INFER",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "PREPARE_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "SEPARATE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "STUDY",
+          "kind": "LEARNER_RESPONSE"
+        }
       ],
       "chemistryAuthority": "reaction-records",
       "orderMode": null,
       "blockers": [
-        "NO_DOMAIN_HANDLER:INFER",
-        "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
-        "NO_DOMAIN_HANDLER:SEPARATE",
-        "NO_DOMAIN_HANDLER:STUDY",
-        "ORDER_DECISION_OPEN"
+        {
+          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:CuSO4",
+          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
+        },
+        {
+          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:KOH",
+          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
+        },
+        {
+          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:NaOH",
+          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:SEPARATE",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:STUDY",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "ORDER_DECISION_OPEN",
+          "category": "HUMAN_DECISION_REQUIRED"
+        }
       ],
       "profileGaps": []
     },
@@ -153,19 +352,36 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "HEAT",
-        "OBSERVE"
-      ],
-      "familiesWithoutHandler": [
-        "HEAT"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:HEAT"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:2",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
       ],
+      "gaps": [],
       "profileGaps": []
     },
     {
@@ -173,26 +389,44 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "COLLECT_GAS",
-        "OBSERVE",
-        "REPEAT",
-        "SEPARATE",
-        "SETUP_APPARATUS"
-      ],
-      "familiesWithoutHandler": [
-        "COLLECT_GAS",
-        "REPEAT",
-        "SEPARATE"
+        {
+          "family": "COLLECT_GAS",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "SEPARATE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "SETUP_APPARATUS",
+          "kind": "STATE_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "AMBIGUOUS_OPERATION:yig‘ing",
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:COLLECT_GAS",
-        "NO_DOMAIN_HANDLER:REPEAT",
-        "NO_DOMAIN_HANDLER:SEPARATE"
+        {
+          "code": "AMBIGUOUS_OPERATION:bajaring",
+          "category": "AMBIGUOUS_OPERATION"
+        },
+        {
+          "code": "AMBIGUOUS_OPERATION:yig‘ing",
+          "category": "AMBIGUOUS_OPERATION"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:COLLECT_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:SEPARATE",
+          "category": "STATE_HANDLER_MISSING"
+        }
       ],
+      "gaps": [],
       "profileGaps": []
     },
     {
@@ -200,21 +434,40 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "HEAT",
-        "MIX",
-        "OBSERVE",
-        "SEPARATE"
-      ],
-      "familiesWithoutHandler": [
-        "HEAT",
-        "SEPARATE"
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "MIX",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "SEPARATE",
+          "kind": "STATE_ACTION"
+        }
       ],
       "chemistryAuthority": "reaction-records",
       "orderMode": null,
       "blockers": [
-        "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:SEPARATE",
-        "ORDER_DECISION_OPEN"
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:SEPARATE",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "ORDER_DECISION_OPEN",
+          "category": "HUMAN_DECISION_REQUIRED"
+        }
       ],
       "profileGaps": []
     },
@@ -223,23 +476,52 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "HEAT",
-        "INFER",
-        "OBSERVE",
-        "TEST"
-      ],
-      "familiesWithoutHandler": [
-        "HEAT",
-        "INFER",
-        "TEST"
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "INFER",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "TEST",
+          "kind": "OBSERVATION_ACTION"
+        }
       ],
       "chemistryAuthority": "reaction-records",
       "orderMode": null,
       "blockers": [
-        "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:INFER",
-        "NO_DOMAIN_HANDLER:TEST",
-        "ORDER_DECISION_OPEN"
+        {
+          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:CuSO4",
+          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
+        },
+        {
+          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:NaOH",
+          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:TEST",
+          "category": "OBSERVATION_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "ORDER_DECISION_OPEN",
+          "category": "HUMAN_DECISION_REQUIRED"
+        }
       ],
       "profileGaps": []
     },
@@ -248,19 +530,35 @@
       "status": "PROFILED",
       "profileId": "lab-profile.11.2.electrolysis",
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "ELECTRIC_CURRENT",
-        "EXPLAIN",
-        "OBSERVE",
-        "RECORD",
-        "SETUP_APPARATUS"
-      ],
-      "familiesWithoutHandler": [
-        "EXPLAIN"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "ELECTRIC_CURRENT",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "EXPLAIN",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "SETUP_APPARATUS",
+          "kind": "STATE_ACTION"
+        }
       ],
       "chemistryAuthority": "electrolysis",
       "orderMode": "HUMAN_DECISION_REQUIRED",
       "blockers": [],
+      "gaps": [],
       "profileGaps": [
         "ELECTRODE_MATERIAL_NOT_IN_INSTRUCTION",
         "RECORD_CHECKER_MISSING",
@@ -273,38 +571,104 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "BRING_NEAR",
-        "COMPARE",
-        "HEAT",
-        "OBSERVE",
-        "SEAL",
-        "SETUP_APPARATUS",
-        "STOP_HEAT",
-        "STUDY",
-        "TEST"
-      ],
-      "familiesWithoutHandler": [
-        "BRING_NEAR",
-        "COMPARE",
-        "HEAT",
-        "SEAL",
-        "STOP_HEAT",
-        "STUDY",
-        "TEST"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "BRING_NEAR",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "SAFETY_PROHIBITION",
+          "kind": "SAFETY_RULE"
+        },
+        {
+          "family": "SEAL",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "SETUP_APPARATUS",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "STOP_HEAT",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "STUDY",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "TEST",
+          "kind": "OBSERVATION_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:BRING_NEAR",
-        "NO_DOMAIN_HANDLER:COMPARE",
-        "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:SEAL",
-        "NO_DOMAIN_HANDLER:STOP_HEAT",
-        "NO_DOMAIN_HANDLER:STUDY",
-        "NO_DOMAIN_HANDLER:TEST",
-        "UNMAPPED_OPERATION:qaratmang"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:BRING_NEAR",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:SEAL",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:STOP_HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:TEST",
+          "category": "OBSERVATION_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:3",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:4",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:5",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:STUDY",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "SAFETY_RULE_IN_INSTRUCTION",
+          "category": "SAFETY_RULE"
+        }
       ],
       "profileGaps": []
     },
@@ -313,26 +677,52 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "COLLECT_GAS",
-        "EXPLAIN",
-        "HEAT",
-        "OBSERVE",
-        "TEST"
-      ],
-      "familiesWithoutHandler": [
-        "COLLECT_GAS",
-        "EXPLAIN",
-        "HEAT",
-        "TEST"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "COLLECT_GAS",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "EXPLAIN",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "TEST",
+          "kind": "OBSERVATION_ACTION"
+        }
       ],
       "chemistryAuthority": "reaction-records",
       "orderMode": null,
       "blockers": [
-        "NO_DOMAIN_HANDLER:COLLECT_GAS",
-        "NO_DOMAIN_HANDLER:EXPLAIN",
-        "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:TEST"
+        {
+          "code": "NO_DOMAIN_HANDLER:COLLECT_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:TEST",
+          "category": "OBSERVATION_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -341,21 +731,48 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "COMPARE",
-        "EXPLAIN",
-        "OBSERVE",
-        "RECORD"
-      ],
-      "familiesWithoutHandler": [
-        "COMPARE",
-        "EXPLAIN"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "EXPLAIN",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE"
+        }
       ],
       "chemistryAuthority": "reaction-records",
       "orderMode": null,
       "blockers": [
-        "NO_DOMAIN_HANDLER:COMPARE",
-        "NO_DOMAIN_HANDLER:EXPLAIN"
+        {
+          "code": "STEP_NOT_GROUNDED:3",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -364,18 +781,36 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "COMPARE",
-        "OBSERVE"
-      ],
-      "familiesWithoutHandler": [
-        "COMPARE"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:COMPARE"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -384,22 +819,44 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "COMPARE",
-        "MIX",
-        "OBSERVE",
-        "TEST"
-      ],
-      "familiesWithoutHandler": [
-        "COMPARE",
-        "TEST"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "MIX",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "TEST",
+          "kind": "OBSERVATION_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:COMPARE",
-        "NO_DOMAIN_HANDLER:TEST"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:TEST",
+          "category": "OBSERVATION_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -408,22 +865,43 @@
       "status": "PROFILED",
       "profileId": "lab-profile.7.2.salt-purification",
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "CONTINUE",
-        "EVAPORATE",
-        "FILTER",
-        "MIX",
-        "OBSERVE",
-        "SETUP_APPARATUS",
-        "STOP_HEAT"
-      ],
-      "familiesWithoutHandler": [
-        "CONTINUE",
-        "STOP_HEAT"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "CONTINUE",
+          "kind": "CONTROL"
+        },
+        {
+          "family": "EVAPORATE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "FILTER",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "MIX",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "SETUP_APPARATUS",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "STOP_HEAT",
+          "kind": "STATE_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": "STRICT",
       "blockers": [],
+      "gaps": [],
       "profileGaps": [
         "SAFETY_TEXT_EMPTY",
         "EQUIPMENT_LIST_INCOMPLETE",
@@ -439,29 +917,64 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "COMPARE",
-        "HEAT",
-        "MIX",
-        "OBSERVE",
-        "PREPARE_SUBSTANCE",
-        "WAIT",
-        "WASH"
-      ],
-      "familiesWithoutHandler": [
-        "COMPARE",
-        "HEAT",
-        "PREPARE_SUBSTANCE",
-        "WAIT"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "MIX",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "PREPARE_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "WAIT",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "WASH",
+          "kind": "STATE_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:COMPARE",
-        "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
-        "NO_DOMAIN_HANDLER:WAIT"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:WAIT",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -470,22 +983,48 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "HEAT",
-        "OBSERVE",
-        "RECORD",
-        "TRANSFER"
-      ],
-      "familiesWithoutHandler": [
-        "HEAT",
-        "TRANSFER"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "TRANSFER",
+          "kind": "STATE_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:TRANSFER"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:TRANSFER",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -494,30 +1033,72 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "COLLECT_GAS",
-        "HEAT",
-        "IGNITE",
-        "MIX",
-        "OBSERVE",
-        "RECORD",
-        "SETUP_APPARATUS",
-        "STOP_HEAT"
-      ],
-      "familiesWithoutHandler": [
-        "COLLECT_GAS",
-        "HEAT",
-        "IGNITE",
-        "STOP_HEAT"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "COLLECT_GAS",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "IGNITE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "MIX",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "SETUP_APPARATUS",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "STOP_HEAT",
+          "kind": "STATE_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:COLLECT_GAS",
-        "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:IGNITE",
-        "NO_DOMAIN_HANDLER:STOP_HEAT"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:COLLECT_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:IGNITE",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:STOP_HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -526,34 +1107,72 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "BRING_NEAR",
-        "COLLECT_GAS",
-        "HEAT",
-        "OBSERVE",
-        "PASS_GAS",
-        "SEAL",
-        "TEST"
-      ],
-      "familiesWithoutHandler": [
-        "BRING_NEAR",
-        "COLLECT_GAS",
-        "HEAT",
-        "PASS_GAS",
-        "SEAL",
-        "TEST"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "BRING_NEAR",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "COLLECT_GAS",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "PASS_GAS",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "SEAL",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "TEST",
+          "kind": "OBSERVATION_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:BRING_NEAR",
-        "NO_DOMAIN_HANDLER:COLLECT_GAS",
-        "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:PASS_GAS",
-        "NO_DOMAIN_HANDLER:SEAL",
-        "NO_DOMAIN_HANDLER:TEST"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:BRING_NEAR",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:COLLECT_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:SEAL",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:TEST",
+          "category": "OBSERVATION_HANDLER_MISSING"
+        }
       ],
+      "gaps": [],
       "profileGaps": []
     },
     {
@@ -561,21 +1180,44 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "COMPARE",
-        "OBSERVE",
-        "PREPARE_SUBSTANCE",
-        "RECORD"
-      ],
-      "familiesWithoutHandler": [
-        "COMPARE",
-        "PREPARE_SUBSTANCE"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "PREPARE_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE"
+        }
       ],
       "chemistryAuthority": "reaction-records",
       "orderMode": null,
       "blockers": [
-        "NO_DOMAIN_HANDLER:COMPARE",
-        "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE"
+        {
+          "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -584,24 +1226,29 @@
       "status": "PROFILED",
       "profileId": "lab-profile.8.1.chloride-precipitation",
       "instructionFamilies": [
-        "COMPARE",
-        "INFER",
-        "PREPARE_SUBSTANCE"
-      ],
-      "familiesWithoutHandler": [
-        "COMPARE",
-        "INFER",
-        "PREPARE_SUBSTANCE"
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "INFER",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "PREPARE_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        }
       ],
       "chemistryAuthority": "ionic-mixing",
       "orderMode": "FLEXIBLE",
       "blockers": [],
+      "gaps": [],
       "profileGaps": [
         "APPARATUS_NOT_DECLARED",
         "MATERIALS_NOT_DECLARED",
         "QUANTITY_NOT_DECLARED",
         "INSTRUCTION_IS_PROBLEM_SET",
-        "ACTION_FROM_RUNTIME_NOT_INSTRUCTION"
+        "PAIRS_PER_ATTEMPT_LIMITED_BY_CONTAINERS"
       ]
     },
     {
@@ -609,18 +1256,40 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "OBSERVE",
-        "TRANSFER"
-      ],
-      "familiesWithoutHandler": [
-        "TRANSFER"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "TRANSFER",
+          "kind": "STATE_ACTION"
+        }
       ],
       "chemistryAuthority": "reaction-records",
       "orderMode": null,
       "blockers": [
-        "NO_DOMAIN_HANDLER:TRANSFER"
+        {
+          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:NaBr",
+          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
+        },
+        {
+          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:NaCl",
+          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
+        },
+        {
+          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:NaI",
+          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:TRANSFER",
+          "category": "STATE_HANDLER_MISSING"
+        }
       ],
+      "gaps": [],
       "profileGaps": []
     },
     {
@@ -628,21 +1297,48 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "COMPARE",
-        "MIX",
-        "SETTLE"
-      ],
-      "familiesWithoutHandler": [
-        "COMPARE",
-        "SETTLE"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "MIX",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "SETTLE",
+          "kind": "STATE_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:COMPARE",
-        "NO_DOMAIN_HANDLER:SETTLE"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:SETTLE",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:2",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -651,17 +1347,32 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "PASS_GAS",
-        "RECORD"
-      ],
-      "familiesWithoutHandler": [
-        "PASS_GAS"
+        {
+          "family": "PASS_GAS",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:PASS_GAS"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -670,13 +1381,15 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [],
-      "familiesWithoutHandler": [],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_INSTRUCTION_STEPS"
+        {
+          "code": "NO_INSTRUCTION_STEPS",
+          "category": "CONTENT_REQUIRED"
+        }
       ],
+      "gaps": [],
       "profileGaps": []
     },
     {
@@ -684,15 +1397,28 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "OBSERVE"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        }
       ],
-      "familiesWithoutHandler": [],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
       ],
+      "gaps": [],
       "profileGaps": []
     },
     {
@@ -700,27 +1426,56 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "BRING_NEAR",
-        "COLLECT_GAS",
-        "HEAT",
-        "OBSERVE",
-        "SEAL"
-      ],
-      "familiesWithoutHandler": [
-        "BRING_NEAR",
-        "COLLECT_GAS",
-        "HEAT",
-        "SEAL"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "BRING_NEAR",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "COLLECT_GAS",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "SEAL",
+          "kind": "STATE_ACTION"
+        }
       ],
       "chemistryAuthority": "reaction-records",
       "orderMode": null,
       "blockers": [
-        "NO_DOMAIN_HANDLER:BRING_NEAR",
-        "NO_DOMAIN_HANDLER:COLLECT_GAS",
-        "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:SEAL"
+        {
+          "code": "NO_DOMAIN_HANDLER:BRING_NEAR",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:COLLECT_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:SEAL",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
       ],
+      "gaps": [],
       "profileGaps": []
     },
     {
@@ -728,17 +1483,36 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "PASS_GAS",
-        "RECORD"
-      ],
-      "familiesWithoutHandler": [
-        "PASS_GAS"
+        {
+          "family": "PASS_GAS",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:PASS_GAS"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -747,20 +1521,40 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "EXPLAIN",
-        "INFER",
-        "RECORD"
-      ],
-      "familiesWithoutHandler": [
-        "EXPLAIN",
-        "INFER"
+        {
+          "family": "EXPLAIN",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "INFER",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:EXPLAIN",
-        "NO_DOMAIN_HANDLER:INFER"
+        {
+          "code": "NO_STATE_ACTION_IN_INSTRUCTION",
+          "category": "CONTENT_REQUIRED"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -769,38 +1563,92 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "BRING_NEAR",
-        "COLLECT_GAS",
-        "EXPLAIN",
-        "HEAT",
-        "INFER",
-        "MIX",
-        "OBSERVE",
-        "PREPARE_SUBSTANCE",
-        "RECORD",
-        "SETUP_APPARATUS",
-        "TEST"
-      ],
-      "familiesWithoutHandler": [
-        "BRING_NEAR",
-        "COLLECT_GAS",
-        "EXPLAIN",
-        "HEAT",
-        "INFER",
-        "PREPARE_SUBSTANCE",
-        "TEST"
+        {
+          "family": "BRING_NEAR",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "COLLECT_GAS",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "EXPLAIN",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "INFER",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "MIX",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "PREPARE_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "SETUP_APPARATUS",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "TEST",
+          "kind": "OBSERVATION_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:BRING_NEAR",
-        "NO_DOMAIN_HANDLER:COLLECT_GAS",
-        "NO_DOMAIN_HANDLER:EXPLAIN",
-        "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:INFER",
-        "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
-        "NO_DOMAIN_HANDLER:TEST"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:BRING_NEAR",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:COLLECT_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:TEST",
+          "category": "OBSERVATION_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -809,26 +1657,52 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "COMPARE",
-        "HEAT",
-        "INFER",
-        "PREPARE_SUBSTANCE"
-      ],
-      "familiesWithoutHandler": [
-        "COMPARE",
-        "HEAT",
-        "INFER",
-        "PREPARE_SUBSTANCE"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "INFER",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "PREPARE_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:COMPARE",
-        "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:INFER",
-        "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -837,19 +1711,32 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "EXPLAIN",
-        "INFER"
-      ],
-      "familiesWithoutHandler": [
-        "EXPLAIN",
-        "INFER"
+        {
+          "family": "EXPLAIN",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "INFER",
+          "kind": "LEARNER_RESPONSE"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:EXPLAIN",
-        "NO_DOMAIN_HANDLER:INFER"
+        {
+          "code": "NO_STATE_ACTION_IN_INSTRUCTION",
+          "category": "CONTENT_REQUIRED"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -858,21 +1745,44 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "MIX",
-        "REPEAT",
-        "SEPARATE"
-      ],
-      "familiesWithoutHandler": [
-        "REPEAT",
-        "SEPARATE"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "MIX",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "REPEAT",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "SEPARATE",
+          "kind": "STATE_ACTION"
+        }
       ],
       "chemistryAuthority": "reaction-records",
       "orderMode": null,
       "blockers": [
-        "NO_DOMAIN_HANDLER:REPEAT",
-        "NO_DOMAIN_HANDLER:SEPARATE"
+        {
+          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:CuCl2",
+          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:REPEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:SEPARATE",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
       ],
+      "gaps": [],
       "profileGaps": []
     },
     {
@@ -880,21 +1790,56 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "EXPLAIN",
-        "OBSERVE",
-        "RECORD",
-        "TRANSFER"
-      ],
-      "familiesWithoutHandler": [
-        "EXPLAIN",
-        "TRANSFER"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "EXPLAIN",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "TRANSFER",
+          "kind": "STATE_ACTION"
+        }
       ],
       "chemistryAuthority": "reaction-records",
       "orderMode": null,
       "blockers": [
-        "NO_DOMAIN_HANDLER:EXPLAIN",
-        "NO_DOMAIN_HANDLER:TRANSFER"
+        {
+          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:HCl",
+          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:TRANSFER",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:2",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:4",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -903,18 +1848,32 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "FILTER",
-        "MIX",
-        "TEST"
-      ],
-      "familiesWithoutHandler": [
-        "TEST"
+        {
+          "family": "FILTER",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "MIX",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "TEST",
+          "kind": "OBSERVATION_ACTION"
+        }
       ],
       "chemistryAuthority": "reaction-records",
       "orderMode": null,
       "blockers": [
-        "NO_DOMAIN_HANDLER:TEST"
+        {
+          "code": "NO_DOMAIN_HANDLER:TEST",
+          "category": "OBSERVATION_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
       ],
+      "gaps": [],
       "profileGaps": []
     },
     {
@@ -922,32 +1881,68 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "FILTER",
-        "HEAT",
-        "OBSERVE",
-        "PASS_GAS",
-        "SEAL",
-        "SEPARATE",
-        "TEST"
-      ],
-      "familiesWithoutHandler": [
-        "HEAT",
-        "PASS_GAS",
-        "SEAL",
-        "SEPARATE",
-        "TEST"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "FILTER",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "PASS_GAS",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "SEAL",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "SEPARATE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "TEST",
+          "kind": "OBSERVATION_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:PASS_GAS",
-        "NO_DOMAIN_HANDLER:SEAL",
-        "NO_DOMAIN_HANDLER:SEPARATE",
-        "NO_DOMAIN_HANDLER:TEST"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:SEAL",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:SEPARATE",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:TEST",
+          "category": "OBSERVATION_HANDLER_MISSING"
+        }
       ],
+      "gaps": [],
       "profileGaps": []
     },
     {
@@ -955,16 +1950,36 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "ELECTRIC_CURRENT",
-        "OBSERVE",
-        "SETUP_APPARATUS"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "ELECTRIC_CURRENT",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "SETUP_APPARATUS",
+          "kind": "STATE_ACTION"
+        }
       ],
-      "familiesWithoutHandler": [],
       "chemistryAuthority": "electrolysis",
       "orderMode": null,
       "blockers": [
-        "ORDER_DECISION_OPEN"
+        {
+          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:KI",
+          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "ORDER_DECISION_OPEN",
+          "category": "HUMAN_DECISION_REQUIRED"
+        }
       ],
       "profileGaps": []
     },
@@ -973,17 +1988,28 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "COMPARE",
-        "OBSERVE"
-      ],
-      "familiesWithoutHandler": [
-        "COMPARE"
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:COMPARE"
+        {
+          "code": "NO_STATE_ACTION_IN_INSTRUCTION",
+          "category": "CONTENT_REQUIRED"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -992,19 +2018,36 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "COMPARE",
-        "PASS_GAS"
-      ],
-      "familiesWithoutHandler": [
-        "COMPARE",
-        "PASS_GAS"
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "PASS_GAS",
+          "kind": "STATE_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:COMPARE",
-        "NO_DOMAIN_HANDLER:PASS_GAS"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -1013,38 +2056,60 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "OBSERVE",
-        "PREPARE_SUBSTANCE",
-        "SEPARATE"
-      ],
-      "familiesWithoutHandler": [
-        "PREPARE_SUBSTANCE",
-        "SEPARATE"
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "PREPARE_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "SEPARATE",
+          "kind": "STATE_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
-        "NO_DOMAIN_HANDLER:SEPARATE"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:SEPARATE",
+          "category": "STATE_HANDLER_MISSING"
+        }
       ],
+      "gaps": [],
       "profileGaps": []
     },
     {
       "activityId": "practice.experiment.9.14",
-      "status": "BLOCKED",
+      "status": "PROFILE_CANDIDATE",
       "profileId": null,
       "instructionFamilies": [
-        "EXPLAIN",
-        "OBSERVE"
-      ],
-      "familiesWithoutHandler": [
-        "EXPLAIN"
+        {
+          "family": "EXPLAIN",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        }
       ],
       "chemistryAuthority": "hydrolysis",
       "orderMode": null,
-      "blockers": [
-        "NO_DOMAIN_HANDLER:EXPLAIN"
+      "blockers": [],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -1053,21 +2118,36 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "OBSERVE",
-        "PREPARE_SUBSTANCE",
-        "TEST"
-      ],
-      "familiesWithoutHandler": [
-        "PREPARE_SUBSTANCE",
-        "TEST"
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "PREPARE_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "TEST",
+          "kind": "OBSERVATION_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
-        "NO_DOMAIN_HANDLER:TEST"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:TEST",
+          "category": "OBSERVATION_HANDLER_MISSING"
+        }
       ],
+      "gaps": [],
       "profileGaps": []
     },
     {
@@ -1075,21 +2155,36 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "OBSERVE",
-        "PREPARE_SUBSTANCE",
-        "SEPARATE"
-      ],
-      "familiesWithoutHandler": [
-        "PREPARE_SUBSTANCE",
-        "SEPARATE"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "PREPARE_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "SEPARATE",
+          "kind": "STATE_ACTION"
+        }
       ],
       "chemistryAuthority": "reaction-records",
       "orderMode": null,
       "blockers": [
-        "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
-        "NO_DOMAIN_HANDLER:SEPARATE"
+        {
+          "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:SEPARATE",
+          "category": "STATE_HANDLER_MISSING"
+        }
       ],
+      "gaps": [],
       "profileGaps": []
     },
     {
@@ -1097,17 +2192,28 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "COMPARE",
-        "OBSERVE"
-      ],
-      "familiesWithoutHandler": [
-        "COMPARE"
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:COMPARE"
+        {
+          "code": "NO_STATE_ACTION_IN_INSTRUCTION",
+          "category": "CONTENT_REQUIRED"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -1116,18 +2222,28 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "OBSERVE",
-        "PREPARE_SUBSTANCE"
-      ],
-      "familiesWithoutHandler": [
-        "PREPARE_SUBSTANCE"
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "PREPARE_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+          "category": "STATE_HANDLER_MISSING"
+        }
       ],
+      "gaps": [],
       "profileGaps": []
     },
     {
@@ -1135,18 +2251,32 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "COMPARE",
-        "OBSERVE"
-      ],
-      "familiesWithoutHandler": [
-        "COMPARE"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:COMPARE"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -1155,28 +2285,56 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "COMPARE",
-        "HEAT",
-        "INFER",
-        "PASS_GAS",
-        "SELECT"
-      ],
-      "familiesWithoutHandler": [
-        "COMPARE",
-        "HEAT",
-        "INFER",
-        "PASS_GAS",
-        "SELECT"
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "INFER",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "PASS_GAS",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "SELECT",
+          "kind": "LEARNER_RESPONSE"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:COMPARE",
-        "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:INFER",
-        "NO_DOMAIN_HANDLER:PASS_GAS",
-        "NO_DOMAIN_HANDLER:SELECT"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:SELECT",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -1185,20 +2343,44 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "COMPARE",
-        "PASS_GAS",
-        "RECORD"
-      ],
-      "familiesWithoutHandler": [
-        "COMPARE",
-        "PASS_GAS"
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "PASS_GAS",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:COMPARE",
-        "NO_DOMAIN_HANDLER:PASS_GAS"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -1207,22 +2389,40 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "EXPLAIN",
-        "INFER",
-        "PREPARE_SUBSTANCE"
-      ],
-      "familiesWithoutHandler": [
-        "EXPLAIN",
-        "INFER",
-        "PREPARE_SUBSTANCE"
+        {
+          "family": "EXPLAIN",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "INFER",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "PREPARE_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:EXPLAIN",
-        "NO_DOMAIN_HANDLER:INFER",
-        "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -1231,17 +2431,36 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "OBSERVE",
-        "RECORD",
-        "TEST"
-      ],
-      "familiesWithoutHandler": [
-        "TEST"
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "TEST",
+          "kind": "OBSERVATION_ACTION"
+        }
       ],
       "chemistryAuthority": "reaction-records",
       "orderMode": null,
       "blockers": [
-        "NO_DOMAIN_HANDLER:TEST"
+        {
+          "code": "NO_DOMAIN_HANDLER:TEST",
+          "category": "OBSERVATION_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_STATE_ACTION_IN_INSTRUCTION",
+          "category": "CONTENT_REQUIRED"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -1250,21 +2469,36 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "OBSERVE",
-        "PASS_GAS",
-        "TEST"
-      ],
-      "familiesWithoutHandler": [
-        "PASS_GAS",
-        "TEST"
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "PASS_GAS",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "TEST",
+          "kind": "OBSERVATION_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:PASS_GAS",
-        "NO_DOMAIN_HANDLER:TEST"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:TEST",
+          "category": "OBSERVATION_HANDLER_MISSING"
+        }
       ],
+      "gaps": [],
       "profileGaps": []
     },
     {
@@ -1272,17 +2506,28 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "PASS_GAS"
-      ],
-      "familiesWithoutHandler": [
-        "PASS_GAS"
+        {
+          "family": "PASS_GAS",
+          "kind": "STATE_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:PASS_GAS"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
       ],
+      "gaps": [],
       "profileGaps": []
     },
     {
@@ -1290,25 +2535,64 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "HEAT",
-        "INFER",
-        "OBSERVE",
-        "PASS_GAS",
-        "RECORD",
-        "SETUP_APPARATUS"
-      ],
-      "familiesWithoutHandler": [
-        "HEAT",
-        "INFER",
-        "PASS_GAS"
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "INFER",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "PASS_GAS",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE"
+        },
+        {
+          "family": "SETUP_APPARATUS",
+          "kind": "STATE_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:INFER",
-        "NO_DOMAIN_HANDLER:PASS_GAS"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:3",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
       ],
       "profileGaps": []
     },
@@ -1317,21 +2601,36 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "OBSERVE",
-        "PASS_GAS",
-        "TEST"
-      ],
-      "familiesWithoutHandler": [
-        "PASS_GAS",
-        "TEST"
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        },
+        {
+          "family": "PASS_GAS",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "TEST",
+          "kind": "OBSERVATION_ACTION"
+        }
       ],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
-        "NO_DOMAIN_HANDLER:PASS_GAS",
-        "NO_DOMAIN_HANDLER:TEST"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:TEST",
+          "category": "OBSERVATION_HANDLER_MISSING"
+        }
       ],
+      "gaps": [],
       "profileGaps": []
     },
     {
@@ -1339,15 +2638,32 @@
       "status": "BLOCKED",
       "profileId": null,
       "instructionFamilies": [
-        "ADD_SUBSTANCE",
-        "OBSERVE"
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION"
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION"
+        }
       ],
-      "familiesWithoutHandler": [],
       "chemistryAuthority": null,
       "orderMode": null,
       "blockers": [
-        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG"
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:2",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
       ],
+      "gaps": [],
       "profileGaps": []
     }
   ]

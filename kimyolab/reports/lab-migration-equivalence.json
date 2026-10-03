@@ -20,11 +20,11 @@
         "capability": "slice.8.16.chloride-precipitation",
         "renderer": "ionic-precipitation"
       },
-      "scenario": "BaCl2+H2SO4, NaCl+NaNO3 (not modeled), AgNO3+NaCl, then the net ionic equation — the same choices in both runtimes",
+      "scenario": "BaCl2+H2SO4, NaCl+NaNO3 (not modeled), AgNO3+NaCl, then the net ionic equation — the same choices in both runtimes; the new runtime needs a RESET before the third pair (two tubes, no WASH in the instruction)",
       "dimensions": {
         "instruction": {
           "status": "DIFFERENT",
-          "detail": "new: the instruction steps, their operations and the grounded step (2) are part of the profile; old: the reagent shelf only",
+          "detail": "new: the instruction steps, their operations and the grounded step (2) are part of the profile, and only instruction actions are offered (no WASH); old: the reagent shelf only, any number of pairs per attempt",
           "evidence": "topic-lab-profiles.json instruction"
         },
         "chemistryResult": {
@@ -44,7 +44,7 @@
         },
         "completion": {
           "status": "EQUIVALENT",
-          "detail": "old complete=true, new complete=true (target observed + correct net ionic equation)",
+          "detail": "same goal (target observed + correct net ionic equation): old complete=true in one attempt; new complete=true in the attempt after RESET",
           "evidence": "runs both"
         },
         "evidence": {
@@ -65,6 +65,7 @@
       },
       "newOnly": {
         "filterInTopic": "ACTION_NOT_ALLOWED_IN_TOPIC",
+        "washInTopic": "ACTION_NOT_ALLOWED_IN_TOPIC",
         "replayDeterministic": true
       },
       "migrationStatus": "NOT_MIGRATION_EQUIVALENT",

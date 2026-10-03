@@ -383,6 +383,7 @@
     "ui.dlab-equation-incorrect": "Tenglama noto‘g‘ri. Qaytadan urinib ko‘ring.",
     "ui.dlab-unsupported-chemistry": "Kimyo modeli bu holatni modellashtirmaydi, shuning uchun hech qanday natija ko‘rsatilmaydi.",
     "ui.dlab-unsupported-action": "Bu amal uchun hali ishlovchi yo‘q.",
+    "ui.dlab-unsupported-response": "Bu javob turini tekshiradigan vosita yo‘q, shuning uchun javob baholanmaydi.",
     "ui.dlab-err-ACTION_NOT_ALLOWED_IN_TOPIC": "Bu amal ushbu mavzuning laboratoriya ko‘rsatmasida yo‘q, shuning uchun bajarilmaydi.",
     "ui.dlab-err-UNSAFE_ACTION": "Bu amal xavfsizlik qoidasiga ko‘ra taqiqlangan.",
     "ui.dlab-err-PARAMETER_INVALID": "Amal sozlamasi noto‘g‘ri yoki ko‘rsatmada ko‘zda tutilmagan.",

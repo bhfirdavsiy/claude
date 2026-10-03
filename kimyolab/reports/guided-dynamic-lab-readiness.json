@@ -35,6 +35,9 @@
       "activityId": "practice.experiment.8.1",
       "profileId": "lab-profile.8.1.chloride-precipitation",
       "chemistryAuthority": "ionic-mixing",
+      "observationGrounding": {
+        "mix": "MODEL_BASED"
+      },
       "orderMode": "FLEXIBLE",
       "completion": "ionic-target",
       "migration": "NOT_MIGRATION_EQUIVALENT",
@@ -43,13 +46,17 @@
         "MATERIALS_NOT_DECLARED",
         "QUANTITY_NOT_DECLARED",
         "INSTRUCTION_IS_PROBLEM_SET",
-        "ACTION_FROM_RUNTIME_NOT_INSTRUCTION"
+        "PAIRS_PER_ATTEMPT_LIMITED_BY_CONTAINERS"
       ]
     },
     {
       "activityId": "practice.experiment.11.2",
       "profileId": "lab-profile.11.2.electrolysis",
       "chemistryAuthority": "electrolysis",
+      "observationGrounding": {
+        "cathode": "MODEL_BASED",
+        "anode": "MODEL_BASED"
+      },
       "orderMode": "HUMAN_DECISION_REQUIRED",
       "completion": "observations",
       "migration": "NOT_MIGRATION_EQUIVALENT",
@@ -64,6 +71,11 @@
       "activityId": "practice.experiment.7.2",
       "profileId": "lab-profile.7.2.salt-purification",
       "chemistryAuthority": "dissolution",
+      "observationGrounding": {
+        "turbid": "INSTRUCTION_TEXT",
+        "filtrate": "INSTRUCTION_TEXT",
+        "crystals": "INSTRUCTION_TEXT"
+      },
       "orderMode": "STRICT",
       "completion": "all-required-steps",
       "migration": "NOT_MIGRATION_EQUIVALENT",
@@ -87,13 +99,13 @@
     "experimentsInventoried": 57,
     "operations": 350,
     "mappedOperations": 348,
-    "ambiguousOperations": 1,
-    "unmappedOperations": 1,
-    "families": 29,
-    "familiesWithHandler": 9,
+    "ambiguousOperations": 2,
+    "unmappedOperations": 0,
+    "families": 31,
+    "familiesWithHandler": 8,
     "profiled": 3,
-    "profileCandidates": 0,
-    "blocked": 54,
+    "profileCandidates": 1,
+    "blocked": 53,
     "migrationEquivalent": 0
   },
   "humanDecisions": [
@@ -172,12 +184,21 @@
       "status": "MET"
     },
     {
-      "item": "migration equivalence proven for a slice",
-      "status": "NOT_MET"
+      "item": "equivalence reported honestly per slice and dimension (zero migrations is an allowed P2.10 outcome)",
+      "status": "MET"
     },
     {
       "item": "release / pilot sign-off",
       "status": "HUMAN"
+    }
+  ],
+  "futureGates": [
+    {
+      "gate": "P2.11 migration gate",
+      "question": "migrate a slice from the classic runtime",
+      "condition": "every equivalence dimension EQUIVALENT (incl. persisted evidence), then a human migration decision",
+      "currentlyEquivalentSlices": 0,
+      "decision": null
     }
   ],
   "bundleDelta": {
@@ -188,13 +209,13 @@
     },
     "after": {
       "learnerModules": 168,
-      "learnerModuleBytes": 810760,
-      "standaloneBytes": 5851984
+      "learnerModuleBytes": 816320,
+      "standaloneBytes": 5857955
     },
     "delta": {
       "learnerModules": 6,
-      "learnerModuleBytes": 96756,
-      "standaloneBytes": 147715
+      "learnerModuleBytes": 102316,
+      "standaloneBytes": 153686
     },
     "newModules": "src/app/feature-flags.ts, src/domain/lab/{action-catalog,topic-lab-profile,lab-runtime,lab-domain}.ts, src/features/dynamic-lab/render.ts"
   }

@@ -14,7 +14,36 @@
                             
                                                                                                                  
                                                                                                              
-                                                                                              
+                                                                                                                           
+
+/** P2.10 closeout: what an operation IS, kept apart so a learner task is never reported as missing chemistry.
+ *   STATE_ACTION       — a physical/procedural operation that may change LabState (needs a domain/procedure handler);
+ *   OBSERVATION_ACTION — inspects a state/event that already exists; never produces an outcome of its own;
+ *   LEARNER_RESPONSE   — a pedagogical response (compare, infer, record, explain, study, choose); it never changes
+ *                        chemistry state and needs a CHECKER, a rubric or a human/content decision — not a handler;
+ *   CONTROL            — lab-level control (RESET, restart/repeat, continue); never chemistry;
+ *   SAFETY_RULE        — a prohibition in the instruction text ("… qaratmang"); not a learner action at all. */
+                                                                                                            
+export const OPERATION_KINDS                            =['STATE_ACTION','OBSERVATION_ACTION','LEARNER_RESPONSE','CONTROL','SAFETY_RULE'];
+const KIND                                                   ={
+  SETUP_APPARATUS:'STATE_ACTION',ADD_SUBSTANCE:'STATE_ACTION',TRANSFER:'STATE_ACTION',MIX:'STATE_ACTION',HEAT:'STATE_ACTION',STOP_HEAT:'STATE_ACTION',
+  EVAPORATE:'STATE_ACTION',FILTER:'STATE_ACTION',SETTLE:'STATE_ACTION',SEPARATE:'STATE_ACTION',PASS_GAS:'STATE_ACTION',COLLECT_GAS:'STATE_ACTION',
+  SEAL:'STATE_ACTION',IGNITE:'STATE_ACTION',BRING_NEAR:'STATE_ACTION',ELECTRIC_CURRENT:'STATE_ACTION',WAIT:'STATE_ACTION',WASH:'STATE_ACTION',
+  PREPARE_SUBSTANCE:'STATE_ACTION',
+  OBSERVE:'OBSERVATION_ACTION',TEST:'OBSERVATION_ACTION',
+  COMPARE:'LEARNER_RESPONSE',INFER:'LEARNER_RESPONSE',RECORD:'LEARNER_RESPONSE',EXPLAIN:'LEARNER_RESPONSE',STUDY:'LEARNER_RESPONSE',SELECT:'LEARNER_RESPONSE',
+  // REPEAT in the repository means "repeat the procedure with another substance" (8.6), i.e. it re-runs state actions —
+  // a restart is RESET (CONTROL); no instruction step uses "repeat" to mean restart
+  REPEAT:'STATE_ACTION',
+  RESET:'CONTROL',CONTINUE:'CONTROL',
+  SAFETY_PROHIBITION:'SAFETY_RULE',
+};
+/** State actions whose outcome depends on chemistry (a substance is added, mixed, heated, burned, electrolysed,
+ *  produced or passed through another): an experiment containing one needs a chemistry authority, or it fails closed.
+ *  Purely physical handling (set up, seal, filter, settle, wait, transfer, …) does not. Declared, not inferred. */
+export const COMPOSITION_CHANGING_FAMILIES                             =new Set(['ADD_SUBSTANCE','MIX','HEAT','EVAPORATE','PASS_GAS','IGNITE','BRING_NEAR','ELECTRIC_CURRENT','PREPARE_SUBSTANCE','REPEAT']);
+/** Only these kinds may be offered by a topic profile (RESET is lab-level; a prohibition is not an action). */
+export const TOPIC_ACTION_KINDS                              =new Set(['STATE_ACTION','OBSERVATION_ACTION','LEARNER_RESPONSE']);
 
                                      
               
@@ -26,6 +55,7 @@
 
                                       
                          
+                        
                                                                        
             
                                   
@@ -34,8 +64,11 @@
                                  
                                                                                       
                               
-                                                                                                   
+                                                                                                                            
+                                                                                                     
                         
+                                                                                                                 
+                      
                                                                                                  
                                  
                                                                                                       
@@ -46,7 +79,9 @@
 
 const KEYBOARD=['keyboard: object button → action button → parameter form','accessible name from the catalog','result announced in a polite live region','no drag required'];
 const p=(name       ,type                           ,valuesFrom                                 ,required=true)                   =>({name,type,required,valuesFrom});
-const def=(family                ,id       ,parameters                     ,apparatusRequirements         ,statePreconditions         ,domainHandler        ,chemistryAuthority            ,renderer=domainHandler,extraA11y         =[])                    =>({family,id,parameters,apparatusRequirements,statePreconditions,domainHandler,chemistryAuthority,renderer,accessibility:[...KEYBOARD,...extraA11y]});
+const CHECKERS                                        ={RECORD:'net ionic equation: IonicEngine.netIonicEquation + compareNetIonic (ionic-mixing topics only)'};
+const def=(family                ,id       ,parameters                     ,apparatusRequirements         ,statePreconditions         ,domainHandler        ,chemistryAuthority            ,renderer=domainHandler,extraA11y         =[])                    =>({family,kind:KIND[family],id,parameters,apparatusRequirements,statePreconditions,domainHandler,checker:KIND[family]==='LEARNER_RESPONSE'?CHECKERS[family]??null:null,chemistryAuthority,renderer,accessibility:[...KEYBOARD,...extraA11y]});
+export const familyKind=(family                )=>KIND[family];
 
 /** The canonical families. `domainHandler` is TRUE only where applyLabAction (apply-lab-action.ts) implements it. */
 export const LAB_ACTION_FAMILIES                               =Object.freeze([
@@ -71,13 +106,15 @@ export const LAB_ACTION_FAMILIES                               =Object.freeze([
   def('TEST','lab.test',[p('target','target','profile.observationTargets')],[],[],false,null),
   def('COMPARE','lab.compare',[],[],[],false,null),
   def('INFER','lab.infer',[],[],[],false,null),
-  def('RECORD','lab.record',[p('text','text','learner-text')],[],['a modeled reaction was observed'],true,'IonicEngine.netIonicEquation + compareNetIonic (via evaluateIonicMixing)'),
+  def('RECORD','lab.record',[p('text','text','learner-text')],[],['a modeled reaction was observed'],true,null),
   def('EXPLAIN','lab.explain',[p('text','text','learner-text')],[],[],false,null),
   def('PREPARE_SUBSTANCE','lab.prepare',[p('substance','substance','profile.substances')],[],[],false,null),
   def('WASH','lab.wash',[p('container','container','profile.containers')],[],['container is not empty'],true,null),
   def('SELECT','lab.select',[p('substance','substance','profile.substances')],[],[],false,null),
   def('STUDY','lab.study',[],[],[],false,null),
   def('REPEAT','lab.repeat',[],[],[],false,null),
+  def('RESET','lab.reset',[],[],[],false,null),
+  def('SAFETY_PROHIBITION','lab.safety-prohibition',[],[],[],false,null),
   def('CONTINUE','lab.continue',[],[],[],false,null),
 ]);
 
@@ -116,7 +153,7 @@ export const INSTRUCTION_VERBS                                  =Object.freeze({
   'oling':{family:'PREPARE_SUBSTANCE'},'tayyorlang':{family:'PREPARE_SUBSTANCE'},
   'yuving':{family:'WASH'},'surting':{family:'WASH'},'namlang':{family:'WASH'},
   'tanlang':{family:'SELECT'},'o‘rganing':{family:'STUDY'},'tanishing':{family:'STUDY'},
-  'takrorlang':{family:'REPEAT'},'bajaring':{family:'REPEAT'},
+  'takrorlang':{family:'REPEAT'},'qaratmang':{family:'SAFETY_PROHIBITION'},'bajaring':{family:'SEPARATE',ambiguous:true,context:[]},
 });
 
 /** Words ending like an imperative that are NOT verbs (nouns, genitive forms, adverbs). Declared, small, audited. */

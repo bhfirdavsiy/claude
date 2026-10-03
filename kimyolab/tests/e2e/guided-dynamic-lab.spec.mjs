@@ -60,6 +60,19 @@ for (const name of ['portal', 'standalone']) {
     await page.locator(`${LAB} .kl-dlab__params button[type=submit]`).click();
     await expect(result(page)).toContainText('Tenglama to‘g‘ri.');
     await expect(page.locator(`${LAB}[data-complete=true]`)).toBeVisible();
+    // P2.10 closeout: WASH is not in 8.1's instruction — offered only under "not in the instruction", rejected with the reason
+    await object(page, 'apparatus:tube-1');
+    await expect(page.locator(`${LAB} .kl-dlab__action-list [data-action-family=WASH]`)).toHaveCount(0);
+    await page.locator(`${LAB} .kl-dlab__other summary`).click();
+    await page.locator(`${LAB} .kl-dlab__other [data-action-family=WASH]`).click();
+    await expect(result(page)).toHaveAttribute('data-code', 'ACTION_NOT_ALLOWED_IN_TOPIC');
+    // retry = the lab-level RESET; afterwards another pair can be tested in the same tube
+    await page.locator(`${LAB} [data-dlab-reset]`).click();
+    await expect(page.locator(`${LAB} .kl-dlab__observations li`)).toHaveCount(0);
+    await addTo(page, 'bacl2', 'tube-1'); await addTo(page, 'h2so4', 'tube-1');
+    await on(page, 'apparatus:tube-1', 'MIX');
+    await expect(result(page)).toHaveAttribute('data-status', 'accepted');
+    await expect(page.locator(`${LAB} .kl-dlab__observations li[data-grounding=MODEL_BASED]`)).toHaveCount(1);
     // no attempt, evidence, progress or mastery is written by the dynamic lab
     const store = await semanticStore(page, hosts[name].dbName);
     expect(store.evidence).toEqual([]); expect(store.attempts ?? []).toEqual([]); expect(store.progress).toEqual([]);
@@ -106,6 +119,14 @@ for (const name of ['portal', 'standalone']) {
     await page.locator('#dlab-param-quantity').fill('50');
     await page.locator(`${LAB} .kl-dlab__params button[type=submit]`).click();
     await expect(result(page)).toHaveAttribute('data-code', 'QUANTITY_LIMIT');
+    // "Nega?": an instruction-derived observation is labelled as instruction text, never as model chemistry
+    await addTo(page, 'water', 'beaker');                     // the declared 20 ml (the form's default)
+    await expect(result(page)).toHaveAttribute('data-status', 'accepted');
+    await on(page, 'apparatus:glass-rod', 'SETUP_APPARATUS');
+    await addTo(page, 'contaminated-salt', 'beaker');
+    await on(page, 'apparatus:beaker', 'MIX');
+    await expect(page.locator(`${LAB} .kl-dlab__sources li[data-grounding=INSTRUCTION_TEXT]`)).toContainText('ko‘rsatmaning o‘z jumlasidan');
+    await expect(page.locator(`${LAB} .kl-dlab__sources li[data-grounding=MODEL_BASED]`)).toContainText('eruvchanlik');
     // guidance level 4 shows the instruction sentence and never an outcome
     await page.locator('#dlab-guidance-4').check();
     await expect(page.locator(`${LAB} .kl-dlab__guidance-text`)).toContainText('20 ml distillangan suvga');

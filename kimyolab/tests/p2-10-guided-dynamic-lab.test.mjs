@@ -5,9 +5,9 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {classifyInstructionStep,LAB_ACTION_FAMILIES,INSTRUCTION_VERBS} from '../src/domain/lab/action-catalog.ts';
+import {classifyInstructionStep,LAB_ACTION_FAMILIES,INSTRUCTION_VERBS,familyKind,TOPIC_ACTION_KINDS} from '../src/domain/lab/action-catalog.ts';
 import {topicLabProfileProblems,TOPIC_LAB_PROFILE_PACK_PATH} from '../src/domain/lab/topic-lab-profile.ts';
-import {createLabRuntime,createLabState,availableActions} from '../src/domain/lab/lab-runtime.ts';
+import {createLabRuntime,createLabState,availableActions,observationGrounding} from '../src/domain/lab/lab-runtime.ts';
 import {createLabDomain} from '../src/domain/lab/lab-domain.ts';
 import {compileTopicLabProfiles} from '../scripts/lib/topic-lab-profiles.ts';
 import {guidedDynamicLabOutputs,LAB_REPORTS} from '../scripts/guided-dynamic-lab.ts';
@@ -54,7 +54,9 @@ test('lexicon: classification only; unknown verbs and steps without a verb are U
   assert.deepEqual(classifyInstructionStep('Filtratni chinni kosachaga quying va bug‘lating.').map(o=>o.family),['ADD_SUBSTANCE','EVAPORATE']);
   assert.equal(classifyInstructionStep('Kondensatni yig‘ing.')[0].status,'AMBIGUOUS');
   assert.equal(classifyInstructionStep('Gaz o‘tkazgichli apparatni yig‘ing.')[0].family,'SETUP_APPARATUS');
-  assert.equal(classifyInstructionStep('Probirkani o‘zingizga qaratmang.')[0].status,'UNMAPPED_OPERATION');
+  // P2.10 closeout: was UNMAPPED_OPERATION. A prohibition is classified as a SAFETY_RULE (not a learner action)
+  assert.deepEqual(classifyInstructionStep('Probirkani o‘zingizga qaratmang.').map(o=>[o.family,o.status]),[['SAFETY_PROHIBITION','MAPPED']]);
+  assert.equal(classifyInstructionStep('Probirkani yuving.')[0].family,'WASH');
   assert.deepEqual(classifyInstructionStep('Darslikdagi rasm.'),[{verb:'',family:null,status:'UNMAPPED_OPERATION'}]);
   // genitive nouns are not verbs; a listed verb ending in -ning is
   assert.equal(classifyInstructionStep('Suvning rangi.')[0].status,'UNMAPPED_OPERATION');
@@ -197,4 +199,92 @@ test('reports equal the generator; equivalence keeps every old runtime (none is 
   assert.equal(readiness.decision,'NOT_A_RELEASE_OR_PILOT_DECISION');
   assert.ok(readiness.humanDecisions.every(h=>h.selected===null));
   assert.equal(readiness.featureFlag.default,false);
+});
+
+// ------------------------------------------------------------------ P2.10 closeout
+
+test('closeout 8.1: WASH is not in the instruction → ACTION_NOT_ALLOWED_IN_TOPIC; RESET restores the initial state; another pair after restart',()=>{
+  const p=P['8.1'];
+  const a81=json('content-src/practice-activities.json').find(a=>a.id==='practice.experiment.8.1');
+  const families=a81.legacyContent.steps.flatMap(t=>classifyInstructionStep(t).map(o=>o.family));
+  assert.ok(!families.includes('WASH'),'the instruction neither contains nor authorizes WASH');
+  assert.ok(!p.allowedFamilies.includes('WASH'));
+  assert.ok(!availableActions(createLabState(p),p).some(o=>o.action.family==='WASH'),'never offered');
+  const used=run(p,[add('nacl','tube-1'),add('nano3','tube-1'),on('MIX',{container:'tube-1'})]).state;
+  const wash=rt.applyLabAction(used,on('WASH',{container:'tube-1'}),p);
+  assert.equal(wash.status,'rejected'); assert.equal(wash.error.code,'ACTION_NOT_ALLOWED_IN_TOPIC'); assert.deepEqual(wash.nextState,used);
+  // retry = the lab-level RESET (createLabState): the initial state, no reverse chemistry
+  const reset=rt.reset(p);
+  assert.deepEqual(reset,createLabState(p)); assert.deepEqual(reset.engine.ionicActions,[]); assert.deepEqual(reset.observations,[]);
+  // after restarting, the learner tests another pair in the same tube
+  let s=reset;
+  for(const a of [add('agno3','tube-1'),add('nacl','tube-1'),on('MIX',{container:'tube-1'})]){ const r=rt.applyLabAction(s,a,p); assert.equal(r.status,'accepted'); s=r.nextState; }
+  assert.equal(s.containers['tube-1'].mixed.reactionId,'rxn.agno3-nacl');
+  assert.ok(!p.gaps.some(g=>g.code==='ACTION_FROM_RUNTIME_NOT_INSTRUCTION'),'no runtime-only action is kept');
+  const eq=json(LAB_REPORTS.equivalence).slices.find(x=>x.activityId==='practice.experiment.8.1');
+  assert.equal(eq.newOnly.washInTopic,'ACTION_NOT_ALLOWED_IN_TOPIC');
+});
+
+test('closeout taxonomy: state / observation / learner response / control / safety are distinct kinds',()=>{
+  const kinds=Object.fromEntries(LAB_ACTION_FAMILIES.map(d=>[d.family,d.kind]));
+  for(const f of ['SETUP_APPARATUS','ADD_SUBSTANCE','TRANSFER','MIX','HEAT','STOP_HEAT','EVAPORATE','FILTER','SETTLE','SEPARATE','PASS_GAS','COLLECT_GAS','SEAL','IGNITE','BRING_NEAR','ELECTRIC_CURRENT','WAIT','WASH']) assert.equal(kinds[f],'STATE_ACTION',f);
+  for(const f of ['OBSERVE','TEST']) assert.equal(kinds[f],'OBSERVATION_ACTION',f);
+  for(const f of ['COMPARE','INFER','RECORD','EXPLAIN','STUDY','SELECT']) assert.equal(kinds[f],'LEARNER_RESPONSE',f);
+  for(const f of ['RESET','CONTINUE']) assert.equal(kinds[f],'CONTROL',f);
+  assert.equal(kinds.SAFETY_PROHIBITION,'SAFETY_RULE');
+  // a learner response is judged only by a real checker; none is fabricated
+  for(const d of LAB_ACTION_FAMILIES) if(d.kind!=='LEARNER_RESPONSE') assert.equal(d.checker,null,d.family);
+  assert.deepEqual(LAB_ACTION_FAMILIES.filter(d=>d.checker).map(d=>d.family),['RECORD']);
+  // in the runtime: a learner response without a checker is not "missing chemistry"
+  const withExplain=clone(P['8.1']); withExplain.allowedFamilies.push('EXPLAIN');
+  const r=rt.applyLabAction(createLabState(withExplain),on('EXPLAIN',{text:'…'}),withExplain);
+  assert.equal(r.status,'unsupported'); assert.equal(r.unsupported.code,'LEARNER_RESPONSE_CHECKER_MISSING');
+  const withHeat=clone(P['8.1']); withHeat.allowedFamilies.push('HEAT');
+  assert.equal(rt.applyLabAction(createLabState(withHeat),on('HEAT',{container:'tube-1'}),withHeat).unsupported.code,'ACTION_UNSUPPORTED');
+  // control and safety rules can never be topic actions
+  for(const f of ['RESET','CONTINUE','SAFETY_PROHIBITION']){ const bad=clone(P['8.1']); bad.allowedFamilies.push(f); assert.ok(topicLabProfileProblems(bad).includes(`FAMILY_NOT_A_TOPIC_ACTION:${f}`),f); }
+  for(const p of profiles) for(const f of p.allowedFamilies) assert.ok(TOPIC_ACTION_KINDS.has(familyKind(f)));
+  const cat=json(LAB_REPORTS.catalog);
+  for(const f of cat.families.filter(x=>x.kind==='LEARNER_RESPONSE')) assert.equal(f.domainHandler.required,false,f.family);
+});
+
+test('closeout coverage: learner responses are never handler blockers; physical gaps and unknown chemistry still block',()=>{
+  const cov=json(LAB_REPORTS.coverage);
+  const learner=new Set(['COMPARE','INFER','RECORD','EXPLAIN','STUDY','SELECT']);
+  for(const r of cov.rows){
+    for(const b of r.blockers){ const f=b.code.split(':')[1]; assert.ok(!(b.code.startsWith('NO_DOMAIN_HANDLER:')&&learner.has(f)),`${r.activityId}: ${b.code} must be a checker gap`); }
+    if(r.status==='BLOCKED') assert.ok(r.blockers.length>0);
+    if(r.status==='PROFILE_CANDIDATE') assert.equal(r.profileId,null,'a candidate is not profiled');
+    for(const g of r.gaps) assert.ok(['LEARNER_RESPONSE_CHECKER_MISSING','HUMAN_DECISION_REQUIRED','SAFETY_RULE'].includes(g.category));
+  }
+  assert.ok(cov.rows.some(r=>r.gaps.some(g=>g.category==='LEARNER_RESPONSE_CHECKER_MISSING')));
+  // physical operations without a safe implementation still block; unknown chemistry still blocks
+  assert.ok(cov.rows.some(r=>r.blockers.some(b=>b.code==='NO_DOMAIN_HANDLER:HEAT')));
+  assert.deepEqual(cov.rows.find(r=>r.activityId==='practice.experiment.9.10').blockers.map(b=>b.code),['INSTRUCTION_SUBSTANCE_NOT_MODELED:KI']);
+  assert.ok(cov.rows.find(r=>r.activityId==='practice.experiment.8.2').blockers.some(b=>b.category==='CONTENT_REQUIRED'));
+  assert.equal(cov.summary.PROFILED,3,'nothing was profiled by reclassification');
+  assert.equal(cov.reclassification.before.summary.BLOCKED,54);
+});
+
+test('closeout black-swan: an instruction-derived observation is never MODEL_BASED',()=>{
+  assert.equal(observationGrounding({producedBy:'INSTRUCTION_TEXT'}),'INSTRUCTION_TEXT');
+  assert.equal(observationGrounding({producedBy:'PROCEDURE'}),'PROCEDURE');
+  for(const a of ['ReactionMatcher','ElectrolysisModel','IonicEngine']) assert.equal(observationGrounding({producedBy:a}),'MODEL_BASED');
+  const {state}=run(P['7.2'],SALT_72);
+  const byTarget=Object.fromEntries(state.observations.map(o=>[o.target,o.grounding]));
+  assert.deepEqual(byTarget,{dissolved:'MODEL_BASED',turbid:'INSTRUCTION_TEXT',filtrate:'INSTRUCTION_TEXT',crystals:'INSTRUCTION_TEXT'});
+  for(const o of state.observations) assert.equal(o.grounding==='MODEL_BASED',['ReactionMatcher','ElectrolysisModel','IonicEngine'].includes(o.producedBy));
+  const slice=json(LAB_REPORTS.readiness).slices.find(s=>s.activityId==='practice.experiment.7.2');
+  assert.deepEqual(slice.observationGrounding,{turbid:'INSTRUCTION_TEXT',filtrate:'INSTRUCTION_TEXT',crystals:'INSTRUCTION_TEXT'});
+  // the learning-depth classification of 7.2 is unchanged by the dynamic lab (never MODEL_BASED from instruction text)
+  const lu=json('reports/learning-depth-baseline.json');
+  assert.ok(!JSON.stringify(lu).includes('"activityId":"practice.experiment.7.2","role":"primary","depth":"MODEL_BASED"'));
+});
+
+test('closeout readiness: zero migrations is not an unmet P2.10 item; the migration gate belongs to P2.11, undecided',()=>{
+  const r=json(LAB_REPORTS.readiness);
+  assert.ok(!r.definitionOfDone.some(d=>/migration equivalence proven/.test(d.item)));
+  assert.ok(r.definitionOfDone.filter(d=>d.status!=='HUMAN').every(d=>d.status==='MET'));
+  const gate=r.futureGates.find(g=>g.gate==='P2.11 migration gate');
+  assert.equal(gate.decision,null); assert.equal(gate.currentlyEquivalentSlices,0);
 });

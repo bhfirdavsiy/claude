@@ -60,8 +60,19 @@ export interface LabObservation {
   /** the observation data exactly as the authority returned it (never rewritten) */
   data:Observation|Record<string,unknown>|null;
   producedBy:'ReactionMatcher'|'ElectrolysisModel'|'IonicEngine'|'INSTRUCTION_TEXT'|'PROCEDURE';
+  /** derived from producedBy (observationGrounding): MODEL_BASED only for a chemistry authority */
+  grounding:ObservationGrounding;
   source:string;
 }
+/** P2.10 closeout — the black-swan line: only an observation that a chemistry authority computed or looked up is
+ *  MODEL_BASED. An instruction sentence (INSTRUCTION_TEXT) or a procedural fact (PROCEDURE) is never model chemistry,
+ *  in a report, in a count or in the learner's "Nega?" source line. */
+export type ObservationGrounding='MODEL_BASED'|'INSTRUCTION_TEXT'|'PROCEDURE';
+const MODEL_AUTHORITIES:ReadonlySet<LabObservation['producedBy']>=new Set(['ReactionMatcher','ElectrolysisModel','IonicEngine']);
+export function observationGrounding(o:Pick<LabObservation,'producedBy'>):ObservationGrounding{
+  return MODEL_AUTHORITIES.has(o.producedBy)?'MODEL_BASED':o.producedBy==='INSTRUCTION_TEXT'?'INSTRUCTION_TEXT':'PROCEDURE';
+}
+
 export interface LabState {
   schema:typeof LAB_STATE_SCHEMA;
   profileId:string;
@@ -90,7 +101,7 @@ export interface LabActionResult {
   procedural:{completedStep:string|null;blockedBy:string[];reason:string|null};
   guidance:{category:GuidanceCategory;code:string};
   evidenceCandidate:null|{kind:'observation'|'answer'|'completion';id:string;persisted:false;detail:Record<string,unknown>};
-  unsupported:null|{code:'UNSUPPORTED_CHEMISTRY'|'ACTION_UNSUPPORTED';detail:string};
+  unsupported:null|{code:UnsupportedCode;detail:string};
   error:null|{code:LabErrorCode;detail:string};
 }
 
@@ -131,7 +142,11 @@ function phasesOf(c:ContainerState){
   return [...set].sort();
 }
 
-interface Precheck { category:GuidanceCategory; code:LabErrorCode|'UNSUPPORTED_CHEMISTRY'|'ACTION_UNSUPPORTED'; detail:string; blockedBy?:string[] }
+/** UNSUPPORTED_CHEMISTRY: the authority does not model it · ACTION_UNSUPPORTED: no handler for a state/observation action ·
+ *  LEARNER_RESPONSE_CHECKER_MISSING: a learner response with no checker (never judged, never "missing chemistry") */
+export type UnsupportedCode='UNSUPPORTED_CHEMISTRY'|'ACTION_UNSUPPORTED'|'LEARNER_RESPONSE_CHECKER_MISSING';
+const UNSUPPORTED_CODES:ReadonlySet<string>=new Set<UnsupportedCode>(['UNSUPPORTED_CHEMISTRY','ACTION_UNSUPPORTED','LEARNER_RESPONSE_CHECKER_MISSING']);
+interface Precheck { category:GuidanceCategory; code:LabErrorCode|UnsupportedCode; detail:string; blockedBy?:string[] }
 
 /** The ONE place that decides whether an action may run in this state (used by apply AND by availability). */
 export function precheckLabAction(state:LabState,action:LabAction,profile:TopicLabProfile,opts:{learnerTextPending?:boolean}={}):Precheck|null{
@@ -139,7 +154,9 @@ export function precheckLabAction(state:LabState,action:LabAction,profile:TopicL
   if(!definition) return {category:'unavailable',code:'ACTION_UNKNOWN',detail:String(action.family)};
   if(profile.safety.forbiddenFamilies.includes(definition.family)) return {category:'unavailable',code:'UNSAFE_ACTION',detail:definition.family};
   if(!profile.allowedFamilies.includes(definition.family)) return {category:'unavailable',code:'ACTION_NOT_ALLOWED_IN_TOPIC',detail:definition.family};
-  if(!definition.domainHandler) return {category:'unsupported',code:'ACTION_UNSUPPORTED',detail:`no domain handler for ${definition.family}`};
+  if(!definition.domainHandler) return definition.kind==='LEARNER_RESPONSE'
+    ?{category:'unsupported',code:'LEARNER_RESPONSE_CHECKER_MISSING',detail:`no checker for ${definition.family}`}
+    :{category:'unsupported',code:'ACTION_UNSUPPORTED',detail:`no domain handler for ${definition.family}`};
   // typed parameters: every value must come from the profile
   for(const param of definition.parameters){
     const v=action.params?.[param.name];
@@ -238,7 +255,7 @@ function statePrecondition(state:LabState,action:LabAction,profile:TopicLabProfi
       return null;
     }
     case 'RECORD':{
-      if(chem.authority!=='ionic-mixing') return {category:'unsupported',code:'ACTION_UNSUPPORTED',detail:'no checker for this record'};
+      if(chem.authority!=='ionic-mixing') return {category:'unsupported',code:'LEARNER_RESPONSE_CHECKER_MISSING',detail:'no checker for this record'};
       if(!c||c.mixed?.outcome!=='reaction') return {category:'unavailable',code:'STATE_PRECONDITION_UNMET',detail:'NO_OBSERVED_REACTION'};
       return null;
     }
@@ -268,10 +285,10 @@ const instructionSentence=(profile:TopicLabProfile,target:string)=>profile.obser
 /** Bind the chemistry authorities once; the returned functions are pure over (state, action, profile). */
 export function createLabRuntime(domain:LabDomain){
   function reject(state:LabState,pre:Precheck):LabActionResult{
-    const unsupported=pre.code==='UNSUPPORTED_CHEMISTRY'||pre.code==='ACTION_UNSUPPORTED';
+    const unsupported=UNSUPPORTED_CODES.has(pre.code);
     return {status:unsupported?'unsupported':'rejected',nextState:clone(state),chemistryEvents:[],observations:[],procedural:{completedStep:null,blockedBy:pre.blockedBy??[],reason:pre.code==='PROCEDURE_BLOCKED'?pre.detail:null},
       guidance:{category:pre.category,code:pre.code==='PROCEDURE_BLOCKED'?'STEP_DEPENDENCY_UNMET':pre.detail},evidenceCandidate:null,
-      unsupported:unsupported?{code:pre.code as 'UNSUPPORTED_CHEMISTRY'|'ACTION_UNSUPPORTED',detail:pre.detail}:null,
+      unsupported:unsupported?{code:pre.code as UnsupportedCode,detail:pre.detail}:null,
       error:unsupported?null:{code:pre.code as LabErrorCode,detail:pre.detail}};
   }
 
@@ -286,7 +303,7 @@ export function createLabRuntime(domain:LabDomain){
     const container=paramText(action,'container');
     const c=container?next.containers[container]:undefined;
     const chem=profile.chemistry;
-    const observe=(o:Omit<LabObservation,'id'>)=>{ const ob={...o,id:`obs.${next.observations.length+observations.length+1}`}; observations.push(ob); };
+    const observe=(o:Omit<LabObservation,'id'|'grounding'>)=>{ const ob:LabObservation={...o,grounding:observationGrounding(o),id:`obs.${next.observations.length+observations.length+1}`}; observations.push(ob); };
 
     switch(action.family){
       case 'SETUP_APPARATUS': next.setUp.push(paramText(action,'apparatus')!); break;
