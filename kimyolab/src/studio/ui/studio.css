@@ -1,0 +1,26 @@
+/* P2.12 Content Studio — layout on top of the learner tokens (kimyolab.css). Information is never colour-only: every
+   state is also written in text. Works at 320 px; motion is not used. */
+.kl-studio{padding-block:1rem 3rem;max-width:72rem}
+.kl-studio__head h1{margin:.25rem 0 .5rem}
+.kl-studio__flow ol{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0;margin:1rem 0;counter-reset:studio}
+.kl-studio__flow li{counter-increment:studio;padding:.4rem .75rem;border:1px solid var(--kl-border);border-radius:999px}
+.kl-studio__flow li::before{content:counter(studio) ". "}
+.kl-studio__flow li[aria-current=step]{font-weight:700;border-width:3px}
+.kl-studio__flow li[data-done=true]::after{content:" ✓"}
+.kl-studio__screen h2:focus{outline:3px solid #1d5fa8;outline-offset:4px}
+.kl-studio__screen .kl-form{display:grid;gap:1rem;max-width:40rem}
+.kl-studio__screen .kl-field{display:grid;gap:.35rem}
+.kl-studio__screen input[type=text],.kl-studio__screen input[type=number],.kl-studio__screen select,.kl-studio__screen textarea{min-height:44px;width:100%;box-sizing:border-box;font:inherit;padding:.5rem}
+.kl-studio__screen input[type=file]{min-height:44px;max-width:100%}
+.kl-studio__screen input[type=checkbox],.kl-studio__screen input[type=radio]{min-width:24px;min-height:24px}
+.kl-studio__screen label{display:inline-flex;gap:.5rem;align-items:center;min-height:44px}
+.kl-field__hint{margin:0;font-size:.95rem}
+.kl-studio__frame{border:2px solid var(--kl-border);border-radius:var(--kl-radius-sm);padding:.75rem;margin:1rem 0;overflow:auto;max-width:100%;box-sizing:border-box}
+.kl-studio__frame[data-mode=mobile]{max-width:360px}
+.kl-studio__frame object{width:100%;min-height:24rem}
+.kl-studio__check li,.kl-studio__analysis li{margin:.35rem 0}
+.kl-studio__step-text{font-weight:600;margin:.25rem 0}
+.kl-studio__context{font-weight:600}
+.kl-studio .kl-button{min-height:44px;min-width:44px}
+.kl-visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

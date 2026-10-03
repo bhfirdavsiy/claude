@@ -1,0 +1,290 @@
+{
+  "schema": "kimyolab.content-studio-readiness.v1",
+  "phase": "P2.12",
+  "decision": "NOT_A_RELEASE_OR_PILOT_DECISION",
+  "semantics": "What the Content Studio MVP does, what is preview only, what needs a human and what is not yet supported. Statuses: implemented | preview only | human review required | not yet supported.",
+  "architecture": {
+    "principle": "one canonical content source → two separate interfaces (Learner App, Content Studio)",
+    "studioBuild": {
+      "script": "scripts/build-content-studio.ts",
+      "output": "dist-studio/ (git-ignored build output)",
+      "entry": "src/studio/ui/main.ts",
+      "serve": "npm run studio:serve (127.0.0.1 only)",
+      "csp": "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; object-src 'self' blob:; connect-src 'self'; frame-src 'none'; base-uri 'none'; form-action 'none'"
+    },
+    "featureFlag": {
+      "name": "contentStudioV1",
+      "default": false,
+      "gates": "the Studio entry page only; it is not authentication"
+    },
+    "authentication": {
+      "status": "not yet supported",
+      "note": "no safe authentication architecture exists; the Studio is a local tool and is never part of the learner deployment, so it is not presented as a production admin system"
+    },
+    "learnerBoundary": {
+      "learnerBuildRoots": [
+        "app",
+        "features",
+        "ui",
+        "domain",
+        "runtime",
+        "engines",
+        "integrations",
+        "renderers"
+      ],
+      "studioRootInLearnerBuild": false,
+      "learnerBuildScriptsReferencingStudio": [],
+      "studioNavigationInLearnerApp": false,
+      "learnerProgressInStudio": false
+    },
+    "canonicalWriteFromStudio": false
+  },
+  "contentRoles": [
+    {
+      "role": "TEXTBOOK_EXCERPT",
+      "status": "implemented",
+      "instructionParser": false,
+      "canonicalContract": "kimyolab.textbook-excerpt.v1 + kimyolab.source-intake.v1",
+      "learnerRenderer": "src/features/textbook-excerpt/render.ts"
+    },
+    {
+      "role": "LAB_INSTRUCTION",
+      "status": "implemented",
+      "instructionParser": true,
+      "canonicalContract": "practice-activity legacyContent.steps + kimyolab.topic-lab-profile.v1",
+      "learnerRenderer": "src/features/dynamic-lab/render.ts"
+    },
+    {
+      "role": "EXPLANATION",
+      "status": "not yet supported",
+      "instructionParser": false,
+      "canonicalContract": "kimyolab.structured-theory (theory:apply)",
+      "learnerRenderer": "src/features/learning-hub"
+    },
+    {
+      "role": "VISUAL",
+      "status": "not yet supported",
+      "instructionParser": false,
+      "canonicalContract": "theory representationModes",
+      "learnerRenderer": null
+    },
+    {
+      "role": "QUESTION",
+      "status": "not yet supported",
+      "instructionParser": false,
+      "canonicalContract": "assessment-items",
+      "learnerRenderer": "src/features/practice"
+    },
+    {
+      "role": "INTERACTIVE_TASK",
+      "status": "not yet supported",
+      "instructionParser": false,
+      "canonicalContract": "practice-activity (trainer / simulation)",
+      "learnerRenderer": "src/features/practice"
+    },
+    {
+      "role": "PRACTICAL_ACTIVITY",
+      "status": "not yet supported",
+      "instructionParser": false,
+      "canonicalContract": "practice-activity (case / calculation)",
+      "learnerRenderer": "src/features/practice"
+    },
+    {
+      "role": "SAFETY",
+      "status": "not yet supported",
+      "instructionParser": false,
+      "canonicalContract": "legacyContent.safety (profile safety notes)",
+      "learnerRenderer": "src/features/dynamic-lab/render.ts"
+    },
+    {
+      "role": "LEARNER_RESPONSE",
+      "status": "not yet supported",
+      "instructionParser": false,
+      "canonicalContract": "learner-response checkers",
+      "learnerRenderer": null
+    },
+    {
+      "role": "ASSESSMENT",
+      "status": "not yet supported",
+      "instructionParser": false,
+      "canonicalContract": "assessment-bank (review:import)",
+      "learnerRenderer": "src/features/practice"
+    }
+  ],
+  "lanes": {
+    "textbookExcerpt": {
+      "flow": "Sinf → Mavzu → Darslik PDF qismini yuklash → Ko‘rish → Tekshirish → Nashrga tayyorlash",
+      "steps": [
+        {
+          "step": "topic selection by class and topic name",
+          "status": "implemented"
+        },
+        {
+          "step": "upload of a human-cut excerpt (no page detection, cutting, OCR, extraction or mapping)",
+          "status": "implemented"
+        },
+        {
+          "step": "PDF signature / end marker / encryption check, safe file name, machine checksum",
+          "status": "implemented"
+        },
+        {
+          "step": "learner preview with the learner renderer “Darslikdan o‘qish” (PDF loaded on demand)",
+          "status": "preview only"
+        },
+        {
+          "step": "deterministic publish candidate with a kimyolab.source-intake.v1 entry for the source",
+          "status": "implemented"
+        },
+        {
+          "step": "source acceptance, publication rights, didactic review",
+          "status": "human review required"
+        },
+        {
+          "step": "excerpt apply into the content pack and a learner hub entry point",
+          "status": "not yet supported"
+        }
+      ],
+      "syntheticRun": {
+        "fileBytes": 628,
+        "inspection": {
+          "ok": true,
+          "version": "1.4",
+          "activeContent": []
+        },
+        "status": "ATTENTION_REQUIRED",
+        "findings": [
+          "RIGHTS_NOT_DOCUMENTED",
+          "SOURCE_ACCEPTANCE_REQUIRED"
+        ],
+        "notPdfRejected": true
+      },
+      "rights": "an uploaded file is never assumed redistributable: rights stay NOT_DOCUMENTED until a human documents the basis, and no real textbook excerpt is committed or published"
+    },
+    "labInstruction": {
+      "flow": "Sinf → Mavzu → Yo‘riqnomani kiritish → Tizim tekshiradi → Ko‘rib chiqish → Laboratoriya ko‘rinishi",
+      "steps": [
+        {
+          "step": "instruction entry, or a copy of the topic’s canonical instruction",
+          "status": "implemented"
+        },
+        {
+          "step": "operation extraction (classifyInstructionStep) and capability resolution (resolveOperation), no family guessed",
+          "status": "implemented"
+        },
+        {
+          "step": "lab view with the learner dynamic-lab renderer, where a canonical profile exists for the same instruction",
+          "status": "preview only"
+        },
+        {
+          "step": "partial / unsupported operations shown in plain Uzbek",
+          "status": "implemented"
+        },
+        {
+          "step": "a changed instruction or a topic without a profile: no improvised lab view",
+          "status": "implemented"
+        },
+        {
+          "step": "profile authoring (trials, apparatus, substances) and instruction apply",
+          "status": "not yet supported"
+        },
+        {
+          "step": "chemistry and didactic review",
+          "status": "human review required"
+        }
+      ],
+      "roundTrip": {
+        "activities": 2,
+        "equal": 2,
+        "report": "reports/content-studio-lab-roundtrip.json"
+      }
+    }
+  },
+  "validationCategories": [
+    "READY",
+    "ATTENTION_REQUIRED",
+    "UNSUPPORTED",
+    "MISSING_INFORMATION",
+    "SOURCE_CONFLICT"
+  ],
+  "previewParity": {
+    "renderers": [
+      {
+        "module": "src/features/dynamic-lab/render.ts",
+        "inStudioBuild": true,
+        "inLearnerBuild": true,
+        "identical": true
+      },
+      {
+        "module": "src/features/textbook-excerpt/render.ts",
+        "inStudioBuild": true,
+        "inLearnerBuild": true,
+        "identical": true
+      }
+    ],
+    "allIdentical": true
+  },
+  "publishApplyBoundary": {
+    "studioAction": "Nashrga tayyorlash (a deterministic publish candidate download)",
+    "oneClickPublish": "not yet supported",
+    "candidateSchema": "kimyolab.studio-publish-candidate.v1",
+    "check": "npm run studio:check -- <file>",
+    "stillNeeded": [
+      "a human-only excerpt apply command",
+      "a documented rights register for textbook excerpts",
+      "a learner hub entry point for published excerpts",
+      "a human-only apply command for instruction drafts",
+      "profile authoring for instructions without a lab profile"
+    ]
+  },
+  "localization": {
+    "locale": "uz-Latn",
+    "catalog": "content-src/studio/content-studio.uz-latn.json",
+    "labels": 133,
+    "usedKeys": 116,
+    "dynamicKeyFamilies": [
+      "studio.blocker",
+      "studio.severity",
+      "studio.status"
+    ],
+    "missingKeys": [],
+    "technicalTermsInAuthorLabels": 0,
+    "technicalTermsKeys": []
+  },
+  "bundleImpact": {
+    "studio": {
+      "modules": 70,
+      "moduleBytes": 471238,
+      "studioOnlyModules": 9,
+      "studioOnlyBytes": 71743,
+      "sharedLearnerModules": 61
+    },
+    "learner": "reports/guided-dynamic-lab-readiness.json#bundleDelta.phases[\"P2.12\"]"
+  },
+  "governanceBlockers": [
+    {
+      "blocker": "source acceptance for any textbook (human-accepted sources: see reports/theory-authoring-status.json)",
+      "status": "human review required"
+    },
+    {
+      "blocker": "publication rights for textbook excerpts",
+      "status": "human review required"
+    },
+    {
+      "blocker": "chemistry / didactic review of authored content",
+      "status": "human review required"
+    },
+    {
+      "blocker": "authentication for a hosted Studio",
+      "status": "not yet supported"
+    },
+    {
+      "blocker": "one-click publish",
+      "status": "not yet supported"
+    }
+  ],
+  "formalMetrics": {
+    "learningProduct": 12.189,
+    "overall": 47.313,
+    "note": "authoring infrastructure is not learner content coverage; no formula input changed"
+  }
+}

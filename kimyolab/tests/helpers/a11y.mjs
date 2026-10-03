@@ -48,8 +48,9 @@ async function recordFocus(page, state) {
   if (f.inWorkspace) { state.focusStops += 1; if (!f.visible) state.issues.add(`FOCUS_NOT_VISIBLE:${f.tag.toLowerCase()}${f.type ? `[${f.type}]` : ''}`); }
 }
 
-/** Accessible-name audit of every control in the workspace (simplified accname: labelledby, label, aria-label, text). */
-export async function semantics(page) {
+/** Accessible-name audit of every control in the workspace (simplified accname: labelledby, label, aria-label, text).
+ *  P2.12: `ws` scopes the audit to another root (the Content Studio); the default — the learner workspace — is unchanged. */
+export async function semantics(page, ws = WORKSPACE) {
   return page.evaluate(({ws, generic}) => {
     const root = document.querySelector(ws); const out = {unnamed: [], genericNames: [], ungrouped: [], duplicateButtonNames: [], unboundErrors: [], headings: [], positiveTabindex: 0, duplicateIds: 0, liveRegions: 0, h1: 0};
     if (!root) return {...out, missingWorkspace: true};
@@ -88,7 +89,7 @@ export async function semantics(page) {
     const ids = [...document.querySelectorAll('[id]')].map((e) => e.id); out.duplicateIds = ids.length - new Set(ids).size;
     out.liveRegions = root.querySelectorAll('[role=status], [aria-live]').length;
     return out;
-  }, {ws: WORKSPACE, generic: GENERIC_NAME});
+  }, {ws, generic: GENERIC_NAME});
 }
 
 /** All announced text (live regions + alerts) inside the workspace. */

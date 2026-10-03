@@ -17,7 +17,7 @@ import {compileTopicLabProfiles,loadConfigs,openOrderPackets} from './lib/topic-
 import {createLabRuntime,createLabState,HANDLER_SEMANTICS,observationGrounding,type LabAction} from '../src/domain/lab/lab-runtime.ts';
 import {createLabDomain} from '../src/domain/lab/lab-domain.ts';
 import {FEATURE_FLAGS} from '../src/app/feature-flags.ts';
-import {buildCapabilityRegistry,registryProblems,resolveOperation,resolveSubstance,CAPABILITY_REGISTRY_SCHEMA,CAPABILITY_REGISTRY_VERSION,type CapabilityRegistry} from '../src/domain/lab/capability-registry.ts';
+import {buildCapabilityRegistry,FORMULA_TOKEN,registryProblems,resolveOperation,resolveSubstance,CAPABILITY_REGISTRY_SCHEMA,CAPABILITY_REGISTRY_VERSION,type CapabilityRegistry} from '../src/domain/lab/capability-registry.ts';
 
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const readJson=(root:string,rel:string)=>JSON.parse(fs.readFileSync(path.join(root,rel),'utf8'));
@@ -302,7 +302,6 @@ export function buildCoverage(inventory=buildInventory(),profiles:TopicLabProfil
 
 // ------------------------------------------------------------------ P2.11 capability registry + substance coverage
 
-const FORMULA_TOKEN=/\b(?:[A-Z][a-z]?\d*){2,}\b|\b(?:Mg|Zn|Cu|Fe|Al|Ag|Na|Ca|K|S|C|P)\b(?=[\s,.;)]|$)/g;
 function chemistryData(root:string){
   const j=(rel:string)=>readJson(root,`content-src/chemistry/${rel}`);
   return {reactions:j('reactions.json'),solutionRules:j('solubility.json'),species:j('species.json'),electrolysis:j('electrolysis.json'),conditionVocabulary:j('condition-vocabulary.json'),schoolLabModels:j('school-lab-models.json'),qualitativeTests:j('qualitative-tests.json')};
@@ -482,7 +481,7 @@ async function equivalence72(root:string,profile:TopicLabProfile){
 }
 
 /** P2.11 — the new slices' scripts: the instruction's own sequence, expressed as lab actions */
-const REACTION_SCRIPTS:Record<string,LabAction[]>={
+export const REACTION_SCRIPTS:Record<string,LabAction[]>={
   'practice.experiment.7.10':[{family:'ADD_SUBSTANCE',params:{substance:'mg',container:'tube-1'}},{family:'ADD_SUBSTANCE',params:{substance:'h2so4-dilute',container:'tube-1'}},{family:'COLLECT_GAS',params:{container:'gas-collector',from:'tube-1'}},{family:'ADD_SUBSTANCE',params:{substance:'zn',container:'tube-2'}},{family:'ADD_SUBSTANCE',params:{substance:'hcl-dilute',container:'tube-2'}},{family:'COLLECT_GAS',params:{container:'gas-collector',from:'tube-2'}},{family:'ADD_SUBSTANCE',params:{substance:'cu',container:'tube-3'}},{family:'ADD_SUBSTANCE',params:{substance:'hcl-dilute',container:'tube-3'}}],
   'practice.experiment.8.14':[{family:'ADD_SUBSTANCE',params:{substance:'nh4cl',container:'reaction-tube'}},{family:'ADD_SUBSTANCE',params:{substance:'slaked-lime',container:'reaction-tube'}},{family:'SEAL',params:{container:'reaction-tube'}},{family:'HEAT',params:{container:'reaction-tube'}},{family:'COLLECT_GAS',params:{container:'collector-tube'}}],
 };
@@ -540,20 +539,23 @@ export async function buildEquivalence(root=ROOT,profiles:TopicLabProfile[]=comp
 }
 
 /** The guided lab's bundle growth since the P2.9 closing build (reports/feedback-semantics-expansion.json#bundleDelta.after
- *  @ 22e5687) vs the current build. `delta` stays CUMULATIVE since P2.9 (P2.10 + P2.11), because the earlier phases'
+ *  @ 22e5687) vs the current build. `delta` stays CUMULATIVE since P2.9 (P2.10 + P2.11 + P2.12), because the earlier phases'
  *  bound checks subtract exactly this recorded delta instead of absorbing it; `phases` splits it per phase. */
 export const P29_BUNDLE_AFTER={learnerModules:162,learnerModuleBytes:714004,standaloneBytes:5704269};
 /** P2.10's recorded growth (reports/guided-dynamic-lab-readiness.json#bundleDelta.delta @ a6f959e) */
 export const P210_BUNDLE_DELTA={learnerModules:6,learnerModuleBytes:102503,standaloneBytes:153878};
+/** P2.11's recorded growth (bundleDelta.phases['P2.11'] @ b4de365, the P2.11 merge); anything beyond is P2.12's */
+export const P211_BUNDLE_DELTA={learnerModules:1,learnerModuleBytes:43684,standaloneBytes:67213};
 export function bundleDelta(root:string,now:{learnerModules:number;learnerModuleBytes:number;standaloneBytes:number}){
   void root;
   const before=P29_BUNDLE_AFTER;
   const after={learnerModules:now.learnerModules,learnerModuleBytes:now.learnerModuleBytes,standaloneBytes:now.standaloneBytes};
   const delta={learnerModules:after.learnerModules-before.learnerModules,learnerModuleBytes:after.learnerModuleBytes-before.learnerModuleBytes,standaloneBytes:after.standaloneBytes-before.standaloneBytes};
-  const p211={learnerModules:delta.learnerModules-P210_BUNDLE_DELTA.learnerModules,learnerModuleBytes:delta.learnerModuleBytes-P210_BUNDLE_DELTA.learnerModuleBytes,standaloneBytes:delta.standaloneBytes-P210_BUNDLE_DELTA.standaloneBytes};
+  const k=['learnerModules','learnerModuleBytes','standaloneBytes'] as const;
+  const p212=Object.fromEntries(k.map(x=>[x,delta[x]-P210_BUNDLE_DELTA[x]-P211_BUNDLE_DELTA[x]])) as typeof delta;
   return {before,after,delta,cumulativeSince:'P2.9',
-    phases:{'P2.10':P210_BUNDLE_DELTA,'P2.11':p211},
-    newModules:'P2.10: src/app/feature-flags.ts, src/domain/lab/{action-catalog,topic-lab-profile,lab-runtime,lab-domain}.ts, src/features/dynamic-lab/render.ts; P2.11: src/domain/lab/capability-registry.ts (compiled with the app modules, imported by no learner route and absent from the standalone file; the standalone growth is the new handlers, catalog strings and two profiles)'};
+    phases:{'P2.10':P210_BUNDLE_DELTA,'P2.11':P211_BUNDLE_DELTA,'P2.12':p212},
+    newModules:'P2.10: src/app/feature-flags.ts, src/domain/lab/{action-catalog,topic-lab-profile,lab-runtime,lab-domain}.ts, src/features/dynamic-lab/render.ts; P2.11: src/domain/lab/capability-registry.ts (compiled with the app modules, imported by no learner route and absent from the standalone file; the standalone growth is the new handlers, catalog strings and two profiles); P2.12: src/features/textbook-excerpt/render.ts (the learner "Darslikdan o‘qish" renderer, not yet linked from a learner route) — the Content Studio itself is a separate build (dist-studio/) and adds nothing to the learner bundle'};
 }
 
 export function buildReadiness(inventory:any,catalog:any,coverage:any,equivalence:any,profiles:TopicLabProfile[],bundle?:unknown,capability?:any,substances?:any){

@@ -497,14 +497,14 @@
       "standaloneBytes": 5704269
     },
     "after": {
-      "learnerModules": 169,
-      "learnerModuleBytes": 860191,
-      "standaloneBytes": 5925360
+      "learnerModules": 170,
+      "learnerModuleBytes": 864273,
+      "standaloneBytes": 5926615
     },
     "delta": {
-      "learnerModules": 7,
-      "learnerModuleBytes": 146187,
-      "standaloneBytes": 221091
+      "learnerModules": 8,
+      "learnerModuleBytes": 150269,
+      "standaloneBytes": 222346
     },
     "cumulativeSince": "P2.9",
     "phases": {
@@ -517,8 +517,13 @@
         "learnerModules": 1,
         "learnerModuleBytes": 43684,
         "standaloneBytes": 67213
+      },
+      "P2.12": {
+        "learnerModules": 1,
+        "learnerModuleBytes": 4082,
+        "standaloneBytes": 1255
       }
     },
-    "newModules": "P2.10: src/app/feature-flags.ts, src/domain/lab/{action-catalog,topic-lab-profile,lab-runtime,lab-domain}.ts, src/features/dynamic-lab/render.ts; P2.11: src/domain/lab/capability-registry.ts (compiled with the app modules, imported by no learner route and absent from the standalone file; the standalone growth is the new handlers, catalog strings and two profiles)"
+    "newModules": "P2.10: src/app/feature-flags.ts, src/domain/lab/{action-catalog,topic-lab-profile,lab-runtime,lab-domain}.ts, src/features/dynamic-lab/render.ts; P2.11: src/domain/lab/capability-registry.ts (compiled with the app modules, imported by no learner route and absent from the standalone file; the standalone growth is the new handlers, catalog strings and two profiles); P2.12: src/features/textbook-excerpt/render.ts (the learner \"Darslikdan o‘qish\" renderer, not yet linked from a learner route) — the Content Studio itself is a separate build (dist-studio/) and adds nothing to the learner bundle"
   }
 }

@@ -1,0 +1,134 @@
+{
+  "schema": "kimyolab.content-studio-lab-roundtrip.v1",
+  "phase": "P2.12",
+  "semantics": "An existing canonical lab instruction passed through the Content Studio (instructionFromLegacy → classifyInstructionStep → resolveOperation → previewProfile). Equal on every dimension means the Studio derives the same operations, trial scope, capability resolution, completion scope and gaps, and the same lab actions give the same chemistry. The canonical activity is copied, never written.",
+  "summary": {
+    "activities": 2,
+    "equal": 2
+  },
+  "rows": [
+    {
+      "activityId": "practice.experiment.7.10",
+      "dimensions": {
+        "operations": {
+          "equal": true,
+          "detail": "11 operations"
+        },
+        "trialScope": {
+          "equal": true,
+          "detail": "INSTRUCTION_TRIALS, 3 trial(s)"
+        },
+        "capabilityResolution": {
+          "equal": true,
+          "detail": "resolveOperation per operation"
+        },
+        "completionScope": {
+          "equal": true,
+          "detail": "PARTIAL_INSTRUCTION"
+        },
+        "unsupportedGaps": {
+          "equal": true,
+          "detail": "4 uncovered operation(s), 5 recorded gap(s)"
+        },
+        "chemistry": {
+          "equal": true,
+          "detail": "the same lab actions on both profiles → the same lab state"
+        }
+      },
+      "equal": true,
+      "operations": 11,
+      "knownGaps": [
+        {
+          "instructionStep": 1,
+          "verb": "tekshiring",
+          "reason": "NOT_OFFERED"
+        },
+        {
+          "instructionStep": 2,
+          "verb": "tekshiring",
+          "reason": "NOT_OFFERED"
+        },
+        {
+          "instructionStep": 3,
+          "verb": "kuzating",
+          "reason": "OBSERVATION_NOT_PRODUCED"
+        },
+        {
+          "instructionStep": 4,
+          "verb": "izohlang",
+          "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+        }
+      ],
+      "recordedGaps": [
+        "TEST_NOT_OFFERED",
+        "MODEL_SOURCE_GAP_CU_HCL",
+        "RECORD_CHECKER_MISSING",
+        "HEAT_SOURCE_NOT_NAMED",
+        "APPARATUS_WITHOUT_OPERATION"
+      ],
+      "canonicalUntouched": true
+    },
+    {
+      "activityId": "practice.experiment.8.14",
+      "dimensions": {
+        "operations": {
+          "equal": true,
+          "detail": "8 operations"
+        },
+        "trialScope": {
+          "equal": true,
+          "detail": "INSTRUCTION_TRIALS, 1 trial(s)"
+        },
+        "capabilityResolution": {
+          "equal": true,
+          "detail": "resolveOperation per operation"
+        },
+        "completionScope": {
+          "equal": true,
+          "detail": "PARTIAL_INSTRUCTION"
+        },
+        "unsupportedGaps": {
+          "equal": true,
+          "detail": "4 uncovered operation(s), 6 recorded gap(s)"
+        },
+        "chemistry": {
+          "equal": true,
+          "detail": "the same lab actions on both profiles → the same lab state"
+        }
+      },
+      "equal": true,
+      "operations": 8,
+      "knownGaps": [
+        {
+          "instructionStep": 3,
+          "verb": "kuzating",
+          "reason": "OBSERVATION_NOT_PRODUCED"
+        },
+        {
+          "instructionStep": 4,
+          "verb": "tuting",
+          "reason": "NOT_OFFERED"
+        },
+        {
+          "instructionStep": 5,
+          "verb": "yaqinlashtiring",
+          "reason": "NOT_OFFERED"
+        },
+        {
+          "instructionStep": 5,
+          "verb": "kuzating",
+          "reason": "OBSERVATION_NOT_PRODUCED"
+        }
+      ],
+      "recordedGaps": [
+        "SCHOOL_MODEL_STEP_BOUND",
+        "SOURCE_CONFLICT_REVIEW_REQUIRED",
+        "QUANTITY_AS_RATIO",
+        "HEAT_SOURCE_NOT_NAMED",
+        "APPARATUS_NOT_DECLARED",
+        "SAFETY_TEXT_EMPTY"
+      ],
+      "canonicalUntouched": true
+    }
+  ]
+}
