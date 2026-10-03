@@ -1,0 +1,1877 @@
+{
+  "schema": "kimyolab.substance-model-coverage.v1",
+  "phase": "P2.11",
+  "semantics": "instruction substance → canonical species → supporting authority. Only formulas written in the materials text are resolved; an Uzbek name stays NAME_NOT_RESOLVED until content maps it. KNOWN_TO_OTHER_AUTHORITY means the species exists in some authority but not in the one the experiment is bound to (e.g. 9.10: KI is in a ReactionMatcher record, but ElectrolysisModel has no KI record) — it stays a blocker.",
+  "summary": {
+    "materialItems": 154,
+    "byStatus": {
+      "COVERED_BY_BOUND_AUTHORITY": 34,
+      "KNOWN_TO_OTHER_AUTHORITY": 16,
+      "NAME_NOT_RESOLVED": 96,
+      "SPECIES_WITHOUT_AUTHORITY": 1,
+      "UNKNOWN_SUBSTANCE": 7
+    }
+  },
+  "rows": [
+    {
+      "activityId": "practice.experiment.10.1",
+      "boundAuthority": null,
+      "materials": [
+        {
+          "text": "Turli organik modda namunalari",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "suv",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "atseton",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "etanol",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "parafin",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        }
+      ],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.10.10",
+      "boundAuthority": null,
+      "materials": [
+        {
+          "text": "Sirka kislotasi",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "glitserin",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "glyukoza",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "indikator",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "Cu(OH)2 va darslikdagi yordamchi reaktivlar",
+          "formula": "OH",
+          "speciesId": null,
+          "authorities": [],
+          "status": "UNKNOWN_SUBSTANCE"
+        }
+      ],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.10.2",
+      "boundAuthority": null,
+      "materials": [
+        {
+          "text": "Organik modda namunasi",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "CuO",
+          "formula": "CuO",
+          "speciesId": "species.cuo",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "status": "KNOWN_TO_OTHER_AUTHORITY"
+        },
+        {
+          "text": "suvsiz CuSO4",
+          "formula": "CuSO4",
+          "speciesId": "species.cuso4",
+          "authorities": [
+            "QualitativeTest",
+            "ReactionMatcher"
+          ],
+          "status": "KNOWN_TO_OTHER_AUTHORITY"
+        },
+        {
+          "text": "ohakli suv",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "shakar",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        }
+      ],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.10.22.carboxylic-acid",
+      "boundAuthority": null,
+      "materials": [],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.10.3",
+      "boundAuthority": "reaction-records",
+      "materials": [
+        {
+          "text": "Etanol",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "konsentrlangan H2SO4",
+          "formula": "H2SO4",
+          "speciesId": "species.h2so4",
+          "authorities": [
+            "IonicEngine",
+            "QualitativeTest",
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "qum",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "bromli suv",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "kislotalangan KMnO4",
+          "formula": "KMnO4",
+          "speciesId": null,
+          "authorities": [],
+          "status": "UNKNOWN_SUBSTANCE"
+        }
+      ],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.10.5",
+      "boundAuthority": "reaction-records",
+      "materials": [
+        {
+          "text": "CuSO4",
+          "formula": "CuSO4",
+          "speciesId": "species.cuso4",
+          "authorities": [
+            "QualitativeTest",
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "KOH yoki NaOH",
+          "formula": "KOH",
+          "speciesId": null,
+          "authorities": [],
+          "status": "UNKNOWN_SUBSTANCE"
+        },
+        {
+          "text": "KOH yoki NaOH",
+          "formula": "NaOH",
+          "speciesId": "species.naoh",
+          "authorities": [
+            "IonicEngine",
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "bolalar kremi yoki saqich ekstrakti",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "antifriz topshirig‘i uchun darslikda ko‘rsatilgan tarkibiy qismlar",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        }
+      ],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.10.6",
+      "boundAuthority": null,
+      "materials": [
+        {
+          "text": "Yangi tayyorlangan Cu(OH)2",
+          "formula": "OH",
+          "speciesId": null,
+          "authorities": [],
+          "status": "UNKNOWN_SUBSTANCE"
+        },
+        {
+          "text": "glitserin",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "formalin",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        }
+      ],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.10.7",
+      "boundAuthority": null,
+      "materials": [
+        {
+          "text": "Hidli o‘simlik materiali",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "suv",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "atir tayyorlash uchun gullar va darslikda ko‘rsatilgan erituvchi",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        }
+      ],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.10.8",
+      "boundAuthority": "reaction-records",
+      "materials": [
+        {
+          "text": "Yog‘ namunasi",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "ishqor",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "suv",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "osh tuzi",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "darslikda ko‘rsatilgan qo‘shimcha vositalar",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        }
+      ],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.10.9",
+      "boundAuthority": "reaction-records",
+      "materials": [
+        {
+          "text": "Uzum sharbati yoki glyukoza",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "CuSO4",
+          "formula": "CuSO4",
+          "speciesId": "species.cuso4",
+          "authorities": [
+            "QualitativeTest",
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "NaOH",
+          "formula": "NaOH",
+          "speciesId": "species.naoh",
+          "authorities": [
+            "IonicEngine",
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "saxaroza",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "kislota",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "kraxmal",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "yod",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "sellyuloza",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "ammiakli mis gidroksid eritmasi",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        }
+      ],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.11.2",
+      "boundAuthority": "electrolysis",
+      "materials": [
+        {
+          "text": "CuCl2 eritmasi",
+          "formula": "CuCl2",
+          "speciesId": "species.cucl2",
+          "authorities": [
+            "ElectrolysisModel",
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        }
+      ],
+      "profileSubstances": [
+        {
+          "id": "cucl2-solution",
+          "speciesId": "species.cucl2",
+          "formula": "CuCl2",
+          "authorities": [
+            "ReactionMatcher",
+            "ElectrolysisModel"
+          ],
+          "source": "legacyContent.materials (\"CuCl2 eritmasi.\")"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.1",
+      "boundAuthority": null,
+      "materials": [],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.7.10",
+      "boundAuthority": "reaction-records",
+      "materials": [
+        {
+          "text": "Mg",
+          "formula": "Mg",
+          "speciesId": "species.mg",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "Zn",
+          "formula": "Zn",
+          "speciesId": "species.zn",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "Cu",
+          "formula": "Cu",
+          "speciesId": "species.cu",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "suyultirilgan H2SO4 va HCl",
+          "formula": "H2SO4",
+          "speciesId": "species.h2so4",
+          "authorities": [
+            "IonicEngine",
+            "QualitativeTest",
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "suyultirilgan H2SO4 va HCl",
+          "formula": "HCl",
+          "speciesId": "species.hcl",
+          "authorities": [
+            "IonicEngine",
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        }
+      ],
+      "profileSubstances": [
+        {
+          "id": "mg",
+          "speciesId": "species.mg",
+          "formula": "Mg",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "source": "legacyContent.materials (\"Mg\") + legacyContent.steps[0] (\"Magniy\")"
+        },
+        {
+          "id": "zn",
+          "speciesId": "species.zn",
+          "formula": "Zn",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "source": "legacyContent.materials (\"Zn\") + legacyContent.steps[1] (\"Rux granulalari\")"
+        },
+        {
+          "id": "cu",
+          "speciesId": "species.cu",
+          "formula": "Cu",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "source": "legacyContent.materials (\"Cu\") + legacyContent.steps[2] (\"Mis qirindilari\")"
+        },
+        {
+          "id": "h2so4-dilute",
+          "speciesId": "species.h2so4",
+          "formula": "H2SO4",
+          "authorities": [
+            "ReactionMatcher",
+            "IonicEngine",
+            "QualitativeTest"
+          ],
+          "source": "legacyContent.materials (\"suyultirilgan H2SO4\") + legacyContent.steps[0]"
+        },
+        {
+          "id": "hcl-dilute",
+          "speciesId": "species.hcl",
+          "formula": "HCl",
+          "authorities": [
+            "ReactionMatcher",
+            "IonicEngine"
+          ],
+          "source": "legacyContent.materials (\"suyultirilgan … HCl\") + legacyContent.steps[1], legacyContent.steps[2]"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.11",
+      "boundAuthority": "reaction-records",
+      "materials": [
+        {
+          "text": "CaO",
+          "formula": "CaO",
+          "speciesId": "species.cao",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "suv",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "mineral suv yoki CO2 li suv",
+          "formula": "CO2",
+          "speciesId": "species.co2",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "distillangan suv",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "fenolftalein yoki lakmus",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        }
+      ],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.7.12",
+      "boundAuthority": null,
+      "materials": [
+        {
+          "text": "Distillangan suv",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "vodoprovod suvi",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "mineral suv",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "sut yoki sharbat",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "shakar",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "tuz",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "qum",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        }
+      ],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.7.13",
+      "boundAuthority": null,
+      "materials": [
+        {
+          "text": "Turli olma sharbatlari",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "universal indikator",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "NaOH",
+          "formula": "NaOH",
+          "speciesId": "species.naoh",
+          "authorities": [
+            "IonicEngine",
+            "ReactionMatcher"
+          ],
+          "status": "KNOWN_TO_OTHER_AUTHORITY"
+        },
+        {
+          "text": "azot kislotasi",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "darslikda ko‘rsatilgan tekshiruv eritmalari",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        }
+      ],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.7.2",
+      "boundAuthority": null,
+      "materials": [
+        {
+          "text": "Ifloslangan osh tuzi",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "distillangan suv",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        }
+      ],
+      "profileSubstances": [
+        {
+          "id": "water",
+          "speciesId": "species.h2o",
+          "formula": "H2O",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "source": "legacyContent.materials (\"distillangan suv\") + legacyContent.steps[0]"
+        },
+        {
+          "id": "contaminated-salt",
+          "speciesId": null,
+          "formula": null,
+          "authorities": [],
+          "source": "legacyContent.materials (\"Ifloslangan osh tuzi\")"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.3",
+      "boundAuthority": null,
+      "materials": [
+        {
+          "text": "Oq tish pastasi yoki spirt",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "ko‘mir bo‘lagi",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "suv",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "osh tuzi",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "mis plastinka",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "rux plastinka",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        }
+      ],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.7.6",
+      "boundAuthority": null,
+      "materials": [
+        {
+          "text": "Suv va muz",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        }
+      ],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.7.7",
+      "boundAuthority": null,
+      "materials": [
+        {
+          "text": "Vodorod peroksid yoki kaliy permanganat",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "suv",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "ko‘mir",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "oltingugurt",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "temir sim",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "ohakli suv",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        }
+      ],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.7.8",
+      "boundAuthority": null,
+      "materials": [
+        {
+          "text": "Rux",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "temir yoki alyuminiy",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "suyultirilgan xlorid yoki sulfat kislota",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "mis(II)-oksid",
+          "formula": "II",
+          "speciesId": null,
+          "authorities": [],
+          "status": "UNKNOWN_SUBSTANCE"
+        },
+        {
+          "text": "sovun eritmasi",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        }
+      ],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.7.9",
+      "boundAuthority": "reaction-records",
+      "materials": [
+        {
+          "text": "NaCl",
+          "formula": "NaCl",
+          "speciesId": "species.nacl",
+          "authorities": [
+            "IonicEngine",
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "H2SO4",
+          "formula": "H2SO4",
+          "speciesId": "species.h2so4",
+          "authorities": [
+            "IonicEngine",
+            "QualitativeTest",
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "HCl eritmasi",
+          "formula": "HCl",
+          "speciesId": "species.hcl",
+          "authorities": [
+            "IonicEngine",
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "indikatorlar",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "CuO",
+          "formula": "CuO",
+          "speciesId": "species.cuo",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "NaOH",
+          "formula": "NaOH",
+          "speciesId": "species.naoh",
+          "authorities": [
+            "IonicEngine",
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "fenolftalein",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "CaCO3 yoki bo‘r",
+          "formula": "CaCO3",
+          "speciesId": "species.caco3",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        }
+      ],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.8.1",
+      "boundAuthority": "ionic-mixing",
+      "materials": [],
+      "profileSubstances": [
+        {
+          "id": "agno3",
+          "speciesId": "species.agno3",
+          "formula": "AgNO3",
+          "authorities": [
+            "ReactionMatcher",
+            "IonicEngine"
+          ],
+          "source": "config.reagentShelf"
+        },
+        {
+          "id": "nacl",
+          "speciesId": "species.nacl",
+          "formula": "NaCl",
+          "authorities": [
+            "ReactionMatcher",
+            "IonicEngine"
+          ],
+          "source": "config.reagentShelf"
+        },
+        {
+          "id": "bacl2",
+          "speciesId": "species.bacl2",
+          "formula": "BaCl2",
+          "authorities": [
+            "ReactionMatcher",
+            "IonicEngine",
+            "QualitativeTest"
+          ],
+          "source": "config.reagentShelf"
+        },
+        {
+          "id": "h2so4",
+          "speciesId": "species.h2so4",
+          "formula": "H2SO4",
+          "authorities": [
+            "ReactionMatcher",
+            "IonicEngine",
+            "QualitativeTest"
+          ],
+          "source": "config.reagentShelf"
+        },
+        {
+          "id": "zncl2",
+          "speciesId": "species.zncl2",
+          "formula": "ZnCl2",
+          "authorities": [
+            "ReactionMatcher",
+            "IonicEngine"
+          ],
+          "source": "config.reagentShelf"
+        },
+        {
+          "id": "naoh",
+          "speciesId": "species.naoh",
+          "formula": "NaOH",
+          "authorities": [
+            "ReactionMatcher",
+            "IonicEngine"
+          ],
+          "source": "config.reagentShelf"
+        },
+        {
+          "id": "nano3",
+          "speciesId": "species.nano3",
+          "formula": "NaNO3",
+          "authorities": [
+            "ReactionMatcher",
+            "IonicEngine"
+          ],
+          "source": "config.reagentShelf"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.10",
+      "boundAuthority": "reaction-records",
+      "materials": [
+        {
+          "text": "NaCl",
+          "formula": "NaCl",
+          "speciesId": "species.nacl",
+          "authorities": [
+            "IonicEngine",
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "NaBr",
+          "formula": "NaBr",
+          "speciesId": "species.nabr",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "NaI eritmalari",
+          "formula": "NaI",
+          "speciesId": "species.nai",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "xlorli suv",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "bromli suv",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "yodning spirtdagi eritmasi",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        }
+      ],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.8.11",
+      "boundAuthority": null,
+      "materials": [
+        {
+          "text": "Yod kristallari",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "suv",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "benzol",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        }
+      ],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.8.12",
+      "boundAuthority": null,
+      "materials": [],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.8.12.planned",
+      "boundAuthority": null,
+      "materials": [],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.8.13",
+      "boundAuthority": null,
+      "materials": [
+        {
+          "text": "H2SO4",
+          "formula": "H2SO4",
+          "speciesId": "species.h2so4",
+          "authorities": [
+            "IonicEngine",
+            "QualitativeTest",
+            "ReactionMatcher"
+          ],
+          "status": "KNOWN_TO_OTHER_AUTHORITY"
+        },
+        {
+          "text": "Na2SO4",
+          "formula": "Na2SO4",
+          "speciesId": "species.na2so4",
+          "authorities": [
+            "IonicEngine",
+            "QualitativeTest",
+            "ReactionMatcher"
+          ],
+          "status": "KNOWN_TO_OTHER_AUTHORITY"
+        },
+        {
+          "text": "CuSO4",
+          "formula": "CuSO4",
+          "speciesId": "species.cuso4",
+          "authorities": [
+            "QualitativeTest",
+            "ReactionMatcher"
+          ],
+          "status": "KNOWN_TO_OTHER_AUTHORITY"
+        },
+        {
+          "text": "Al2(SO4)3",
+          "formula": "SO4",
+          "speciesId": null,
+          "authorities": [],
+          "status": "UNKNOWN_SUBSTANCE"
+        },
+        {
+          "text": "BaCl2",
+          "formula": "BaCl2",
+          "speciesId": "species.bacl2",
+          "authorities": [
+            "IonicEngine",
+            "QualitativeTest",
+            "ReactionMatcher"
+          ],
+          "status": "KNOWN_TO_OTHER_AUTHORITY"
+        }
+      ],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.8.14",
+      "boundAuthority": "reaction-records",
+      "materials": [
+        {
+          "text": "NH4Cl",
+          "formula": "NH4Cl",
+          "speciesId": "species.nh4cl",
+          "authorities": [
+            "IonicEngine",
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "so‘ndirilgan ohak",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "suv",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "fenolftalein shimdirilgan qog‘oz",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "HCl ga botirilgan shisha tayoqcha",
+          "formula": "HCl",
+          "speciesId": "species.hcl",
+          "authorities": [
+            "IonicEngine",
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        }
+      ],
+      "profileSubstances": [
+        {
+          "id": "nh4cl",
+          "speciesId": "species.nh4cl",
+          "formula": "NH4Cl",
+          "authorities": [
+            "ReactionMatcher",
+            "IonicEngine"
+          ],
+          "source": "legacyContent.materials (\"NH4Cl\") + legacyContent.steps[0]"
+        },
+        {
+          "id": "slaked-lime",
+          "speciesId": "species.camoh2",
+          "formula": "Ca(OH)2",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "source": "legacyContent.materials (\"so‘ndirilgan ohak\") + legacyContent.steps[0]; identified as Ca(OH)2 by the repository's own grounding of step 2 (guided-step-reaction-map → rxn.nh4cl-caoh2)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.15",
+      "boundAuthority": null,
+      "materials": [],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.8.2",
+      "boundAuthority": null,
+      "materials": [],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.8.3",
+      "boundAuthority": null,
+      "materials": [
+        {
+          "text": "NH4Cl kristallari",
+          "formula": "NH4Cl",
+          "speciesId": "species.nh4cl",
+          "authorities": [
+            "IonicEngine",
+            "ReactionMatcher"
+          ],
+          "status": "KNOWN_TO_OTHER_AUTHORITY"
+        },
+        {
+          "text": "so‘ndirilgan ohak",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "qizil lakmus",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "fenolftalein",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "kislorod",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "HNO3",
+          "formula": "HNO3",
+          "speciesId": "species.hno3",
+          "authorities": [],
+          "status": "SPECIES_WITHOUT_AUTHORITY"
+        },
+        {
+          "text": "HCl",
+          "formula": "HCl",
+          "speciesId": "species.hcl",
+          "authorities": [
+            "IonicEngine",
+            "ReactionMatcher"
+          ],
+          "status": "KNOWN_TO_OTHER_AUTHORITY"
+        },
+        {
+          "text": "H2SO4",
+          "formula": "H2SO4",
+          "speciesId": "species.h2so4",
+          "authorities": [
+            "IonicEngine",
+            "QualitativeTest",
+            "ReactionMatcher"
+          ],
+          "status": "KNOWN_TO_OTHER_AUTHORITY"
+        }
+      ],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.8.4",
+      "boundAuthority": null,
+      "materials": [],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.8.5",
+      "boundAuthority": null,
+      "materials": [],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.8.6",
+      "boundAuthority": "reaction-records",
+      "materials": [
+        {
+          "text": "5% NaOH",
+          "formula": "NaOH",
+          "speciesId": "species.naoh",
+          "authorities": [
+            "IonicEngine",
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "ZnCl2",
+          "formula": "ZnCl2",
+          "speciesId": "species.zncl2",
+          "authorities": [
+            "IonicEngine",
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "HCl",
+          "formula": "HCl",
+          "speciesId": "species.hcl",
+          "authorities": [
+            "IonicEngine",
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "taqqoslash uchun CuCl2",
+          "formula": "CuCl2",
+          "speciesId": "species.cucl2",
+          "authorities": [
+            "ElectrolysisModel",
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        }
+      ],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.8.8",
+      "boundAuthority": "reaction-records",
+      "materials": [
+        {
+          "text": "HCl",
+          "formula": "HCl",
+          "speciesId": "species.hcl",
+          "authorities": [
+            "IonicEngine",
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "NaCl",
+          "formula": "NaCl",
+          "speciesId": "species.nacl",
+          "authorities": [
+            "IonicEngine",
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "NaBr",
+          "formula": "NaBr",
+          "speciesId": "species.nabr",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "NaI",
+          "formula": "NaI",
+          "speciesId": "species.nai",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "AgNO3",
+          "formula": "AgNO3",
+          "speciesId": "species.agno3",
+          "authorities": [
+            "IonicEngine",
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "kraxmal kleysteri",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "yodning spirtdagi eritmasi",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "kartoshka va non",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        }
+      ],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.8.9",
+      "boundAuthority": "reaction-records",
+      "materials": [],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.9.1",
+      "boundAuthority": null,
+      "materials": [
+        {
+          "text": "Bo‘r yoki marmar",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "suyultirilgan HCl",
+          "formula": "HCl",
+          "speciesId": "species.hcl",
+          "authorities": [
+            "IonicEngine",
+            "ReactionMatcher"
+          ],
+          "status": "KNOWN_TO_OTHER_AUTHORITY"
+        },
+        {
+          "text": "ohakli suv",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "distillangan suv",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "ko‘k lakmus",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "NaOH",
+          "formula": "NaOH",
+          "speciesId": "species.naoh",
+          "authorities": [
+            "IonicEngine",
+            "ReactionMatcher"
+          ],
+          "status": "KNOWN_TO_OTHER_AUTHORITY"
+        },
+        {
+          "text": "fenolftalein",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "tuproq namunasi",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "AgNO3",
+          "formula": "AgNO3",
+          "speciesId": "species.agno3",
+          "authorities": [
+            "IonicEngine",
+            "ReactionMatcher"
+          ],
+          "status": "KNOWN_TO_OTHER_AUTHORITY"
+        },
+        {
+          "text": "ammiak",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        }
+      ],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.9.10",
+      "boundAuthority": "electrolysis",
+      "materials": [
+        {
+          "text": "CuCl2 eritmasi",
+          "formula": "CuCl2",
+          "speciesId": "species.cucl2",
+          "authorities": [
+            "ElectrolysisModel",
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
+          "text": "2 M KI eritmasi",
+          "formula": "KI",
+          "speciesId": "species.ki",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "status": "KNOWN_TO_OTHER_AUTHORITY"
+        },
+        {
+          "text": "yangi tayyorlangan kraxmal eritmasi",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        }
+      ],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.9.11",
+      "boundAuthority": null,
+      "materials": [],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.9.12",
+      "boundAuthority": null,
+      "materials": [],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.9.13",
+      "boundAuthority": null,
+      "materials": [],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.9.14",
+      "boundAuthority": "hydrolysis",
+      "materials": [],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.9.15",
+      "boundAuthority": null,
+      "materials": [],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.9.16",
+      "boundAuthority": "reaction-records",
+      "materials": [],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.9.17",
+      "boundAuthority": null,
+      "materials": [],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.9.18",
+      "boundAuthority": null,
+      "materials": [],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.9.19",
+      "boundAuthority": null,
+      "materials": [],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.9.2",
+      "boundAuthority": null,
+      "materials": [],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.9.20",
+      "boundAuthority": null,
+      "materials": [],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.9.3",
+      "boundAuthority": null,
+      "materials": [],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.9.4",
+      "boundAuthority": "reaction-records",
+      "materials": [],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.9.5",
+      "boundAuthority": null,
+      "materials": [],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.9.6",
+      "boundAuthority": null,
+      "materials": [],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.9.7",
+      "boundAuthority": null,
+      "materials": [],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.9.8",
+      "boundAuthority": null,
+      "materials": [],
+      "profileSubstances": null
+    },
+    {
+      "activityId": "practice.experiment.9.9",
+      "boundAuthority": null,
+      "materials": [
+        {
+          "text": "AgNO3",
+          "formula": "AgNO3",
+          "speciesId": "species.agno3",
+          "authorities": [
+            "IonicEngine",
+            "ReactionMatcher"
+          ],
+          "status": "KNOWN_TO_OTHER_AUTHORITY"
+        },
+        {
+          "text": "CuSO4",
+          "formula": "CuSO4",
+          "speciesId": "species.cuso4",
+          "authorities": [
+            "QualitativeTest",
+            "ReactionMatcher"
+          ],
+          "status": "KNOWN_TO_OTHER_AUTHORITY"
+        },
+        {
+          "text": "Pb(NO3)2",
+          "formula": "NO3",
+          "speciesId": null,
+          "authorities": [],
+          "status": "UNKNOWN_SUBSTANCE"
+        },
+        {
+          "text": "mis simi",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "temir kukuni",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        },
+        {
+          "text": "mis kukuni",
+          "formula": null,
+          "speciesId": null,
+          "authorities": [],
+          "status": "NAME_NOT_RESOLVED",
+          "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
+        }
+      ],
+      "profileSubstances": null
+    }
+  ]
+}

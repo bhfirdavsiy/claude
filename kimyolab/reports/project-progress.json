@@ -121,7 +121,7 @@
     "milestone": "P0-INTEGRITY"
   },
   "whereWeAreNow": {
-    "milestone": "P2.10",
+    "milestone": "P2.11",
     "foundationPercent": 100,
     "learningProductPercent": 12.189,
     "facts": [
@@ -153,11 +153,12 @@
     "P2.6",
     "P2.7",
     "P2.8",
-    "P2.9"
+    "P2.9",
+    "P2.10"
   ],
-  "currentMilestone": "P2.10 — guided dynamic lab inventory & architecture",
+  "currentMilestone": "P2.11 — instruction-driven runtime expansion & capability registry",
   "nextMilestones": [
-    "P2.11+ — assessment / model-based / localization / governance expansion",
+    "P2.12+ — assessment / model-based / localization / governance expansion",
     "human review round (workbench): chemistry A–C queues, lu.9.15 assessment",
     "release decisions for the 27 pending activities"
   ],

@@ -5,21 +5,21 @@
   "semantics": "PROFILED = a validated kimyolab.topic-lab-profile.v1 exists (vertical slice). BLOCKED = at least one BLOCKER: a state/observation action without a safe handler; a composition-changing action without a chemistry authority, or a guided step that changes composition without a reaction record or model (fail closed); an instruction substance the authority does not know; an unmapped or ambiguous operation; or missing instruction content (no steps, or a \"prove/identify by experiment\" task that names no operation while the config supplies none). PROFILE_CANDIDATE = no blocker; it may still carry GAPS that are not missing chemistry: LEARNER_RESPONSE_CHECKER_MISSING (a response with no checker is never judged), HUMAN_DECISION_REQUIRED (open order question), SAFETY_RULE (a prohibition to carry as a safety note). A candidate is NOT profiled: no profile is written by guessing and nothing is migrated.",
   "summary": {
     "experiments": 57,
-    "BLOCKED": 53,
+    "BLOCKED": 51,
     "PROFILE_CANDIDATE": 1,
-    "PROFILED": 3
+    "PROFILED": 5
   },
   "rowsPerBlockerCategory": {
     "AMBIGUOUS_OPERATION": 1,
-    "CHEMISTRY_AUTHORITY_MISSING": 36,
+    "CHEMISTRY_AUTHORITY_MISSING": 35,
     "CONTENT_REQUIRED": 7,
     "INSTRUCTION_NOT_COVERED_BY_AUTHORITY": 7,
-    "OBSERVATION_HANDLER_MISSING": 12,
-    "STATE_HANDLER_MISSING": 38
+    "OBSERVATION_HANDLER_MISSING": 11,
+    "STATE_HANDLER_MISSING": 20
   },
   "rowsPerGapCategory": {
     "HUMAN_DECISION_REQUIRED": 5,
-    "LEARNER_RESPONSE_CHECKER_MISSING": 31,
+    "LEARNER_RESPONSE_CHECKER_MISSING": 30,
     "SAFETY_RULE": 1
   },
   "reclassification": {
@@ -43,6 +43,34 @@
     "after": {
       "summary": {
         "experiments": 57,
+        "BLOCKED": 51,
+        "PROFILE_CANDIDATE": 1,
+        "PROFILED": 5
+      },
+      "rowsPerBlockerCategory": {
+        "AMBIGUOUS_OPERATION": 1,
+        "CHEMISTRY_AUTHORITY_MISSING": 35,
+        "CONTENT_REQUIRED": 7,
+        "INSTRUCTION_NOT_COVERED_BY_AUTHORITY": 7,
+        "OBSERVATION_HANDLER_MISSING": 11,
+        "STATE_HANDLER_MISSING": 20
+      }
+    },
+    "changes": [
+      "learner responses (COMPARE, INFER, RECORD, EXPLAIN, STUDY, SELECT) are LEARNER_RESPONSE_CHECKER_MISSING gaps, no longer NO_DOMAIN_HANDLER blockers",
+      "an open order question is a HUMAN_DECISION_REQUIRED gap (a profile can carry HUMAN_DECISION_REQUIRED, as 11.2 does), no longer a blocker",
+      "a missing chemistry authority blocks only experiments with composition-changing state actions",
+      "\"qaratmang\" is a SAFETY_RULE, no longer an unmapped operation; \"bajaring\" (10.7) names no single operation and is AMBIGUOUS",
+      "an ambiguous verb with no matching context has NO family (family null): it is an AMBIGUOUS_OPERATION blocker only and never yields a family or a NO_DOMAIN_HANDLER blocker for a guessed family",
+      "REPEAT (8.6: repeat the procedure with CuCl2) is a state action and stays a blocker without a handler",
+      "new blockers that the first pass missed: a task naming no operation (CONTENT_REQUIRED), an ungrounded composition-changing guided step, an instruction substance unknown to the authority (e.g. KI in 9.10)"
+    ]
+  },
+  "p211": {
+    "before": {
+      "source": "reports/topic-lab-profile-coverage.json @ a6f959e",
+      "summary": {
+        "experiments": 57,
         "BLOCKED": 53,
         "PROFILE_CANDIDATE": 1,
         "PROFILED": 3
@@ -56,14 +84,26 @@
         "STATE_HANDLER_MISSING": 38
       }
     },
+    "after": {
+      "summary": {
+        "experiments": 57,
+        "BLOCKED": 51,
+        "PROFILE_CANDIDATE": 1,
+        "PROFILED": 5
+      },
+      "rowsPerBlockerCategory": {
+        "AMBIGUOUS_OPERATION": 1,
+        "CHEMISTRY_AUTHORITY_MISSING": 35,
+        "CONTENT_REQUIRED": 7,
+        "INSTRUCTION_NOT_COVERED_BY_AUTHORITY": 7,
+        "OBSERVATION_HANDLER_MISSING": 11,
+        "STATE_HANDLER_MISSING": 20
+      }
+    },
     "changes": [
-      "learner responses (COMPARE, INFER, RECORD, EXPLAIN, STUDY, SELECT) are LEARNER_RESPONSE_CHECKER_MISSING gaps, no longer NO_DOMAIN_HANDLER blockers",
-      "an open order question is a HUMAN_DECISION_REQUIRED gap (a profile can carry HUMAN_DECISION_REQUIRED, as 11.2 does), no longer a blocker",
-      "a missing chemistry authority blocks only experiments with composition-changing state actions",
-      "\"qaratmang\" is a SAFETY_RULE, no longer an unmapped operation; \"bajaring\" (10.7) names no single operation and is AMBIGUOUS",
-      "an ambiguous verb with no matching context has NO family (family null): it is an AMBIGUOUS_OPERATION blocker only and never yields a family or a NO_DOMAIN_HANDLER blocker for a guessed family",
-      "REPEAT (8.6: repeat the procedure with CuCl2) is a state action and stays a blocker without a handler",
-      "new blockers that the first pass missed: a task naming no operation (CONTENT_REQUIRED), an ungrounded composition-changing guided step, an instruction substance unknown to the authority (e.g. KI in 9.10)"
+      "new handlers (capability registry 1.0.0): HEAT, STOP_HEAT (ReactionMatcher conditions), PASS_GAS (ReactionMatcher), TRANSFER, COLLECT_GAS, SEAL, WAIT (procedure) — their NO_DOMAIN_HANDLER blockers are gone wherever the instruction uses them; HEAT and PASS_GAS have a consequence only under a reaction-record authority, so elsewhere they stay blockers (HANDLER_NEEDS_AUTHORITY, fails closed)",
+      "two new vertical slices: 7.10 (metal + dilute acid → gas, collection) and 8.14 (gas only under the instruction’s gentle heating, collection) are PROFILED",
+      "nothing else is unblocked by assumption: experiments still lacking a chemistry authority, grounded steps, known substances or content stay BLOCKED"
     ]
   },
   "rows": [
@@ -106,12 +146,12 @@
       "orderMode": null,
       "blockers": [
         {
-          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "code": "HANDLER_NEEDS_AUTHORITY:HEAT",
           "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
-          "code": "NO_DOMAIN_HANDLER:HEAT",
-          "category": "STATE_HANDLER_MISSING"
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
         }
       ],
       "gaps": [
@@ -219,16 +259,16 @@
       "orderMode": null,
       "blockers": [
         {
-          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "code": "HANDLER_NEEDS_AUTHORITY:HEAT",
           "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
-          "code": "NO_DOMAIN_HANDLER:HEAT",
-          "category": "STATE_HANDLER_MISSING"
+          "code": "HANDLER_NEEDS_AUTHORITY:PASS_GAS",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
-          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
-          "category": "STATE_HANDLER_MISSING"
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
           "code": "STEP_NOT_GROUNDED:1",
@@ -306,14 +346,6 @@
         {
           "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:KMnO4",
           "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
-        },
-        {
-          "code": "NO_DOMAIN_HANDLER:HEAT",
-          "category": "STATE_HANDLER_MISSING"
-        },
-        {
-          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
-          "category": "STATE_HANDLER_MISSING"
         },
         {
           "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
@@ -447,12 +479,12 @@
       "orderMode": null,
       "blockers": [
         {
-          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "code": "HANDLER_NEEDS_AUTHORITY:HEAT",
           "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
-          "code": "NO_DOMAIN_HANDLER:HEAT",
-          "category": "STATE_HANDLER_MISSING"
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
           "code": "STEP_NOT_GROUNDED:2",
@@ -546,10 +578,6 @@
       "orderMode": null,
       "blockers": [
         {
-          "code": "NO_DOMAIN_HANDLER:HEAT",
-          "category": "STATE_HANDLER_MISSING"
-        },
-        {
           "code": "NO_DOMAIN_HANDLER:SEPARATE",
           "category": "STATE_HANDLER_MISSING"
         }
@@ -607,10 +635,6 @@
         {
           "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:NaOH",
           "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
-        },
-        {
-          "code": "NO_DOMAIN_HANDLER:HEAT",
-          "category": "STATE_HANDLER_MISSING"
         },
         {
           "code": "NO_DOMAIN_HANDLER:TEST",
@@ -781,23 +805,15 @@
       "orderMode": null,
       "blockers": [
         {
+          "code": "HANDLER_NEEDS_AUTHORITY:HEAT",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
           "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
           "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
           "code": "NO_DOMAIN_HANDLER:BRING_NEAR",
-          "category": "STATE_HANDLER_MISSING"
-        },
-        {
-          "code": "NO_DOMAIN_HANDLER:HEAT",
-          "category": "STATE_HANDLER_MISSING"
-        },
-        {
-          "code": "NO_DOMAIN_HANDLER:SEAL",
-          "category": "STATE_HANDLER_MISSING"
-        },
-        {
-          "code": "NO_DOMAIN_HANDLER:STOP_HEAT",
           "category": "STATE_HANDLER_MISSING"
         },
         {
@@ -835,8 +851,8 @@
     },
     {
       "activityId": "practice.experiment.7.10",
-      "status": "BLOCKED",
-      "profileId": null,
+      "status": "PROFILED",
+      "profileId": "lab-profile.7.10.metal-acid-gas",
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
@@ -882,28 +898,16 @@
         }
       ],
       "chemistryAuthority": "reaction-records",
-      "orderMode": null,
-      "blockers": [
-        {
-          "code": "NO_DOMAIN_HANDLER:COLLECT_GAS",
-          "category": "STATE_HANDLER_MISSING"
-        },
-        {
-          "code": "NO_DOMAIN_HANDLER:HEAT",
-          "category": "STATE_HANDLER_MISSING"
-        },
-        {
-          "code": "NO_DOMAIN_HANDLER:TEST",
-          "category": "OBSERVATION_HANDLER_MISSING"
-        }
-      ],
-      "gaps": [
-        {
-          "code": "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
-          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
-        }
-      ],
-      "profileGaps": []
+      "orderMode": "FLEXIBLE",
+      "blockers": [],
+      "gaps": [],
+      "profileGaps": [
+        "TEST_NOT_OFFERED",
+        "CU_HCL_NOT_IN_REACTION_RECORDS",
+        "RECORD_CHECKER_MISSING",
+        "HEAT_SOURCE_NOT_NAMED",
+        "APPARATUS_WITHOUT_OPERATION"
+      ]
     },
     {
       "activityId": "practice.experiment.7.11",
@@ -1229,19 +1233,15 @@
       "orderMode": null,
       "blockers": [
         {
+          "code": "HANDLER_NEEDS_AUTHORITY:HEAT",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
           "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
           "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
-          "code": "NO_DOMAIN_HANDLER:HEAT",
-          "category": "STATE_HANDLER_MISSING"
-        },
-        {
           "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
-          "category": "STATE_HANDLER_MISSING"
-        },
-        {
-          "code": "NO_DOMAIN_HANDLER:WAIT",
           "category": "STATE_HANDLER_MISSING"
         }
       ],
@@ -1299,16 +1299,12 @@
       "orderMode": null,
       "blockers": [
         {
-          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "code": "HANDLER_NEEDS_AUTHORITY:HEAT",
           "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
-          "code": "NO_DOMAIN_HANDLER:HEAT",
-          "category": "STATE_HANDLER_MISSING"
-        },
-        {
-          "code": "NO_DOMAIN_HANDLER:TRANSFER",
-          "category": "STATE_HANDLER_MISSING"
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
         }
       ],
       "gaps": [
@@ -1394,23 +1390,15 @@
       "orderMode": null,
       "blockers": [
         {
+          "code": "HANDLER_NEEDS_AUTHORITY:HEAT",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
           "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
           "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
-          "code": "NO_DOMAIN_HANDLER:COLLECT_GAS",
-          "category": "STATE_HANDLER_MISSING"
-        },
-        {
-          "code": "NO_DOMAIN_HANDLER:HEAT",
-          "category": "STATE_HANDLER_MISSING"
-        },
-        {
           "code": "NO_DOMAIN_HANDLER:IGNITE",
-          "category": "STATE_HANDLER_MISSING"
-        },
-        {
-          "code": "NO_DOMAIN_HANDLER:STOP_HEAT",
           "category": "STATE_HANDLER_MISSING"
         }
       ],
@@ -1490,27 +1478,19 @@
       "orderMode": null,
       "blockers": [
         {
+          "code": "HANDLER_NEEDS_AUTHORITY:HEAT",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "HANDLER_NEEDS_AUTHORITY:PASS_GAS",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
           "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
           "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
           "code": "NO_DOMAIN_HANDLER:BRING_NEAR",
-          "category": "STATE_HANDLER_MISSING"
-        },
-        {
-          "code": "NO_DOMAIN_HANDLER:COLLECT_GAS",
-          "category": "STATE_HANDLER_MISSING"
-        },
-        {
-          "code": "NO_DOMAIN_HANDLER:HEAT",
-          "category": "STATE_HANDLER_MISSING"
-        },
-        {
-          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
-          "category": "STATE_HANDLER_MISSING"
-        },
-        {
-          "code": "NO_DOMAIN_HANDLER:SEAL",
           "category": "STATE_HANDLER_MISSING"
         },
         {
@@ -1665,10 +1645,6 @@
         {
           "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:NaI",
           "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
-        },
-        {
-          "code": "NO_DOMAIN_HANDLER:TRANSFER",
-          "category": "STATE_HANDLER_MISSING"
         }
       ],
       "gaps": [],
@@ -1762,12 +1738,12 @@
       "orderMode": null,
       "blockers": [
         {
-          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "code": "HANDLER_NEEDS_AUTHORITY:PASS_GAS",
           "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
-          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
-          "category": "STATE_HANDLER_MISSING"
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
         }
       ],
       "gaps": [
@@ -1832,8 +1808,8 @@
     },
     {
       "activityId": "practice.experiment.8.14",
-      "status": "BLOCKED",
-      "profileId": null,
+      "status": "PROFILED",
+      "profileId": "lab-profile.8.14.ammonia-heating",
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
@@ -1880,31 +1856,17 @@
         }
       ],
       "chemistryAuthority": "reaction-records",
-      "orderMode": null,
-      "blockers": [
-        {
-          "code": "NO_DOMAIN_HANDLER:BRING_NEAR",
-          "category": "STATE_HANDLER_MISSING"
-        },
-        {
-          "code": "NO_DOMAIN_HANDLER:COLLECT_GAS",
-          "category": "STATE_HANDLER_MISSING"
-        },
-        {
-          "code": "NO_DOMAIN_HANDLER:HEAT",
-          "category": "STATE_HANDLER_MISSING"
-        },
-        {
-          "code": "NO_DOMAIN_HANDLER:SEAL",
-          "category": "STATE_HANDLER_MISSING"
-        },
-        {
-          "code": "STEP_NOT_GROUNDED:1",
-          "category": "CHEMISTRY_AUTHORITY_MISSING"
-        }
-      ],
+      "orderMode": "FLEXIBLE",
+      "blockers": [],
       "gaps": [],
-      "profileGaps": []
+      "profileGaps": [
+        "SCHOOL_MODEL_STEP_BOUND",
+        "INSTRUCTION_MODEL_OBSERVATION_CONFLICT",
+        "QUANTITY_AS_RATIO",
+        "HEAT_SOURCE_NOT_NAMED",
+        "APPARATUS_NOT_DECLARED",
+        "SAFETY_TEXT_EMPTY"
+      ]
     },
     {
       "activityId": "practice.experiment.8.15",
@@ -1930,12 +1892,12 @@
       "orderMode": null,
       "blockers": [
         {
-          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "code": "HANDLER_NEEDS_AUTHORITY:PASS_GAS",
           "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
-          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
-          "category": "STATE_HANDLER_MISSING"
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
           "code": "STEP_NOT_GROUNDED:1",
@@ -2089,19 +2051,15 @@
       "orderMode": null,
       "blockers": [
         {
+          "code": "HANDLER_NEEDS_AUTHORITY:HEAT",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
           "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
           "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
           "code": "NO_DOMAIN_HANDLER:BRING_NEAR",
-          "category": "STATE_HANDLER_MISSING"
-        },
-        {
-          "code": "NO_DOMAIN_HANDLER:COLLECT_GAS",
-          "category": "STATE_HANDLER_MISSING"
-        },
-        {
-          "code": "NO_DOMAIN_HANDLER:HEAT",
           "category": "STATE_HANDLER_MISSING"
         },
         {
@@ -2175,12 +2133,12 @@
       "orderMode": null,
       "blockers": [
         {
-          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "code": "HANDLER_NEEDS_AUTHORITY:HEAT",
           "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
-          "code": "NO_DOMAIN_HANDLER:HEAT",
-          "category": "STATE_HANDLER_MISSING"
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
           "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
@@ -2349,10 +2307,6 @@
           "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
         },
         {
-          "code": "NO_DOMAIN_HANDLER:TRANSFER",
-          "category": "STATE_HANDLER_MISSING"
-        },
-        {
           "code": "STEP_NOT_GROUNDED:2",
           "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
@@ -2485,20 +2439,16 @@
       "orderMode": null,
       "blockers": [
         {
-          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "code": "HANDLER_NEEDS_AUTHORITY:HEAT",
           "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
-          "code": "NO_DOMAIN_HANDLER:HEAT",
-          "category": "STATE_HANDLER_MISSING"
+          "code": "HANDLER_NEEDS_AUTHORITY:PASS_GAS",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
-          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
-          "category": "STATE_HANDLER_MISSING"
-        },
-        {
-          "code": "NO_DOMAIN_HANDLER:SEAL",
-          "category": "STATE_HANDLER_MISSING"
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
           "code": "NO_DOMAIN_HANDLER:SEPARATE",
@@ -2624,12 +2574,12 @@
       "orderMode": null,
       "blockers": [
         {
-          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "code": "HANDLER_NEEDS_AUTHORITY:PASS_GAS",
           "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
-          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
-          "category": "STATE_HANDLER_MISSING"
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
           "code": "STEP_NOT_GROUNDED:1",
@@ -2975,16 +2925,16 @@
       "orderMode": null,
       "blockers": [
         {
-          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "code": "HANDLER_NEEDS_AUTHORITY:HEAT",
           "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
-          "code": "NO_DOMAIN_HANDLER:HEAT",
-          "category": "STATE_HANDLER_MISSING"
+          "code": "HANDLER_NEEDS_AUTHORITY:PASS_GAS",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
-          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
-          "category": "STATE_HANDLER_MISSING"
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
         }
       ],
       "gaps": [
@@ -3034,12 +2984,12 @@
       "orderMode": null,
       "blockers": [
         {
-          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "code": "HANDLER_NEEDS_AUTHORITY:PASS_GAS",
           "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
-          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
-          "category": "STATE_HANDLER_MISSING"
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
           "code": "STEP_NOT_GROUNDED:1",
@@ -3187,12 +3137,12 @@
       "orderMode": null,
       "blockers": [
         {
-          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "code": "HANDLER_NEEDS_AUTHORITY:PASS_GAS",
           "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
-          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
-          "category": "STATE_HANDLER_MISSING"
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
           "code": "NO_DOMAIN_HANDLER:TEST",
@@ -3219,12 +3169,12 @@
       "orderMode": null,
       "blockers": [
         {
-          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "code": "HANDLER_NEEDS_AUTHORITY:PASS_GAS",
           "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
-          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
-          "category": "STATE_HANDLER_MISSING"
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
           "code": "STEP_NOT_GROUNDED:1",
@@ -3286,16 +3236,16 @@
       "orderMode": null,
       "blockers": [
         {
-          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "code": "HANDLER_NEEDS_AUTHORITY:HEAT",
           "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
-          "code": "NO_DOMAIN_HANDLER:HEAT",
-          "category": "STATE_HANDLER_MISSING"
+          "code": "HANDLER_NEEDS_AUTHORITY:PASS_GAS",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
-          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
-          "category": "STATE_HANDLER_MISSING"
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
           "code": "STEP_NOT_GROUNDED:1",
@@ -3349,12 +3299,12 @@
       "orderMode": null,
       "blockers": [
         {
-          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "code": "HANDLER_NEEDS_AUTHORITY:PASS_GAS",
           "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
-          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
-          "category": "STATE_HANDLER_MISSING"
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
         },
         {
           "code": "NO_DOMAIN_HANDLER:TEST",

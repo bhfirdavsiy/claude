@@ -30,7 +30,8 @@ export const ROADMAP:ReadonlyArray<{id:string;label:string}>=[
   {id:'P2.8',label:'installation readiness & CI reproducibility'},
   {id:'P2.9',label:'learner feedback semantics & flow integrity'},
   {id:'P2.10',label:'guided dynamic lab inventory & architecture'},
-  {id:'P2.11+',label:'assessment / model-based / localization / governance expansion'},
+  {id:'P2.11',label:'instruction-driven runtime expansion & capability registry'},
+  {id:'P2.12+',label:'assessment / model-based / localization / governance expansion'},
   {id:'P3',label:'real portal deployment and production pilot'},
 ];
 const milestoneOrder=(a:string,b:string)=>a.localeCompare(b,undefined,{numeric:true});

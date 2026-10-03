@@ -1,14 +1,16 @@
 {
   "schema": "kimyolab.lab-migration-equivalence.v1",
-  "phase": "P2.10",
+  "phase": "P2.11",
   "semantics": "Old vs new on the SAME built content pack, per dimension. MIGRATION_EQUIVALENT only when every dimension is EQUIVALENT; otherwise the old runtime stays the canonical one. Even an equivalent slice is only ELIGIBLE: a migration is a human decision, never taken here.",
   "summary": {
-    "slices": 3,
+    "slices": 5,
     "migrationEquivalent": 0,
     "keepOldRuntime": [
       "practice.experiment.8.1",
       "practice.experiment.11.2",
-      "practice.experiment.7.2"
+      "practice.experiment.7.2",
+      "practice.experiment.7.10",
+      "practice.experiment.8.14"
     ]
   },
   "slices": [
@@ -204,6 +206,181 @@
         "instruction",
         "chemistryResult",
         "safety",
+        "evidence",
+        "accessibility"
+      ],
+      "decision": "KEEP_OLD_RUNTIME"
+    },
+    {
+      "activityId": "practice.experiment.7.10",
+      "profileId": "lab-profile.7.10.metal-acid-gas",
+      "oldRuntime": {
+        "runtime": "generic",
+        "capability": "generic.experiment",
+        "renderer": "legacy"
+      },
+      "scenario": "old: every guided step button in config order; new: the instruction sequence as lab actions (REACTION_SCRIPTS)",
+      "dimensions": {
+        "instruction": {
+          "status": "DIFFERENT",
+          "detail": "old: every instruction sentence is a button (including the flame test, the step-bound school-model steps and the explanation); new: only the operations the registry can execute are offered, the rest are recorded profile gaps",
+          "evidence": "profile.gaps"
+        },
+        "chemistryResult": {
+          "status": "DIFFERENT",
+          "detail": "old: the step’s configured observation appears on a click, whatever was added; new: ReactionMatcher evaluates the substances actually in the container under the actual conditions (declared acid concentration, the instruction’s heating) and fails closed when no record applies",
+          "evidence": "runs both"
+        },
+        "observations": {
+          "status": "EQUIVALENT",
+          "detail": "the record observation for each completion reaction: rxn.mg-h2so4 equal, rxn.zn-hcl equal",
+          "evidence": "runs both"
+        },
+        "safety": {
+          "status": "EQUIVALENT",
+          "detail": "the same legacy safety text (or none) in both",
+          "evidence": "profile.safety.notes ← legacyContent.safety"
+        },
+        "completion": {
+          "status": "DIFFERENT",
+          "detail": "old: every step clicked (complete=true); new: the bound reactions observed and a modeled gas collected (complete=true)",
+          "evidence": "runs both"
+        },
+        "evidence": {
+          "status": "DIFFERENT",
+          "detail": "new: candidates only (persisted:false)",
+          "evidence": "LabActionResult.evidenceCandidate"
+        },
+        "accessibility": {
+          "status": "NOT_PROVEN",
+          "detail": "covered by the route’s own e2e checks, not by the P2.7 sweep",
+          "evidence": "e2e"
+        },
+        "portalStandaloneParity": {
+          "status": "EQUIVALENT",
+          "detail": "both hosts",
+          "evidence": "tests/e2e/guided-dynamic-lab.spec.mjs"
+        }
+      },
+      "observationComparisons": [
+        {
+          "reactionId": "rxn.mg-h2so4",
+          "old": {
+            "type": "gas",
+            "descriptionKey": "rxn.mg-h2so4.observation"
+          },
+          "new": {
+            "type": "gas",
+            "descriptionKey": "rxn.mg-h2so4.observation"
+          },
+          "equal": true
+        },
+        {
+          "reactionId": "rxn.zn-hcl",
+          "old": {
+            "type": "gas",
+            "descriptionKey": "rxn.zn-hcl.observation"
+          },
+          "new": {
+            "type": "gas",
+            "descriptionKey": "rxn.zn-hcl.observation"
+          },
+          "equal": true
+        }
+      ],
+      "newOnly": {
+        "replayDeterministic": true,
+        "unsupportedOutcomes": [
+          "REACTION_NOT_MODELED",
+          "REACTION_NOT_MODELED"
+        ]
+      },
+      "migrationStatus": "NOT_MIGRATION_EQUIVALENT",
+      "blockingDimensions": [
+        "instruction",
+        "chemistryResult",
+        "completion",
+        "evidence",
+        "accessibility"
+      ],
+      "decision": "KEEP_OLD_RUNTIME"
+    },
+    {
+      "activityId": "practice.experiment.8.14",
+      "profileId": "lab-profile.8.14.ammonia-heating",
+      "oldRuntime": {
+        "runtime": "generic",
+        "capability": "generic.experiment",
+        "renderer": "legacy"
+      },
+      "scenario": "old: every guided step button in config order; new: the instruction sequence as lab actions (REACTION_SCRIPTS)",
+      "dimensions": {
+        "instruction": {
+          "status": "DIFFERENT",
+          "detail": "old: every instruction sentence is a button (including the flame test, the step-bound school-model steps and the explanation); new: only the operations the registry can execute are offered, the rest are recorded profile gaps",
+          "evidence": "profile.gaps"
+        },
+        "chemistryResult": {
+          "status": "DIFFERENT",
+          "detail": "old: the step’s configured observation appears on a click, whatever was added; new: ReactionMatcher evaluates the substances actually in the container under the actual conditions (declared acid concentration, the instruction’s heating) and fails closed when no record applies",
+          "evidence": "runs both"
+        },
+        "observations": {
+          "status": "EQUIVALENT",
+          "detail": "the record observation for each completion reaction: rxn.nh4cl-caoh2 equal",
+          "evidence": "runs both"
+        },
+        "safety": {
+          "status": "EQUIVALENT",
+          "detail": "the same legacy safety text (or none) in both",
+          "evidence": "profile.safety.notes ← legacyContent.safety"
+        },
+        "completion": {
+          "status": "DIFFERENT",
+          "detail": "old: every step clicked (complete=true); new: the bound reactions observed and a modeled gas collected (complete=true)",
+          "evidence": "runs both"
+        },
+        "evidence": {
+          "status": "DIFFERENT",
+          "detail": "new: candidates only (persisted:false)",
+          "evidence": "LabActionResult.evidenceCandidate"
+        },
+        "accessibility": {
+          "status": "NOT_PROVEN",
+          "detail": "covered by the route’s own e2e checks, not by the P2.7 sweep",
+          "evidence": "e2e"
+        },
+        "portalStandaloneParity": {
+          "status": "EQUIVALENT",
+          "detail": "both hosts",
+          "evidence": "tests/e2e/guided-dynamic-lab.spec.mjs"
+        }
+      },
+      "observationComparisons": [
+        {
+          "reactionId": "rxn.nh4cl-caoh2",
+          "old": {
+            "type": "gas",
+            "descriptionKey": "rxn.nh4cl-caoh2.observation"
+          },
+          "new": {
+            "type": "gas",
+            "descriptionKey": "rxn.nh4cl-caoh2.observation"
+          },
+          "equal": true
+        }
+      ],
+      "newOnly": {
+        "replayDeterministic": true,
+        "unsupportedOutcomes": [
+          "REACTION_CONDITIONS_NOT_MET"
+        ]
+      },
+      "migrationStatus": "NOT_MIGRATION_EQUIVALENT",
+      "blockingDimensions": [
+        "instruction",
+        "chemistryResult",
+        "completion",
         "evidence",
         "accessibility"
       ],

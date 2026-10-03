@@ -352,18 +352,18 @@
       "cssBytes": 32231
     },
     "after": {
-      "learnerModules": 168,
-      "learnerModuleBytes": 816507,
+      "learnerModules": 169,
+      "learnerModuleBytes": 848838,
       "rendererModules": 13,
       "rendererBytes": 71591,
-      "standaloneBytes": 5858147,
+      "standaloneBytes": 5906801,
       "cssBytes": 35636
     },
     "delta": {
-      "learnerModules": 6,
-      "learnerModuleBytes": 118596,
+      "learnerModules": 7,
+      "learnerModuleBytes": 150927,
       "cssBytes": 3405,
-      "standaloneBytes": 173415
+      "standaloneBytes": 222069
     },
     "dependencies": "none added at runtime; the accessibility harness (tests/helpers/a11y*.mjs) is test-only and dependency-free (Playwright was already a dev dependency)"
   },

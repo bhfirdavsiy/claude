@@ -37,7 +37,12 @@ export interface ProfileSubstance {
   undeclaredParts:Array<{id:string;description:string;source:ProfileSource;insoluble:boolean|null}>;
   /** the solute part of a sample that the chemistry authority can evaluate (dissolution) */
   soluteSpeciesId:string|null;
+  /** P2.11: conditions the INSTRUCTION states for this substance (e.g. "suyultirilgan" → acid-concentration: dilute),
+   *  in condition-vocabulary dimensions; an unstated condition stays unstated (never assumed) */
+  declaredConditions?:Array<{dimension:string;value:string;source:ProfileSource}>;
 }
+/** P2.11: the heating the instruction states ("biroz qizdiring" → gently-heated); absent → generic 'heated' */
+export interface ProfileHeating { level:'heated'|'gently-heated'|'strongly-heated'; source:ProfileSource }
 export interface ProfileQuantityLimit { substanceId:string; value:number; unit:string; source:ProfileSource }
 export interface ProcedureStep {
   id:string;
@@ -64,11 +69,16 @@ export interface ObservationTarget {
 export type CompletionGoal=
   | {kind:'all-required-steps'}
   | {kind:'ionic-target';targetReactionId:string}
-  | {kind:'observations';targets:string[]};
+  | {kind:'observations';targets:string[]}
+  /** P2.11: every listed reaction observed (via ReactionMatcher), and — when gasCollected — a modeled gas collected */
+  | {kind:'reactions';reactionIds:string[];gasCollected:boolean};
 export type ChemistryBinding=
   | {authority:'ionic-mixing';reagentShelf:string[];targetReactionId:string;source:ProfileSource;maxSolutionsPerContainer:2}
   | {authority:'electrolysis';query:{electrolyte:string;phase:'aq'|'l';electrode:'inert'|'active'};electrolyteSubstanceId:string;source:ProfileSource}
-  | {authority:'dissolution';solventSubstanceId:string;source:ProfileSource};
+  | {authority:'dissolution';solventSubstanceId:string;source:ProfileSource}
+  /** P2.11: general contact reactions under the ACTUAL lab conditions (ReactionMatcher, require-record-conditions).
+   *  reactionIds = the records the instruction steps are grounded on (config, guided-step reaction map) */
+  | {authority:'reaction-matcher';reactionIds:string[];source:ProfileSource};
 
 export interface TopicLabProfile {
   schema:typeof TOPIC_LAB_PROFILE_SCHEMA;
@@ -97,7 +107,7 @@ export interface TopicLabProfile {
   allowedFamilies:LabActionFamily[];
   /** apparatus kinds a family needs in THIS topic when the instruction names them (overrides the catalog default) */
   familyApparatus:Partial<Record<LabActionFamily,{kinds:string[];source:ProfileSource}>>;
-  limits:{quantities:ProfileQuantityLimit[];electrodes:Array<'inert'|'active'>};
+  limits:{quantities:ProfileQuantityLimit[];electrodes:Array<'inert'|'active'>;heating?:ProfileHeating};
   procedure:{mode:OrderMode;steps:ProcedureStep[];humanDecision:HumanDecision|null;orderSource:ProfileSource};
   observationTargets:ObservationTarget[];
   completionGoal:CompletionGoal;
@@ -154,10 +164,18 @@ export function topicLabProfileProblems(raw:unknown):string[]{
   for(const t of p.observationTargets??[]) if(!text(t.id)||!['ReactionMatcher','ElectrolysisModel','INSTRUCTION_TEXT'].includes(t.producedBy)||!text(t.source)) out.push(`OBSERVATION_TARGET:${String(t?.id)}`);
   const g=p.guidance;
   if(!g||!Array.isArray(g.levels)||!g.levels.includes(g.defaultLevel)||g.revealsFinalAnswer!==false) out.push('GUIDANCE');
-  if(!p.completionGoal||!['all-required-steps','ionic-target','observations'].includes(p.completionGoal.kind)) out.push('COMPLETION_GOAL');
+  if(!p.completionGoal||!['all-required-steps','ionic-target','observations','reactions'].includes(p.completionGoal.kind)) out.push('COMPLETION_GOAL');
+  if(p.completionGoal?.kind==='reactions'){
+    const bound=p.chemistry?.authority==='reaction-matcher'?p.chemistry.reactionIds:[];
+    if(!p.completionGoal.reactionIds.length) out.push('COMPLETION_REACTIONS_EMPTY');
+    for(const r of p.completionGoal.reactionIds) if(!bound.includes(r)) out.push(`COMPLETION_REACTION_NOT_BOUND:${r}`);
+  }
+  if(p.limits?.heating&&(!['heated','gently-heated','strongly-heated'].includes(p.limits.heating.level)||!text(p.limits.heating.source))) out.push('HEATING_LIMIT');
+  for(const s of p.substances??[]) for(const d of s.declaredConditions??[]) if(!text(d.dimension)||!text(d.value)||!text(d.source)) out.push(`SUBSTANCE_CONDITION:${s.id}`);
   if(p.completionGoal?.kind==='observations') for(const t of p.completionGoal.targets) if(!(p.observationTargets??[]).some(o=>o.id===t)) out.push(`COMPLETION_TARGET_UNKNOWN:${t}`);
   const c=p.chemistry as ChemistryBinding|undefined;
-  if(!c||!['ionic-mixing','electrolysis','dissolution'].includes(c.authority)) out.push('CHEMISTRY_BINDING');
+  if(!c||!['ionic-mixing','electrolysis','dissolution','reaction-matcher'].includes(c.authority)) out.push('CHEMISTRY_BINDING');
+  if(c?.authority==='reaction-matcher'&&(!strings(c.reactionIds)||!c.reactionIds.length)) out.push('CHEMISTRY_BINDING_REACTIONS');
   return out;
 }
 
@@ -186,13 +204,13 @@ export interface TopicLabProfileOverlay {
   initialState:{setUp:string[];contents:Record<string,string[]>};
   allowedFamilies:LabActionFamily[];
   familyApparatus?:Partial<Record<LabActionFamily,{kinds:string[];source:ProfileSource}>>;
-  limits:{quantities:ProfileQuantityLimit[]};
+  limits:{quantities:ProfileQuantityLimit[];heating?:ProfileHeating};
   procedure:{mode:OrderMode;orderSource:ProfileSource;stepMap?:Record<string,{family:LabActionFamily;match:Record<string,string>;instructionStep:number|null}>;steps?:Array<Omit<ProcedureStep,'dependencies'>&{dependencies?:string[]}>;humanDecision?:{question:string;options:string[]}|null};
   observationTargets:ObservationTarget[];
-  completionGoal:{kind:'all-required-steps'}|{kind:'ionic-target'}|{kind:'observations';targets:string[]};
+  completionGoal:{kind:'all-required-steps'}|{kind:'ionic-target'}|{kind:'observations';targets:string[]}|{kind:'reactions';reactionIds:string[];gasCollected:boolean};
   guidance:{levels:GuidanceLevel[];defaultLevel:GuidanceLevel};
   safety:{notes:Array<{text:string;source:ProfileSource}>;forbiddenFamilies:LabActionFamily[]};
-  chemistry:{authority:'ionic-mixing'}|{authority:'electrolysis';electrolyteSubstanceId:string}|{authority:'dissolution';solventSubstanceId:string};
+  chemistry:{authority:'ionic-mixing'}|{authority:'electrolysis';electrolyteSubstanceId:string}|{authority:'dissolution';solventSubstanceId:string}|{authority:'reaction-matcher'};
   gaps:Array<{code:string;detail:string}>;
 }
 
@@ -243,12 +261,19 @@ export function compileTopicLabProfile(overlay:TopicLabProfileOverlay,src:Profil
   }else if(overlay.chemistry.authority==='electrolysis'){
     if(!config.query||!text(config.query.electrolyte)) throw new Error(`TOPIC_LAB_PROFILE_ELECTROLYSIS_CONFIG:${overlay.profileId}`);
     chemistry={authority:'electrolysis',query:{...config.query},electrolyteSubstanceId:overlay.chemistry.electrolyteSubstanceId,source:`config(${src.configSource}).query`};
+  }else if(overlay.chemistry.authority==='reaction-matcher'){
+    // derived: the reaction records the config grounds the instruction steps on (never authored here)
+    const ids=[...new Set<string>((config?.scenario?.steps??[]).flatMap((st:any)=>st.reactionIds??(st.reactionId?[st.reactionId]:[])))];
+    if(!ids.length) throw new Error(`TOPIC_LAB_PROFILE_REACTIONS_NOT_GROUNDED:${overlay.profileId}`);
+    chemistry={authority:'reaction-matcher',reactionIds:ids,source:`config(${src.configSource}).scenario.steps[].reactionIds`};
   }else{
     chemistry={authority:'dissolution',solventSubstanceId:overlay.chemistry.solventSubstanceId,source:'IonicEngine.dissociate (chemistry/solubility.json)'};
   }
   const completionGoal:CompletionGoal=overlay.completionGoal.kind==='ionic-target'
     ?{kind:'ionic-target',targetReactionId:(chemistry as any).targetReactionId}
-    :overlay.completionGoal.kind==='observations'?{kind:'observations',targets:[...overlay.completionGoal.targets]}:{kind:'all-required-steps'};
+    :overlay.completionGoal.kind==='observations'?{kind:'observations',targets:[...overlay.completionGoal.targets]}
+    :overlay.completionGoal.kind==='reactions'?{kind:'reactions',reactionIds:[...overlay.completionGoal.reactionIds],gasCollected:overlay.completionGoal.gasCollected}
+    :{kind:'all-required-steps'};
   const safetyNotes=[...(legacy.safety?[{text:legacy.safety,source:'legacyContent.safety'}]:[]),...(Array.isArray(config.safetyNotes)?config.safetyNotes.map((t:string)=>({text:t,source:'config.safetyNotes'})):[]),...overlay.safety.notes];
   const profile:TopicLabProfile={
     schema:TOPIC_LAB_PROFILE_SCHEMA,
@@ -265,7 +290,7 @@ export function compileTopicLabProfile(overlay:TopicLabProfileOverlay,src:Profil
     initialState:{setUp:[...overlay.initialState.setUp],contents:Object.fromEntries(Object.entries(overlay.initialState.contents).map(([k,v])=>[k,[...v]]))},
     allowedFamilies:[...overlay.allowedFamilies],
     familyApparatus:Object.fromEntries(Object.entries(overlay.familyApparatus??{}).map(([k,v])=>[k,{kinds:[...v!.kinds],source:v!.source}])),
-    limits:{quantities:overlay.limits.quantities.map(q=>({...q})),electrodes:chemistry.authority==='electrolysis'?[chemistry.query.electrode]:[]},
+    limits:{quantities:overlay.limits.quantities.map(q=>({...q})),electrodes:chemistry.authority==='electrolysis'?[chemistry.query.electrode]:[],...(overlay.limits.heating?{heating:{...overlay.limits.heating}}:{})},
     procedure:{mode:overlay.procedure.mode,steps:procedureSteps,humanDecision,orderSource:overlay.procedure.orderSource},
     observationTargets:overlay.observationTargets.map(t=>({...t})),
     completionGoal,

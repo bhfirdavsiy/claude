@@ -1,0 +1,3918 @@
+{
+  "schema": "kimyolab.capability-registry-coverage.v1",
+  "phase": "P2.11",
+  "registry": {
+    "schema": "kimyolab.capability-registry.v1",
+    "version": "1.0.0",
+    "problems": []
+  },
+  "semantics": "Every instruction operation of the 57 experiments resolved against the capability registry (derived from the action catalog, the runtime handler declaration and the engine data). SUPPORTED = a handler exists and an authority covers the formulas written in the step (for ReactionMatcher: a record with exactly these reactants; its conditions are checked at run time); AUTHORITY_AT_RUNTIME = a chemistry handler exists but the step names no formula, so coverage is decided at run time and is NOT claimed here; PROCEDURE_ONLY = deterministic procedure, no chemistry decided; AUTHORITY_REQUIRED = a handler exists but no authority covers the substances (fails closed); UNSUPPORTED_ACTION = no safe handler; LEARNER_RESPONSE / CONTROL / SAFETY_RULE are not state transitions; AMBIGUOUS / UNMAPPED get no family. Formulas are only those written in the step text — nothing is inferred from Uzbek names.",
+  "actions": [
+    {
+      "family": "SETUP_APPARATUS",
+      "kind": "STATE_ACTION",
+      "handler": "PROCEDURE",
+      "authorities": [],
+      "procedureOnly": true,
+      "checker": null,
+      "apparatusRequirements": [],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "ADD_SUBSTANCE",
+      "kind": "STATE_ACTION",
+      "handler": "CHEMISTRY",
+      "authorities": [
+        "ReactionMatcher",
+        "IonicEngine",
+        "ElectrolysisModel"
+      ],
+      "procedureOnly": false,
+      "checker": null,
+      "apparatusRequirements": [
+        "container"
+      ],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "TRANSFER",
+      "kind": "STATE_ACTION",
+      "handler": "PROCEDURE",
+      "authorities": [
+        "ReactionMatcher"
+      ],
+      "procedureOnly": false,
+      "checker": null,
+      "apparatusRequirements": [],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "MIX",
+      "kind": "STATE_ACTION",
+      "handler": "CHEMISTRY",
+      "authorities": [
+        "ReactionMatcher",
+        "IonicEngine"
+      ],
+      "procedureOnly": false,
+      "checker": null,
+      "apparatusRequirements": [],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "HEAT",
+      "kind": "STATE_ACTION",
+      "handler": "CHEMISTRY",
+      "authorities": [
+        "ReactionMatcher"
+      ],
+      "procedureOnly": false,
+      "checker": null,
+      "apparatusRequirements": [],
+      "requiresProfileAuthority": "reaction-matcher"
+    },
+    {
+      "family": "STOP_HEAT",
+      "kind": "STATE_ACTION",
+      "handler": "PROCEDURE",
+      "authorities": [],
+      "procedureOnly": true,
+      "checker": null,
+      "apparatusRequirements": [],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "EVAPORATE",
+      "kind": "STATE_ACTION",
+      "handler": "PROCEDURE",
+      "authorities": [
+        "INSTRUCTION_TEXT"
+      ],
+      "procedureOnly": true,
+      "checker": null,
+      "apparatusRequirements": [
+        "heat-source",
+        "evaporating-dish"
+      ],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "FILTER",
+      "kind": "STATE_ACTION",
+      "handler": "PROCEDURE",
+      "authorities": [
+        "INSTRUCTION_TEXT"
+      ],
+      "procedureOnly": true,
+      "checker": null,
+      "apparatusRequirements": [
+        "funnel",
+        "filter-paper",
+        "receiver"
+      ],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "SETTLE",
+      "kind": "STATE_ACTION",
+      "handler": "NONE",
+      "authorities": [],
+      "procedureOnly": false,
+      "checker": null,
+      "apparatusRequirements": [],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "SEPARATE",
+      "kind": "STATE_ACTION",
+      "handler": "NONE",
+      "authorities": [],
+      "procedureOnly": false,
+      "checker": null,
+      "apparatusRequirements": [],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "PASS_GAS",
+      "kind": "STATE_ACTION",
+      "handler": "CHEMISTRY",
+      "authorities": [
+        "ReactionMatcher"
+      ],
+      "procedureOnly": false,
+      "checker": null,
+      "apparatusRequirements": [],
+      "requiresProfileAuthority": "reaction-matcher"
+    },
+    {
+      "family": "COLLECT_GAS",
+      "kind": "STATE_ACTION",
+      "handler": "PROCEDURE",
+      "authorities": [],
+      "procedureOnly": true,
+      "checker": null,
+      "apparatusRequirements": [],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "SEAL",
+      "kind": "STATE_ACTION",
+      "handler": "PROCEDURE",
+      "authorities": [],
+      "procedureOnly": true,
+      "checker": null,
+      "apparatusRequirements": [
+        "stopper"
+      ],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "IGNITE",
+      "kind": "STATE_ACTION",
+      "handler": "NONE",
+      "authorities": [],
+      "procedureOnly": false,
+      "checker": null,
+      "apparatusRequirements": [
+        "ignition source"
+      ],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "BRING_NEAR",
+      "kind": "STATE_ACTION",
+      "handler": "NONE",
+      "authorities": [],
+      "procedureOnly": false,
+      "checker": null,
+      "apparatusRequirements": [],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "ELECTRIC_CURRENT",
+      "kind": "STATE_ACTION",
+      "handler": "CHEMISTRY",
+      "authorities": [
+        "ElectrolysisModel"
+      ],
+      "procedureOnly": false,
+      "checker": null,
+      "apparatusRequirements": [
+        "dc-source",
+        "electrodes"
+      ],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "WAIT",
+      "kind": "STATE_ACTION",
+      "handler": "PROCEDURE",
+      "authorities": [],
+      "procedureOnly": true,
+      "checker": null,
+      "apparatusRequirements": [],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "OBSERVE",
+      "kind": "OBSERVATION_ACTION",
+      "handler": "OBSERVATION",
+      "authorities": [
+        "ReactionMatcher",
+        "ElectrolysisModel",
+        "IonicEngine",
+        "INSTRUCTION_TEXT"
+      ],
+      "procedureOnly": false,
+      "checker": null,
+      "apparatusRequirements": [],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "TEST",
+      "kind": "OBSERVATION_ACTION",
+      "handler": "NONE",
+      "authorities": [],
+      "procedureOnly": false,
+      "checker": null,
+      "apparatusRequirements": [],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "COMPARE",
+      "kind": "LEARNER_RESPONSE",
+      "handler": "NONE",
+      "authorities": [],
+      "procedureOnly": false,
+      "checker": null,
+      "apparatusRequirements": [],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "INFER",
+      "kind": "LEARNER_RESPONSE",
+      "handler": "NONE",
+      "authorities": [],
+      "procedureOnly": false,
+      "checker": null,
+      "apparatusRequirements": [],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "RECORD",
+      "kind": "LEARNER_RESPONSE",
+      "handler": "CHECKER",
+      "authorities": [
+        "IonicEngine"
+      ],
+      "procedureOnly": false,
+      "checker": "net ionic equation: IonicEngine.netIonicEquation + compareNetIonic (ionic-mixing topics only)",
+      "apparatusRequirements": [],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "EXPLAIN",
+      "kind": "LEARNER_RESPONSE",
+      "handler": "NONE",
+      "authorities": [],
+      "procedureOnly": false,
+      "checker": null,
+      "apparatusRequirements": [],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "PREPARE_SUBSTANCE",
+      "kind": "STATE_ACTION",
+      "handler": "NONE",
+      "authorities": [],
+      "procedureOnly": false,
+      "checker": null,
+      "apparatusRequirements": [],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "WASH",
+      "kind": "STATE_ACTION",
+      "handler": "PROCEDURE",
+      "authorities": [],
+      "procedureOnly": true,
+      "checker": null,
+      "apparatusRequirements": [],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "SELECT",
+      "kind": "LEARNER_RESPONSE",
+      "handler": "NONE",
+      "authorities": [],
+      "procedureOnly": false,
+      "checker": null,
+      "apparatusRequirements": [],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "STUDY",
+      "kind": "LEARNER_RESPONSE",
+      "handler": "NONE",
+      "authorities": [],
+      "procedureOnly": false,
+      "checker": null,
+      "apparatusRequirements": [],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "REPEAT",
+      "kind": "STATE_ACTION",
+      "handler": "NONE",
+      "authorities": [],
+      "procedureOnly": false,
+      "checker": null,
+      "apparatusRequirements": [],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "RESET",
+      "kind": "CONTROL",
+      "handler": "NONE",
+      "authorities": [],
+      "procedureOnly": false,
+      "checker": null,
+      "apparatusRequirements": [],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "SAFETY_PROHIBITION",
+      "kind": "SAFETY_RULE",
+      "handler": "NONE",
+      "authorities": [],
+      "procedureOnly": false,
+      "checker": null,
+      "apparatusRequirements": [],
+      "requiresProfileAuthority": null
+    },
+    {
+      "family": "CONTINUE",
+      "kind": "CONTROL",
+      "handler": "NONE",
+      "authorities": [],
+      "procedureOnly": false,
+      "checker": null,
+      "apparatusRequirements": [],
+      "requiresProfileAuthority": null
+    }
+  ],
+  "authorities": {
+    "ReactionMatcher": {
+      "records": 28,
+      "reactionIds": [
+        "rxn.agno3-nabr",
+        "rxn.agno3-nacl",
+        "rxn.agno3-nai",
+        "rxn.bacl2-h2so4",
+        "rxn.br2-ki",
+        "rxn.c-combustion",
+        "rxn.c-combustion-limited",
+        "rxn.caco3-hcl",
+        "rxn.cao-water",
+        "rxn.cl2-kbr",
+        "rxn.co2-water",
+        "rxn.cuo-hcl",
+        "rxn.cuso4-na2s",
+        "rxn.fe-combustion",
+        "rxn.h2-combustion",
+        "rxn.h2-cuo",
+        "rxn.mg-h2so4",
+        "rxn.na2s-hcl",
+        "rxn.nacl-h2so4",
+        "rxn.naoh-hcl",
+        "rxn.nh3-hcl",
+        "rxn.nh4cl-caoh2",
+        "rxn.p-combustion",
+        "rxn.s-combustion",
+        "rxn.zn-h2so4",
+        "rxn.zn-hcl",
+        "rxn.zncl2-naoh",
+        "rxn.znoh2-hcl"
+      ],
+      "formulas": [
+        "AgBr",
+        "AgCl",
+        "AgI",
+        "AgNO3",
+        "BaCl2",
+        "BaSO4",
+        "Br2",
+        "C",
+        "Ca(OH)2",
+        "CaCl2",
+        "CaCO3",
+        "CaO",
+        "Cl2",
+        "CO",
+        "CO2",
+        "Cu",
+        "CuCl2",
+        "CuO",
+        "CuS",
+        "CuSO4",
+        "Fe",
+        "Fe3O4",
+        "H2",
+        "H2CO3",
+        "H2O",
+        "H2S",
+        "H2SO4",
+        "HCl",
+        "I2",
+        "KBr",
+        "KCl",
+        "KI",
+        "Mg",
+        "MgSO4",
+        "Na2S",
+        "Na2SO4",
+        "NaBr",
+        "NaCl",
+        "NaHSO4",
+        "NaI",
+        "NaNO3",
+        "NaOH",
+        "NH3",
+        "NH4Cl",
+        "O2",
+        "P",
+        "P2O5",
+        "S",
+        "SO2",
+        "Zn",
+        "Zn(OH)2",
+        "ZnCl2",
+        "ZnSO4"
+      ],
+      "reactantSets": [
+        {
+          "reactionId": "rxn.agno3-nabr",
+          "reactants": [
+            "AgNO3",
+            "NaBr"
+          ],
+          "conditionTags": []
+        },
+        {
+          "reactionId": "rxn.agno3-nacl",
+          "reactants": [
+            "AgNO3",
+            "NaCl"
+          ],
+          "conditionTags": []
+        },
+        {
+          "reactionId": "rxn.agno3-nai",
+          "reactants": [
+            "AgNO3",
+            "NaI"
+          ],
+          "conditionTags": []
+        },
+        {
+          "reactionId": "rxn.bacl2-h2so4",
+          "reactants": [
+            "BaCl2",
+            "H2SO4"
+          ],
+          "conditionTags": []
+        },
+        {
+          "reactionId": "rxn.br2-ki",
+          "reactants": [
+            "Br2",
+            "KI"
+          ],
+          "conditionTags": []
+        },
+        {
+          "reactionId": "rxn.c-combustion",
+          "reactants": [
+            "C",
+            "O2"
+          ],
+          "conditionTags": [
+            "oxygen-excess",
+            "ignition"
+          ]
+        },
+        {
+          "reactionId": "rxn.c-combustion-limited",
+          "reactants": [
+            "C",
+            "O2"
+          ],
+          "conditionTags": [
+            "oxygen-limited",
+            "ignition"
+          ]
+        },
+        {
+          "reactionId": "rxn.caco3-hcl",
+          "reactants": [
+            "CaCO3",
+            "HCl"
+          ],
+          "conditionTags": []
+        },
+        {
+          "reactionId": "rxn.cao-water",
+          "reactants": [
+            "CaO",
+            "H2O"
+          ],
+          "conditionTags": []
+        },
+        {
+          "reactionId": "rxn.cl2-kbr",
+          "reactants": [
+            "Cl2",
+            "KBr"
+          ],
+          "conditionTags": []
+        },
+        {
+          "reactionId": "rxn.co2-water",
+          "reactants": [
+            "CO2",
+            "H2O"
+          ],
+          "conditionTags": []
+        },
+        {
+          "reactionId": "rxn.cuo-hcl",
+          "reactants": [
+            "CuO",
+            "HCl"
+          ],
+          "conditionTags": []
+        },
+        {
+          "reactionId": "rxn.cuso4-na2s",
+          "reactants": [
+            "CuSO4",
+            "Na2S"
+          ],
+          "conditionTags": []
+        },
+        {
+          "reactionId": "rxn.fe-combustion",
+          "reactants": [
+            "Fe",
+            "O2"
+          ],
+          "conditionTags": [
+            "strong heating"
+          ]
+        },
+        {
+          "reactionId": "rxn.h2-combustion",
+          "reactants": [
+            "H2",
+            "O2"
+          ],
+          "conditionTags": [
+            "ignition"
+          ]
+        },
+        {
+          "reactionId": "rxn.h2-cuo",
+          "reactants": [
+            "CuO",
+            "H2"
+          ],
+          "conditionTags": [
+            "heating"
+          ]
+        },
+        {
+          "reactionId": "rxn.mg-h2so4",
+          "reactants": [
+            "H2SO4",
+            "Mg"
+          ],
+          "conditionTags": [
+            "dilute acid"
+          ]
+        },
+        {
+          "reactionId": "rxn.na2s-hcl",
+          "reactants": [
+            "HCl",
+            "Na2S"
+          ],
+          "conditionTags": []
+        },
+        {
+          "reactionId": "rxn.nacl-h2so4",
+          "reactants": [
+            "H2SO4",
+            "NaCl"
+          ],
+          "conditionTags": [
+            "concentrated acid",
+            "gentle heating"
+          ]
+        },
+        {
+          "reactionId": "rxn.naoh-hcl",
+          "reactants": [
+            "HCl",
+            "NaOH"
+          ],
+          "conditionTags": []
+        },
+        {
+          "reactionId": "rxn.nh3-hcl",
+          "reactants": [
+            "HCl",
+            "NH3"
+          ],
+          "conditionTags": []
+        },
+        {
+          "reactionId": "rxn.nh4cl-caoh2",
+          "reactants": [
+            "Ca(OH)2",
+            "NH4Cl"
+          ],
+          "conditionTags": [
+            "gentle heating"
+          ]
+        },
+        {
+          "reactionId": "rxn.p-combustion",
+          "reactants": [
+            "O2",
+            "P"
+          ],
+          "conditionTags": [
+            "ignition"
+          ]
+        },
+        {
+          "reactionId": "rxn.s-combustion",
+          "reactants": [
+            "O2",
+            "S"
+          ],
+          "conditionTags": [
+            "ignition"
+          ]
+        },
+        {
+          "reactionId": "rxn.zn-h2so4",
+          "reactants": [
+            "H2SO4",
+            "Zn"
+          ],
+          "conditionTags": [
+            "dilute acid"
+          ]
+        },
+        {
+          "reactionId": "rxn.zn-hcl",
+          "reactants": [
+            "HCl",
+            "Zn"
+          ],
+          "conditionTags": []
+        },
+        {
+          "reactionId": "rxn.zncl2-naoh",
+          "reactants": [
+            "NaOH",
+            "ZnCl2"
+          ],
+          "conditionTags": []
+        },
+        {
+          "reactionId": "rxn.znoh2-hcl",
+          "reactants": [
+            "HCl",
+            "Zn(OH)2"
+          ],
+          "conditionTags": []
+        }
+      ],
+      "conditionDimensions": [
+        "acid-concentration",
+        "ignition",
+        "oxygen-supply",
+        "temperature"
+      ],
+      "modelObservationKinds": [
+        "color-change",
+        "gas",
+        "no-visible-change",
+        "precipitate",
+        "temperature-change"
+      ]
+    },
+    "IonicEngine": {
+      "dissociationFormulas": [
+        "AgNO3",
+        "BaCl2",
+        "CaCl2",
+        "H2SO4",
+        "HCl",
+        "Na2CO3",
+        "Na2SO4",
+        "NaCl",
+        "NaNO3",
+        "NaOH",
+        "NH4Cl",
+        "ZnCl2"
+      ],
+      "insolubleFormulas": [
+        "AgBr",
+        "AgCl",
+        "AgI",
+        "BaSO4",
+        "Ca3(PO4)2",
+        "CuS",
+        "Zn(OH)2",
+        "ZnS"
+      ]
+    },
+    "ElectrolysisModel": {
+      "queries": [
+        {
+          "electrolyte": "CuCl2",
+          "phase": "aq",
+          "electrode": "inert"
+        }
+      ],
+      "modelObservationKinds": [
+        "deposit",
+        "gas"
+      ]
+    },
+    "SchoolLabModel": {
+      "models": [
+        "school.acetic-acid.indicator",
+        "school.aloh3.amphoteric",
+        "school.aloh3.precipitate",
+        "school.ammonia.indicator",
+        "school.ammonia.water-solubility",
+        "school.cast-iron-steel.hcl",
+        "school.cast-iron-steel.material-comparison",
+        "school.cu-hcl.no-reaction",
+        "school.cuoh2.acid-heat",
+        "school.cuoh2.comparison",
+        "school.cuoh2.precipitate",
+        "school.food-starch-iodine",
+        "school.formalin.cuoh2-heat",
+        "school.glucose.cuoh2-heat",
+        "school.glycerol-glucose.cuoh2-cold",
+        "school.glycerol.cuoh2",
+        "school.halogen.no-displacement-chloride",
+        "school.hcl-water.indicator",
+        "school.iron-ions.hexacyanoferrate",
+        "school.iron3.thiocyanate",
+        "school.metal-displacement.9.9",
+        "school.organic-carbon.limewater",
+        "school.organic-hydrogen.condensation",
+        "school.starch-iodine",
+        "school.sugar.charring",
+        "school.water-oxide.indicator-comparison",
+        "school.water.anhydrous-cuso4",
+        "school.znoh2.excess-base"
+      ],
+      "scope": "STEP_BOUND_ONLY"
+    },
+    "QualitativeTest": {
+      "tests": [
+        "qual.sulfate-barium"
+      ],
+      "reagents": [
+        "BaCl2"
+      ],
+      "samples": [
+        "Al2(SO4)3",
+        "CuSO4",
+        "H2SO4",
+        "Na2SO4"
+      ]
+    }
+  },
+  "summary": {
+    "operations": 350,
+    "byStatus": {
+      "AMBIGUOUS": 2,
+      "AUTHORITY_AT_RUNTIME": 136,
+      "AUTHORITY_REQUIRED": 18,
+      "CONTROL": 1,
+      "LEARNER_RESPONSE": 72,
+      "PROCEDURE_ONLY": 39,
+      "SAFETY_RULE": 1,
+      "SUPPORTED": 34,
+      "UNSUPPORTED_ACTION": 47
+    },
+    "unsupportedByFamily": {
+      "BRING_NEAR": 6,
+      "IGNITE": 1,
+      "PREPARE_SUBSTANCE": 15,
+      "REPEAT": 1,
+      "SEPARATE": 7,
+      "SETTLE": 1,
+      "TEST": 16
+    },
+    "authorityRequiredByFamily": {
+      "ADD_SUBSTANCE": 10,
+      "ELECTRIC_CURRENT": 1,
+      "HEAT": 4,
+      "PASS_GAS": 3
+    }
+  },
+  "rows": [
+    {
+      "activityId": "practice.experiment.10.1",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "taqqoslang",
+          "family": "COMPARE",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 1,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 2,
+          "verb": "suyuqlantiring",
+          "family": "HEAT",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        },
+        {
+          "step": 2,
+          "verb": "qiling",
+          "family": "RECORD",
+          "status": "LEARNER_RESPONSE",
+          "authority": "checker",
+          "reason": "checker: net ionic equation: IonicEngine.netIonicEquation + compareNetIonic (ionic-mixing topics only)"
+        },
+        {
+          "step": 2,
+          "verb": "tuzing",
+          "family": "RECORD",
+          "status": "LEARNER_RESPONSE",
+          "authority": "checker",
+          "reason": "checker: net ionic equation: IonicEngine.netIonicEquation + compareNetIonic (ionic-mixing topics only)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.10.10",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "oling",
+          "family": "PREPARE_SUBSTANCE",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 1,
+          "verb": "aniqlang",
+          "family": "INFER",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 2,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 3,
+          "verb": "farqlang",
+          "family": "COMPARE",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.10.2",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "qizdiring",
+          "family": "HEAT",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "ReactionMatcher knows CuO"
+        },
+        {
+          "step": 1,
+          "verb": "o‘tkazing",
+          "family": "PASS_GAS",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        },
+        {
+          "step": 2,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 3,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 4,
+          "verb": "qizdiring",
+          "family": "HEAT",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        },
+        {
+          "step": 4,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.10.22.carboxylic-acid",
+      "operations": []
+    },
+    {
+      "activityId": "practice.experiment.10.3",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "qo‘shing",
+          "family": "ADD_SUBSTANCE",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "ReactionMatcher knows H2SO4"
+        },
+        {
+          "step": 0,
+          "verb": "soling",
+          "family": "ADD_SUBSTANCE",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "ReactionMatcher knows H2SO4"
+        },
+        {
+          "step": 0,
+          "verb": "qizdiring",
+          "family": "HEAT",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "ReactionMatcher knows H2SO4"
+        },
+        {
+          "step": 0,
+          "verb": "oling",
+          "family": "PREPARE_SUBSTANCE",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 1,
+          "verb": "o‘tkazing",
+          "family": "PASS_GAS",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        },
+        {
+          "step": 1,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 2,
+          "verb": "o‘tkazing",
+          "family": "PASS_GAS",
+          "status": "AUTHORITY_REQUIRED",
+          "authority": null,
+          "reason": "no authority of this handler covers KMnO4 (fails closed)"
+        },
+        {
+          "step": 2,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.10.5",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "tayyorlang",
+          "family": "PREPARE_SUBSTANCE",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 1,
+          "verb": "bo‘ling",
+          "family": "SEPARATE",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 2,
+          "verb": "qo‘shing",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 3,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 3,
+          "verb": "qiling",
+          "family": "INFER",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 4,
+          "verb": "o‘rganing",
+          "family": "STUDY",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.10.6",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "qo‘shing",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_REQUIRED",
+          "authority": null,
+          "reason": "no authority of this handler covers OH (fails closed)"
+        },
+        {
+          "step": 0,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 1,
+          "verb": "qo‘shing",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_REQUIRED",
+          "authority": null,
+          "reason": "no authority of this handler covers OH (fails closed)"
+        },
+        {
+          "step": 1,
+          "verb": "qizdiring",
+          "family": "HEAT",
+          "status": "AUTHORITY_REQUIRED",
+          "authority": null,
+          "reason": "no authority of this handler covers OH (fails closed)"
+        },
+        {
+          "step": 2,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.10.7",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "joylashtiring",
+          "family": "SETUP_APPARATUS",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 1,
+          "verb": "ajrating",
+          "family": "SEPARATE",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 2,
+          "verb": "yig‘ing",
+          "family": null,
+          "status": "AMBIGUOUS",
+          "authority": null,
+          "reason": "no context rule resolved the verb"
+        },
+        {
+          "step": 2,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 3,
+          "verb": "bajaring",
+          "family": null,
+          "status": "AMBIGUOUS",
+          "authority": null,
+          "reason": "no context rule resolved the verb"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.10.8",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "aralashtiring",
+          "family": "MIX",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 1,
+          "verb": "qizdiring",
+          "family": "HEAT",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        },
+        {
+          "step": 1,
+          "verb": "aralashtiring",
+          "family": "MIX",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 2,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 3,
+          "verb": "ajrating",
+          "family": "SEPARATE",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 4,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.10.9",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "qizdiring",
+          "family": "HEAT",
+          "status": "AUTHORITY_REQUIRED",
+          "authority": null,
+          "reason": "no authority of this handler covers CuSO4 + NaOH (fails closed)"
+        },
+        {
+          "step": 0,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 1,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 2,
+          "verb": "gidrolizlang",
+          "family": "HEAT",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        },
+        {
+          "step": 2,
+          "verb": "tekshiring",
+          "family": "TEST",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 3,
+          "verb": "gidrolizlang",
+          "family": "HEAT",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        },
+        {
+          "step": 3,
+          "verb": "tekshiring",
+          "family": "TEST",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 3,
+          "verb": "aniqlang",
+          "family": "INFER",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 4,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.11.2",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "quying",
+          "family": "ADD_SUBSTANCE",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "ReactionMatcher knows CuCl2"
+        },
+        {
+          "step": 1,
+          "verb": "tushiring",
+          "family": "SETUP_APPARATUS",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 1,
+          "verb": "ulang",
+          "family": "ELECTRIC_CURRENT",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 2,
+          "verb": "belgilang",
+          "family": "RECORD",
+          "status": "LEARNER_RESPONSE",
+          "authority": "checker",
+          "reason": "checker: net ionic equation: IonicEngine.netIonicEquation + compareNetIonic (ionic-mixing topics only)"
+        },
+        {
+          "step": 3,
+          "verb": "ulang",
+          "family": "ELECTRIC_CURRENT",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 3,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 4,
+          "verb": "tushuntiring",
+          "family": "EXPLAIN",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.1",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "tanishing",
+          "family": "STUDY",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 0,
+          "verb": "farqlang",
+          "family": "COMPARE",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 1,
+          "verb": "chiqing",
+          "family": "STUDY",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 1,
+          "verb": "mahkamlang",
+          "family": "SETUP_APPARATUS",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 1,
+          "verb": "joylashtiring",
+          "family": "SETUP_APPARATUS",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 2,
+          "verb": "tekshiring",
+          "family": "TEST",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 2,
+          "verb": "to‘ldiring",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 2,
+          "verb": "joylashtiring",
+          "family": "SETUP_APPARATUS",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 2,
+          "verb": "yoqing",
+          "family": "HEAT",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        },
+        {
+          "step": 2,
+          "verb": "o‘chiring",
+          "family": "STOP_HEAT",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 3,
+          "verb": "tuting",
+          "family": "SETUP_APPARATUS",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 3,
+          "verb": "qaratmang",
+          "family": "SAFETY_PROHIBITION",
+          "status": "SAFETY_RULE",
+          "authority": null,
+          "reason": "a prohibition, carried as a safety note"
+        },
+        {
+          "step": 3,
+          "verb": "qizdiring",
+          "family": "HEAT",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        },
+        {
+          "step": 4,
+          "verb": "sozlang",
+          "family": "SETUP_APPARATUS",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 4,
+          "verb": "yaqinlashtiring",
+          "family": "BRING_NEAR",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 4,
+          "verb": "moslang",
+          "family": "SETUP_APPARATUS",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 4,
+          "verb": "yoping",
+          "family": "SEAL",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 5,
+          "verb": "joylashtiring",
+          "family": "SETUP_APPARATUS",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 5,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.10",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "quying",
+          "family": "ADD_SUBSTANCE",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "ReactionMatcher knows H2SO4"
+        },
+        {
+          "step": 0,
+          "verb": "yig‘ing",
+          "family": "COLLECT_GAS",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 0,
+          "verb": "tekshiring",
+          "family": "TEST",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 1,
+          "verb": "quying",
+          "family": "ADD_SUBSTANCE",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "ReactionMatcher knows HCl"
+        },
+        {
+          "step": 1,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 1,
+          "verb": "qizdiring",
+          "family": "HEAT",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "ReactionMatcher knows HCl"
+        },
+        {
+          "step": 1,
+          "verb": "yig‘ing",
+          "family": "COLLECT_GAS",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 1,
+          "verb": "tekshiring",
+          "family": "TEST",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 2,
+          "verb": "quying",
+          "family": "ADD_SUBSTANCE",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "ReactionMatcher knows HCl"
+        },
+        {
+          "step": 2,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 3,
+          "verb": "izohlang",
+          "family": "EXPLAIN",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.11",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "soling",
+          "family": "ADD_SUBSTANCE",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "ReactionMatcher knows CaO"
+        },
+        {
+          "step": 0,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 1,
+          "verb": "quying",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 2,
+          "verb": "quying",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 3,
+          "verb": "taqqoslang",
+          "family": "COMPARE",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 4,
+          "verb": "yozing",
+          "family": "RECORD",
+          "status": "LEARNER_RESPONSE",
+          "authority": "checker",
+          "reason": "checker: net ionic equation: IonicEngine.netIonicEquation + compareNetIonic (ionic-mixing topics only)"
+        },
+        {
+          "step": 4,
+          "verb": "tushuntiring",
+          "family": "EXPLAIN",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.12",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "quying",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 0,
+          "verb": "taqqoslang",
+          "family": "COMPARE",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 1,
+          "verb": "solishtiring",
+          "family": "COMPARE",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 2,
+          "verb": "ko‘ring",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 3,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 4,
+          "verb": "taqqoslang",
+          "family": "COMPARE",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.13",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "taqqoslang",
+          "family": "COMPARE",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 1,
+          "verb": "qo‘shing",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 1,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 2,
+          "verb": "tekshiring",
+          "family": "TEST",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 2,
+          "verb": "aralashtiring",
+          "family": "MIX",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 2,
+          "verb": "taqqoslang",
+          "family": "COMPARE",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.2",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "soling",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 0,
+          "verb": "aralashtiring",
+          "family": "MIX",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 0,
+          "verb": "eting",
+          "family": "CONTINUE",
+          "status": "CONTROL",
+          "authority": null,
+          "reason": "lab-level control"
+        },
+        {
+          "step": 1,
+          "verb": "buklang",
+          "family": "SETUP_APPARATUS",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 1,
+          "verb": "qirqing",
+          "family": "SETUP_APPARATUS",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 1,
+          "verb": "oching",
+          "family": "SETUP_APPARATUS",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 1,
+          "verb": "joylashtiring",
+          "family": "SETUP_APPARATUS",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 2,
+          "verb": "filtrlang",
+          "family": "FILTER",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 3,
+          "verb": "quying",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 3,
+          "verb": "bug‘lating",
+          "family": "EVAPORATE",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 3,
+          "verb": "aralashtiring",
+          "family": "MIX",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 4,
+          "verb": "to‘xtating",
+          "family": "STOP_HEAT",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 4,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.3",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "surting",
+          "family": "WASH",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 0,
+          "verb": "ishqalang",
+          "family": "MIX",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 0,
+          "verb": "yuving",
+          "family": "WASH",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 1,
+          "verb": "namlang",
+          "family": "WASH",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 1,
+          "verb": "kuting",
+          "family": "WAIT",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 1,
+          "verb": "ishqalang",
+          "family": "MIX",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 1,
+          "verb": "yuving",
+          "family": "WASH",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 2,
+          "verb": "qizdiring",
+          "family": "HEAT",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        },
+        {
+          "step": 2,
+          "verb": "tushiring",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 2,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 3,
+          "verb": "tayyorlang",
+          "family": "PREPARE_SUBSTANCE",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 3,
+          "verb": "taqqoslang",
+          "family": "COMPARE",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.6",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "quying",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 0,
+          "verb": "o‘tkazing",
+          "family": "TRANSFER",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 0,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 1,
+          "verb": "qizdiring",
+          "family": "HEAT",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        },
+        {
+          "step": 1,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 2,
+          "verb": "soling",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 2,
+          "verb": "qiling",
+          "family": "RECORD",
+          "status": "LEARNER_RESPONSE",
+          "authority": "checker",
+          "reason": "checker: net ionic equation: IonicEngine.netIonicEquation + compareNetIonic (ionic-mixing topics only)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.7",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "yoqing",
+          "family": "HEAT",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        },
+        {
+          "step": 0,
+          "verb": "o‘chiring",
+          "family": "STOP_HEAT",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 0,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 1,
+          "verb": "soling",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 1,
+          "verb": "yig‘ing",
+          "family": "SETUP_APPARATUS",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 1,
+          "verb": "qizdiring",
+          "family": "HEAT",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        },
+        {
+          "step": 1,
+          "verb": "yig‘ing",
+          "family": "COLLECT_GAS",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 2,
+          "verb": "tushiring",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 2,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 2,
+          "verb": "chayqating",
+          "family": "MIX",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 3,
+          "verb": "yondiring",
+          "family": "IGNITE",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 3,
+          "verb": "tushiring",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 3,
+          "verb": "qiling",
+          "family": "RECORD",
+          "status": "LEARNER_RESPONSE",
+          "authority": "checker",
+          "reason": "checker: net ionic equation: IonicEngine.netIonicEquation + compareNetIonic (ionic-mixing topics only)"
+        },
+        {
+          "step": 4,
+          "verb": "qizdiring",
+          "family": "HEAT",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        },
+        {
+          "step": 4,
+          "verb": "tushiring",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 4,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.8",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "soling",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 0,
+          "verb": "yoping",
+          "family": "SEAL",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 0,
+          "verb": "tekshiring",
+          "family": "TEST",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 1,
+          "verb": "qo‘shing",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 1,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 2,
+          "verb": "yig‘ing",
+          "family": "COLLECT_GAS",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 3,
+          "verb": "tekshiring",
+          "family": "TEST",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 4,
+          "verb": "kiriting",
+          "family": "BRING_NEAR",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 4,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 5,
+          "verb": "yoqing",
+          "family": "HEAT",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        },
+        {
+          "step": 5,
+          "verb": "tuting",
+          "family": "BRING_NEAR",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 5,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 6,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 7,
+          "verb": "o‘tkazing",
+          "family": "PASS_GAS",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "ReactionMatcher knows CuO"
+        },
+        {
+          "step": 7,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.9",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "oling",
+          "family": "PREPARE_SUBSTANCE",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 0,
+          "verb": "qiling",
+          "family": "PREPARE_SUBSTANCE",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 1,
+          "verb": "taqqoslang",
+          "family": "COMPARE",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 2,
+          "verb": "qo‘shing",
+          "family": "ADD_SUBSTANCE",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "record rxn.cuo-hcl"
+        },
+        {
+          "step": 2,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 2,
+          "verb": "yozing",
+          "family": "RECORD",
+          "status": "LEARNER_RESPONSE",
+          "authority": "checker",
+          "reason": "checker: net ionic equation: IonicEngine.netIonicEquation + compareNetIonic (ionic-mixing topics only)"
+        },
+        {
+          "step": 3,
+          "verb": "tomizing",
+          "family": "ADD_SUBSTANCE",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "record rxn.naoh-hcl"
+        },
+        {
+          "step": 3,
+          "verb": "qo‘shing",
+          "family": "ADD_SUBSTANCE",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "record rxn.naoh-hcl"
+        },
+        {
+          "step": 3,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 3,
+          "verb": "yozing",
+          "family": "RECORD",
+          "status": "LEARNER_RESPONSE",
+          "authority": "checker",
+          "reason": "checker: net ionic equation: IonicEngine.netIonicEquation + compareNetIonic (ionic-mixing topics only)"
+        },
+        {
+          "step": 4,
+          "verb": "qo‘shing",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_REQUIRED",
+          "authority": null,
+          "reason": "no authority of this handler covers CO2 + CaCO3 + HCl (fails closed)"
+        },
+        {
+          "step": 4,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 4,
+          "verb": "yozing",
+          "family": "RECORD",
+          "status": "LEARNER_RESPONSE",
+          "authority": "checker",
+          "reason": "checker: net ionic equation: IonicEngine.netIonicEquation + compareNetIonic (ionic-mixing topics only)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.1",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "isbotlang",
+          "family": "INFER",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 1,
+          "verb": "isbotlang",
+          "family": "INFER",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 2,
+          "verb": "isbotlang",
+          "family": "INFER",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 3,
+          "verb": "oling",
+          "family": "PREPARE_SUBSTANCE",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 4,
+          "verb": "isbotlang",
+          "family": "INFER",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 5,
+          "verb": "farqlang",
+          "family": "COMPARE",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.10",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "ko‘chiring",
+          "family": "TRANSFER",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 1,
+          "verb": "quying",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_REQUIRED",
+          "authority": null,
+          "reason": "no authority of this handler covers NaBr + NaI (fails closed)"
+        },
+        {
+          "step": 1,
+          "verb": "qo‘shing",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_REQUIRED",
+          "authority": null,
+          "reason": "no authority of this handler covers NaBr + NaI (fails closed)"
+        },
+        {
+          "step": 1,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 2,
+          "verb": "qo‘shing",
+          "family": "ADD_SUBSTANCE",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "ReactionMatcher knows NaI"
+        },
+        {
+          "step": 2,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 3,
+          "verb": "qo‘shing",
+          "family": "ADD_SUBSTANCE",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "ReactionMatcher knows NaCl"
+        },
+        {
+          "step": 3,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.11",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "soling",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 0,
+          "verb": "aralashtiring",
+          "family": "MIX",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 1,
+          "verb": "qo‘shing",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 1,
+          "verb": "chayqating",
+          "family": "MIX",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 1,
+          "verb": "tindiring",
+          "family": "SETTLE",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 2,
+          "verb": "taqqoslang",
+          "family": "COMPARE",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.12",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "kechiring",
+          "family": "PASS_GAS",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        },
+        {
+          "step": 1,
+          "verb": "kiriting",
+          "family": "RECORD",
+          "status": "LEARNER_RESPONSE",
+          "authority": "checker",
+          "reason": "checker: net ionic equation: IonicEngine.netIonicEquation + compareNetIonic (ionic-mixing topics only)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.12.planned",
+      "operations": []
+    },
+    {
+      "activityId": "practice.experiment.8.13",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "quying",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_REQUIRED",
+          "authority": null,
+          "reason": "no authority of this handler covers CuSO4 + H2SO4 + Na2SO4 + SO4 (fails closed)"
+        },
+        {
+          "step": 1,
+          "verb": "qo‘shing",
+          "family": "ADD_SUBSTANCE",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "ReactionMatcher knows BaCl2"
+        },
+        {
+          "step": 2,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.14",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "soling",
+          "family": "ADD_SUBSTANCE",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "ReactionMatcher knows NH4Cl"
+        },
+        {
+          "step": 0,
+          "verb": "yoping",
+          "family": "SEAL",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 1,
+          "verb": "qizdiring",
+          "family": "HEAT",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        },
+        {
+          "step": 1,
+          "verb": "yig‘ing",
+          "family": "COLLECT_GAS",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 2,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 3,
+          "verb": "tuting",
+          "family": "BRING_NEAR",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 4,
+          "verb": "yaqinlashtiring",
+          "family": "BRING_NEAR",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 4,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.15",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "kechiring",
+          "family": "PASS_GAS",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        },
+        {
+          "step": 1,
+          "verb": "yozing",
+          "family": "RECORD",
+          "status": "LEARNER_RESPONSE",
+          "authority": "checker",
+          "reason": "checker: net ionic equation: IonicEngine.netIonicEquation + compareNetIonic (ionic-mixing topics only)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.2",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "isbotlang",
+          "family": "INFER",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 1,
+          "verb": "ko‘rsating",
+          "family": "EXPLAIN",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 2,
+          "verb": "aniqlang",
+          "family": "INFER",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 3,
+          "verb": "isbotlang",
+          "family": "INFER",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 3,
+          "verb": "yozing",
+          "family": "RECORD",
+          "status": "LEARNER_RESPONSE",
+          "authority": "checker",
+          "reason": "checker: net ionic equation: IonicEngine.netIonicEquation + compareNetIonic (ionic-mixing topics only)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.3",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "yig‘ing",
+          "family": "SETUP_APPARATUS",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 1,
+          "verb": "aralashtiring",
+          "family": "MIX",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "ReactionMatcher knows NH4Cl"
+        },
+        {
+          "step": 1,
+          "verb": "qizdiring",
+          "family": "HEAT",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "ReactionMatcher knows NH4Cl"
+        },
+        {
+          "step": 2,
+          "verb": "yig‘ing",
+          "family": "COLLECT_GAS",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 3,
+          "verb": "tekshiring",
+          "family": "TEST",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 3,
+          "verb": "oling",
+          "family": "PREPARE_SUBSTANCE",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 3,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 4,
+          "verb": "tekshiring",
+          "family": "TEST",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 5,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 5,
+          "verb": "aniqlang",
+          "family": "INFER",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 5,
+          "verb": "belgilang",
+          "family": "RECORD",
+          "status": "LEARNER_RESPONSE",
+          "authority": "checker",
+          "reason": "checker: net ionic equation: IonicEngine.netIonicEquation + compareNetIonic (ionic-mixing topics only)"
+        },
+        {
+          "step": 6,
+          "verb": "yaqinlashtiring",
+          "family": "BRING_NEAR",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 6,
+          "verb": "izohlang",
+          "family": "EXPLAIN",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.4",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "soling",
+          "family": "ADD_SUBSTANCE",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "ReactionMatcher knows NH4Cl"
+        },
+        {
+          "step": 0,
+          "verb": "qizdiring",
+          "family": "HEAT",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "ReactionMatcher knows NH4Cl"
+        },
+        {
+          "step": 0,
+          "verb": "isbotlang",
+          "family": "INFER",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 1,
+          "verb": "qiling",
+          "family": "PREPARE_SUBSTANCE",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 2,
+          "verb": "isbotlang",
+          "family": "INFER",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 3,
+          "verb": "aniqlang",
+          "family": "INFER",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 4,
+          "verb": "farqlang",
+          "family": "COMPARE",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.5",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "aniqlang",
+          "family": "INFER",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 1,
+          "verb": "aniqlang",
+          "family": "INFER",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 2,
+          "verb": "aniqlang",
+          "family": "INFER",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 3,
+          "verb": "aniqlang",
+          "family": "INFER",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 3,
+          "verb": "bering",
+          "family": "EXPLAIN",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.6",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "quying",
+          "family": "ADD_SUBSTANCE",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "ReactionMatcher knows NaOH"
+        },
+        {
+          "step": 1,
+          "verb": "qo‘shing",
+          "family": "ADD_SUBSTANCE",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "ReactionMatcher knows ZnCl2"
+        },
+        {
+          "step": 2,
+          "verb": "bo‘ling",
+          "family": "SEPARATE",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 3,
+          "verb": "qo‘shing",
+          "family": "ADD_SUBSTANCE",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "record rxn.naoh-hcl"
+        },
+        {
+          "step": 3,
+          "verb": "chayqating",
+          "family": "MIX",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "record rxn.naoh-hcl"
+        },
+        {
+          "step": 4,
+          "verb": "takrorlang",
+          "family": "REPEAT",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.8",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "ko‘chiring",
+          "family": "TRANSFER",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 1,
+          "verb": "quying",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_REQUIRED",
+          "authority": null,
+          "reason": "no authority of this handler covers HCl + NaBr + NaCl + NaI (fails closed)"
+        },
+        {
+          "step": 2,
+          "verb": "qo‘shing",
+          "family": "ADD_SUBSTANCE",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "ReactionMatcher knows AgNO3"
+        },
+        {
+          "step": 3,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 3,
+          "verb": "yozing",
+          "family": "RECORD",
+          "status": "LEARNER_RESPONSE",
+          "authority": "checker",
+          "reason": "checker: net ionic equation: IonicEngine.netIonicEquation + compareNetIonic (ionic-mixing topics only)"
+        },
+        {
+          "step": 3,
+          "verb": "to‘ldiring",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 4,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 5,
+          "verb": "tomizing",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 5,
+          "verb": "izohlang",
+          "family": "EXPLAIN",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.9",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "aralashtiring",
+          "family": "MIX",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 1,
+          "verb": "filtrlang",
+          "family": "FILTER",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 2,
+          "verb": "tekshiring",
+          "family": "TEST",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.1",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "soling",
+          "family": "ADD_SUBSTANCE",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "ReactionMatcher knows HCl"
+        },
+        {
+          "step": 0,
+          "verb": "quying",
+          "family": "ADD_SUBSTANCE",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "ReactionMatcher knows HCl"
+        },
+        {
+          "step": 1,
+          "verb": "berkiting",
+          "family": "SEAL",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 2,
+          "verb": "tushiring",
+          "family": "PASS_GAS",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        },
+        {
+          "step": 2,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 3,
+          "verb": "o‘tkazing",
+          "family": "PASS_GAS",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        },
+        {
+          "step": 3,
+          "verb": "tomizing",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 4,
+          "verb": "qo‘shing",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_REQUIRED",
+          "authority": null,
+          "reason": "no authority of this handler covers CO2 + NaOH (fails closed)"
+        },
+        {
+          "step": 4,
+          "verb": "o‘tkazing",
+          "family": "PASS_GAS",
+          "status": "AUTHORITY_REQUIRED",
+          "authority": null,
+          "reason": "no authority of this handler covers CO2 + NaOH (fails closed)"
+        },
+        {
+          "step": 5,
+          "verb": "filtrlang",
+          "family": "FILTER",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 5,
+          "verb": "tekshiring",
+          "family": "TEST",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 5,
+          "verb": "qo‘shing",
+          "family": "ADD_SUBSTANCE",
+          "status": "SUPPORTED",
+          "authority": "IonicEngine",
+          "reason": "IonicEngine knows AgNO3, HCl"
+        },
+        {
+          "step": 5,
+          "verb": "bo‘ling",
+          "family": "SEPARATE",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 5,
+          "verb": "qo‘shing",
+          "family": "ADD_SUBSTANCE",
+          "status": "SUPPORTED",
+          "authority": "IonicEngine",
+          "reason": "IonicEngine knows AgNO3, HCl"
+        },
+        {
+          "step": 5,
+          "verb": "qizdiring",
+          "family": "HEAT",
+          "status": "AUTHORITY_REQUIRED",
+          "authority": null,
+          "reason": "no authority of this handler covers AgNO3 + HCl (fails closed)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.10",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "quying",
+          "family": "ADD_SUBSTANCE",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "ReactionMatcher knows CuCl2"
+        },
+        {
+          "step": 0,
+          "verb": "tushiring",
+          "family": "SETUP_APPARATUS",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 0,
+          "verb": "ulang",
+          "family": "ELECTRIC_CURRENT",
+          "status": "SUPPORTED",
+          "authority": "ElectrolysisModel",
+          "reason": "ElectrolysisModel knows CuCl2"
+        },
+        {
+          "step": 1,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 1,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 2,
+          "verb": "quying",
+          "family": "ADD_SUBSTANCE",
+          "status": "SUPPORTED",
+          "authority": "ReactionMatcher",
+          "reason": "ReactionMatcher knows KI"
+        },
+        {
+          "step": 2,
+          "verb": "ulang",
+          "family": "ELECTRIC_CURRENT",
+          "status": "AUTHORITY_REQUIRED",
+          "authority": null,
+          "reason": "no authority of this handler covers KI (fails closed)"
+        },
+        {
+          "step": 2,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 3,
+          "verb": "uzing",
+          "family": "ELECTRIC_CURRENT",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 3,
+          "verb": "tomizing",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 3,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.11",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 1,
+          "verb": "taqqoslang",
+          "family": "COMPARE",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.12",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "kechiring",
+          "family": "PASS_GAS",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        },
+        {
+          "step": 1,
+          "verb": "taqqoslang",
+          "family": "COMPARE",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.13",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "oling",
+          "family": "PREPARE_SUBSTANCE",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 1,
+          "verb": "bo‘ling",
+          "family": "SEPARATE",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 2,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.14",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 1,
+          "verb": "tushuntiring",
+          "family": "EXPLAIN",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.15",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "oling",
+          "family": "PREPARE_SUBSTANCE",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 1,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 2,
+          "verb": "tekshiring",
+          "family": "TEST",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.16",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "oling",
+          "family": "PREPARE_SUBSTANCE",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 1,
+          "verb": "bo‘ling",
+          "family": "SEPARATE",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 2,
+          "verb": "qo‘shing",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 2,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.17",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 1,
+          "verb": "taqqoslang",
+          "family": "COMPARE",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.18",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "oling",
+          "family": "PREPARE_SUBSTANCE",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 1,
+          "verb": "oling",
+          "family": "PREPARE_SUBSTANCE",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 2,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.19",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "qo‘shing",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_REQUIRED",
+          "authority": null,
+          "reason": "no authority of this handler covers II + III (fails closed)"
+        },
+        {
+          "step": 1,
+          "verb": "taqqoslang",
+          "family": "COMPARE",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 2,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.2",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "aniqlang",
+          "family": "INFER",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 1,
+          "verb": "aniqlang",
+          "family": "INFER",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 2,
+          "verb": "farqlang",
+          "family": "COMPARE",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 3,
+          "verb": "tanlang",
+          "family": "SELECT",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 4,
+          "verb": "loyqalantiring",
+          "family": "PASS_GAS",
+          "status": "AUTHORITY_REQUIRED",
+          "authority": null,
+          "reason": "no authority of this handler covers CO2 + Na2CO3 (fails closed)"
+        },
+        {
+          "step": 4,
+          "verb": "qizdiring",
+          "family": "HEAT",
+          "status": "AUTHORITY_REQUIRED",
+          "authority": null,
+          "reason": "no authority of this handler covers CO2 + Na2CO3 (fails closed)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.20",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "kechiring",
+          "family": "PASS_GAS",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        },
+        {
+          "step": 1,
+          "verb": "taqqoslang",
+          "family": "COMPARE",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 2,
+          "verb": "eting",
+          "family": "RECORD",
+          "status": "LEARNER_RESPONSE",
+          "authority": "checker",
+          "reason": "checker: net ionic equation: IonicEngine.netIonicEquation + compareNetIonic (ionic-mixing topics only)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.3",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "aniqlang",
+          "family": "INFER",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 1,
+          "verb": "ko‘rsating",
+          "family": "EXPLAIN",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 2,
+          "verb": "qiling",
+          "family": "PREPARE_SUBSTANCE",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.4",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "tekshiring",
+          "family": "TEST",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 1,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 2,
+          "verb": "ifodalang",
+          "family": "RECORD",
+          "status": "LEARNER_RESPONSE",
+          "authority": "checker",
+          "reason": "checker: net ionic equation: IonicEngine.netIonicEquation + compareNetIonic (ionic-mixing topics only)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.5",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "kechiring",
+          "family": "PASS_GAS",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        },
+        {
+          "step": 1,
+          "verb": "bering",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 1,
+          "verb": "tekshiring",
+          "family": "TEST",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.6",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "kechiring",
+          "family": "PASS_GAS",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.7",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "kechiring",
+          "family": "PASS_GAS",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        },
+        {
+          "step": 0,
+          "verb": "nomlang",
+          "family": "RECORD",
+          "status": "LEARNER_RESPONSE",
+          "authority": "checker",
+          "reason": "checker: net ionic equation: IonicEngine.netIonicEquation + compareNetIonic (ionic-mixing topics only)"
+        },
+        {
+          "step": 1,
+          "verb": "aniqlang",
+          "family": "INFER",
+          "status": "LEARNER_RESPONSE",
+          "authority": null,
+          "reason": "no checker: never judged"
+        },
+        {
+          "step": 2,
+          "verb": "qo‘ying",
+          "family": "SETUP_APPARATUS",
+          "status": "PROCEDURE_ONLY",
+          "authority": "PROCEDURE",
+          "reason": "deterministic procedure; no chemistry decided"
+        },
+        {
+          "step": 2,
+          "verb": "qizdiring",
+          "family": "HEAT",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        },
+        {
+          "step": 2,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.8",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "kechiring",
+          "family": "PASS_GAS",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here) (only under a reaction-matcher profile; elsewhere it fails closed)"
+        },
+        {
+          "step": 1,
+          "verb": "tekshiring",
+          "family": "TEST",
+          "status": "UNSUPPORTED_ACTION",
+          "authority": null,
+          "reason": "no safe handler"
+        },
+        {
+          "step": 2,
+          "verb": "bering",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.9",
+      "operations": [
+        {
+          "step": 0,
+          "verb": "quying",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_REQUIRED",
+          "authority": null,
+          "reason": "no authority of this handler covers AgNO3 + CuSO4 + NO3 (fails closed)"
+        },
+        {
+          "step": 1,
+          "verb": "soling",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 2,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        }
+      ]
+    }
+  ]
+}

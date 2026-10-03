@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-10-03T14:29:40.947Z",
+  "createdAt": "2026-10-03T15:43:40.434Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -299,26 +299,32 @@
     {
       "path": "app-preview/domain/lab/action-catalog.js",
       "sourcePath": "public/app-preview/domain/lab/action-catalog.js",
-      "checksum": "9bdf7c8feb777a109bf7bbf30addf4befa50ab0e19af2f834bfe6328fcd2f8dd",
-      "size": 18226
+      "checksum": "bda474bcfb66cd7c8377cc6f3f031b66ee5cf86b512907531c9550e06021d29e",
+      "size": 18880
+    },
+    {
+      "path": "app-preview/domain/lab/capability-registry.js",
+      "sourcePath": "public/app-preview/domain/lab/capability-registry.js",
+      "checksum": "0d5e32b8698a438eabd00e1b6ed5562da66090c5c9ad619163c33c94cfb5963d",
+      "size": 11231
     },
     {
       "path": "app-preview/domain/lab/lab-domain.js",
       "sourcePath": "public/app-preview/domain/lab/lab-domain.js",
-      "checksum": "14c1ff02f0066496e4d7171d3f90a5c69632d7ef23ec926f32bfa67a93860b65",
-      "size": 1550
+      "checksum": "505b3039da93b9f5c05610169e132b0ca03b0c5c37b017925860170e7db8975d",
+      "size": 1558
     },
     {
       "path": "app-preview/domain/lab/lab-runtime.js",
       "sourcePath": "public/app-preview/domain/lab/lab-runtime.js",
-      "checksum": "816d2ac86ce3d396cfda47f66ec42a25dc92a364353e9b31a8575d356bde10f5",
-      "size": 36322
+      "checksum": "885a03176561ba8ab26b0837f69a547ae4c661aa33aed9c994321a25b69e7349",
+      "size": 52331
     },
     {
       "path": "app-preview/domain/lab/topic-lab-profile.js",
       "sourcePath": "public/app-preview/domain/lab/topic-lab-profile.js",
-      "checksum": "e9dce4675c4871d0ee5f6a61e6d01d4ec70937d10e383b918387b9d4bbcf9a7f",
-      "size": 19127
+      "checksum": "a7faf2b2480f13823544b57f86819e9259ee06bcd9ef2dec32d730ffd46e821c",
+      "size": 21897
     },
     {
       "path": "app-preview/domain/mastery/mastery.js",
@@ -413,8 +419,8 @@
     {
       "path": "app-preview/features/dynamic-lab/render.js",
       "sourcePath": "public/app-preview/features/dynamic-lab/render.js",
-      "checksum": "fc93202bf07c93d8ed7614bcdaa5b9675a5dff76e09ebc3ea7988b714882a210",
-      "size": 24020
+      "checksum": "f6dc0a830384c8421cdc8cb6f507000c98fc7f6d7f868f6d13984bff1582c744",
+      "size": 25679
     },
     {
       "path": "app-preview/features/home/copy.js",
@@ -1277,8 +1283,8 @@
     {
       "path": "content/2026.09.1/locales/uz-latn/learner-interaction.json",
       "sourcePath": "public/content/2026.09.1/locales/uz-latn/learner-interaction.json",
-      "checksum": "b1fa1bcb585d938e522e095c4c16e3987efcc626c0f900a490ef9da0aa242a10",
-      "size": 27252
+      "checksum": "ef892f03f3ff53f3e9d73482d059f3ce995b187364d7935687953c0ce2970e2d",
+      "size": 30288
     },
     {
       "path": "content/2026.09.1/locales/uz-latn/name-provenance.json",
@@ -1289,7 +1295,7 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "e2e23299cc583ceb7ff3ecd5aaac73cf8c0876bbb7787bd596c6e3c384fc0ca6",
+      "checksum": "a0f0c74dd84e1a2bd5460d134f18a95a0d3f34b0e88e336e55125be376d32f36",
       "size": 8009
     },
     {
@@ -1319,13 +1325,13 @@
     {
       "path": "content/2026.09.1/topic-lab-profiles.json",
       "sourcePath": "public/content/2026.09.1/topic-lab-profiles.json",
-      "checksum": "9d08b498dd5d54b9b72e5955f39c34aa6087725d5cf4571399e135be6e9f87a2",
-      "size": 32821
+      "checksum": "77efe4d40932899b651520dee2b8ae4b97d51ebb7722d432f0d92b97a8aaa817",
+      "size": 54651
     },
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "81aeb53da5a50d85f5e753f76000813989071aa89bca6320135d3c4f8c5c97dc",
+      "checksum": "12046152368601cc01b1535e4ab0333a23dcf0a36b05206119dacb79831b27a5",
       "size": 158
     },
     {

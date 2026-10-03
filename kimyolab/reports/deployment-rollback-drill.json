@@ -7,9 +7,9 @@
   "previous": {
     "commit": "22e568704f82339d51969add87423372beb6afd1",
     "resolution": {
-      "method": "merge-base",
+      "method": "first-parent-of-mainline-head",
       "mainline": "origin/main",
-      "mergeBase": "22e568704f82339d51969add87423372beb6afd1",
+      "mergeBase": "a6f959e1ae8155be9b506bdc89de2f14a4a6c274",
       "walked": [
         "22e568704f82339d51969add87423372beb6afd1"
       ]
@@ -20,8 +20,8 @@
   },
   "current": {
     "source": "dist-deploy/kimyolab/",
-    "sha256": "d0028d281293ef4592252e7c96860420dc955a51de4e69d1106e93b64af82b8c",
-    "fileCount": 222
+    "sha256": "cd546fef2d29a0607a867b5aa2e66347c827e6de3cae5369eb436486445d9ee6",
+    "fileCount": 223
   },
   "steps": [
     {
@@ -38,7 +38,7 @@
       "detail": {
         "collisions": [],
         "previousPack": "2026.09.1/manifest.json",
-        "currentPack": "2026.09.1/4e6d6cd7c87a7b176be4e451d9d0f05c2b0a5a2c8f0e19c08c9d80ae623b53b5/manifest.json"
+        "currentPack": "2026.09.1/96bee77f817cfb2fbbf43fcf0ae4498ebc6d46242a73f4f6854e32d297f0d528/manifest.json"
       }
     },
     {
@@ -117,7 +117,7 @@
       "id": "restored-bytes-identical",
       "pass": true,
       "detail": {
-        "sha256": "d0028d281293ef4592252e7c96860420dc955a51de4e69d1106e93b64af82b8c"
+        "sha256": "cd546fef2d29a0607a867b5aa2e66347c827e6de3cae5369eb436486445d9ee6"
       }
     }
   ],

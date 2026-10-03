@@ -1,4 +1,4 @@
-// P2.10 — the guided dynamic lab page (feature flag guidedDynamicLabV1, ADR-P2-011).
+// P2.10 — the guided dynamic lab page (feature flag guidedDynamicLabV1, ADR-P2-011; P2.11 handlers: ADR-P2-012).
 //
 // Mobile-first, no drag: 1. select an object (apparatus, container, substance, observation point) → 2. choose an action
 // (each one says whether it is the instruction's next step, possible, unavailable, unsupported or blocked by an earlier
@@ -44,7 +44,8 @@ export function renderDynamicLab(root            ,page                         ,
   const label=(key       )=>t.text(key,key.split('.').pop() );
   const familyName=(f       )=>t.ui(`ui.dlab-family-${f}`);
   const apparatusName=(id       )=>label(profile.apparatus.find(a=>a.id===id)?.labelKey??id);
-  const substanceName=(id       )=>label(profile.substances.find(s=>s.id===id)?.labelKey??id);
+  // a product is not a profile substance: it is shown by the formula its record names (gas entries carry a `gas:` prefix)
+  const substanceName=(id       )=>{ const s=profile.substances.find(x=>x.id===id); return s?label(s.labelKey):id.replace(/^gas:/,''); };
   const targetName=(id       )=>label(profile.observationTargets.find(o=>o.id===id)?.labelKey??id);
   const objectName=(o          )=>o.kind==='apparatus'?apparatusName(o.id):o.kind==='substance'?substanceName(o.id):targetName(o.id);
   const actionText=(a          )=>{
@@ -53,6 +54,8 @@ export function renderDynamicLab(root            ,page                         ,
     if(p.apparatus) parts.push(apparatusName(String(p.apparatus)));
     if(p.substance) parts.push(substanceName(String(p.substance)));
     if(p.container) parts.push(apparatusName(String(p.container)));
+    if(p.from) parts.push(t.ui('ui.dlab-param-from',{name:apparatusName(String(p.from))}));
+    if(p.to) parts.push(t.ui('ui.dlab-param-to',{name:apparatusName(String(p.to))}));
     if(p.target) parts.push(targetName(String(p.target)));
     return parts.join(' — ');
   };
@@ -125,7 +128,7 @@ export function renderDynamicLab(root            ,page                         ,
 
   function touches(o             ,ref          ){
     const p=o.action.params??{};
-    if(ref.kind==='apparatus') return p.apparatus===ref.id||p.container===ref.id;
+    if(ref.kind==='apparatus') return p.apparatus===ref.id||p.container===ref.id||p.from===ref.id||p.to===ref.id;
     if(ref.kind==='substance') return p.substance===ref.id;
     return p.target===ref.id;
   }
@@ -162,7 +165,7 @@ export function renderDynamicLab(root            ,page                         ,
       if(seen.has(key)) continue; seen.add(key);
       const best=selected.kind==='substance'?pickBest(options.filter(x=>x.action.family===o.action.family)):o;
       const id=`dlab-act-${list.children.length}`;
-      const b=el('button',{className:`kl-button ${best.category==='recommended'?'kl-button--primary':'kl-button--secondary'}`,text:selected.kind==='substance'?familyName(String(o.action.family)):actionText(o.action),attrs:{type:'button','aria-describedby':`${id}-cat`,'data-action-family':String(o.action.family),'data-category':best.category}});
+      const b=el('button',{className:`kl-button ${best.category==='recommended'?'kl-button--primary':'kl-button--secondary'}`,text:selected.kind==='substance'?familyName(String(o.action.family)):actionText(o.action),attrs:{type:'button','aria-describedby':`${id}-cat`,'data-action-family':String(o.action.family),'data-category':best.category,...(o.action.params?.from?{'data-action-from':String(o.action.params.from)}:{}),...(o.action.params?.to?{'data-action-to':String(o.action.params.to)}:{})}});
       b.addEventListener('click',()=>choose(o.action));
       const li=el('li'); li.append(b,el('span',{className:'kl-dlab__category',text:categoryText(best),attrs:{id:`${id}-cat`}})); list.append(li);
     }
@@ -264,7 +267,16 @@ export function renderDynamicLab(root            ,page                         ,
     let text       ;
     switch(o.kind){
       case 'precipitate': { const c=d.color?opt(`ui.dlab-color-${d.color}`):null; text=c?t.ui('ui.dlab-obs-precipitate-color',{color:c}):t.ui('ui.dlab-obs-precipitate'); break; }
-      case 'gas': text=o.producedBy==='ElectrolysisModel'?t.ui('ui.dlab-obs-electrode-gas',{electrode,product:String(d.product)}):t.ui('ui.dlab-obs-gas'); break;
+      case 'gas': {
+        if(o.producedBy==='ElectrolysisModel'){ text=t.ui('ui.dlab-obs-electrode-gas',{electrode,product:String(d.product)}); break; }
+        // ReactionMatcher: the gas is the record's gaseous product in that container (never named from the observation alone)
+        const rid=o.source.split('#')[1];
+        const g=o.container?state.containers[o.container]?.gases.find(x=>x.reactionId===rid)??Object.values(state.containers).flatMap(c=>c.gases).find(x=>x.reactionId===rid&&x.collectedFrom===o.container):undefined;
+        text=g?t.ui('ui.dlab-obs-reaction-gas',{product:g.product}):t.ui('ui.dlab-obs-gas'); break;
+      }
+      case 'gas-collected': text=t.ui('ui.dlab-obs-gas-collected',{product:String(d.product),source:apparatusName(String(d.from))}); break;
+      case 'no-visible-change': text=t.ui('ui.dlab-obs-no-visible-change'); break;
+      case 'temperature-change': text=t.ui('ui.dlab-obs-temperature-change'); break;
       case 'deposit': text=t.ui('ui.dlab-obs-deposit',{electrode,product:String(d.product)}); break;
       case 'color-change': text=t.ui('ui.dlab-obs-color-change'); break;
       case 'no-reaction': text=t.ui('ui.dlab-obs-no-reaction'); break;
@@ -301,8 +313,10 @@ export function renderDynamicLab(root            ,page                         ,
     for(const c of profile.apparatus.filter(a=>a.isContainer)){
       const cs=state.containers[c.id] ;
       const items=cs.contents.map(e=>substanceName(e.substanceId)+(e.amount?` (${e.amount.value} ${e.amount.unit})`:''));
-      const temp=cs.temperature.modeled?t.ui('ui.dlab-heated'):t.ui('ui.dlab-not-modeled');
-      ul.append(el('li',{text:`${t.ui('ui.dlab-contents',{container:apparatusName(c.id),list:items.length?items.join(', '):t.ui('ui.dlab-state-empty')})}; ${t.ui('ui.dlab-temperature',{value:temp})}; ${t.ui('ui.dlab-ph',{value:t.ui('ui.dlab-not-modeled')})}`}));
+      const temp=cs.heating||(cs.temperature.modeled&&cs.temperature.state==='heated')?t.ui('ui.dlab-heated'):t.ui('ui.dlab-not-modeled');
+      const gases=cs.gases.filter(g=>!g.collected).map(g=>g.product);
+      const extra=[...(gases.length?[t.ui('ui.dlab-gas-in',{list:[...new Set(gases)].join(', ')})]:[]),...(cs.sealed?[t.ui('ui.dlab-sealed')]:[])];
+      ul.append(el('li',{text:`${t.ui('ui.dlab-contents',{container:apparatusName(c.id),list:items.length?items.join(', '):t.ui('ui.dlab-state-empty')})}; ${extra.length?`${extra.join('; ')}; `:''}${t.ui('ui.dlab-temperature',{value:temp})}; ${t.ui('ui.dlab-ph',{value:t.ui('ui.dlab-not-modeled')})}`}));
     }
     stateBox.append(ul);
     if(state.current.on) stateBox.append(el('p',{text:t.ui('ui.dlab-current-on')}));

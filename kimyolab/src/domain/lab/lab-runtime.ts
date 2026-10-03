@@ -20,8 +20,9 @@ import type {ElectrolysisModel} from '../chemistry/electrolysis-model.ts';
 import type {IonicEngine} from '../chemistry/ionic-engine.ts';
 import type {SpeciesRegistry} from '../chemistry/species-registry.ts';
 import type {Observation} from '../chemistry/types.ts';
+import {classifyMatch,type ReactionMatcher} from '../chemistry/reaction-matcher.ts';
 import {familyDefinition,LAB_ACTION_FAMILIES,type LabActionFamily} from './action-catalog.ts';
-import type {GuidanceLevel,ProcedureStep,TopicLabProfile} from './topic-lab-profile.ts';
+import type {GuidanceLevel,ProcedureStep,ProfileHeating,TopicLabProfile} from './topic-lab-profile.ts';
 
 export const LAB_STATE_SCHEMA='kimyolab.lab-state.v1';
 
@@ -32,7 +33,7 @@ export interface ContentEntry {
   speciesId:string|null;
   /** aq / s / l / g, or null when no authority states it */
   phase:string|null;
-  form:'liquid'|'solution'|'solid-sample'|'dissolved'|'suspended-solid'|'crystals';
+  form:'liquid'|'solution'|'solid-sample'|'dissolved'|'suspended-solid'|'crystals'|'solid'|'gas';
   amount:{value:number;unit:string}|null;
   /** the authority or instruction sentence that put this entry into this form */
   source:string;
@@ -46,11 +47,20 @@ export interface ContainerState {
   temperature:{modeled:false}|{modeled:true;state:'room'|'heated'};
   pH:{modeled:false};
   precipitates:Array<{reactionId:string;source:'ReactionMatcher'}>;
-  gases:Array<{product:string;electrode:'anode'|'cathode';source:'ElectrolysisModel'}>;
+  /** gases an authority produced here (ElectrolysisModel at an electrode, ReactionMatcher from a record), or collected */
+  gases:Array<{product:string;electrode?:'anode'|'cathode';reactionId?:string;source:'ElectrolysisModel'|'ReactionMatcher';collected?:boolean;collectedFrom?:string}>;
   deposits:Array<{product:string;electrode:'anode'|'cathode';source:'ElectrolysisModel'}>;
   /** ionic-mixing: the solutions in this container, in order (at most two are modeled) */
   solutions:string[];
   mixed:null|{outcome:'reaction'|'no-reaction'|'not-modeled';reactionId:string|null;coverageCode:string|null};
+  /** P2.11: heating stated by the procedure (HEAT/STOP_HEAT); null = not heated. A condition for ReactionMatcher, not a
+   *  measured temperature (there is no thermal model) */
+  heating:null|ProfileHeating['level'];
+  /** P2.11: SEAL (procedure fact) */
+  sealed:boolean;
+  /** P2.11 reaction-matcher: every evaluated pair of learner-added substances and the authority's answer, with the
+   *  conditions it was evaluated under (a not-modeled pair is re-evaluated only when the conditions change) */
+  reactions:Array<{pair:string;outcome:'reaction'|'no-reaction'|'not-modeled';reactionId:string|null;code:string|null;conditions:string}>;
 }
 export interface LabObservation {
   id:string;
@@ -112,12 +122,38 @@ export interface LabDomain {
   ionic?:IonicDomain;
   /** present when the profile's authority is electrolysis */
   electrolysis?:ElectrolysisModel;
+  /** P2.11: the general reaction authority (reaction-matcher topics) */
+  matcher?:ReactionMatcher;
 }
+
+/** P2.11 — what each implemented handler IS and which authorities it may consult. The capability registry reads this
+ *  (it is declared once, next to the handlers); a test keeps it equal to the catalog's domainHandler flags. */
+export type HandlerType='PROCEDURE'|'CHEMISTRY'|'OBSERVATION'|'CHECKER';
+/** `requiresProfileAuthority`: the handler has a chemical consequence only under that profile authority; under any other
+ *  it fails closed (UNSUPPORTED_CHEMISTRY) — and the coverage report keeps such an experiment BLOCKED. */
+export const HANDLER_SEMANTICS:Readonly<Partial<Record<LabActionFamily,{type:HandlerType;authorities:string[];requiresProfileAuthority?:'reaction-matcher'}>>>=Object.freeze({
+  SETUP_APPARATUS:{type:'PROCEDURE',authorities:[]},
+  ADD_SUBSTANCE:{type:'CHEMISTRY',authorities:['ReactionMatcher','IonicEngine','ElectrolysisModel']},
+  MIX:{type:'CHEMISTRY',authorities:['ReactionMatcher','IonicEngine']},
+  HEAT:{type:'CHEMISTRY',authorities:['ReactionMatcher'],requiresProfileAuthority:'reaction-matcher'},
+  PASS_GAS:{type:'CHEMISTRY',authorities:['ReactionMatcher'],requiresProfileAuthority:'reaction-matcher'},
+  ELECTRIC_CURRENT:{type:'CHEMISTRY',authorities:['ElectrolysisModel']},
+  STOP_HEAT:{type:'PROCEDURE',authorities:[]},
+  TRANSFER:{type:'PROCEDURE',authorities:['ReactionMatcher']},
+  COLLECT_GAS:{type:'PROCEDURE',authorities:[]},
+  SEAL:{type:'PROCEDURE',authorities:[]},
+  WAIT:{type:'PROCEDURE',authorities:[]},
+  FILTER:{type:'PROCEDURE',authorities:['INSTRUCTION_TEXT']},
+  EVAPORATE:{type:'PROCEDURE',authorities:['INSTRUCTION_TEXT']},
+  WASH:{type:'PROCEDURE',authorities:[]},
+  OBSERVE:{type:'OBSERVATION',authorities:['ReactionMatcher','ElectrolysisModel','IonicEngine','INSTRUCTION_TEXT']},
+  RECORD:{type:'CHECKER',authorities:['IonicEngine']},
+});
 
 const clone=<T>(v:T):T=>JSON.parse(JSON.stringify(v));
 
 function emptyContainer(id:string):ContainerState{
-  return {id,contents:[],phases:[],temperature:{modeled:false},pH:{modeled:false},precipitates:[],gases:[],deposits:[],solutions:[],mixed:null};
+  return {id,contents:[],phases:[],temperature:{modeled:false},pH:{modeled:false},precipitates:[],gases:[],deposits:[],solutions:[],mixed:null,heating:null,sealed:false,reactions:[]};
 }
 
 /** RESET: the profile's initial state. Deterministic; nothing is "undone" chemically. */
@@ -264,8 +300,52 @@ function statePrecondition(state:LabState,action:LabAction,profile:TopicLabProfi
       if(!c.contents.length&&!c.solutions.length) return {category:'unavailable',code:'STATE_PRECONDITION_UNMET',detail:'ALREADY_EMPTY'};
       return null;
     }
+    case 'HEAT':{
+      if(!c) return {category:'unavailable',code:'PARAMETER_INVALID',detail:'container'};
+      // heating has a chemical consequence only where a condition-aware authority evaluates it; elsewhere fail closed
+      if(chem.authority!==HANDLER_SEMANTICS.HEAT!.requiresProfileAuthority) return {category:'unsupported',code:'UNSUPPORTED_CHEMISTRY',detail:'HEATING_NOT_ORCHESTRATED'};
+      if(!c.contents.length) return {category:'unavailable',code:'STATE_PRECONDITION_UNMET',detail:'CONTAINER_EMPTY'};
+      if(c.heating) return {category:'unavailable',code:'STATE_PRECONDITION_UNMET',detail:'ALREADY_HEATED'};
+      return null;
+    }
+    case 'STOP_HEAT':{
+      if(!c) return {category:'unavailable',code:'PARAMETER_INVALID',detail:'container'};
+      if(!c.heating) return {category:'unavailable',code:'STATE_PRECONDITION_UNMET',detail:'NOT_HEATED'};
+      return null;
+    }
+    case 'SEAL':{
+      if(!c) return {category:'unavailable',code:'PARAMETER_INVALID',detail:'container'};
+      if(c.sealed) return {category:'unavailable',code:'STATE_PRECONDITION_UNMET',detail:'ALREADY_SEALED'};
+      return null;
+    }
+    case 'TRANSFER':
+    case 'PASS_GAS':{
+      const from=paramText(action,'from')!, to=paramText(action,'to')!;
+      if(from===to) return {category:'unavailable',code:'PARAMETER_INVALID',detail:'SAME_CONTAINER'};
+      const f=state.containers[from]!, t=state.containers[to]!;
+      if(action.family==='TRANSFER') return f.contents.length?null:{category:'unavailable',code:'STATE_PRECONDITION_UNMET',detail:'SOURCE_EMPTY'};
+      if(chem.authority!==HANDLER_SEMANTICS.PASS_GAS!.requiresProfileAuthority) return {category:'unsupported',code:'UNSUPPORTED_CHEMISTRY',detail:'GAS_REACTION_NOT_ORCHESTRATED'};
+      if(!f.gases.length) return {category:'unavailable',code:'STATE_PRECONDITION_UNMET',detail:'NO_GAS_IN_SOURCE'};
+      if(!t.contents.length) return {category:'unavailable',code:'STATE_PRECONDITION_UNMET',detail:'TARGET_EMPTY'};
+      return null;
+    }
+    case 'COLLECT_GAS':{
+      if(!c) return {category:'unavailable',code:'PARAMETER_INVALID',detail:'container'};
+      if(profile.apparatus.find(a=>a.id===container)?.kind!=='gas-collection-vessel') return {category:'unavailable',code:'PARAMETER_INVALID',detail:'NOT_A_GAS_COLLECTION_VESSEL'};
+      const sources=gasSources(state,container!);
+      const from=paramText(action,'from');
+      if(!sources.length) return {category:'unavailable',code:'STATE_PRECONDITION_UNMET',detail:'NO_GAS_TO_COLLECT'};
+      if(from&&!sources.includes(from)) return {category:'unavailable',code:'STATE_PRECONDITION_UNMET',detail:'NO_GAS_IN_SOURCE'};
+      if(!from&&sources.length>1) return {category:'unavailable',code:'PARAMETER_INVALID',detail:'GAS_SOURCE_REQUIRED'};
+      return null;
+    }
   }
   return null;
+}
+
+/** containers (other than `except`) holding a gas an authority produced and that is not yet collected */
+export function gasSources(state:LabState,except:string):string[]{
+  return Object.values(state.containers).filter(x=>x.id!==except&&x.gases.some(g=>!g.collected&&!g.collectedFrom)).map(x=>x.id).sort();
 }
 
 function ionicState(domain:LabDomain,profile:TopicLabProfile,actions:IonicAction[]):IonicMixingState{
@@ -273,8 +353,62 @@ function ionicState(domain:LabDomain,profile:TopicLabProfile,actions:IonicAction
   return evaluateIonicMixing(domain.ionic,{shelf:profile.chemistry.reagentShelf,targetReactionId:profile.chemistry.targetReactionId,actions});
 }
 
+const FORM_BY_PHASE:Readonly<Record<string,ContentEntry['form']>>={s:'solid',aq:'solution',l:'liquid',g:'gas'};
+
+/** P2.11 reaction-matcher: the ACTUAL conditions of a container, in condition-vocabulary dimensions. Heating comes from
+ *  the procedure; an acid concentration only when the instruction declares it for a substance present (conflicting
+ *  declarations → unstated). Nothing else is assumed: an unstated dimension never satisfies a record's requirement. */
+function actualConditions(c:ContainerState,profile:TopicLabProfile):Record<string,string>{
+  const dims:Record<string,string>={temperature:c.heating??'room',ignition:'absent'};
+  const declared=new Map<string,Set<string>>();
+  for(const e of c.contents){ const sub=profile.substances.find(x=>x.id===e.substanceId); for(const d of sub?.declaredConditions??[]){ if(!declared.has(d.dimension)) declared.set(d.dimension,new Set()); declared.get(d.dimension)!.add(d.value); } }
+  for(const [dim,values] of declared) if(values.size===1) dims[dim]=[...values][0]!;
+  return dims;
+}
+
+/** P2.11 reaction-matcher: evaluate every pair of learner-added substances in a container under its actual conditions.
+ *  Products are recorded (with the record that produced them) but never re-evaluated — no invented reaction chains.
+ *  Returns what this evaluation changed. */
+function reactInContainer(c:ContainerState,profile:TopicLabProfile,domain:LabDomain,observe:(o:Omit<LabObservation,'id'|'grounding'>)=>void){
+  if(!domain.matcher) throw new Error('LAB_DOMAIN_MISSING:matcher');
+  const dims=actualConditions(c,profile);
+  const condKey=JSON.stringify(Object.entries(dims).sort());
+  const reagents=[...new Map(c.contents.filter(e=>e.speciesId&&!e.source.startsWith('ReactionMatcher')).map(e=>[(domain.species.byId(e.speciesId!) as any)?.formula as string,e])).keys()].filter(Boolean).sort();
+  const events:LabActionResult['chemistryEvents']=[]; let modeled=0; const notModeled:string[]=[];
+  for(let i=0;i<reagents.length;i++) for(let j=i+1;j<reagents.length;j++){
+    const pair=`${reagents[i]}+${reagents[j]}`;
+    const prior=c.reactions.find(r=>r.pair===pair);
+    if(prior&&(prior.outcome!=='not-modeled'||prior.conditions===condKey)) continue;
+    const m=domain.matcher.match({reactants:[{formula:reagents[i]!},{formula:reagents[j]!}],conditions:{dimensions:{...dims}},conditionPolicy:'require-record-conditions'});
+    const entry=m.modeled
+      ?{pair,outcome:(classifyMatch(m)==='MODELED_NO_REACTION'?'no-reaction':'reaction') as 'reaction'|'no-reaction',reactionId:m.reaction.id,code:null,conditions:condKey}
+      :{pair,outcome:'not-modeled' as const,reactionId:null,code:m.code,conditions:condKey};
+    c.reactions=[...c.reactions.filter(r=>r.pair!==pair),entry];
+    events.push({type:'reaction',authority:'ReactionMatcher',detail:{pair,conditions:dims,outcome:entry.outcome,reactionId:entry.reactionId,code:entry.code}});
+    if(!m.modeled){ notModeled.push(m.code); continue; }
+    modeled++;
+    const r=m.reaction, source=`chemistry/reactions.json#${r.id}`;
+    if(entry.outcome==='no-reaction'){ observe({target:'reaction',container:c.id,kind:'no-reaction',data:null,producedBy:'ReactionMatcher',source}); continue; }
+    const gasObserved=(r.observations??[]).some(o=>o.type==='gas');
+    for(const prod of r.products){
+      const sp=domain.species.byFormula(prod.formula)[0] as any;
+      const phase=prod.phase??sp?.phase??null;
+      // a gas is a product the record says is evolved (observation type gas) AND whose species is gaseous
+      if(gasObserved&&phase==='g'){ if(!c.gases.some(g=>g.product===prod.formula&&g.reactionId===r.id)) c.gases.push({product:prod.formula,reactionId:r.id,source:'ReactionMatcher'}); continue; }
+      if(!c.contents.some(e=>e.source===`ReactionMatcher:${r.id}`&&e.speciesId===(sp?.id??null)&&e.substanceId===prod.formula)) c.contents.push({substanceId:prod.formula,speciesId:sp?.id??null,phase,form:phase?FORM_BY_PHASE[phase]??'solid':'solid',amount:null,source:`ReactionMatcher:${r.id}`});
+    }
+    for(const o of r.observations??[]){ if(o.type==='precipitate') c.precipitates.push({reactionId:r.id,source:'ReactionMatcher'}); observe({target:'reaction',container:c.id,kind:o.type,data:clone(o),producedBy:'ReactionMatcher',source}); }
+  }
+  return {events,modeled,notModeled,evaluated:events.length};
+}
+
 function isComplete(state:LabState,profile:TopicLabProfile,domain:LabDomain):boolean{
   const g=profile.completionGoal;
+  if(g.kind==='reactions'){
+    const done=new Set(Object.values(state.containers).flatMap(c=>c.reactions.filter(r=>r.outcome==='reaction').map(r=>r.reactionId)));
+    const collected=Object.values(state.containers).some(c=>c.gases.some(x=>x.collectedFrom));
+    return g.reactionIds.every(id=>done.has(id))&&(!g.gasCollected||collected);
+  }
   if(g.kind==='all-required-steps') return profile.procedure.steps.filter(s=>s.required).every(s=>state.completedSteps.includes(s.id));
   if(g.kind==='observations') return g.targets.every(t=>state.observedTargets.includes(t));
   return ionicState(domain,profile,state.engine.ionicActions).achieved;
@@ -304,6 +438,9 @@ export function createLabRuntime(domain:LabDomain){
     const c=container?next.containers[container]:undefined;
     const chem=profile.chemistry;
     const observe=(o:Omit<LabObservation,'id'|'grounding'>)=>{ const ob:LabObservation={...o,grounding:observationGrounding(o),id:`obs.${next.observations.length+observations.length+1}`}; observations.push(ob); };
+    // P2.11 reaction-matcher: the container whose contents or conditions this action changed (evaluated after the switch)
+    let contact:ContainerState|null=null;
+    let procedureCode:string|null=null;
 
     switch(action.family){
       case 'SETUP_APPARATUS': next.setUp.push(paramText(action,'apparatus')!); break;
@@ -314,6 +451,13 @@ export function createLabRuntime(domain:LabDomain){
         if(chem.authority==='ionic-mixing'){
           if(!c!.solutions.includes(subId)) c!.solutions.push(subId);
           if(!c!.contents.some(e=>e.substanceId===subId)) c!.contents.push({substanceId:subId,speciesId:sub.speciesId,phase:'aq',form:'solution',amount,source:'IonicEngine.dissociate (shelf validated by resolveShelf)'});
+        }else if(chem.authority==='reaction-matcher'){
+          // the substance enters with its registered phase; the authority then evaluates every new pair under the
+          // container's actual conditions (no reaction is decided here)
+          const species=sub.speciesId?domain.species.byId(sub.speciesId) as any:null;
+          const phase=species?.phase??null;
+          if(!c!.contents.some(e=>e.substanceId===subId)) c!.contents.push({substanceId:subId,speciesId:sub.speciesId,phase,form:phase?FORM_BY_PHASE[phase]??'solid':'solid',amount,source:sub.source});
+          contact=c!;
         }else if(sub.role==='sample'){
           c!.contents.push({substanceId:subId,speciesId:sub.speciesId,phase:null,form:'solid-sample',amount,source:sub.source});
         }else if(chem.authority==='electrolysis'){
@@ -431,6 +575,65 @@ export function createLabRuntime(domain:LabDomain){
         next.containers[container!]=emptyContainer(container!);
         break;
       }
+      case 'HEAT':{
+        c!.heating=profile.limits.heating?.level??'heated';
+        c!.temperature={modeled:true,state:'heated'};
+        events.push({type:'heating',authority:'PROCEDURE',detail:{container,level:c!.heating,source:profile.limits.heating?.source??'catalog default (instruction states no level)'}});
+        contact=c!;
+        break;
+      }
+      case 'STOP_HEAT':{
+        // heating ends; later evaluations use room conditions (no cooling model, nothing is reversed)
+        c!.heating=null; c!.temperature={modeled:true,state:'room'};
+        events.push({type:'heating-stopped',authority:'PROCEDURE',detail:{container}});
+        break;
+      }
+      case 'SEAL':{ c!.sealed=true; events.push({type:'sealed',authority:'PROCEDURE',detail:{container}}); break; }
+      case 'WAIT':{ procedureCode='NO_TIME_MODEL'; break; }
+      case 'TRANSFER':{
+        const from=next.containers[paramText(action,'from')!]!, to=next.containers[paramText(action,'to')!]!;
+        to.contents.push(...from.contents); to.precipitates.push(...from.precipitates);
+        from.contents=[]; from.precipitates=[];
+        events.push({type:'transferred',authority:'PROCEDURE',detail:{from:from.id,to:to.id}});
+        if(chem.authority==='reaction-matcher') contact=to;
+        break;
+      }
+      case 'PASS_GAS':{
+        const from=next.containers[paramText(action,'from')!]!, to=next.containers[paramText(action,'to')!]!;
+        for(const g of from.gases){
+          const sp=domain.species.byFormula(g.product)[0] as any;
+          if(!to.contents.some(e=>e.substanceId===`gas:${g.product}`)) to.contents.push({substanceId:`gas:${g.product}`,speciesId:sp?.id??null,phase:'g',form:'gas',amount:null,source:`PASS_GAS:${from.id}`});
+        }
+        events.push({type:'gas-passed',authority:'PROCEDURE',detail:{from:from.id,to:to.id,gases:from.gases.map(g=>g.product)}});
+        contact=to;
+        break;
+      }
+      case 'COLLECT_GAS':{
+        const sourceId=paramText(action,'from')??gasSources(next,container!)[0]!;
+        const source=next.containers[sourceId]!;
+        for(const g of source.gases.filter(x=>!x.collected&&!x.collectedFrom)){
+          g.collected=true;
+          c!.gases.push({product:g.product,...(g.reactionId?{reactionId:g.reactionId}:{}),source:g.source,collectedFrom:sourceId});
+          observe({target:'gas-collected',container,kind:'gas-collected',data:{product:g.product,from:sourceId},producedBy:'PROCEDURE',source:`collected from ${sourceId}; gas identity from ${g.source}${g.reactionId?`#${g.reactionId}`:''}`});
+        }
+        break;
+      }
+    }
+    if(contact){
+      const r=reactInContainer(contact,profile,domain,observe);
+      events.push(...r.events);
+      // the physical action happened; if nothing it brought into contact is modeled, say so (no outcome is shown)
+      if(!r.modeled&&(r.notModeled.length||action.family==='HEAT')){
+        for(const k of Object.keys(next.containers)) next.containers[k]!.phases=phasesOf(next.containers[k]!);
+        next.observations.push(...observations);
+        const step=stepFor(profile,action);
+        if(step&&!next.completedSteps.includes(step.id)) next.completedSteps.push(step.id);
+        next.actionLog.push(clone(action));
+        next.complete=isComplete(next,profile,domain);
+        const detail=r.notModeled[0]??'HEATING_EFFECT_NOT_MODELED';
+        return {status:'unsupported',nextState:next,chemistryEvents:events,observations,procedural:{completedStep:step&&!state.completedSteps.includes(step.id)?step.id:null,blockedBy:[],reason:null},guidance:{category:'unsupported',code:detail},evidenceCandidate:null,unsupported:{code:'UNSUPPORTED_CHEMISTRY',detail},error:null};
+      }
+      if(r.modeled&&!evidence){ const obs=observations.find(o=>o.producedBy==='ReactionMatcher'); if(obs) evidence={kind:'observation',id:`${profile.activityId}.dynamic.${obs.source.split('#')[1]??'reaction'}`,persisted:false,detail:{container:obs.container,kind:obs.kind}}; }
     }
     for(const k of Object.keys(next.containers)) next.containers[k]!.phases=phasesOf(next.containers[k]!);
     next.observations.push(...observations);
@@ -442,7 +645,7 @@ export function createLabRuntime(domain:LabDomain){
     next.complete=isComplete(next,profile,domain);
     if(next.complete&&!wasComplete) evidence={kind:'completion',id:`${profile.activityId}.dynamic.complete`,persisted:false,detail:{goal:profile.completionGoal.kind,...(evidence?{last:evidence}:{})}};
     const recommended=completedStep!==null;
-    return {status:'accepted',nextState:next,chemistryEvents:events,observations,procedural:{completedStep,blockedBy:[],reason:null},guidance:{category:recommended?'recommended':'possible',code:next.complete?'COMPLETE':recommended?'STEP_DONE':'ACCEPTED'},evidenceCandidate:evidence,unsupported:null,error:null};
+    return {status:'accepted',nextState:next,chemistryEvents:events,observations,procedural:{completedStep,blockedBy:[],reason:null},guidance:{category:recommended?'recommended':'possible',code:next.complete?'COMPLETE':procedureCode??(recommended?'STEP_DONE':'ACCEPTED')},evidenceCandidate:evidence,unsupported:null,error:null};
   }
 
   /** Deterministic replay: the same profile + the same accepted actions → the same state. */
@@ -478,9 +681,15 @@ export function availableActions(state:LabState,profile:TopicLabProfile):ActionO
     if(params.some(p=>p.valuesFrom==='learner-text')){ for(const c of containers) push({family:def.family,params:{container:c,text:''}}); continue; }
     const names=params.map(p=>p.name);
     if(names.join()==='apparatus') for(const a of profile.apparatus) push({family:def.family,params:{apparatus:a.id}});
-    else if(names.join()==='container') for(const c of containers) push({family:def.family,params:{container:c}});
+    else if(names.join()==='container') for(const c of containers){
+      // COLLECT_GAS: with several gas sources the learner chooses which one (one option per source, never a guess)
+      const sources=def.family==='COLLECT_GAS'&&profile.apparatus.find(a=>a.id===c)?.kind==='gas-collection-vessel'?gasSources(state,c):[];
+      if(sources.length>1) for(const f of sources) push({family:def.family,params:{container:c,from:f}});
+      else push({family:def.family,params:{container:c}});
+    }
     else if(names.join()==='target') for(const t of profile.observationTargets) push({family:def.family,params:{target:t.id}});
     else if(names.join()==='substance,container') for(const s of profile.substances) for(const c of containers) push({family:def.family,params:{substance:s.id,container:c}});
+    else if(names.join()==='from,to') for(const f of containers) for(const t of containers) if(f!==t) push({family:def.family,params:{from:f,to:t}});
     else if(!names.length) push({family:def.family,params:{}});
   }
   return out;

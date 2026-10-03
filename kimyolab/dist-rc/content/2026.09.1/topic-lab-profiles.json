@@ -1014,6 +1014,679 @@
           "detail": "legacyContent.reagents lists Zn, Al, KI, etanol, which no step uses; they are not offered."
         }
       ]
+    },
+    {
+      "schema": "kimyolab.topic-lab-profile.v1",
+      "profileId": "lab-profile.7.10.metal-acid-gas",
+      "activityId": "practice.experiment.7.10",
+      "activityVersion": "2026.09.1",
+      "learningUnitIds": [
+        "lu.7.15",
+        "lu.7.20"
+      ],
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0",
+      "chemistryTruth": false,
+      "instruction": {
+        "source": "legacyContent",
+        "title": "Kislotalarning metallar bilan o‘zaro ta’siri",
+        "goal": "Magniy ustiga suyultirilgan H2SO4 quying, ajralgan gazni yig‘ing va gugurt alangasi bilan tekshiring.",
+        "equipmentText": "Probirkalar, shtativ, gaz yig‘ish vositasi, gugurt.",
+        "materialsText": "Mg, Zn, Cu; suyultirilgan H2SO4 va HCl.",
+        "safetyText": "Vodorod miqdori probirka hajmining 1/3 qismidan oshmasin.",
+        "steps": [
+          {
+            "index": 0,
+            "text": "Magniy ustiga suyultirilgan H2SO4 quying, ajralgan gazni yig‘ing va gugurt alangasi bilan tekshiring.",
+            "operations": [
+              {
+                "verb": "quying",
+                "family": "ADD_SUBSTANCE",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "yig‘ing",
+                "family": "COLLECT_GAS",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "tekshiring",
+                "family": "TEST",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "text": "Rux granulalari ustiga HCl quying. Reaksiyani kuzating, zarur bo‘lsa biroz qizdiring, gazni yig‘ing va tekshiring.",
+            "operations": [
+              {
+                "verb": "quying",
+                "family": "ADD_SUBSTANCE",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "kuzating",
+                "family": "OBSERVE",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "qizdiring",
+                "family": "HEAT",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "yig‘ing",
+                "family": "COLLECT_GAS",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "tekshiring",
+                "family": "TEST",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "text": "Mis qirindilari ustiga suyultirilgan HCl quying. Qizdirilganda ham sezilarli o‘zgarish bo‘lmasligini kuzating.",
+            "operations": [
+              {
+                "verb": "quying",
+                "family": "ADD_SUBSTANCE",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "kuzating",
+                "family": "OBSERVE",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "text": "Metallarning kislotalar bilan reaksiyaga kirishish qobiliyatini faollik qatori bilan izohlang.",
+            "operations": [
+              {
+                "verb": "izohlang",
+                "family": "EXPLAIN",
+                "status": "MAPPED"
+              }
+            ]
+          }
+        ],
+        "sourceRefs": [
+          {
+            "id": "src.legacy.7.10",
+            "title": "7-sinf darsligi, 124–125-betlar"
+          }
+        ],
+        "groundedSteps": [
+          0,
+          1,
+          2
+        ]
+      },
+      "apparatus": [
+        {
+          "id": "tube-1",
+          "kind": "test-tube",
+          "labelKey": "ui.dlab-app-tube-1",
+          "source": "legacyContent.equipment (\"Probirkalar\")",
+          "isContainer": true
+        },
+        {
+          "id": "tube-2",
+          "kind": "test-tube",
+          "labelKey": "ui.dlab-app-tube-2",
+          "source": "legacyContent.equipment (\"Probirkalar\")",
+          "isContainer": true
+        },
+        {
+          "id": "tube-3",
+          "kind": "test-tube",
+          "labelKey": "ui.dlab-app-tube-3",
+          "source": "legacyContent.equipment (\"Probirkalar\")",
+          "isContainer": true
+        },
+        {
+          "id": "gas-collector",
+          "kind": "gas-collection-vessel",
+          "labelKey": "ui.dlab-app-gas-collector",
+          "source": "legacyContent.equipment (\"gaz yig‘ish vositasi\")",
+          "isContainer": true
+        }
+      ],
+      "substances": [
+        {
+          "speciesId": "species.mg",
+          "soluteSpeciesId": null,
+          "undeclaredParts": [],
+          "id": "mg",
+          "labelKey": "ui.dlab-sub-mg",
+          "role": "reagent",
+          "source": "legacyContent.materials (\"Mg\") + legacyContent.steps[0] (\"Magniy\")"
+        },
+        {
+          "speciesId": "species.zn",
+          "soluteSpeciesId": null,
+          "undeclaredParts": [],
+          "id": "zn",
+          "labelKey": "ui.dlab-sub-zn",
+          "role": "reagent",
+          "source": "legacyContent.materials (\"Zn\") + legacyContent.steps[1] (\"Rux granulalari\")"
+        },
+        {
+          "speciesId": "species.cu",
+          "soluteSpeciesId": null,
+          "undeclaredParts": [],
+          "id": "cu",
+          "labelKey": "ui.dlab-sub-cu",
+          "role": "reagent",
+          "source": "legacyContent.materials (\"Cu\") + legacyContent.steps[2] (\"Mis qirindilari\")"
+        },
+        {
+          "speciesId": "species.h2so4",
+          "soluteSpeciesId": null,
+          "undeclaredParts": [],
+          "id": "h2so4-dilute",
+          "labelKey": "ui.dlab-sub-h2so4-dilute",
+          "role": "reagent",
+          "source": "legacyContent.materials (\"suyultirilgan H2SO4\") + legacyContent.steps[0]",
+          "declaredConditions": [
+            {
+              "dimension": "acid-concentration",
+              "value": "dilute",
+              "source": "legacyContent.steps[0] (\"suyultirilgan H2SO4\")"
+            }
+          ]
+        },
+        {
+          "speciesId": "species.hcl",
+          "soluteSpeciesId": null,
+          "undeclaredParts": [],
+          "id": "hcl-dilute",
+          "labelKey": "ui.dlab-sub-hcl-dilute",
+          "role": "reagent",
+          "source": "legacyContent.materials (\"suyultirilgan … HCl\") + legacyContent.steps[1], legacyContent.steps[2]",
+          "declaredConditions": [
+            {
+              "dimension": "acid-concentration",
+              "value": "dilute",
+              "source": "legacyContent.steps[2] (\"suyultirilgan HCl\") + legacyContent.materials"
+            }
+          ]
+        }
+      ],
+      "initialState": {
+        "setUp": [
+          "tube-1",
+          "tube-2",
+          "tube-3",
+          "gas-collector"
+        ],
+        "contents": {}
+      },
+      "allowedFamilies": [
+        "ADD_SUBSTANCE",
+        "HEAT",
+        "COLLECT_GAS"
+      ],
+      "familyApparatus": {},
+      "limits": {
+        "quantities": [],
+        "electrodes": [],
+        "heating": {
+          "level": "gently-heated",
+          "source": "legacyContent.steps[1] (\"zarur bo‘lsa biroz qizdiring\")"
+        }
+      },
+      "procedure": {
+        "mode": "FLEXIBLE",
+        "steps": [
+          {
+            "id": "add-mg",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "mg"
+            },
+            "required": true,
+            "instructionStep": 0,
+            "source": "legacyContent.steps[0]",
+            "dependencies": []
+          },
+          {
+            "id": "add-h2so4",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "h2so4-dilute"
+            },
+            "required": true,
+            "instructionStep": 0,
+            "source": "legacyContent.steps[0]",
+            "dependencies": []
+          },
+          {
+            "id": "collect-gas",
+            "family": "COLLECT_GAS",
+            "match": {},
+            "required": true,
+            "instructionStep": 0,
+            "source": "legacyContent.steps[0] (\"ajralgan gazni yig‘ing\")",
+            "dependencies": []
+          },
+          {
+            "id": "add-zn",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "zn"
+            },
+            "required": true,
+            "instructionStep": 1,
+            "source": "legacyContent.steps[1]",
+            "dependencies": []
+          },
+          {
+            "id": "add-hcl",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "hcl-dilute"
+            },
+            "required": true,
+            "instructionStep": 1,
+            "source": "legacyContent.steps[1]",
+            "dependencies": []
+          },
+          {
+            "id": "heat-if-needed",
+            "family": "HEAT",
+            "match": {},
+            "required": false,
+            "instructionStep": 1,
+            "source": "legacyContent.steps[1] (\"zarur bo‘lsa biroz qizdiring\")",
+            "dependencies": []
+          },
+          {
+            "id": "add-cu",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "cu"
+            },
+            "required": true,
+            "instructionStep": 2,
+            "source": "legacyContent.steps[2]",
+            "dependencies": []
+          }
+        ],
+        "humanDecision": null,
+        "orderSource": "No order is declared: the config (guided-labs) runs on the generic runtime, whose order is only the array position (ORDER_FROM_ARRAY_POSITION). The three metal–acid trials are independent; only state preconditions apply."
+      },
+      "observationTargets": [
+        {
+          "id": "reaction",
+          "labelKey": "ui.dlab-target-reaction",
+          "producedBy": "ReactionMatcher",
+          "source": "chemistry/reactions.json (record observations)",
+          "kind": "reaction-observation",
+          "kindSource": "the matched reaction record's observations"
+        }
+      ],
+      "completionGoal": {
+        "kind": "reactions",
+        "reactionIds": [
+          "rxn.mg-h2so4",
+          "rxn.zn-hcl"
+        ],
+        "gasCollected": true
+      },
+      "guidance": {
+        "levels": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "defaultLevel": 1,
+        "revealsFinalAnswer": false
+      },
+      "safety": {
+        "virtualOnly": true,
+        "notes": [
+          {
+            "text": "Vodorod miqdori probirka hajmining 1/3 qismidan oshmasin.",
+            "source": "legacyContent.safety"
+          },
+          {
+            "text": "Vodorod miqdori probirka hajmining 1/3 qismidan oshmasin.",
+            "source": "config.safetyNotes"
+          }
+        ],
+        "forbiddenFamilies": []
+      },
+      "chemistry": {
+        "authority": "reaction-matcher",
+        "reactionIds": [
+          "rxn.mg-h2so4",
+          "rxn.zn-hcl"
+        ],
+        "source": "config(guided-labs).scenario.steps[].reactionIds"
+      },
+      "gaps": [
+        {
+          "code": "TEST_NOT_OFFERED",
+          "detail": "\"gugurt alangasi bilan tekshiring\": the flame test needs the oxygen of the air, which no source declares, and ignition is not a lab action here. It is not offered."
+        },
+        {
+          "code": "CU_HCL_NOT_IN_REACTION_RECORDS",
+          "detail": "Step 3 (Cu + dilute HCl): ReactionMatcher has no record, so the lab shows no outcome (UNSUPPORTED_CHEMISTRY), also when heated. The step-bound school model school.cu-hcl.no-reaction exists but is not consumed by the dynamic lab."
+        },
+        {
+          "code": "RECORD_CHECKER_MISSING",
+          "detail": "Step 4 (\"faollik qatori bilan izohlang\") is a learner response with no checker; it is not offered."
+        },
+        {
+          "code": "HEAT_SOURCE_NOT_NAMED",
+          "detail": "The equipment lists no burner. Heating comes only from the instruction verb, and its level from \"biroz qizdiring\" (gently-heated)."
+        },
+        {
+          "code": "APPARATUS_WITHOUT_OPERATION",
+          "detail": "\"shtativ\" and \"gugurt\" are listed but no offered action uses them."
+        }
+      ]
+    },
+    {
+      "schema": "kimyolab.topic-lab-profile.v1",
+      "profileId": "lab-profile.8.14.ammonia-heating",
+      "activityId": "practice.experiment.8.14",
+      "activityVersion": "2026.09.1",
+      "learningUnitIds": [
+        "lu.8.22"
+      ],
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0",
+      "chemistryTruth": false,
+      "instruction": {
+        "source": "legacyContent",
+        "title": "Ammoniy tuziga so‘ndirilgan ohak ta’sir ettirib ammiak olish",
+        "goal": "NH4Cl va so‘ndirilgan ohakning 1,5:1 massa nisbatidagi aralashmasini probirkaga soling va gaz o‘tkazgich nayli tiqin bilan yoping.",
+        "equipmentText": "",
+        "materialsText": "NH4Cl, so‘ndirilgan ohak, suv, fenolftalein shimdirilgan qog‘oz, HCl ga botirilgan shisha tayoqcha.",
+        "safetyText": "",
+        "steps": [
+          {
+            "index": 0,
+            "text": "NH4Cl va so‘ndirilgan ohakning 1,5:1 massa nisbatidagi aralashmasini probirkaga soling va gaz o‘tkazgich nayli tiqin bilan yoping.",
+            "operations": [
+              {
+                "verb": "soling",
+                "family": "ADD_SUBSTANCE",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "yoping",
+                "family": "SEAL",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "text": "Aralashmani biroz qizdiring va ajralgan gazni probirkalarga yig‘ing.",
+            "operations": [
+              {
+                "verb": "qizdiring",
+                "family": "HEAT",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "yig‘ing",
+                "family": "COLLECT_GAS",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "text": "Gaz bilan to‘lgan probirkani suvga botirib, suvning probirkaga kirishini kuzating.",
+            "operations": [
+              {
+                "verb": "kuzating",
+                "family": "OBSERVE",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "text": "Gaz oqimiga fenolftaleinli qog‘oz tuting.",
+            "operations": [
+              {
+                "verb": "tuting",
+                "family": "BRING_NEAR",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "text": "Gaz oqimiga HCl ga botirilgan shisha tayoqchani yaqinlashtiring va oq tutunni kuzating.",
+            "operations": [
+              {
+                "verb": "yaqinlashtiring",
+                "family": "BRING_NEAR",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "kuzating",
+                "family": "OBSERVE",
+                "status": "MAPPED"
+              }
+            ]
+          }
+        ],
+        "sourceRefs": [
+          {
+            "id": "src.legacy.8.14",
+            "title": "8-sinf darsligi, 203–204-betlar"
+          }
+        ],
+        "groundedSteps": [
+          0,
+          1
+        ]
+      },
+      "apparatus": [
+        {
+          "id": "reaction-tube",
+          "kind": "test-tube",
+          "labelKey": "ui.dlab-app-reaction-tube",
+          "source": "legacyContent.steps[0] (\"probirkaga soling\")",
+          "isContainer": true
+        },
+        {
+          "id": "stopper",
+          "kind": "stopper",
+          "labelKey": "ui.dlab-app-stopper",
+          "source": "legacyContent.steps[0] (\"gaz o‘tkazgich nayli tiqin\")",
+          "isContainer": false
+        },
+        {
+          "id": "collector-tube",
+          "kind": "gas-collection-vessel",
+          "labelKey": "ui.dlab-app-collector-tube",
+          "source": "legacyContent.steps[1] (\"gazni probirkalarga yig‘ing\")",
+          "isContainer": true
+        }
+      ],
+      "substances": [
+        {
+          "speciesId": "species.nh4cl",
+          "soluteSpeciesId": null,
+          "undeclaredParts": [],
+          "id": "nh4cl",
+          "labelKey": "ui.dlab-sub-nh4cl",
+          "role": "reagent",
+          "source": "legacyContent.materials (\"NH4Cl\") + legacyContent.steps[0]"
+        },
+        {
+          "speciesId": "species.camoh2",
+          "soluteSpeciesId": null,
+          "undeclaredParts": [],
+          "id": "slaked-lime",
+          "labelKey": "ui.dlab-sub-slaked-lime",
+          "role": "reagent",
+          "source": "legacyContent.materials (\"so‘ndirilgan ohak\") + legacyContent.steps[0]; identified as Ca(OH)2 by the repository's own grounding of step 2 (guided-step-reaction-map → rxn.nh4cl-caoh2)"
+        }
+      ],
+      "initialState": {
+        "setUp": [
+          "reaction-tube",
+          "stopper",
+          "collector-tube"
+        ],
+        "contents": {}
+      },
+      "allowedFamilies": [
+        "ADD_SUBSTANCE",
+        "SEAL",
+        "HEAT",
+        "COLLECT_GAS"
+      ],
+      "familyApparatus": {},
+      "limits": {
+        "quantities": [],
+        "electrodes": [],
+        "heating": {
+          "level": "gently-heated",
+          "source": "legacyContent.steps[1] (\"Aralashmani biroz qizdiring\")"
+        }
+      },
+      "procedure": {
+        "mode": "FLEXIBLE",
+        "steps": [
+          {
+            "id": "add-nh4cl",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "nh4cl"
+            },
+            "required": true,
+            "instructionStep": 0,
+            "source": "legacyContent.steps[0]",
+            "dependencies": []
+          },
+          {
+            "id": "add-lime",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "slaked-lime"
+            },
+            "required": true,
+            "instructionStep": 0,
+            "source": "legacyContent.steps[0]",
+            "dependencies": []
+          },
+          {
+            "id": "seal",
+            "family": "SEAL",
+            "match": {
+              "container": "reaction-tube"
+            },
+            "required": true,
+            "instructionStep": 0,
+            "source": "legacyContent.steps[0] (\"… tiqin bilan yoping\")",
+            "dependencies": []
+          },
+          {
+            "id": "heat",
+            "family": "HEAT",
+            "match": {
+              "container": "reaction-tube"
+            },
+            "required": true,
+            "instructionStep": 1,
+            "source": "legacyContent.steps[1]",
+            "dependencies": []
+          },
+          {
+            "id": "collect-gas",
+            "family": "COLLECT_GAS",
+            "match": {},
+            "required": true,
+            "instructionStep": 1,
+            "source": "legacyContent.steps[1] (\"ajralgan gazni probirkalarga yig‘ing\")",
+            "dependencies": []
+          }
+        ],
+        "humanDecision": null,
+        "orderSource": "No order is declared: the config (guided-labs) runs on the generic runtime, whose order is only the array position (ORDER_FROM_ARRAY_POSITION). Only state preconditions apply; the reaction itself needs the heating the instruction states."
+      },
+      "observationTargets": [
+        {
+          "id": "reaction",
+          "labelKey": "ui.dlab-target-reaction",
+          "producedBy": "ReactionMatcher",
+          "source": "chemistry/reactions.json (record observations)",
+          "kind": "reaction-observation",
+          "kindSource": "the matched reaction record's observations"
+        }
+      ],
+      "completionGoal": {
+        "kind": "reactions",
+        "reactionIds": [
+          "rxn.nh4cl-caoh2"
+        ],
+        "gasCollected": true
+      },
+      "guidance": {
+        "levels": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "defaultLevel": 1,
+        "revealsFinalAnswer": false
+      },
+      "safety": {
+        "virtualOnly": true,
+        "notes": [],
+        "forbiddenFamilies": []
+      },
+      "chemistry": {
+        "authority": "reaction-matcher",
+        "reactionIds": [
+          "rxn.nh4cl-caoh2",
+          "rxn.nh3-hcl"
+        ],
+        "source": "config(guided-labs).scenario.steps[].reactionIds"
+      },
+      "gaps": [
+        {
+          "code": "SCHOOL_MODEL_STEP_BOUND",
+          "detail": "Steps 3–4 (water rising into the tube, phenolphthalein paper) are covered only by the step-bound school models school.ammonia.water-solubility and school.ammonia.indicator; they are not offered."
+        },
+        {
+          "code": "INSTRUCTION_MODEL_OBSERVATION_CONFLICT",
+          "detail": "Step 5: the instruction says \"oq tutunni kuzating\" (white smoke), but the record rxn.nh3-hcl states no-visible-change. Neither source is overridden; the step is not offered until chemistry review resolves it."
+        },
+        {
+          "code": "QUANTITY_AS_RATIO",
+          "detail": "\"1,5:1 massa nisbati\" is a mass ratio, not a quantity per substance; it is not enforced."
+        },
+        {
+          "code": "HEAT_SOURCE_NOT_NAMED",
+          "detail": "No burner is named. Heating comes only from the instruction verb, and its level from \"biroz qizdiring\" (gently-heated)."
+        },
+        {
+          "code": "APPARATUS_NOT_DECLARED",
+          "detail": "legacyContent.equipment is empty; the tube, the stopper and the collecting tube come from the wording of steps 1–2."
+        },
+        {
+          "code": "SAFETY_TEXT_EMPTY",
+          "detail": "legacyContent.safety is empty."
+        }
+      ]
     }
   ]
 }

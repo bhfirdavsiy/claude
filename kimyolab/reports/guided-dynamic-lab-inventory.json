@@ -35,8 +35,10 @@
     ],
     "profiled": [
       "practice.experiment.11.2",
+      "practice.experiment.7.10",
       "practice.experiment.7.2",
-      "practice.experiment.8.1"
+      "practice.experiment.8.1",
+      "practice.experiment.8.14"
     ]
   },
   "experiments": [
@@ -171,7 +173,6 @@
       },
       "gaps": [
         "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
-        "NO_DOMAIN_HANDLER:HEAT",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
         "SAFETY_TEXT_EMPTY"
@@ -559,8 +560,6 @@
         "profileId": null
       },
       "gaps": [
-        "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:PASS_GAS",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
         "SAFETY_TEXT_EMPTY"
@@ -842,8 +841,6 @@
         "profileId": null
       },
       "gaps": [
-        "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:PASS_GAS",
         "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
         "ORDER_DECISION_OPEN"
       ]
@@ -1201,7 +1198,6 @@
       },
       "gaps": [
         "APPARATUS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:HEAT",
         "ORDER_FROM_ARRAY_POSITION",
         "SAFETY_TEXT_EMPTY"
       ]
@@ -1524,7 +1520,6 @@
       },
       "gaps": [
         "APPARATUS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:HEAT",
         "NO_DOMAIN_HANDLER:SEPARATE",
         "ORDER_DECISION_OPEN",
         "QUANTITY_NOT_DECLARED"
@@ -1702,7 +1697,6 @@
       "gaps": [
         "APPARATUS_NOT_DECLARED",
         "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
-        "NO_DOMAIN_HANDLER:HEAT",
         "NO_DOMAIN_HANDLER:TEST",
         "ORDER_DECISION_OPEN",
         "QUANTITY_NOT_DECLARED",
@@ -2134,9 +2128,6 @@
         "LEARNER_RESPONSE_CHECKER_MISSING:STUDY",
         "MATERIALS_NOT_DECLARED",
         "NO_DOMAIN_HANDLER:BRING_NEAR",
-        "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:SEAL",
-        "NO_DOMAIN_HANDLER:STOP_HEAT",
         "NO_DOMAIN_HANDLER:TEST",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
@@ -2352,13 +2343,11 @@
         }
       ],
       "dynamicLab": {
-        "profiled": false,
-        "profileId": null
+        "profiled": true,
+        "profileId": "lab-profile.7.10.metal-acid-gas"
       },
       "gaps": [
         "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
-        "NO_DOMAIN_HANDLER:COLLECT_GAS",
-        "NO_DOMAIN_HANDLER:HEAT",
         "NO_DOMAIN_HANDLER:TEST",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED"
@@ -3074,7 +3063,6 @@
         "profileId": "lab-profile.7.2.salt-purification"
       },
       "gaps": [
-        "NO_DOMAIN_HANDLER:STOP_HEAT",
         "SAFETY_TEXT_EMPTY"
       ]
     },
@@ -3261,9 +3249,7 @@
       },
       "gaps": [
         "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
-        "NO_DOMAIN_HANDLER:HEAT",
         "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
-        "NO_DOMAIN_HANDLER:WAIT",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
         "SAFETY_TEXT_EMPTY"
@@ -3409,8 +3395,6 @@
         "profileId": null
       },
       "gaps": [
-        "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:TRANSFER",
         "ORDER_FROM_ARRAY_POSITION",
         "SAFETY_TEXT_EMPTY"
       ]
@@ -3638,10 +3622,7 @@
         "profileId": null
       },
       "gaps": [
-        "NO_DOMAIN_HANDLER:COLLECT_GAS",
-        "NO_DOMAIN_HANDLER:HEAT",
         "NO_DOMAIN_HANDLER:IGNITE",
-        "NO_DOMAIN_HANDLER:STOP_HEAT",
         "ORDER_FROM_ARRAY_POSITION"
       ]
     },
@@ -3890,10 +3871,6 @@
       },
       "gaps": [
         "NO_DOMAIN_HANDLER:BRING_NEAR",
-        "NO_DOMAIN_HANDLER:COLLECT_GAS",
-        "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:PASS_GAS",
-        "NO_DOMAIN_HANDLER:SEAL",
         "NO_DOMAIN_HANDLER:TEST",
         "ORDER_FROM_ARRAY_POSITION"
       ]
@@ -4557,7 +4534,6 @@
       },
       "gaps": [
         "APPARATUS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:TRANSFER",
         "ORDER_FROM_ARRAY_POSITION",
         "SAFETY_TEXT_EMPTY"
       ]
@@ -4821,7 +4797,6 @@
       "gaps": [
         "APPARATUS_NOT_DECLARED",
         "MATERIALS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:PASS_GAS",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
         "SAFETY_TEXT_EMPTY"
@@ -5217,15 +5192,12 @@
       },
       "externalLabs": [],
       "dynamicLab": {
-        "profiled": false,
-        "profileId": null
+        "profiled": true,
+        "profileId": "lab-profile.8.14.ammonia-heating"
       },
       "gaps": [
         "APPARATUS_NOT_DECLARED",
         "NO_DOMAIN_HANDLER:BRING_NEAR",
-        "NO_DOMAIN_HANDLER:COLLECT_GAS",
-        "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:SEAL",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
         "SAFETY_TEXT_EMPTY"
@@ -5328,7 +5300,6 @@
       "gaps": [
         "APPARATUS_NOT_DECLARED",
         "MATERIALS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:PASS_GAS",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
         "SAFETY_TEXT_EMPTY",
@@ -5710,8 +5681,6 @@
         "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
         "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
         "NO_DOMAIN_HANDLER:BRING_NEAR",
-        "NO_DOMAIN_HANDLER:COLLECT_GAS",
-        "NO_DOMAIN_HANDLER:HEAT",
         "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
         "NO_DOMAIN_HANDLER:TEST",
         "ORDER_FROM_ARRAY_POSITION"
@@ -5875,7 +5844,6 @@
         "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
         "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
         "MATERIALS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:HEAT",
         "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
         "ORDER_FROM_ARRAY_POSITION",
         "SAFETY_TEXT_EMPTY"
@@ -6429,7 +6397,6 @@
       "gaps": [
         "APPARATUS_NOT_DECLARED",
         "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
-        "NO_DOMAIN_HANDLER:TRANSFER",
         "ORDER_FROM_ARRAY_POSITION",
         "SAFETY_TEXT_EMPTY"
       ]
@@ -6787,9 +6754,6 @@
       },
       "gaps": [
         "APPARATUS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:PASS_GAS",
-        "NO_DOMAIN_HANDLER:SEAL",
         "NO_DOMAIN_HANDLER:SEPARATE",
         "NO_DOMAIN_HANDLER:TEST",
         "ORDER_FROM_ARRAY_POSITION",
@@ -7204,7 +7168,6 @@
         "APPARATUS_NOT_DECLARED",
         "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
         "MATERIALS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:PASS_GAS",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
         "SAFETY_TEXT_EMPTY",
@@ -8371,8 +8334,6 @@
         "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
         "LEARNER_RESPONSE_CHECKER_MISSING:SELECT",
         "MATERIALS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:PASS_GAS",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
         "SAFETY_TEXT_EMPTY"
@@ -8509,7 +8470,6 @@
         "APPARATUS_NOT_DECLARED",
         "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
         "MATERIALS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:PASS_GAS",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
         "SAFETY_TEXT_EMPTY"
@@ -8897,7 +8857,6 @@
       "gaps": [
         "APPARATUS_NOT_DECLARED",
         "MATERIALS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:PASS_GAS",
         "NO_DOMAIN_HANDLER:TEST",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
@@ -8989,7 +8948,6 @@
       "gaps": [
         "APPARATUS_NOT_DECLARED",
         "MATERIALS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:PASS_GAS",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
         "SAFETY_TEXT_EMPTY",
@@ -9128,8 +9086,6 @@
       "gaps": [
         "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
         "MATERIALS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:HEAT",
-        "NO_DOMAIN_HANDLER:PASS_GAS",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
         "SAFETY_TEXT_EMPTY",
@@ -9244,7 +9200,6 @@
       "gaps": [
         "APPARATUS_NOT_DECLARED",
         "MATERIALS_NOT_DECLARED",
-        "NO_DOMAIN_HANDLER:PASS_GAS",
         "NO_DOMAIN_HANDLER:TEST",
         "ORDER_FROM_ARRAY_POSITION",
         "QUANTITY_NOT_DECLARED",
