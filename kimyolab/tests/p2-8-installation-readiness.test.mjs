@@ -130,7 +130,11 @@ test('reports: config audit clean, artefacts explicit, rollback kept learner evi
   const art = json('reports/deployment-artifacts.json');
   assert.equal(art.production.requiredServerMount, '/kimyolab/'); assert.equal(art.production.outputPath, 'dist-deploy/kimyolab/');
   assert.match(art.production.sha256, /^[0-9a-f]{64}$/); assert.match(art.standalone.sha256, /^[0-9a-f]{64}$/);
-  assert.equal(art.learnerBundle.after.learnerModules, art.learnerBundle.before.learnerModules, 'no learner module added by installation tooling');
+  // P2.10: was `after.learnerModules === before.learnerModules`. `after` measures the CURRENT build, which now also holds
+  // the P2.10 guided dynamic lab modules; P2.10 records them separately (reports/guided-dynamic-lab-readiness.json#bundleDelta),
+  // so the installation tooling's own count (the difference) must still be 0
+  const p210 = json('reports/guided-dynamic-lab-readiness.json').bundleDelta.delta;
+  assert.equal(art.learnerBundle.after.learnerModules - p210.learnerModules, art.learnerBundle.before.learnerModules, 'no learner module added by installation tooling');
   const rb = json('reports/deployment-rollback-drill.json');
   assert.equal(rb.status, 'PASS'); assert.notEqual(rb.previous.sha256, rb.current.sha256, 'a real previous artefact, not a copy');
   for (const id of ['evidence-kept-after-rollback', 'evidence-kept-after-restore', 'previous-smoke', 'restored-smoke']) assert.ok(rb.steps.find((s) => s.id === id)?.pass, id);

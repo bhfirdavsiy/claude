@@ -33,7 +33,8 @@ const TYPES = Object.freeze({
 const ROOT_FILES = new Set(['/index.html', '/app.html']);
 const PUBLIC_PREFIXES = ['/app-preview/', '/content/', '/assets/', '/vendor/nobook/'];
 const SPA_EXACT = new Set(['/', '/curriculum', '/labs', '/progress', '/search']);
-const SPA_PREFIXES = ['/learn/', '/practice/', '/worksheet/', '/external-lab/'];
+// P2.10: /dynamic-lab/ is the guided dynamic lab route (feature flag guidedDynamicLabV1; the page checks the flag)
+const SPA_PREFIXES = ['/learn/', '/practice/', '/worksheet/', '/external-lab/', '/dynamic-lab/'];
 const MAX_URL_LENGTH = 2048;
 const SESSION_BODY_LIMIT = 4096;
 const ID_PATTERNS = Object.freeze({

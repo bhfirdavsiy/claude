@@ -75,8 +75,11 @@ test('experiment: step buttons named by their step; out-of-order step is rejecte
   const s = state();
   // step 2 before step 1: announced, and the step can still be done afterwards (it was disabled forever before P2.7)
   await tabTo(page, buttons.nth(1), s); await page.keyboard.press('Enter');
-  const announcedText = await page.locator('.kl-practice-workspace [role=status], .kl-practice-workspace [role=alert]').allTextContents();
-  expect(announcedText.join(' ')).toMatch(/urinib ko‘ring|Noto‘g‘ri/);
+  // P2.10 CI: was a one-shot `allTextContents()` read right after Enter. The result is applied asynchronously, so on a
+  // slow runner the read could see the still-empty live region (" ") and fail. Same assertion, now polled until the
+  // announcement arrives (bounded by the default expect timeout); the expected text is unchanged.
+  const announced = page.locator('.kl-practice-workspace [role=status], .kl-practice-workspace [role=alert]');
+  await expect.poll(async () => (await announced.allTextContents()).join(' ')).toMatch(/urinib ko‘ring|Noto‘g‘ri/);
   await expect(buttons.nth(1)).not.toHaveAttribute('aria-disabled', 'true');
   const count = await buttons.count();
   for (let i = 0; i < count; i += 1) {

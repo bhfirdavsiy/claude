@@ -188,7 +188,11 @@ if(import.meta.url===`file://${process.argv[1]}`){
   // bundle delta: the P2.8 closing numbers (reports/accessibility-gap-summary.json @ 159f7cf) vs the current build
   const {bundle}=await import('./lib/computed-model-interaction.ts');
   const before={learnerModules:162,learnerModuleBytes:702745,standaloneBytes:5691105};
-  const now=bundle(root) as any;
+  // P2.10: later phases record their own growth (reports/guided-dynamic-lab-readiness.json#bundleDelta); it is
+  // subtracted here so P2.9's delta stays P2.9's own instead of absorbing every later module
+  const measured=bundle(root) as any;
+  const later=(()=>{ try{ return JSON.parse(fs.readFileSync(path.join(root,'reports/guided-dynamic-lab-readiness.json'),'utf8')).bundleDelta?.delta; }catch{ return undefined; } })();
+  const now=later?{learnerModules:measured.learnerModules-later.learnerModules,learnerModuleBytes:measured.learnerModuleBytes-later.learnerModuleBytes,standaloneBytes:measured.standaloneBytes-later.standaloneBytes}:measured;
   const bundleDelta={before,after:{learnerModules:now.learnerModules,learnerModuleBytes:now.learnerModuleBytes,standaloneBytes:now.standaloneBytes},
     delta:{learnerModules:now.learnerModules-before.learnerModules,learnerModuleBytes:now.learnerModuleBytes-before.learnerModuleBytes,standaloneBytes:now.standaloneBytes-before.standaloneBytes}};
   const out=feedbackOutputs(bundleDelta); let diff=0;

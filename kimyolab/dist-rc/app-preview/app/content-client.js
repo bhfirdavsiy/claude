@@ -1,5 +1,6 @@
 import { evaluateContentPackCompatibility } from '../runtime/compatibility/content-pack.js';
 import { contentRevisionOf, packLocation } from '../runtime/compatibility/release-pointer.js';
+import { assertTopicLabProfile, TOPIC_LAB_PROFILE_PACK_PATH, TOPIC_LAB_PROFILE_PACK_SCHEMA,                      } from '../domain/lab/topic-lab-profile.js';
 import { APP_COMPATIBILITY } from './app-version.js';
 import { buildLearningHubModel,                       } from '../features/learning-hub/model.js';
 import { buildPracticePageModel,                               } from '../features/practice/model.js';
@@ -226,6 +227,20 @@ export class ContentClient {
     });
   }
 
+
+  /** P2.10: the guided dynamic lab profile of an activity, or null when the pack has none for it (or no profile
+   *  file at all — older packs). A listed file is integrity-checked like every pack file; an invalid profile fails
+   *  closed (TOPIC_LAB_PROFILE_INVALID), it is never repaired. */
+  async loadTopicLabProfile(practiceActivityId       )                              {
+    const version=await this.version();
+    if(!this.files.has(TOPIC_LAB_PROFILE_PACK_PATH)) return null;
+    const pack=await this.packJson(version,TOPIC_LAB_PROFILE_PACK_PATH);
+    if(pack?.schema!==TOPIC_LAB_PROFILE_PACK_SCHEMA||!Array.isArray(pack.profiles)) throw new ContentLoadError('TOPIC_LAB_PROFILE_INVALID',{resource:TOPIC_LAB_PROFILE_PACK_PATH});
+    const raw=pack.profiles.find((p    )=>p?.activityId===practiceActivityId);
+    if(!raw) return null;
+    try{ return assertTopicLabProfile(raw); }
+    catch{ throw new ContentLoadError('TOPIC_LAB_PROFILE_INVALID',{resource:practiceActivityId}); }
+  }
 
   async loadCurriculum(){
     const groups=await Promise.all([7,8,9,10,11].map(g=>this.listLearningUnits(g)));

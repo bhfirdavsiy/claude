@@ -274,8 +274,14 @@ test('no chemistry truth invented: record counts unchanged since P2.5; new text 
 test('bundle impact is measured from the committed build, with no new dependency',()=>{
   const now=bundle(root);
   assert.deepEqual(expansion.bundleImpact.after,now);
-  assert.equal(expansion.bundleImpact.delta.learnerModules,4,'condition-trial, condition-practice, renderer-model, renderer');
-  assert.ok(expansion.bundleImpact.delta.learnerModuleBytes<64*1024,'well under 64 KB raw for the whole interaction');
+  // P2.10: was `delta.learnerModules === 4` and `delta.learnerModuleBytes < 64 KB`. The report measures the CURRENT
+  // build against the P2.5 baseline, so it now also holds the later phases' growth, which they record separately
+  // (P2.9: reports/feedback-semantics-expansion.json#bundleDelta, P2.10: reports/guided-dynamic-lab-readiness.json#bundleDelta);
+  // P2.6's own share (the difference) keeps the same assertions
+  const later=[json('reports/feedback-semantics-expansion.json').bundleDelta.delta,json('reports/guided-dynamic-lab-readiness.json').bundleDelta.delta];
+  const own=(k)=>expansion.bundleImpact.delta[k]-later.reduce((n,d)=>n+d[k],0);
+  assert.equal(own('learnerModules'),4,'condition-trial, condition-practice, renderer-model, renderer');
+  assert.ok(own('learnerModuleBytes')<64*1024,'well under 64 KB raw for the whole interaction');
   const pkg=json('package.json');
   assert.ok(!Object.keys({...pkg.dependencies,...pkg.devDependencies}).some(d=>/chart|d3|three|pixi|konva/.test(d)),'no visualization framework');
 });

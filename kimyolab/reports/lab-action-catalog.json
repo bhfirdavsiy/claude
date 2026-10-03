@@ -1,0 +1,2333 @@
+{
+  "schema": "kimyolab.lab-action-catalog.v1",
+  "phase": "P2.10",
+  "semantics": "Canonical action families of the guided dynamic lab, each with an operation KIND: STATE_ACTION (may change LabState; needs a domain/procedure handler, else ACTION_UNSUPPORTED), OBSERVATION_ACTION (inspects an existing state/event; never produces an outcome), LEARNER_RESPONSE (pedagogical response; needs a checker, else LEARNER_RESPONSE_CHECKER_MISSING — never a missing chemistry handler), CONTROL (lab-level, e.g. RESET) and SAFETY_RULE (an instruction prohibition, not an action). Derived from the instruction steps (verb lexicon) and the explicit config action types of the existing runtimes. Only STATE/OBSERVATION/LEARNER_RESPONSE families can be offered, and only through a topic lab profile.",
+  "summary": {
+    "families": 31,
+    "byKind": {
+      "STATE_ACTION": [
+        "SETUP_APPARATUS",
+        "ADD_SUBSTANCE",
+        "TRANSFER",
+        "MIX",
+        "HEAT",
+        "STOP_HEAT",
+        "EVAPORATE",
+        "FILTER",
+        "SETTLE",
+        "SEPARATE",
+        "PASS_GAS",
+        "COLLECT_GAS",
+        "SEAL",
+        "IGNITE",
+        "BRING_NEAR",
+        "ELECTRIC_CURRENT",
+        "WAIT",
+        "PREPARE_SUBSTANCE",
+        "WASH",
+        "REPEAT"
+      ],
+      "OBSERVATION_ACTION": [
+        "OBSERVE",
+        "TEST"
+      ],
+      "LEARNER_RESPONSE": [
+        "COMPARE",
+        "INFER",
+        "RECORD",
+        "EXPLAIN",
+        "SELECT",
+        "STUDY"
+      ],
+      "CONTROL": [
+        "RESET",
+        "CONTINUE"
+      ],
+      "SAFETY_RULE": [
+        "SAFETY_PROHIBITION"
+      ]
+    },
+    "withDomainHandler": 8,
+    "learnerResponsesWithChecker": [
+      "RECORD"
+    ],
+    "derivedFromRepository": 30,
+    "operations": 350,
+    "unmappedOperations": 0,
+    "genericStepActionTypes": 176,
+    "unknownConfigActionTypes": []
+  },
+  "families": [
+    {
+      "id": "lab.setup",
+      "family": "SETUP_APPARATUS",
+      "kind": "STATE_ACTION",
+      "parameters": [
+        {
+          "name": "apparatus",
+          "type": "apparatus",
+          "required": true,
+          "valuesFrom": "profile.apparatus"
+        }
+      ],
+      "apparatusRequirements": [],
+      "statePreconditions": [
+        "apparatus listed by the topic profile"
+      ],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": true,
+        "implemented": true,
+        "authority": null
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": true,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 17,
+        "ambiguousOperations": 0,
+        "configActionTypes": [
+          "selectApparatus"
+        ],
+        "activities": 8,
+        "exampleActivities": [
+          "practice.experiment.10.7",
+          "practice.experiment.11.2",
+          "practice.experiment.7.1",
+          "practice.experiment.7.2",
+          "practice.experiment.7.7"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.add",
+      "family": "ADD_SUBSTANCE",
+      "kind": "STATE_ACTION",
+      "parameters": [
+        {
+          "name": "substance",
+          "type": "substance",
+          "required": true,
+          "valuesFrom": "profile.substances"
+        },
+        {
+          "name": "container",
+          "type": "container",
+          "required": true,
+          "valuesFrom": "profile.containers"
+        },
+        {
+          "name": "quantity",
+          "type": "quantity",
+          "required": false,
+          "valuesFrom": "profile.limits"
+        }
+      ],
+      "apparatusRequirements": [
+        "container"
+      ],
+      "statePreconditions": [
+        "container set up",
+        "substance on the topic shelf",
+        "quantity within the declared limit (when declared)"
+      ],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": true,
+        "implemented": true,
+        "authority": "SpeciesRegistry + IonicEngine.dissociate; ReactionMatcher via evaluateIonicMixing when two solutions meet"
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": true,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 60,
+        "ambiguousOperations": 0,
+        "configActionTypes": [
+          "addBromineWater",
+          "addCarbonate",
+          "addCuSO4",
+          "addGlycerol",
+          "addIndicator",
+          "addMixture",
+          "addNaOH",
+          "addWater"
+        ],
+        "activities": 29,
+        "exampleActivities": [
+          "practice.experiment.10.22.carboxylic-acid",
+          "practice.experiment.10.3",
+          "practice.experiment.10.5",
+          "practice.experiment.10.6",
+          "practice.experiment.10.9"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.transfer",
+      "family": "TRANSFER",
+      "kind": "STATE_ACTION",
+      "parameters": [
+        {
+          "name": "from",
+          "type": "container",
+          "required": true,
+          "valuesFrom": "profile.containers"
+        },
+        {
+          "name": "to",
+          "type": "container",
+          "required": true,
+          "valuesFrom": "profile.containers"
+        }
+      ],
+      "apparatusRequirements": [
+        "container"
+      ],
+      "statePreconditions": [
+        "source container has contents"
+      ],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": true,
+        "implemented": false,
+        "authority": null,
+        "result": "ACTION_UNSUPPORTED"
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": false,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 3,
+        "ambiguousOperations": 0,
+        "configActionTypes": [],
+        "activities": 3,
+        "exampleActivities": [
+          "practice.experiment.7.6",
+          "practice.experiment.8.10",
+          "practice.experiment.8.8"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.mix",
+      "family": "MIX",
+      "kind": "STATE_ACTION",
+      "parameters": [
+        {
+          "name": "container",
+          "type": "container",
+          "required": true,
+          "valuesFrom": "profile.containers"
+        }
+      ],
+      "apparatusRequirements": [],
+      "statePreconditions": [
+        "two solutions in the container (ionic mixing) or a solvent and a sample (dissolution)"
+      ],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": true,
+        "implemented": true,
+        "authority": "evaluateIonicMixing (ReactionMatcher) or IonicEngine.dissociate (dissolution of a declared solute)"
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": true,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 13,
+        "ambiguousOperations": 0,
+        "configActionTypes": [
+          "mix",
+          "mixFatAlkali"
+        ],
+        "activities": 9,
+        "exampleActivities": [
+          "practice.experiment.10.8",
+          "practice.experiment.7.13",
+          "practice.experiment.7.2",
+          "practice.experiment.7.3",
+          "practice.experiment.7.7"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.heat",
+      "family": "HEAT",
+      "kind": "STATE_ACTION",
+      "parameters": [
+        {
+          "name": "container",
+          "type": "container",
+          "required": true,
+          "valuesFrom": "profile.containers"
+        }
+      ],
+      "apparatusRequirements": [
+        "heat-source"
+      ],
+      "statePreconditions": [
+        "heat source set up",
+        "container has contents"
+      ],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": true,
+        "implemented": false,
+        "authority": null,
+        "result": "ACTION_UNSUPPORTED"
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": false,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 24,
+        "ambiguousOperations": 0,
+        "configActionTypes": [
+          "heat"
+        ],
+        "activities": 18,
+        "exampleActivities": [
+          "practice.experiment.10.1",
+          "practice.experiment.10.2",
+          "practice.experiment.10.3",
+          "practice.experiment.10.6",
+          "practice.experiment.10.8"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.stop-heat",
+      "family": "STOP_HEAT",
+      "kind": "STATE_ACTION",
+      "parameters": [
+        {
+          "name": "container",
+          "type": "container",
+          "required": true,
+          "valuesFrom": "profile.containers"
+        }
+      ],
+      "apparatusRequirements": [
+        "heat-source"
+      ],
+      "statePreconditions": [
+        "container is being heated"
+      ],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": true,
+        "implemented": false,
+        "authority": null,
+        "result": "ACTION_UNSUPPORTED"
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": false,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 3,
+        "ambiguousOperations": 0,
+        "configActionTypes": [],
+        "activities": 3,
+        "exampleActivities": [
+          "practice.experiment.7.1",
+          "practice.experiment.7.2",
+          "practice.experiment.7.7"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.evaporate",
+      "family": "EVAPORATE",
+      "kind": "STATE_ACTION",
+      "parameters": [
+        {
+          "name": "container",
+          "type": "container",
+          "required": true,
+          "valuesFrom": "profile.containers"
+        }
+      ],
+      "apparatusRequirements": [
+        "heat-source",
+        "evaporating-dish"
+      ],
+      "statePreconditions": [
+        "container holds a filtrate (solution)"
+      ],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": true,
+        "implemented": true,
+        "authority": "procedure only: the observation comes from the instruction text (no evaporation model exists)"
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": true,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 1,
+        "ambiguousOperations": 0,
+        "configActionTypes": [
+          "evaporate"
+        ],
+        "activities": 1,
+        "exampleActivities": [
+          "practice.experiment.7.2"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.filter",
+      "family": "FILTER",
+      "kind": "STATE_ACTION",
+      "parameters": [
+        {
+          "name": "container",
+          "type": "container",
+          "required": true,
+          "valuesFrom": "profile.containers"
+        }
+      ],
+      "apparatusRequirements": [
+        "funnel",
+        "filter-paper",
+        "receiver"
+      ],
+      "statePreconditions": [
+        "an insoluble solid is present in the container",
+        "filter set up"
+      ],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": true,
+        "implemented": true,
+        "authority": "procedure only: separates the declared insoluble part from the solution"
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": true,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 3,
+        "ambiguousOperations": 0,
+        "configActionTypes": [
+          "filter"
+        ],
+        "activities": 3,
+        "exampleActivities": [
+          "practice.experiment.7.2",
+          "practice.experiment.8.9",
+          "practice.experiment.9.1"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.settle",
+      "family": "SETTLE",
+      "kind": "STATE_ACTION",
+      "parameters": [
+        {
+          "name": "container",
+          "type": "container",
+          "required": true,
+          "valuesFrom": "profile.containers"
+        }
+      ],
+      "apparatusRequirements": [],
+      "statePreconditions": [
+        "container has a suspension"
+      ],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": true,
+        "implemented": false,
+        "authority": null,
+        "result": "ACTION_UNSUPPORTED"
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": false,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 1,
+        "ambiguousOperations": 0,
+        "configActionTypes": [],
+        "activities": 1,
+        "exampleActivities": [
+          "practice.experiment.8.11"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.separate",
+      "family": "SEPARATE",
+      "kind": "STATE_ACTION",
+      "parameters": [
+        {
+          "name": "container",
+          "type": "container",
+          "required": true,
+          "valuesFrom": "profile.containers"
+        }
+      ],
+      "apparatusRequirements": [],
+      "statePreconditions": [
+        "container has more than one phase"
+      ],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": true,
+        "implemented": false,
+        "authority": null,
+        "result": "ACTION_UNSUPPORTED"
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": false,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 7,
+        "ambiguousOperations": 0,
+        "configActionTypes": [],
+        "activities": 7,
+        "exampleActivities": [
+          "practice.experiment.10.5",
+          "practice.experiment.10.7",
+          "practice.experiment.10.8",
+          "practice.experiment.8.6",
+          "practice.experiment.9.1"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.pass-gas",
+      "family": "PASS_GAS",
+      "kind": "STATE_ACTION",
+      "parameters": [
+        {
+          "name": "from",
+          "type": "container",
+          "required": true,
+          "valuesFrom": "profile.containers"
+        },
+        {
+          "name": "to",
+          "type": "container",
+          "required": true,
+          "valuesFrom": "profile.containers"
+        }
+      ],
+      "apparatusRequirements": [
+        "gas delivery tube"
+      ],
+      "statePreconditions": [
+        "a gas is being produced"
+      ],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": true,
+        "implemented": false,
+        "authority": null,
+        "result": "ACTION_UNSUPPORTED"
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": false,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 16,
+        "ambiguousOperations": 0,
+        "configActionTypes": [],
+        "activities": 13,
+        "exampleActivities": [
+          "practice.experiment.10.2",
+          "practice.experiment.10.3",
+          "practice.experiment.7.8",
+          "practice.experiment.8.12",
+          "practice.experiment.8.15"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.collect-gas",
+      "family": "COLLECT_GAS",
+      "kind": "STATE_ACTION",
+      "parameters": [
+        {
+          "name": "container",
+          "type": "container",
+          "required": true,
+          "valuesFrom": "profile.containers"
+        }
+      ],
+      "apparatusRequirements": [
+        "gas collection vessel"
+      ],
+      "statePreconditions": [
+        "a gas is being produced"
+      ],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": true,
+        "implemented": false,
+        "authority": null,
+        "result": "ACTION_UNSUPPORTED"
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": false,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 6,
+        "ambiguousOperations": 0,
+        "configActionTypes": [],
+        "activities": 5,
+        "exampleActivities": [
+          "practice.experiment.7.10",
+          "practice.experiment.7.7",
+          "practice.experiment.7.8",
+          "practice.experiment.8.14",
+          "practice.experiment.8.3"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.seal",
+      "family": "SEAL",
+      "kind": "STATE_ACTION",
+      "parameters": [
+        {
+          "name": "container",
+          "type": "container",
+          "required": true,
+          "valuesFrom": "profile.containers"
+        }
+      ],
+      "apparatusRequirements": [
+        "stopper"
+      ],
+      "statePreconditions": [],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": true,
+        "implemented": false,
+        "authority": null,
+        "result": "ACTION_UNSUPPORTED"
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": false,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 4,
+        "ambiguousOperations": 0,
+        "configActionTypes": [],
+        "activities": 4,
+        "exampleActivities": [
+          "practice.experiment.7.1",
+          "practice.experiment.7.8",
+          "practice.experiment.8.14",
+          "practice.experiment.9.1"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.ignite",
+      "family": "IGNITE",
+      "kind": "STATE_ACTION",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "target",
+          "required": true,
+          "valuesFrom": "profile.observationTargets"
+        }
+      ],
+      "apparatusRequirements": [
+        "ignition source"
+      ],
+      "statePreconditions": [
+        "safety rule of the topic allows it"
+      ],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": true,
+        "implemented": false,
+        "authority": null,
+        "result": "ACTION_UNSUPPORTED"
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": false,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 1,
+        "ambiguousOperations": 0,
+        "configActionTypes": [],
+        "activities": 1,
+        "exampleActivities": [
+          "practice.experiment.7.7"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.bring-near",
+      "family": "BRING_NEAR",
+      "kind": "STATE_ACTION",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "target",
+          "required": true,
+          "valuesFrom": "profile.observationTargets"
+        }
+      ],
+      "apparatusRequirements": [],
+      "statePreconditions": [],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": true,
+        "implemented": false,
+        "authority": null,
+        "result": "ACTION_UNSUPPORTED"
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": false,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 6,
+        "ambiguousOperations": 0,
+        "configActionTypes": [],
+        "activities": 4,
+        "exampleActivities": [
+          "practice.experiment.7.1",
+          "practice.experiment.7.8",
+          "practice.experiment.8.14",
+          "practice.experiment.8.3"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.current",
+      "family": "ELECTRIC_CURRENT",
+      "kind": "STATE_ACTION",
+      "parameters": [
+        {
+          "name": "container",
+          "type": "container",
+          "required": true,
+          "valuesFrom": "profile.containers"
+        }
+      ],
+      "apparatusRequirements": [
+        "dc-source",
+        "electrodes"
+      ],
+      "statePreconditions": [
+        "electrolyte in the cell",
+        "electrodes inserted"
+      ],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": true,
+        "implemented": true,
+        "authority": "ElectrolysisModel.resolve (electrolyte, phase, electrode)"
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": true,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 5,
+        "ambiguousOperations": 0,
+        "configActionTypes": [
+          "connectCurrent"
+        ],
+        "activities": 2,
+        "exampleActivities": [
+          "practice.experiment.11.2",
+          "practice.experiment.9.10"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.wait",
+      "family": "WAIT",
+      "kind": "STATE_ACTION",
+      "parameters": [],
+      "apparatusRequirements": [],
+      "statePreconditions": [],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": true,
+        "implemented": false,
+        "authority": null,
+        "result": "ACTION_UNSUPPORTED"
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": false,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 1,
+        "ambiguousOperations": 0,
+        "configActionTypes": [],
+        "activities": 1,
+        "exampleActivities": [
+          "practice.experiment.7.3"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.observe",
+      "family": "OBSERVE",
+      "kind": "OBSERVATION_ACTION",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "target",
+          "required": true,
+          "valuesFrom": "profile.observationTargets"
+        }
+      ],
+      "apparatusRequirements": [],
+      "statePreconditions": [
+        "the observed process has happened in the state"
+      ],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": true,
+        "implemented": true,
+        "authority": "the authority that produced the state (ReactionMatcher record, ElectrolysisModel record, instruction text)"
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": true,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required",
+        "observation as text, never colour alone"
+      ],
+      "coverage": {
+        "instructionOperations": 67,
+        "ambiguousOperations": 0,
+        "configActionTypes": [
+          "observe",
+          "observeAnode",
+          "observeCathode"
+        ],
+        "activities": 41,
+        "exampleActivities": [
+          "practice.experiment.10.1",
+          "practice.experiment.10.10",
+          "practice.experiment.10.2",
+          "practice.experiment.10.3",
+          "practice.experiment.10.5"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.test",
+      "family": "TEST",
+      "kind": "OBSERVATION_ACTION",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "target",
+          "required": true,
+          "valuesFrom": "profile.observationTargets"
+        }
+      ],
+      "apparatusRequirements": [],
+      "statePreconditions": [],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": true,
+        "implemented": false,
+        "authority": null,
+        "result": "ACTION_UNSUPPORTED"
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": false,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 16,
+        "ambiguousOperations": 0,
+        "configActionTypes": [],
+        "activities": 12,
+        "exampleActivities": [
+          "practice.experiment.10.9",
+          "practice.experiment.7.1",
+          "practice.experiment.7.10",
+          "practice.experiment.7.13",
+          "practice.experiment.7.8"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.compare",
+      "family": "COMPARE",
+      "kind": "LEARNER_RESPONSE",
+      "parameters": [],
+      "apparatusRequirements": [],
+      "statePreconditions": [],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": false,
+        "reason": "a learner response never changes LabState; it needs a checker, a rubric or a human/content decision"
+      },
+      "checker": {
+        "implemented": false,
+        "result": "LEARNER_RESPONSE_CHECKER_MISSING"
+      },
+      "renderer": {
+        "required": true,
+        "implemented": false,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 20,
+        "ambiguousOperations": 0,
+        "configActionTypes": [],
+        "activities": 17,
+        "exampleActivities": [
+          "practice.experiment.10.1",
+          "practice.experiment.10.10",
+          "practice.experiment.7.1",
+          "practice.experiment.7.11",
+          "practice.experiment.7.12"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.infer",
+      "family": "INFER",
+      "kind": "LEARNER_RESPONSE",
+      "parameters": [],
+      "apparatusRequirements": [],
+      "statePreconditions": [],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": false,
+        "reason": "a learner response never changes LabState; it needs a checker, a rubric or a human/content decision"
+      },
+      "checker": {
+        "implemented": false,
+        "result": "LEARNER_RESPONSE_CHECKER_MISSING"
+      },
+      "renderer": {
+        "required": true,
+        "implemented": false,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 22,
+        "ambiguousOperations": 0,
+        "configActionTypes": [],
+        "activities": 11,
+        "exampleActivities": [
+          "practice.experiment.10.10",
+          "practice.experiment.10.5",
+          "practice.experiment.10.9",
+          "practice.experiment.8.1",
+          "practice.experiment.8.2"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.record",
+      "family": "RECORD",
+      "kind": "LEARNER_RESPONSE",
+      "parameters": [
+        {
+          "name": "text",
+          "type": "text",
+          "required": true,
+          "valuesFrom": "learner-text"
+        }
+      ],
+      "apparatusRequirements": [],
+      "statePreconditions": [
+        "a modeled reaction was observed"
+      ],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": false,
+        "reason": "a learner response never changes LabState; it needs a checker, a rubric or a human/content decision"
+      },
+      "checker": {
+        "implemented": true,
+        "checker": "net ionic equation: IonicEngine.netIonicEquation + compareNetIonic (ionic-mixing topics only)"
+      },
+      "renderer": {
+        "required": true,
+        "implemented": true,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 17,
+        "ambiguousOperations": 0,
+        "configActionTypes": [
+          "record"
+        ],
+        "activities": 17,
+        "exampleActivities": [
+          "practice.experiment.10.1",
+          "practice.experiment.10.22.carboxylic-acid",
+          "practice.experiment.10.3",
+          "practice.experiment.10.5",
+          "practice.experiment.11.2"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.explain",
+      "family": "EXPLAIN",
+      "kind": "LEARNER_RESPONSE",
+      "parameters": [
+        {
+          "name": "text",
+          "type": "text",
+          "required": true,
+          "valuesFrom": "learner-text"
+        }
+      ],
+      "apparatusRequirements": [],
+      "statePreconditions": [],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": false,
+        "reason": "a learner response never changes LabState; it needs a checker, a rubric or a human/content decision"
+      },
+      "checker": {
+        "implemented": false,
+        "result": "LEARNER_RESPONSE_CHECKER_MISSING"
+      },
+      "renderer": {
+        "required": true,
+        "implemented": false,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 9,
+        "ambiguousOperations": 0,
+        "configActionTypes": [],
+        "activities": 9,
+        "exampleActivities": [
+          "practice.experiment.11.2",
+          "practice.experiment.7.10",
+          "practice.experiment.7.11",
+          "practice.experiment.8.2",
+          "practice.experiment.8.3"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.prepare",
+      "family": "PREPARE_SUBSTANCE",
+      "kind": "STATE_ACTION",
+      "parameters": [
+        {
+          "name": "substance",
+          "type": "substance",
+          "required": true,
+          "valuesFrom": "profile.substances"
+        }
+      ],
+      "apparatusRequirements": [],
+      "statePreconditions": [],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": true,
+        "implemented": false,
+        "authority": null,
+        "result": "ACTION_UNSUPPORTED"
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": false,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 15,
+        "ambiguousOperations": 0,
+        "configActionTypes": [
+          "generateEthene",
+          "prepareCuOH2"
+        ],
+        "activities": 13,
+        "exampleActivities": [
+          "practice.experiment.10.10",
+          "practice.experiment.10.3",
+          "practice.experiment.10.5",
+          "practice.experiment.7.3",
+          "practice.experiment.7.9"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.wash",
+      "family": "WASH",
+      "kind": "STATE_ACTION",
+      "parameters": [
+        {
+          "name": "container",
+          "type": "container",
+          "required": true,
+          "valuesFrom": "profile.containers"
+        }
+      ],
+      "apparatusRequirements": [],
+      "statePreconditions": [
+        "container is not empty"
+      ],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": true,
+        "implemented": true,
+        "authority": null
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": true,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 4,
+        "ambiguousOperations": 0,
+        "configActionTypes": [],
+        "activities": 1,
+        "exampleActivities": [
+          "practice.experiment.7.3"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.select",
+      "family": "SELECT",
+      "kind": "LEARNER_RESPONSE",
+      "parameters": [
+        {
+          "name": "substance",
+          "type": "substance",
+          "required": true,
+          "valuesFrom": "profile.substances"
+        }
+      ],
+      "apparatusRequirements": [],
+      "statePreconditions": [],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": false,
+        "reason": "a learner response never changes LabState; it needs a checker, a rubric or a human/content decision"
+      },
+      "checker": {
+        "implemented": false,
+        "result": "LEARNER_RESPONSE_CHECKER_MISSING"
+      },
+      "renderer": {
+        "required": true,
+        "implemented": false,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 1,
+        "ambiguousOperations": 0,
+        "configActionTypes": [
+          "selectAceticAcid"
+        ],
+        "activities": 2,
+        "exampleActivities": [
+          "practice.experiment.10.22.carboxylic-acid",
+          "practice.experiment.9.2"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.study",
+      "family": "STUDY",
+      "kind": "LEARNER_RESPONSE",
+      "parameters": [],
+      "apparatusRequirements": [],
+      "statePreconditions": [],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": false,
+        "reason": "a learner response never changes LabState; it needs a checker, a rubric or a human/content decision"
+      },
+      "checker": {
+        "implemented": false,
+        "result": "LEARNER_RESPONSE_CHECKER_MISSING"
+      },
+      "renderer": {
+        "required": true,
+        "implemented": false,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 3,
+        "ambiguousOperations": 0,
+        "configActionTypes": [],
+        "activities": 2,
+        "exampleActivities": [
+          "practice.experiment.10.5",
+          "practice.experiment.7.1"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.repeat",
+      "family": "REPEAT",
+      "kind": "STATE_ACTION",
+      "parameters": [],
+      "apparatusRequirements": [],
+      "statePreconditions": [],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": true,
+      "domainHandler": {
+        "required": true,
+        "implemented": false,
+        "authority": null,
+        "result": "ACTION_UNSUPPORTED"
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": false,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 1,
+        "ambiguousOperations": 0,
+        "configActionTypes": [],
+        "activities": 1,
+        "exampleActivities": [
+          "practice.experiment.8.6"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.reset",
+      "family": "RESET",
+      "kind": "CONTROL",
+      "parameters": [],
+      "apparatusRequirements": [],
+      "statePreconditions": [],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": false,
+      "domainHandler": {
+        "required": false,
+        "reason": "lab-level control (RESET = runtime.reset(profile)); never chemistry"
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": false,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 0,
+        "ambiguousOperations": 0,
+        "configActionTypes": [],
+        "activities": 0,
+        "exampleActivities": []
+      },
+      "evidence": "DECLARED_WITHOUT_OCCURRENCE"
+    },
+    {
+      "id": "lab.safety-prohibition",
+      "family": "SAFETY_PROHIBITION",
+      "kind": "SAFETY_RULE",
+      "parameters": [],
+      "apparatusRequirements": [],
+      "statePreconditions": [],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": false,
+      "domainHandler": {
+        "required": false,
+        "reason": "a prohibition in the instruction text; carried as a safety note, never offered as an action"
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": false,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 1,
+        "ambiguousOperations": 0,
+        "configActionTypes": [],
+        "activities": 1,
+        "exampleActivities": [
+          "practice.experiment.7.1"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    },
+    {
+      "id": "lab.continue",
+      "family": "CONTINUE",
+      "kind": "CONTROL",
+      "parameters": [],
+      "apparatusRequirements": [],
+      "statePreconditions": [],
+      "topicAvailability": "allowed only when the topic lab profile lists the family (else ACTION_NOT_ALLOWED_IN_TOPIC) and not forbidden by its safety rules (else UNSAFE_ACTION); parameter values only from the profile",
+      "topicAction": false,
+      "domainHandler": {
+        "required": false,
+        "reason": "lab-level control (RESET = runtime.reset(profile)); never chemistry"
+      },
+      "checker": null,
+      "renderer": {
+        "required": true,
+        "implemented": false,
+        "kind": "generic object → action → parameter UI (src/features/dynamic-lab)"
+      },
+      "accessibility": [
+        "keyboard: object button → action button → parameter form",
+        "accessible name from the catalog",
+        "result announced in a polite live region",
+        "no drag required"
+      ],
+      "coverage": {
+        "instructionOperations": 1,
+        "ambiguousOperations": 0,
+        "configActionTypes": [],
+        "activities": 1,
+        "exampleActivities": [
+          "practice.experiment.7.2"
+        ]
+      },
+      "evidence": "DERIVED_FROM_REPOSITORY"
+    }
+  ],
+  "lexicon": [
+    {
+      "verb": "ajrating",
+      "family": "SEPARATE",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 2,
+      "unresolved": 0
+    },
+    {
+      "verb": "aniqlang",
+      "family": "INFER",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 13,
+      "unresolved": 0
+    },
+    {
+      "verb": "aralashtiring",
+      "family": "MIX",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 8,
+      "unresolved": 0
+    },
+    {
+      "verb": "bajaring",
+      "family": null,
+      "ambiguous": true,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 1
+    },
+    {
+      "verb": "belgilang",
+      "family": "RECORD",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 2,
+      "unresolved": 0
+    },
+    {
+      "verb": "bering",
+      "family": null,
+      "ambiguous": true,
+      "contextFamilies": [
+        "OBSERVE",
+        "EXPLAIN"
+      ],
+      "occurrences": 3,
+      "unresolved": 0
+    },
+    {
+      "verb": "berkiting",
+      "family": "SEAL",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "bo‘ling",
+      "family": "SEPARATE",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 5,
+      "unresolved": 0
+    },
+    {
+      "verb": "bug‘lating",
+      "family": "EVAPORATE",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "buklang",
+      "family": "SETUP_APPARATUS",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "chayqating",
+      "family": "MIX",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 3,
+      "unresolved": 0
+    },
+    {
+      "verb": "chiqing",
+      "family": "STUDY",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "eting",
+      "family": null,
+      "ambiguous": true,
+      "contextFamilies": [
+        "CONTINUE",
+        "RECORD"
+      ],
+      "occurrences": 2,
+      "unresolved": 0
+    },
+    {
+      "verb": "farqlang",
+      "family": "COMPARE",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 5,
+      "unresolved": 0
+    },
+    {
+      "verb": "filtrlang",
+      "family": "FILTER",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 3,
+      "unresolved": 0
+    },
+    {
+      "verb": "gidrolizlang",
+      "family": "HEAT",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 2,
+      "unresolved": 0
+    },
+    {
+      "verb": "ifodalang",
+      "family": "RECORD",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "isbotlang",
+      "family": "INFER",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 8,
+      "unresolved": 0
+    },
+    {
+      "verb": "ishqalang",
+      "family": "MIX",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 2,
+      "unresolved": 0
+    },
+    {
+      "verb": "izohlang",
+      "family": "EXPLAIN",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 3,
+      "unresolved": 0
+    },
+    {
+      "verb": "joylashtiring",
+      "family": "SETUP_APPARATUS",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 5,
+      "unresolved": 0
+    },
+    {
+      "verb": "kechiring",
+      "family": "PASS_GAS",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 8,
+      "unresolved": 0
+    },
+    {
+      "verb": "kiriting",
+      "family": null,
+      "ambiguous": true,
+      "contextFamilies": [
+        "RECORD",
+        "BRING_NEAR"
+      ],
+      "occurrences": 2,
+      "unresolved": 0
+    },
+    {
+      "verb": "ko‘chiring",
+      "family": "TRANSFER",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 2,
+      "unresolved": 0
+    },
+    {
+      "verb": "ko‘ring",
+      "family": "OBSERVE",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "ko‘rsating",
+      "family": "EXPLAIN",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 2,
+      "unresolved": 0
+    },
+    {
+      "verb": "kuting",
+      "family": "WAIT",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "kuzating",
+      "family": "OBSERVE",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 64,
+      "unresolved": 0
+    },
+    {
+      "verb": "loyqalantiring",
+      "family": "PASS_GAS",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "mahkamlang",
+      "family": "SETUP_APPARATUS",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "moslang",
+      "family": "SETUP_APPARATUS",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "namlang",
+      "family": "WASH",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "nomlang",
+      "family": "RECORD",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "o‘chiring",
+      "family": "STOP_HEAT",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 2,
+      "unresolved": 0
+    },
+    {
+      "verb": "o‘rganing",
+      "family": "STUDY",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "o‘tkazing",
+      "family": null,
+      "ambiguous": true,
+      "contextFamilies": [
+        "TRANSFER",
+        "PASS_GAS"
+      ],
+      "occurrences": 7,
+      "unresolved": 0
+    },
+    {
+      "verb": "oching",
+      "family": "SETUP_APPARATUS",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "oling",
+      "family": "PREPARE_SUBSTANCE",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 10,
+      "unresolved": 0
+    },
+    {
+      "verb": "qaratmang",
+      "family": "SAFETY_PROHIBITION",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "qiling",
+      "family": null,
+      "ambiguous": true,
+      "contextFamilies": [
+        "RECORD",
+        "INFER",
+        "PREPARE_SUBSTANCE"
+      ],
+      "occurrences": 7,
+      "unresolved": 0
+    },
+    {
+      "verb": "qirqing",
+      "family": "SETUP_APPARATUS",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "qizdiring",
+      "family": "HEAT",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 18,
+      "unresolved": 0
+    },
+    {
+      "verb": "qo‘shing",
+      "family": "ADD_SUBSTANCE",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 22,
+      "unresolved": 0
+    },
+    {
+      "verb": "qo‘ying",
+      "family": "SETUP_APPARATUS",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "quying",
+      "family": "ADD_SUBSTANCE",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 17,
+      "unresolved": 0
+    },
+    {
+      "verb": "soling",
+      "family": "ADD_SUBSTANCE",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 11,
+      "unresolved": 0
+    },
+    {
+      "verb": "solishtiring",
+      "family": "COMPARE",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "sozlang",
+      "family": "SETUP_APPARATUS",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "surting",
+      "family": "WASH",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "suyuqlantiring",
+      "family": "HEAT",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "takrorlang",
+      "family": "REPEAT",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "tanishing",
+      "family": "STUDY",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "tanlang",
+      "family": "SELECT",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "taqqoslang",
+      "family": "COMPARE",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 14,
+      "unresolved": 0
+    },
+    {
+      "verb": "tayyorlang",
+      "family": "PREPARE_SUBSTANCE",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 2,
+      "unresolved": 0
+    },
+    {
+      "verb": "tekshiring",
+      "family": "TEST",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 16,
+      "unresolved": 0
+    },
+    {
+      "verb": "tindiring",
+      "family": "SETTLE",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "to‘ldiring",
+      "family": "ADD_SUBSTANCE",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 2,
+      "unresolved": 0
+    },
+    {
+      "verb": "to‘xtating",
+      "family": "STOP_HEAT",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "tomizing",
+      "family": "ADD_SUBSTANCE",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 4,
+      "unresolved": 0
+    },
+    {
+      "verb": "tushiring",
+      "family": null,
+      "ambiguous": true,
+      "contextFamilies": [
+        "SETUP_APPARATUS",
+        "PASS_GAS",
+        "ADD_SUBSTANCE"
+      ],
+      "occurrences": 7,
+      "unresolved": 0
+    },
+    {
+      "verb": "tushuntiring",
+      "family": "EXPLAIN",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 3,
+      "unresolved": 0
+    },
+    {
+      "verb": "tuting",
+      "family": null,
+      "ambiguous": true,
+      "contextFamilies": [
+        "SETUP_APPARATUS",
+        "BRING_NEAR"
+      ],
+      "occurrences": 3,
+      "unresolved": 0
+    },
+    {
+      "verb": "tuzing",
+      "family": "RECORD",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "ulang",
+      "family": "ELECTRIC_CURRENT",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 4,
+      "unresolved": 0
+    },
+    {
+      "verb": "uzing",
+      "family": "ELECTRIC_CURRENT",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "yaqinlashtiring",
+      "family": "BRING_NEAR",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 3,
+      "unresolved": 0
+    },
+    {
+      "verb": "yig‘ing",
+      "family": null,
+      "ambiguous": true,
+      "contextFamilies": [
+        "SETUP_APPARATUS",
+        "COLLECT_GAS"
+      ],
+      "occurrences": 9,
+      "unresolved": 1
+    },
+    {
+      "verb": "yondiring",
+      "family": "IGNITE",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 1,
+      "unresolved": 0
+    },
+    {
+      "verb": "yoping",
+      "family": "SEAL",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 3,
+      "unresolved": 0
+    },
+    {
+      "verb": "yoqing",
+      "family": "HEAT",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 3,
+      "unresolved": 0
+    },
+    {
+      "verb": "yozing",
+      "family": "RECORD",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 7,
+      "unresolved": 0
+    },
+    {
+      "verb": "yuving",
+      "family": "WASH",
+      "ambiguous": false,
+      "contextFamilies": [],
+      "occurrences": 2,
+      "unresolved": 0
+    }
+  ],
+  "configActionTypes": [
+    {
+      "type": "addBromineWater",
+      "family": "ADD_SUBSTANCE",
+      "occurrences": 1
+    },
+    {
+      "type": "addCarbonate",
+      "family": "ADD_SUBSTANCE",
+      "occurrences": 1
+    },
+    {
+      "type": "addCuSO4",
+      "family": "ADD_SUBSTANCE",
+      "occurrences": 1
+    },
+    {
+      "type": "addGlycerol",
+      "family": "ADD_SUBSTANCE",
+      "occurrences": 1
+    },
+    {
+      "type": "addIndicator",
+      "family": "ADD_SUBSTANCE",
+      "occurrences": 1
+    },
+    {
+      "type": "addMixture",
+      "family": "ADD_SUBSTANCE",
+      "occurrences": 1
+    },
+    {
+      "type": "addNaOH",
+      "family": "ADD_SUBSTANCE",
+      "occurrences": 1
+    },
+    {
+      "type": "addWater",
+      "family": "ADD_SUBSTANCE",
+      "occurrences": 1
+    },
+    {
+      "type": "connectCurrent",
+      "family": "ELECTRIC_CURRENT",
+      "occurrences": 1
+    },
+    {
+      "type": "evaporate",
+      "family": "EVAPORATE",
+      "occurrences": 1
+    },
+    {
+      "type": "filter",
+      "family": "FILTER",
+      "occurrences": 1
+    },
+    {
+      "type": "generateEthene",
+      "family": "PREPARE_SUBSTANCE",
+      "occurrences": 1
+    },
+    {
+      "type": "heat",
+      "family": "HEAT",
+      "occurrences": 2
+    },
+    {
+      "type": "mix",
+      "family": "MIX",
+      "occurrences": 1
+    },
+    {
+      "type": "mixFatAlkali",
+      "family": "MIX",
+      "occurrences": 1
+    },
+    {
+      "type": "observe",
+      "family": "OBSERVE",
+      "occurrences": 3
+    },
+    {
+      "type": "observeAnode",
+      "family": "OBSERVE",
+      "occurrences": 1
+    },
+    {
+      "type": "observeCathode",
+      "family": "OBSERVE",
+      "occurrences": 1
+    },
+    {
+      "type": "predictMedium",
+      "family": "INFER",
+      "occurrences": 0
+    },
+    {
+      "type": "prepareCuOH2",
+      "family": "PREPARE_SUBSTANCE",
+      "occurrences": 1
+    },
+    {
+      "type": "record",
+      "family": "RECORD",
+      "occurrences": 3
+    },
+    {
+      "type": "selectAceticAcid",
+      "family": "SELECT",
+      "occurrences": 1
+    },
+    {
+      "type": "selectApparatus",
+      "family": "SETUP_APPARATUS",
+      "occurrences": 1
+    },
+    {
+      "type": "selectReagent",
+      "family": "ADD_SUBSTANCE",
+      "occurrences": 0
+    },
+    {
+      "type": "selectSalt",
+      "family": "SELECT",
+      "occurrences": 0
+    },
+    {
+      "type": "writeEquation",
+      "family": "RECORD",
+      "occurrences": 0
+    }
+  ],
+  "gaps": {
+    "unmappedOperations": [],
+    "genericStepActions": "guided.step.N / step.N carry no operation; their label text is classified by the lexicon instead"
+  }
+}

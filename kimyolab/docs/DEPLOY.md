@@ -119,7 +119,7 @@ The requirement is the same whatever server you use:
      - Only `/kimyolab/content/<contentVersion>/<contentRevision>/…` (64 hex) may be cached as `immutable`, and never its `manifest.json`.
      - The pointer `/kimyolab/content/manifest.json`, the pack `manifest.json`, `index.html` and the app modules must be revalidated (`no-cache`).
      - A long-lived cache on any other path can mix an old and a new release in a learner's browser.
-2. Any other path under `/kimyolab/` that is not a file serves `/kimyolab/index.html` with status 200. These are app routes such as `/kimyolab/learn/lu.7.12/practice` or `/kimyolab/practice/<id>` (deep links and refresh).
+2. Any other path under `/kimyolab/` that is not a file serves `/kimyolab/index.html` with status 200. These are app routes such as `/kimyolab/learn/lu.7.12/practice`, `/kimyolab/practice/<id>` or (P2.10, feature flag `guidedDynamicLabV1`) `/kimyolab/dynamic-lab/<id>` (deep links and refresh).
 3. Requests **outside** `/kimyolab/` are not part of KimyoLab.
 4. Send the same security headers as the bundled server (`server/app.mjs`): `Content-Security-Policy` (self only), `X-Content-Type-Options: nosniff`, `Referrer-Policy: no-referrer`.
 

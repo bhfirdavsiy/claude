@@ -88,12 +88,17 @@ test('performance: no runtime dependency; the harness is test-only; the bundle d
   assert.equal(pkg.dependencies,undefined,'still no runtime dependency at all');
   assert.deepEqual(Object.keys(pkg.devDependencies).sort(),['@playwright/test','@types/node','ajv','ajv-formats','fake-indexeddb','typescript','vite'],'no accessibility framework added, not even as a dev dependency');
   const perf=summary.performance;
-  assert.ok(perf.delta.learnerModules===0,'no new learner module: the fixes live in existing primitives');
+  // P2.10: was `perf.delta.learnerModules===0`. The report measures the CURRENT build, which now also holds the P2.10
+  // guided dynamic lab modules; P2.10 records them separately (reports/guided-dynamic-lab-readiness.json#bundleDelta),
+  // so P2.7's own module count (the difference) must still be 0
+  const p210=json('reports/guided-dynamic-lab-readiness.json').bundleDelta.delta;
+  assert.ok(perf.delta.learnerModules-p210.learnerModules===0,'no new learner module: the fixes live in existing primitives');
   // P2.9: was `perf.delta.learnerModuleBytes<8000`. The report measures the CURRENT build against the P2.6 baseline, so
   // it now also contains the P2.9 feedback-semantics growth, which P2.9 measures and records separately
   // (reports/feedback-semantics-expansion.json#bundleDelta); P2.7's own growth (the difference) keeps the same bound
   const p29=json('reports/feedback-semantics-expansion.json').bundleDelta.delta;
-  const p27=perf.delta.learnerModuleBytes-p29.learnerModuleBytes;
+  // P2.10: the separately recorded P2.10 growth is subtracted as well (same reason as above)
+  const p27=perf.delta.learnerModuleBytes-p29.learnerModuleBytes-p210.learnerModuleBytes;
   assert.ok(p27>0&&p27<8000,`P2.7 learner module growth stays small (${p27} B)`);
   const app=fs.readdirSync(path.join(root,'public/app-preview'),{recursive:true}).map(String);
   assert.ok(!app.some(f=>/a11y/.test(f)),'the accessibility harness never ships');

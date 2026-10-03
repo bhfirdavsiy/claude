@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-10-03T07:57:12.042Z",
+  "createdAt": "2026-10-03T14:29:40.947Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -11,14 +11,20 @@
     {
       "path": "app-preview/app/bootstrap.js",
       "sourcePath": "public/app-preview/app/bootstrap.js",
-      "checksum": "c1c0781f37a46cd22dedb33942f49849a2f7693d07006c35d55e040af2b5ad9c",
-      "size": 10033
+      "checksum": "c4debe85e201748a7ae8df200011629ae1aa5813f2ef85b9a54722a80845eaf8",
+      "size": 11032
     },
     {
       "path": "app-preview/app/content-client.js",
       "sourcePath": "public/app-preview/app/content-client.js",
-      "checksum": "3fc8e144f08c2e9be02a568ee089fcf70579acb523035e353a48b6e83253dda4",
-      "size": 23665
+      "checksum": "1222896424bd27006b9bb1e8801b63715c100dfbf02147ab0a8593e45ef98108",
+      "size": 24822
+    },
+    {
+      "path": "app-preview/app/feature-flags.js",
+      "sourcePath": "public/app-preview/app/feature-flags.js",
+      "checksum": "794d50354a4f1c7759819291671d92c04284c201594d03d5e6e89fcc186e34c9",
+      "size": 754
     },
     {
       "path": "app-preview/app/host.js",
@@ -29,8 +35,8 @@
     {
       "path": "app-preview/app/routes.js",
       "sourcePath": "public/app-preview/app/routes.js",
-      "checksum": "9262b641e3260cad20e6fa5d19777826915be9a44a5e0804ce01dd8c2abae617",
-      "size": 2000
+      "checksum": "0a7db8b7aa709eb295423e7170cc69a52a9e2ab26a2fb20c05542617cc945f03",
+      "size": 2348
     },
     {
       "path": "app-preview/domain/assessment/evaluator.js",
@@ -291,6 +297,30 @@
       "size": 5822
     },
     {
+      "path": "app-preview/domain/lab/action-catalog.js",
+      "sourcePath": "public/app-preview/domain/lab/action-catalog.js",
+      "checksum": "9bdf7c8feb777a109bf7bbf30addf4befa50ab0e19af2f834bfe6328fcd2f8dd",
+      "size": 18226
+    },
+    {
+      "path": "app-preview/domain/lab/lab-domain.js",
+      "sourcePath": "public/app-preview/domain/lab/lab-domain.js",
+      "checksum": "14c1ff02f0066496e4d7171d3f90a5c69632d7ef23ec926f32bfa67a93860b65",
+      "size": 1550
+    },
+    {
+      "path": "app-preview/domain/lab/lab-runtime.js",
+      "sourcePath": "public/app-preview/domain/lab/lab-runtime.js",
+      "checksum": "816d2ac86ce3d396cfda47f66ec42a25dc92a364353e9b31a8575d356bde10f5",
+      "size": 36322
+    },
+    {
+      "path": "app-preview/domain/lab/topic-lab-profile.js",
+      "sourcePath": "public/app-preview/domain/lab/topic-lab-profile.js",
+      "checksum": "e9dce4675c4871d0ee5f6a61e6d01d4ec70937d10e383b918387b9d4bbcf9a7f",
+      "size": 19127
+    },
+    {
       "path": "app-preview/domain/mastery/mastery.js",
       "sourcePath": "public/app-preview/domain/mastery/mastery.js",
       "checksum": "40008fb949d2ba3e02ced55ac7fda5d8f7425c8cd8651181b3cb1ffd851b6e04",
@@ -379,6 +409,12 @@
       "sourcePath": "public/app-preview/features/curriculum/render.js",
       "checksum": "2cd8f83bbf8686039d29dcad6b9d782b074fb68e2661a57fdd168b6342ea9bbb",
       "size": 2338
+    },
+    {
+      "path": "app-preview/features/dynamic-lab/render.js",
+      "sourcePath": "public/app-preview/features/dynamic-lab/render.js",
+      "checksum": "fc93202bf07c93d8ed7614bcdaa5b9675a5dff76e09ebc3ea7988b714882a210",
+      "size": 24020
     },
     {
       "path": "app-preview/features/home/copy.js",
@@ -977,8 +1013,8 @@
     {
       "path": "app-preview/ui/tokens/kimyolab.css",
       "sourcePath": "public/app-preview/ui/tokens/kimyolab.css",
-      "checksum": "a3a71803e815a0800e8a4cdb900661c053ed53acbf24a75158b3bd0dbd5e1141",
-      "size": 33709
+      "checksum": "d388d03cf950930c6e010905979ba2dfa27f6e3784949b3fbc8647729e18f71e",
+      "size": 35636
     },
     {
       "path": "assets/brand/kimyolab-logo.webp",
@@ -1241,8 +1277,8 @@
     {
       "path": "content/2026.09.1/locales/uz-latn/learner-interaction.json",
       "sourcePath": "public/content/2026.09.1/locales/uz-latn/learner-interaction.json",
-      "checksum": "fb76d757acf54593b489218beec51c9278d391a440c3fcbee5e13baa2c408643",
-      "size": 16688
+      "checksum": "b1fa1bcb585d938e522e095c4c16e3987efcc626c0f900a490ef9da0aa242a10",
+      "size": 27252
     },
     {
       "path": "content/2026.09.1/locales/uz-latn/name-provenance.json",
@@ -1253,8 +1289,8 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "e1ff1bd9532bb0fa148b7e4d83411a670bb2192468003fca2a3ee1204a055e0e",
-      "size": 7849
+      "checksum": "e2e23299cc583ceb7ff3ecd5aaac73cf8c0876bbb7787bd596c6e3c384fc0ca6",
+      "size": 8009
     },
     {
       "path": "content/2026.09.1/mapping-links.json",
@@ -1281,9 +1317,15 @@
       "size": 87
     },
     {
+      "path": "content/2026.09.1/topic-lab-profiles.json",
+      "sourcePath": "public/content/2026.09.1/topic-lab-profiles.json",
+      "checksum": "9d08b498dd5d54b9b72e5955f39c34aa6087725d5cf4571399e135be6e9f87a2",
+      "size": 32821
+    },
+    {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "9f87f74d0c90587a73db9f7bf1ab4e8cba7b70e516e126e7c55982af5362207b",
+      "checksum": "81aeb53da5a50d85f5e753f76000813989071aa89bca6320135d3c4f8c5c97dc",
       "size": 158
     },
     {

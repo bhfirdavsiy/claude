@@ -1,0 +1,3408 @@
+{
+  "schema": "kimyolab.topic-lab-profile-coverage.v1",
+  "phase": "P2.10",
+  "profileSchema": "kimyolab.topic-lab-profile.v1",
+  "semantics": "PROFILED = a validated kimyolab.topic-lab-profile.v1 exists (vertical slice). BLOCKED = at least one BLOCKER: a state/observation action without a safe handler; a composition-changing action without a chemistry authority, or a guided step that changes composition without a reaction record or model (fail closed); an instruction substance the authority does not know; an unmapped or ambiguous operation; or missing instruction content (no steps, or a \"prove/identify by experiment\" task that names no operation while the config supplies none). PROFILE_CANDIDATE = no blocker; it may still carry GAPS that are not missing chemistry: LEARNER_RESPONSE_CHECKER_MISSING (a response with no checker is never judged), HUMAN_DECISION_REQUIRED (open order question), SAFETY_RULE (a prohibition to carry as a safety note). A candidate is NOT profiled: no profile is written by guessing and nothing is migrated.",
+  "summary": {
+    "experiments": 57,
+    "BLOCKED": 53,
+    "PROFILE_CANDIDATE": 1,
+    "PROFILED": 3
+  },
+  "rowsPerBlockerCategory": {
+    "AMBIGUOUS_OPERATION": 1,
+    "CHEMISTRY_AUTHORITY_MISSING": 36,
+    "CONTENT_REQUIRED": 7,
+    "INSTRUCTION_NOT_COVERED_BY_AUTHORITY": 7,
+    "OBSERVATION_HANDLER_MISSING": 12,
+    "STATE_HANDLER_MISSING": 38
+  },
+  "rowsPerGapCategory": {
+    "HUMAN_DECISION_REQUIRED": 5,
+    "LEARNER_RESPONSE_CHECKER_MISSING": 31,
+    "SAFETY_RULE": 1
+  },
+  "reclassification": {
+    "before": {
+      "source": "reports/topic-lab-profile-coverage.json @ b59e640",
+      "summary": {
+        "experiments": 57,
+        "BLOCKED": 54,
+        "PROFILED": 3
+      },
+      "rowsPerBlocker": {
+        "NO_CHEMISTRY_AUTHORITY_IN_CONFIG": 38,
+        "NO_DOMAIN_HANDLER": 49,
+        "NO_INSTRUCTION_STEPS": 2,
+        "ORDER_DECISION_OPEN": 5,
+        "AMBIGUOUS_OPERATION": 1,
+        "UNMAPPED_OPERATION": 1
+      },
+      "rowsWithLearnerResponseCountedAsMissingHandler": 26
+    },
+    "after": {
+      "summary": {
+        "experiments": 57,
+        "BLOCKED": 53,
+        "PROFILE_CANDIDATE": 1,
+        "PROFILED": 3
+      },
+      "rowsPerBlockerCategory": {
+        "AMBIGUOUS_OPERATION": 1,
+        "CHEMISTRY_AUTHORITY_MISSING": 36,
+        "CONTENT_REQUIRED": 7,
+        "INSTRUCTION_NOT_COVERED_BY_AUTHORITY": 7,
+        "OBSERVATION_HANDLER_MISSING": 12,
+        "STATE_HANDLER_MISSING": 38
+      }
+    },
+    "changes": [
+      "learner responses (COMPARE, INFER, RECORD, EXPLAIN, STUDY, SELECT) are LEARNER_RESPONSE_CHECKER_MISSING gaps, no longer NO_DOMAIN_HANDLER blockers",
+      "an open order question is a HUMAN_DECISION_REQUIRED gap (a profile can carry HUMAN_DECISION_REQUIRED, as 11.2 does), no longer a blocker",
+      "a missing chemistry authority blocks only experiments with composition-changing state actions",
+      "\"qaratmang\" is a SAFETY_RULE, no longer an unmapped operation; \"bajaring\" (10.7) names no single operation and is AMBIGUOUS",
+      "an ambiguous verb with no matching context has NO family (family null): it is an AMBIGUOUS_OPERATION blocker only and never yields a family or a NO_DOMAIN_HANDLER blocker for a guessed family",
+      "REPEAT (8.6: repeat the procedure with CuCl2) is a state action and stays a blocker without a handler",
+      "new blockers that the first pass missed: a task naming no operation (CONTENT_REQUIRED), an ungrounded composition-changing guided step, an instruction substance unknown to the authority (e.g. KI in 9.10)"
+    ]
+  },
+  "rows": [
+    {
+      "activityId": "practice.experiment.10.1",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "taqqoslang"
+          ]
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "suyuqlantiring"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "qiling",
+            "tuzing"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.10.10",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "farqlang"
+          ]
+        },
+        {
+          "family": "INFER",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "aniqlang"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "PREPARE_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "oling"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.10.2",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "PASS_GAS",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "o‘tkazing"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.10.22.carboxylic-acid",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_INSTRUCTION_STEPS",
+          "category": "CONTENT_REQUIRED"
+        }
+      ],
+      "gaps": [],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.10.3",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing",
+            "soling"
+          ]
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "PASS_GAS",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "o‘tkazing"
+          ]
+        },
+        {
+          "family": "PREPARE_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "oling"
+          ]
+        }
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:H2SO4",
+          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
+        },
+        {
+          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:KMnO4",
+          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "ORDER_DECISION_OPEN",
+          "category": "HUMAN_DECISION_REQUIRED"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.10.5",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing"
+          ]
+        },
+        {
+          "family": "INFER",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "qiling"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "PREPARE_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "tayyorlang"
+          ]
+        },
+        {
+          "family": "SEPARATE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "bo‘ling"
+          ]
+        },
+        {
+          "family": "STUDY",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "o‘rganing"
+          ]
+        }
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:CuSO4",
+          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
+        },
+        {
+          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:KOH",
+          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
+        },
+        {
+          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:NaOH",
+          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:SEPARATE",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:STUDY",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "ORDER_DECISION_OPEN",
+          "category": "HUMAN_DECISION_REQUIRED"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.10.6",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing"
+          ]
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:2",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.10.7",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "SEPARATE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "ajrating"
+          ]
+        },
+        {
+          "family": "SETUP_APPARATUS",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "joylashtiring"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "AMBIGUOUS_OPERATION:bajaring",
+          "category": "AMBIGUOUS_OPERATION"
+        },
+        {
+          "code": "AMBIGUOUS_OPERATION:yig‘ing",
+          "category": "AMBIGUOUS_OPERATION"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:SEPARATE",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.10.8",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring"
+          ]
+        },
+        {
+          "family": "MIX",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "aralashtiring"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "SEPARATE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "ajrating"
+          ]
+        }
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:SEPARATE",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "ORDER_DECISION_OPEN",
+          "category": "HUMAN_DECISION_REQUIRED"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.10.9",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "gidrolizlang",
+            "qizdiring"
+          ]
+        },
+        {
+          "family": "INFER",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "aniqlang"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "TEST",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "tekshiring"
+          ]
+        }
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:CuSO4",
+          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
+        },
+        {
+          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:NaOH",
+          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:TEST",
+          "category": "OBSERVATION_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "ORDER_DECISION_OPEN",
+          "category": "HUMAN_DECISION_REQUIRED"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.11.2",
+      "status": "PROFILED",
+      "profileId": "lab-profile.11.2.electrolysis",
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "quying"
+          ]
+        },
+        {
+          "family": "ELECTRIC_CURRENT",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "ulang"
+          ]
+        },
+        {
+          "family": "EXPLAIN",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "tushuntiring"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "belgilang"
+          ]
+        },
+        {
+          "family": "SETUP_APPARATUS",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "tushiring"
+          ]
+        }
+      ],
+      "chemistryAuthority": "electrolysis",
+      "orderMode": "HUMAN_DECISION_REQUIRED",
+      "blockers": [],
+      "gaps": [],
+      "profileGaps": [
+        "ELECTRODE_MATERIAL_NOT_IN_INSTRUCTION",
+        "RECORD_CHECKER_MISSING",
+        "ION_MIGRATION_NOT_MODELED",
+        "OBSERVATION_TEXT_NOT_LOCALIZED"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.1",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "to‘ldiring"
+          ]
+        },
+        {
+          "family": "BRING_NEAR",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yaqinlashtiring"
+          ]
+        },
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "farqlang"
+          ]
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring",
+            "yoqing"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "SAFETY_PROHIBITION",
+          "kind": "SAFETY_RULE",
+          "fromVerbs": [
+            "qaratmang"
+          ]
+        },
+        {
+          "family": "SEAL",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yoping"
+          ]
+        },
+        {
+          "family": "SETUP_APPARATUS",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "joylashtiring",
+            "mahkamlang",
+            "moslang",
+            "sozlang",
+            "tuting"
+          ]
+        },
+        {
+          "family": "STOP_HEAT",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "o‘chiring"
+          ]
+        },
+        {
+          "family": "STUDY",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "chiqing",
+            "tanishing"
+          ]
+        },
+        {
+          "family": "TEST",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "tekshiring"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:BRING_NEAR",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:SEAL",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:STOP_HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:TEST",
+          "category": "OBSERVATION_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:3",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:4",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:5",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:STUDY",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "SAFETY_RULE_IN_INSTRUCTION",
+          "category": "SAFETY_RULE"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.7.10",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "quying"
+          ]
+        },
+        {
+          "family": "COLLECT_GAS",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yig‘ing"
+          ]
+        },
+        {
+          "family": "EXPLAIN",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "izohlang"
+          ]
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "TEST",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "tekshiring"
+          ]
+        }
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_DOMAIN_HANDLER:COLLECT_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:TEST",
+          "category": "OBSERVATION_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.7.11",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "quying",
+            "soling"
+          ]
+        },
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "taqqoslang"
+          ]
+        },
+        {
+          "family": "EXPLAIN",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "tushuntiring"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "yozing"
+          ]
+        }
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "STEP_NOT_GROUNDED:3",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.7.12",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "quying"
+          ]
+        },
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "solishtiring",
+            "taqqoslang"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "ko‘ring",
+            "kuzating"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.7.13",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing"
+          ]
+        },
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "taqqoslang"
+          ]
+        },
+        {
+          "family": "MIX",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "aralashtiring"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "TEST",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "tekshiring"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:TEST",
+          "category": "OBSERVATION_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.7.2",
+      "status": "PROFILED",
+      "profileId": "lab-profile.7.2.salt-purification",
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "quying",
+            "soling"
+          ]
+        },
+        {
+          "family": "CONTINUE",
+          "kind": "CONTROL",
+          "fromVerbs": [
+            "eting"
+          ]
+        },
+        {
+          "family": "EVAPORATE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "bug‘lating"
+          ]
+        },
+        {
+          "family": "FILTER",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "filtrlang"
+          ]
+        },
+        {
+          "family": "MIX",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "aralashtiring"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "SETUP_APPARATUS",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "buklang",
+            "joylashtiring",
+            "oching",
+            "qirqing"
+          ]
+        },
+        {
+          "family": "STOP_HEAT",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "to‘xtating"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": "STRICT",
+      "blockers": [],
+      "gaps": [],
+      "profileGaps": [
+        "SAFETY_TEXT_EMPTY",
+        "EQUIPMENT_LIST_INCOMPLETE",
+        "APPARATUS_WITHOUT_OPERATION",
+        "QUANTITY_NOT_DECLARED",
+        "IMPURITY_UNDECLARED",
+        "OBSERVATION_FROM_INSTRUCTION_TEXT",
+        "REAGENT_LIST_UNRELATED"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.7.3",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "tushiring"
+          ]
+        },
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "taqqoslang"
+          ]
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring"
+          ]
+        },
+        {
+          "family": "MIX",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "ishqalang"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "PREPARE_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "tayyorlang"
+          ]
+        },
+        {
+          "family": "WAIT",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "kuting"
+          ]
+        },
+        {
+          "family": "WASH",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "namlang",
+            "surting",
+            "yuving"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:WAIT",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.7.6",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "quying",
+            "soling"
+          ]
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "qiling"
+          ]
+        },
+        {
+          "family": "TRANSFER",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "o‘tkazing"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:TRANSFER",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.7.7",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "soling",
+            "tushiring"
+          ]
+        },
+        {
+          "family": "COLLECT_GAS",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yig‘ing"
+          ]
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring",
+            "yoqing"
+          ]
+        },
+        {
+          "family": "IGNITE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yondiring"
+          ]
+        },
+        {
+          "family": "MIX",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "chayqating"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "qiling"
+          ]
+        },
+        {
+          "family": "SETUP_APPARATUS",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yig‘ing"
+          ]
+        },
+        {
+          "family": "STOP_HEAT",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "o‘chiring"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:COLLECT_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:IGNITE",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:STOP_HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.7.8",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing",
+            "soling"
+          ]
+        },
+        {
+          "family": "BRING_NEAR",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "kiriting",
+            "tuting"
+          ]
+        },
+        {
+          "family": "COLLECT_GAS",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yig‘ing"
+          ]
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yoqing"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "PASS_GAS",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "o‘tkazing"
+          ]
+        },
+        {
+          "family": "SEAL",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yoping"
+          ]
+        },
+        {
+          "family": "TEST",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "tekshiring"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:BRING_NEAR",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:COLLECT_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:SEAL",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:TEST",
+          "category": "OBSERVATION_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.7.9",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing",
+            "tomizing"
+          ]
+        },
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "taqqoslang"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "PREPARE_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "oling",
+            "qiling"
+          ]
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "yozing"
+          ]
+        }
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.1",
+      "status": "PROFILED",
+      "profileId": "lab-profile.8.1.chloride-precipitation",
+      "instructionFamilies": [
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "farqlang"
+          ]
+        },
+        {
+          "family": "INFER",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "isbotlang"
+          ]
+        },
+        {
+          "family": "PREPARE_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "oling"
+          ]
+        }
+      ],
+      "chemistryAuthority": "ionic-mixing",
+      "orderMode": "FLEXIBLE",
+      "blockers": [],
+      "gaps": [],
+      "profileGaps": [
+        "APPARATUS_NOT_DECLARED",
+        "MATERIALS_NOT_DECLARED",
+        "QUANTITY_NOT_DECLARED",
+        "INSTRUCTION_IS_PROBLEM_SET",
+        "PAIRS_PER_ATTEMPT_LIMITED_BY_CONTAINERS"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.10",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing",
+            "quying"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "TRANSFER",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "ko‘chiring"
+          ]
+        }
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:NaBr",
+          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
+        },
+        {
+          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:NaCl",
+          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
+        },
+        {
+          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:NaI",
+          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:TRANSFER",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.11",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing",
+            "soling"
+          ]
+        },
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "taqqoslang"
+          ]
+        },
+        {
+          "family": "MIX",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "aralashtiring",
+            "chayqating"
+          ]
+        },
+        {
+          "family": "SETTLE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "tindiring"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:SETTLE",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:2",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.12",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "PASS_GAS",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "kechiring"
+          ]
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "kiriting"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.12.planned",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_INSTRUCTION_STEPS",
+          "category": "CONTENT_REQUIRED"
+        }
+      ],
+      "gaps": [],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.13",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing",
+            "quying"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.14",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "soling"
+          ]
+        },
+        {
+          "family": "BRING_NEAR",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "tuting",
+            "yaqinlashtiring"
+          ]
+        },
+        {
+          "family": "COLLECT_GAS",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yig‘ing"
+          ]
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "SEAL",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yoping"
+          ]
+        }
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_DOMAIN_HANDLER:BRING_NEAR",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:COLLECT_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:SEAL",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.15",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "PASS_GAS",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "kechiring"
+          ]
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "yozing"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.2",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "EXPLAIN",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "ko‘rsating"
+          ]
+        },
+        {
+          "family": "INFER",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "aniqlang",
+            "isbotlang"
+          ]
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "yozing"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_STATE_ACTION_IN_INSTRUCTION",
+          "category": "CONTENT_REQUIRED"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.3",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "BRING_NEAR",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yaqinlashtiring"
+          ]
+        },
+        {
+          "family": "COLLECT_GAS",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yig‘ing"
+          ]
+        },
+        {
+          "family": "EXPLAIN",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "izohlang"
+          ]
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring"
+          ]
+        },
+        {
+          "family": "INFER",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "aniqlang"
+          ]
+        },
+        {
+          "family": "MIX",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "aralashtiring"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "PREPARE_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "oling"
+          ]
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "belgilang"
+          ]
+        },
+        {
+          "family": "SETUP_APPARATUS",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "yig‘ing"
+          ]
+        },
+        {
+          "family": "TEST",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "tekshiring"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:BRING_NEAR",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:COLLECT_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:TEST",
+          "category": "OBSERVATION_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.4",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "soling"
+          ]
+        },
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "farqlang"
+          ]
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring"
+          ]
+        },
+        {
+          "family": "INFER",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "aniqlang",
+            "isbotlang"
+          ]
+        },
+        {
+          "family": "PREPARE_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qiling"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.5",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "EXPLAIN",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "bering"
+          ]
+        },
+        {
+          "family": "INFER",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "aniqlang"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_STATE_ACTION_IN_INSTRUCTION",
+          "category": "CONTENT_REQUIRED"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.6",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing",
+            "quying"
+          ]
+        },
+        {
+          "family": "MIX",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "chayqating"
+          ]
+        },
+        {
+          "family": "REPEAT",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "takrorlang"
+          ]
+        },
+        {
+          "family": "SEPARATE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "bo‘ling"
+          ]
+        }
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:CuCl2",
+          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:REPEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:SEPARATE",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.8",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing",
+            "quying",
+            "tomizing",
+            "to‘ldiring"
+          ]
+        },
+        {
+          "family": "EXPLAIN",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "izohlang"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "yozing"
+          ]
+        },
+        {
+          "family": "TRANSFER",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "ko‘chiring"
+          ]
+        }
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:HCl",
+          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:TRANSFER",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:2",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:4",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.8.9",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "FILTER",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "filtrlang"
+          ]
+        },
+        {
+          "family": "MIX",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "aralashtiring"
+          ]
+        },
+        {
+          "family": "TEST",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "tekshiring"
+          ]
+        }
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_DOMAIN_HANDLER:TEST",
+          "category": "OBSERVATION_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.1",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing",
+            "quying",
+            "soling",
+            "tomizing"
+          ]
+        },
+        {
+          "family": "FILTER",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "filtrlang"
+          ]
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "PASS_GAS",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "o‘tkazing",
+            "tushiring"
+          ]
+        },
+        {
+          "family": "SEAL",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "berkiting"
+          ]
+        },
+        {
+          "family": "SEPARATE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "bo‘ling"
+          ]
+        },
+        {
+          "family": "TEST",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "tekshiring"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:SEAL",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:SEPARATE",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:TEST",
+          "category": "OBSERVATION_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.10",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "quying",
+            "tomizing"
+          ]
+        },
+        {
+          "family": "ELECTRIC_CURRENT",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "ulang",
+            "uzing"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "SETUP_APPARATUS",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "tushiring"
+          ]
+        }
+      ],
+      "chemistryAuthority": "electrolysis",
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:KI",
+          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "ORDER_DECISION_OPEN",
+          "category": "HUMAN_DECISION_REQUIRED"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.11",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "taqqoslang"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_STATE_ACTION_IN_INSTRUCTION",
+          "category": "CONTENT_REQUIRED"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.12",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "taqqoslang"
+          ]
+        },
+        {
+          "family": "PASS_GAS",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "kechiring"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.13",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "PREPARE_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "oling"
+          ]
+        },
+        {
+          "family": "SEPARATE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "bo‘ling"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:SEPARATE",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.14",
+      "status": "PROFILE_CANDIDATE",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "EXPLAIN",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "tushuntiring"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        }
+      ],
+      "chemistryAuthority": "hydrolysis",
+      "orderMode": null,
+      "blockers": [],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.15",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "PREPARE_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "oling"
+          ]
+        },
+        {
+          "family": "TEST",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "tekshiring"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:TEST",
+          "category": "OBSERVATION_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.16",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "PREPARE_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "oling"
+          ]
+        },
+        {
+          "family": "SEPARATE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "bo‘ling"
+          ]
+        }
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:SEPARATE",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.17",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "taqqoslang"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_STATE_ACTION_IN_INSTRUCTION",
+          "category": "CONTENT_REQUIRED"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.18",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "PREPARE_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "oling"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.19",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘shing"
+          ]
+        },
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "taqqoslang"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.2",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "farqlang"
+          ]
+        },
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring"
+          ]
+        },
+        {
+          "family": "INFER",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "aniqlang"
+          ]
+        },
+        {
+          "family": "PASS_GAS",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "loyqalantiring"
+          ]
+        },
+        {
+          "family": "SELECT",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "tanlang"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:SELECT",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.20",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "COMPARE",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "taqqoslang"
+          ]
+        },
+        {
+          "family": "PASS_GAS",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "kechiring"
+          ]
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "eting"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.3",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "EXPLAIN",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "ko‘rsating"
+          ]
+        },
+        {
+          "family": "INFER",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "aniqlang"
+          ]
+        },
+        {
+          "family": "PREPARE_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qiling"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
+          "category": "STATE_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.4",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "ifodalang"
+          ]
+        },
+        {
+          "family": "TEST",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "tekshiring"
+          ]
+        }
+      ],
+      "chemistryAuthority": "reaction-records",
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_DOMAIN_HANDLER:TEST",
+          "category": "OBSERVATION_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_STATE_ACTION_IN_INSTRUCTION",
+          "category": "CONTENT_REQUIRED"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.5",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "bering"
+          ]
+        },
+        {
+          "family": "PASS_GAS",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "kechiring"
+          ]
+        },
+        {
+          "family": "TEST",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "tekshiring"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:TEST",
+          "category": "OBSERVATION_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.6",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "PASS_GAS",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "kechiring"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.7",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "HEAT",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qizdiring"
+          ]
+        },
+        {
+          "family": "INFER",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "aniqlang"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        },
+        {
+          "family": "PASS_GAS",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "kechiring"
+          ]
+        },
+        {
+          "family": "RECORD",
+          "kind": "LEARNER_RESPONSE",
+          "fromVerbs": [
+            "nomlang"
+          ]
+        },
+        {
+          "family": "SETUP_APPARATUS",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "qo‘ying"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:HEAT",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:3",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:INFER",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        },
+        {
+          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
+          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
+        }
+      ],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.8",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "bering"
+          ]
+        },
+        {
+          "family": "PASS_GAS",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "kechiring"
+          ]
+        },
+        {
+          "family": "TEST",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "tekshiring"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:PASS_GAS",
+          "category": "STATE_HANDLER_MISSING"
+        },
+        {
+          "code": "NO_DOMAIN_HANDLER:TEST",
+          "category": "OBSERVATION_HANDLER_MISSING"
+        }
+      ],
+      "gaps": [],
+      "profileGaps": []
+    },
+    {
+      "activityId": "practice.experiment.9.9",
+      "status": "BLOCKED",
+      "profileId": null,
+      "instructionFamilies": [
+        {
+          "family": "ADD_SUBSTANCE",
+          "kind": "STATE_ACTION",
+          "fromVerbs": [
+            "quying",
+            "soling"
+          ]
+        },
+        {
+          "family": "OBSERVE",
+          "kind": "OBSERVATION_ACTION",
+          "fromVerbs": [
+            "kuzating"
+          ]
+        }
+      ],
+      "chemistryAuthority": null,
+      "orderMode": null,
+      "blockers": [
+        {
+          "code": "NO_CHEMISTRY_AUTHORITY_IN_CONFIG",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:1",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        },
+        {
+          "code": "STEP_NOT_GROUNDED:2",
+          "category": "CHEMISTRY_AUTHORITY_MISSING"
+        }
+      ],
+      "gaps": [],
+      "profileGaps": []
+    }
+  ]
+}
