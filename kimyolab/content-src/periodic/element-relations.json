@@ -1,0 +1,5 @@
+{
+  "schema": "kimyolab.element-relations.v1",
+  "note": "P2.13 (ADR-P2-014). Authored element relations (AUTHORED_RELATION). A PRIMARY relation (the element is what a topic, substance or lab is about) exists only here or in an explicit canonical mapping — never because the element appears in a formula. Each relation needs a source reference and is reviewed by a human. None is authored yet.",
+  "relations": []
+}

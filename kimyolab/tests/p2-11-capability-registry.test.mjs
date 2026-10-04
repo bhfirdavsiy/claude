@@ -226,7 +226,8 @@ test('reports: generator-equal; readiness P2.11; no migration; human decisions o
   const b=r.bundleDelta;
   assert.equal(b.cumulativeSince,'P2.9');
   // P2.12: the cumulative delta now also carries P2.12's own growth (the learner excerpt renderer), recorded as its own phase
-  for(const k of ['learnerModules','learnerModuleBytes','standaloneBytes']) assert.equal(b.phases['P2.10'][k]+b.phases['P2.11'][k]+(b.phases['P2.12']?.[k]??0),b.delta[k],k);
+  // P2.13: P2.12's share is now a recorded constant and the P2.13 growth (periodic table) is its own phase
+  for(const k of ['learnerModules','learnerModuleBytes','standaloneBytes']) assert.equal(b.phases['P2.10'][k]+b.phases['P2.11'][k]+(b.phases['P2.12']?.[k]??0)+(b.phases['P2.13']?.[k]??0),b.delta[k],k);
   const cov=json(LAB_REPORTS.coverage);
   assert.equal(cov.p211.before.summary.PROFILED,3); assert.equal(cov.p211.after.summary.PROFILED,5);
 });

@@ -1,0 +1,6 @@
+{
+  "schema": "kimyolab.element-metadata.v1",
+  "note": "P2.13 (ADR-P2-014). Authored, SOURCED element metadata keyed by the canonical element symbol (identity: src/domain/chemistry/periodic-table.ts). Only a field with at least one source reference may appear here; nothing is copied from the legacy V19 data/elements.json, whose values have no provenance in the repository. A field that is not listed stays an explicit gap (SOURCE_REQUIRED) in the learner profile and in the reports. reviewStatus is set by a human chemistry reviewer, never by a build.",
+  "fields": ["relativeAtomicMass", "category", "oxidationStates", "teachingDescription"],
+  "entries": {}
+}

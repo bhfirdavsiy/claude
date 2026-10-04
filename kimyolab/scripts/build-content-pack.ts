@@ -14,6 +14,8 @@ import { structuredTheoryPack, collectStructuredTheory, assertCanonicalTheoryApp
 import { STRUCTURED_THEORY_PACK_PATH } from '../src/domain/theory/structured-theory.ts';
 import { TOPIC_LAB_PROFILE_PACK_PATH } from '../src/domain/lab/topic-lab-profile.ts';
 import { compileTopicLabProfiles } from './lib/topic-lab-profiles.ts';
+import { buildElementHub } from './lib/element-hub.ts';
+import { ELEMENT_HUB_PACK_PATH } from '../src/features/periodic/hub.ts';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const source = path.join(root, 'content-src');
@@ -120,6 +122,14 @@ if (fs.existsSync(activityConfigsSource)) {
 // P2.10: guided dynamic lab profiles — overlays compiled against the repository facts and validated (v1); a
 // profile that contradicts its activity, config or species fails the build
 writeJson(path.join(packRoot, TOPIC_LAB_PROFILE_PACK_PATH), compileTopicLabProfiles(root));
+
+// P2.13: the Element Hub (ADR-P2-014) — canonical identity + derived positions + sourced metadata + evidence-derived
+// relations, built here so the learner page computes no chemistry; an invalid authored metadata file fails the build
+{ // compact (one line): the hub is read by code only, and it is embedded in the standalone file
+  const file = path.join(packRoot, ELEMENT_HUB_PACK_PATH);
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, `${JSON.stringify(buildElementHub(root).hub)}\n`, 'utf8');
+}
 
 const chemistrySource = path.join(source, 'chemistry');
 const chemistryTarget = path.join(packRoot, 'chemistry');

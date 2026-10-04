@@ -1,0 +1,98 @@
+{
+  "schema": "kimyolab.element-metadata-coverage.v1",
+  "phase": "P2.13",
+  "decision": "NOT_A_RELEASE_OR_PILOT_DECISION",
+  "semantics": "Per metadata field, out of 118 canonical elements: sourced (authored with a source), derived (rule from Z or a domain engine, not reviewed), reviewed (sourced and approved by a human), gap (with the reason). Never merged into one number.",
+  "metadataSchema": "kimyolab.element-metadata.v1",
+  "authoredFields": [
+    "relativeAtomicMass",
+    "category",
+    "oxidationStates",
+    "teachingDescription"
+  ],
+  "fields": {
+    "chemicalPeriod": {
+      "sourced": 0,
+      "derived": 118,
+      "reviewed": 0,
+      "gap": 0,
+      "gapReasons": {}
+    },
+    "group": {
+      "sourced": 0,
+      "derived": 88,
+      "reviewed": 0,
+      "gap": 30,
+      "gapReasons": {
+        "F_BLOCK_GROUP_CONVENTION": 30
+      }
+    },
+    "relativeAtomicMass": {
+      "sourced": 0,
+      "derived": 0,
+      "reviewed": 0,
+      "gap": 118,
+      "gapReasons": {
+        "SOURCE_REQUIRED": 118
+      }
+    },
+    "category": {
+      "sourced": 0,
+      "derived": 0,
+      "reviewed": 0,
+      "gap": 118,
+      "gapReasons": {
+        "SOURCE_REQUIRED": 118
+      }
+    },
+    "electronConfiguration": {
+      "sourced": 0,
+      "derived": 34,
+      "reviewed": 0,
+      "gap": 84,
+      "gapReasons": {
+        "ENGINE_KNOWN_GAP": 2,
+        "OUTSIDE_ENGINE_RANGE": 82
+      }
+    },
+    "oxidationStates": {
+      "sourced": 0,
+      "derived": 0,
+      "reviewed": 0,
+      "gap": 118,
+      "gapReasons": {
+        "SOURCE_REQUIRED": 118
+      }
+    },
+    "teachingDescription": {
+      "sourced": 0,
+      "derived": 0,
+      "reviewed": 0,
+      "gap": 118,
+      "gapReasons": {
+        "SOURCE_REQUIRED": 118
+      }
+    }
+  },
+  "electronConfiguration": {
+    "engineRange": {
+      "min": 1,
+      "max": 36
+    },
+    "knownGaps": [
+      24,
+      29
+    ],
+    "knownGapSource": "scripts/lib/computed-model-interaction.ts (P2.6 MODEL_KNOWN_GAP: no exception records)",
+    "extendedTo118": false,
+    "note": "the engine was not extended in P2.13; outside its range the profile says the configuration is not available"
+  },
+  "sourceGaps": {
+    "relativeAtomicMass": "no repository source; legacy data/elements.json masses have no provenance (SOURCE_REQUIRED)",
+    "category": "no repository source; legacy categories have no provenance (SOURCE_REQUIRED)",
+    "oxidationStates": "no element-level source (species oxidationStates arrays are empty)",
+    "teachingDescription": "no authored descriptions",
+    "fBlockGroup": "which of La/Lu (Ac/Lr) is group 3 needs a reviewed convention"
+  },
+  "reviewedMetadata": 0
+}
