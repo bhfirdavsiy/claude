@@ -5,6 +5,7 @@
 //                   check → deterministic publish candidate that the CLI re-verifies; a non-PDF is refused
 //   lab lane      → class → topic → the canonical 7.10 instruction → the learner dynamic lab as preview, partial and
 //                   unsupported parts in plain Uzbek → candidate; a changed instruction gets no improvised lab view
+//   unsafe PDF    → active content or a header-only file is refused at upload; no PDF viewer element is ever created
 //   author text   → no technical concept anywhere in the Studio's own UI
 //   accessibility → labels, bound errors, focus, 320 px reflow, 44 px targets, no motion
 import {test, expect} from '@playwright/test';
@@ -21,6 +22,8 @@ const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'kimyolab-studio-'));
 const out = path.join(tmp, 'dist-studio');
 const pdfFile = path.join(tmp, 'sinov qismi.pdf');
 const notPdf = path.join(tmp, 'notpdf.pdf');
+const activePdf = path.join(tmp, 'faol.pdf');
+const brokenPdf = path.join(tmp, 'buzuq.pdf');
 // the same terms the readiness report checks the catalog against — here applied to the live Studio UI
 const TECHNICAL = /\bJSON\b|schema|learningUnitId|\blu\.\d|practice\.|theory\.|ReactionMatcher|IonicEngine|ElectrolysisModel|SchoolLab|handler|\bfamily\b|sha-?256|\bhash\b|checksum|revision|\bcommit\b|\bbranch\b|\bCI\b|kimyolab\.[a-z-]+\.v\d|\b[A-Z]{3,}_[A-Z_]{3,}\b|\bnull\b|undefined/i;
 const FLAG = '?ff=contentStudioV1';
@@ -32,6 +35,9 @@ test.beforeAll(async () => {
   node(['scripts/build-content-studio.ts', out]);
   node(['--input-type=module', '-e', `import {syntheticPdf} from ${JSON.stringify(pathToFileURL(path.join(root, 'scripts/lib/synthetic-pdf.ts')).href)};import fs from 'node:fs';fs.writeFileSync(${JSON.stringify(pdfFile)},syntheticPdf());`]);
   fs.writeFileSync(notPdf, '<html><body>not a pdf</body></html>');
+  // synthetic negatives: a structurally valid PDF carrying a JavaScript open action, and a header + %%EOF shell
+  node(['--input-type=module', '-e', `import {syntheticPdf} from ${JSON.stringify(pathToFileURL(path.join(root, 'scripts/lib/synthetic-pdf.ts')).href)};import fs from 'node:fs';fs.writeFileSync(${JSON.stringify(activePdf)},syntheticPdf(undefined,{catalogExtra:'/OpenAction << /S /JavaScript /JS (app.alert(1)) >>'}));`]);
+  fs.writeFileSync(brokenPdf, '%PDF-1.4\n%%EOF\n');
   server = createStudioServer(out);
   await new Promise((r) => server.listen(0, '127.0.0.1', r));
   base = `http://127.0.0.1:${server.address().port}/`;
@@ -109,6 +115,43 @@ test('PDF lane: synthetic excerpt → learner preview on demand → check → ca
   expect(candidate.derived.sourceIntake.reviews).toEqual([]);
   expect(candidate.humanGates.every((g) => g.status === 'REQUIRED')).toBe(true);
   expect(await authorText(page)).not.toMatch(TECHNICAL);
+  expect(errors).toEqual([]);
+});
+
+test('unsafe PDF: active content and a header-only file are refused; no PDF viewer is ever created', async ({page}) => {
+  const errors = []; page.on('pageerror', (e) => errors.push(e.message));
+  // count every viewer-capable element the page ever inserts, from the first script on
+  await page.addInitScript(() => {
+    window.__viewers = 0;
+    new MutationObserver((list) => { for (const m of list) for (const n of m.addedNodes) if (n.nodeType === 1) window.__viewers += (n.matches('object,embed,iframe') ? 1 : 0) + n.querySelectorAll('object,embed,iframe').length; })
+      .observe(document, {childList: true, subtree: true});
+  });
+  await choose(page, 7, 'lu.7.01', 'textbook_excerpt');
+  await page.locator('#studio-x-title').fill('Sinov qismi');
+  await page.locator('#studio-x-source-title').fill('Sinov darsligi');
+  await page.locator('#studio-x-source-authority').fill('Sinov nashriyoti');
+  await page.locator('#studio-x-author').fill('Sinov Muallifi');
+  // a safe file first, then replaced by an active one: the safe one is dropped too (fail closed)
+  await page.locator('#studio-x-file').setInputFiles(pdfFile);
+  await expect(page.locator('[data-studio-file-status]')).toContainText('Fayl qabul qilindi');
+  await page.locator('#studio-x-file').setInputFiles(activePdf);
+  await expect(page.locator('[data-studio-file-status]')).toContainText('faol yoki interaktiv qismlar bor');
+  await expect(page.locator('[data-studio-file-status]')).toContainText('statik PDF fayl bilan almashtiring');
+  await expect(page.locator('#studio-x-file')).toHaveAttribute('aria-invalid', 'true');
+  // there is no accepted file, so the author cannot go on to a preview
+  await page.locator('[data-studio-next]').click();
+  await expect(page.locator('h2')).toHaveText('To‘ldirish');
+  await expect(page.locator('#studio-form-error')).toHaveText('Belgilangan maydonlarni to‘ldiring.');
+  await expect(page.locator('#studio-x-file')).toBeFocused();
+  // a header + %%EOF with nothing valid in between has no provable structure
+  await page.locator('#studio-x-file').setInputFiles(brokenPdf);
+  await expect(page.locator('[data-studio-file-status]')).toContainText('ichki tuzilishi buzilgan');
+  await page.locator('[data-studio-next]').click();
+  await expect(page.locator('h2')).toHaveText('To‘ldirish');
+  await expect(page.locator('[data-textbook-excerpt]')).toHaveCount(0);
+  await expect(page.locator('object,embed,iframe')).toHaveCount(0);
+  expect(await page.evaluate(() => window.__viewers)).toBe(0);
+  expect(TECHNICAL.test(await authorText(page))).toBe(false);
   expect(errors).toEqual([]);
 });
 

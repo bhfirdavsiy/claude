@@ -51,6 +51,9 @@
     "studio.excerpt.file-bad": "Bu fayl PDF emas yoki uni o‘qib bo‘lmaydi.",
     "studio.excerpt.file-too-large": "Fayl juda katta (20 MB dan oshmasin).",
     "studio.excerpt.file-encrypted": "Fayl parol bilan himoyalangan, uni o‘qib bo‘lmaydi.",
+    "studio.excerpt.file-active": "Bu PDF faylda faol yoki interaktiv qismlar bor (masalan, skript, ilova qilingan fayl yoki to‘ldiriladigan shakl). Xavfsizlik uchun bunday fayl qabul qilinmaydi va ko‘rsatilmaydi. Uni oddiy, statik PDF fayl bilan almashtiring.",
+    "studio.excerpt.file-structure": "Bu fayl PDF kabi boshlanadi, lekin ichki tuzilishi buzilgan. Bunday fayl qabul qilinmaydi va ko‘rsatilmaydi. PDF faylni asl hujjatdan qayta saqlab, yana yuklang.",
+    "studio.excerpt.file-unsupported": "Bu PDF fayl siqilgan ichki tuzilishda saqlangan, shuning uchun tizim uni xavfsizlik uchun to‘liq tekshira olmaydi. Bunday fayl hozircha qabul qilinmaydi. Faylni boshqa dasturda yoki boshqa saqlash sozlamasi bilan qayta saqlab, yana yuklang.",
     "studio.excerpt.author": "Muallif (ism-familiyangiz)",
     "studio.excerpt.rights": "Bu qismni o‘quvchilarga ko‘rsatish huquqi hujjatlashtirilgan",
     "studio.excerpt.rights-basis": "Huquq asosi (shartnoma, ruxsatnoma yoki boshqa hujjat)",
@@ -110,7 +113,7 @@
     "studio.check.year-invalid": "Nashr yili noto‘g‘ri.",
     "studio.check.page-range-invalid": "Sahifalar oralig‘i noto‘g‘ri.",
     "studio.check.file-missing": "PDF fayl yuklanmagan.",
-    "studio.check.pdf-active-content": "Faylda faol elementlar bor. Ular ishga tushirilmaydi, lekin faylni mutaxassis ko‘rib chiqishi kerak.",
+    "studio.check.pdf-active-content": "Faylda faol yoki interaktiv qismlar bor. Bunday fayl qabul qilinmaydi: uni oddiy, statik PDF fayl bilan almashtiring.",
     "studio.check.rights-not-documented": "Nashr qilish huquqi hali hujjatlashtirilmagan. Huquqsiz qism o‘quvchilarga ko‘rsatilmaydi.",
     "studio.check.source-acceptance-required": "Darslik manbasini mutaxassis qabul qilishi kerak.",
     "studio.check.steps-missing": "Yo‘riqnoma qadamlari yozilmagan.",
@@ -136,6 +139,7 @@
     "studio.blocker.AUTHOR_MISSING": "muallif ism-familiyasi yozilmagan",
     "studio.blocker.FILE_MISSING": "PDF fayl yuklanmagan",
     "studio.blocker.FILE_CHECKSUM_MISMATCH": "yuklangan fayl o‘zgargan, uni qayta yuklang",
+    "studio.blocker.PDF_REJECTED": "Yuklangan PDF fayl xavfsizlik tekshiruvidan o‘tmadi. Uni oddiy, statik PDF fayl bilan almashtiring.",
     "studio.blocker.SOURCE_INTAKE_INVALID": "manba ma’lumotlari to‘liq emas"
   }
 }

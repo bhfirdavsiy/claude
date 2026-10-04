@@ -8,15 +8,15 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {CONTENT_ROLES} from '../src/studio/content-roles.ts';
-import {attachPdf,emptyExcerpt,validateExcerpt,overallStatus} from '../src/studio/pdf-excerpt.ts';
+import {ACTIVE_PDF_NAMES,attachPdf,emptyExcerpt,inspectPdf,validateExcerpt,overallStatus} from '../src/studio/pdf-excerpt.ts';
 import {instructionFromLegacy,labRoundTrip,analyzeInstruction} from '../src/studio/lab-instruction.ts';
-import {verifyPublishCandidate} from '../src/studio/publish-candidate.ts';
+import {verifyPublishCandidate,type LabCheckContext} from '../src/studio/publish-candidate.ts';
 import {compileTopicLabProfiles} from './lib/topic-lab-profiles.ts';
 import {createLabRuntime,createLabState,type LabAction} from '../src/domain/lab/lab-runtime.ts';
 import {createLabDomain} from '../src/domain/lab/lab-domain.ts';
 import type {TopicLabProfile} from '../src/domain/lab/topic-lab-profile.ts';
 import {loadRegistry,REACTION_SCRIPTS} from './guided-dynamic-lab.ts';
-import {studioModuleClosure,STUDIO_CSP} from './build-content-studio.ts';
+import {studioData,studioModuleClosure,STUDIO_CSP} from './build-content-studio.ts';
 import {syntheticPdf} from './lib/synthetic-pdf.ts';
 
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
@@ -51,6 +51,46 @@ export function buildRoundTrip(root=ROOT){
     semantics:'An existing canonical lab instruction passed through the Content Studio (instructionFromLegacy → classifyInstructionStep → resolveOperation → previewProfile). Equal on every dimension means the Studio derives the same operations, trial scope, capability resolution, completion scope and gaps, and the same lab actions give the same chemistry. The canonical activity is copied, never written.',
     summary:{activities:rows.length,equal:rows.filter(r=>r.equal).length},
     rows,
+  };
+}
+
+/** The repository context a lab candidate is re-analysed with: the same registry and the same canonical profile the
+ *  Studio build copies (studio-data labSources → compiled topic lab profiles). */
+export function labCheckContext(root=ROOT):LabCheckContext{
+  const {profiles}=compileTopicLabProfiles(root);
+  const sources=studioData(root).labSources;
+  return {registry:loadRegistry(root),profileFor:lu=>{ const src=sources.find(x=>x.learningUnitId===lu); return src?profiles.find(p=>p.activityId===src.practiceActivityId)??null:null; }};
+}
+
+/** `npm run studio:check -- <file>` — writes nothing */
+export function checkCandidateFile(file:string,root=ROOT){
+  const raw=JSON.parse(fs.readFileSync(path.resolve(file),'utf8'));
+  return verifyPublishCandidate(raw,raw?.draft?.payload?.kind==='LAB_INSTRUCTION'?labCheckContext(root):undefined);
+}
+
+/** The PDF acceptance contract, demonstrated on synthetic fixtures only (structurally valid negatives, never opened). */
+function pdfSafety(){
+  const enc=(t:string)=>new TextEncoder().encode(t);
+  const valid=new TextDecoder().decode(syntheticPdf());
+  const cases:Array<[string,Uint8Array]>=[
+    ['header + %%EOF with no document structure',enc('%PDF-1.4\n%%EOF\n')],
+    ['objects moved away from their recorded offsets',enc(valid.replace('/Type /Catalog','/Type /Catalog /X 1'))],
+    ['encrypted',enc(valid.replace('/Root 1 0 R','/Root 1 0 R /Encrypt 9 0 R'))],
+    ['JavaScript open action',syntheticPdf(undefined,{catalogExtra:'/OpenAction << /S /JavaScript /JS (x) >>'})],
+    ['#-escaped /JavaScript name',syntheticPdf(undefined,{catalogExtra:'/Names << /J#61vaScript 6 0 R >>',extraObjects:['<< >>']})],
+    ['embedded file',syntheticPdf(undefined,{extraObjects:['<< /Type /EmbeddedFile /Length 0 >>\nstream\n\nendstream']})],
+    ['compressed object stream',syntheticPdf(undefined,{extraObjects:['<< /Type /ObjStm /N 0 /First 0 /Length 0 >>\nstream\n\nendstream']})],
+    ['safe synthetic PDF',syntheticPdf()],
+  ];
+  return {
+    envelope:{status:'implemented',checks:['%PDF-x.y at byte 0','%%EOF in the last 1024 bytes','at most 20 MB','non-empty']},
+    structure:{status:'implemented',checks:['startxref → classic cross-reference table (incremental /Prev chain followed)','every in-use object starts at its recorded offset with its own number and generation','trailer /Root → /Catalog → /Pages tree with /Kids and /Count ≥ 1'],refused:['header + %%EOF without valid structure (MALFORMED)','cross-reference streams and hybrid files (UNSUPPORTED_STRUCTURE)']},
+    readability:{status:'not yet supported',note:'page content (fonts, drawing operators, text) is never interpreted; the Studio proves a consistent document structure, not that every page renders'},
+    activeContent:{status:'implemented',decision:'REJECT (fail closed): never embedded in the Studio or learner viewer, never packaged, the original bytes are never stripped or rewritten',names:ACTIVE_PDF_NAMES.map(n=>`/${n}`).concat('/OpenAction (action, not a destination array)'),
+      method:'deny list over every PDF name outside raw stream data, with #xx escapes decoded',
+      limitations:['a deny list is not a proof of safety: it covers the named PDF features, not every viewer behaviour','dictionaries inside compressed object streams are invisible to the scan, so such files are refused (UNSUPPORTED_STRUCTURE) instead of trusted','the browser’s PDF viewer is not relied on to neutralise anything']},
+    encryption:{status:'implemented',decision:'REJECT'},
+    syntheticFixtures:cases.map(([name,bytes])=>{ const r=inspectPdf(bytes); return {fixture:name,accepted:r.ok,reason:r.reason,activeContent:r.activeContent}; }),
   };
 }
 
@@ -96,13 +136,17 @@ export function buildStudioReadiness(root=ROOT){
         steps:[
           {step:'topic selection by class and topic name',status:'implemented'},
           {step:'upload of a human-cut excerpt (no page detection, cutting, OCR, extraction or mapping)',status:'implemented'},
-          {step:'PDF signature / end marker / encryption check, safe file name, machine checksum',status:'implemented'},
-          {step:'learner preview with the learner renderer “Darslikdan o‘qish” (PDF loaded on demand)',status:'preview only'},
+          {step:'PDF envelope (signature at byte 0, %%EOF), size limit, safe file name, machine checksum',status:'implemented'},
+          {step:'PDF structure (classic cross-reference table and /Prev chain, every object at its offset, catalog → page tree with ≥ 1 page); anything else refused',status:'implemented'},
+          {step:'encrypted, active/interactive or compressed-storage PDF refused at upload (never shown, never packaged, bytes never rewritten)',status:'implemented'},
+          {step:'page content readability (fonts, drawing, text) — not interpreted and not claimed',status:'not yet supported'},
+          {step:'learner preview with the learner renderer “Darslikdan o‘qish” (accepted PDF only, loaded on demand); recorded as previewed only when it was drawn',status:'preview only'},
           {step:'deterministic publish candidate with a kimyolab.source-intake.v1 entry for the source',status:'implemented'},
           {step:'source acceptance, publication rights, didactic review',status:'human review required'},
           {step:'excerpt apply into the content pack and a learner hub entry point',status:'not yet supported'},
         ],
-        syntheticRun:{fileBytes:pdf.length,inspection:{ok:excerpt.inspection.ok,version:excerpt.inspection.version,activeContent:excerpt.inspection.activeContent},status:overallStatus(pdfFindings),findings:pdfFindings.map(f=>f.code),notPdfRejected:!notPdf.inspection.ok&&notPdf.inspection.reason==='NOT_PDF'},
+        syntheticRun:{fileBytes:pdf.length,inspection:{ok:excerpt.inspection.ok,version:excerpt.inspection.version,structure:excerpt.inspection.structure,activeContent:excerpt.inspection.activeContent},status:overallStatus(pdfFindings),findings:pdfFindings.map(f=>f.code),notPdfRejected:!notPdf.inspection.ok&&notPdf.inspection.reason==='NOT_PDF'},
+        pdfSafety:pdfSafety(),
         rights:'an uploaded file is never assumed redistributable: rights stay NOT_DOCUMENTED until a human documents the basis, and no real textbook excerpt is committed or published',
       },
       labInstruction:{
@@ -121,6 +165,17 @@ export function buildStudioReadiness(root=ROOT){
     },
     validationCategories:['READY','ATTENTION_REQUIRED','UNSUPPORTED','MISSING_INFORMATION','SOURCE_CONFLICT'],
     previewParity:{renderers:parity,allIdentical:parity.every(p=>p.identical)},
+    previewTruth:{status:'implemented',rule:'a draft is recorded as previewed only with evidence of what the preview drew: for a textbook excerpt, the learner renderer drew the accepted PDF whose checksum the draft records; a rejected, missing or replaced file shows no viewer and records no preview. Entering the preview screen is not a preview. Any edit changes the revision, so preview and check are required again.'},
+    candidateIntegrity:{status:'implemented',check:'npm run studio:check -- <file> (writes nothing; fails closed)',proves:[
+      'candidateRevision equals the hash of the candidate body',
+      'draftRevision equals the revision recomputed from the draft inside the candidate',
+      'draft.validation.revision and draft.preview.viewedRevision equal that draftRevision (checked and previewed for this exact draft)',
+      'validation status and findings equal a fresh validation of the draft (excerpt: in any environment; lab: with the repository registry and canonical profile)',
+      'textbook: exactly one file whose name, size and checksum equal the draft record and whose bytes pass the PDF inspection again',
+      'textbook: source-intake entry and excerpt record equal the ones recomputed from the draft',
+      'lab: derived lab facts (preview state, operations, completion scope, gaps, profile) equal a fresh re-analysis in the repository; without that context the check fails closed',
+      'human gates, consumers and apply boundary equal the fixed frame; no gate or review preset',
+    ]},
     publishApplyBoundary:{studioAction:'Nashrga tayyorlash (a deterministic publish candidate download)',oneClickPublish:'not yet supported',candidateSchema:'kimyolab.studio-publish-candidate.v1',check:'npm run studio:check -- <file>',stillNeeded:['a human-only excerpt apply command','a documented rights register for textbook excerpts','a learner hub entry point for published excerpts','a human-only apply command for instruction drafts','profile authoring for instructions without a lab profile']},
     localization:{locale:'uz-Latn',catalog:'content-src/studio/content-studio.uz-latn.json',labels:Object.keys(labels).length,usedKeys:used.size,dynamicKeyFamilies:[...dynamic].sort(),missingKeys:missing,technicalTermsInAuthorLabels:technical.length,technicalTermsKeys:technical},
     bundleImpact:{studio:{modules:closure.length,moduleBytes:closure.reduce((n,m)=>n+Buffer.byteLength(m.js),0),studioOnlyModules:studioOnly.length,studioOnlyBytes:studioOnly.reduce((n,m)=>n+Buffer.byteLength(m.js),0),sharedLearnerModules:closure.length-studioOnly.length},learner:'reports/guided-dynamic-lab-readiness.json#bundleDelta.phases["P2.12"]'},
@@ -144,7 +199,7 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
   const [cmd,file]=process.argv.slice(2).filter(a=>a!=='--');
   if(cmd==='check'){
     if(!file){ console.error('usage: npm run studio:check -- <publish-candidate.json>'); process.exit(2); }
-    const problems=verifyPublishCandidate(JSON.parse(fs.readFileSync(path.resolve(file),'utf8')));
+    const problems=checkCandidateFile(file);
     console.log(JSON.stringify({file:path.basename(file),ok:problems.length===0,problems}));
     process.exit(problems.length?1:0);
   }

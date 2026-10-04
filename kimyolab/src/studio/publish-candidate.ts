@@ -8,8 +8,11 @@
 // No approval, review, rights decision or identity is created here. Same draft → byte-identical candidate.
 import {sha256HexSync,utf8} from '../domain/content/sha256.ts';
 import {SOURCE_INTAKE_SCHEMA,validateSourceIntake} from '../authoring/source-intake.ts';
-import {canonicalJson,draftRevision,packageBlockers,sortKeys,type StudioDraft} from './draft.ts';
-import {excerptRecord} from './pdf-excerpt.ts';
+import {canonicalJson,draftRevision,packageBlockers,sortKeys,STUDIO_DRAFT_SCHEMA,type StudioDraft} from './draft.ts';
+import {excerptRecord,inspectPdf,overallStatus,validateExcerpt} from './pdf-excerpt.ts';
+import {labDerived,labFindings} from './lab-instruction.ts';
+import type {CapabilityRegistry} from '../domain/lab/capability-registry.ts';
+import type {TopicLabProfile} from '../domain/lab/topic-lab-profile.ts';
 
 export const PUBLISH_CANDIDATE_SCHEMA='kimyolab.studio-publish-candidate.v1';
 
@@ -55,31 +58,47 @@ export interface PublishCandidate {
   candidateRevision:string;
 }
 
-/** Builds the candidate, or returns the blockers. `pdf` must be the bytes whose checksum the draft recorded. */
+/** The fixed frame of a candidate per lane: human gates, consumers and what is still missing. Never authored. */
+export function candidateFrame(kind:'TEXTBOOK_EXCERPT'|'LAB_INSTRUCTION'){
+  if(kind==='TEXTBOOK_EXCERPT') return {
+    humanGates:['source acceptance (governed source intake: source:queue → human review → source:apply)','publication rights documented by a human','didactic review of the excerpt for this topic'],
+    consumers:['content-src/source-intake/<sourceId>.json → npm run source:queue / source:apply (human only)'],
+    needed:['an excerpt apply command (human only) that writes the excerpt record and its PDF into the content pack after the gates above','a learner hub entry point that lists published excerpts per topic','a documented rights register for textbook excerpts'],
+  };
+  return {
+    humanGates:['chemistry review of the instruction and its lab view','didactic review'],
+    consumers:['the instruction text → content-src/practice-activities.json legacyContent (governed authoring, P1.9)','the topic lab profile overlay → content-src/topic-lab-profiles.json (authored by a human; compiled and validated by npm run lab:inventory)'],
+    needed:['a human-only apply command for instruction drafts','profile authoring for instructions that have no lab profile yet (trials, apparatus, substances are human decisions)'],
+  };
+}
+
+/** The derived part of an excerpt candidate — a pure function of the draft, so the checker can recompute it. */
+export function excerptDerived(d:StudioDraft):Record<string,unknown>{
+  return {sourceIntake:excerptSourceIntake(d),excerptRecord:d.payload.kind==='TEXTBOOK_EXCERPT'&&d.target.learningUnitId?excerptRecord(d.payload.excerpt,d.target.learningUnitId):null};
+}
+
+/** Builds the candidate, or returns the blockers. `pdf` must be the bytes whose checksum the draft recorded and they
+ *  are inspected again: a rejected (malformed, unprovable, encrypted, active) PDF never becomes part of a candidate. */
 export function buildPublishCandidate(d:StudioDraft,extra:{pdf?:Uint8Array;labDerived?:Record<string,unknown>}={}):{candidate:PublishCandidate|null;blockers:string[]}{
   const blockers=packageBlockers(d);
   const files:PublishCandidate['files']=[];
-  let derived:Record<string,unknown>={}, humanGates:string[]=[], consumers:string[]=[], needed:string[]=[];
+  let derived:Record<string,unknown>={};
   if(d.payload.kind==='TEXTBOOK_EXCERPT'){
     const f=d.payload.excerpt.file;
     if(!f||!extra.pdf) blockers.push('FILE_MISSING');
     else if(sha256HexSync(extra.pdf)!==f.sha256) blockers.push('FILE_CHECKSUM_MISMATCH');
+    else if(!inspectPdf(extra.pdf).ok||f.activeContent.length) blockers.push('PDF_REJECTED');
     const intake=excerptSourceIntake(d);
     if(intake&&validateSourceIntake(intake).length) blockers.push('SOURCE_INTAKE_INVALID');
     if(!blockers.length&&f&&extra.pdf) files.push({name:f.safeName,sha256:f.sha256,bytes:f.bytes,base64:base64(extra.pdf)});
-    derived={sourceIntake:intake,excerptRecord:d.target.learningUnitId?excerptRecord(d.payload.excerpt,d.target.learningUnitId):null};
-    humanGates=['source acceptance (governed source intake: source:queue → human review → source:apply)','publication rights documented by a human','didactic review of the excerpt for this topic'];
-    consumers=['content-src/source-intake/<sourceId>.json → npm run source:queue / source:apply (human only)'];
-    needed=['an excerpt apply command (human only) that writes the excerpt record and its PDF into the content pack after the gates above','a learner hub entry point that lists published excerpts per topic','a documented rights register for textbook excerpts'];
+    derived=excerptDerived(d);
   }else{
     derived=extra.labDerived??{};
-    humanGates=['chemistry review of the instruction and its lab view','didactic review'];
-    consumers=['the instruction text → content-src/practice-activities.json legacyContent (governed authoring, P1.9)','the topic lab profile overlay → content-src/topic-lab-profiles.json (authored by a human; compiled and validated by npm run lab:inventory)'];
-    needed=['a human-only apply command for instruction drafts','profile authoring for instructions that have no lab profile yet (trials, apparatus, substances are human decisions)'];
   }
   if(blockers.length) return {candidate:null,blockers:[...new Set(blockers)]};
+  const frame=candidateFrame(d.payload.kind);
   const body={schema:PUBLISH_CANDIDATE_SCHEMA as typeof PUBLISH_CANDIDATE_SCHEMA,draft:{...d,publish:{state:'PACKAGE_PREPARED' as const,packageRevision:null}},draftRevision:draftRevision(d),derived,files,
-    humanGates:humanGates.map(gate=>({gate,status:'REQUIRED' as const})),applyBoundary:{canonicalWriteFromStudio:false as const,consumers,stillNeededForOneClickPublish:needed}};
+    humanGates:frame.humanGates.map(gate=>({gate,status:'REQUIRED' as const})),applyBoundary:{canonicalWriteFromStudio:false as const,consumers:frame.consumers,stillNeededForOneClickPublish:frame.needed}};
   const candidateRevision=sha256HexSync(utf8(canonicalJson(body)));
   return {candidate:{...body,candidateRevision},blockers:[]};
 }
@@ -87,16 +106,69 @@ export function buildPublishCandidate(d:StudioDraft,extra:{pdf?:Uint8Array;labDe
 /** Deterministic serialisation (sorted keys) — the file the author downloads. */
 export const serializeCandidate=(c:PublishCandidate)=>`${canonicalJson(c)}\n`;
 
-/** Re-verifies a candidate (any environment; writes nothing): revision, file checksums, embedded source intake. */
-export function verifyPublishCandidate(raw:any):string[]{
+/** Repository context for a lab candidate: the capability registry and the topic's canonical lab profile. */
+export interface LabCheckContext { registry:CapabilityRegistry; profileFor:(learningUnitId:string|null)=>TopicLabProfile|null }
+
+const same=(a:unknown,b:unknown)=>canonicalJson(a)===canonicalJson(b);
+
+/** Re-verifies a candidate (any environment; writes nothing). Fails closed with internal problem codes. It proves that
+ *  the candidate was checked and previewed for the exact draft it contains, recomputes everything derived from that
+ *  draft (validation, excerpt record, source intake, lab facts), re-inspects the embedded PDF, and refuses any preset
+ *  gate, review or apply boundary. A lab candidate needs the repository context (`studio:check` supplies it). */
+export function verifyPublishCandidate(raw:any,lab?:LabCheckContext):string[]{
+  // a candidate missing a part a check reads is refused, never trusted (fail closed)
+  try{ return verifyCandidate(raw,lab); }catch{ return ['CANDIDATE_UNREADABLE']; }
+}
+function verifyCandidate(raw:any,lab?:LabCheckContext):string[]{
   const out:string[]=[];
   if(raw?.schema!==PUBLISH_CANDIDATE_SCHEMA) return ['SCHEMA'];
   const {candidateRevision,...body}=raw;
   if(sha256HexSync(utf8(canonicalJson(body)))!==candidateRevision) out.push('CANDIDATE_REVISION_MISMATCH');
+  const d=raw.draft;
+  const kind=d?.payload?.kind;
+  if(d?.schema!==STUDIO_DRAFT_SCHEMA||(kind!=='TEXTBOOK_EXCERPT'&&kind!=='LAB_INSTRUCTION')||d.role!==kind) return [...out,'DRAFT_SHAPE'];
+  // the candidate is bound to the exact draft it carries: its revision, the check and the preview of that revision
+  const rev=draftRevision(d);
+  if(raw.draftRevision!==rev) out.push('DRAFT_REVISION_MISMATCH');
+  if(d.validation?.revision!==raw.draftRevision) out.push('VALIDATION_REVISION_MISMATCH');
+  if(d.preview?.viewedRevision!==raw.draftRevision) out.push('PREVIEW_REVISION_MISMATCH');
+  if(!same(d.publish,{state:'PACKAGE_PREPARED',packageRevision:null})) out.push('PUBLISH_STATE');
   for(const f of raw.files??[]){ const b=fromBase64(f.base64); if(b.length!==f.bytes||sha256HexSync(b)!==f.sha256) out.push(`FILE_CHECKSUM_MISMATCH:${f.name}`); }
-  if(raw.derived?.sourceIntake){ const issues=validateSourceIntake(raw.derived.sourceIntake); if(issues.length) out.push(...issues.map((i:any)=>`SOURCE_INTAKE:${i.code}`)); }
-  if(raw.applyBoundary?.canonicalWriteFromStudio!==false) out.push('APPLY_BOUNDARY');
+  if(kind==='TEXTBOOK_EXCERPT'){
+    const findings=validateExcerpt(d.payload.excerpt,d.target);
+    if(d.validation.status!==overallStatus(findings)||!same(d.validation.findings,findings)) out.push('VALIDATION_RESULT_MISMATCH');
+    if(overallStatus(findings)==='MISSING_INFORMATION') out.push('VALIDATION_INCOMPLETE');
+    if(!String(d.provenance?.authorName??'').trim()) out.push('AUTHOR_MISSING');
+    const df=d.payload.excerpt.file, files=raw.files??[];
+    if(!df||files.length!==1) out.push('FILE_COUNT');
+    else{
+      const f=files[0];
+      if(f.name!==df.safeName||f.sha256!==df.sha256||f.bytes!==df.bytes) out.push('FILE_METADATA_MISMATCH');
+      const ins=inspectPdf(fromBase64(f.base64));
+      if(!ins.ok) out.push(`PDF_REJECTED:${ins.reason}`);
+      else if(ins.sha256!==df.sha256||ins.version!==df.pdfVersion||df.activeContent.length) out.push('FILE_METADATA_MISMATCH');
+    }
+    // derived data is recomputed from the draft, never trusted because it sits inside the candidate hash
+    const expected=excerptDerived(d);
+    if(!same(raw.derived?.sourceIntake,expected.sourceIntake)) out.push('DERIVED_SOURCE_INTAKE_MISMATCH');
+    if(!same(raw.derived?.excerptRecord,expected.excerptRecord)) out.push('DERIVED_EXCERPT_RECORD_MISMATCH');
+    if(!same(Object.keys(raw.derived??{}).sort(),Object.keys(expected).sort())) out.push('DERIVED_SHAPE');
+    if(raw.derived?.sourceIntake){ const issues=validateSourceIntake(raw.derived.sourceIntake); if(issues.length) out.push(...issues.map((i:any)=>`SOURCE_INTAKE:${i.code}`)); }
+  }else{
+    if((raw.files??[]).length) out.push('FILE_COUNT');
+    if(!lab) out.push('LAB_REANALYSIS_REQUIRED');
+    else{
+      const canonical=lab.profileFor(d.target?.learningUnitId??null);
+      const findings=labFindings(d.payload.instruction,d.target,lab.registry,canonical);
+      if(d.validation.status!==overallStatus(findings)||!same(d.validation.findings,findings)) out.push('VALIDATION_RESULT_MISMATCH');
+      if(overallStatus(findings)==='MISSING_INFORMATION') out.push('VALIDATION_INCOMPLETE');
+      if(!same(raw.derived,labDerived(d.payload.instruction,lab.registry,canonical))) out.push('DERIVED_LAB_MISMATCH');
+    }
+  }
+  const frame=candidateFrame(kind);
+  if(raw.applyBoundary?.canonicalWriteFromStudio!==false||!same(raw.applyBoundary,{canonicalWriteFromStudio:false,consumers:frame.consumers,stillNeededForOneClickPublish:frame.needed})) out.push('APPLY_BOUNDARY');
   if((raw.humanGates??[]).some((g:any)=>g.status!=='REQUIRED')) out.push('HUMAN_GATE_PRESET');
-  if(raw.draft?.review?.state!=='NOT_REVIEWED') out.push('REVIEW_PRESET');
+  else if(!same(raw.humanGates,frame.humanGates.map(gate=>({gate,status:'REQUIRED'})))) out.push('HUMAN_GATES_MISMATCH');
+  if(d.review?.state!=='NOT_REVIEWED') out.push('REVIEW_PRESET');
   return out;
 }

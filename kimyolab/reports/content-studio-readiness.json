@@ -124,11 +124,23 @@
           "status": "implemented"
         },
         {
-          "step": "PDF signature / end marker / encryption check, safe file name, machine checksum",
+          "step": "PDF envelope (signature at byte 0, %%EOF), size limit, safe file name, machine checksum",
           "status": "implemented"
         },
         {
-          "step": "learner preview with the learner renderer “Darslikdan o‘qish” (PDF loaded on demand)",
+          "step": "PDF structure (classic cross-reference table and /Prev chain, every object at its offset, catalog → page tree with ≥ 1 page); anything else refused",
+          "status": "implemented"
+        },
+        {
+          "step": "encrypted, active/interactive or compressed-storage PDF refused at upload (never shown, never packaged, bytes never rewritten)",
+          "status": "implemented"
+        },
+        {
+          "step": "page content readability (fonts, drawing, text) — not interpreted and not claimed",
+          "status": "not yet supported"
+        },
+        {
+          "step": "learner preview with the learner renderer “Darslikdan o‘qish” (accepted PDF only, loaded on demand); recorded as previewed only when it was drawn",
           "status": "preview only"
         },
         {
@@ -149,6 +161,10 @@
         "inspection": {
           "ok": true,
           "version": "1.4",
+          "structure": {
+            "crossReferenceSections": 1,
+            "objects": 5
+          },
           "activeContent": []
         },
         "status": "ATTENTION_REQUIRED",
@@ -157,6 +173,126 @@
           "SOURCE_ACCEPTANCE_REQUIRED"
         ],
         "notPdfRejected": true
+      },
+      "pdfSafety": {
+        "envelope": {
+          "status": "implemented",
+          "checks": [
+            "%PDF-x.y at byte 0",
+            "%%EOF in the last 1024 bytes",
+            "at most 20 MB",
+            "non-empty"
+          ]
+        },
+        "structure": {
+          "status": "implemented",
+          "checks": [
+            "startxref → classic cross-reference table (incremental /Prev chain followed)",
+            "every in-use object starts at its recorded offset with its own number and generation",
+            "trailer /Root → /Catalog → /Pages tree with /Kids and /Count ≥ 1"
+          ],
+          "refused": [
+            "header + %%EOF without valid structure (MALFORMED)",
+            "cross-reference streams and hybrid files (UNSUPPORTED_STRUCTURE)"
+          ]
+        },
+        "readability": {
+          "status": "not yet supported",
+          "note": "page content (fonts, drawing operators, text) is never interpreted; the Studio proves a consistent document structure, not that every page renders"
+        },
+        "activeContent": {
+          "status": "implemented",
+          "decision": "REJECT (fail closed): never embedded in the Studio or learner viewer, never packaged, the original bytes are never stripped or rewritten",
+          "names": [
+            "/JavaScript",
+            "/JS",
+            "/Launch",
+            "/EmbeddedFile",
+            "/EmbeddedFiles",
+            "/FileAttachment",
+            "/RichMedia",
+            "/XFA",
+            "/AcroForm",
+            "/SubmitForm",
+            "/ImportData",
+            "/GoToR",
+            "/GoToE",
+            "/Rendition",
+            "/Movie",
+            "/Sound",
+            "/3D",
+            "/AA",
+            "/OpenAction (action, not a destination array)"
+          ],
+          "method": "deny list over every PDF name outside raw stream data, with #xx escapes decoded",
+          "limitations": [
+            "a deny list is not a proof of safety: it covers the named PDF features, not every viewer behaviour",
+            "dictionaries inside compressed object streams are invisible to the scan, so such files are refused (UNSUPPORTED_STRUCTURE) instead of trusted",
+            "the browser’s PDF viewer is not relied on to neutralise anything"
+          ]
+        },
+        "encryption": {
+          "status": "implemented",
+          "decision": "REJECT"
+        },
+        "syntheticFixtures": [
+          {
+            "fixture": "header + %%EOF with no document structure",
+            "accepted": false,
+            "reason": "MALFORMED",
+            "activeContent": []
+          },
+          {
+            "fixture": "objects moved away from their recorded offsets",
+            "accepted": false,
+            "reason": "MALFORMED",
+            "activeContent": []
+          },
+          {
+            "fixture": "encrypted",
+            "accepted": false,
+            "reason": "ENCRYPTED",
+            "activeContent": []
+          },
+          {
+            "fixture": "JavaScript open action",
+            "accepted": false,
+            "reason": "ACTIVE_CONTENT",
+            "activeContent": [
+              "/JavaScript",
+              "/JS",
+              "/OpenAction"
+            ]
+          },
+          {
+            "fixture": "#-escaped /JavaScript name",
+            "accepted": false,
+            "reason": "ACTIVE_CONTENT",
+            "activeContent": [
+              "/JavaScript"
+            ]
+          },
+          {
+            "fixture": "embedded file",
+            "accepted": false,
+            "reason": "ACTIVE_CONTENT",
+            "activeContent": [
+              "/EmbeddedFile"
+            ]
+          },
+          {
+            "fixture": "compressed object stream",
+            "accepted": false,
+            "reason": "UNSUPPORTED_STRUCTURE",
+            "activeContent": []
+          },
+          {
+            "fixture": "safe synthetic PDF",
+            "accepted": true,
+            "reason": null,
+            "activeContent": []
+          }
+        ]
       },
       "rights": "an uploaded file is never assumed redistributable: rights stay NOT_DOCUMENTED until a human documents the basis, and no real textbook excerpt is committed or published"
     },
@@ -223,6 +359,24 @@
     ],
     "allIdentical": true
   },
+  "previewTruth": {
+    "status": "implemented",
+    "rule": "a draft is recorded as previewed only with evidence of what the preview drew: for a textbook excerpt, the learner renderer drew the accepted PDF whose checksum the draft records; a rejected, missing or replaced file shows no viewer and records no preview. Entering the preview screen is not a preview. Any edit changes the revision, so preview and check are required again."
+  },
+  "candidateIntegrity": {
+    "status": "implemented",
+    "check": "npm run studio:check -- <file> (writes nothing; fails closed)",
+    "proves": [
+      "candidateRevision equals the hash of the candidate body",
+      "draftRevision equals the revision recomputed from the draft inside the candidate",
+      "draft.validation.revision and draft.preview.viewedRevision equal that draftRevision (checked and previewed for this exact draft)",
+      "validation status and findings equal a fresh validation of the draft (excerpt: in any environment; lab: with the repository registry and canonical profile)",
+      "textbook: exactly one file whose name, size and checksum equal the draft record and whose bytes pass the PDF inspection again",
+      "textbook: source-intake entry and excerpt record equal the ones recomputed from the draft",
+      "lab: derived lab facts (preview state, operations, completion scope, gaps, profile) equal a fresh re-analysis in the repository; without that context the check fails closed",
+      "human gates, consumers and apply boundary equal the fixed frame; no gate or review preset"
+    ]
+  },
   "publishApplyBoundary": {
     "studioAction": "Nashrga tayyorlash (a deterministic publish candidate download)",
     "oneClickPublish": "not yet supported",
@@ -239,8 +393,8 @@
   "localization": {
     "locale": "uz-Latn",
     "catalog": "content-src/studio/content-studio.uz-latn.json",
-    "labels": 133,
-    "usedKeys": 116,
+    "labels": 137,
+    "usedKeys": 119,
     "dynamicKeyFamilies": [
       "studio.blocker",
       "studio.severity",
@@ -253,9 +407,9 @@
   "bundleImpact": {
     "studio": {
       "modules": 70,
-      "moduleBytes": 471238,
+      "moduleBytes": 485958,
       "studioOnlyModules": 9,
-      "studioOnlyBytes": 71743,
+      "studioOnlyBytes": 86463,
       "sharedLearnerModules": 61
     },
     "learner": "reports/guided-dynamic-lab-readiness.json#bundleDelta.phases[\"P2.12\"]"

@@ -117,6 +117,15 @@ export function validateInstruction(draft:LabInstructionPayload,target:{learning
   return out;
 }
 
+/** The lab facts a publish candidate carries for its reviewers — recomputed by `studio:check` from the repository. */
+export function labDerived(draft:LabInstructionPayload,registry:CapabilityRegistry,canonical:TopicLabProfile|null):Record<string,unknown>{
+  const pv=previewProfile(draft,canonical);
+  return {previewState:pv.state,operations:analyzeInstruction(draft,registry).map(o=>({step:o.step,verb:o.verb,resolution:o.resolution})),completionScope:pv.profile?pv.profile.completionScope:null,profileGaps:pv.profile?pv.profile.gaps.map(g=>g.code):[],profileId:pv.profile?.profileId??null};
+}
+export function labFindings(draft:LabInstructionPayload,target:{learningUnitId:string|null},registry:CapabilityRegistry,canonical:TopicLabProfile|null):StudioFinding[]{
+  return validateInstruction(draft,target,analyzeInstruction(draft,registry),previewProfile(draft,canonical));
+}
+
 /** P2.12 round trip: an existing canonical instruction passed through the Studio must derive the same operations,
  *  trial scope, capability resolution, completion scope and gaps — and the same chemistry under the same actions. */
 export interface RoundTripResult {

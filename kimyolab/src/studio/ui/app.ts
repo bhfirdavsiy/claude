@@ -13,9 +13,9 @@ import type {StudentPracticePageModel} from '../../features/practice/model.ts';
 import type {TopicLabProfile} from '../../domain/lab/topic-lab-profile.ts';
 import {buildCapabilityRegistry} from '../../domain/lab/capability-registry.ts';
 import {CONTENT_ROLES} from '../content-roles.ts';
-import {attachPdf,emptyExcerpt,validateExcerpt,type ExcerptPayload,type StudioFinding} from '../pdf-excerpt.ts';
-import {analyzeInstruction,emptyInstruction,instructionFromLegacy,previewProfile,stepsFromText,validateInstruction,type LabInstructionPayload} from '../lab-instruction.ts';
-import {createDraft,markPreviewed,withValidation,type StudioDraft} from '../draft.ts';
+import {attachPdf,emptyExcerpt,validateExcerpt,type ExcerptPayload,type PdfRejection,type StudioFinding} from '../pdf-excerpt.ts';
+import {analyzeInstruction,emptyInstruction,instructionFromLegacy,labDerived,labFindings,previewProfile,stepsFromText,type LabInstructionPayload} from '../lab-instruction.ts';
+import {createDraft,markPreviewed,withValidation,type PreviewEvidence,type StudioDraft} from '../draft.ts';
 import {buildPublishCandidate,serializeCandidate} from '../publish-candidate.ts';
 import type {StudioData} from '../studio-data.ts';
 
@@ -28,6 +28,7 @@ export interface StudioEnvironment { createObjectUrl(bytes:Uint8Array,type:strin
 
 type Role='TEXTBOOK_EXCERPT'|'LAB_INSTRUCTION';
 const STAGES=['studio.stage.choose','studio.stage.fill','studio.stage.preview','studio.stage.check','studio.stage.prepare'] as const;
+const PDF_REJECTION_MESSAGE:Partial<Record<PdfRejection,string>>={TOO_LARGE:'studio.excerpt.file-too-large',ENCRYPTED:'studio.excerpt.file-encrypted',ACTIVE_CONTENT:'studio.excerpt.file-active',MALFORMED:'studio.excerpt.file-structure',UNSUPPORTED_STRUCTURE:'studio.excerpt.file-unsupported'};
 const UNCOVERED_REASON:Record<string,string>={AMBIGUOUS_OR_UNMAPPED:'studio.reason.ambiguous',NOT_OFFERED:'studio.reason.not-offered',NOT_OFFERED_FOR_THIS_TRIAL:'studio.reason.not-offered-trial',LEARNER_RESPONSE_NOT_OFFERED:'studio.reason.learner-response',OBSERVATION_NOT_PRODUCED:'studio.reason.observation'};
 const FIELD_ID:Record<string,string>={topic:'studio-topic',title:'studio-x-title','source-title':'studio-x-source-title','source-authority':'studio-x-source-authority','source-year':'studio-x-year','page-from':'studio-x-page-from',file:'studio-x-file',rights:'studio-x-rights',steps:'studio-lab-steps'};
 
@@ -37,7 +38,7 @@ export function renderContentStudio(root:HTMLElement,data:StudioData,content:Stu
   const registry=buildCapabilityRegistry(data.registryData);
 
   let stage=0, grade:number|null=null, luId:string|null=null, role:Role|null=null;
-  let draft:StudioDraft|null=null, pdfBytes:Uint8Array|null=null, pdfUrl:string|null=null, candidateUrl:string|null=null;
+  let draft:StudioDraft|null=null, pdfBytes:Uint8Array|null=null, pdfSha:string|null=null, pdfUrl:string|null=null, candidateUrl:string|null=null;
   let previewMode:'desktop'|'mobile'='desktop';
   let canonical:{page:StudentPracticePageModel;profile:TopicLabProfile|null}|null=null;
   const unit=()=>data.units.find(u=>u.id===luId)??null;
@@ -106,9 +107,11 @@ export function renderContentStudio(root:HTMLElement,data:StudioData,content:Stu
     form.append(field('studio-grade',s('studio.grade'),gradeSel,{required:true}),field('studio-topic',s('studio.topic'),topicSel,{required:true}),roleFs,el('p',{className:'kl-field__hint',text:s('studio.roles-later',{list:later})}),alert,buttons(false,s('studio.next'),()=>{}));
     screen.append(form);
   }
+  /** forget the current PDF: revoke its viewer address so a rejected or replaced file can never be shown */
+  function dropPdf(){ if(pdfUrl){ env.revokeObjectUrl(pdfUrl); pdfUrl=null; } pdfBytes=null; pdfSha=null; }
   function startDraft(){
     if(draft&&draft.role===role&&draft.target.learningUnitId===luId) return;
-    if(pdfUrl){ env.revokeObjectUrl(pdfUrl); pdfUrl=null; } pdfBytes=null; canonical=null;
+    dropPdf(); canonical=null;
     draft=role==='TEXTBOOK_EXCERPT'?createDraft('TEXTBOOK_EXCERPT',{kind:'TEXTBOOK_EXCERPT',excerpt:emptyExcerpt()},luId):createDraft('LAB_INSTRUCTION',{kind:'LAB_INSTRUCTION',instruction:emptyInstruction()},luId);
   }
 
@@ -131,10 +134,11 @@ export function renderContentStudio(root:HTMLElement,data:StudioData,content:Stu
       const f=file.files?.[0]; if(!f) return;
       const bytes=new Uint8Array(await f.arrayBuffer());
       const r=attachPdf(collect(),f.name,bytes);
-      if(!r.inspection.ok){ status.textContent=s(r.inspection.reason==='TOO_LARGE'?'studio.excerpt.file-too-large':r.inspection.reason==='ENCRYPTED'?'studio.excerpt.file-encrypted':'studio.excerpt.file-bad'); file.setAttribute('aria-invalid','true'); pdfBytes=null; update(r.payload); return; }
+      // a rejected file is dropped entirely (fail closed): no viewer address, no bytes, nothing in the draft
+      if(!r.inspection.ok){ dropPdf(); status.textContent=s(PDF_REJECTION_MESSAGE[r.inspection.reason!]??'studio.excerpt.file-bad'); file.setAttribute('aria-invalid','true'); update(r.payload); return; }
       file.removeAttribute('aria-invalid');
-      if(pdfUrl) env.revokeObjectUrl(pdfUrl);
-      pdfBytes=bytes; pdfUrl=env.createObjectUrl(bytes,'application/pdf');
+      dropPdf();
+      pdfBytes=bytes; pdfSha=r.inspection.sha256; pdfUrl=env.createObjectUrl(bytes,'application/pdf');
       update(r.payload);
       status.textContent=s('studio.excerpt.file-ok',{name:r.payload.file!.safeName,kb:Math.max(1,Math.round(bytes.length/1024))});
     });
@@ -210,9 +214,11 @@ export function renderContentStudio(root:HTMLElement,data:StudioData,content:Stu
     const learner=el('div',{className:'kl-studio__learner'}); frame.append(learner);
     screen.append(modeFs);
     const notes=el('div',{className:'kl-studio__notes'});
+    let shown:PreviewEvidence={kind:'NOTHING_SHOWN'};
     if(draft!.payload.kind==='TEXTBOOK_EXCERPT'){
       const x=draft!.payload.excerpt;
-      if(x.file&&pdfUrl) renderTextbookExcerpt(learner,{title:x.title,source:x.source,pageRange:x.pageRange,file:{name:x.file.safeName,bytes:x.file.bytes}},{fileUrl:pdfUrl,localize:learnerLocalize});
+      // only the accepted file the draft records is drawn; anything else shows no viewer and counts as no preview
+      if(x.file&&pdfUrl&&pdfSha===x.file.sha256&&!x.file.activeContent.length){ renderTextbookExcerpt(learner,{title:x.title,source:x.source,pageRange:x.pageRange,file:{name:x.file.safeName,bytes:x.file.bytes}},{fileUrl:pdfUrl,localize:learnerLocalize}); shown={kind:'EXCERPT_PDF_SHOWN',sha256:pdfSha}; }
       else learner.append(el('p',{text:s('studio.preview.excerpt-empty')}));
       screen.append(frame);
     }else{
@@ -231,16 +237,16 @@ export function renderContentStudio(root:HTMLElement,data:StudioData,content:Stu
       const ol=el('ol',{attrs:{'data-studio-analysis':''}});
       x.steps.forEach((text,i)=>{ const li=el('li'); li.append(el('p',{className:'kl-studio__step-text',text})); const mine=ops.filter(o=>o.step===i); const ul=el('ul'); if(!mine.length) ul.append(el('li',{text:s('studio.preview.no-operations')})); for(const o of mine) ul.append(el('li',{text:`«${o.verb}» — ${s(o.messageKey)}`,attrs:{'data-severity':o.severity}})); li.append(ul); ol.append(li); });
       analysis.append(ol); screen.append(analysis);
+      shown={kind:'LAB_PREVIEW_SHOWN'};
     }
-    draft=markPreviewed(draft!);
+    draft=markPreviewed(draft!,shown);
     const {form}=formWithAlert(()=>go(3)); form.append(buttons(true,s('studio.next'),()=>{})); screen.append(form);
   }
 
   // ---------------------------------------------------------------- 4. Tekshir
   function findings():StudioFinding[]{
     if(draft!.payload.kind==='TEXTBOOK_EXCERPT') return validateExcerpt(draft!.payload.excerpt,draft!.target);
-    const x=draft!.payload.instruction; const ops=analyzeInstruction(x,registry); const pv=previewProfile(x,canonical?.profile??null);
-    return validateInstruction(x,draft!.target,ops,pv);
+    return labFindings(draft!.payload.instruction,draft!.target,registry,canonical?.profile??null);
   }
   function drawCheck(){
     screen.append(title('studio.stage.check'));
@@ -271,8 +277,8 @@ export function renderContentStudio(root:HTMLElement,data:StudioData,content:Stu
     const out=el('div',{attrs:{role:'status','aria-live':'polite','data-studio-prepare-result':''}});
     const {form}=formWithAlert(()=>{
       clear(out);
-      const labDerived=draft!.payload.kind==='LAB_INSTRUCTION'?(()=>{ const x=draft!.payload.instruction; const pv=previewProfile(x,canonical?.profile??null); return {previewState:pv.state,operations:analyzeInstruction(x,registry).map(o=>({step:o.step,verb:o.verb,resolution:o.resolution})),completionScope:pv.profile?pv.profile.completionScope:null,profileGaps:pv.profile?pv.profile.gaps.map(g=>g.code):[],profileId:pv.profile?.profileId??null}; })():undefined;
-      const r=buildPublishCandidate(draft!,{...(pdfBytes?{pdf:pdfBytes}:{}),...(labDerived?{labDerived}:{})});
+      const derived=draft!.payload.kind==='LAB_INSTRUCTION'?labDerived(draft!.payload.instruction,registry,canonical?.profile??null):undefined;
+      const r=buildPublishCandidate(draft!,{...(pdfBytes?{pdf:pdfBytes}:{}),...(derived?{labDerived:derived}:{})});
       if(!r.candidate){ out.append(el('p',{text:s('studio.prepare.blocked')})); const ul=el('ul',{attrs:{'data-studio-blockers':''}}); for(const b of r.blockers) ul.append(el('li',{text:s(`studio.blocker.${b}`)})); out.append(ul); return; }
       if(candidateUrl) env.revokeObjectUrl(candidateUrl);
       candidateUrl=env.createObjectUrl(new TextEncoder().encode(serializeCandidate(r.candidate)),'application/json');

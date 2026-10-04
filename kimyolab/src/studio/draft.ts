@@ -44,7 +44,24 @@ export function draftRevision(d:StudioDraft):string{
 export function withValidation(d:StudioDraft,findings:StudioFinding[]):StudioDraft{
   return {...d,validation:{status:overallStatus(findings),findings,revision:draftRevision(d)}};
 }
-export function markPreviewed(d:StudioDraft):StudioDraft{ return {...d,preview:{viewedRevision:draftRevision(d)}}; }
+/** What the preview screen actually showed. A textbook excerpt counts as previewed only when the learner renderer
+ *  drew the accepted PDF whose checksum the draft records; entering the screen is not a preview. */
+export type PreviewEvidence=
+  | {kind:'EXCERPT_PDF_SHOWN';sha256:string}
+  | {kind:'LAB_PREVIEW_SHOWN'}
+  | {kind:'NOTHING_SHOWN'};
+
+export function previewEvidenceValid(d:StudioDraft,e:PreviewEvidence):boolean{
+  if(d.payload.kind==='TEXTBOOK_EXCERPT'){
+    const f=d.payload.excerpt.file;
+    return e.kind==='EXCERPT_PDF_SHOWN'&&!!f&&f.activeContent.length===0&&f.sha256===e.sha256;
+  }
+  return e.kind==='LAB_PREVIEW_SHOWN';
+}
+/** Records the preview for THIS revision only when the evidence holds; otherwise the draft is NOT previewed. */
+export function markPreviewed(d:StudioDraft,e:PreviewEvidence):StudioDraft{
+  return {...d,preview:{viewedRevision:previewEvidenceValid(d,e)?draftRevision(d):null}};
+}
 
 /** What still stands between this draft and a publish candidate (internal codes; the UI shows Uzbek text). */
 export function packageBlockers(d:StudioDraft):string[]{
