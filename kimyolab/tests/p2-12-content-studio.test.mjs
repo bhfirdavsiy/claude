@@ -7,7 +7,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {CONTENT_ROLES,mayParseInstruction} from '../src/studio/content-roles.ts';
-import {attachPdf,emptyExcerpt,inspectPdf,sanitizeFileName,validateExcerpt,overallStatus,excerptRecord,MAX_EXCERPT_BYTES} from '../src/studio/pdf-excerpt.ts';
+import {attachPdf,emptyExcerpt,inspectPdf,sanitizeFileName,validateExcerpt,overallStatus,excerptRecord,MAX_EXCERPT_BYTES,PAGE_TREE_LIMITS} from '../src/studio/pdf-excerpt.ts';
 import {labDerived,labFindings} from '../src/studio/lab-instruction.ts';
 import {analyzeInstruction,instructionFromLegacy,previewProfile,stepsFromText,validateInstruction,emptyInstruction} from '../src/studio/lab-instruction.ts';
 import {createDraft,draftRevision,markPreviewed,withValidation,packageBlockers} from '../src/studio/draft.ts';
@@ -267,12 +267,13 @@ test('P2.12 closeout — PDF acceptance: envelope, structure, encryption, active
   assert.equal(inspectPdf(syntheticPdf(undefined,{extraObjects:['<< /Type /ObjStm /N 0 /First 0 /Length 0 >>\nstream\n\nendstream']})).reason,'UNSUPPORTED_STRUCTURE');
   assert.equal(inspectPdf(xrefStreamPdf()).reason,'UNSUPPORTED_STRUCTURE');
   // 5. the safe synthetic PDF still passes, with its proven structure
-  const ok=inspectPdf(syntheticPdf()); assert.equal(ok.ok,true); assert.deepEqual(ok.structure,{crossReferenceSections:1,objects:5});
+  // (page-tree proof) the structure now also reports the reachable /Page leaves and the walked tree depth
+  const ok=inspectPdf(syntheticPdf()); assert.equal(ok.ok,true); assert.deepEqual(ok.structure,{crossReferenceSections:1,objects:5,pageLeaves:1,pageTreeDepth:2});
   // an incremental update (/Prev chain) is followed
   const base=txt, xrefAt=Number(/startxref\n(\d+)/.exec(base)[1]);
   const upd=`${base}6 0 obj\n<< /Producer (synthetic update) >>\nendobj\n`; const off6=upd.length-`6 0 obj\n<< /Producer (synthetic update) >>\nendobj\n`.length;
   const inc=`${upd}xref\n6 1\n${String(off6).padStart(10,'0')} 00000 n \ntrailer\n<< /Size 7 /Root 1 0 R /Prev ${xrefAt} >>\nstartxref\n${upd.length}\n%%EOF\n`;
-  assert.deepEqual(inspectPdf(enc(inc)).structure,{crossReferenceSections:2,objects:6});
+  assert.deepEqual(inspectPdf(enc(inc)).structure,{crossReferenceSections:2,objects:6,pageLeaves:1,pageTreeDepth:2});
 });
 
 test('P2.12 closeout — preview truth: only a drawn, accepted PDF is a preview; edit → preview again → check again',()=>{
@@ -387,4 +388,48 @@ test('P2.12 closeout — lab candidate: re-analysed from the repository by studi
   assert.ok(verifyPublishCandidate(reseal(t2),ctx).includes('DRAFT_REVISION_MISMATCH'));
   const t3=JSON.parse(serializeCandidate(c)); t3.draft.validation.status='READY'; t3.draft.validation.findings=[];
   assert.deepEqual(verifyPublishCandidate(reseal(t3),ctx),['VALIDATION_RESULT_MISMATCH']);
+});
+
+test('P2.12 PDF structure proof — the page tree reachable from the catalog is walked; at least one /Page leaf',()=>{
+  const S=(replace,extraObjects=[])=>inspectPdf(syntheticPdf(undefined,{replace,extraObjects}));
+  const PAGE=(parent)=>`<< /Type /Page /Parent ${parent} 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>`;
+  const rejected=(r,reason='MALFORMED')=>{ assert.equal(r.ok,false); assert.equal(r.reason,reason); assert.equal(r.structure,null); };
+  // 1. a /Kids entry that points to no object
+  rejected(S({2:'<< /Type /Pages /Kids [999 0 R] /Count 1 >>'}));
+  // 2. children that are neither /Page nor /Pages (with a correct /Parent, so only the type decides), or untyped
+  rejected(S({2:'<< /Type /Pages /Kids [6 0 R] /Count 1 >>'},['<< /Type /Font /Parent 2 0 R /Subtype /Type1 /BaseFont /Helvetica >>']));
+  rejected(S({2:'<< /Type /Pages /Kids [6 0 R] /Count 1 >>'},['<< /Parent 2 0 R >>']));
+  rejected(S({2:'<< /Type /Pages /Kids [5 0 R] /Count 1 >>'}));
+  // an inline /Type /Page inside a nested dictionary is not the node's own type
+  rejected(S({2:'<< /Type /Pages /Kids [6 0 R] /Count 1 >>'},['<< /Parent 2 0 R /Info << /Type /Page >> >>']));
+  // non-reference entries in /Kids, a missing /Kids, a wrong /Parent, a non-/Pages root
+  rejected(S({2:'<< /Type /Pages /Kids [3 0 R 7] /Count 1 >>'}));
+  rejected(S({2:'<< /Type /Pages /Count 1 >>'}));
+  rejected(S({3:PAGE(9)}));
+  rejected(S({1:'<< /Type /Catalog /Pages 3 0 R >>'}));
+  // 3. cycles and shared nodes
+  rejected(S({2:'<< /Type /Pages /Kids [6 0 R] /Count 1 >>'},['<< /Type /Pages /Parent 2 0 R /Kids [2 0 R] /Count 1 >>']));
+  rejected(S({2:'<< /Type /Pages /Kids [6 0 R] /Count 1 >>'},['<< /Type /Pages /Parent 2 0 R /Kids [6 0 R] /Count 1 >>']));
+  rejected(S({2:'<< /Type /Pages /Kids [3 0 R 3 0 R] /Count 2 >>'}));
+  // 4. nested /Pages → /Pages → /Page is walked and accepted
+  const nested=S({2:'<< /Type /Pages /Kids [6 0 R] /Count 1 >>',3:PAGE(6)},['<< /Type /Pages /Parent 2 0 R /Kids [3 0 R] /Count 1 >>']);
+  assert.equal(nested.ok,true); assert.deepEqual(nested.structure,{crossReferenceSections:1,objects:6,pageLeaves:1,pageTreeDepth:3});
+  // 5. /Count > 0 with no reachable /Page leaf; /Count different from the reached leaves
+  rejected(S({2:'<< /Type /Pages /Kids [] /Count 1 >>'}));
+  rejected(S({2:'<< /Type /Pages /Kids [6 0 R] /Count 1 >>'},['<< /Type /Pages /Parent 2 0 R /Kids [] /Count 1 >>']));
+  rejected(S({2:'<< /Type /Pages /Kids [3 0 R] /Count 2 >>'}));
+  // limits: deeper than maxDepth, or more than maxNodes nodes → refused with its own reason
+  const chain=[]; const depth=PAGE_TREE_LIMITS.maxDepth+2;
+  for(let i=0;i<depth;i++){ const num=6+i, parent=i===0?2:num-1; chain.push(i===depth-1?`<< /Type /Pages /Parent ${parent} 0 R /Kids [3 0 R] /Count 1 >>`:`<< /Type /Pages /Parent ${parent} 0 R /Kids [${num+1} 0 R] /Count 1 >>`); }
+  rejected(S({2:'<< /Type /Pages /Kids [6 0 R] /Count 1 >>',3:PAGE(6+depth-1)},chain),'PAGE_TREE_LIMIT');
+  const wide=Array.from({length:PAGE_TREE_LIMITS.maxNodes},()=>'<< /Type /Page /Parent 2 0 R >>');
+  rejected(S({2:`<< /Type /Pages /Kids [3 0 R ${wide.map((_,i)=>`${6+i} 0 R`).join(' ')}] /Count ${wide.length+1} >>`},wide),'PAGE_TREE_LIMIT');
+  // 6. the safe synthetic PDF passes
+  assert.deepEqual(inspectPdf(syntheticPdf()).structure,{crossReferenceSections:1,objects:5,pageLeaves:1,pageTreeDepth:2});
+  // 8. the earlier rejections do not regress
+  assert.equal(inspectPdf(syntheticPdf(undefined,{catalogExtra:'/OpenAction << /S /JavaScript /JS (x) >>'})).reason,'ACTIVE_CONTENT');
+  assert.equal(inspectPdf(enc(new TextDecoder().decode(syntheticPdf()).replace('/Root 1 0 R','/Root 1 0 R /Encrypt 9 0 R'))).reason,'ENCRYPTED');
+  assert.equal(inspectPdf(syntheticPdf(undefined,{extraObjects:['<< /Type /ObjStm /N 0 /First 0 /Length 0 >>\nstream\n\nendstream']})).reason,'UNSUPPORTED_STRUCTURE');
+  assert.equal(inspectPdf(xrefStreamPdf()).reason,'UNSUPPORTED_STRUCTURE');
+  assert.equal(inspectPdf(enc('%PDF-1.4\n%%EOF\n')).reason,'MALFORMED');
 });

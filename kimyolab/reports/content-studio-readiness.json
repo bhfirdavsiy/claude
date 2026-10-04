@@ -128,7 +128,7 @@
           "status": "implemented"
         },
         {
-          "step": "PDF structure (classic cross-reference table and /Prev chain, every object at its offset, catalog → page tree with ≥ 1 page); anything else refused",
+          "step": "PDF structure (classic cross-reference table and /Prev chain, every object at its offset; the page tree reachable from the catalog is walked and at least one /Page leaf is confirmed); anything else refused",
           "status": "implemented"
         },
         {
@@ -163,7 +163,9 @@
           "version": "1.4",
           "structure": {
             "crossReferenceSections": 1,
-            "objects": 5
+            "objects": 5,
+            "pageLeaves": 1,
+            "pageTreeDepth": 2
           },
           "activeContent": []
         },
@@ -189,11 +191,31 @@
           "checks": [
             "startxref → classic cross-reference table (incremental /Prev chain followed)",
             "every in-use object starts at its recorded offset with its own number and generation",
-            "trailer /Root → /Catalog → /Pages tree with /Kids and /Count ≥ 1"
+            "trailer /Root → /Catalog → /Pages"
           ],
           "refused": [
             "header + %%EOF without valid structure (MALFORMED)",
             "cross-reference streams and hybrid files (UNSUPPORTED_STRUCTURE)"
+          ]
+        },
+        "pageTree": {
+          "status": "implemented",
+          "proven": "the page tree reachable from the catalog is walked and at least one /Page leaf is confirmed",
+          "checks": [
+            "the tree is walked from the catalog /Pages reference; the root node’s own (top-level) /Type is /Pages",
+            "every /Kids entry is an indirect reference to an existing in-use object; anything else in /Kids is MALFORMED",
+            "every child’s own top-level /Type is /Page or /Pages (a /Type inside a nested dictionary does not count), and its /Parent references the node that lists it",
+            "/Pages children are walked recursively; a node reached twice (cycle or shared node) is MALFORMED",
+            "/Count semantics: each /Pages node’s /Count equals the number of /Page leaves reached beneath it",
+            "at least one reachable /Page leaf, otherwise MALFORMED"
+          ],
+          "limits": {
+            "maxDepth": 32,
+            "maxNodes": 10000,
+            "onExceed": "PAGE_TREE_LIMIT (refused, fail closed)"
+          },
+          "notProven": [
+            "page objects are not opened beyond /Type, /Parent, /Kids and /Count: no /MediaBox, /Resources or /Contents check, no inherited attributes"
           ]
         },
         "readability": {
@@ -279,6 +301,36 @@
             "activeContent": [
               "/EmbeddedFile"
             ]
+          },
+          {
+            "fixture": "/Kids entry pointing to no object",
+            "accepted": false,
+            "reason": "MALFORMED",
+            "activeContent": []
+          },
+          {
+            "fixture": "/Kids child that is neither /Page nor /Pages",
+            "accepted": false,
+            "reason": "MALFORMED",
+            "activeContent": []
+          },
+          {
+            "fixture": "cyclic page tree",
+            "accepted": false,
+            "reason": "MALFORMED",
+            "activeContent": []
+          },
+          {
+            "fixture": "/Count 1 but no reachable /Page leaf",
+            "accepted": false,
+            "reason": "MALFORMED",
+            "activeContent": []
+          },
+          {
+            "fixture": "nested /Pages → /Pages → /Page",
+            "accepted": true,
+            "reason": null,
+            "activeContent": []
           },
           {
             "fixture": "compressed object stream",
@@ -407,9 +459,9 @@
   "bundleImpact": {
     "studio": {
       "modules": 70,
-      "moduleBytes": 485958,
+      "moduleBytes": 489506,
       "studioOnlyModules": 9,
-      "studioOnlyBytes": 86463,
+      "studioOnlyBytes": 90011,
       "sharedLearnerModules": 61
     },
     "learner": "reports/guided-dynamic-lab-readiness.json#bundleDelta.phases[\"P2.12\"]"

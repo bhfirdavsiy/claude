@@ -28,7 +28,7 @@ export interface StudioEnvironment { createObjectUrl(bytes:Uint8Array,type:strin
 
 type Role='TEXTBOOK_EXCERPT'|'LAB_INSTRUCTION';
 const STAGES=['studio.stage.choose','studio.stage.fill','studio.stage.preview','studio.stage.check','studio.stage.prepare'] as const;
-const PDF_REJECTION_MESSAGE:Partial<Record<PdfRejection,string>>={TOO_LARGE:'studio.excerpt.file-too-large',ENCRYPTED:'studio.excerpt.file-encrypted',ACTIVE_CONTENT:'studio.excerpt.file-active',MALFORMED:'studio.excerpt.file-structure',UNSUPPORTED_STRUCTURE:'studio.excerpt.file-unsupported'};
+const PDF_REJECTION_MESSAGE:Partial<Record<PdfRejection,string>>={TOO_LARGE:'studio.excerpt.file-too-large',ENCRYPTED:'studio.excerpt.file-encrypted',ACTIVE_CONTENT:'studio.excerpt.file-active',MALFORMED:'studio.excerpt.file-structure',UNSUPPORTED_STRUCTURE:'studio.excerpt.file-unsupported',PAGE_TREE_LIMIT:'studio.excerpt.file-unsupported'};
 const UNCOVERED_REASON:Record<string,string>={AMBIGUOUS_OR_UNMAPPED:'studio.reason.ambiguous',NOT_OFFERED:'studio.reason.not-offered',NOT_OFFERED_FOR_THIS_TRIAL:'studio.reason.not-offered-trial',LEARNER_RESPONSE_NOT_OFFERED:'studio.reason.learner-response',OBSERVATION_NOT_PRODUCED:'studio.reason.observation'};
 const FIELD_ID:Record<string,string>={topic:'studio-topic',title:'studio-x-title','source-title':'studio-x-source-title','source-authority':'studio-x-source-authority','source-year':'studio-x-year','page-from':'studio-x-page-from',file:'studio-x-file',rights:'studio-x-rights',steps:'studio-lab-steps'};
 

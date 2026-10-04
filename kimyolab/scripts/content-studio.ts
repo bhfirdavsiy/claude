@@ -8,7 +8,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {CONTENT_ROLES} from '../src/studio/content-roles.ts';
-import {ACTIVE_PDF_NAMES,attachPdf,emptyExcerpt,inspectPdf,validateExcerpt,overallStatus} from '../src/studio/pdf-excerpt.ts';
+import {ACTIVE_PDF_NAMES,PAGE_TREE_LIMITS,attachPdf,emptyExcerpt,inspectPdf,validateExcerpt,overallStatus} from '../src/studio/pdf-excerpt.ts';
 import {instructionFromLegacy,labRoundTrip,analyzeInstruction} from '../src/studio/lab-instruction.ts';
 import {verifyPublishCandidate,type LabCheckContext} from '../src/studio/publish-candidate.ts';
 import {compileTopicLabProfiles} from './lib/topic-lab-profiles.ts';
@@ -79,12 +79,26 @@ function pdfSafety(){
     ['JavaScript open action',syntheticPdf(undefined,{catalogExtra:'/OpenAction << /S /JavaScript /JS (x) >>'})],
     ['#-escaped /JavaScript name',syntheticPdf(undefined,{catalogExtra:'/Names << /J#61vaScript 6 0 R >>',extraObjects:['<< >>']})],
     ['embedded file',syntheticPdf(undefined,{extraObjects:['<< /Type /EmbeddedFile /Length 0 >>\nstream\n\nendstream']})],
+    ['/Kids entry pointing to no object',syntheticPdf(undefined,{replace:{2:'<< /Type /Pages /Kids [999 0 R] /Count 1 >>'}})],
+    ['/Kids child that is neither /Page nor /Pages',syntheticPdf(undefined,{replace:{2:'<< /Type /Pages /Kids [6 0 R] /Count 1 >>'},extraObjects:['<< /Type /Font /Parent 2 0 R /Subtype /Type1 /BaseFont /Helvetica >>']})],
+    ['cyclic page tree',syntheticPdf(undefined,{replace:{2:'<< /Type /Pages /Kids [6 0 R] /Count 1 >>'},extraObjects:['<< /Type /Pages /Parent 2 0 R /Kids [2 0 R] /Count 1 >>']})],
+    ['/Count 1 but no reachable /Page leaf',syntheticPdf(undefined,{replace:{2:'<< /Type /Pages /Kids [] /Count 1 >>'}})],
+    ['nested /Pages → /Pages → /Page',syntheticPdf(undefined,{replace:{2:'<< /Type /Pages /Kids [6 0 R] /Count 1 >>',3:'<< /Type /Page /Parent 6 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>'},extraObjects:['<< /Type /Pages /Parent 2 0 R /Kids [3 0 R] /Count 1 >>']})],
     ['compressed object stream',syntheticPdf(undefined,{extraObjects:['<< /Type /ObjStm /N 0 /First 0 /Length 0 >>\nstream\n\nendstream']})],
     ['safe synthetic PDF',syntheticPdf()],
   ];
   return {
     envelope:{status:'implemented',checks:['%PDF-x.y at byte 0','%%EOF in the last 1024 bytes','at most 20 MB','non-empty']},
-    structure:{status:'implemented',checks:['startxref → classic cross-reference table (incremental /Prev chain followed)','every in-use object starts at its recorded offset with its own number and generation','trailer /Root → /Catalog → /Pages tree with /Kids and /Count ≥ 1'],refused:['header + %%EOF without valid structure (MALFORMED)','cross-reference streams and hybrid files (UNSUPPORTED_STRUCTURE)']},
+    structure:{status:'implemented',checks:['startxref → classic cross-reference table (incremental /Prev chain followed)','every in-use object starts at its recorded offset with its own number and generation','trailer /Root → /Catalog → /Pages'],refused:['header + %%EOF without valid structure (MALFORMED)','cross-reference streams and hybrid files (UNSUPPORTED_STRUCTURE)']},
+    pageTree:{status:'implemented',proven:'the page tree reachable from the catalog is walked and at least one /Page leaf is confirmed',checks:[
+      'the tree is walked from the catalog /Pages reference; the root node’s own (top-level) /Type is /Pages',
+      'every /Kids entry is an indirect reference to an existing in-use object; anything else in /Kids is MALFORMED',
+      'every child’s own top-level /Type is /Page or /Pages (a /Type inside a nested dictionary does not count), and its /Parent references the node that lists it',
+      '/Pages children are walked recursively; a node reached twice (cycle or shared node) is MALFORMED',
+      '/Count semantics: each /Pages node’s /Count equals the number of /Page leaves reached beneath it',
+      'at least one reachable /Page leaf, otherwise MALFORMED',
+    ],limits:{maxDepth:PAGE_TREE_LIMITS.maxDepth,maxNodes:PAGE_TREE_LIMITS.maxNodes,onExceed:'PAGE_TREE_LIMIT (refused, fail closed)'},
+      notProven:['page objects are not opened beyond /Type, /Parent, /Kids and /Count: no /MediaBox, /Resources or /Contents check, no inherited attributes']},
     readability:{status:'not yet supported',note:'page content (fonts, drawing operators, text) is never interpreted; the Studio proves a consistent document structure, not that every page renders'},
     activeContent:{status:'implemented',decision:'REJECT (fail closed): never embedded in the Studio or learner viewer, never packaged, the original bytes are never stripped or rewritten',names:ACTIVE_PDF_NAMES.map(n=>`/${n}`).concat('/OpenAction (action, not a destination array)'),
       method:'deny list over every PDF name outside raw stream data, with #xx escapes decoded',
@@ -137,7 +151,7 @@ export function buildStudioReadiness(root=ROOT){
           {step:'topic selection by class and topic name',status:'implemented'},
           {step:'upload of a human-cut excerpt (no page detection, cutting, OCR, extraction or mapping)',status:'implemented'},
           {step:'PDF envelope (signature at byte 0, %%EOF), size limit, safe file name, machine checksum',status:'implemented'},
-          {step:'PDF structure (classic cross-reference table and /Prev chain, every object at its offset, catalog → page tree with ≥ 1 page); anything else refused',status:'implemented'},
+          {step:'PDF structure (classic cross-reference table and /Prev chain, every object at its offset; the page tree reachable from the catalog is walked and at least one /Page leaf is confirmed); anything else refused',status:'implemented'},
           {step:'encrypted, active/interactive or compressed-storage PDF refused at upload (never shown, never packaged, bytes never rewritten)',status:'implemented'},
           {step:'page content readability (fonts, drawing, text) — not interpreted and not claimed',status:'not yet supported'},
           {step:'learner preview with the learner renderer “Darslikdan o‘qish” (accepted PDF only, loaded on demand); recorded as previewed only when it was drawn',status:'preview only'},

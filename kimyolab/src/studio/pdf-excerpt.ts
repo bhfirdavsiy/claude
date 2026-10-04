@@ -26,7 +26,7 @@ const ascii=(bytes:Uint8Array,from:number,to:number)=>{
   return s;
 };
 
-export type PdfRejection='EMPTY'|'TOO_LARGE'|'NOT_PDF'|'TRUNCATED'|'ENCRYPTED'|'MALFORMED'|'UNSUPPORTED_STRUCTURE'|'ACTIVE_CONTENT';
+export type PdfRejection='EMPTY'|'TOO_LARGE'|'NOT_PDF'|'TRUNCATED'|'ENCRYPTED'|'MALFORMED'|'UNSUPPORTED_STRUCTURE'|'PAGE_TREE_LIMIT'|'ACTIVE_CONTENT';
 
 export interface PdfInspection {
   ok:boolean;
@@ -38,7 +38,7 @@ export interface PdfInspection {
   /** active/interactive content found; any entry rejects the file (fail closed, the bytes are never rewritten) */
   activeContent:string[];
   /** the proven document structure when ok (cross-reference sections, objects at their recorded offsets) */
-  structure:null|{crossReferenceSections:number;objects:number};
+  structure:null|{crossReferenceSections:number;objects:number;pageLeaves:number;pageTreeDepth:number};
 }
 
 /** Names that make a PDF active or interactive: scripts, launches, embedded or attached files, rich media, forms
@@ -68,11 +68,69 @@ function dictEnd(s:string,p:number):number{
   return -1;
 }
 
-type Structure={ok:true;crossReferenceSections:number;objects:number;streamData:Array<[number,number]>}|{ok:false;reason:'MALFORMED'|'UNSUPPORTED_STRUCTURE'};
+type Structure={ok:true;crossReferenceSections:number;objects:number;streamData:Array<[number,number]>;pageLeaves:number;pageTreeDepth:number}|{ok:false;reason:'MALFORMED'|'UNSUPPORTED_STRUCTURE'|'PAGE_TREE_LIMIT'};
+
+/** Fail-closed limits for the page-tree walk (a human-cut excerpt is a few pages; anything beyond is refused). */
+export const PAGE_TREE_LIMITS={maxDepth:32,maxNodes:10000} as const;
+
+/** The top level of a dictionary body: nested `<<…>>` and strings are blanked, so `/Type` inside an inline resource
+ *  dictionary is never mistaken for the node's own `/Type`. Arrays at the top level are kept. */
+function topLevel(dict:string):string{
+  let out='', depth=0;
+  for(let i=0;i<dict.length;i++){
+    const c=dict[i]!;
+    if(c==='<'&&dict[i+1]==='<'){ depth++; if(depth>1) out+='  '; else out+='<<'; i++; continue; }
+    if(c==='>'&&dict[i+1]==='>'){ if(depth>1) out+='  '; else out+='>>'; depth--; i++; continue; }
+    if(c==='('){ let n=1; out+=' '; for(i++;i<dict.length&&n>0;i++){ if(dict[i]==='\\'){ i++; continue; } if(dict[i]==='(') n++; else if(dict[i]===')') n--; } i--; continue; }
+    out+=depth>1?' ':c;
+  }
+  return out;
+}
+
+type Ref={num:number;gen:number};
+type TreeResult={ok:true;leaves:number;depth:number}|{ok:false;reason:'MALFORMED'|'PAGE_TREE_LIMIT'};
+
+/** Walks the page tree that is reachable from the catalog — no page content is read. Every `/Kids` entry must be an
+ *  indirect reference to an existing object whose own `/Type` is `/Page` or `/Pages` and whose `/Parent` is the node
+ *  that lists it; `/Pages` nodes are walked recursively; a node seen twice (a cycle or a shared node) is MALFORMED;
+ *  every `/Pages` node's `/Count` must equal the number of `/Page` leaves reached beneath it; at least one `/Page`
+ *  leaf must be reached. Deeper than `maxDepth` or more than `maxNodes` nodes → PAGE_TREE_LIMIT (fail closed). */
+function walkPageTree(rootRef:Ref,dictOf:(r:Ref)=>string|null):TreeResult{
+  const bad={ok:false as const,reason:'MALFORMED' as const}, limit={ok:false as const,reason:'PAGE_TREE_LIMIT' as const};
+  const seen=new Set<number>(); let nodes=0, maxDepth=0;
+  const typeOf=(d:string)=>/\/Type\s*\/(Pages|Page)(?![^\s\/<>\[\]()%{}])/.exec(d)?.[1]??null;
+  const visit=(ref:Ref,depth:number,parent:Ref|null):number|TreeResult=>{
+    if(depth>PAGE_TREE_LIMITS.maxDepth||++nodes>PAGE_TREE_LIMITS.maxNodes) return limit;
+    if(seen.has(ref.num)) return bad;
+    seen.add(ref.num); maxDepth=Math.max(maxDepth,depth);
+    const d=dictOf(ref); if(d===null) return bad;
+    const type=typeOf(d);
+    if(parent){ const p=/\/Parent\s+(\d+)\s+(\d+)\s+R\b/.exec(d); if(!p||Number(p[1])!==parent.num||Number(p[2])!==parent.gen) return bad; }
+    else if(type!=='Pages') return bad;
+    if(type==='Page') return 1;
+    if(type!=='Pages') return bad;
+    const kids=/\/Kids\s*\[([^\]]*)\]/.exec(d); if(!kids) return bad;
+    const body=kids[1]!.trim();
+    if(body&&!/^(?:\d+\s+\d+\s+R\s*)+$/.test(body)) return bad;
+    let leaves=0;
+    for(const m of body.matchAll(/(\d+)\s+(\d+)\s+R/g)){
+      const r=visit({num:Number(m[1]),gen:Number(m[2])},depth+1,ref);
+      if(typeof r!=='number') return r;
+      leaves+=r;
+    }
+    const count=/\/Count\s+(\d+)/.exec(d);
+    if(!count||Number(count[1])!==leaves) return bad;
+    return leaves;
+  };
+  const r=visit(rootRef,1,null);
+  if(typeof r!=='number') return r;
+  return r>=1?{ok:true,leaves:r,depth:maxDepth}:bad;
+}
 
 /** The structural check (no content interpretation): `startxref` → a classic cross-reference table (following `/Prev`
  *  for incremental updates) → every in-use object really starts at its recorded offset with its own number →
- *  the trailer `/Root` is a `/Catalog` whose `/Pages` is a page tree with at least one page. Cross-reference streams
+ *  the trailer `/Root` is a `/Catalog` whose `/Pages` tree is walked (walkPageTree) to at least one reachable `/Page`
+ *  leaf. No page content is read. Cross-reference streams
  *  and hybrid files are refused (UNSUPPORTED_STRUCTURE): their objects can be compressed, and a compressed object is
  *  invisible to the active-content scan. A header plus `%%EOF` with nothing valid in between is MALFORMED. */
 function checkStructure(s:string):Structure{
@@ -128,19 +186,20 @@ function checkStructure(s:string):Structure{
     const len=/\/Length\s+(\d+)(?!\s+\d+\s+R)/.exec(s.slice(p,d));
     streamData.push([from,len?Math.min(endKw,from+Number(len[1])):endKw]);
   }
+  const ws=/\s*/y;
+  /** the top level of an object's dictionary (nested dictionaries and strings blanked out), or null */
   const dictOf=(ref:{num:number;gen:number})=>{
     const e=entries.get(ref.num); if(!e||!e.inUse||e.gen!==ref.gen) return null;
     at.lastIndex=e.offset; if(!at.exec(s)) return null;
-    const p=s.slice(at.lastIndex).search(/\S/)+at.lastIndex; const end=dictEnd(s,p);
-    return end<0?null:s.slice(p,end);
+    ws.lastIndex=at.lastIndex; ws.exec(s); const p=ws.lastIndex; const end=dictEnd(s,p);
+    return end<0?null:topLevel(s.slice(p,end));
   };
   const catalog=dictOf(root);
   if(!catalog||!/\/Type\s*\/Catalog\b/.test(catalog)) return bad;
   const pr=/\/Pages\s+(\d+)\s+(\d+)\s+R\b/.exec(catalog); if(!pr) return bad;
-  const pages=dictOf({num:Number(pr[1]),gen:Number(pr[2])});
-  const count=pages?/\/Count\s+(\d+)/.exec(pages):null;
-  if(!pages||!/\/Type\s*\/Pages\b/.test(pages)||!/\/Kids\s*\[/.test(pages)||!count||Number(count[1])<1) return bad;
-  return {ok:true,crossReferenceSections:sections,objects,streamData};
+  const tree=walkPageTree({num:Number(pr[1]),gen:Number(pr[2])},dictOf);
+  if(!tree.ok) return tree;
+  return {ok:true,crossReferenceSections:sections,objects,streamData,pageLeaves:tree.leaves,pageTreeDepth:tree.depth};
 }
 
 /** Inspects the bytes only — envelope, encryption, active content, structure. Nothing is executed, rendered,
@@ -172,7 +231,7 @@ export function inspectPdf(bytes:Uint8Array):PdfInspection{
   if(activeContent.length) return no('ACTIVE_CONTENT',{version,activeContent});
   // compressed object storage hides dictionaries from the scan: refused rather than trusted
   if(names.has('ObjStm')||names.has('XRef')) return no('UNSUPPORTED_STRUCTURE',{version});
-  return {...base,ok:true,reason:null,version,structure:{crossReferenceSections:st.crossReferenceSections,objects:st.objects}};
+  return {...base,ok:true,reason:null,version,structure:{crossReferenceSections:st.crossReferenceSections,objects:st.objects,pageLeaves:st.pageLeaves,pageTreeDepth:st.pageTreeDepth}};
 }
 
 /** A safe file name: no directories, no control characters, no leading dots, ASCII only, `.pdf` extension. */

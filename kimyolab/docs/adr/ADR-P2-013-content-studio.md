@@ -69,12 +69,14 @@ Flow: Sinf → Mavzu → Darslik PDF qismini yuklash → Ko‘rish → Tekshiris
   |---|---|---|
   | Envelope | `%PDF-x.y` at byte 0, `%%EOF` in the last KB, not empty, at most 20 MB | `NOT_PDF`, `TRUNCATED`, `EMPTY`, `TOO_LARGE` |
   | Encryption | no `/Encrypt` name anywhere | `ENCRYPTED` |
-  | Structure | `startxref` → a classic cross-reference table (an incremental `/Prev` chain is followed) → every in-use object starts at its recorded offset with its own number and generation → trailer `/Root` is a `/Catalog` whose `/Pages` tree has `/Kids` and `/Count ≥ 1`. A header plus `%%EOF` with nothing valid in between does not pass. | `MALFORMED` |
+  | Structure | `startxref` → a classic cross-reference table (an incremental `/Prev` chain is followed) → every in-use object starts at its recorded offset with its own number and generation → the trailer `/Root` is a `/Catalog` with a `/Pages` reference. A header plus `%%EOF` with nothing valid in between does not pass. | `MALFORMED` |
+  | Page tree | The page tree reachable from the catalog is walked, and at least one `/Page` leaf is confirmed. Each step is checked: (1) every `/Kids` entry is an indirect reference to an existing object; (2) each child's own top-level `/Type` is `/Page` or `/Pages`, and its `/Parent` is the node that lists it; (3) `/Pages` nodes are walked recursively; (4) a node reached twice (cycle or shared node) is refused; (5) each `/Pages` node's `/Count` equals the `/Page` leaves reached beneath it. Limits: depth 32, 10 000 nodes. | `MALFORMED`; over a limit: `PAGE_TREE_LIMIT` |
   | Compressed storage | cross-reference streams, hybrid files and object streams are refused: a dictionary inside a compressed object stream is invisible to the active-content scan | `UNSUPPORTED_STRUCTURE` |
   | Active / interactive content | a deny list over every PDF name outside raw stream data, with `#xx` escapes decoded: `/JavaScript /JS /Launch /EmbeddedFile(s) /FileAttachment /RichMedia /XFA /AcroForm /SubmitForm /ImportData /GoToR /GoToE /Rendition /Movie /Sound /3D /AA`, plus an `/OpenAction` that is an action rather than a destination array | `ACTIVE_CONTENT` |
 
 - **What is not claimed:**
   - Page content (fonts, drawing operators, text) is never interpreted, so the Studio does not claim that every page renders. Readability of page content is `not yet supported`.
+  - Page objects are read only for `/Type`, `/Parent`, `/Kids` and `/Count`. `/MediaBox`, `/Resources`, `/Contents` and inherited attributes are not checked.
   - The deny list is not a proof of safety. It covers the named PDF features, not every viewer behaviour. That is why anything the scan cannot see is refused, and why the browser's PDF viewer is never relied on to neutralise anything.
 - **Author-facing result:** a refused file gets a plain Uzbek reason. For example, an active file must be replaced with a simple, static PDF; a broken one must be saved again from the original document. The previous file, if any, is dropped too.
 - **Safe file name:** no directory, no control characters, ASCII, `.pdf`.
