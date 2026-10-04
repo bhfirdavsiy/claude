@@ -121,7 +121,7 @@
     "milestone": "P0-INTEGRITY"
   },
   "whereWeAreNow": {
-    "milestone": "P2.11",
+    "milestone": "P2.12",
     "foundationPercent": 100,
     "learningProductPercent": 12.189,
     "facts": [
@@ -154,11 +154,12 @@
     "P2.7",
     "P2.8",
     "P2.9",
-    "P2.10"
+    "P2.10",
+    "P2.11"
   ],
-  "currentMilestone": "P2.11 — instruction-driven runtime expansion & capability registry",
+  "currentMilestone": "P2.12 — Content Studio MVP & canonical authoring pipeline",
   "nextMilestones": [
-    "P2.12+ — assessment / model-based / localization / governance expansion",
+    "P2.13+ — assessment / model-based / localization / governance expansion",
     "human review round (workbench): chemistry A–C queues, lu.9.15 assessment",
     "release decisions for the 27 pending activities"
   ],

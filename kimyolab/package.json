@@ -138,7 +138,11 @@
     "deploy:readiness": "node scripts/installation-readiness.ts",
     "ci:environment": "node scripts/ci-environment.mjs",
     "feedback:semantics": "node --no-warnings scripts/learner-feedback-semantics.ts",
-    "lab:inventory": "node --no-warnings scripts/guided-dynamic-lab.ts"
+    "lab:inventory": "node --no-warnings scripts/guided-dynamic-lab.ts",
+    "studio:build": "node --no-warnings scripts/build-content-studio.ts",
+    "studio:serve": "node scripts/serve-content-studio.mjs",
+    "studio:check": "node --no-warnings scripts/content-studio.ts check",
+    "studio:report": "node --no-warnings scripts/content-studio.ts"
   },
   "devDependencies": {
     "@playwright/test": "1.56.1",

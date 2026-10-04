@@ -2,6 +2,9 @@
 // `?ff=a,b`). Nothing is persisted, no account or profile is involved, and an unknown name enables nothing.
 export const FEATURE_FLAGS={
   guidedDynamicLabV1:{default:false,enable:'?ff=guidedDynamicLabV1',description:'Guided dynamic lab vertical slices at /dynamic-lab/<activityId>; the existing practice runtime is unchanged.'},
+  /** P2.12: the Content Studio is a SEPARATE build (dist-studio/, never deployed with the learner app); this flag only
+   *  gates the Studio's own entry page. It is not authentication: the Studio is an internal tool for a local machine. */
+  contentStudioV1:{default:false,enable:'?ff=contentStudioV1',description:'Content Studio MVP (separate build: npm run studio:build / studio:serve); not part of the learner deployment.'},
 }         ;
                                                    
 

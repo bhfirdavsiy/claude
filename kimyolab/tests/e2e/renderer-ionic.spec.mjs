@@ -31,11 +31,16 @@ async function chooseReagent(page, card, slot, speciesId) {
   for (let i = 0; i < 12; i += 1) {
     const current = await select.inputValue();
     if (current === speciesId) return;
+    // P2.12: after a mix the card re-renders and the <select> can lose focus between the Tab and the arrow key, so the
+    // key went to the page and nothing moved (P2.12 verify, the "different pair" test). Keyboard focus is re-established
+    // with Tab (never by clicking or programmatic selection) before every press.
+    if (!(await select.evaluate((el) => el === document.activeElement))) await tabTo(page, select);
     await page.keyboard.press(values.indexOf(speciesId) > values.indexOf(current) ? 'ArrowDown' : 'ArrowUp');
     // P2.11: was a bare loop. On a slow CI runner (pull request #27, verify on 5d9566d) the value was read again before
     // the arrow key had moved the selection, so the next press overshot the target and the loop ran out. Each press now
-    // waits for the selection to move; the keyboard path and the expected reagents are unchanged.
-    await expect.poll(() => select.inputValue()).not.toBe(current);
+    // waits for the selection to move (a press that moved nothing is retried by the loop); the keyboard path and the
+    // expected reagents are unchanged.
+    await expect.poll(() => select.inputValue(), {timeout: 2000}).not.toBe(current).catch(() => {});
   }
   throw new Error(`reagent not reachable with the keyboard: ${speciesId}`);
 }

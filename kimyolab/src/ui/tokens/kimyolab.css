@@ -173,3 +173,5 @@
 .kl-dlab__action-list,.kl-dlab__other ul{list-style:none;padding:0;display:grid;gap:.6rem}.kl-dlab__action-list li{display:grid;gap:.25rem}.kl-dlab__category{font-size:.9rem}.kl-dlab__action-list .kl-button,.kl-dlab__other .kl-button{width:100%;min-height:48px;white-space:normal;text-align:left}
 .kl-dlab__params select,.kl-dlab__params input{min-height:48px;width:100%;padding:.6rem .8rem;border:1px solid var(--kl-border,#cfdeed);border-radius:var(--kl-radius-sm,10px);font:inherit;background:#fff}.kl-dlab__observations{padding-left:1.4rem}.kl-dlab__guidance label{display:flex;gap:.5rem;align-items:center;min-height:44px}.kl-dlab__result[data-status=rejected],.kl-dlab__result[data-status=unsupported]{border-left:4px solid #9a3412}
 @media(min-width:900px){.kl-dlab{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.kl-dlab__flow{grid-column:1/-1}}
+/* P2.12 Darslikdan o‘qish (textbook excerpt) */
+.kl-excerpt__meta{display:grid;grid-template-columns:max-content 1fr;gap:.25rem 1rem}.kl-excerpt__meta dt{font-weight:700}.kl-excerpt__meta dd{margin:0}.kl-excerpt object{width:100%;min-height:24rem}@media (max-width:480px){.kl-excerpt__meta{grid-template-columns:1fr}}

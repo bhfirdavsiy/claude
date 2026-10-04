@@ -89,6 +89,7 @@ dist-deploy/kimyolab/assets/…               →  https://<host>/kimyolab/asset
 - **Manifest:** keep `dist-deploy/kimyolab.manifest.json` with your release records. It lists every file with its sha256.
 - **Artefact facts:** file count, total size, tree sha256 and content version are in `reports/deployment-artifacts.json`.
 - **Do not edit the artefact.** Any change after the build fails the preflight with `DEPLOY_CHECKSUM_MISMATCH`.
+- **Never upload the Content Studio.** The Studio (P2.12, ADR-P2-013) is a separate build (`npm run studio:build` → `dist-studio/`) for authors working on their own machine (`npm run studio:serve`, 127.0.0.1 only). It is not part of `dist-deploy/`, it has no authentication, and it must not be put on a public server.
 
 ### Content version and content revision
 
