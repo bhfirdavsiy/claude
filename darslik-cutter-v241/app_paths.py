@@ -7,6 +7,8 @@ APP_NAME = "DarslikCutter"
 def app_data_dir() -> Path:
     if sys.platform.startswith("win"):
         base = Path(os.getenv("LOCALAPPDATA") or (Path.home() / "AppData" / "Local"))
+    elif sys.platform == "darwin":
+        base = Path.home() / "Library" / "Application Support"
     else:
         base = Path(os.getenv("XDG_DATA_HOME") or (Path.home() / ".local" / "share"))
     p = base / APP_NAME
