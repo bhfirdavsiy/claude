@@ -2,13 +2,13 @@
   "schema": "kimyolab.element-relationship-coverage.v1",
   "phase": "P2.13",
   "decision": "NOT_A_RELEASE_OR_PILOT_DECISION",
-  "semantics": "Element → Substance → Reaction → Lab → Topic, only from canonical records: formula-derived PARTICIPATES (formula parser), explicit mappings (lab profile shelf, guided-step reaction map, mapping links) and authored relations. No keyword matching, no inference. PARTICIPATES is never promoted to PRIMARY.",
+  "semantics": "Element → Substance → Reaction → Lab → Topic, only from canonical records: formula-derived PARTICIPATES (formula parser), explicit mappings (lab profile shelf, guided-step reaction map, mapping links) and human-reviewed authored relations. No keyword matching, no inference. PARTICIPATES is never promoted to PRIMARY; an unreviewed authored relation is never shown or counted as reviewed.",
   "elementsWith": {
     "substances": 19,
     "reactions": 18,
     "labs": 16,
     "topics": 16,
-    "primary": 0
+    "reviewedPrimary": 0
   },
   "totals": {
     "substances": 78,
@@ -18,7 +18,13 @@
   },
   "formulaDerived": 261,
   "explicit": 154,
-  "authored": 0,
+  "authoredReviewedShown": 0,
+  "authoredClaims": {
+    "total": 0,
+    "effectiveReviewed": 0,
+    "notReviewed": 0,
+    "contract": "targetType ∈ SUBSTANCE | REACTION | TOPIC | LAB, targetId exists in that canonical registry, registry source ids; reviewed on the exact hash (chemistry role: substance / reaction; didactic role: topic / lab)"
+  },
   "byKindAndProvenance": {
     "labs:PARTICIPATES:EXPLICIT_MAPPING": 68,
     "reactions:PARTICIPATES:DERIVED_FROM_FORMULA": 101,

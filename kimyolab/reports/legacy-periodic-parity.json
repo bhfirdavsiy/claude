@@ -2,9 +2,11 @@
   "schema": "kimyolab.legacy-periodic-parity.v1",
   "phase": "P2.13",
   "decision": "NOT_A_RELEASE_OR_PILOT_DECISION",
-  "semantics": "V19 periodic table (periodic.html + js/periodic.js + data/elements.json) against V20. Statuses: CANONICAL_MATCH (the repository proves the same value), DISPLAY_ONLY (a display position used as a field), SOURCE_REQUIRED (no source in the repository), CONFLICT (contradicts the canonical value), NOT_USED. A legacy value is never accepted as canonical.",
+  "semantics": "V19 periodic table (periodic.html + js/periodic.js + data/elements.json) against V20. Statuses: CANONICAL_MATCH (equals canonical identity — code), REVIEWED_MATCH (equals a human-reviewed, sourced value), UNREVIEWED_MATCH (equals an unreviewed derivation or catalog — not scientific evidence), DISPLAY_ONLY (a display position used as a field), SOURCE_REQUIRED (nothing in the repository to compare with), CONFLICT, NOT_USED. A legacy value is never accepted as canonical.",
   "statuses": [
     "CANONICAL_MATCH",
+    "REVIEWED_MATCH",
+    "UNREVIEWED_MATCH",
     "DISPLAY_ONLY",
     "SOURCE_REQUIRED",
     "CONFLICT",
@@ -19,27 +21,35 @@
     "elements": 118,
     "identity": {
       "CANONICAL_MATCH": 118,
+      "REVIEWED_MATCH": 0,
+      "UNREVIEWED_MATCH": 0,
       "DISPLAY_ONLY": 0,
       "SOURCE_REQUIRED": 0,
       "CONFLICT": 0,
       "NOT_USED": 0
     },
     "name": {
-      "CANONICAL_MATCH": 20,
+      "CANONICAL_MATCH": 0,
+      "REVIEWED_MATCH": 0,
+      "UNREVIEWED_MATCH": 20,
       "DISPLAY_ONLY": 0,
       "SOURCE_REQUIRED": 98,
       "CONFLICT": 0,
       "NOT_USED": 0
     },
     "period": {
-      "CANONICAL_MATCH": 90,
+      "CANONICAL_MATCH": 0,
+      "REVIEWED_MATCH": 0,
+      "UNREVIEWED_MATCH": 90,
       "DISPLAY_ONLY": 28,
       "SOURCE_REQUIRED": 0,
       "CONFLICT": 0,
       "NOT_USED": 0
     },
     "group": {
-      "CANONICAL_MATCH": 88,
+      "CANONICAL_MATCH": 0,
+      "REVIEWED_MATCH": 0,
+      "UNREVIEWED_MATCH": 88,
       "DISPLAY_ONLY": 28,
       "SOURCE_REQUIRED": 2,
       "CONFLICT": 0,
@@ -47,6 +57,8 @@
     },
     "mass": {
       "CANONICAL_MATCH": 0,
+      "REVIEWED_MATCH": 0,
+      "UNREVIEWED_MATCH": 0,
       "DISPLAY_ONLY": 0,
       "SOURCE_REQUIRED": 118,
       "CONFLICT": 0,
@@ -54,209 +66,239 @@
     },
     "category": {
       "CANONICAL_MATCH": 0,
+      "REVIEWED_MATCH": 0,
+      "UNREVIEWED_MATCH": 0,
       "DISPLAY_ONLY": 0,
       "SOURCE_REQUIRED": 118,
       "CONFLICT": 0,
       "NOT_USED": 0
     }
   },
-  "scientificConflicts": 0,
+  "comparisons": {
+    "identityConflicts": 0,
+    "layoutDifferences": 0,
+    "againstReviewedScientificData": {
+      "compared": 0,
+      "matches": 0,
+      "conflicts": 0,
+      "note": "no scientific field is human-reviewed yet, so nothing legacy states has been checked against reviewed data"
+    },
+    "againstUnreviewedDerivations": {
+      "compared": 178,
+      "matches": 178,
+      "conflicts": 0,
+      "note": "agreement with an unreviewed layout rule is not scientific evidence"
+    },
+    "againstUnreviewedCatalog": {
+      "field": "name",
+      "matches": 20,
+      "conflicts": 0
+    },
+    "displayOnly": 56,
+    "notAssessable": {
+      "fields": 336,
+      "mass": 118,
+      "category": 118,
+      "name": 98,
+      "fBlockGroup": 2
+    }
+  },
   "conflictRows": [],
   "displayOnly": [
     {
       "z": 58,
       "symbol": "Ce",
       "legacyPeriod": 8,
-      "chemicalPeriod": 6,
+      "layoutRow": 6,
       "legacyGroup": 4
     },
     {
       "z": 59,
       "symbol": "Pr",
       "legacyPeriod": 8,
-      "chemicalPeriod": 6,
+      "layoutRow": 6,
       "legacyGroup": 5
     },
     {
       "z": 60,
       "symbol": "Nd",
       "legacyPeriod": 8,
-      "chemicalPeriod": 6,
+      "layoutRow": 6,
       "legacyGroup": 6
     },
     {
       "z": 61,
       "symbol": "Pm",
       "legacyPeriod": 8,
-      "chemicalPeriod": 6,
+      "layoutRow": 6,
       "legacyGroup": 7
     },
     {
       "z": 62,
       "symbol": "Sm",
       "legacyPeriod": 8,
-      "chemicalPeriod": 6,
+      "layoutRow": 6,
       "legacyGroup": 8
     },
     {
       "z": 63,
       "symbol": "Eu",
       "legacyPeriod": 8,
-      "chemicalPeriod": 6,
+      "layoutRow": 6,
       "legacyGroup": 9
     },
     {
       "z": 64,
       "symbol": "Gd",
       "legacyPeriod": 8,
-      "chemicalPeriod": 6,
+      "layoutRow": 6,
       "legacyGroup": 10
     },
     {
       "z": 65,
       "symbol": "Tb",
       "legacyPeriod": 8,
-      "chemicalPeriod": 6,
+      "layoutRow": 6,
       "legacyGroup": 11
     },
     {
       "z": 66,
       "symbol": "Dy",
       "legacyPeriod": 8,
-      "chemicalPeriod": 6,
+      "layoutRow": 6,
       "legacyGroup": 12
     },
     {
       "z": 67,
       "symbol": "Ho",
       "legacyPeriod": 8,
-      "chemicalPeriod": 6,
+      "layoutRow": 6,
       "legacyGroup": 13
     },
     {
       "z": 68,
       "symbol": "Er",
       "legacyPeriod": 8,
-      "chemicalPeriod": 6,
+      "layoutRow": 6,
       "legacyGroup": 14
     },
     {
       "z": 69,
       "symbol": "Tm",
       "legacyPeriod": 8,
-      "chemicalPeriod": 6,
+      "layoutRow": 6,
       "legacyGroup": 15
     },
     {
       "z": 70,
       "symbol": "Yb",
       "legacyPeriod": 8,
-      "chemicalPeriod": 6,
+      "layoutRow": 6,
       "legacyGroup": 16
     },
     {
       "z": 71,
       "symbol": "Lu",
       "legacyPeriod": 8,
-      "chemicalPeriod": 6,
+      "layoutRow": 6,
       "legacyGroup": 17
     },
     {
       "z": 90,
       "symbol": "Th",
       "legacyPeriod": 9,
-      "chemicalPeriod": 7,
+      "layoutRow": 7,
       "legacyGroup": 4
     },
     {
       "z": 91,
       "symbol": "Pa",
       "legacyPeriod": 9,
-      "chemicalPeriod": 7,
+      "layoutRow": 7,
       "legacyGroup": 5
     },
     {
       "z": 92,
       "symbol": "U",
       "legacyPeriod": 9,
-      "chemicalPeriod": 7,
+      "layoutRow": 7,
       "legacyGroup": 6
     },
     {
       "z": 93,
       "symbol": "Np",
       "legacyPeriod": 9,
-      "chemicalPeriod": 7,
+      "layoutRow": 7,
       "legacyGroup": 7
     },
     {
       "z": 94,
       "symbol": "Pu",
       "legacyPeriod": 9,
-      "chemicalPeriod": 7,
+      "layoutRow": 7,
       "legacyGroup": 8
     },
     {
       "z": 95,
       "symbol": "Am",
       "legacyPeriod": 9,
-      "chemicalPeriod": 7,
+      "layoutRow": 7,
       "legacyGroup": 9
     },
     {
       "z": 96,
       "symbol": "Cm",
       "legacyPeriod": 9,
-      "chemicalPeriod": 7,
+      "layoutRow": 7,
       "legacyGroup": 10
     },
     {
       "z": 97,
       "symbol": "Bk",
       "legacyPeriod": 9,
-      "chemicalPeriod": 7,
+      "layoutRow": 7,
       "legacyGroup": 11
     },
     {
       "z": 98,
       "symbol": "Cf",
       "legacyPeriod": 9,
-      "chemicalPeriod": 7,
+      "layoutRow": 7,
       "legacyGroup": 12
     },
     {
       "z": 99,
       "symbol": "Es",
       "legacyPeriod": 9,
-      "chemicalPeriod": 7,
+      "layoutRow": 7,
       "legacyGroup": 13
     },
     {
       "z": 100,
       "symbol": "Fm",
       "legacyPeriod": 9,
-      "chemicalPeriod": 7,
+      "layoutRow": 7,
       "legacyGroup": 14
     },
     {
       "z": 101,
       "symbol": "Md",
       "legacyPeriod": 9,
-      "chemicalPeriod": 7,
+      "layoutRow": 7,
       "legacyGroup": 15
     },
     {
       "z": 102,
       "symbol": "No",
       "legacyPeriod": 9,
-      "chemicalPeriod": 7,
+      "layoutRow": 7,
       "legacyGroup": 16
     },
     {
       "z": 103,
       "symbol": "Lr",
       "legacyPeriod": 9,
-      "chemicalPeriod": 7,
+      "layoutRow": 7,
       "legacyGroup": 17
     }
   ],
@@ -275,9 +317,9 @@
       "v20": "profile with a deep link (/periodic/<symbol>), proven values only, explicit gaps in plain Uzbek"
     },
     {
-      "feature": "mass / category",
+      "feature": "mass / category / period / group",
       "v19": "shown",
-      "v20": "not shown (no repository source) — \"Bu ma’lumot hali tasdiqlangan manbada mavjud emas.\""
+      "v20": "not shown (no reviewed, sourced value) — \"Bu ma’lumot hali tasdiqlangan manbada mavjud emas.\""
     },
     {
       "feature": "names",
@@ -297,7 +339,7 @@
     {
       "feature": "filters / search",
       "v19": "none",
-      "v20": "group, period, category, grade, has topic, has lab; elements in the learner search"
+      "v20": "grade, has topic, has lab; group / period / category disabled with a note until reviewed data exists; elements in the learner search"
     },
     {
       "feature": "keyboard / screen reader",
@@ -311,6 +353,7 @@
     }
   ],
   "sourceProvenanceGaps": {
+    "periodGroupRule": "SOURCE_REQUIRED",
     "mass": 118,
     "category": 118,
     "names": 98,

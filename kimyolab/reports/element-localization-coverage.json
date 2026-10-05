@@ -112,7 +112,9 @@
   "legacyNames": {
     "present": 118,
     "copied": 0,
-    "CANONICAL_MATCH": 20,
+    "CANONICAL_MATCH": 0,
+    "REVIEWED_MATCH": 0,
+    "UNREVIEWED_MATCH": 20,
     "DISPLAY_ONLY": 0,
     "SOURCE_REQUIRED": 98,
     "CONFLICT": 0,
@@ -120,6 +122,6 @@
   },
   "learnerUi": {
     "catalog": "content-src/locales/uz-latn/learner-interaction.json",
-    "keys": 60
+    "keys": 59
   }
 }

@@ -533,7 +533,7 @@
     "ui.periodic-cell-label-unnamed": "Belgisi {symbol}, atom raqami {z}",
     "ui.periodic-f-placeholder": "{from}–{to}",
     "ui.periodic-f-placeholder-label": "Atom raqami {from} dan {to} gacha bo‘lgan elementlar jadval ostidagi alohida qatorda",
-    "ui.periodic-f-rows": "Jadval ostidagi ikki qator: atom raqami 57–71 va 89–103 bo‘lgan elementlar. Bu faqat ko‘rinish joyi; ularning davri o‘zgarmaydi (6 va 7).",
+    "ui.periodic-f-rows": "Jadval ostidagi ikki qatorda atom raqami 57–71 va 89–103 bo‘lgan elementlar turadi. Bu faqat jadvaldagi ko‘rinish joyi.",
     "ui.periodic-filters": "Saralash",
     "ui.periodic-filter-group": "Guruh",
     "ui.periodic-filter-period": "Davr",
@@ -543,7 +543,6 @@
     "ui.periodic-filter-grade-option": "{grade}-sinf",
     "ui.periodic-filter-has-topic": "Mavzusi bor",
     "ui.periodic-filter-has-lab": "Laboratoriyasi bor",
-    "ui.periodic-filter-category-empty": "Elementlar toifasi hali tasdiqlangan manbada yo‘q, shuning uchun bu saralash hozircha ishlamaydi.",
     "ui.periodic-filter-reset": "Saralashni tozalash",
     "ui.periodic-match-count": "Mos elementlar: {n} ta",
     "ui.periodic-match-none": "Bu saralashga mos element yo‘q.",
@@ -567,9 +566,7 @@
     "ui.periodic-group-f-block": "Bu element jadval ostidagi qatorda joylashgan. Unga guruh raqami berish qoidasi hali tasdiqlangan manbada yo‘q.",
     "ui.periodic-config-outside": "Bu element uchun elektron konfiguratsiya hali hisoblanmaydi: model faqat atom raqami 1–36 bo‘lgan elementlar uchun ishlaydi.",
     "ui.periodic-config-known-gap": "Bu element uchun elektron konfiguratsiya ko‘rsatilmaydi: u umumiy to‘ldirish tartibidan farq qilishi mumkin va mutaxassis tekshiruvini kutmoqda.",
-    "ui.periodic-derived-note": "Atom raqamidan aniqlangan; mutaxassis hali ko‘rib chiqmagan.",
     "ui.periodic-computed-note": "Model hisoblagan; mutaxassis hali ko‘rib chiqmagan.",
-    "ui.periodic-sourced-note": "Manba: {sources}",
     "ui.periodic-links": "Bog‘liq o‘quv materiallari",
     "ui.periodic-substances": "Shu element qatnashadigan moddalar",
     "ui.periodic-substances-why": "Moddaning formulasida shu element bor.",
@@ -584,6 +581,8 @@
     "ui.periodic-not-found": "Bunday belgili element yo‘q. Jadvaldan elementni tanlang.",
     "ui.periodic-back": "Davriy jadvalga qaytish",
     "ui.periodic-search-kicker": "Element",
-    "ui.periodic-search-description": "Atom raqami {z}"
+    "ui.periodic-search-description": "Atom raqami {z}",
+    "ui.periodic-reviewed-note": "Manba: {sources}. Mutaxassis tasdiqlagan.",
+    "ui.periodic-filter-unconfirmed": "Guruh, davr yoki toifa ma’lumoti hali tasdiqlangan manbada yo‘q, shuning uchun bu saralashlar hozircha ishlamaydi."
   }
 }

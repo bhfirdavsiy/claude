@@ -41,8 +41,9 @@ for (const name of ['portal', 'standalone']) {
     const profile = page.locator('[data-element-profile=Na]');
     await expect(profile).toBeVisible();
     await expect(profile.locator('h2')).toHaveText('Natriy (Na)');
-    await expect(profile.locator('[data-field=period]')).toContainText('3');
-    await expect(profile.locator('[data-field=group]')).toContainText('1');
+    // P2.13 closeout: period and group are scientific claims without a reviewed source → an honest gap
+    await expect(profile.locator('[data-field=period]')).toHaveText(MISSING);
+    await expect(profile.locator('[data-field=group]')).toHaveText(MISSING);
     await expect(profile.locator('[data-field=config]')).toContainText('1s2 2s2 2p6 3s1');
     await expect(profile.locator('[data-field=mass]')).toHaveText(MISSING);
     await expect(profile.locator('[data-field=category]')).toHaveText(MISSING);
@@ -57,8 +58,8 @@ for (const name of ['portal', 'standalone']) {
   test(`${name}: honest gaps — f-block period, no invented configuration, unknown symbol`, async ({page}) => {
     await hosts[name].open(page, `/periodic/La${FLAG}`);
     const la = page.locator('[data-element-profile=La]');
-    await expect(la.locator('[data-field=period]')).toContainText('6');
-    await expect(la.locator('[data-field=group]')).toContainText('guruh raqami berish qoidasi hali tasdiqlangan manbada yo‘q');
+    await expect(la.locator('[data-field=period]')).toHaveText(MISSING);
+    await expect(la.locator('[data-field=group]')).toHaveText(MISSING);
     await expect(la.locator('[data-field=config]')).toContainText('faqat atom raqami 1–36');
     await expect(la.locator('[data-field=name]')).toContainText('O‘zbekcha nomi hali kiritilmagan');
     await hosts[name].open(page, `/periodic/Cr${FLAG}`);
@@ -97,20 +98,26 @@ test('keyboard: Tab to a cell, Enter opens the profile, Escape closes it and ret
   await expect(page.locator(`${PAGE} [data-symbol=Na]`)).toBeFocused();
 });
 
-test('filters: group and lab filters from the hub; the result is text, not colour only', async ({page}) => {
+// P2.13 closeout changed this test: group / period / category filters need reviewed values; there are none, so they are
+// disabled with a note. The grade, topic and lab filters (from the evidence-derived relations) still work.
+test('filters: unconfirmed filters disabled with a note; lab / grade filters from the hub; result as text', async ({page}) => {
   await hosts.portal.open(page, `/periodic${FLAG}`);
-  await page.locator('#kl-periodic-group').selectOption('17');
-  await expect(page.locator('[data-periodic-status]')).toHaveText('Mos elementlar: 6 ta');
-  await expect(page.locator('[data-periodic-matches] li')).toHaveCount(6);
-  await expect(page.locator('#kl-periodic-category')).toBeDisabled();
-  await expect(page.locator('#kl-periodic-category-note')).toContainText('bu saralash hozircha ishlamaydi');
+  for (const id of ['#kl-periodic-group', '#kl-periodic-period', '#kl-periodic-category']) {
+    await expect(page.locator(id)).toBeDisabled();
+    await expect(page.locator(id)).toHaveAttribute('aria-describedby', 'kl-periodic-unconfirmed-note');
+  }
+  await expect(page.locator('#kl-periodic-unconfirmed-note')).toContainText('bu saralashlar hozircha ishlamaydi');
+  await page.locator('#kl-periodic-grade').selectOption('8');
+  const g8 = await page.locator('[data-periodic-matches] li').count();
+  expect(g8).toBeGreaterThan(0);
+  await expect(page.locator('[data-periodic-status]')).toHaveText(`Mos elementlar: ${g8} ta`);
   await page.locator('#kl-periodic-has-lab').check();
   const n = await page.locator('[data-periodic-matches] li').count();
-  expect(n).toBeGreaterThan(0); expect(n).toBeLessThan(6);
+  expect(n).toBeGreaterThan(0); expect(n).toBeLessThanOrEqual(g8);
   // the filter survives opening a profile
   await page.locator('[data-periodic-matches] a').first().click();
   await expect(page.locator('[data-element-profile]')).toBeVisible();
-  await expect(page.locator('#kl-periodic-group')).toHaveValue('17');
+  await expect(page.locator('#kl-periodic-grade')).toHaveValue('8');
   await page.locator('[data-periodic-reset]').click();
   await expect(page.locator('[data-periodic-status]')).toHaveText('');
 });

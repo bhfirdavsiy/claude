@@ -11,8 +11,8 @@
     },
     {
       "source": "src/domain/chemistry/periodic-layout.ts",
-      "role": "chemical period, IUPAC group (s/p/d), display position — derived from Z; f-block group left open",
-      "status": "DERIVED"
+      "role": "display layout (cell row / column) — UI placement only; as a period / group claim it is the assertion periodic.period-group-rule, unreviewed and unsourced",
+      "status": "LAYOUT_ONLY"
     },
     {
       "source": "src/domain/chemistry/electron-configuration.ts",
@@ -31,15 +31,26 @@
     },
     {
       "source": "content-src/periodic/element-metadata.json",
-      "role": "sourced metadata (mass, category, oxidation states, teaching description)",
+      "role": "authored metadata claims (mass, category, oxidation states, teaching description) with registry source ids; sources for the period/group rule",
       "status": "CANONICAL",
       "entries": 0
     },
     {
       "source": "content-src/periodic/element-relations.json",
-      "role": "authored PRIMARY / RELATED relations",
+      "role": "authored PRIMARY / RELATED relations with typed, existing targets",
       "status": "CANONICAL",
       "relations": 0
+    },
+    {
+      "source": "content-src/periodic/element-reviews.json",
+      "role": "human decision register (hash-bound) — the only source of effective review",
+      "status": "CANONICAL",
+      "records": 0
+    },
+    {
+      "source": "content-src/source-registry.json",
+      "role": "the only source of source titles, categories and acceptance",
+      "status": "CANONICAL"
     },
     {
       "source": "content-src/chemistry/species.json, reactions.json, guided-step-reaction-map.json, topic-lab-profiles.json (compiled), mapping-links.json, learning-units.json",

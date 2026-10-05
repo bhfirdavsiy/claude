@@ -32,31 +32,36 @@
   },
   "coverage": {
     "canonicalIdentity": 118,
-    "metadataSourced": {
-      "chemicalPeriod": 0,
-      "group": 0,
-      "relativeAtomicMass": 0,
-      "category": 0,
-      "electronConfiguration": 0,
-      "oxidationStates": 0,
-      "teachingDescription": 0
+    "sourcedScientificClaims": 0,
+    "effectiveHumanReviewedMetadata": 0,
+    "unreviewedDerivations": {
+      "periodGroupRule": 1,
+      "periodValuesNotShown": 118,
+      "groupValuesNotShown": 88
     },
-    "metadataDerived": {
+    "sourceRequiredGaps": {
       "chemicalPeriod": 118,
-      "group": 88,
-      "relativeAtomicMass": 0,
-      "category": 0,
-      "electronConfiguration": 34,
-      "oxidationStates": 0,
-      "teachingDescription": 0
+      "group": 118,
+      "relativeAtomicMass": 118,
+      "category": 118,
+      "electronConfiguration": 0,
+      "oxidationStates": 118,
+      "teachingDescription": 118
     },
-    "metadataReviewed": 0,
+    "computedEngineFields": 34,
     "localizedNames": 20,
     "reviewedLocalizedNames": 0,
     "formulaDerivedRelations": 261,
-    "explicitRelations": 154,
-    "authoredRelations": 0,
-    "legacyConflicts": 0
+    "explicitMappings": 154,
+    "humanReviewedAuthoredRelations": 0,
+    "legacy": {
+      "identityConflicts": 0,
+      "layoutDifferences": 0,
+      "conflictsAgainstReviewed": 0,
+      "comparedAgainstReviewed": 0,
+      "matchesAgainstUnreviewed": 178,
+      "notAssessable": 336
+    }
   },
   "search": {
     "system": "the existing learner search (src/features/search/model.ts) — no second search",
@@ -82,8 +87,8 @@
   "bundle": {
     "phase": {
       "learnerModules": 4,
-      "learnerModuleBytes": 30585,
-      "standaloneBytes": 185294
+      "learnerModuleBytes": 31692,
+      "standaloneBytes": 175322
     },
     "report": "reports/guided-dynamic-lab-readiness.json#bundleDelta.phases[\"P2.13\"]",
     "note": "the Element Hub is a pack file loaded only on /periodic and on a flagged search"
@@ -106,6 +111,10 @@
     },
     {
       "decision": "review of the 20 localized element names and names for the remaining 98",
+      "status": "human review required"
+    },
+    {
+      "decision": "a registered, human-accepted source for the period / group rule and a chemistry decision on its hash",
       "status": "human review required"
     },
     {

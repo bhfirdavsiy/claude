@@ -7,7 +7,7 @@
                                                                                                                                                      
 export const NO_FILTERS                =Object.freeze({group:null,period:null,category:null,grade:null,hasTopic:false,hasLab:false});
 
-/** a field's value when it is backed by a source, a derivation or an engine; null for a gap */
+/** a field's value when a human-reviewed source or a domain engine backs it; null for a gap */
 export function fieldValue   (f            )       { return f.status==='GAP'?null:f.value; }
 
 export function elementBySymbol(hub           ,symbol       )                { return hub.elements.find(e=>e.symbol===symbol)??null; }
@@ -22,6 +22,9 @@ export function elementGrades(hub           ,e           )         {
 export function availableCategories(hub           )         {
   return [...new Set(hub.elements.map(e=>fieldValue(e.category)).filter((c)            =>c!==null))].sort((a,b)=>a.localeCompare(b,'uz'));
 }
+/** periods / groups that a reviewed source confirms (none while the layout rule is not reviewed) */
+export function availablePeriods(hub           )         { return [...new Set(hub.elements.map(e=>fieldValue(e.period)).filter((v)            =>v!==null))].sort((a,b)=>a-b); }
+export function availableGroups(hub           )         { return [...new Set(hub.elements.map(e=>fieldValue(e.group)).filter((v)            =>v!==null))].sort((a,b)=>a-b); }
 export function availableGrades(hub           )         { return [...new Set(hub.topics.map(t=>t.grade))].sort((a,b)=>a-b); }
 
 export function isFiltered(f                )        { return f.group!==null||f.period!==null||f.category!==null||f.grade!==null||f.hasTopic||f.hasLab; }

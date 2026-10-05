@@ -8,17 +8,19 @@ export const ELEMENT_HUB_SCHEMA='kimyolab.element-hub.v1';
 export const ELEMENT_METADATA_SCHEMA='kimyolab.element-metadata.v1';
 export const ELEMENT_HUB_PACK_PATH='periodic/element-hub.json';
 
-export type GapReason='SOURCE_REQUIRED'|'F_BLOCK_GROUP_CONVENTION'|'OUTSIDE_ENGINE_RANGE'|'ENGINE_KNOWN_GAP';
+export type GapReason='SOURCE_REQUIRED'|'SOURCE_NOT_ELIGIBLE'|'REVIEW_PENDING'|'F_BLOCK_GROUP_CONVENTION'|'OUTSIDE_ENGINE_RANGE'|'ENGINE_KNOWN_GAP';
+/** a registered source, title as the canonical source registry states it */
 export interface SourceRef { id:string; title:string }
+/** What a learner may see. An unreviewed claim never reaches the hub: it is a gap with its reason. */
 export type HubField<T>=
-  /** authored with at least one source reference (content-src/periodic/element-metadata.json) */
-  | {status:'SOURCED';value:T;sourceRefs:SourceRef[];review:'pending'|'approved'}
-  /** derived from the canonical atomic number by a domain rule, or computed by a domain engine; not reviewed */
-  | {status:'DERIVED';value:T;provenance:'DERIVED_FROM_Z'|'ENGINE_COMPUTED';review:'NOT_REVIEWED'}
+  /** a human approved this exact claim (decision register) and an eligible registered source backs it */
+  | {status:'REVIEWED';value:T;sources:SourceRef[]}
+  /** computed by a domain engine inside its proven range (electron configuration) */
+  | {status:'COMPUTED';value:T;provenance:'ENGINE_COMPUTED'}
   | {status:'GAP';reason:GapReason};
 
 export type RelationProvenance='DERIVED_FROM_FORMULA'|'EXPLICIT_MAPPING'|'AUTHORED_RELATION';
-export interface HubRelation { id:string; kind:'PARTICIPATES'|'PRIMARY'|'RELATED'; provenance:RelationProvenance; via:string[] }
+export interface HubRelation { id:string; kind:'PARTICIPATES'|'PRIMARY'|'RELATED'; provenance:RelationProvenance; via:string[]; targetType?:'SUBSTANCE'|'REACTION'|'TOPIC'|'LAB' }
 
 export interface HubElement {
   z:number; symbol:string;

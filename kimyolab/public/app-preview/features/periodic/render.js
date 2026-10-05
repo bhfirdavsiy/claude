@@ -7,7 +7,7 @@ import {el,clear,link} from '../../ui/components/dom.js';
                                                                
 import {createLabeler} from '../practice/form-question.js';
                                                              
-import {availableCategories,availableGrades,elementBySymbol,isFiltered,matchesFilters,NO_FILTERS,                    } from './model.js';
+import {availableCategories,availableGrades,availableGroups,availablePeriods,elementBySymbol,isFiltered,matchesFilters,NO_FILTERS,                    } from './model.js';
 
                                       
                     
@@ -58,18 +58,21 @@ export function renderPeriodicTable(root            ,hub           ,opts        
     if(disabled) s.disabled=true;
     f.append(el('label',{text:label,attrs:{for:id}}),s); row.append(f); return s;
   };
-  const range=(n       )=>Array.from({length:n},(_,i)=>[String(i+1),String(i+1)]                   );
-  const categories=availableCategories(hub);
-  const gSel=select('kl-periodic-group',t.ui('ui.periodic-filter-group'),range(18),filters.group===null?'':String(filters.group));
-  const pSel=select('kl-periodic-period',t.ui('ui.periodic-filter-period'),range(7),filters.period===null?'':String(filters.period));
-  const cSel=select('kl-periodic-category',t.ui('ui.periodic-filter-category'),categories.map(c=>[c,c]                   ),filters.category??'',!categories.length);
-  if(!categories.length){ cSel.setAttribute('aria-describedby','kl-periodic-category-note'); }
+  // group, period and category filters work only on values a human-reviewed source confirms; while there are none
+  // the control is disabled and a note says why (the display layout is never used as a chemical group or period)
+  const categories=availableCategories(hub), groups=availableGroups(hub), periods=availablePeriods(hub);
+  const opt=(xs                           )=>xs.map(x=>[String(x),String(x)]                   );
+  const gSel=select('kl-periodic-group',t.ui('ui.periodic-filter-group'),opt(groups),filters.group===null?'':String(filters.group),!groups.length);
+  const pSel=select('kl-periodic-period',t.ui('ui.periodic-filter-period'),opt(periods),filters.period===null?'':String(filters.period),!periods.length);
+  const cSel=select('kl-periodic-category',t.ui('ui.periodic-filter-category'),opt(categories),filters.category??'',!categories.length);
+  const unconfirmed=[gSel,pSel,cSel].filter(x=>x.disabled);
+  for(const x of unconfirmed) x.setAttribute('aria-describedby','kl-periodic-unconfirmed-note');
   const yrSel=select('kl-periodic-grade',t.ui('ui.periodic-filter-grade'),availableGrades(hub).map(g=>[String(g),t.ui('ui.periodic-filter-grade-option',{grade:g})]                   ),filters.grade===null?'':String(filters.grade));
   const check=(id       ,label       ,value        )=>{ const l=el('label',{className:'kl-periodic__check',attrs:{for:id}}); const c=el('input',{attrs:{type:'checkbox',id,name:id}}); c.checked=value; l.append(c,document.createTextNode(` ${label}`)); row.append(l); return c; };
   const topicChk=check('kl-periodic-has-topic',t.ui('ui.periodic-filter-has-topic'),filters.hasTopic);
   const labChk=check('kl-periodic-has-lab',t.ui('ui.periodic-filter-has-lab'),filters.hasLab);
   form.append(row);
-  if(!categories.length) form.append(el('p',{className:'kl-field__hint',text:t.ui('ui.periodic-filter-category-empty'),attrs:{id:'kl-periodic-category-note'}}));
+  if(unconfirmed.length) form.append(el('p',{className:'kl-field__hint',text:t.ui('ui.periodic-filter-unconfirmed'),attrs:{id:'kl-periodic-unconfirmed-note'}}));
   const actions=el('div',{className:'kl-practice-controls'});
   const reset=el('button',{className:'kl-button kl-button--secondary',text:t.ui('ui.periodic-filter-reset'),attrs:{type:'button','data-periodic-reset':''}});
   const big=el('button',{className:'kl-button kl-button--secondary',text:t.ui('ui.periodic-projector'),attrs:{type:'button','aria-pressed':String(projector),'data-periodic-projector':''}});
@@ -122,7 +125,7 @@ export function renderPeriodicTable(root            ,hub           ,opts        
   const read=()=>{ filters={group:num(gSel.value),period:num(pSel.value),category:cSel.value||null,grade:num(yrSel.value),hasTopic:topicChk.checked,hasLab:labChk.checked}; apply(); };
   for(const c of [gSel,pSel,cSel,yrSel,topicChk,labChk]) c.addEventListener('change',read);
   form.addEventListener('submit',e=>{ e.preventDefault(); read(); });
-  reset.addEventListener('click',()=>{ filters={...NO_FILTERS}; gSel.value=''; pSel.value=''; cSel.value=''; yrSel.value=''; topicChk.checked=false; labChk.checked=false; apply(); gSel.focus(); });
+  reset.addEventListener('click',()=>{ filters={...NO_FILTERS}; gSel.value=''; pSel.value=''; cSel.value=''; yrSel.value=''; topicChk.checked=false; labChk.checked=false; apply(); (unconfirmed.length===3?yrSel:[gSel,pSel,cSel].find(x=>!x.disabled) ).focus(); });
   big.addEventListener('click',()=>{ projector=!projector; page.classList.toggle('kl-periodic-page--projector',projector); big.setAttribute('aria-pressed',String(projector)); });
 
   page.append(head,body); root.append(page);
@@ -155,7 +158,7 @@ function renderProfile(hub           ,e           ,t                            
   const missing=t.ui('ui.periodic-missing');
   const show=    (key       ,f            ,format              ,field       ,gapText                                )=>{
     if(f.status==='GAP'){ row(key,gapText?.[f.reason]??missing,undefined,field); return; }
-    const note=f.status==='SOURCED'?t.ui('ui.periodic-sourced-note',{sources:f.sourceRefs.map(s=>s.title).join('; ')}):f.provenance==='ENGINE_COMPUTED'?t.ui('ui.periodic-computed-note'):t.ui('ui.periodic-derived-note');
+    const note=f.status==='REVIEWED'?t.ui('ui.periodic-reviewed-note',{sources:f.sources.map(s=>s.title).join('; ')}):t.ui('ui.periodic-computed-note');
     row(key,format(f.value),note,field);
   };
   row('ui.periodic-field-name',name??e.symbol,name?undefined:t.ui('ui.periodic-name-missing'),'name');

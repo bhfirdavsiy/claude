@@ -7,7 +7,7 @@ import type {SearchIndexEntry} from '../search/model.ts';
 export interface PeriodicFilters { group:number|null; period:number|null; category:string|null; grade:number|null; hasTopic:boolean; hasLab:boolean }
 export const NO_FILTERS:PeriodicFilters=Object.freeze({group:null,period:null,category:null,grade:null,hasTopic:false,hasLab:false});
 
-/** a field's value when it is backed by a source, a derivation or an engine; null for a gap */
+/** a field's value when a human-reviewed source or a domain engine backs it; null for a gap */
 export function fieldValue<T>(f:HubField<T>):T|null{ return f.status==='GAP'?null:f.value; }
 
 export function elementBySymbol(hub:ElementHub,symbol:string):HubElement|null{ return hub.elements.find(e=>e.symbol===symbol)??null; }
@@ -22,6 +22,9 @@ export function elementGrades(hub:ElementHub,e:HubElement):number[]{
 export function availableCategories(hub:ElementHub):string[]{
   return [...new Set(hub.elements.map(e=>fieldValue(e.category)).filter((c):c is string=>c!==null))].sort((a,b)=>a.localeCompare(b,'uz'));
 }
+/** periods / groups that a reviewed source confirms (none while the layout rule is not reviewed) */
+export function availablePeriods(hub:ElementHub):number[]{ return [...new Set(hub.elements.map(e=>fieldValue(e.period)).filter((v):v is number=>v!==null))].sort((a,b)=>a-b); }
+export function availableGroups(hub:ElementHub):number[]{ return [...new Set(hub.elements.map(e=>fieldValue(e.group)).filter((v):v is number=>v!==null))].sort((a,b)=>a-b); }
 export function availableGrades(hub:ElementHub):number[]{ return [...new Set(hub.topics.map(t=>t.grade))].sort((a,b)=>a-b); }
 
 export function isFiltered(f:PeriodicFilters):boolean{ return f.group!==null||f.period!==null||f.category!==null||f.grade!==null||f.hasTopic||f.hasLab; }

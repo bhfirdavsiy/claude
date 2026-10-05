@@ -17,32 +17,56 @@
 | legacy `periodic.html`, `js/periodic.js` | V19 page and script (category → colour) | `NOT_USED`; the legacy page stays as a fallback; the V20 route does not depend on it |
 | learner search (`src/features/search`) | one index of topics and practice | extended with element entries; no second search |
 
-## 2. Display position ≠ chemical period
+## 2. Display layout ≠ chemical metadata
 
-`src/domain/chemistry/periodic-layout.ts` derives everything from Z:
+`src/domain/chemistry/periodic-layout.ts` places each cell in the 18-column grid:
 
-| Value | How it is derived |
+| Value | Use |
 |---|---|
-| **Chemical period** | from the period-closing atomic numbers (2, 10, 18, 36, 54, 86, 118) |
-| **IUPAC group** | for the s-, p- and d-block, from the 18-column layout. The f-block (Z 57–71, 89–103) gets **no group number**: the La/Lu (Ac/Lr) convention has no reviewed source, so the field is the gap `F_BLOCK_GROUP_CONVENTION` |
-| **Display position** | rows 1–7 hold the main table. Rows 9–10 hold the f-block: La is drawn in row 9 and stays period 6 |
+| **Layout row** (1–7) | the main-table row band of a cell |
+| **Layout column** (1–18) | the main-table column; none for the f-block (Z 57–71, 89–103) |
+| **Display position** | rows 1–7; rows 9–10 for the f-block. A display row is never a period (La is drawn in row 9) |
 
-The legacy f-block rows are reported as `DISPLAY_ONLY` and never become a period.
+The rule (row-closing atomic numbers 2, 10, 18, 36, 54, 86, 118; column filling) is **scientific periodic-table knowledge**. Canonical identity alone (`ELEMENT_SYMBOLS`) does not prove it. P2.13 therefore uses it **only to draw the table**.
+
+**As a chemical period / group** the rule is one compact scientific assertion, `periodic.period-group-rule`. It is hashed over the whole rule (no 118 duplicated rows) and reviewed like any other claim (§3a).
+
+**Closeout decision: Option B (fail closed).** The source registry has no eligible source: 5 sources, all `PROPOSED`, none human-accepted. So:
+- the profile shows period and group as a gap ("Bu ma’lumot hali tasdiqlangan manbada mavjud emas.");
+- the group and period filters are disabled with a note.
+
+Once a registered, acceptable, human-accepted source is cited in `rules.periodGroup` and a chemistry reviewer approves the rule's current hash, the same rule becomes `REVIEWED`: values are shown, and the f-block group stays `F_BLOCK_GROUP_CONVENTION`. Legacy agreement with the unreviewed rule is `UNREVIEWED_MATCH`, never canonical.
 
 ## 3. Element metadata (`kimyolab.element-metadata.v1`)
 
 - **File:** `content-src/periodic/element-metadata.json`, keyed by symbol, with no identity repeated.
-- **Authored fields:** `relativeAtomicMass`, `category`, `oxidationStates`, `teachingDescription`.
-- **Each entry needs:** a typed value, at least one source reference and a review status set by a human. An invalid entry fails the content build.
-- **Current state:** the file is empty, because the repository has no source for these values. Every authored field is the gap `SOURCE_REQUIRED`.
+- **Fields:** `relativeAtomicMass`, `category`, `oxidationStates`, `teachingDescription`. Each is `{value, sourceRefs}`, where `sourceRefs` are **registry ids only**.
+- **Refused:** any other field, including `reviewStatus` and `title`. An unknown source id fails the build.
+- **Period/group sources:** `rules.periodGroup.sourceRefs` holds the sources for the period/group rule (currently none).
+- **Current state:** the file holds no entries. The repository has no source, so every authored field is the gap `SOURCE_REQUIRED`.
 
-The Element Hub states each field as one of three kinds:
+The hub carries only what a learner may see:
 
 | Status | Meaning |
 |---|---|
-| `SOURCED` | authored with sources; review `pending` or `approved` |
-| `DERIVED` | from Z by a domain rule (`DERIVED_FROM_Z`) or computed by a domain engine (`ENGINE_COMPUTED`); `NOT_REVIEWED` |
-| `GAP` | not available; the reason is recorded |
+| `REVIEWED` | effective human approval on the claim's current hash **and** at least one eligible source; the source titles come from the registry |
+| `COMPUTED` | a domain engine inside its proven range (`ENGINE_COMPUTED`, electron configuration) |
+| `GAP` | with a reason: `SOURCE_REQUIRED`, `SOURCE_NOT_ELIGIBLE`, `REVIEW_PENDING`, `F_BLOCK_GROUP_CONVENTION`, `OUTSIDE_ENGINE_RANGE`, `ENGINE_KNOWN_GAP` |
+
+An unreviewed claim never reaches the hub as a value.
+
+## 3a. Scientific provenance and human review (closeout)
+
+`scripts/lib/element-governance.ts` reuses the chemistry knowledge-base pattern (`kb-review.ts`) and the source policy (`source-policy.ts`).
+
+- **Assertions.** Each claim is an assertion with a content hash over what is claimed plus the cited source ids. The assertions are: the period/group rule, each metadata field, each authored relation.
+- **Decision register.** `content-src/periodic/element-reviews.json` (`kimyolab.element-reviews.v1`) records `assertionId`, `assertionHash`, `decision`, `reviewerId`, `reviewerRole`, `reviewedAt` and `comment`. Extra fields are refused.
+- **Effective review.** It is the latest decision in the required role, checked against the **current** hash; an edited claim is `stale`.
+- **Reviewers.** Automation identities (`isAutomationIdentity`) are refused, and tooling never writes a decision.
+  - Chemistry role: scientific claims and substance/reaction relations.
+  - Didactic role: topic/lab relations.
+- **Sources.** Ids must resolve to `content-src/source-registry.json`. Title, category and acceptance come from the registry. *Eligible* means an acceptable category for a chemistry claim **and** `HUMAN_ACCEPTED` through the governed source intake. An `INTERNAL_PROPOSAL` or `PROPOSED` source never unlocks a field.
+- **Current counts:** 0 decisions, 0 effectively reviewed claims. Nothing was invented.
 
 ## 4. Element Hub (`kimyolab.element-hub.v1`)
 
@@ -56,7 +80,7 @@ The hub records these relations, each with its provenance:
 | Element → Reaction | `PARTICIPATES` | `DERIVED_FROM_FORMULA`: the element is in a participant formula |
 | Element → Lab | — | `EXPLICIT_MAPPING`: a substance on the lab's topic-lab-profile shelf, or a reaction in the lab's guided-step reaction map. `via` names the evidence |
 | Lab → Topic | — | `EXPLICIT_MAPPING` through `mapping-links.json`. The grade comes from the topic |
-| `PRIMARY` / `RELATED` | `PRIMARY`, `RELATED` | `AUTHORED_RELATION` only, from `content-src/periodic/element-relations.json` with sources. None is authored yet |
+| `PRIMARY` / `RELATED` | `PRIMARY`, `RELATED` | `AUTHORED_RELATION` only, from `content-src/periodic/element-relations.json`. Each relation has `targetType` ∈ `SUBSTANCE` / `REACTION` / `TOPIC` / `LAB`, a `targetId` that exists in that canonical registry, and registry source ids. It reaches the learner only when effectively reviewed (§3a). None is authored yet |
 
 `PARTICIPATES` is never promoted to `PRIMARY`. No keyword, title or text matching is used, and nothing is inferred.
 
@@ -71,7 +95,7 @@ The hub records these relations, each with its provenance:
 | Table | 118 cells, one per hub element, in Z order. Each cell is a link with a full accessible name: name (where the catalog has one), symbol, Z |
 | f-block | placeholders at group 3 (display only) and an explanatory note |
 | Profile | a non-modal dialog region. Focus goes to its heading; Escape closes it and focus returns to the cell. It shows proven values only. A gap is a natural Uzbek sentence (e.g. "Bu ma’lumot hali tasdiqlangan manbada mavjud emas."). The note under a value says how it is known (derived, computed, or the source). Related substances, reactions, topics and labs come with a one-line reason |
-| Filters | group, period, category, grade, has topic, has lab, all from the hub. The category filter is disabled with a note while no category is sourced. Matches are dimmed and also listed as text links, so colour is never the only signal |
+| Filters | grade, has topic, has lab (from the evidence-derived relations). Group, period and category work only on reviewed values; while there are none they are disabled with a note. Matches are dimmed and also listed as text links, so colour is never the only signal |
 | Search | the existing search gets element entries when the flag is on. Atomic number, symbol and the localized name match exactly and rank first; a part of the name matches as text; an element without a name is found by symbol and Z. Results deep-link to the profile |
 | Layout | from 960 px, an 18-column grid; narrower, the cells wrap in Z order with 48 px targets; a "Katta ko‘rinish" (projector) toggle |
 
@@ -86,10 +110,10 @@ The hub records these relations, each with its provenance:
 | Report | Content |
 |---|---|
 | `periodic-table-inventory` | every source and its role; legacy files `AUDITED` / `NOT_USED`; identity facts |
-| `element-metadata-coverage` | per field: sourced / derived / reviewed / gap with reasons |
+| `element-metadata-coverage` | learner-facing state per field (reviewed shown / computed shown / gap with reason); authored claims (source-eligible, effectively reviewed, pending, stale); the period/group rule (state, hash, unreviewed derivation not shown); computed engine fields |
 | `element-localization-coverage` | canonical identity, localized names, reviewed names, missing symbols, legacy names (not copied) |
-| `element-relationship-coverage` | elements with substances, reactions, labs, topics; formula-derived, explicit and authored counts; unparsed species |
-| `legacy-periodic-parity` | per element and field: `CANONICAL_MATCH`, `DISPLAY_ONLY`, `SOURCE_REQUIRED`, `CONFLICT`, `NOT_USED`; layout and functional differences |
+| `element-relationship-coverage` | elements with substances, reactions, labs, topics; formula-derived and explicit counts; authored claims and how many are effectively reviewed; unparsed species |
+| `legacy-periodic-parity` | per element and field: `CANONICAL_MATCH` (identity only), `REVIEWED_MATCH`, `UNREVIEWED_MATCH`, `DISPLAY_ONLY`, `SOURCE_REQUIRED`, `CONFLICT`, `NOT_USED`. Comparisons are reported separately: identity conflicts, layout differences, against reviewed scientific data, against unreviewed derivations, against the unreviewed catalog, display-only, not assessable |
 | `periodic-table-readiness` | flag, routes, coverage dimensions side by side (never one percentage), search, accessibility, bundle phase, isolation, human decisions, formal metrics |
 
 Formal metrics are unchanged: LP 12.189 %, overall 47.313 %. The periodic table is reference infrastructure, and no formula input changed.

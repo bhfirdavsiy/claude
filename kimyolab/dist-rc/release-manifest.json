@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-10-04T12:54:43.845Z",
+  "createdAt": "2026-10-05T05:32:40.401Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -185,8 +185,8 @@
     {
       "path": "app-preview/domain/chemistry/periodic-layout.js",
       "sourcePath": "public/app-preview/domain/chemistry/periodic-layout.js",
-      "checksum": "e58bf4cef79c08381ca130703b652f95228e0d8916064a3c2c3e23f3659a49a1",
-      "size": 2905
+      "checksum": "b2fc458f82c878615de4da4cc00fd241f354beefd51a374fd92b6695f8d2554a",
+      "size": 2992
     },
     {
       "path": "app-preview/domain/chemistry/periodic-table.js",
@@ -479,20 +479,20 @@
     {
       "path": "app-preview/features/periodic/hub.js",
       "sourcePath": "public/app-preview/features/periodic/hub.js",
-      "checksum": "e15618d8cfc75a0425d820e57a1a2296ddb7f20d8280b178427f909343c7acd8",
-      "size": 3221
+      "checksum": "9cf366c510c242594d0d67fa7a14798559a7d27464df5bb7e5658fc410826718",
+      "size": 3403
     },
     {
       "path": "app-preview/features/periodic/model.js",
       "sourcePath": "public/app-preview/features/periodic/model.js",
-      "checksum": "63ec49455f143901578b4c19af98b24aaf42f69fc271d8b17adf369f76ceca90",
-      "size": 3168
+      "checksum": "db9af7b2e042ab0b95d1429cc9a329d888724845e669c3cde13aa479b0578863",
+      "size": 3619
     },
     {
       "path": "app-preview/features/periodic/render.js",
       "sourcePath": "public/app-preview/features/periodic/render.js",
-      "checksum": "c9249fad05af91d3a4cde37280d9cab75f4d7dd40f69868e252db80cf7369620",
-      "size": 15134
+      "checksum": "1a7c585d448145f9bf7a737b7b210a546b81fc44eecce09dfff99d2be5542945",
+      "size": 15521
     },
     {
       "path": "app-preview/features/practice/answer-domain.js",
@@ -1313,8 +1313,8 @@
     {
       "path": "content/2026.09.1/locales/uz-latn/learner-interaction.json",
       "sourcePath": "public/content/2026.09.1/locales/uz-latn/learner-interaction.json",
-      "checksum": "ada1fbc3aa9982b5918439457ee03c0a931da30bd15544c8a59032cc7e0f9116",
-      "size": 35756
+      "checksum": "f173cb2780fa0459d77dd1a24e2f6b2a56109e01417837b76a9209019f3579ce",
+      "size": 35680
     },
     {
       "path": "content/2026.09.1/locales/uz-latn/name-provenance.json",
@@ -1325,7 +1325,7 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "0ed515731bf24445b7e1b40911c576c4041f71ef0194ea01cc3b98a63ddba6b6",
+      "checksum": "b95cc9690a9e65145e69331e8b5e2d747e081d15aa7b30f64248e6f912231395",
       "size": 8172
     },
     {
@@ -1337,8 +1337,8 @@
     {
       "path": "content/2026.09.1/periodic/element-hub.json",
       "sourcePath": "public/content/2026.09.1/periodic/element-hub.json",
-      "checksum": "af10f4b80070df16bf4ceefff591cb970dc1b774ac96d0c140adeca95019538e",
-      "size": 128595
+      "checksum": "c52b5013f93ae73eb81252f8dbfa175d62409b4ac910c091e2c3ae207f81b471",
+      "size": 119048
     },
     {
       "path": "content/2026.09.1/practice-activities.json",
@@ -1367,7 +1367,7 @@
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "f5d7e6d6d71aa1e4fa051e46ace2b2740e3c4197ed6e3973d2e4587577ff35bb",
+      "checksum": "2ed1a1a58b6f562346ccf2f09952bed1213c39a4640ad7e7dd8c2cbf415fce3e",
       "size": 158
     },
     {

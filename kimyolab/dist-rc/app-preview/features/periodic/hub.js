@@ -8,17 +8,19 @@ export const ELEMENT_HUB_SCHEMA='kimyolab.element-hub.v1';
 export const ELEMENT_METADATA_SCHEMA='kimyolab.element-metadata.v1';
 export const ELEMENT_HUB_PACK_PATH='periodic/element-hub.json';
 
-                                                                                                             
+                                                                                                                                                    
+/** a registered source, title as the canonical source registry states it */
                                                       
+/** What a learner may see. An unreviewed claim never reaches the hub: it is a gap with its reason. */
                         
-                                                                                                 
-                                                                                 
-                                                                                                                
-                                                                                                  
+                                                                                                         
+                                                   
+                                                                                     
+                                                            
                                     
 
                                                                                              
-                                                                                                                                
+                                                                                                                                                                                  
 
                              
                           
