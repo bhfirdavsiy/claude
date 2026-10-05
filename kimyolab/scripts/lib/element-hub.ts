@@ -15,10 +15,9 @@ import path from 'node:path';
 import {ELEMENT_SYMBOLS} from '../../src/domain/chemistry/periodic-table.ts';
 import {displayPosition,isFBlock,layoutColumn,layoutRow,LAYOUT_RULE} from '../../src/domain/chemistry/periodic-layout.ts';
 import {electronConfigurationStatus} from '../../src/domain/chemistry/electron-configuration.ts';
-import {parseFormula} from '../../src/domain/chemistry/formula-parser.ts';
 import {parseSourceRegistry} from '../../src/domain/governance/source-policy.ts';
 import {ELEMENT_HUB_SCHEMA,ELEMENT_METADATA_SCHEMA,type ElementHub,type HubElement,type HubField,type HubRelation,type GapReason} from '../../src/features/periodic/hub.ts';
-import {compileTopicLabProfiles} from './topic-lab-profiles.ts';
+import {deriveChemistryGraph,formulaElements} from './chemistry-graph.ts';
 import {elementAssertion,METADATA_FIELDS,parseElementMetadata,parseElementRelations,parseElementReviews,relationRole,scientificState,type MetadataField,type RelationTargetType,type ScientificState} from './element-governance.ts';
 
 const readJson=(root:string,rel:string)=>JSON.parse(fs.readFileSync(path.join(root,rel),'utf8'));
@@ -32,10 +31,7 @@ export interface HubGovernance {
   relations:Array<{element:string;kind:string;targetType:RelationTargetType;targetId:string;hash:string;state:ScientificState;review:string}>;
 }
 
-/** Elements of a formula by the canonical parser, or null when the text is not a parseable formula. */
-export function formulaElements(formula:string):string[]|null{
-  try{ return Object.keys(parseFormula(formula).atoms).sort(); }catch{ return null; }
-}
+export {formulaElements};
 
 /** `inputs` replaces a governed file with an in-memory document — used only by tests to exercise the governance on
  *  fixtures (the build always reads the repository files). */
@@ -45,37 +41,9 @@ export function buildElementHub(root:string,inputs:HubInputs={}):{hub:ElementHub
   if(issues.length) throw new Error(`SOURCE_REGISTRY_INVALID:${issues.join(',')}`);
   const reviews=parseElementReviews(inputs.reviews??readJson(root,'content-src/periodic/element-reviews.json'));
   const metadata=parseElementMetadata(inputs.metadata??readJson(root,'content-src/periodic/element-metadata.json'),registry);
-  const species=readJson(root,'content-src/chemistry/species.json') as any[];
-  const reactions=readJson(root,'content-src/chemistry/reactions.json') as any[];
-  const stepMap=readJson(root,'content-src/chemistry/guided-step-reaction-map.json') as Record<string,Record<string,string|string[]>>;
-  const activities=readJson(root,'content-src/practice-activities.json') as any[];
-  const mappings=readJson(root,'content-src/mapping-links.json') as any[];
-  const units=readJson(root,'content-src/learning-units.json') as any[];
-  const {profiles}=compileTopicLabProfiles(root);
-
-  // substances: canonical species whose formula the parser reads
-  const unparsedSubstances:string[]=[];
-  const substanceElements=new Map<string,string[]>();
-  for(const s of species){ const els=formulaElements(s.formula); if(els) substanceElements.set(s.id,els); else unparsedSubstances.push(s.id); }
-
-  // reactions: the elements of their participants' formulas
-  const unparsedReactionFormulas:string[]=[];
-  const reactionElements=new Map<string,string[]>();
-  for(const r of reactions){
-    const els=new Set<string>();
-    for(const part of [...r.reactants,...r.products]){
-      const e=formulaElements(part.formula); if(e) e.forEach(x=>els.add(x)); else unparsedReactionFormulas.push(`${r.id}:${part.formula}`);
-    }
-    reactionElements.set(r.id,[...els].sort());
-  }
-
-  // labs: species on a topic lab profile's shelf, reactions in the guided-step reaction map
-  const labSpecies=new Map<string,Set<string>>(), labReactions=new Map<string,Set<string>>();
-  const add=(m:Map<string,Set<string>>,k:string,v:string)=>{ if(!m.has(k)) m.set(k,new Set()); m.get(k)!.add(v); };
-  for(const p of profiles) for(const s of p.substances??[]) if(s.speciesId&&substanceElements.has(s.speciesId)) add(labSpecies,p.activityId,s.speciesId);
-  for(const [activityId,steps] of Object.entries(stepMap)) for(const v of Object.values(steps)) for(const rid of [v].flat()) if(reactionElements.has(rid)) add(labReactions,activityId,rid);
-  const labIds=[...new Set([...labSpecies.keys(),...labReactions.keys()])].filter(id=>activities.some(a=>a.id===id)).sort();
-  const labTopics=new Map(labIds.map(id=>[id,[...new Set(mappings.filter(m=>m.practiceActivityId===id).map(m=>m.learningUnitId))].sort()]));
+  // P2.14: every relation comes from the one canonical chemistry graph (scripts/lib/chemistry-graph.ts)
+  const g=deriveChemistryGraph(root);
+  const {species,reactions,activities,units,substanceElements,reactionElements,unparsedSubstances,unparsedReactionFormulas,labSpecies,labReactions,labIds,labTopics}=g;
   const topicIds=new Set([...labTopics.values()].flat());
 
   // authored relations: closed target types, targets that exist in their canonical registry

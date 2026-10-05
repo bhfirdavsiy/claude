@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-10-05T05:32:40.401Z",
+  "createdAt": "2026-10-05T12:31:24.078Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -11,20 +11,20 @@
     {
       "path": "app-preview/app/bootstrap.js",
       "sourcePath": "public/app-preview/app/bootstrap.js",
-      "checksum": "473221f05b56754a204e0aaca8ba38b8776960cd685367191d6be08656a96549",
-      "size": 12765
+      "checksum": "3740c436a9beeae4b839d1639675f88d1edd70caa04341a6a156a0875d51779d",
+      "size": 16241
     },
     {
       "path": "app-preview/app/content-client.js",
       "sourcePath": "public/app-preview/app/content-client.js",
-      "checksum": "47679b43919c88b417bbbc24a3d4da1b08ce80e03733fdad0523677bd8cc4359",
-      "size": 26443
+      "checksum": "b5729f949f35ae5a169ef24198916e2563766efcd0954767f3b3b5d1ab5a6fe1",
+      "size": 28562
     },
     {
       "path": "app-preview/app/feature-flags.js",
       "sourcePath": "public/app-preview/app/feature-flags.js",
-      "checksum": "4f79271c3c450723b09406f3cbeb848417aa66c3c516fe1bbec999780b66e537",
-      "size": 1518
+      "checksum": "34dc5b8ecc590706201e8fb183ca4352e7b189b70349dcc40720cfc6ec5d7c4c",
+      "size": 2201
     },
     {
       "path": "app-preview/app/host.js",
@@ -35,8 +35,8 @@
     {
       "path": "app-preview/app/routes.js",
       "sourcePath": "public/app-preview/app/routes.js",
-      "checksum": "b892ed0c9af7610f741da58f8f16576819856f01f3f22bea80d7f21ddf3d6fba",
-      "size": 2714
+      "checksum": "26da833420de03180030427b41af2cdd9598c196e191bb67318d6aa42e015862",
+      "size": 3192
     },
     {
       "path": "app-preview/domain/assessment/evaluator.js",
@@ -209,8 +209,8 @@
     {
       "path": "app-preview/domain/chemistry/reaction-matcher.js",
       "sourcePath": "public/app-preview/domain/chemistry/reaction-matcher.js",
-      "checksum": "4c68728ab5835e01afb8db475bb53d220fc9616d1875bf5857929d4d4ca77aca",
-      "size": 7031
+      "checksum": "8650c884c849f381a2b949eecbbe0af6f572f65acfe6a4991f87ea9b64c7a6b1",
+      "size": 9014
     },
     {
       "path": "app-preview/domain/chemistry/redox-balancer.js",
@@ -417,6 +417,30 @@
       "size": 4139
     },
     {
+      "path": "app-preview/features/chemistry-knowledge/explorer-render.js",
+      "sourcePath": "public/app-preview/features/chemistry-knowledge/explorer-render.js",
+      "checksum": "9cc106ac01490c2d4d29f0a81bf438bed11d08fb82a65ae58e99824a90809bd2",
+      "size": 15766
+    },
+    {
+      "path": "app-preview/features/chemistry-knowledge/explorer.js",
+      "sourcePath": "public/app-preview/features/chemistry-knowledge/explorer.js",
+      "checksum": "abe16e28da6dd462e0ee590fdc4abf29fe3c2a313fad71a472bad07dfcd7e798",
+      "size": 11270
+    },
+    {
+      "path": "app-preview/features/chemistry-knowledge/knowledge.js",
+      "sourcePath": "public/app-preview/features/chemistry-knowledge/knowledge.js",
+      "checksum": "400741de38fb27cec9deac12a7af51fada753b48c2af68e86ffa93c753c9a2fd",
+      "size": 6353
+    },
+    {
+      "path": "app-preview/features/chemistry-knowledge/passport.js",
+      "sourcePath": "public/app-preview/features/chemistry-knowledge/passport.js",
+      "checksum": "6ca06900babb8fa4c3b6118c73864bb9ecf173d20efc4deadc60258e2a353e4c",
+      "size": 12125
+    },
+    {
       "path": "app-preview/features/curriculum/render.js",
       "sourcePath": "public/app-preview/features/curriculum/render.js",
       "checksum": "2cd8f83bbf8686039d29dcad6b9d782b074fb68e2661a57fdd168b6342ea9bbb",
@@ -491,8 +515,8 @@
     {
       "path": "app-preview/features/periodic/render.js",
       "sourcePath": "public/app-preview/features/periodic/render.js",
-      "checksum": "1a7c585d448145f9bf7a737b7b210a546b81fc44eecce09dfff99d2be5542945",
-      "size": 15521
+      "checksum": "fd84a30f863b18942517d574a3a01d7af2df04dc079b7cf3b403fad925c406a5",
+      "size": 16007
     },
     {
       "path": "app-preview/features/practice/answer-domain.js",
@@ -569,8 +593,8 @@
     {
       "path": "app-preview/features/search/model.js",
       "sourcePath": "public/app-preview/features/search/model.js",
-      "checksum": "e89326dcf628ed1a02b6986e919d316534cf719d120d36b27709cc8922332852",
-      "size": 1935
+      "checksum": "3d12bb10f4faef67ecc67cff0d83080a2424a34cfcc10eeffda1780cd7a04799",
+      "size": 2095
     },
     {
       "path": "app-preview/features/search/render.js",
@@ -1049,8 +1073,8 @@
     {
       "path": "app-preview/ui/tokens/kimyolab.css",
       "sourcePath": "public/app-preview/ui/tokens/kimyolab.css",
-      "checksum": "cd4eaf169185a8843530d9cce7b4b6a22556d0112bba403999369bcacf9cd684",
-      "size": 39355
+      "checksum": "6ac5908a283650ff7cb1234f7c03723517e3bc912dd4f3723a892ab7d2f97d50",
+      "size": 41846
     },
     {
       "path": "assets/brand/kimyolab-logo.webp",
@@ -1263,6 +1287,12 @@
       "size": 5291
     },
     {
+      "path": "content/2026.09.1/knowledge/chemistry-knowledge.json",
+      "sourcePath": "public/content/2026.09.1/knowledge/chemistry-knowledge.json",
+      "checksum": "ad71bb72708a0e8c134f83729034236d62bb7ec5da120139226d1b6b1984c38b",
+      "size": 69016
+    },
+    {
       "path": "content/2026.09.1/learning-cycle.json",
       "sourcePath": "public/content/2026.09.1/learning-cycle.json",
       "checksum": "0b529a02a10041eec0fa2a752df30151d8f021427a328a35c8804860f81b1f25",
@@ -1313,8 +1343,8 @@
     {
       "path": "content/2026.09.1/locales/uz-latn/learner-interaction.json",
       "sourcePath": "public/content/2026.09.1/locales/uz-latn/learner-interaction.json",
-      "checksum": "f173cb2780fa0459d77dd1a24e2f6b2a56109e01417837b76a9209019f3579ce",
-      "size": 35680
+      "checksum": "0acb71db13bfbf4734d88ec98305192834fdf4b358b74e3140b8dc892ccf0360",
+      "size": 45567
     },
     {
       "path": "content/2026.09.1/locales/uz-latn/name-provenance.json",
@@ -1325,8 +1355,8 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "b95cc9690a9e65145e69331e8b5e2d747e081d15aa7b30f64248e6f912231395",
-      "size": 8172
+      "checksum": "3d999419c70fae78dbbfe54c3c85e7ff3ed86d89a6f08bc3b93b94a7ee66f3a2",
+      "size": 8343
     },
     {
       "path": "content/2026.09.1/mapping-links.json",
@@ -1367,7 +1397,7 @@
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "2ed1a1a58b6f562346ccf2f09952bed1213c39a4640ad7e7dd8c2cbf415fce3e",
+      "checksum": "d432ddb4e6e50418a8f3d0e3a5ca1872cd873827edf5a4954087ab1e0e2c1576",
       "size": 158
     },
     {

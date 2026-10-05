@@ -1,0 +1,51 @@
+{
+  "schema": "kimyolab.chemistry-knowledge-relations.v1",
+  "phase": "P2.14",
+  "decision": "NOT_A_RELEASE_OR_PILOT_DECISION",
+  "semantics": "Every relation of the Element Hub and the knowledge index comes from scripts/lib/chemistry-graph.ts — one graph. No keyword or title matching, no inference; PRIMARY only through an explicit, reviewed authored relation.",
+  "provenance": {
+    "substance": {
+      "elements": "DERIVED_FROM_FORMULA",
+      "reactions": "REACTION_PARTICIPANT",
+      "labs": "EXPLICIT_MAPPING",
+      "topics": "EXPLICIT_MAPPING"
+    },
+    "reaction": {
+      "elements": "DERIVED_FROM_FORMULA",
+      "labs": "EXPLICIT_MAPPING",
+      "topics": "EXPLICIT_MAPPING"
+    }
+  },
+  "counts": {
+    "elementSubstance": {
+      "knowledgeIndex": 160,
+      "elementHub": 160,
+      "consistent": true
+    },
+    "substanceReaction": 104,
+    "reactionLab": 21,
+    "reactionTopic": 34,
+    "substanceLab": {
+      "total": 72,
+      "viaShelf": 16,
+      "viaReaction": 62
+    },
+    "substanceTopic": 113,
+    "primary": 0
+  },
+  "unresolvedParticipants": [
+    {
+      "reactionId": "rxn.agno3-nacl",
+      "formula": "NaCl",
+      "phase": "aq",
+      "reason": "PHASE_NOT_IN_REGISTRY"
+    }
+  ],
+  "unparsedReactionFormulas": [],
+  "navigation": {
+    "elementToSubstance": "Element profile → /substance/<key> (substancePassportV1)",
+    "substanceToElement": "Passport → /periodic/<symbol> (periodicTableV1)",
+    "substanceToReaction": "Passport → /reactions?r=…&c=… (reactionExplorerV1; the explorer runs the matcher)",
+    "elementToReaction": "Element profile → /reactions?… (reactionExplorerV1)"
+  }
+}

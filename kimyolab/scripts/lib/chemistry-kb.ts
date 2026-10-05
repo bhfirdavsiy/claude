@@ -4,7 +4,7 @@
 // review suggestions, never canonical truth.
 import fs from 'node:fs';
 import path from 'node:path';
-import {ReactionMatcher,classifyMatch,isNoReaction,NO_REACTION_TYPE} from '../../src/domain/chemistry/reaction-matcher.ts';
+import {ReactionMatcher,classifyMatch,conditionRequirementFields,isNoReaction,NO_REACTION_TYPE} from '../../src/domain/chemistry/reaction-matcher.ts';
 import {IonicEngine} from '../../src/domain/chemistry/ionic-engine.ts';
 import {SpeciesRegistry} from '../../src/domain/chemistry/species-registry.ts';
 import {parseFormula} from '../../src/domain/chemistry/formula-parser.ts';
@@ -104,7 +104,16 @@ export function buildAssertions(kb:Kb){
     const sources=refIds(r.sourceRefs), acts=usage.reactions(r.id);
     if(isNoReaction(r)) push({id:`no-reaction:${r.id}`,category:'no-reaction',claim:`${r.reactants.map((x:any)=>x.formula).join(' + ')}: reaksiya bormaydi`,data:{reactants:r.reactants,conditions:r.conditions},sourceRefs:sources,affectedActivities:acts,dataReviewStatus:r.reviewStatus??null});
     else push({id:`reaction:${r.id}`,category:'reaction',claim:r.molecularEquation,data:{reactants:r.reactants,products:r.products,reactionType:r.reactionType,direction:r.direction},sourceRefs:sources,affectedActivities:acts,dataReviewStatus:r.reviewStatus??null});
-    if((r.conditions?.tags??[]).length) push({id:`condition:${r.id}`,category:'condition',claim:`${r.id} talab qiladi: ${r.conditions.tags.join(', ')}`,data:{tags:r.conditions.tags,dimensions:dimensionsOf(r.conditions.tags,vocabulary).dimensions},sourceRefs:sources,affectedActivities:acts,dataReviewStatus:null});
+    // P2.14 closeout: the condition claim covers EVERY canonical condition field the record requires (medium, solvent,
+    // catalysts, light, current, temperature, pressure, concentration — not only tags), so changing any of them makes
+    // a decision on the old hash stale. A tag-only record keeps exactly its previous data (and hash).
+    const required=conditionRequirementFields(r.conditions);
+    if(required.length){
+      const {tags:_tags,...rest}=r.conditions??{};
+      const other=Object.fromEntries(Object.entries(rest).filter(([k])=>required.includes(k)||required.includes(`unknown:${k}`)));
+      const tags=r.conditions?.tags??[];
+      push({id:`condition:${r.id}`,category:'condition',claim:`${r.id} talab qiladi: ${[...tags,...Object.entries(other).map(([k,v])=>`${k}=${JSON.stringify(v)}`)].join(', ')}`,data:{tags,dimensions:dimensionsOf(tags,vocabulary).dimensions,...other},sourceRefs:sources,affectedActivities:acts,dataReviewStatus:null});
+    }
     const flags=observationFlags(r,kb,phaseOf);
     push({id:`observation:${r.id}`,category:'observation',claim:`${r.id}: ${JSON.stringify(r.observations)}`,data:{observations:r.observations},sourceRefs:sources,affectedActivities:acts,dataReviewStatus:null,flags:flags.length?['CHEMISTRY_REVIEW_REQUIRED',...flags]:[]});
   }
@@ -170,7 +179,11 @@ export function evaluateGate(kb:Kb,assertions:ReturnType<typeof buildAssertions>
   // duplicates / conflicts / ambiguity
   let matcher:ReactionMatcher|undefined;
   try{ matcher=ReactionMatcher.from(kb.reactions,vocabulary?{vocabulary}:{}); }catch(e:any){ fail.push(`REACTION_KB_INVALID:${e.message}`); }
-  const dimKey=(r:any)=>vocabulary?JSON.stringify(Object.entries(dimensionsOf(r.conditions?.tags??[],vocabulary).dimensions).sort()):JSON.stringify([...(r.conditions?.tags??[])].sort());
+  // P2.14 closeout: two records are duplicates / conflicts only when ALL their condition requirements agree — the
+  // tag dimensions AND every other canonical condition field (never tags alone)
+  const nonTag=(r:any)=>JSON.stringify(Object.entries(r.conditions??{}).filter(([k])=>k!=='tags'&&conditionRequirementFields(r.conditions).some(f=>f===k||f===`unknown:${k}`)).sort(([a],[b])=>a.localeCompare(b)));
+  const dimKey=(r:any)=>(vocabulary?JSON.stringify(Object.entries(dimensionsOf(r.conditions?.tags??[],vocabulary).dimensions).sort()):JSON.stringify([...(r.conditions?.tags??[])].sort()))+nonTag(r);
+  for(const r of kb.reactions) for(const f of conditionRequirementFields(r.conditions)) if(f.startsWith('unknown:')) fail.push(`CONDITION_FIELD_UNKNOWN:${r.id}:${f.slice(8)}`);
   const groups=new Map<string,any[]>();
   for(const r of kb.reactions){ const k=`${key(r.reactants.map((x:any)=>x.formula))}|${dimKey(r)}`; groups.set(k,[...(groups.get(k)??[]),r]); }
   for(const [k,rs] of groups) if(rs.length>1){
@@ -178,7 +191,8 @@ export function evaluateGate(kb:Kb,assertions:ReturnType<typeof buildAssertions>
     fail.push(`${productSets.size>1?'REACTION_CONFLICT':'REACTION_DUPLICATE'}:${rs.map(r=>r.id).join(',')}:${k}`);
   }
   if(matcher) for(const r of kb.reactions){
-    const m=matcher.match({reactants:r.reactants.map((x:any)=>({formula:x.formula,...(x.phase?{phase:x.phase}:{})})),conditions:{tags:r.conditions?.tags??[]},conditionPolicy:'require-record-conditions'});
+    // P2.14 closeout: the self-check states the record's FULL condition object (not only its tags)
+    const m=matcher.match({reactants:r.reactants.map((x:any)=>({formula:x.formula,...(x.phase?{phase:x.phase}:{})})),conditions:{...(r.conditions??{})},conditionPolicy:'require-record-conditions'});
     if(!m.modeled||m.reaction.id!==r.id) fail.push(`MATCHER_AMBIGUOUS:${r.id}:${m.modeled?m.reaction.id:m.code}`);
   }
   // review register: invalid records, stale approvals, approvals claimed outside the register

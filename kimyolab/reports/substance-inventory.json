@@ -1,0 +1,1634 @@
+{
+  "schema": "kimyolab.substance-inventory.v1",
+  "phase": "P2.14",
+  "decision": "NOT_A_RELEASE_OR_PILOT_DECISION",
+  "semantics": "Every canonical species and reaction record, re-derived from the repository (no number is hard-coded), and how each field is known.",
+  "taxonomy": {
+    "CANONICAL_IDENTITY": "the SpeciesRegistry identity (id, formula, phase, charge, variant, allotrope) — the runtime model uses it",
+    "CANONICAL_MODEL_STATE": "operational model data the runtime uses (phase/charge as identity, dissociation rules, reaction records, observations) — not a human-reviewed fact",
+    "REVIEWED_FACT": "a human approved the claim on its current hash and an eligible registered source backs it",
+    "ENGINE_COMPUTED": "computed by a domain engine (IonicEngine net ionic equation) or from reviewed atomic masses",
+    "DERIVED": "read by the canonical formula parser (composition, element links)",
+    "SOURCE_PENDING": "a claim exists in the data but its source is not eligible or its review is missing",
+    "GAP": "nothing in the repository can vouch for it",
+    "UNSUPPORTED": "the model cannot express it (e.g. a \"formula\" that is a name)"
+  },
+  "sources": {
+    "species": {
+      "file": "content-src/chemistry/species.json",
+      "records": 84,
+      "identity": "SpeciesRegistry (src/domain/chemistry/species-registry.ts): unique id and unique (formula, phase, charge, structuralVariant, allotrope)"
+    },
+    "reactions": {
+      "file": "content-src/chemistry/reactions.json",
+      "records": 28,
+      "runtime": "ReactionMatcher (src/domain/chemistry/reaction-matcher.ts), policy require-record-conditions"
+    },
+    "ionicEngine": {
+      "module": "src/domain/chemistry/ionic-engine.ts",
+      "dissociationRules": 12,
+      "insolubleList": 8
+    },
+    "conditionVocabulary": {
+      "file": "content-src/chemistry/condition-vocabulary.json",
+      "terms": 8,
+      "contexts": 1,
+      "reviewStatus": "pending"
+    },
+    "elementHub": {
+      "pack": "periodic/element-hub.json",
+      "elements": 118,
+      "role": "the same canonical graph (scripts/lib/chemistry-graph.ts) — Element ↔ Substance / Reaction"
+    },
+    "mappingLinks": {
+      "file": "content-src/mapping-links.json",
+      "records": 207,
+      "role": "Lab → Topic"
+    },
+    "topicLabProfiles": {
+      "file": "content-src/topic-lab-profiles.json",
+      "labsWithShelfSpecies": 5,
+      "role": "Substance → Lab (shelf)"
+    },
+    "guidedStepReactionMap": {
+      "file": "content-src/chemistry/guided-step-reaction-map.json",
+      "labsWithReactions": 10,
+      "role": "Reaction → Lab"
+    }
+  },
+  "species": {
+    "total": 84,
+    "parseableFormulas": 78,
+    "unparseable": [
+      {
+        "id": "species.etanol",
+        "formula": "etanol"
+      },
+      {
+        "id": "species.kraxmal",
+        "formula": "kraxmal"
+      },
+      {
+        "id": "species.saxaroza",
+        "formula": "saxaroza"
+      },
+      {
+        "id": "species.sirka",
+        "formula": "sirka"
+      },
+      {
+        "id": "species.moy",
+        "formula": "moy"
+      },
+      {
+        "id": "species.indikator",
+        "formula": "indikator"
+      }
+    ],
+    "sharedFormulas": [],
+    "charged": 12,
+    "phases": {
+      "aq": 36,
+      "g": 9,
+      "l": 4,
+      "s": 35
+    },
+    "localizedNames": 10,
+    "localizedNamesReview": "pending",
+    "sourceRefIds": {
+      "src.beta1.migration": 84
+    }
+  },
+  "reactions": {
+    "total": 28,
+    "byType": {
+      "acid_base": 2,
+      "combination": 2,
+      "combustion": 5,
+      "equilibrium": 1,
+      "gas_evolution": 4,
+      "neutralization": 1,
+      "precipitation": 6,
+      "redox": 4,
+      "single_displacement": 3
+    },
+    "explicitNoReaction": 0,
+    "sourceRefIds": {
+      "src.beta1.migration": 28
+    }
+  },
+  "perSpecies": [
+    {
+      "id": "species.h2o",
+      "key": "h2o",
+      "formula": "H2O",
+      "phase": "l",
+      "charge": 0,
+      "nameKey": "species.h2o.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.o2",
+      "key": "o2",
+      "formula": "O2",
+      "phase": "g",
+      "charge": 0,
+      "nameKey": "species.o2.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.h2",
+      "key": "h2",
+      "formula": "H2",
+      "phase": "g",
+      "charge": 0,
+      "nameKey": "species.h2.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.co2",
+      "key": "co2",
+      "formula": "CO2",
+      "phase": "g",
+      "charge": 0,
+      "nameKey": "species.co2.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.hcl",
+      "key": "hcl",
+      "formula": "HCl",
+      "phase": "aq",
+      "charge": 0,
+      "nameKey": "species.hcl.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "CANONICAL_MODEL_STATE",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.h2so4",
+      "key": "h2so4",
+      "formula": "H2SO4",
+      "phase": "aq",
+      "charge": 0,
+      "nameKey": "species.h2so4.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "CANONICAL_MODEL_STATE",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.hno3",
+      "key": "hno3",
+      "formula": "HNO3",
+      "phase": "aq",
+      "charge": 0,
+      "nameKey": "species.hno3.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.naoh",
+      "key": "naoh",
+      "formula": "NaOH",
+      "phase": "aq",
+      "charge": 0,
+      "nameKey": "species.naoh.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "CANONICAL_MODEL_STATE",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.camoh2",
+      "key": "camoh2",
+      "formula": "Ca(OH)2",
+      "phase": "aq",
+      "charge": 0,
+      "nameKey": "species.camoh2.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.cao",
+      "key": "cao",
+      "formula": "CaO",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.cao.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.cuo",
+      "key": "cuo",
+      "formula": "CuO",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.cuo.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.zn",
+      "key": "zn",
+      "formula": "Zn",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.zn.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.mg",
+      "key": "mg",
+      "formula": "Mg",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.mg.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.fe",
+      "key": "fe",
+      "formula": "Fe",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.fe.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.al",
+      "key": "al",
+      "formula": "Al",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.al.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.cu",
+      "key": "cu",
+      "formula": "Cu",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.cu.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.c",
+      "key": "c",
+      "formula": "C",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.c.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.s",
+      "key": "s",
+      "formula": "S",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.s.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.nacl",
+      "key": "nacl",
+      "formula": "NaCl",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.nacl.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "CANONICAL_MODEL_STATE",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.kcl",
+      "key": "kcl",
+      "formula": "KCl",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.kcl.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.ki",
+      "key": "ki",
+      "formula": "KI",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.ki.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.nai",
+      "key": "nai",
+      "formula": "NaI",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.nai.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.nabr",
+      "key": "nabr",
+      "formula": "NaBr",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.nabr.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.kno3",
+      "key": "kno3",
+      "formula": "KNO3",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.kno3.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.nh4cl",
+      "key": "nh4cl",
+      "formula": "NH4Cl",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.nh4cl.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "CANONICAL_MODEL_STATE",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.nh4no3",
+      "key": "nh4no3",
+      "formula": "NH4NO3",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.nh4no3.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.na2co3",
+      "key": "na2co3",
+      "formula": "Na2CO3",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.na2co3.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "CANONICAL_MODEL_STATE",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.na2s",
+      "key": "na2s",
+      "formula": "Na2S",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.na2s.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.zncl2",
+      "key": "zncl2",
+      "formula": "ZnCl2",
+      "phase": "aq",
+      "charge": 0,
+      "nameKey": "species.zncl2.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "CANONICAL_MODEL_STATE",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.alcl3",
+      "key": "alcl3",
+      "formula": "AlCl3",
+      "phase": "aq",
+      "charge": 0,
+      "nameKey": "species.alcl3.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.cuso4",
+      "key": "cuso4",
+      "formula": "CuSO4",
+      "phase": "aq",
+      "charge": 0,
+      "nameKey": "species.cuso4.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.k2so4",
+      "key": "k2so4",
+      "formula": "K2SO4",
+      "phase": "aq",
+      "charge": 0,
+      "nameKey": "species.k2so4.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.cacl2",
+      "key": "cacl2",
+      "formula": "CaCl2",
+      "phase": "aq",
+      "charge": 0,
+      "nameKey": "species.cacl2.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "CANONICAL_MODEL_STATE",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.agno3",
+      "key": "agno3",
+      "formula": "AgNO3",
+      "phase": "aq",
+      "charge": 0,
+      "nameKey": "species.agno3.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "CANONICAL_MODEL_STATE",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.br2",
+      "key": "br2",
+      "formula": "Br2",
+      "phase": "l",
+      "charge": 0,
+      "nameKey": "species.br2.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.i2",
+      "key": "i2",
+      "formula": "I2",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.i2.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.cl2",
+      "key": "cl2",
+      "formula": "Cl2",
+      "phase": "g",
+      "charge": 0,
+      "nameKey": "species.cl2.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.caco3",
+      "key": "caco3",
+      "formula": "CaCO3",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.caco3.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.etanol",
+      "key": "etanol",
+      "formula": "etanol",
+      "phase": "l",
+      "charge": 0,
+      "nameKey": "species.etanol.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "UNSUPPORTED",
+        "molarMass": "UNSUPPORTED",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.kraxmal",
+      "key": "kraxmal",
+      "formula": "kraxmal",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.kraxmal.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "UNSUPPORTED",
+        "molarMass": "UNSUPPORTED",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.saxaroza",
+      "key": "saxaroza",
+      "formula": "saxaroza",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.saxaroza.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "UNSUPPORTED",
+        "molarMass": "UNSUPPORTED",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.sirka",
+      "key": "sirka",
+      "formula": "sirka",
+      "phase": "aq",
+      "charge": 0,
+      "nameKey": "species.sirka.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "UNSUPPORTED",
+        "molarMass": "UNSUPPORTED",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.moy",
+      "key": "moy",
+      "formula": "moy",
+      "phase": "l",
+      "charge": 0,
+      "nameKey": "species.moy.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "UNSUPPORTED",
+        "molarMass": "UNSUPPORTED",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.indikator",
+      "key": "indikator",
+      "formula": "indikator",
+      "phase": "aq",
+      "charge": 0,
+      "nameKey": "species.indikator.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "UNSUPPORTED",
+        "molarMass": "UNSUPPORTED",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.so2",
+      "key": "so2",
+      "formula": "SO2",
+      "phase": "g",
+      "charge": 0,
+      "nameKey": "species.so2.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.fe3o4",
+      "key": "fe3o4",
+      "formula": "Fe3O4",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.fe3o4.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.mgso4",
+      "key": "mgso4",
+      "formula": "MgSO4",
+      "phase": "aq",
+      "charge": 0,
+      "nameKey": "species.mgso4.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.znso4",
+      "key": "znso4",
+      "formula": "ZnSO4",
+      "phase": "aq",
+      "charge": 0,
+      "nameKey": "species.znso4.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.cucl2",
+      "key": "cucl2",
+      "formula": "CuCl2",
+      "phase": "aq",
+      "charge": 0,
+      "nameKey": "species.cucl2.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.nahso4",
+      "key": "nahso4",
+      "formula": "NaHSO4",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.nahso4.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.h2co3",
+      "key": "h2co3",
+      "formula": "H2CO3",
+      "phase": "aq",
+      "charge": 0,
+      "nameKey": "species.h2co3.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.znmoh2",
+      "key": "znmoh2",
+      "formula": "Zn(OH)2",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.znmoh2.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.agcl",
+      "key": "agcl",
+      "formula": "AgCl",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.agcl.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.agbr",
+      "key": "agbr",
+      "formula": "AgBr",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.agbr.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.agi",
+      "key": "agi",
+      "formula": "AgI",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.agi.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.kbr",
+      "key": "kbr",
+      "formula": "KBr",
+      "phase": "aq",
+      "charge": 0,
+      "nameKey": "species.kbr.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.bacl2",
+      "key": "bacl2",
+      "formula": "BaCl2",
+      "phase": "aq",
+      "charge": 0,
+      "nameKey": "species.bacl2.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "CANONICAL_MODEL_STATE",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.baso4",
+      "key": "baso4",
+      "formula": "BaSO4",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.baso4.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.nh3",
+      "key": "nh3",
+      "formula": "NH3",
+      "phase": "g",
+      "charge": 0,
+      "nameKey": "species.nh3.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.nano3",
+      "key": "nano3",
+      "formula": "NaNO3",
+      "phase": "aq",
+      "charge": 0,
+      "nameKey": "species.nano3.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "CANONICAL_MODEL_STATE",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.na2so4",
+      "key": "na2so4",
+      "formula": "Na2SO4",
+      "phase": "aq",
+      "charge": 0,
+      "nameKey": "species.na2so4.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "CANONICAL_MODEL_STATE",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.k2s",
+      "key": "k2s",
+      "formula": "K2S",
+      "phase": "aq",
+      "charge": 0,
+      "nameKey": "species.k2s.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.p",
+      "key": "p",
+      "formula": "P",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.p.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.p2o5",
+      "key": "p2o5",
+      "formula": "P2O5",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.p2o5.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.h3po4",
+      "key": "h3po4",
+      "formula": "H3PO4",
+      "phase": "aq",
+      "charge": 0,
+      "nameKey": "species.h3po4.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.ca3mpo42",
+      "key": "ca3mpo42",
+      "formula": "Ca3(PO4)2",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.ca3mpo42.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.na3po4",
+      "key": "na3po4",
+      "formula": "Na3PO4",
+      "phase": "aq",
+      "charge": 0,
+      "nameKey": "species.na3po4.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.so3",
+      "key": "so3",
+      "formula": "SO3",
+      "phase": "g",
+      "charge": 0,
+      "nameKey": "species.so3.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.h2s",
+      "key": "h2s",
+      "formula": "H2S",
+      "phase": "g",
+      "charge": 0,
+      "nameKey": "species.h2s.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.cus",
+      "key": "cus",
+      "formula": "CuS",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.cus.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.zns",
+      "key": "zns",
+      "formula": "ZnS",
+      "phase": "s",
+      "charge": 0,
+      "nameKey": "species.zns.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.hplus",
+      "key": "hplus",
+      "formula": "H+",
+      "phase": "aq",
+      "charge": 1,
+      "nameKey": "species.hplus.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.ohminus",
+      "key": "ohminus",
+      "formula": "OH-",
+      "phase": "aq",
+      "charge": -1,
+      "nameKey": "species.ohminus.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.agplus",
+      "key": "agplus",
+      "formula": "Ag+",
+      "phase": "aq",
+      "charge": 1,
+      "nameKey": "species.agplus.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.clminus",
+      "key": "clminus",
+      "formula": "Cl-",
+      "phase": "aq",
+      "charge": -1,
+      "nameKey": "species.clminus.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.naplus",
+      "key": "naplus",
+      "formula": "Na+",
+      "phase": "aq",
+      "charge": 1,
+      "nameKey": "species.naplus.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.no3minus",
+      "key": "no3minus",
+      "formula": "NO3^-",
+      "phase": "aq",
+      "charge": -1,
+      "nameKey": "species.no3minus.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.ba2plus",
+      "key": "ba2plus",
+      "formula": "Ba2+",
+      "phase": "aq",
+      "charge": 2,
+      "nameKey": "species.ba2plus.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.so4_2minus",
+      "key": "so4_2minus",
+      "formula": "SO4^2-",
+      "phase": "aq",
+      "charge": -2,
+      "nameKey": "species.so4_2minus.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.zn2plus",
+      "key": "zn2plus",
+      "formula": "Zn2+",
+      "phase": "aq",
+      "charge": 2,
+      "nameKey": "species.zn2plus.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.ca2plus",
+      "key": "ca2plus",
+      "formula": "Ca2+",
+      "phase": "aq",
+      "charge": 2,
+      "nameKey": "species.ca2plus.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.co3_2minus",
+      "key": "co3_2minus",
+      "formula": "CO3^2-",
+      "phase": "aq",
+      "charge": -2,
+      "nameKey": "species.co3_2minus.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.nh4plus",
+      "key": "nh4plus",
+      "formula": "NH4+",
+      "phase": "aq",
+      "charge": 1,
+      "nameKey": "species.nh4plus.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.co",
+      "key": "co",
+      "formula": "CO",
+      "phase": "g",
+      "charge": 0,
+      "nameKey": "species.co.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    }
+  ]
+}

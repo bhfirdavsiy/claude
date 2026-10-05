@@ -16,6 +16,9 @@ import {availableCategories,availableGrades,availableGroups,availablePeriods,ele
                                                                                                
                
                                   
+                                                                                                                       
+                                                                                                                  
+                                                                                                 
  
 
 // page memory only (never persisted): the filters and the large view survive opening a profile, and the cell that
@@ -185,8 +188,9 @@ function renderProfile(hub           ,e           ,t                            
     const ul=el('ul'); for(const i of items){ const li=el('li'); li.append(i); ul.append(li); } s.append(ul); links.append(s);
   };
   const byId=                       (xs    ,id       )=>xs.find(x=>x.id===id);
-  group('ui.periodic-substances','ui.periodic-substances-why',r.substances.map(x=>{ const s=byId(hub.substances,x.id) ; const n=opts.localize(s.nameKey); return el('span',{text:n?`${s.formula} — ${n}`:s.formula}); }),'data-element-substances');
-  group('ui.periodic-reactions','ui.periodic-reactions-why',r.reactions.map(x=>el('span',{text:byId(hub.reactions,x.id) .equation})),'data-element-reactions');
+  const maybeLink=(text       ,h                      )=>h?link(text,h,'kl-text-link'):el('span',{text});
+  group('ui.periodic-substances','ui.periodic-substances-why',r.substances.map(x=>{ const s=byId(hub.substances,x.id) ; const n=opts.localize(s.nameKey); return maybeLink(n?`${s.formula} — ${n}`:s.formula,opts.links?.substance?.(x.id)); }),'data-element-substances');
+  group('ui.periodic-reactions','ui.periodic-reactions-why',r.reactions.map(x=>maybeLink(byId(hub.reactions,x.id) .equation,opts.links?.reaction?.(x.id))),'data-element-reactions');
   group('ui.periodic-topics','ui.periodic-topics-why',r.topics.map(x=>{ const tp=byId(hub.topics,x.id) ; return link(t.ui('ui.periodic-topic-item',{grade:tp.grade,title:tp.title}),`/learn/${tp.id}/guide`,'kl-text-link'); }),'data-element-topics');
   group('ui.periodic-labs','ui.periodic-labs-why',r.labs.map(x=>link(byId(hub.labs,x.id) .title,`/practice/${x.id}`,'kl-text-link')),'data-element-labs');
   panel.append(links);

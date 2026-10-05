@@ -1,0 +1,147 @@
+{
+  "schema": "kimyolab.substance-reaction-readiness.v1",
+  "phase": "P2.14",
+  "decision": "NOT_A_RELEASE_OR_PILOT_DECISION",
+  "semantics": "What the Substance Passport and the Reaction Explorer do, what is a gap and what needs a human. Coverage dimensions stay separate (see the other five reports).",
+  "featureFlags": {
+    "substancePassportV1": {
+      "default": false,
+      "offBehaviour": "/substance/… renders the existing “page not found”; no substance links or search entries"
+    },
+    "reactionExplorerV1": {
+      "default": false,
+      "offBehaviour": "/reactions renders the existing “page not found”; no reaction links or search entries"
+    }
+  },
+  "routes": {
+    "passport": "/substance/<key> (key = canonical species id without the species. namespace; a formula is never a route key)",
+    "explorer": "/reactions?r=<key>&c=<dimension>:<value>",
+    "hosts": [
+      "portal (server allow-list: /reactions, /substance/)",
+      "standalone (hash route)"
+    ],
+    "deepLinkRefresh": true
+  },
+  "coverage": {
+    "canonicalSpecies": 84,
+    "parseableFormulas": 78,
+    "sharedFormulas": 0,
+    "computedComposition": 78,
+    "molarMassShown": 0,
+    "dissociationModeled": 12,
+    "reviewedProperties": 0,
+    "reviewedHazards": 0,
+    "reactionRecords": 28,
+    "explorerReachable": 27,
+    "explorerConditionUnsupported": 0,
+    "explicitNoReactionRecords": 0,
+    "pairs": {
+      "total": 3486,
+      "modeledReaction": 26,
+      "modeledNoReaction": 0,
+      "notModeled": 3460,
+      "conditionDependent": 10,
+      "note": "counts the records written for a pair (any conditions); NOT_MODELED pairs are unknown, not non-reacting"
+    },
+    "ionicEquationSupported": 5,
+    "humanReviewedReactions": 0,
+    "sourceGaps": {
+      "SOURCE_NOT_ELIGIBLE": 28
+    },
+    "topicLabBacklinks": {
+      "substancesWithLabs": 37,
+      "substancesWithTopics": 37,
+      "reactionsWithLabs": 17,
+      "reactionsWithTopics": 17
+    }
+  },
+  "search": {
+    "system": "the existing learner search (src/features/search/model.ts) — no second search",
+    "entries": [
+      "substance: formula (exact), localized name where the catalog has one",
+      "reaction: its equation; reactant and product formulas (exact)"
+    ],
+    "resultTypes": [
+      "Element",
+      "Modda",
+      "Reaksiya",
+      "Mavzu",
+      "Laboratoriya"
+    ],
+    "flagged": "substances join with substancePassportV1, reactions with reactionExplorerV1"
+  },
+  "accessibility": {
+    "tested": "tests/e2e/substance-reaction.spec.mjs",
+    "checks": [
+      "reagent selector: native checkboxes and a labelled formula field (no drag)",
+      "result announced in a polite live region; errors in an assertive one",
+      "focus moves to the result heading after a search",
+      "320 px reflow, 44/48 px targets",
+      "no colour-only observation (text)",
+      "reduced motion"
+    ],
+    "learnerInvariant": "140 / 5 / 0 / 1 (the sweep covers learning activities; these pages are tested by their own suite)"
+  },
+  "performance": {
+    "chemistry": "browser-local: the ReactionMatcher runs in the page over the pack records; no server lookup",
+    "knowledgeIndex": {
+      "packFile": "knowledge/chemistry-knowledge.json",
+      "bytes": 69016
+    },
+    "bundle": {
+      "learnerModules": 4,
+      "learnerModuleBytes": 54899,
+      "standaloneBytes": 149485
+    },
+    "report": "reports/guided-dynamic-lab-readiness.json#bundleDelta.phases[\"P2.14\"]"
+  },
+  "isolation": {
+    "contentStudio": "no substance or reaction editor; the Studio is unchanged",
+    "learnerProgress": "none: no profile, attempt or evidence written",
+    "failure": "a failed knowledge load shows an error on these pages only; curriculum, dynamic lab, periodic table, textbook excerpt and Content Studio do not import this feature"
+  },
+  "notInScope": [
+    "external lab catalogue redesign",
+    "learner navigation overhaul",
+    "AI chemistry generation",
+    "new chemistry records to raise coverage",
+    "mass source acceptance",
+    "automated human review",
+    "login, progress dashboard, leaderboard, IChO"
+  ],
+  "humanDecisions": [
+    {
+      "decision": "reviewed sources for atomic masses (unlocks molar mass) — P2.13 metadata",
+      "status": "human review required"
+    },
+    {
+      "decision": "chemistry review of the 28 reaction records, their conditions and observations (decision register)",
+      "status": "human review required"
+    },
+    {
+      "decision": "the 6 observations flagged by the KB integrity check",
+      "status": "human review required"
+    },
+    {
+      "decision": "species hazards / properties: an eligible source and a review path",
+      "status": "human decision required"
+    },
+    {
+      "decision": "rxn.agno3-nacl names NaCl(aq); the registry has NaCl only as a solid — add the species or change the record",
+      "status": "human decision required"
+    },
+    {
+      "decision": "explicit no-reaction records (none exist; Cu + dilute HCl stays not modeled)",
+      "status": "human authoring + review required"
+    },
+    {
+      "decision": "localized names of the species without one",
+      "status": "human review required"
+    }
+  ],
+  "formalMetrics": {
+    "learningProduct": 12.189,
+    "overall": 47.313,
+    "note": "the passport and explorer are reference features; no formal formula input changed"
+  }
+}

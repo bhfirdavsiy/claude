@@ -22,6 +22,10 @@ import {isFeatureEnabled} from './feature-flags.js';
 import {renderPeriodicTable} from '../features/periodic/render.js';
 import {elementSearchEntries} from '../features/periodic/model.js';
 import {createLocalizer} from '../features/localization/element-names.js';
+import {knowledgeDomain,reactionExplorerHref,reactionSearchEntries,substanceHref,substanceSearchEntries} from '../features/chemistry-knowledge/explorer.js';
+import {renderSubstancePassport} from '../features/chemistry-knowledge/passport.js';
+import {renderReactionExplorer} from '../features/chemistry-knowledge/explorer-render.js';
+import {createLabeler} from '../features/practice/form-question.js';
 
 const mainElement=document.getElementById('app-main');
 if(!(mainElement instanceof HTMLElement)) throw new Error('APP_MAIN_MISSING');
@@ -39,6 +43,12 @@ function currentLocation(){ return host.currentLocation(); }
 function navigateInternal(href       ){ host.navigate(href); }
 /** the feature-flag part of the current query, kept on in-page links of a flagged page */
 function flagQuery(params                ){ const ff=params.getAll('ff'); return ff.length?`?${ff.map(v=>`ff=${encodeURIComponent(v)}`).join('&')}`:''; }
+/** P2.14: which knowledge pages exist on this request (their flags) */
+function knowledgeLinks(params                ){ return {query:flagQuery(params),periodic:isFeatureEnabled('periodicTableV1',params),passport:isFeatureEnabled('substancePassportV1',params),explorer:isFeatureEnabled('reactionExplorerV1',params)}; }
+/** P2.14: the knowledge pack and the browser-local canonical domain (registry, matcher) built from its records */
+async function loadKnowledge(){ const k=await client.loadChemistryKnowledge(); const localize=createLocalizer({elementNames:k.elementNames,speciesNames:k.speciesNames,interaction:k.interaction}); return {...k,...knowledgeDomain(k),localize}; }
+/** a content error's learner message, or the generic error page (no new literal) */
+function renderLoadError(error        ){ const m=contentErrorMessage(error,''); if(m) renderError(main,m); else renderError(main); }
 
 // static shell links (header navigation) and the brand logo resolve through the host as well
 for(const anchor of document.querySelectorAll                   ('a[data-kl-route]')) anchor.setAttribute('href',host.href(anchor.dataset.klRoute??'/'));
@@ -135,14 +145,39 @@ async function renderCurrent(){
       const index=await client.loadSearchIndex();
       // P2.13: with periodicTableV1 the elements join the same search index (symbol, atomic number, localized name)
       if(isFeatureEnabled('periodicTableV1',active.searchParams)){ const {hub,elementNames,speciesNames,interaction}=await client.loadElementHub(); const localize=createLocalizer({elementNames,speciesNames,interaction}); index.push(...elementSearchEntries(hub,s=>localize(`element.${s}`),{kicker:localize('ui.periodic-search-kicker')??'',description:z=>(localize('ui.periodic-search-description')??'').replace('{z}',String(z))},flagQuery(active.searchParams))); }
+      // P2.14: substances (substancePassportV1) and reactions (reactionExplorerV1) join the same index
+      const kl=knowledgeLinks(active.searchParams);
+      if(kl.passport||kl.explorer){ const k=await loadKnowledge(); const t=createLabeler(k.localize);
+        if(kl.passport) index.push(...substanceSearchEntries(k.index,k.registry,k.localize,{kicker:t.ui('ui.substance-search-kicker'),description:phase=>t.ui(`ui.substance-phase-${phase}`)},kl.query));
+        if(kl.explorer) index.push(...reactionSearchEntries(k.index,k.reactions,{kicker:t.ui('ui.reactions-search-kicker'),description:type=>t.ui(`ui.reactions-type-${type}`)},kl.query)); }
       renderSearch(main,index,active.searchParams.get('q')??'');
     }catch(error){renderError(main,contentErrorMessage(error,'Qidiruv ma’lumotlarini yuklab bo‘lmadi.'));}return;}
   if(route.name==='periodic'){
     // P2.13: behind periodicTableV1 — with the flag off the route does not exist (the learner app is unchanged)
     if(!isFeatureEnabled('periodicTableV1',active.searchParams)){renderNotFound(main);return;}
     renderLoading(main);
-    try{ const {hub,elementNames,speciesNames,interaction}=await client.loadElementHub(); renderPeriodicTable(main,hub,{localize:createLocalizer({elementNames,speciesNames,interaction}),selected:route.symbol,query:flagQuery(active.searchParams),navigate:navigateInternal}); }
+    try{ const {hub,elementNames,speciesNames,interaction}=await client.loadElementHub();
+      // P2.14: a related substance / reaction opens its page when that page's flag is on (one canonical graph)
+      const kl=knowledgeLinks(active.searchParams); const k=kl.explorer?await loadKnowledge():null;
+      const links={...(kl.passport?{substance:(id       )=>substanceHref(id,kl.query)}:{}),...(k?{reaction:(id       )=>reactionExplorerHref(k.index,id,kl.query)}:{})};
+      renderPeriodicTable(main,hub,{localize:createLocalizer({elementNames,speciesNames,interaction}),selected:route.symbol,query:flagQuery(active.searchParams),navigate:navigateInternal,links}); }
     catch(error){renderError(main,contentErrorMessage(error,'Davriy jadvalni yuklab bo‘lmadi.'));}
+    return;
+  }
+  if(route.name==='substance'){
+    // P2.14: behind substancePassportV1 — with the flag off the route does not exist (the learner app is unchanged)
+    if(!isFeatureEnabled('substancePassportV1',active.searchParams)){renderNotFound(main);return;}
+    renderLoading(main);
+    try{ const k=await loadKnowledge(); renderSubstancePassport(main,{index:k.index,registry:k.registry,reactions:k.reactions,localize:k.localize},route.key,knowledgeLinks(active.searchParams)); }
+    catch(error){renderLoadError(error);}
+    return;
+  }
+  if(route.name==='reactions'){
+    // P2.14: behind reactionExplorerV1 — the existing ReactionMatcher runs in the page over the pack records
+    if(!isFeatureEnabled('reactionExplorerV1',active.searchParams)){renderNotFound(main);return;}
+    renderLoading(main);
+    try{ const k=await loadKnowledge(); renderReactionExplorer(main,{index:k.index,registry:k.registry,reactions:k.reactions,localize:k.localize,matcher:k.matcher,vocabulary:k.vocabulary},active.searchParams,{...knowledgeLinks(active.searchParams),navigate:navigateInternal}); }
+    catch(error){renderLoadError(error);}
     return;
   }
   renderNotFound(main);
