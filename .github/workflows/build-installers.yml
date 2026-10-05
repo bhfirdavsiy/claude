@@ -1,8 +1,182 @@
-name: Build installers
+name: Build DarslikCutter macOS PKG
+
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'darslik-cutter-v241/.build-trigger'
+
+permissions:
+  contents: read
+
+env:
+  APP_DIR: darslik-cutter-v241
+  APP_NAME: Darslik Cutter
+  VERSION: 2.4.1
+
 jobs:
-  smoke:
-    runs-on: ubuntu-24.04
+  build-arm64:
+    runs-on: macos-15
     steps:
-      - run: echo ready
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          architecture: arm64
+
+      - name: Reconstruct source
+        shell: bash
+        run: |
+          cd "$APP_DIR"
+          mkdir -p data
+          python - <<'PY'
+          import base64, gzip, glob, pathlib
+          def restore(pattern, target):
+              encoded = ''.join(pathlib.Path(p).read_text().strip() for p in sorted(glob.glob(pattern)))
+              pathlib.Path(target).write_bytes(gzip.decompress(base64.b64decode(encoded)))
+          restore('_parts/main_gz_*.txt', 'main.py')
+          restore('_parts/pdf_gz_*.txt', 'pdf_service.py')
+          restore('_parts/catalog_gz_*.txt', 'data/tmr_catalog.json')
+          PY
+          echo "f166e60c09c84b4a104b1f485ecb739224bf038c04297b8f50586e043113bb21  main.py" | shasum -a 256 -c -
+          echo "3e23d321fbcc7944d2a3675c8423111a251ee8afc603f4931f2f94ecf8021ffa  pdf_service.py" | shasum -a 256 -c -
+          echo "17d5af0e722268b3ef961ef36b746a091d4390fb8ba4aedd581c541b5595a505  data/tmr_catalog.json" | shasum -a 256 -c -
+
+      - name: Install build dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r "$APP_DIR/requirements.txt" "pyinstaller>=6.12,<7"
+
+      - name: Build Apple Silicon app
+        shell: bash
+        run: |
+          cd "$APP_DIR"
+          python -m PyInstaller --noconfirm --clean --windowed             --name "$APP_NAME"             --osx-bundle-identifier "uz.darslikcutter.app"             --add-data "data/tmr_catalog.json:data"             main.py
+          test -d "dist/$APP_NAME.app"
+          codesign --force --deep --sign - "dist/$APP_NAME.app"
+          codesign --verify --deep --strict "dist/$APP_NAME.app"
+          file "dist/$APP_NAME.app/Contents/MacOS/$APP_NAME"
+          tar -czf DarslikCutter-arm64.tar.gz -C dist "$APP_NAME.app"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: darslikcutter-arm64-app
+          path: darslik-cutter-v241/DarslikCutter-arm64.tar.gz
+          if-no-files-found: error
+          compression-level: 0
+
+  build-intel:
+    runs-on: macos-15-intel
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          architecture: x64
+
+      - name: Reconstruct source
+        shell: bash
+        run: |
+          cd "$APP_DIR"
+          mkdir -p data
+          python - <<'PY'
+          import base64, gzip, glob, pathlib
+          def restore(pattern, target):
+              encoded = ''.join(pathlib.Path(p).read_text().strip() for p in sorted(glob.glob(pattern)))
+              pathlib.Path(target).write_bytes(gzip.decompress(base64.b64decode(encoded)))
+          restore('_parts/main_gz_*.txt', 'main.py')
+          restore('_parts/pdf_gz_*.txt', 'pdf_service.py')
+          restore('_parts/catalog_gz_*.txt', 'data/tmr_catalog.json')
+          PY
+          echo "f166e60c09c84b4a104b1f485ecb739224bf038c04297b8f50586e043113bb21  main.py" | shasum -a 256 -c -
+          echo "3e23d321fbcc7944d2a3675c8423111a251ee8afc603f4931f2f94ecf8021ffa  pdf_service.py" | shasum -a 256 -c -
+          echo "17d5af0e722268b3ef961ef36b746a091d4390fb8ba4aedd581c541b5595a505  data/tmr_catalog.json" | shasum -a 256 -c -
+
+      - name: Install build dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r "$APP_DIR/requirements.txt" "pyinstaller>=6.12,<7"
+
+      - name: Build Intel app
+        shell: bash
+        run: |
+          cd "$APP_DIR"
+          python -m PyInstaller --noconfirm --clean --windowed             --name "$APP_NAME"             --osx-bundle-identifier "uz.darslikcutter.app"             --add-data "data/tmr_catalog.json:data"             main.py
+          test -d "dist/$APP_NAME.app"
+          codesign --force --deep --sign - "dist/$APP_NAME.app"
+          codesign --verify --deep --strict "dist/$APP_NAME.app"
+          file "dist/$APP_NAME.app/Contents/MacOS/$APP_NAME"
+          tar -czf DarslikCutter-x86_64.tar.gz -C dist "$APP_NAME.app"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: darslikcutter-intel-app
+          path: darslik-cutter-v241/DarslikCutter-x86_64.tar.gz
+          if-no-files-found: error
+          compression-level: 0
+
+  package:
+    needs: [build-arm64, build-intel]
+    runs-on: macos-15
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: darslikcutter-arm64-app
+          path: incoming/arm64
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: darslikcutter-intel-app
+          path: incoming/intel
+
+      - name: Build one universal architecture-aware PKG
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT="$PWD/pkgroot"
+          RUNTIME="$ROOT/Library/Application Support/DarslikCutter/runtime"
+          mkdir -p "$RUNTIME/arm64" "$RUNTIME/x86_64" "$PWD/scripts"
+
+          tar -xzf incoming/arm64/DarslikCutter-arm64.tar.gz -C "$RUNTIME/arm64"
+          tar -xzf incoming/intel/DarslikCutter-x86_64.tar.gz -C "$RUNTIME/x86_64"
+
+          test -x "$RUNTIME/arm64/$APP_NAME.app/Contents/MacOS/$APP_NAME"
+          test -x "$RUNTIME/x86_64/$APP_NAME.app/Contents/MacOS/$APP_NAME"
+
+          cat > scripts/postinstall <<'SH'
+          #!/bin/bash
+          set -e
+          APP_NAME="Darslik Cutter"
+          BASE="/Library/Application Support/DarslikCutter/runtime"
+          ARCH="$(uname -m)"
+          case "$ARCH" in
+            arm64) SRC="$BASE/arm64/$APP_NAME.app" ;;
+            x86_64) SRC="$BASE/x86_64/$APP_NAME.app" ;;
+            *) echo "Unsupported macOS architecture: $ARCH" >&2; exit 1 ;;
+          esac
+          test -d "$SRC"
+          rm -rf "/Applications/$APP_NAME.app"
+          /usr/bin/ditto "$SRC" "/Applications/$APP_NAME.app"
+          /usr/sbin/chown -R root:wheel "/Applications/$APP_NAME.app"
+          /bin/chmod -R a+rX "/Applications/$APP_NAME.app"
+          rm -rf "$BASE"
+          exit 0
+          SH
+          chmod 755 scripts/postinstall
+
+          pkgbuild             --root "$ROOT"             --scripts scripts             --identifier uz.darslikcutter.pkg             --version "$VERSION"             --install-location /             "DarslikCutter-$VERSION.pkg"
+
+          test -f "DarslikCutter-$VERSION.pkg"
+          pkgutil --expand "DarslikCutter-$VERSION.pkg" expanded
+          test -f expanded/PackageInfo
+          grep -q 'uz.darslikcutter.pkg' expanded/PackageInfo
+          shasum -a 256 "DarslikCutter-$VERSION.pkg"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: DarslikCutter-2.4.1-PKG
+          path: DarslikCutter-2.4.1.pkg
+          if-no-files-found: error
+          compression-level: 0
