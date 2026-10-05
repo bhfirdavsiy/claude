@@ -93,9 +93,15 @@ export class ReactionMatcher{
     }
     return new ReactionMatcher(records,options.vocabulary);
   }
+  /** P2.14: the records written for exactly these reactants (the same formula + phase rule as match()), BEFORE any
+   *  condition is applied, so a caller can name which conditions the model requires. It decides nothing: an empty
+   *  list means "not modeled", never "does not react". */
+  candidates(reactants:ReactantQuery[]):readonly ReactionRecord[]{
+    return this.#records.filter(r=>sameFormulas(reactants,r.reactants)&&phasesCompatible(reactants,r.reactants));
+  }
   match(query:{reactants:ReactantQuery[];conditions?:ReactionConditions;conditionPolicy:ConditionPolicy}):ReactionMatchResult{
     if(query?.conditionPolicy!=='filter-by-query'&&query?.conditionPolicy!=='require-record-conditions') throw new Error('REACTION_MATCH_POLICY_REQUIRED');
-    let candidates=this.#records.filter(r=>sameFormulas(query.reactants,r.reactants)&&phasesCompatible(query.reactants,r.reactants));
+    let candidates=[...this.candidates(query.reactants)];
     if(query.conditionPolicy==='filter-by-query'){
       if(query.conditions)candidates=candidates.filter(r=>conditionMatch(query.conditions,r.conditions));
     }else{

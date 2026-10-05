@@ -1,0 +1,67 @@
+{
+  "schema": "kimyolab.reaction-explorer-coverage.v1",
+  "phase": "P2.14",
+  "decision": "NOT_A_RELEASE_OR_PILOT_DECISION",
+  "semantics": "What the Reaction Explorer can answer through the existing ReactionMatcher. MODELED_REACTION, MODELED_NO_REACTION and NOT_MODELED are separate; NOT_MODELED is never shown as \"no reaction\".",
+  "matcher": {
+    "module": "src/domain/chemistry/reaction-matcher.ts",
+    "policy": "require-record-conditions",
+    "phase": "the canonical species' own phase (never guessed)",
+    "conditions": "only what the learner states; unknown values are refused"
+  },
+  "records": {
+    "total": 28,
+    "modeledReactions": 28,
+    "explicitNoReaction": 0
+  },
+  "reachability": {
+    "reachable": 27,
+    "unreachable": [
+      {
+        "id": "rxn.agno3-nacl",
+        "reachable": false,
+        "reason": "REACTANT_NOT_A_CANONICAL_SPECIES",
+        "unresolved": [
+          {
+            "reactionId": "rxn.agno3-nacl",
+            "formula": "NaCl",
+            "phase": "aq",
+            "reason": "PHASE_NOT_IN_REGISTRY"
+          }
+        ]
+      }
+    ]
+  },
+  "pairsOfCanonicalSpecies": {
+    "total": 3486,
+    "modeledReaction": 26,
+    "modeledNoReaction": 0,
+    "notModeled": 3460,
+    "conditionDependent": 10,
+    "note": "counts the records written for a pair (any conditions); NOT_MODELED pairs are unknown, not non-reacting"
+  },
+  "conditionDependence": {
+    "recordsWithRequirements": 11,
+    "reagentSetsWithSeveralRecords": [
+      {
+        "set": "C + O2",
+        "records": 2
+      }
+    ]
+  },
+  "ionicEquation": {
+    "supported": [
+      "rxn.naoh-hcl",
+      "rxn.zncl2-naoh",
+      "rxn.znoh2-hcl",
+      "rxn.agno3-nacl",
+      "rxn.bacl2-h2so4"
+    ],
+    "notSupported": 23,
+    "rule": "shown only when IonicEngine.support(reactionId) is supported:true; never a fallback"
+  },
+  "observations": {
+    "GAP:OBSERVATION_REVIEW_REQUIRED": 6,
+    "MODEL": 22
+  }
+}

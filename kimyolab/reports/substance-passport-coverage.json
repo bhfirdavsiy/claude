@@ -1,0 +1,54 @@
+{
+  "schema": "kimyolab.substance-passport-coverage.v1",
+  "phase": "P2.14",
+  "decision": "NOT_A_RELEASE_OR_PILOT_DECISION",
+  "semantics": "What the Substance Passport can show for each canonical species, field by field. A gap is a natural Uzbek sentence for the learner; the reason stays here.",
+  "substances": 84,
+  "fields": {
+    "name": {
+      "localized": 10,
+      "shownAsFormula": 74,
+      "review": "pending"
+    },
+    "formula": {
+      "canonical": 84
+    },
+    "phase": {
+      "canonicalModelState": 84
+    },
+    "charge": {
+      "canonicalModelState": 84,
+      "charged": 12
+    },
+    "composition": {
+      "DERIVED": 78,
+      "GAP:FORMULA_NOT_PARSEABLE": 6
+    },
+    "molarMass": {
+      "GAP:ATOMIC_MASS_NOT_REVIEWED": 78,
+      "GAP:FORMULA_NOT_PARSEABLE": 6
+    },
+    "dissociation": {
+      "GAP:DISSOCIATION_NOT_MODELED": 72,
+      "MODEL": 12
+    },
+    "hazards": {
+      "GAP:SOURCE_NOT_ELIGIBLE": 39,
+      "GAP:SOURCE_REQUIRED": 45
+    },
+    "properties": {
+      "GAP:SOURCE_REQUIRED": 84
+    }
+  },
+  "relations": {
+    "withElements": 78,
+    "withReactions": 53,
+    "withLabs": 37,
+    "withTopics": 37
+  },
+  "notes": {
+    "molarMass": "computed only from atomic masses a human reviewed against an eligible source (P2.13 Element Hub: 0 reviewed); legacy masses are never read, nothing is rounded",
+    "dissociation": "DISSOCIATION_NOT_MODELED means the model has no rule — never \"does not dissociate\"",
+    "hazards": "species hazard codes are operational migration data (INTERNAL_PROPOSAL source); no learner sees them as a reviewed fact. Lab safety (topic lab profiles, practice safety notes) is unchanged"
+  }
+}

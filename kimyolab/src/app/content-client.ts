@@ -6,6 +6,7 @@ import { buildLearningHubModel, type LearningHubModel } from '../features/learni
 import { buildPracticePageModel, type StudentPracticePageModel } from '../features/practice/model.ts';
 import { DEFAULT_LOCALE, elementNamesPackPath, interactionPackPath, parseElementNameCatalog, parseInteractionCatalog, parseSpeciesNameCatalog, speciesNamesPackPath, type ElementNameCatalog, type InteractionCatalog, type SpeciesNameCatalog } from '../features/localization/element-names.ts';
 import { assertElementHub, ELEMENT_HUB_PACK_PATH, type ElementHub } from '../features/periodic/hub.ts';
+import { assertKnowledgeIndex, CHEMISTRY_KNOWLEDGE_PACK_PATH, type KnowledgeIndex } from '../features/chemistry-knowledge/knowledge.ts';
 import {validateExternalLabBindings,bindingsForLearningUnit} from '../integrations/external-labs/registry.ts';
 import type {ExternalLabBinding} from '../integrations/external-labs/types.ts';
 import type {LabCatalogModel} from '../features/labs/model.ts';
@@ -258,6 +259,29 @@ export class ContentClient {
       interaction=parseInteractionCatalog(await this.packJson(version,interactionPackPath(DEFAULT_LOCALE)));
     }catch(error){ throw error instanceof ContentLoadError?error:new ContentLoadError('LOCALIZATION_INVALID',{resource:'locales'}); }
     return {hub,elementNames,speciesNames,interaction};
+  }
+
+  /** P2.14: the Substance / Reaction knowledge index plus the canonical records it is derived from (species,
+   *  reactions, condition vocabulary — the browser-local ReactionMatcher reads them) and the catalogs. Every file is
+   *  integrity-checked like every pack file; an invalid index fails closed, it is never repaired. */
+  async loadChemistryKnowledge():Promise<{index:KnowledgeIndex;species:unknown[];reactions:unknown[];conditionVocabulary:unknown;elementNames:ElementNameCatalog;speciesNames:SpeciesNameCatalog;interaction:InteractionCatalog}>{
+    const version=await this.version();
+    if(!this.files.has(CHEMISTRY_KNOWLEDGE_PACK_PATH)) throw new ContentLoadError('CHEMISTRY_KNOWLEDGE_MISSING',{resource:CHEMISTRY_KNOWLEDGE_PACK_PATH});
+    let index:KnowledgeIndex;
+    try{ index=assertKnowledgeIndex(await this.packJson(version,CHEMISTRY_KNOWLEDGE_PACK_PATH)); }
+    catch(error){ throw error instanceof ContentLoadError?error:new ContentLoadError('CHEMISTRY_KNOWLEDGE_INVALID',{resource:CHEMISTRY_KNOWLEDGE_PACK_PATH}); }
+    const [species,reactions,conditionVocabulary]=await Promise.all([
+      this.packJson(version,`chemistry/species.json`),
+      this.packJson(version,`chemistry/reactions.json`),
+      this.packJson(version,`chemistry/condition-vocabulary.json`),
+    ]);
+    let elementNames:ElementNameCatalog, speciesNames:SpeciesNameCatalog, interaction:InteractionCatalog;
+    try{
+      elementNames=parseElementNameCatalog(await this.packJson(version,elementNamesPackPath(DEFAULT_LOCALE)));
+      speciesNames=parseSpeciesNameCatalog(await this.packJson(version,speciesNamesPackPath(DEFAULT_LOCALE)));
+      interaction=parseInteractionCatalog(await this.packJson(version,interactionPackPath(DEFAULT_LOCALE)));
+    }catch(error){ throw error instanceof ContentLoadError?error:new ContentLoadError('LOCALIZATION_INVALID',{resource:'locales'}); }
+    return {index,species,reactions,conditionVocabulary,elementNames,speciesNames,interaction};
   }
 
   async loadCurriculum(){

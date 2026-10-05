@@ -202,3 +202,24 @@
 .kl-element-profile__note{display:block;font-size:.85rem;color:var(--kl-muted)}
 .kl-element-profile__group h4{margin:.75rem 0 .25rem}.kl-element-profile__group ul{margin:.25rem 0;padding-left:1.25rem}
 @media (max-width:480px){.kl-element-profile__facts{grid-template-columns:1fr}.kl-element-profile__facts dd{margin-bottom:.5rem}}
+/* P2.14 — Substance Passport + Reaction Explorer (ADR-P2-015). Native controls only (no drag); 44/48px targets; the
+   reagent list wraps to one column at 320px; observations and outcomes are text, never colour alone. */
+.kl-knowledge{display:grid;gap:1rem}.kl-knowledge .kl-card{padding:1.25rem}.kl-knowledge h2{font-size:1.15rem;margin:0 0 .5rem}
+.kl-knowledge__inline-list{display:flex;flex-wrap:wrap;gap:.25rem 1rem;margin:0;padding:0;list-style:none}
+.kl-knowledge__inline-list a,.kl-knowledge__group a,.kl-knowledge__reaction a{display:inline-flex;align-items:center;min-height:44px}
+.kl-knowledge__group ul{margin:.25rem 0;padding-left:1.25rem}.kl-knowledge__group h3{font-size:1rem;margin:.75rem 0 .25rem}
+.kl-knowledge__relations{display:grid;gap:1rem}
+.kl-knowledge__form{display:grid;gap:1rem}
+.kl-knowledge__typed-row{display:flex;flex-wrap:wrap;gap:.5rem}.kl-knowledge__typed-row input{min-height:44px;flex:1 1 10rem;min-width:0;font-size:1rem}
+.kl-knowledge__choice fieldset{display:flex;flex-wrap:wrap;gap:.5rem;border:1px solid var(--kl-border);border-radius:.5rem;padding:.75rem}
+.kl-knowledge__reagents,.kl-knowledge__conditions{border:1px solid var(--kl-border);border-radius:.5rem;padding:.75rem;margin:0;min-width:0}
+.kl-knowledge__reagents legend,.kl-knowledge__conditions legend{font-weight:700;padding:0 .25rem}
+.kl-knowledge__reagent-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(14rem,1fr));gap:.25rem .75rem;max-height:24rem;overflow-y:auto}
+.kl-knowledge__reagent label{display:flex;align-items:center;gap:.5rem;min-height:44px;cursor:pointer;overflow-wrap:anywhere}.kl-knowledge__reagent input{width:1.25rem;height:1.25rem;flex:none}
+.kl-knowledge__conditions{display:flex;flex-wrap:wrap;gap:.75rem 1rem;align-items:flex-end}.kl-knowledge__conditions .kl-field__hint{flex-basis:100%;margin:0}.kl-knowledge__conditions .kl-field{min-width:10rem}.kl-knowledge__conditions select{min-height:44px;width:100%}
+.kl-knowledge__errors:not(:empty){border-left:4px solid var(--kl-danger);padding:.5rem .75rem;background:var(--kl-surface-soft)}
+.kl-knowledge__status{min-height:1.5em;font-weight:700}
+.kl-knowledge__asked{color:var(--kl-muted)}
+.kl-knowledge__result .kl-element-profile__facts{margin-top:.5rem}
+@media (max-width:480px){.kl-knowledge__reagent-list{grid-template-columns:1fr;max-height:none}}
+@media (prefers-reduced-motion:reduce){.kl-knowledge *{transition:none!important;animation:none!important}}

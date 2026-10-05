@@ -15,6 +15,8 @@ import { STRUCTURED_THEORY_PACK_PATH } from '../src/domain/theory/structured-the
 import { TOPIC_LAB_PROFILE_PACK_PATH } from '../src/domain/lab/topic-lab-profile.ts';
 import { compileTopicLabProfiles } from './lib/topic-lab-profiles.ts';
 import { buildElementHub } from './lib/element-hub.ts';
+import { buildChemistryKnowledge } from './lib/chemistry-knowledge.ts';
+import { CHEMISTRY_KNOWLEDGE_PACK_PATH } from '../src/features/chemistry-knowledge/knowledge.ts';
 import { ELEMENT_HUB_PACK_PATH } from '../src/features/periodic/hub.ts';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -129,6 +131,15 @@ writeJson(path.join(packRoot, TOPIC_LAB_PROFILE_PACK_PATH), compileTopicLabProfi
   const file = path.join(packRoot, ELEMENT_HUB_PACK_PATH);
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, `${JSON.stringify(buildElementHub(root).hub)}\n`, 'utf8');
+}
+
+// P2.14: the Substance / Reaction knowledge index (ADR-P2-015) — derived facts of the same canonical chemistry graph
+// as the Element Hub (identity and reaction records stay in chemistry/*.json); an invalid decision or an unknown
+// condition tag fails the build
+{
+  const file = path.join(packRoot, CHEMISTRY_KNOWLEDGE_PACK_PATH);
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, `${JSON.stringify(buildChemistryKnowledge(root).index)}\n`, 'utf8');
 }
 
 const chemistrySource = path.join(source, 'chemistry');
