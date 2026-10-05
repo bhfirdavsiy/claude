@@ -170,12 +170,12 @@
           "npm run deploy:preflight",
           "npm run deploy:smoke"
         ],
-        "seconds": 20
+        "seconds": 15
       }
     },
     {
       "id": "linux-ci-pinned",
-      "label": "Linux verification runner pinned (ubuntu-24.04), no *-latest anywhere",
+      "label": "Linux verification runner pinned (ubuntu-24.04), no *-latest in any KimyoLab workflow",
       "pass": true,
       "evidence": ".github/workflows (ci-reproducibility.json#findings)"
     },
@@ -187,7 +187,7 @@
     },
     {
       "id": "actions-node24",
-      "label": "GitHub Actions on Node-24 runtime majors; application Node from .nvmrc",
+      "label": "GitHub Actions on Node-24 runtime majors in KimyoLab workflows; application Node from .nvmrc",
       "pass": true,
       "evidence": "ci-reproducibility.json#actions"
     },

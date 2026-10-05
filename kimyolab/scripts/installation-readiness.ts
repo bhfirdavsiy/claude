@@ -15,7 +15,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {DEPLOY_SETTINGS,DEFAULT_DEPLOY_BASE_PATH,resolveDeployConfig,deployPaths,rel} from './lib/deploy-config.ts';
-import {readWorkflows,workflowFindings,declaredToolchain,VERIFIED_ACTIONS,PINNED_RUNNERS} from './lib/ci-workflow.ts';
+import {readWorkflows,workflowFindings,gatingFindings,isKimyolabWorkflow,declaredToolchain,VERIFIED_ACTIONS,PINNED_RUNNERS,KIMYOLAB_WORKFLOW_PREFIX} from './lib/ci-workflow.ts';
 import {runPreflight,PREFLIGHT_CHECKS} from './deploy-preflight.ts';
 import {computeTreeHash} from './deploy-surface-hash.ts';
 import {bundle} from './lib/computed-model-interaction.ts';
@@ -110,11 +110,12 @@ function ciReproducibility(){
   return {
     schema:'kimyolab.ci-reproducibility.v1',
     semantics:'The DECLARED CI environment, read from the workflow files and the lockfile (deterministic). Each run also records its OBSERVED environment (npm run ci:environment → reports/ci-environment.observed.json, uploaded as a CI artefact and shown in the job summary); the run fails if the application Node major differs from .nvmrc.',
+    scope:{gate:`KimyoLab-owned workflows only (${KIMYOLAB_WORKFLOW_PREFIX}*)`,why:'this repository holds several projects; another project\'s workflow (e.g. the Darslik Cutter installer build) is listed for diagnostics only — it neither passes nor fails KimyoLab readiness, and KimyoLab makes no claim about it'},
     runners:{pinned:PINNED_RUNNERS,why:'a *-latest label can move to a new OS image without notice; the verification OS must change only by a reviewed commit'},
     actions:{verified:VERIFIED_ACTIONS,why:'Node-20 action runtimes are deprecated on GitHub-hosted runners; the v7 majors declare runs.using: node24. The GitHub Action runtime is unrelated to the application Node version.'},
     toolchain:declaredToolchain(root),
-    jobs,findings,
-    status:Object.entries(findings).filter(([k])=>!['floatingRunners','unverifiedActions'].includes(k)).every(([,v])=>v===true)?'PASS':'FAIL',
+    jobs:jobs.map(j=>({...j,owner:isKimyolabWorkflow(j.workflow)?'kimyolab':'other-project (diagnostic only)'})),findings,
+    status:Object.values(gatingFindings(findings)).every(v=>v===true)?'PASS':'FAIL',
   };
 }
 
@@ -198,9 +199,9 @@ export function buildReadiness(){
     C('rollback-drill','rollback drill passes with real artefacts; learner evidence kept',rollback?.status==='PASS'&&rollback?.steps?.some((s:any)=>s.id==='evidence-kept-after-rollback'&&s.pass),'deployment-rollback-drill.json'),
     C('diagnostics-actionable','failures give DEPLOY_* codes, a fix and no absolute path or stack trace',diag.pass,'self-test: preflight of a deliberately broken copy',diag.detail),
     C('clean-machine-drill','clean-environment drill passes with the documented commands',drill?.status==='PASS','deployment-clean-drill.json',drill?{commands:drill.commands,seconds:drill.seconds}:null),
-    C('linux-ci-pinned','Linux verification runner pinned (ubuntu-24.04), no *-latest anywhere',ci.findings.linuxPinned&&ci.findings.noFloatingRunner,'.github/workflows (ci-reproducibility.json#findings)'),
+    C('linux-ci-pinned','Linux verification runner pinned (ubuntu-24.04), no *-latest in any KimyoLab workflow',ci.findings.linuxPinned&&ci.findings.noFloatingRunner,'.github/workflows (ci-reproducibility.json#findings)'),
     C('windows-ci-paths','Windows path job pinned (windows-2025) and runs path tests + deploy preflight',ci.findings.windowsPinned&&/deploy:preflight/.test(fs.readFileSync(path.join(repoTop,'.github/workflows/kimyolab-verify.yml'),'utf8')),'.github/workflows/kimyolab-verify.yml'),
-    C('actions-node24','GitHub Actions on Node-24 runtime majors; application Node from .nvmrc',ci.findings.actionsOnNode24&&ci.findings.appNodeFromNvmrc,'ci-reproducibility.json#actions'),
+    C('actions-node24','GitHub Actions on Node-24 runtime majors in KimyoLab workflows; application Node from .nvmrc',ci.findings.actionsOnNode24&&ci.findings.appNodeFromNvmrc,'ci-reproducibility.json#actions'),
     C('ci-gate-configured','the CI workflow runs verify, build, preflight, smoke, both drills, the cross-platform artefact comparison and strict readiness',ciGate().configured,'.github/workflows/kimyolab-verify.yml (configuration, not a CI result)',ciGate().steps),
   ];
   const passed=checks.filter(c=>c.pass).length;

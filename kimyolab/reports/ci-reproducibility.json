@@ -1,6 +1,10 @@
 {
   "schema": "kimyolab.ci-reproducibility.v1",
   "semantics": "The DECLARED CI environment, read from the workflow files and the lockfile (deterministic). Each run also records its OBSERVED environment (npm run ci:environment → reports/ci-environment.observed.json, uploaded as a CI artefact and shown in the job summary); the run fails if the application Node major differs from .nvmrc.",
+  "scope": {
+    "gate": "KimyoLab-owned workflows only (kimyolab-*)",
+    "why": "this repository holds several projects; another project's workflow (e.g. the Darslik Cutter installer build) is listed for diagnostics only — it neither passes nor fails KimyoLab readiness, and KimyoLab makes no claim about it"
+  },
   "runners": {
     "pinned": {
       "linux": "ubuntu-24.04",
@@ -53,11 +57,42 @@
   "jobs": [
     {
       "workflow": "build-installers.yml",
-      "job": "smoke",
-      "runsOn": "ubuntu-24.04",
-      "uses": [],
+      "job": "build-arm64",
+      "runsOn": "macos-15",
+      "uses": [
+        "actions/checkout@v4",
+        "actions/setup-python@v5",
+        "actions/upload-artifact@v4"
+      ],
       "nodeVersionFile": [],
-      "nodeVersion": []
+      "nodeVersion": [],
+      "owner": "other-project (diagnostic only)"
+    },
+    {
+      "workflow": "build-installers.yml",
+      "job": "build-intel",
+      "runsOn": "macos-15-intel",
+      "uses": [
+        "actions/checkout@v4",
+        "actions/setup-python@v5",
+        "actions/upload-artifact@v4"
+      ],
+      "nodeVersionFile": [],
+      "nodeVersion": [],
+      "owner": "other-project (diagnostic only)"
+    },
+    {
+      "workflow": "build-installers.yml",
+      "job": "package",
+      "runsOn": "macos-15",
+      "uses": [
+        "actions/download-artifact@v4",
+        "actions/download-artifact@v4",
+        "actions/upload-artifact@v4"
+      ],
+      "nodeVersionFile": [],
+      "nodeVersion": [],
+      "owner": "other-project (diagnostic only)"
     },
     {
       "workflow": "kimyolab-release-freeze.yml",
@@ -71,7 +106,8 @@
       "nodeVersionFile": [
         "kimyolab/.nvmrc"
       ],
-      "nodeVersion": []
+      "nodeVersion": [],
+      "owner": "kimyolab"
     },
     {
       "workflow": "kimyolab-verify.yml",
@@ -86,7 +122,8 @@
       "nodeVersionFile": [
         "kimyolab/.nvmrc"
       ],
-      "nodeVersion": []
+      "nodeVersion": [],
+      "owner": "kimyolab"
     },
     {
       "workflow": "kimyolab-verify.yml",
@@ -101,7 +138,8 @@
       "nodeVersionFile": [
         "kimyolab/.nvmrc"
       ],
-      "nodeVersion": []
+      "nodeVersion": [],
+      "owner": "kimyolab"
     },
     {
       "workflow": "kimyolab-verify.yml",
@@ -116,10 +154,19 @@
       "nodeVersionFile": [
         "kimyolab/.nvmrc"
       ],
-      "nodeVersion": []
+      "nodeVersion": [],
+      "owner": "kimyolab"
     }
   ],
   "findings": {
+    "scope": "KimyoLab-owned workflows only (kimyolab-*)",
+    "kimyolabWorkflows": [
+      "kimyolab-release-freeze.yml",
+      "kimyolab-verify.yml"
+    ],
+    "otherRepositoryWorkflows": [
+      "build-installers.yml"
+    ],
     "linuxPinned": true,
     "windowsPinned": true,
     "noFloatingRunner": true,
