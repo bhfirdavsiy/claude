@@ -539,23 +539,25 @@ export async function buildEquivalence(root=ROOT,profiles:TopicLabProfile[]=comp
 }
 
 /** The guided lab's bundle growth since the P2.9 closing build (reports/feedback-semantics-expansion.json#bundleDelta.after
- *  @ 22e5687) vs the current build. `delta` stays CUMULATIVE since P2.9 (P2.10 + P2.11 + P2.12), because the earlier phases'
+ *  @ 22e5687) vs the current build. `delta` stays CUMULATIVE since P2.9 (P2.10 + … + P2.13), because the earlier phases'
  *  bound checks subtract exactly this recorded delta instead of absorbing it; `phases` splits it per phase. */
 export const P29_BUNDLE_AFTER={learnerModules:162,learnerModuleBytes:714004,standaloneBytes:5704269};
 /** P2.10's recorded growth (reports/guided-dynamic-lab-readiness.json#bundleDelta.delta @ a6f959e) */
 export const P210_BUNDLE_DELTA={learnerModules:6,learnerModuleBytes:102503,standaloneBytes:153878};
-/** P2.11's recorded growth (bundleDelta.phases['P2.11'] @ b4de365, the P2.11 merge); anything beyond is P2.12's */
+/** P2.11's recorded growth (bundleDelta.phases['P2.11'] @ b4de365, the P2.11 merge) */
 export const P211_BUNDLE_DELTA={learnerModules:1,learnerModuleBytes:43684,standaloneBytes:67213};
+/** P2.12's recorded growth (bundleDelta.phases['P2.12'] @ 641ccb9, the P2.12 merge); anything beyond is P2.13's */
+export const P212_BUNDLE_DELTA={learnerModules:1,learnerModuleBytes:4082,standaloneBytes:1255};
 export function bundleDelta(root:string,now:{learnerModules:number;learnerModuleBytes:number;standaloneBytes:number}){
   void root;
   const before=P29_BUNDLE_AFTER;
   const after={learnerModules:now.learnerModules,learnerModuleBytes:now.learnerModuleBytes,standaloneBytes:now.standaloneBytes};
   const delta={learnerModules:after.learnerModules-before.learnerModules,learnerModuleBytes:after.learnerModuleBytes-before.learnerModuleBytes,standaloneBytes:after.standaloneBytes-before.standaloneBytes};
   const k=['learnerModules','learnerModuleBytes','standaloneBytes'] as const;
-  const p212=Object.fromEntries(k.map(x=>[x,delta[x]-P210_BUNDLE_DELTA[x]-P211_BUNDLE_DELTA[x]])) as typeof delta;
+  const p213=Object.fromEntries(k.map(x=>[x,delta[x]-P210_BUNDLE_DELTA[x]-P211_BUNDLE_DELTA[x]-P212_BUNDLE_DELTA[x]])) as typeof delta;
   return {before,after,delta,cumulativeSince:'P2.9',
-    phases:{'P2.10':P210_BUNDLE_DELTA,'P2.11':P211_BUNDLE_DELTA,'P2.12':p212},
-    newModules:'P2.10: src/app/feature-flags.ts, src/domain/lab/{action-catalog,topic-lab-profile,lab-runtime,lab-domain}.ts, src/features/dynamic-lab/render.ts; P2.11: src/domain/lab/capability-registry.ts (compiled with the app modules, imported by no learner route and absent from the standalone file; the standalone growth is the new handlers, catalog strings and two profiles); P2.12: src/features/textbook-excerpt/render.ts (the learner "Darslikdan o‘qish" renderer, not yet linked from a learner route) — the Content Studio itself is a separate build (dist-studio/) and adds nothing to the learner bundle'};
+    phases:{'P2.10':P210_BUNDLE_DELTA,'P2.11':P211_BUNDLE_DELTA,'P2.12':P212_BUNDLE_DELTA,'P2.13':p213},
+    newModules:'P2.10: src/app/feature-flags.ts, src/domain/lab/{action-catalog,topic-lab-profile,lab-runtime,lab-domain}.ts, src/features/dynamic-lab/render.ts; P2.11: src/domain/lab/capability-registry.ts (compiled with the app modules, imported by no learner route and absent from the standalone file; the standalone growth is the new handlers, catalog strings and two profiles); P2.12: src/features/textbook-excerpt/render.ts (the learner "Darslikdan o‘qish" renderer, not yet linked from a learner route) — the Content Studio itself is a separate build (dist-studio/) and adds nothing to the learner bundle; P2.13: src/features/periodic/{hub,model,render}.ts and src/domain/chemistry/periodic-layout.ts (the layout module is compiled with the domain but read only by the content build), plus the Element Hub pack file and its catalog strings in the standalone file'};
 }
 
 export function buildReadiness(inventory:any,catalog:any,coverage:any,equivalence:any,profiles:TopicLabProfile[],bundle?:unknown,capability?:any,substances?:any){

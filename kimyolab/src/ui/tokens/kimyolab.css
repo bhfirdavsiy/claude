@@ -175,3 +175,30 @@
 @media(min-width:900px){.kl-dlab{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.kl-dlab__flow{grid-column:1/-1}}
 /* P2.12 Darslikdan o‘qish (textbook excerpt) */
 .kl-excerpt__meta{display:grid;grid-template-columns:max-content 1fr;gap:.25rem 1rem}.kl-excerpt__meta dt{font-weight:700}.kl-excerpt__meta dd{margin:0}.kl-excerpt object{width:100%;min-height:24rem}@media (max-width:480px){.kl-excerpt__meta{grid-template-columns:1fr}}
+/* P2.13 — periodic table + element profile (ADR-P2-014). Narrow screens: the cells wrap in atomic-number order (each a
+   48px target); from 960px the 18-column layout places each cell at its display row/column. No category colour: the
+   category is text in the profile. Dimmed cells (filters) are also listed as text links. */
+.kl-periodic__filters{display:grid;gap:.75rem;margin-bottom:1rem}.kl-periodic__filters h2{font-size:1.1rem;margin:0}
+.kl-periodic__filter-row{display:flex;flex-wrap:wrap;gap:.75rem 1rem;align-items:flex-end}.kl-periodic__filter-row .kl-field{min-width:8rem}.kl-periodic__filter-row select{min-height:44px;width:100%}
+.kl-periodic__check{display:inline-flex;align-items:center;gap:.4rem;min-height:44px;cursor:pointer}.kl-periodic__check input{width:1.2rem;height:1.2rem}
+.kl-periodic__status{min-height:1.5em;font-weight:700;margin:.25rem 0 .75rem}
+.kl-ptable{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px}
+.kl-ptable__item{margin:0}.kl-ptable__item--placeholder{display:none}
+.kl-ptable__cell{display:flex;flex-direction:column;justify-content:center;align-items:center;min-width:48px;min-height:48px;padding:.2rem;border:1px solid var(--kl-border);border-radius:.4rem;background:var(--kl-surface);text-decoration:none;line-height:1.1}
+.kl-ptable__cell:hover{border-color:var(--kl-primary)}
+.kl-ptable__cell[aria-current="true"]{border:3px solid var(--kl-primary-strong);background:var(--kl-surface-soft)}
+.kl-ptable__cell--dim{opacity:.35}
+.kl-ptable__z{font-size:.7rem;color:var(--kl-muted)}.kl-ptable__symbol{font-size:1.05rem;font-weight:800}.kl-ptable__name{font-size:.6rem;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:none}
+.kl-ptable__placeholder{display:flex;align-items:center;justify-content:center;height:100%;font-size:.7rem;color:var(--kl-muted);border:1px dashed var(--kl-border);border-radius:.4rem}
+@media (min-width:960px){
+  .kl-ptable{display:grid;grid-template-columns:repeat(18,minmax(0,1fr));grid-template-rows:repeat(7,auto) 1rem repeat(2,auto)}
+  .kl-ptable__item{grid-row:var(--kl-row);grid-column:var(--kl-col)}.kl-ptable__item--placeholder{display:block}
+  .kl-ptable__cell{min-width:0;min-height:56px}.kl-ptable__name{display:block}
+}
+.kl-periodic-page--projector .kl-ptable__symbol{font-size:1.6rem}.kl-periodic-page--projector .kl-ptable__z{font-size:.9rem}.kl-periodic-page--projector .kl-ptable__cell{min-height:72px}.kl-periodic-page--projector .kl-element-profile{font-size:1.2rem}
+.kl-periodic__match-list{display:flex;flex-wrap:wrap;gap:.25rem 1rem;padding-left:1.25rem}.kl-periodic__matches h2{font-size:1.05rem}
+.kl-element-profile{margin-bottom:1.5rem;padding:1.25rem}.kl-element-profile__head{display:flex;flex-wrap:wrap;gap:.5rem 1rem;align-items:center;justify-content:space-between}.kl-element-profile__head h2{margin:0;flex:1 1 12rem}
+.kl-element-profile__facts{display:grid;grid-template-columns:max-content 1fr;gap:.35rem 1rem;margin:1rem 0}.kl-element-profile__facts dt{font-weight:700}.kl-element-profile__facts dd{margin:0}
+.kl-element-profile__note{display:block;font-size:.85rem;color:var(--kl-muted)}
+.kl-element-profile__group h4{margin:.75rem 0 .25rem}.kl-element-profile__group ul{margin:.25rem 0;padding-left:1.25rem}
+@media (max-width:480px){.kl-element-profile__facts{grid-template-columns:1fr}.kl-element-profile__facts dd{margin-bottom:.5rem}}

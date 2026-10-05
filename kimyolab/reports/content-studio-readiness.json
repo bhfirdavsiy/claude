@@ -458,11 +458,11 @@
   },
   "bundleImpact": {
     "studio": {
-      "modules": 70,
-      "moduleBytes": 489506,
+      "modules": 71,
+      "moduleBytes": 496124,
       "studioOnlyModules": 9,
       "studioOnlyBytes": 90011,
-      "sharedLearnerModules": 61
+      "sharedLearnerModules": 62
     },
     "learner": "reports/guided-dynamic-lab-readiness.json#bundleDelta.phases[\"P2.12\"]"
   },

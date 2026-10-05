@@ -9,7 +9,7 @@ import {fileURLToPath} from 'node:url';
 import {resolveDeployConfig, mountDirName, deployPaths, rel, DEPLOY_SETTINGS, DEFAULT_DEPLOY_BASE_PATH} from '../scripts/lib/deploy-config.ts';
 import {buildDeployArtifact} from '../scripts/deploy-build.ts';
 import {runPreflight, PREFLIGHT_CHECKS} from '../scripts/deploy-preflight.ts';
-import {readWorkflows, workflowFindings, VERIFIED_ACTIONS, PINNED_RUNNERS} from '../scripts/lib/ci-workflow.ts';
+import {readWorkflows, workflowFindings, gatingFindings, VERIFIED_ACTIONS, PINNED_RUNNERS} from '../scripts/lib/ci-workflow.ts';
 import {computeTreeHash} from '../scripts/deploy-surface-hash.ts';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -99,12 +99,46 @@ test('CI: verification OS pinned, actions on their Node-24 majors, application N
   assert.deepEqual([f.linuxPinned, f.windowsPinned, f.noFloatingRunner, f.actionsOnNode24, f.appNodeFromNvmrc], [true, true, true, true, true], JSON.stringify(f));
   assert.deepEqual(PINNED_RUNNERS, {linux: 'ubuntu-24.04', windows: 'windows-2025'});
   assert.ok(Object.values(VERIFIED_ACTIONS).every((a) => /^v\d+$/.test(a.ref) && a.runtime === 'node24'));
-  const all = fs.readdirSync(path.resolve(root, '../.github/workflows')).map((x) => fs.readFileSync(path.resolve(root, '../.github/workflows', x), 'utf8')).join('\n');
+  // P2.13 changed this assertion: the repository holds several projects, so the raw scan reads the KimyoLab-owned
+  // workflows (kimyolab-*) only; another project's workflow (the Darslik Cutter installer build) is not KimyoLab's
+  const all = fs.readdirSync(path.resolve(root, '../.github/workflows')).filter((x) => x.startsWith('kimyolab-')).map((x) => fs.readFileSync(path.resolve(root, '../.github/workflows', x), 'utf8')).join('\n');
   assert.doesNotMatch(all, /ubuntu-latest|windows-latest|@v4\b/);
   // a floating label or an old action is reported, not tolerated
   const bad = workflowFindings([{workflow: 'kimyolab-verify.yml', job: 'verify', runsOn: 'ubuntu-latest', uses: ['actions/checkout@v4', 'actions/setup-node@v4'], nodeVersionFile: [], nodeVersion: ['20']}]);
   assert.deepEqual([bad.linuxPinned, bad.noFloatingRunner, bad.actionsOnNode24, bad.appNodeFromNvmrc], [false, false, false, false]);
   assert.equal(fs.readFileSync(path.join(root, '.nvmrc'), 'utf8').trim(), '22', 'the application Node major is unchanged');
+});
+
+test('CI scope (P2.13): only KimyoLab-owned workflows gate KimyoLab readiness; the checks themselves are not weakened', () => {
+  const ok = (workflow, job, runsOn, uses, extra = {}) => ({workflow, job, runsOn, uses, nodeVersionFile: [], nodeVersion: [], ...extra});
+  const kimyo = [
+    ok('kimyolab-verify.yml', 'verify', 'ubuntu-24.04', ['actions/checkout@v7', 'actions/setup-node@v7'], {nodeVersionFile: ['kimyolab/.nvmrc']}),
+    ok('kimyolab-verify.yml', 'windows-paths', 'windows-2025', ['actions/checkout@v7', 'actions/setup-node@v7'], {nodeVersionFile: ['kimyolab/.nvmrc']}),
+  ];
+  const g = (jobs) => gatingFindings(workflowFindings(jobs));
+  const allPass = {linuxPinned: true, windowsPinned: true, noFloatingRunner: true, actionsOnNode24: true, appNodeFromNvmrc: true};
+  assert.deepEqual(g(kimyo), allPass);
+  // 1. an old action in another project's workflow does not fail KimyoLab
+  assert.deepEqual(g([...kimyo, ok('build-installers.yml', 'build-arm64', 'macos-15', ['actions/checkout@v4', 'actions/setup-python@v5', 'actions/upload-artifact@v4'])]), allPass);
+  // 2. the same old action inside a KimyoLab workflow does fail
+  const old = g([...kimyo, ok('kimyolab-verify.yml', 'extra', 'ubuntu-24.04', ['actions/checkout@v4'])]);
+  assert.equal(old.actionsOnNode24, false);
+  // 3. an unrelated floating runner does not fail KimyoLab pinning; 4. inside a KimyoLab workflow it does
+  assert.deepEqual(g([...kimyo, ok('build-installers.yml', 'smoke', 'ubuntu-latest', [])]), allPass);
+  assert.equal(g([...kimyo, ok('kimyolab-release-freeze.yml', 'freeze', 'ubuntu-latest', [])]).noFloatingRunner, false);
+  // other projects are listed for diagnostics only, never assessed
+  const f = workflowFindings([...kimyo, ok('build-installers.yml', 'smoke', 'ubuntu-latest', ['actions/checkout@v4'])]);
+  assert.deepEqual(f.otherRepositoryWorkflows, ['build-installers.yml']); assert.deepEqual(f.unverifiedActions, []); assert.deepEqual(f.floatingRunners, []);
+  // 5. the real KimyoLab workflows use exactly the verified Node-24 majors; 6. .nvmrc is the only Node source
+  const real = readWorkflows(path.resolve(root, '..'));
+  const kimyoUses = real.filter((j) => j.workflow.startsWith('kimyolab-')).flatMap((j) => j.uses);
+  assert.ok(kimyoUses.length > 0);
+  for (const u of kimyoUses) { const [name, ref] = u.split('@'); assert.equal(VERIFIED_ACTIONS[name]?.ref, ref, u); }
+  const nodeJobs = real.filter((j) => j.workflow.startsWith('kimyolab-') && j.uses.some((u) => u.startsWith('actions/setup-node@')));
+  assert.ok(nodeJobs.length > 0 && nodeJobs.every((j) => j.nodeVersionFile.length > 0 && j.nodeVersionFile.every((x) => x === 'kimyolab/.nvmrc') && j.nodeVersion.length === 0));
+  const report = json('reports/ci-reproducibility.json');
+  assert.equal(report.status, 'PASS'); assert.match(report.scope.gate, /KimyoLab-owned workflows only/);
+  assert.ok(report.findings.otherRepositoryWorkflows.includes('build-installers.yml'));
 });
 
 test('Installation Readiness: published checks, honest status, separate from the learning-product formula', () => {

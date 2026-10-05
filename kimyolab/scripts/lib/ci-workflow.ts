@@ -48,15 +48,25 @@ export function declaredToolchain(root:string){
   };
 }
 
-/** Pass/fail facts about the workflows (published in reports/ci-reproducibility.json and Installation Readiness). */
+/** This is a multi-project repository: only workflows named `kimyolab-*` belong to KimyoLab. Other projects' workflows
+ *  (e.g. the Darslik Cutter installer build) are read for diagnostics only and never decide KimyoLab readiness. */
+export const KIMYOLAB_WORKFLOW_PREFIX='kimyolab-';
+export const isKimyolabWorkflow=(file:string)=>file.startsWith(KIMYOLAB_WORKFLOW_PREFIX);
+
+/** Pass/fail facts about the KimyoLab-owned workflows (published in reports/ci-reproducibility.json and Installation
+ *  Readiness). Every gating fact — runner pinning, floating runners, verified action majors, Node version source — is
+ *  computed from `kimyolab-*` workflows only; the checks themselves are unchanged. */
 export function workflowFindings(jobs:WorkflowJob[]){
-  const kimyo=jobs.filter(j=>j.workflow.startsWith('kimyolab-'));
-  const actionRefs=jobs.flatMap(j=>j.uses.map(u=>({job:`${j.workflow}#${j.job}`,uses:u})));
+  const kimyo=jobs.filter(j=>isKimyolabWorkflow(j.workflow));
+  const actionRefs=kimyo.flatMap(j=>j.uses.map(u=>({job:`${j.workflow}#${j.job}`,uses:u})));
   const unverified=actionRefs.filter(a=>{ const [name,ref]=a.uses.split('@'); return !VERIFIED_ACTIONS[name!]||VERIFIED_ACTIONS[name!]!.ref!==ref; });
-  const floating=jobs.filter(j=>/-latest$/.test(j.runsOn));
-  const verifyJob=jobs.find(j=>j.workflow==='kimyolab-verify.yml'&&j.job==='verify');
-  const windowsJob=jobs.find(j=>j.workflow==='kimyolab-verify.yml'&&j.job==='windows-paths');
+  const floating=kimyo.filter(j=>/-latest$/.test(j.runsOn));
+  const verifyJob=kimyo.find(j=>j.workflow==='kimyolab-verify.yml'&&j.job==='verify');
+  const windowsJob=kimyo.find(j=>j.workflow==='kimyolab-verify.yml'&&j.job==='windows-paths');
   return {
+    scope:`KimyoLab-owned workflows only (${KIMYOLAB_WORKFLOW_PREFIX}*)`,
+    kimyolabWorkflows:[...new Set(kimyo.map(j=>j.workflow))].sort(),
+    otherRepositoryWorkflows:[...new Set(jobs.filter(j=>!isKimyolabWorkflow(j.workflow)).map(j=>j.workflow))].sort(),
     linuxPinned:verifyJob?.runsOn===PINNED_RUNNERS.linux,
     windowsPinned:windowsJob?.runsOn===PINNED_RUNNERS.windows,
     noFloatingRunner:floating.length===0,floatingRunners:floating.map(j=>`${j.workflow}#${j.job}: ${j.runsOn}`),
@@ -64,3 +74,5 @@ export function workflowFindings(jobs:WorkflowJob[]){
     appNodeFromNvmrc:kimyo.filter(j=>j.uses.some(u=>u.startsWith('actions/setup-node@'))).every(j=>j.nodeVersionFile.every(f=>f==='kimyolab/.nvmrc')&&j.nodeVersionFile.length>0&&j.nodeVersion.length===0),
   };
 }
+/** the gating booleans of the findings (diagnostic lists and the scope note never decide a status) */
+export const gatingFindings=(f:ReturnType<typeof workflowFindings>)=>({linuxPinned:f.linuxPinned,windowsPinned:f.windowsPinned,noFloatingRunner:f.noFloatingRunner,actionsOnNode24:f.actionsOnNode24,appNodeFromNvmrc:f.appNodeFromNvmrc});

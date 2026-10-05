@@ -22722,6 +22722,17 @@
       "status": "FORM_OR_SCRIPT_ONLY"
     },
     {
+      "module": "periodic-layout",
+      "file": "src/domain/chemistry/periodic-layout.ts",
+      "modelRecords": null,
+      "usedByActivities": 0,
+      "usedByLearningUnits": 0,
+      "browserExposed": false,
+      "rendererExposed": false,
+      "exposedAs": [],
+      "status": "UNUSED"
+    },
+    {
       "module": "periodic-table",
       "file": "src/domain/chemistry/periodic-table.ts",
       "modelRecords": null,
@@ -23798,11 +23809,11 @@
     },
     "hardcodedUzbekUi": {
       "files": 21,
-      "literals": 155,
+      "literals": 156,
       "byFile": [
         {
           "file": "src/app/bootstrap.ts",
-          "uzbekLiterals": 7
+          "uzbekLiterals": 8
         },
         {
           "file": "src/app/content-client.ts",

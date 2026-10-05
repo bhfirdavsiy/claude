@@ -4,7 +4,8 @@ import { assertTopicLabProfile, TOPIC_LAB_PROFILE_PACK_PATH, TOPIC_LAB_PROFILE_P
 import { APP_COMPATIBILITY } from './app-version.ts';
 import { buildLearningHubModel, type LearningHubModel } from '../features/learning-hub/model.ts';
 import { buildPracticePageModel, type StudentPracticePageModel } from '../features/practice/model.ts';
-import { DEFAULT_LOCALE, elementNamesPackPath, interactionPackPath, parseElementNameCatalog, parseInteractionCatalog, parseSpeciesNameCatalog, speciesNamesPackPath } from '../features/localization/element-names.ts';
+import { DEFAULT_LOCALE, elementNamesPackPath, interactionPackPath, parseElementNameCatalog, parseInteractionCatalog, parseSpeciesNameCatalog, speciesNamesPackPath, type ElementNameCatalog, type InteractionCatalog, type SpeciesNameCatalog } from '../features/localization/element-names.ts';
+import { assertElementHub, ELEMENT_HUB_PACK_PATH, type ElementHub } from '../features/periodic/hub.ts';
 import {validateExternalLabBindings,bindingsForLearningUnit} from '../integrations/external-labs/registry.ts';
 import type {ExternalLabBinding} from '../integrations/external-labs/types.ts';
 import type {LabCatalogModel} from '../features/labs/model.ts';
@@ -240,6 +241,23 @@ export class ContentClient {
     if(!raw) return null;
     try{ return assertTopicLabProfile(raw); }
     catch{ throw new ContentLoadError('TOPIC_LAB_PROFILE_INVALID',{resource:practiceActivityId}); }
+  }
+
+  /** P2.13: the Element Hub and the catalogs its page reads (element names, learner-interaction text). Integrity-checked
+   *  like every pack file; a hub that does not carry exactly the canonical 118 identities fails closed. */
+  async loadElementHub():Promise<{hub:ElementHub;elementNames:ElementNameCatalog;speciesNames:SpeciesNameCatalog;interaction:InteractionCatalog}>{
+    const version=await this.version();
+    if(!this.files.has(ELEMENT_HUB_PACK_PATH)) throw new ContentLoadError('ELEMENT_HUB_MISSING',{resource:ELEMENT_HUB_PACK_PATH});
+    let hub:ElementHub;
+    try{ hub=assertElementHub(await this.packJson(version,ELEMENT_HUB_PACK_PATH)); }
+    catch(error){ throw error instanceof ContentLoadError?error:new ContentLoadError('ELEMENT_HUB_INVALID',{resource:ELEMENT_HUB_PACK_PATH}); }
+    let elementNames:ElementNameCatalog, speciesNames:SpeciesNameCatalog, interaction:InteractionCatalog;
+    try{
+      elementNames=parseElementNameCatalog(await this.packJson(version,elementNamesPackPath(DEFAULT_LOCALE)));
+      speciesNames=parseSpeciesNameCatalog(await this.packJson(version,speciesNamesPackPath(DEFAULT_LOCALE)));
+      interaction=parseInteractionCatalog(await this.packJson(version,interactionPackPath(DEFAULT_LOCALE)));
+    }catch(error){ throw error instanceof ContentLoadError?error:new ContentLoadError('LOCALIZATION_INVALID',{resource:'locales'}); }
+    return {hub,elementNames,speciesNames,interaction};
   }
 
   async loadCurriculum(){

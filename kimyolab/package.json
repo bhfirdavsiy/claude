@@ -142,7 +142,8 @@
     "studio:build": "node --no-warnings scripts/build-content-studio.ts",
     "studio:serve": "node scripts/serve-content-studio.mjs",
     "studio:check": "node --no-warnings scripts/content-studio.ts check",
-    "studio:report": "node --no-warnings scripts/content-studio.ts"
+    "studio:report": "node --no-warnings scripts/content-studio.ts",
+    "periodic:report": "node --experimental-strip-types scripts/periodic-table.ts"
   },
   "devDependencies": {
     "@playwright/test": "1.56.1",

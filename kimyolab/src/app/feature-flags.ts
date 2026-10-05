@@ -5,6 +5,8 @@ export const FEATURE_FLAGS={
   /** P2.12: the Content Studio is a SEPARATE build (dist-studio/, never deployed with the learner app); this flag only
    *  gates the Studio's own entry page. It is not authentication: the Studio is an internal tool for a local machine. */
   contentStudioV1:{default:false,enable:'?ff=contentStudioV1',description:'Content Studio MVP (separate build: npm run studio:build / studio:serve); not part of the learner deployment.'},
+  /** P2.13: the periodic table and Element Hub at /periodic and /periodic/<symbol>; elements join the learner search. */
+  periodicTableV1:{default:false,enable:'?ff=periodicTableV1',description:'Periodic table + Element Hub at /periodic (element profile deep link /periodic/<symbol>); with the flag off the route does not exist.'},
 } as const;
 export type FeatureFlag=keyof typeof FEATURE_FLAGS;
 

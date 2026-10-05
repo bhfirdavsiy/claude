@@ -1,0 +1,5 @@
+{
+  "schema": "kimyolab.element-relations.v1",
+  "note": "P2.13 (ADR-P2-014 §3a). Authored element relations (AUTHORED_RELATION). Each relation: {element, kind: PRIMARY | RELATED, targetType: SUBSTANCE | REACTION | TOPIC | LAB, targetId (must exist in that canonical registry: species.json, reactions.json, learning-units.json, practice-activities.json experiments), sourceRefs (registry ids)}. A relation is a claim reviewed like metadata (element-reviews.json; chemistry role for substance/reaction, didactic role for topic/lab) and reaches the learner only when effectively reviewed. PRIMARY never comes from formula participation. None is authored yet.",
+  "relations": []
+}

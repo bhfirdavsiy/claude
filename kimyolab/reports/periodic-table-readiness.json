@@ -1,0 +1,138 @@
+{
+  "schema": "kimyolab.periodic-table-readiness.v1",
+  "phase": "P2.13",
+  "decision": "NOT_A_RELEASE_OR_PILOT_DECISION",
+  "semantics": "What the periodic table and Element Hub do, what is a gap and what needs a human. Coverage dimensions stay separate (see the other five reports).",
+  "featureFlag": {
+    "name": "periodicTableV1",
+    "default": false,
+    "offBehaviour": "the /periodic routes render the existing “page not found” and the search has no element entries — the learner app is unchanged"
+  },
+  "routes": {
+    "table": "/periodic",
+    "profile": "/periodic/<symbol>",
+    "unknownSymbol": "a plain notice on the table page",
+    "hosts": [
+      "portal (server allow-list: /periodic, /periodic/)",
+      "standalone (hash route)"
+    ],
+    "deepLinkRefresh": true
+  },
+  "identity": {
+    "canonicalSource": "src/domain/chemistry/periodic-table.ts (ELEMENT_SYMBOLS)",
+    "elements": 118,
+    "atomicNumbers": {
+      "min": 1,
+      "max": 118,
+      "contiguous": true
+    },
+    "symbolsEqualCanonical": true,
+    "duplicateZ": 0,
+    "duplicateSymbols": 0
+  },
+  "coverage": {
+    "canonicalIdentity": 118,
+    "sourcedScientificClaims": 0,
+    "effectiveHumanReviewedMetadata": 0,
+    "unreviewedDerivations": {
+      "periodGroupRule": 1,
+      "periodValuesNotShown": 118,
+      "groupValuesNotShown": 88
+    },
+    "sourceRequiredGaps": {
+      "chemicalPeriod": 118,
+      "group": 118,
+      "relativeAtomicMass": 118,
+      "category": 118,
+      "electronConfiguration": 0,
+      "oxidationStates": 118,
+      "teachingDescription": 118
+    },
+    "computedEngineFields": 34,
+    "localizedNames": 20,
+    "reviewedLocalizedNames": 0,
+    "formulaDerivedRelations": 261,
+    "explicitMappings": 154,
+    "humanReviewedAuthoredRelations": 0,
+    "legacy": {
+      "identityConflicts": 0,
+      "layoutDifferences": 0,
+      "conflictsAgainstReviewed": 0,
+      "comparedAgainstReviewed": 0,
+      "matchesAgainstUnreviewed": 178,
+      "notAssessable": 336
+    }
+  },
+  "search": {
+    "system": "the existing learner search (src/features/search/model.ts) — no second search",
+    "matches": [
+      "atomic number (exact)",
+      "symbol (exact)",
+      "localized name (exact first, then part)"
+    ],
+    "flagged": "elements join the index only with periodicTableV1"
+  },
+  "accessibility": {
+    "tested": "tests/e2e/periodic-table.spec.mjs",
+    "checks": [
+      "every cell a link with a full accessible name",
+      "visible focus",
+      "profile heading focused on open; Escape closes; focus returns to the cell",
+      "no colour-only semantics (filters list matches as text; no category colour)",
+      "320 px: cells wrap in Z order, 48 px targets, no page scroll",
+      "reduced motion"
+    ],
+    "learnerInvariant": "140 / 5 / 0 / 1 (the sweep covers learning activities; the periodic page is tested by its own suite)"
+  },
+  "bundle": {
+    "phase": {
+      "learnerModules": 4,
+      "learnerModuleBytes": 31692,
+      "standaloneBytes": 175322
+    },
+    "report": "reports/guided-dynamic-lab-readiness.json#bundleDelta.phases[\"P2.13\"]",
+    "note": "the Element Hub is a pack file loaded only on /periodic and on a flagged search"
+  },
+  "isolation": {
+    "contentStudio": "no element editor; the Studio is unchanged",
+    "learnerProgress": "none: no profile, no attempt, no evidence written",
+    "otherFeatures": "curriculum, practice, dynamic lab, textbook excerpt and Content Studio do not import the periodic feature"
+  },
+  "notInScope": [
+    "Substance Passport (P2.14)",
+    "Reaction Explorer (P2.14)",
+    "extending the electron-configuration engine",
+    "authoring metadata or names (human, sourced, reviewed)"
+  ],
+  "humanDecisions": [
+    {
+      "decision": "sources for relative atomic mass, category, oxidation states and teaching descriptions",
+      "status": "human review required"
+    },
+    {
+      "decision": "review of the 20 localized element names and names for the remaining 98",
+      "status": "human review required"
+    },
+    {
+      "decision": "a registered, human-accepted source for the period / group rule and a chemistry decision on its hash",
+      "status": "human review required"
+    },
+    {
+      "decision": "f-block group convention (La/Lu, Ac/Lr)",
+      "status": "human review required"
+    },
+    {
+      "decision": "electron configurations of Z 24, 29 and beyond Z 36",
+      "status": "human review required"
+    },
+    {
+      "decision": "PRIMARY element relations",
+      "status": "human review required"
+    }
+  ],
+  "formalMetrics": {
+    "learningProduct": 12.189,
+    "overall": 47.313,
+    "note": "the periodic table is reference infrastructure; no formula input changed"
+  }
+}

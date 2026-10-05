@@ -32,9 +32,10 @@ const TYPES = Object.freeze({
 });
 const ROOT_FILES = new Set(['/index.html', '/app.html']);
 const PUBLIC_PREFIXES = ['/app-preview/', '/content/', '/assets/', '/vendor/nobook/'];
-const SPA_EXACT = new Set(['/', '/curriculum', '/labs', '/progress', '/search']);
+// P2.13: /periodic and /periodic/<symbol> are the periodic table routes (feature flag periodicTableV1; the page checks it)
+const SPA_EXACT = new Set(['/', '/curriculum', '/labs', '/progress', '/search', '/periodic']);
 // P2.10: /dynamic-lab/ is the guided dynamic lab route (feature flag guidedDynamicLabV1; the page checks the flag)
-const SPA_PREFIXES = ['/learn/', '/practice/', '/worksheet/', '/external-lab/', '/dynamic-lab/'];
+const SPA_PREFIXES = ['/learn/', '/practice/', '/worksheet/', '/external-lab/', '/dynamic-lab/', '/periodic/'];
 const MAX_URL_LENGTH = 2048;
 const SESSION_BODY_LIMIT = 4096;
 const ID_PATTERNS = Object.freeze({

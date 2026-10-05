@@ -1,0 +1,370 @@
+{
+  "schema": "kimyolab.element-relationship-coverage.v1",
+  "phase": "P2.13",
+  "decision": "NOT_A_RELEASE_OR_PILOT_DECISION",
+  "semantics": "Element → Substance → Reaction → Lab → Topic, only from canonical records: formula-derived PARTICIPATES (formula parser), explicit mappings (lab profile shelf, guided-step reaction map, mapping links) and human-reviewed authored relations. No keyword matching, no inference. PARTICIPATES is never promoted to PRIMARY; an unreviewed authored relation is never shown or counted as reviewed.",
+  "elementsWith": {
+    "substances": 19,
+    "reactions": 18,
+    "labs": 16,
+    "topics": 16,
+    "reviewedPrimary": 0
+  },
+  "totals": {
+    "substances": 78,
+    "reactions": 28,
+    "labs": 13,
+    "topics": 14
+  },
+  "formulaDerived": 261,
+  "explicit": 154,
+  "authoredReviewedShown": 0,
+  "authoredClaims": {
+    "total": 0,
+    "effectiveReviewed": 0,
+    "notReviewed": 0,
+    "contract": "targetType ∈ SUBSTANCE | REACTION | TOPIC | LAB, targetId exists in that canonical registry, registry source ids; reviewed on the exact hash (chemistry role: substance / reaction; didactic role: topic / lab)"
+  },
+  "byKindAndProvenance": {
+    "labs:PARTICIPATES:EXPLICIT_MAPPING": 68,
+    "reactions:PARTICIPATES:DERIVED_FROM_FORMULA": 101,
+    "substances:PARTICIPATES:DERIVED_FROM_FORMULA": 160,
+    "topics:PARTICIPATES:EXPLICIT_MAPPING": 86
+  },
+  "gradesCovered": [
+    7,
+    8,
+    9,
+    11
+  ],
+  "unparsedSpecies": [
+    "species.etanol",
+    "species.kraxmal",
+    "species.saxaroza",
+    "species.sirka",
+    "species.moy",
+    "species.indikator"
+  ],
+  "unparsedReactionFormulas": [],
+  "perElement": [
+    {
+      "symbol": "H",
+      "substances": 18,
+      "reactions": 17,
+      "labs": [
+        "practice.experiment.7.10",
+        "practice.experiment.7.11",
+        "practice.experiment.7.2",
+        "practice.experiment.7.9",
+        "practice.experiment.8.1",
+        "practice.experiment.8.14",
+        "practice.experiment.8.6",
+        "practice.experiment.9.16",
+        "practice.experiment.9.4"
+      ],
+      "topics": [
+        "lu.7.03",
+        "lu.7.15",
+        "lu.7.20",
+        "lu.7.21",
+        "lu.8.01",
+        "lu.8.14",
+        "lu.8.16",
+        "lu.8.22",
+        "lu.9.05",
+        "lu.9.07",
+        "lu.9.09",
+        "lu.9.21"
+      ]
+    },
+    {
+      "symbol": "C",
+      "substances": 7,
+      "reactions": 4,
+      "labs": [
+        "practice.experiment.7.11",
+        "practice.experiment.7.9",
+        "practice.experiment.9.4"
+      ],
+      "topics": [
+        "lu.7.15",
+        "lu.7.20",
+        "lu.7.21",
+        "lu.9.05",
+        "lu.9.07",
+        "lu.9.09"
+      ]
+    },
+    {
+      "symbol": "N",
+      "substances": 9,
+      "reactions": 5,
+      "labs": [
+        "practice.experiment.8.1",
+        "practice.experiment.8.14",
+        "practice.experiment.8.8",
+        "practice.experiment.8.9"
+      ],
+      "topics": [
+        "lu.8.14",
+        "lu.8.16",
+        "lu.8.22"
+      ]
+    },
+    {
+      "symbol": "O",
+      "substances": 36,
+      "reactions": 23,
+      "labs": [
+        "practice.experiment.7.10",
+        "practice.experiment.7.11",
+        "practice.experiment.7.2",
+        "practice.experiment.7.9",
+        "practice.experiment.8.1",
+        "practice.experiment.8.14",
+        "practice.experiment.8.6",
+        "practice.experiment.8.8",
+        "practice.experiment.8.9",
+        "practice.experiment.9.16",
+        "practice.experiment.9.4"
+      ],
+      "topics": [
+        "lu.7.03",
+        "lu.7.15",
+        "lu.7.20",
+        "lu.7.21",
+        "lu.8.01",
+        "lu.8.14",
+        "lu.8.16",
+        "lu.8.22",
+        "lu.9.05",
+        "lu.9.07",
+        "lu.9.09",
+        "lu.9.21"
+      ]
+    },
+    {
+      "symbol": "Na",
+      "substances": 11,
+      "reactions": 8,
+      "labs": [
+        "practice.experiment.7.9",
+        "practice.experiment.8.1",
+        "practice.experiment.8.6",
+        "practice.experiment.8.8",
+        "practice.experiment.8.9",
+        "practice.experiment.9.16"
+      ],
+      "topics": [
+        "lu.7.15",
+        "lu.7.20",
+        "lu.8.01",
+        "lu.8.14",
+        "lu.8.16",
+        "lu.9.05",
+        "lu.9.21"
+      ]
+    },
+    {
+      "symbol": "Mg",
+      "substances": 2,
+      "reactions": 1,
+      "labs": [
+        "practice.experiment.7.10"
+      ],
+      "topics": [
+        "lu.7.15",
+        "lu.7.20"
+      ]
+    },
+    {
+      "symbol": "Al",
+      "substances": 2,
+      "reactions": 0,
+      "labs": [],
+      "topics": []
+    },
+    {
+      "symbol": "P",
+      "substances": 5,
+      "reactions": 1,
+      "labs": [],
+      "topics": []
+    },
+    {
+      "symbol": "S",
+      "substances": 17,
+      "reactions": 7,
+      "labs": [
+        "practice.experiment.7.10",
+        "practice.experiment.7.9",
+        "practice.experiment.8.1"
+      ],
+      "topics": [
+        "lu.7.15",
+        "lu.7.20",
+        "lu.8.14",
+        "lu.8.16"
+      ]
+    },
+    {
+      "symbol": "Cl",
+      "substances": 12,
+      "reactions": 13,
+      "labs": [
+        "practice.experiment.11.2",
+        "practice.experiment.7.10",
+        "practice.experiment.7.9",
+        "practice.experiment.8.1",
+        "practice.experiment.8.10",
+        "practice.experiment.8.14",
+        "practice.experiment.8.6",
+        "practice.experiment.8.8",
+        "practice.experiment.8.9",
+        "practice.experiment.9.16",
+        "practice.experiment.9.4"
+      ],
+      "topics": [
+        "lu.11.21",
+        "lu.11.22",
+        "lu.7.15",
+        "lu.7.20",
+        "lu.8.01",
+        "lu.8.14",
+        "lu.8.16",
+        "lu.8.22",
+        "lu.9.05",
+        "lu.9.07",
+        "lu.9.09",
+        "lu.9.21"
+      ]
+    },
+    {
+      "symbol": "K",
+      "substances": 6,
+      "reactions": 2,
+      "labs": [
+        "practice.experiment.8.10"
+      ],
+      "topics": [
+        "lu.8.14",
+        "lu.8.16"
+      ]
+    },
+    {
+      "symbol": "Ca",
+      "substances": 6,
+      "reactions": 3,
+      "labs": [
+        "practice.experiment.7.11",
+        "practice.experiment.7.9",
+        "practice.experiment.8.14",
+        "practice.experiment.9.4"
+      ],
+      "topics": [
+        "lu.7.15",
+        "lu.7.20",
+        "lu.7.21",
+        "lu.8.22",
+        "lu.9.05",
+        "lu.9.07",
+        "lu.9.09"
+      ]
+    },
+    {
+      "symbol": "Fe",
+      "substances": 2,
+      "reactions": 1,
+      "labs": [],
+      "topics": []
+    },
+    {
+      "symbol": "Cu",
+      "substances": 5,
+      "reactions": 3,
+      "labs": [
+        "practice.experiment.11.2",
+        "practice.experiment.7.10",
+        "practice.experiment.7.9"
+      ],
+      "topics": [
+        "lu.11.21",
+        "lu.11.22",
+        "lu.7.15",
+        "lu.7.20"
+      ]
+    },
+    {
+      "symbol": "Zn",
+      "substances": 6,
+      "reactions": 4,
+      "labs": [
+        "practice.experiment.7.10",
+        "practice.experiment.8.1",
+        "practice.experiment.8.6",
+        "practice.experiment.9.16"
+      ],
+      "topics": [
+        "lu.7.15",
+        "lu.7.20",
+        "lu.8.01",
+        "lu.8.14",
+        "lu.8.16",
+        "lu.9.05",
+        "lu.9.21"
+      ]
+    },
+    {
+      "symbol": "Br",
+      "substances": 4,
+      "reactions": 3,
+      "labs": [
+        "practice.experiment.8.10",
+        "practice.experiment.8.8"
+      ],
+      "topics": [
+        "lu.8.14",
+        "lu.8.16"
+      ]
+    },
+    {
+      "symbol": "Ag",
+      "substances": 5,
+      "reactions": 3,
+      "labs": [
+        "practice.experiment.8.1",
+        "practice.experiment.8.8",
+        "practice.experiment.8.9"
+      ],
+      "topics": [
+        "lu.8.14",
+        "lu.8.16"
+      ]
+    },
+    {
+      "symbol": "I",
+      "substances": 4,
+      "reactions": 2,
+      "labs": [
+        "practice.experiment.8.10",
+        "practice.experiment.8.8"
+      ],
+      "topics": [
+        "lu.8.14",
+        "lu.8.16"
+      ]
+    },
+    {
+      "symbol": "Ba",
+      "substances": 3,
+      "reactions": 1,
+      "labs": [
+        "practice.experiment.8.1"
+      ],
+      "topics": [
+        "lu.8.14",
+        "lu.8.16"
+      ]
+    }
+  ]
+}

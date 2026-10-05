@@ -149,7 +149,10 @@ test('engines: grounded in the runtime imports; existence is not exposure; unuse
     for(const m of modules) assert.match(src,new RegExp(`domain/chemistry/${m}\\.ts`),`${key}: ${runtimeFile} imports ${m}`);
   }
   const e=reports.baseline.engines;
-  assert.deepEqual(e.filter(x=>x.status==='UNUSED').map(x=>x.module),['equation-balancer']);
+  // P2.13 changed this assertion: periodic-layout (chemical period, group, display position from Z) is read by the content
+  // build for the Element Hub, not by any learning activity, so by activity usage it is UNUSED — which is the truth;
+  // the measure itself is unchanged
+  assert.deepEqual(e.filter(x=>x.status==='UNUSED').map(x=>x.module),['equation-balancer','periodic-layout']);
   assert.ok(e.every(x=>'browserExposed' in x&&'rendererExposed' in x));
   assert.ok(e.filter(x=>x.status==='FORM_OR_SCRIPT_ONLY').every(x=>!x.rendererExposed));
   const r=reports.baseline.renderers;

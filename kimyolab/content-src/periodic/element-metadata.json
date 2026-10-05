@@ -1,0 +1,16 @@
+{
+  "schema": "kimyolab.element-metadata.v1",
+  "note": "P2.13 (ADR-P2-014 §3a). Authored element metadata keyed by the canonical element symbol (identity: src/domain/chemistry/periodic-table.ts). Each field is {value, sourceRefs} — sourceRefs are ids of the canonical source registry (content-src/source-registry.json); titles, categories and acceptance come from the registry, never from here. No review field exists: the effective review state is derived from the human decision register content-src/periodic/element-reviews.json, bound to the claim's hash. Only a claim with an eligible source (acceptable category, human-accepted) and an approval on its current hash reaches the learner. rules.periodGroup holds the sources for the period/group layout rule (none yet). Nothing is copied from the legacy V19 data/elements.json.",
+  "fields": [
+    "relativeAtomicMass",
+    "category",
+    "oxidationStates",
+    "teachingDescription"
+  ],
+  "rules": {
+    "periodGroup": {
+      "sourceRefs": []
+    }
+  },
+  "entries": {}
+}

@@ -1,0 +1,147 @@
+{
+  "schema": "kimyolab.element-metadata-coverage.v1",
+  "phase": "P2.13",
+  "decision": "NOT_A_RELEASE_OR_PILOT_DECISION",
+  "semantics": "Separate dimensions, never merged: canonical identity (code); learner-facing state per field (reviewedShown = human-reviewed and sourced; computedShown = domain engine; gap with reason); authored claims and their governance (source-eligible, effective human review from the hash-bound decision register, pending, stale); unreviewed derivations that exist in code but are NOT scientific evidence.",
+  "metadataSchema": "kimyolab.element-metadata.v1",
+  "authoredFields": [
+    "relativeAtomicMass",
+    "category",
+    "oxidationStates",
+    "teachingDescription"
+  ],
+  "canonicalIdentity": 118,
+  "learnerFacing": {
+    "chemicalPeriod": {
+      "reviewedShown": 0,
+      "computedShown": 0,
+      "gap": 118,
+      "gapReasons": {
+        "SOURCE_REQUIRED": 118
+      }
+    },
+    "group": {
+      "reviewedShown": 0,
+      "computedShown": 0,
+      "gap": 118,
+      "gapReasons": {
+        "SOURCE_REQUIRED": 118
+      }
+    },
+    "relativeAtomicMass": {
+      "reviewedShown": 0,
+      "computedShown": 0,
+      "gap": 118,
+      "gapReasons": {
+        "SOURCE_REQUIRED": 118
+      }
+    },
+    "category": {
+      "reviewedShown": 0,
+      "computedShown": 0,
+      "gap": 118,
+      "gapReasons": {
+        "SOURCE_REQUIRED": 118
+      }
+    },
+    "electronConfiguration": {
+      "reviewedShown": 0,
+      "computedShown": 34,
+      "gap": 84,
+      "gapReasons": {
+        "ENGINE_KNOWN_GAP": 2,
+        "OUTSIDE_ENGINE_RANGE": 82
+      }
+    },
+    "oxidationStates": {
+      "reviewedShown": 0,
+      "computedShown": 0,
+      "gap": 118,
+      "gapReasons": {
+        "SOURCE_REQUIRED": 118
+      }
+    },
+    "teachingDescription": {
+      "reviewedShown": 0,
+      "computedShown": 0,
+      "gap": 118,
+      "gapReasons": {
+        "SOURCE_REQUIRED": 118
+      }
+    }
+  },
+  "authoredClaims": {
+    "relativeAtomicMass": {
+      "authored": 0,
+      "sourceEligible": 0,
+      "effectiveReviewed": 0,
+      "reviewPending": 0,
+      "sourceNotEligible": 0,
+      "staleDecisions": 0
+    },
+    "category": {
+      "authored": 0,
+      "sourceEligible": 0,
+      "effectiveReviewed": 0,
+      "reviewPending": 0,
+      "sourceNotEligible": 0,
+      "staleDecisions": 0
+    },
+    "oxidationStates": {
+      "authored": 0,
+      "sourceEligible": 0,
+      "effectiveReviewed": 0,
+      "reviewPending": 0,
+      "sourceNotEligible": 0,
+      "staleDecisions": 0
+    },
+    "teachingDescription": {
+      "authored": 0,
+      "sourceEligible": 0,
+      "effectiveReviewed": 0,
+      "reviewPending": 0,
+      "sourceNotEligible": 0,
+      "staleDecisions": 0
+    }
+  },
+  "periodGroupRule": {
+    "assertionId": "periodic.period-group-rule",
+    "hash": "dbb53ab05ce48dd1fe895f92c06357a60c428cdfbc426aeb05d91fff13e02923",
+    "sourceRefs": [],
+    "state": "SOURCE_REQUIRED",
+    "review": "pending",
+    "unreviewedDerivationAvailable": {
+      "period": 118,
+      "group": 88
+    },
+    "note": "the layout rule places cells; as chemical period / group it is a scientific claim: no registered, human-accepted source and no human decision — the learner sees a gap"
+  },
+  "computedEngineFields": {
+    "electronConfiguration": {
+      "computed": 34,
+      "engineRange": {
+        "min": 1,
+        "max": 36
+      },
+      "knownGaps": [
+        24,
+        29
+      ],
+      "knownGapSource": "scripts/lib/computed-model-interaction.ts (P2.6 MODEL_KNOWN_GAP: no exception records)",
+      "extendedTo118": false
+    }
+  },
+  "effectiveHumanReviewed": 0,
+  "decisionRegister": {
+    "file": "content-src/periodic/element-reviews.json",
+    "records": 0
+  },
+  "sourceGaps": {
+    "periodGroup": "no registered source is acceptable and human-accepted (source-registry: 5 sources, all PROPOSED)",
+    "relativeAtomicMass": "no repository source; legacy data/elements.json masses have no provenance",
+    "category": "no repository source; legacy categories have no provenance",
+    "oxidationStates": "no element-level source (species oxidationStates arrays are empty)",
+    "teachingDescription": "no authored descriptions",
+    "fBlockGroup": "which of La/Lu (Ac/Lr) is group 3 needs a reviewed convention"
+  }
+}

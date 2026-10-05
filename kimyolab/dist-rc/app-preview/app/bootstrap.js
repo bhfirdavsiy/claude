@@ -19,6 +19,9 @@ import {renderCurriculum} from '../features/curriculum/render.js';
 import {renderExternalLab} from '../features/labs/external-render.js';
 import {renderDynamicLab,renderDynamicLabUnavailable} from '../features/dynamic-lab/render.js';
 import {isFeatureEnabled} from './feature-flags.js';
+import {renderPeriodicTable} from '../features/periodic/render.js';
+import {elementSearchEntries} from '../features/periodic/model.js';
+import {createLocalizer} from '../features/localization/element-names.js';
 
 const mainElement=document.getElementById('app-main');
 if(!(mainElement instanceof HTMLElement)) throw new Error('APP_MAIN_MISSING');
@@ -34,6 +37,8 @@ const rendererRegistry=createDefaultRendererRegistry();
 
 function currentLocation(){ return host.currentLocation(); }
 function navigateInternal(href       ){ host.navigate(href); }
+/** the feature-flag part of the current query, kept on in-page links of a flagged page */
+function flagQuery(params                ){ const ff=params.getAll('ff'); return ff.length?`?${ff.map(v=>`ff=${encodeURIComponent(v)}`).join('&')}`:''; }
 
 // static shell links (header navigation) and the brand logo resolve through the host as well
 for(const anchor of document.querySelectorAll                   ('a[data-kl-route]')) anchor.setAttribute('href',host.href(anchor.dataset.klRoute??'/'));
@@ -126,7 +131,20 @@ async function renderCurrent(){
     catch(error){renderError(main,contentErrorMessage(error,'Natijalarni yuklab bo‘lmadi. Brauzer saqlash imkoniyatini tekshiring.'));}
     return;
   }
-  if(route.name==='search'){renderLoading(main);try{renderSearch(main,await client.loadSearchIndex(),active.searchParams.get('q')??'');}catch(error){renderError(main,contentErrorMessage(error,'Qidiruv ma’lumotlarini yuklab bo‘lmadi.'));}return;}
+  if(route.name==='search'){renderLoading(main);try{
+      const index=await client.loadSearchIndex();
+      // P2.13: with periodicTableV1 the elements join the same search index (symbol, atomic number, localized name)
+      if(isFeatureEnabled('periodicTableV1',active.searchParams)){ const {hub,elementNames,speciesNames,interaction}=await client.loadElementHub(); const localize=createLocalizer({elementNames,speciesNames,interaction}); index.push(...elementSearchEntries(hub,s=>localize(`element.${s}`),{kicker:localize('ui.periodic-search-kicker')??'',description:z=>(localize('ui.periodic-search-description')??'').replace('{z}',String(z))},flagQuery(active.searchParams))); }
+      renderSearch(main,index,active.searchParams.get('q')??'');
+    }catch(error){renderError(main,contentErrorMessage(error,'Qidiruv ma’lumotlarini yuklab bo‘lmadi.'));}return;}
+  if(route.name==='periodic'){
+    // P2.13: behind periodicTableV1 — with the flag off the route does not exist (the learner app is unchanged)
+    if(!isFeatureEnabled('periodicTableV1',active.searchParams)){renderNotFound(main);return;}
+    renderLoading(main);
+    try{ const {hub,elementNames,speciesNames,interaction}=await client.loadElementHub(); renderPeriodicTable(main,hub,{localize:createLocalizer({elementNames,speciesNames,interaction}),selected:route.symbol,query:flagQuery(active.searchParams),navigate:navigateInternal}); }
+    catch(error){renderError(main,contentErrorMessage(error,'Davriy jadvalni yuklab bo‘lmadi.'));}
+    return;
+  }
   renderNotFound(main);
 }
 

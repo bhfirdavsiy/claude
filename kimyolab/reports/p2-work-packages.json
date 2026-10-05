@@ -213,7 +213,8 @@
       "affectedActivities": [],
       "facts": {
         "unusedModules": [
-          "equation-balancer"
+          "equation-balancer",
+          "periodic-layout"
         ],
         "formOnlyModules": [
           "electrolysis-model",
@@ -690,7 +691,7 @@
         ],
         "rawIdLabelActivities": 0,
         "untranslatedAnswerTokenActivities": 23,
-        "hardcodedUzbekUiLiterals": 155
+        "hardcodedUzbekUiLiterals": 156
       },
       "dependencies": [
         "locale architecture decision (content packs per locale)"

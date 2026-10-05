@@ -12,6 +12,7 @@
                                             
                      
                    
+                                        
                                    
 
 export function parseAppRoute(pathname       )          {
@@ -21,6 +22,10 @@ export function parseAppRoute(pathname       )          {
   if(path==='/labs') return {name:'labs'};
   if(path==='/progress') return {name:'progress'};
   if(path==='/search') return {name:'search'};
+  // P2.13: the periodic table and an element's profile (feature flag periodicTableV1; the page checks the flag and the
+  // symbol — an unknown symbol is a notice on the page, never a guess)
+  const periodic=path.match(/^\/periodic(?:\/([A-Z][a-z]?))?$/);
+  if(periodic) return {name:'periodic',symbol:periodic[1]??null};
   const external=path.match(/^\/external-lab\/(ext\.[A-Za-z0-9.-]+)$/);
   if(external) return {name:'external-lab',bindingId:decodeURIComponent(external[1])};
   const worksheet=path.match(/^\/worksheet\/(lu\.(?:7|8|9|10|11)\.[A-Za-z0-9.-]+)$/);

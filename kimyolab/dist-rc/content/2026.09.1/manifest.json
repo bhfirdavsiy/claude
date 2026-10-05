@@ -6,7 +6,7 @@
   "assessmentVersion": "0.0.0",
   "scoringVersion": "0.0.0",
   "createdAt": "2026-09-22T00:00:00.000Z",
-  "checksum": "b3a82be1e55687fa36c86deb321f1fcba24986a78a959b7c55ecbd5ac08d2c4e",
+  "checksum": "b7b90841c668d717c2d9af684a6674a79d8e5365fb84ff7339d31a1ea9c08a60",
   "compatibility": {
     "minAppVersion": "20.1.0"
   },
@@ -215,8 +215,8 @@
     },
     {
       "path": "locales/uz-latn/learner-interaction.json",
-      "checksum": "0133ab6d04e503332332e80d74e28622b8536141a90ac8314f9c56ae845ac025",
-      "size": 31474
+      "checksum": "f173cb2780fa0459d77dd1a24e2f6b2a56109e01417837b76a9209019f3579ce",
+      "size": 35680
     },
     {
       "path": "locales/uz-latn/name-provenance.json",
@@ -227,6 +227,11 @@
       "path": "mapping-links.json",
       "checksum": "957a316cd7d46b13aceb1bcb286b77aa85ffffb96a23ff7ffa46780874ec8699",
       "size": 72213
+    },
+    {
+      "path": "periodic/element-hub.json",
+      "checksum": "c52b5013f93ae73eb81252f8dbfa175d62409b4ac910c091e2c3ae207f81b471",
+      "size": 119048
     },
     {
       "path": "practice-activities.json",

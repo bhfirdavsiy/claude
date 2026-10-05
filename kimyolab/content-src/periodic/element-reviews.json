@@ -1,0 +1,5 @@
+{
+  "schema": "kimyolab.element-reviews.v1",
+  "note": "P2.13 (ADR-P2-014 §3a). Human decision register for Element Hub assertions (the period/group layout rule, element metadata, authored element relations). Each record binds one human decision to one assertion hash: an edited assertion makes the decision stale. Records are written by the human reviewer only (chemistry role for scientific claims and substance/reaction relations, didactic role for topic/lab relations); automation identities are refused and tooling never writes here. Fields: assertionId, assertionHash, decision (approve | reject | change_required), reviewerId, reviewerRole, reviewedAt, comment (required unless approve).",
+  "records": []
+}

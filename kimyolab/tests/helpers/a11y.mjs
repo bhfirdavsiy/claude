@@ -101,8 +101,9 @@ export async function alerts(page) {
   return page.evaluate((ws) => [...document.querySelectorAll(`${ws} [role=alert]`)].map((n) => n.textContent.trim()).filter(Boolean).join(' | '), WORKSPACE);
 }
 
-/** Reflow: no page-level horizontal scroll, no overlapping controls, every control still on screen width. */
-export async function reflow(page) {
+/** Reflow: no page-level horizontal scroll, no overlapping controls, every control still on screen width.
+ *  P2.13: `ws` scopes the control audit to another root (the periodic table page); the default is unchanged. */
+export async function reflow(page, ws = WORKSPACE) {
   return page.evaluate((ws) => {
     const doc = document.documentElement; const vw = doc.clientWidth;
     const root = document.querySelector(ws);
@@ -123,11 +124,12 @@ export async function reflow(page) {
     while (!wide && (node = walker.nextNode())) { const range = document.createRange(); range.selectNodeContents(node); if (range.getBoundingClientRect().right > vw + 1 && !scrolls(node.parentElement)) wide = node.parentElement; }
     const tag = (el) => el ? `${el.tagName.toLowerCase()}.${String(el.className).split(' ')[0]}` : '';
     return {horizontalScroll: doc.scrollWidth > vw + 1, overlaps, clipped: clippedEls.length, culprit: tag(clippedEls[0]?.el ?? (doc.scrollWidth > vw + 1 ? wide : null))};
-  }, WORKSPACE);
+  }, ws);
 }
 
-/** Pointer/touch targets: buttons, text inputs and selects, and the clickable label around a radio/checkbox. */
-export async function targetSizes(page, min = 44) {
+/** Pointer/touch targets: buttons, text inputs and selects, and the clickable label around a radio/checkbox.
+ *  P2.13: `ws` scopes the audit to another root; the default (the learner workspace) is unchanged. */
+export async function targetSizes(page, min = 44, ws = WORKSPACE) {
   return page.evaluate(({ws, min}) => {
     const root = document.querySelector(ws); if (!root) return [];
     const small = [];
@@ -138,7 +140,7 @@ export async function targetSizes(page, min = 44) {
       if (r.height < min - 0.5) small.push(`${el.tagName.toLowerCase()}${el.type ? `[${el.type}]` : ''}:${Math.round(r.height)}`);
     }
     return small;
-  }, {ws: WORKSPACE, min});
+  }, {ws, min});
 }
 
 /** Under prefers-reduced-motion: reduce nothing in the app may animate or transition. */

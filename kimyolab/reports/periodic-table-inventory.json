@@ -1,0 +1,98 @@
+{
+  "schema": "kimyolab.periodic-table-inventory.v1",
+  "phase": "P2.13",
+  "decision": "NOT_A_RELEASE_OR_PILOT_DECISION",
+  "semantics": "Every source the periodic table and Element Hub read, and what each is used for. Legacy V19 files are audited, never used as truth.",
+  "canonical": [
+    {
+      "source": "src/domain/chemistry/periodic-table.ts",
+      "role": "element identity (Z, symbol) — the only element list",
+      "status": "CANONICAL"
+    },
+    {
+      "source": "src/domain/chemistry/periodic-layout.ts",
+      "role": "display layout (cell row / column) — UI placement only; as a period / group claim it is the assertion periodic.period-group-rule, unreviewed and unsourced",
+      "status": "LAYOUT_ONLY"
+    },
+    {
+      "source": "src/domain/chemistry/electron-configuration.ts",
+      "role": "electron configuration — engine range Z 1–36, known gaps Z 24, 29 not shown",
+      "status": "DERIVED"
+    },
+    {
+      "source": "src/domain/chemistry/formula-parser.ts",
+      "role": "elements of canonical species / reaction formulas (relations)",
+      "status": "CANONICAL"
+    },
+    {
+      "source": "content-src/locales/uz-latn/chemistry-elements.json",
+      "role": "localized element names (review pending)",
+      "status": "CANONICAL"
+    },
+    {
+      "source": "content-src/periodic/element-metadata.json",
+      "role": "authored metadata claims (mass, category, oxidation states, teaching description) with registry source ids; sources for the period/group rule",
+      "status": "CANONICAL",
+      "entries": 0
+    },
+    {
+      "source": "content-src/periodic/element-relations.json",
+      "role": "authored PRIMARY / RELATED relations with typed, existing targets",
+      "status": "CANONICAL",
+      "relations": 0
+    },
+    {
+      "source": "content-src/periodic/element-reviews.json",
+      "role": "human decision register (hash-bound) — the only source of effective review",
+      "status": "CANONICAL",
+      "records": 0
+    },
+    {
+      "source": "content-src/source-registry.json",
+      "role": "the only source of source titles, categories and acceptance",
+      "status": "CANONICAL"
+    },
+    {
+      "source": "content-src/chemistry/species.json, reactions.json, guided-step-reaction-map.json, topic-lab-profiles.json (compiled), mapping-links.json, learning-units.json",
+      "role": "relationship evidence",
+      "status": "CANONICAL"
+    }
+  ],
+  "legacy": [
+    {
+      "source": "data/elements.json",
+      "role": "V19 element data (118 rows: z, sym, name, group, period, category, mass)",
+      "status": "AUDITED",
+      "detail": "field statuses in reports/legacy-periodic-parity.json; no value is copied into canonical content"
+    },
+    {
+      "source": "periodic.html",
+      "role": "V19 page (Bootstrap modal)",
+      "status": "NOT_USED",
+      "detail": "kept as the legacy fallback; the V20 route has no runtime dependency on it"
+    },
+    {
+      "source": "js/periodic.js",
+      "role": "V19 script (grid placement, category → CSS class)",
+      "status": "NOT_USED",
+      "detail": "its category → colour mapping is not carried over: V20 shows no category colour while no category is sourced"
+    }
+  ],
+  "identity": {
+    "canonicalSource": "src/domain/chemistry/periodic-table.ts (ELEMENT_SYMBOLS)",
+    "elements": 118,
+    "atomicNumbers": {
+      "min": 1,
+      "max": 118,
+      "contiguous": true
+    },
+    "symbolsEqualCanonical": true,
+    "duplicateZ": 0,
+    "duplicateSymbols": 0
+  },
+  "pack": {
+    "file": "periodic/element-hub.json",
+    "schema": "kimyolab.element-hub.v1",
+    "builtBy": "scripts/lib/element-hub.ts (npm run content:pack)"
+  }
+}
