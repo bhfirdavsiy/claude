@@ -37,6 +37,17 @@
     "reviewedHazards": 0,
     "reviewedProperties": 0
   },
+  "conditionGovernance": {
+    "rule": "the condition assertion hashes EVERY canonical condition field the record requires (not only tags); changing medium, solvent, catalysts, light, current, temperature, pressure or concentration makes a decision on the old hash stale. A reaction counts as reviewed only when its condition claim is approved too",
+    "recordsWithRequirements": 11,
+    "conditionAssertions": 11,
+    "fieldsCovered": {
+      "tags": 11
+    },
+    "review": {
+      "pending": 11
+    }
+  },
   "reactions": [
     {
       "id": "rxn.h2-combustion",
@@ -49,7 +60,15 @@
         "CHEMISTRY_REVIEW_REQUIRED",
         "OBSERVATION_NONSPECIFIC: colour change without a stated colour"
       ],
-      "conditionAssertion": "condition:rxn.h2-combustion"
+      "condition": {
+        "assertionId": "condition:rxn.h2-combustion",
+        "hash": "7c89472822fdd1a151b26e2b5faa8d02de7f688526817c70a09e4c2bb6a94a97",
+        "review": "pending",
+        "fields": [
+          "tags"
+        ]
+      },
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.c-combustion",
@@ -59,7 +78,15 @@
       "source": "SOURCE_NOT_ELIGIBLE",
       "reviewed": false,
       "observationFlags": [],
-      "conditionAssertion": "condition:rxn.c-combustion"
+      "condition": {
+        "assertionId": "condition:rxn.c-combustion",
+        "hash": "a02d049dce99ed68136479da35a79b0bb8b066933b0cce11f897b99b87a72689",
+        "review": "pending",
+        "fields": [
+          "tags"
+        ]
+      },
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.s-combustion",
@@ -69,7 +96,15 @@
       "source": "SOURCE_NOT_ELIGIBLE",
       "reviewed": false,
       "observationFlags": [],
-      "conditionAssertion": "condition:rxn.s-combustion"
+      "condition": {
+        "assertionId": "condition:rxn.s-combustion",
+        "hash": "7c89472822fdd1a151b26e2b5faa8d02de7f688526817c70a09e4c2bb6a94a97",
+        "review": "pending",
+        "fields": [
+          "tags"
+        ]
+      },
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.fe-combustion",
@@ -79,7 +114,15 @@
       "source": "SOURCE_NOT_ELIGIBLE",
       "reviewed": false,
       "observationFlags": [],
-      "conditionAssertion": "condition:rxn.fe-combustion"
+      "condition": {
+        "assertionId": "condition:rxn.fe-combustion",
+        "hash": "08c406ac7d59ab7f910c1dc326a0f26b185d2f98677101c0e31b98d9d4433cbe",
+        "review": "pending",
+        "fields": [
+          "tags"
+        ]
+      },
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.zn-hcl",
@@ -89,7 +132,8 @@
       "source": "SOURCE_NOT_ELIGIBLE",
       "reviewed": false,
       "observationFlags": [],
-      "conditionAssertion": null
+      "condition": null,
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.zn-h2so4",
@@ -99,7 +143,15 @@
       "source": "SOURCE_NOT_ELIGIBLE",
       "reviewed": false,
       "observationFlags": [],
-      "conditionAssertion": "condition:rxn.zn-h2so4"
+      "condition": {
+        "assertionId": "condition:rxn.zn-h2so4",
+        "hash": "ae3245daa6464cc20ba8b55363c276764c312d6e26518276aef94980579d0282",
+        "review": "pending",
+        "fields": [
+          "tags"
+        ]
+      },
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.mg-h2so4",
@@ -109,7 +161,15 @@
       "source": "SOURCE_NOT_ELIGIBLE",
       "reviewed": false,
       "observationFlags": [],
-      "conditionAssertion": "condition:rxn.mg-h2so4"
+      "condition": {
+        "assertionId": "condition:rxn.mg-h2so4",
+        "hash": "ae3245daa6464cc20ba8b55363c276764c312d6e26518276aef94980579d0282",
+        "review": "pending",
+        "fields": [
+          "tags"
+        ]
+      },
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.h2-cuo",
@@ -119,7 +179,15 @@
       "source": "SOURCE_NOT_ELIGIBLE",
       "reviewed": false,
       "observationFlags": [],
-      "conditionAssertion": "condition:rxn.h2-cuo"
+      "condition": {
+        "assertionId": "condition:rxn.h2-cuo",
+        "hash": "e1e99c41f75a2214d74876f4c61665ec874bb1bb776bbfe68c727eab61340cbd",
+        "review": "pending",
+        "fields": [
+          "tags"
+        ]
+      },
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.nacl-h2so4",
@@ -132,7 +200,15 @@
         "CHEMISTRY_REVIEW_REQUIRED",
         "OBSERVATION_PRODUCT_MISMATCH: gas observed but no product is a gas"
       ],
-      "conditionAssertion": "condition:rxn.nacl-h2so4"
+      "condition": {
+        "assertionId": "condition:rxn.nacl-h2so4",
+        "hash": "e6da9fcc8a66f9d7b667203206375a8d213e18797a9ab8276211a9ce9bca249c",
+        "review": "pending",
+        "fields": [
+          "tags"
+        ]
+      },
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.cuo-hcl",
@@ -142,7 +218,8 @@
       "source": "SOURCE_NOT_ELIGIBLE",
       "reviewed": false,
       "observationFlags": [],
-      "conditionAssertion": null
+      "condition": null,
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.naoh-hcl",
@@ -155,7 +232,8 @@
         "CHEMISTRY_REVIEW_REQUIRED",
         "OBSERVATION_NONSPECIFIC: colour change without a stated colour"
       ],
-      "conditionAssertion": null
+      "condition": null,
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.caco3-hcl",
@@ -165,7 +243,8 @@
       "source": "SOURCE_NOT_ELIGIBLE",
       "reviewed": false,
       "observationFlags": [],
-      "conditionAssertion": null
+      "condition": null,
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.cao-water",
@@ -175,7 +254,8 @@
       "source": "SOURCE_NOT_ELIGIBLE",
       "reviewed": false,
       "observationFlags": [],
-      "conditionAssertion": null
+      "condition": null,
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.co2-water",
@@ -185,7 +265,8 @@
       "source": "SOURCE_NOT_ELIGIBLE",
       "reviewed": false,
       "observationFlags": [],
-      "conditionAssertion": null
+      "condition": null,
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.zncl2-naoh",
@@ -195,7 +276,8 @@
       "source": "SOURCE_NOT_ELIGIBLE",
       "reviewed": false,
       "observationFlags": [],
-      "conditionAssertion": null
+      "condition": null,
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.znoh2-hcl",
@@ -208,7 +290,8 @@
         "CHEMISTRY_REVIEW_REQUIRED",
         "OBSERVATION_PRODUCT_MISMATCH: precipitate observed but no product is insoluble (solubility rules) or solid"
       ],
-      "conditionAssertion": null
+      "condition": null,
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.agno3-nacl",
@@ -218,7 +301,8 @@
       "source": "SOURCE_NOT_ELIGIBLE",
       "reviewed": false,
       "observationFlags": [],
-      "conditionAssertion": null
+      "condition": null,
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.agno3-nabr",
@@ -228,7 +312,8 @@
       "source": "SOURCE_NOT_ELIGIBLE",
       "reviewed": false,
       "observationFlags": [],
-      "conditionAssertion": null
+      "condition": null,
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.agno3-nai",
@@ -238,7 +323,8 @@
       "source": "SOURCE_NOT_ELIGIBLE",
       "reviewed": false,
       "observationFlags": [],
-      "conditionAssertion": null
+      "condition": null,
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.cl2-kbr",
@@ -251,7 +337,8 @@
         "CHEMISTRY_REVIEW_REQUIRED",
         "OBSERVATION_NONSPECIFIC: colour change without a stated colour"
       ],
-      "conditionAssertion": null
+      "condition": null,
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.br2-ki",
@@ -264,7 +351,8 @@
         "CHEMISTRY_REVIEW_REQUIRED",
         "OBSERVATION_NONSPECIFIC: colour change without a stated colour"
       ],
-      "conditionAssertion": null
+      "condition": null,
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.bacl2-h2so4",
@@ -274,7 +362,8 @@
       "source": "SOURCE_NOT_ELIGIBLE",
       "reviewed": false,
       "observationFlags": [],
-      "conditionAssertion": null
+      "condition": null,
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.nh4cl-caoh2",
@@ -284,7 +373,15 @@
       "source": "SOURCE_NOT_ELIGIBLE",
       "reviewed": false,
       "observationFlags": [],
-      "conditionAssertion": "condition:rxn.nh4cl-caoh2"
+      "condition": {
+        "assertionId": "condition:rxn.nh4cl-caoh2",
+        "hash": "c3f5f5638a3a735e34fb689f7e4d3fbbeb8fae5c16776f376c1dd8084faedb14",
+        "review": "pending",
+        "fields": [
+          "tags"
+        ]
+      },
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.nh3-hcl",
@@ -294,7 +391,8 @@
       "source": "SOURCE_NOT_ELIGIBLE",
       "reviewed": false,
       "observationFlags": [],
-      "conditionAssertion": null
+      "condition": null,
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.na2s-hcl",
@@ -304,7 +402,8 @@
       "source": "SOURCE_NOT_ELIGIBLE",
       "reviewed": false,
       "observationFlags": [],
-      "conditionAssertion": null
+      "condition": null,
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.cuso4-na2s",
@@ -314,7 +413,8 @@
       "source": "SOURCE_NOT_ELIGIBLE",
       "reviewed": false,
       "observationFlags": [],
-      "conditionAssertion": null
+      "condition": null,
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.p-combustion",
@@ -324,7 +424,15 @@
       "source": "SOURCE_NOT_ELIGIBLE",
       "reviewed": false,
       "observationFlags": [],
-      "conditionAssertion": "condition:rxn.p-combustion"
+      "condition": {
+        "assertionId": "condition:rxn.p-combustion",
+        "hash": "7c89472822fdd1a151b26e2b5faa8d02de7f688526817c70a09e4c2bb6a94a97",
+        "review": "pending",
+        "fields": [
+          "tags"
+        ]
+      },
+      "unsupportedConditions": []
     },
     {
       "id": "rxn.c-combustion-limited",
@@ -334,7 +442,15 @@
       "source": "SOURCE_NOT_ELIGIBLE",
       "reviewed": false,
       "observationFlags": [],
-      "conditionAssertion": "condition:rxn.c-combustion-limited"
+      "condition": {
+        "assertionId": "condition:rxn.c-combustion-limited",
+        "hash": "80180d5adceccb429db01c1690278bf678c66fd17017c1024ca81240a0c6c0d6",
+        "review": "pending",
+        "fields": [
+          "tags"
+        ]
+      },
+      "unsupportedConditions": []
     }
   ],
   "learnerWording": {

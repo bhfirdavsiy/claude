@@ -6,7 +6,7 @@
   "assessmentVersion": "0.0.0",
   "scoringVersion": "0.0.0",
   "createdAt": "2026-09-22T00:00:00.000Z",
-  "checksum": "3fae2738003f88d9c8d1f4cdc844d92a937a64ff0b2ef0605a5d43309e314e84",
+  "checksum": "bdf8d85cccfb3a27d9dfcfd70ee449a856a6cb6f251241616e7c5a2229824807",
   "compatibility": {
     "minAppVersion": "20.1.0"
   },
@@ -175,8 +175,8 @@
     },
     {
       "path": "knowledge/chemistry-knowledge.json",
-      "checksum": "3a1144e227e251eee91dc4fd577ad000aeb7fe5139cec501dc8a184d693e937d",
-      "size": 68260
+      "checksum": "ad71bb72708a0e8c134f83729034236d62bb7ec5da120139226d1b6b1984c38b",
+      "size": 69016
     },
     {
       "path": "learning-cycle.json",
@@ -220,8 +220,8 @@
     },
     {
       "path": "locales/uz-latn/learner-interaction.json",
-      "checksum": "e7cb6def774942357d326c21a808e0a5cc2e0983347276be7889eee7c4dd3fb6",
-      "size": 45060
+      "checksum": "0acb71db13bfbf4734d88ec98305192834fdf4b358b74e3140b8dc892ccf0360",
+      "size": 45567
     },
     {
       "path": "locales/uz-latn/name-provenance.json",

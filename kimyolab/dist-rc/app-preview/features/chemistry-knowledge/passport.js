@@ -133,6 +133,8 @@ function renderRelations(t        ,data                  ,sub                   
     box.append(el('span',{text:r.molecularEquation}));
     const h=links.explorer?reactionExplorerHref(data.index,id,links.query):null;
     if(h){ box.append(document.createTextNode(' ')); box.append(link(t.ui('ui.substance-open-explorer'),h,'kl-text-link')); }
+    // P2.14 closeout: a record whose condition the explorer cannot state gets a plain note, never a pretend link
+    else if(links.explorer&&data.index.reactions.find(x=>x.id===id)?.unsupportedConditions.length) box.append(el('span',{className:'kl-element-profile__note',text:t.ui('ui.reactions-condition-unsupported'),attrs:{'data-reaction-unsupported':''}}));
     return box;
   }),'data-substance-reactions','ui.substance-reactions-none');
   group('kl-substance-elements','ui.substance-elements','ui.substance-elements-why',sub.relations.elements.map(sym=>links.periodic?link(elementText(sym,data.localize),href(`/periodic/${sym}`),'kl-text-link'):el('span',{text:elementText(sym,data.localize)})),'data-substance-elements','ui.substance-elements-none');

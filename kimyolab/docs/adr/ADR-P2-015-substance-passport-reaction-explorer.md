@@ -109,3 +109,17 @@ The explorer calls the existing `ReactionMatcher` in the browser under the expli
 - `substance-reaction-readiness`
 
 Each dimension is reported separately; no completion percentage is given.
+
+## 9. Closeout — complete condition semantics (audit of `699756d`)
+
+| Area | Before | After |
+|---|---|---|
+| `requirementsMet` booleans | `Boolean(actual)` — a missing `lightRequired` / `electricalCurrent` counted as `false`, so a record's `false` requirement was met by nothing stated | strict equality: a record value `true` **or** `false` with the actual value missing is **not met**; only the same explicit value is met. A key outside the canonical contract (or `dimensions` written on a record) is never met |
+| one definition | each consumer read `tags` | `conditionRequirementFields()` in the matcher module is the single rule (an empty tag / catalyst list is no requirement; a boolean `false` is one), used by the matcher, the chemistry KB and the explorer |
+| Explorer contract | stated vocabulary dimensions only, silently ignoring other fields | V1 still states vocabulary dimensions (`tags`) only — and every other required field (medium, solvent, catalystIds, lightRequired, electricalCurrent, temperatureRange, pressureRange, concentrationRules, unknown keys) makes the record `EXPLORER_CONDITION_UNSUPPORTED`: no deep link, not reachable, no search entry; the explorer shows "Bu reaksiya uchun kerakli sharoit turi Reaksiya izlagichda hali ko‘rsatilmaydi.", never a condition the learner could not satisfy. No control was invented |
+| knowledge index | `requirements` (tag dimensions) | `requirements` + `unsupportedConditions` (never dropped) |
+| `explorerReachable` | link generated when the reactants resolved | the generated link, opened, reproduces this exact record through ReactionMatcher (reactants resolved **and** every required condition stated faithfully) |
+| condition governance | the condition assertion hashed `{tags, dimensions}` and existed only for tagged records | it hashes every required canonical field and exists for any record with a requirement; editing any of them makes the decision stale. A reaction is reviewed only when its condition claim is approved too. Tag-only records keep exactly their previous hash (no decision lost or fabricated) |
+| KB self-check | duplicate key and self-match used tags only | the duplicate / conflict key includes every non-tag field; the self-match states the record's full condition object; an unknown field is `CONDITION_FIELD_UNKNOWN` |
+
+**Data today.** All 28 records require only tag conditions (11 records), so faithful reachability stays 27 / 28. That is a property of the current data, not a claim that every condition type is supported (`reports/reaction-explorer-coverage.json#conditionContract`).

@@ -130,6 +130,7 @@ function announce(o:ExplorerOutcome,t:Labeler):string{
     case 'MODELED_REACTION': return t.ui('ui.reactions-announce-reaction');
     case 'MODELED_NO_REACTION': return t.ui('ui.reactions-announce-no-reaction');
     case 'CONDITION_REQUIRED': case 'CONDITION_CHOICE_REQUIRED': return t.ui('ui.reactions-announce-condition');
+    case 'CONDITION_UNSUPPORTED': return t.ui('ui.reactions-announce-unsupported');
     case 'NOT_MODELED': return t.ui('ui.reactions-not-modeled');
     default: return '';
   }
@@ -142,10 +143,15 @@ function renderOutcome(box:HTMLElement,o:ExplorerOutcome,data:ExplorerPageData,t
     box.append(p('ui.reactions-not-modeled',undefined,{'data-explorer-not-modeled':''}),p('ui.reactions-not-modeled-note'));
     return;
   }
+  // P2.14 closeout: a condition type the explorer cannot state is never offered as a condition to choose
+  if(o.kind==='CONDITION_UNSUPPORTED'){
+    box.append(p('ui.reactions-condition-unsupported',undefined,{'data-explorer-unsupported':''}),p('ui.reactions-condition-unsupported-note'));
+    return;
+  }
   if(o.kind==='CONDITION_REQUIRED'||o.kind==='CONDITION_CHOICE_REQUIRED'){
     box.append(p(o.kind==='CONDITION_REQUIRED'?'ui.reactions-condition-required':'ui.reactions-condition-choice'));
     const ul=el('ul',{attrs:{'data-explorer-requirements':''}});
-    for(const req of o.requirements){ const li=el('li',{text:requirementText(t,req)}); ul.append(li); }
+    for(const req of o.requirements){ const li=el('li',{text:req.unsupported.length?t.ui('ui.reactions-condition-unsupported-item'):requirementText(t,req.dimensions),attrs:req.unsupported.length?{'data-requirement-unsupported':''}:{}}); ul.append(li); }
     box.append(ul,p('ui.reactions-condition-retry'));
     return;
   }

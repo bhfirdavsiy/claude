@@ -15,11 +15,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {IonicEngine} from '../../src/domain/chemistry/ionic-engine.ts';
-import {isNoReaction} from '../../src/domain/chemistry/reaction-matcher.ts';
+import {conditionRequirementFields,isNoReaction} from '../../src/domain/chemistry/reaction-matcher.ts';
 import {parseFormula} from '../../src/domain/chemistry/formula-parser.ts';
 import {dimensionsOf,parseConditionVocabulary} from '../../src/domain/chemistry/condition-vocabulary.ts';
 import {parseReviewRegister,reviewStateOf,type ReviewState} from '../../src/domain/chemistry/kb-review.ts';
 import {parseSourceRegistry,sourceAcceptance,type SourceRegistry} from '../../src/domain/governance/source-policy.ts';
+import {unsupportedConditionFields} from '../../src/features/chemistry-knowledge/explorer.ts';
 import {CHEMISTRY_KNOWLEDGE_SCHEMA,SUBSTANCE_KEY,SPECIES_ID_PREFIX,substanceKey,type KnowledgeField,type KnowledgeGap,type KnowledgeIndex,type KnowledgeReaction,type KnowledgeRelation,type KnowledgeSubstance} from '../../src/features/chemistry-knowledge/knowledge.ts';
 import {deriveChemistryGraph,type ChemistryGraphInputs} from './chemistry-graph.ts';
 import {buildAssertions,loadKb} from './chemistry-kb.ts';
@@ -50,7 +51,9 @@ export function decimalSum(terms:Array<{value:number;count:number}>):string{
 /** `inputs` replaces a governed file with an in-memory document — used only by tests (the build reads the repo). */
 export interface KnowledgeInputs extends ChemistryGraphInputs { hub?:HubInputs; sourceRegistry?:unknown; chemistryReviews?:unknown }
 
-export interface ReactionGovernance { id:string; noReaction:boolean; assertionId:string; hash:string; review:ReviewState; source:SourceState; sourceRefs:string[]; reviewed:boolean; observationFlags:string[]; conditionAssertion:string|null }
+export interface ReactionGovernance { id:string; noReaction:boolean; assertionId:string; hash:string; review:ReviewState; source:SourceState; sourceRefs:string[]; reviewed:boolean; observationFlags:string[];
+  /** P2.14 closeout: the condition claim (every canonical condition field the record requires), its hash and review */
+  condition:{assertionId:string;hash:string;review:ReviewState;fields:string[]}|null; unsupportedConditions:string[] }
 export interface SubstanceGovernance { id:string; source:SourceState; sourceRefs:string[]; hazardsClaimed:number; propertiesClaimed:number }
 
 export function buildChemistryKnowledge(root:string,inputs:KnowledgeInputs={}){
@@ -123,8 +126,11 @@ export function buildChemistryKnowledge(root:string,inputs:KnowledgeInputs={}){
     const obs=assertions.get(`observation:${r.id}`)!;
     const review=reviewStateOf(a,register.records).state;
     const src=sourceStateOf(refIds(r.sourceRefs),registry);
-    const reviewed=review==='approved'&&src.state==='SOURCE_ELIGIBLE';
-    reactionGov.push({id:r.id,noReaction,assertionId:a.id,hash:a.hash,review,source:src.state,sourceRefs:refIds(r.sourceRefs),reviewed,observationFlags:obs.flags,conditionAssertion:assertions.has(`condition:${r.id}`)?`condition:${r.id}`:null});
+    // a record with condition requirements is reviewed only when its condition claim (all fields) is approved too
+    const ca=assertions.get(`condition:${r.id}`);
+    const condition=ca?{assertionId:ca.id,hash:ca.hash,review:reviewStateOf(ca,register.records).state,fields:conditionRequirementFields(r.conditions)}:null;
+    const reviewed=review==='approved'&&src.state==='SOURCE_ELIGIBLE'&&(!condition||condition.review==='approved');
+    reactionGov.push({id:r.id,noReaction,assertionId:a.id,hash:a.hash,review,source:src.state,sourceRefs:refIds(r.sourceRefs),reviewed,observationFlags:obs.flags,condition,unsupportedConditions:unsupportedConditionFields(r.conditions)});
     const observations:KnowledgeField<unknown[]>=!(r.observations??[]).length?gap('OBSERVATION_MISSING'):obs.flags.includes('CHEMISTRY_REVIEW_REQUIRED')?gap('OBSERVATION_REVIEW_REQUIRED'):{status:'MODEL',value:r.observations,provenance:'CANONICAL_MODEL'};
     let ionicEquation:KnowledgeField<string>=gap('IONIC_NOT_SUPPORTED');
     if(!noReaction&&ionic.support(r.id).supported) ionicEquation={status:'COMPUTED',value:ionic.netIonicEquation(r.id).equation,provenance:'ENGINE_COMPUTED'};
@@ -134,7 +140,7 @@ export function buildChemistryKnowledge(root:string,inputs:KnowledgeInputs={}){
     for(const l of labs) for(const t of g.labTopics.get(l)??[]){ if(!topics.has(t)) topics.set(t,[]); topics.get(t)!.push(l); }
     return {id:r.id,
       participants:{reactants:p.reactants.map(x=>x.speciesId),products:p.products.map(x=>x.speciesId)},
-      requirements:dims.dimensions,observations,ionicEquation,review:reviewed?'REVIEWED':'MODEL_RECORD',
+      requirements:dims.dimensions,unsupportedConditions:unsupportedConditionFields(r.conditions),observations,ionicEquation,review:reviewed?'REVIEWED':'MODEL_RECORD',
       relations:{
         elements:[...(g.reactionElements.get(r.id)??[])],
         labs:labs.map(l=>rel(l,['guided-step-reaction-map'])),

@@ -28,6 +28,27 @@ function conditionMatch(q                             ,r                   )    
 export const NO_REACTION_TYPE='no-reaction';
 export const isNoReaction=(r               )=>r.reactionType===NO_REACTION_TYPE;
 
+/** Every field of the canonical ReactionConditions contract a RECORD may state. `dimensions` is not one of them: it
+ *  describes an ACTUAL situation and is never set on a knowledge-base record. */
+export const RECORD_CONDITION_FIELDS=['tags','lightRequired','electricalCurrent','medium','solvent','catalystIds','temperatureRange','pressureRange','concentrationRules']         ;
+                                                                        
+/**
+ * P2.14 closeout: the condition fields a record actually REQUIRES, by the same rule requirementsMet() applies — the
+ * one definition shared by the matcher, the chemistry KB (assertions, self-check) and the Reaction Explorer. An empty
+ * tag or catalyst list is no requirement; a boolean `false` IS one. A key outside the contract (including `dimensions`
+ * on a record) is returned as `unknown:<key>` and is never met.
+ */
+export function conditionRequirementFields(c                             )         {
+  const out         =[];
+  for(const [k,v] of Object.entries(c??{})){
+    if(v===undefined) continue;
+    if(!(RECORD_CONDITION_FIELDS                     ).includes(k)){ out.push(`unknown:${k}`); continue; }
+    if((k==='tags'||k==='catalystIds')&&Array.isArray(v)&&!v.length) continue;
+    out.push(k);
+  }
+  return out.sort();
+}
+
 /**
  * Does a record's condition requirement hold in the ACTUAL conditions? (policy 'require-record-conditions')
  *
@@ -35,12 +56,14 @@ export const isNoReaction=(r               )=>r.reactionType===NO_REACTION_TYPE;
  *   record field specified, actual missing  → NOT met (unknown is never assumed to be satisfied)
  *   record field specified, actual differs  → NOT met (conflicting)
  *
- * Fields: tags (each required tag present), lightRequired / electricalCurrent (booleans must agree), medium,
- * solvent (equal), catalystIds (each present), temperatureRange / pressureRange / concentrationRules (the actual
- * conditions must state the same value — no range arithmetic is guessed).
+ * Fields: tags (each required tag present), lightRequired / electricalCurrent (booleans must agree EXACTLY — a missing
+ * actual value is not `false`), medium, solvent (equal), catalystIds (each present), temperatureRange / pressureRange /
+ * concentrationRules (the actual conditions must state the same value — no range arithmetic is guessed). A record key
+ * outside the contract is never met (fail closed).
  */
 export function requirementsMet(r                             ,actual                             ,vocabulary                     )        {
   const a=actual??{};
+  if(conditionRequirementFields(r).some(f=>f.startsWith('unknown:')))return false;
   if(vocabulary){
     // P1.7: tags are compared by MEANING (dimension = value) through the reviewed condition vocabulary. An unknown
     // or self-conflicting record tag is never guessed: the requirement is not met (and the chemistry gate FAILs).
@@ -50,8 +73,9 @@ export function requirementsMet(r                             ,actual           
     if(Object.entries(req.dimensions).some(([d,v])=>have[d]!==v))return false;
   }
   else if((r?.tags??[]).some(t=>!(a.tags??[]).includes(t)))return false;
-  if(r?.lightRequired!==undefined&&Boolean(a.lightRequired)!==r.lightRequired)return false;
-  if(r?.electricalCurrent!==undefined&&Boolean(a.electricalCurrent)!==r.electricalCurrent)return false;
+  // P2.14 closeout: strict — `Boolean(undefined)` used to turn a missing actual value into `false`
+  if(r?.lightRequired!==undefined&&a.lightRequired!==r.lightRequired)return false;
+  if(r?.electricalCurrent!==undefined&&a.electricalCurrent!==r.electricalCurrent)return false;
   if(r?.medium!==undefined&&r.medium!==a.medium)return false;
   if(r?.solvent!==undefined&&r.solvent!==a.solvent)return false;
   if((r?.catalystIds??[]).some(c=>!(a.catalystIds??[]).includes(c)))return false;

@@ -10,7 +10,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {parseFormula} from '../src/domain/chemistry/formula-parser.ts';
 import {IonicEngine} from '../src/domain/chemistry/ionic-engine.ts';
-import {ReactionMatcher} from '../src/domain/chemistry/reaction-matcher.ts';
+import {ReactionMatcher,requirementsMet,conditionRequirementFields} from '../src/domain/chemistry/reaction-matcher.ts';
 import {SpeciesRegistry} from '../src/domain/chemistry/species-registry.ts';
 import {parseConditionVocabulary} from '../src/domain/chemistry/condition-vocabulary.ts';
 import {buildChemistryKnowledge,decimalSum,refIds} from '../scripts/lib/chemistry-knowledge.ts';
@@ -18,6 +18,8 @@ import {deriveChemistryGraph} from '../scripts/lib/chemistry-graph.ts';
 import {buildElementHub} from '../scripts/lib/element-hub.ts';
 import {elementAssertion} from '../scripts/lib/element-governance.ts';
 import {assertKnowledgeIndex,CHEMISTRY_KNOWLEDGE_SCHEMA,RELATION_PROVENANCE,substanceKey} from '../src/features/chemistry-knowledge/knowledge.ts';
+import {unsupportedConditionFields,EXPLORER_CONDITION_UNSUPPORTED} from '../src/features/chemistry-knowledge/explorer.ts';
+import {buildAssertions,loadKb,evaluateGate} from '../scripts/lib/chemistry-kb.ts';
 import {explore,explorerHref,parseExplorerQuery,reactionExplorerHref,resolveFormulaInput,substanceSearchEntries,reactionSearchEntries,knowledgeDomain,MAX_REAGENTS} from '../src/features/chemistry-knowledge/explorer.ts';
 import {searchStudentContent} from '../src/features/search/model.ts';
 import {parseAppRoute} from '../src/app/routes.ts';
@@ -164,7 +166,8 @@ test('9. an unknown pair never becomes "no reaction"',()=>{
 
 test('10. a required condition is never assumed',()=>{
   // H2 + O2 needs ignition: not stated → the requirement is named; stated → the record
-  assert.deepEqual(explore(domain,['species.h2','species.o2'],{}),{kind:'CONDITION_REQUIRED',requirements:[{ignition:'present'}]});
+  // P2.14 closeout changed the requirement shape: each candidate also lists the conditions the explorer cannot state
+  assert.deepEqual(explore(domain,['species.h2','species.o2'],{}),{kind:'CONDITION_REQUIRED',requirements:[{dimensions:{ignition:'present'},unsupported:[]}]});
   assert.deepEqual(explore(domain,['species.h2','species.o2'],{ignition:'present'}),{kind:'MODELED_REACTION',reactionId:'rxn.h2-combustion'});
   // a stated value that conflicts is not met either
   assert.equal(explore(domain,['species.h2','species.o2'],{ignition:'absent'}).kind,'CONDITION_REQUIRED');
@@ -187,7 +190,8 @@ test('11. a phase mismatch is not guessed',()=>{
 test('12. several candidate records require a condition',()=>{
   const o=explore(domain,['species.c','species.o2'],{ignition:'present'});
   assert.equal(o.kind,'CONDITION_REQUIRED');
-  assert.deepEqual(o.requirements.map(r=>r['oxygen-supply']).sort(),['excess','limited']);
+  // P2.14 closeout changed the requirement shape ({dimensions, unsupported})
+  assert.deepEqual(o.requirements.map(r=>r.dimensions['oxygen-supply']).sort(),['excess','limited']);
   assert.deepEqual(explore(domain,['species.c','species.o2'],{ignition:'present','oxygen-supply':'excess'}),{kind:'MODELED_REACTION',reactionId:'rxn.c-combustion'});
   assert.deepEqual(explore(domain,['species.c','species.o2'],{ignition:'present','oxygen-supply':'limited'}),{kind:'MODELED_REACTION',reactionId:'rxn.c-combustion-limited'});
   // TEST-ONLY: two records that both hold → the learner is asked, the system does not pick
@@ -383,4 +387,109 @@ test('reports: generator-equal; dimensions separate (no merged percentage); form
   assert.equal(inv.species.total,SPECIES.length); assert.equal(inv.reactions.total,REACTIONS.length);
   const ex=JSON.parse(out[KNOWLEDGE_REPORTS.explorer]);
   assert.equal(ex.pairsOfCanonicalSpecies.modeledNoReaction,0); assert.equal(ex.reachability.unreachable.length,1);
+});
+
+// ------------------------------------------------------------------ P2.14 closeout: complete condition semantics
+// TEST-ONLY condition fixtures: synthetic records built on real reagent pairs to exercise the contract; they claim no
+// chemistry and never enter the repository.
+
+test('closeout 1–5: boolean conditions — a missing actual value is never an implicit false',()=>{
+  for(const [record,actual,expected,why] of [
+    [{lightRequired:true},{},false,'1. light true, actual missing'],
+    [{lightRequired:false},{},false,'2. light false, actual missing'],
+    [{electricalCurrent:true},{},false,'3. current true, actual missing'],
+    [{electricalCurrent:false},{},false,'4. current false, actual missing'],
+    [{lightRequired:false},{lightRequired:false},true,'5. explicit matching false'],
+    [{electricalCurrent:false},{electricalCurrent:false},true,'5. explicit matching false'],
+    [{lightRequired:true},{lightRequired:true},true,'matching true'],
+    [{electricalCurrent:true},{electricalCurrent:true},true,'matching true'],
+    [{lightRequired:true},{lightRequired:false},false,'opposite'],
+    [{electricalCurrent:false},{electricalCurrent:true},false,'opposite'],
+  ]) for(const voc of [undefined,vocabulary]) assert.equal(requirementsMet(record,actual,voc),expected,why);
+  // a key outside the canonical contract (or `dimensions` written on a record) is never silently ignored
+  assert.equal(requirementsMet({moonPhase:'full'},{}),false);
+  assert.equal(requirementsMet({dimensions:{temperature:'heated'}},{dimensions:{temperature:'heated'}},vocabulary),false);
+  assert.deepEqual(conditionRequirementFields({tags:[],catalystIds:[],lightRequired:false,moonPhase:'x'}),['lightRequired','unknown:moonPhase']);
+});
+
+const NAOH_HCL=REACTIONS.find(r=>r.id==='rxn.naoh-hcl');
+const withConditions=(conditions)=>REACTIONS.map(r=>r.id==='rxn.naoh-hcl'?{...r,conditions:{...r.conditions,...conditions}}:r);
+const UNSUPPORTED_CASES=[
+  ['6. medium',{medium:'acidic'}],['7. solvent',{solvent:'water'}],['8. catalyst',{catalystIds:['species.cu']}],
+  ['9. temperature',{temperatureRange:{min:80,unit:'C'}}],['9. pressure',{pressureRange:{min:{value:2,unit:'atm'}}}],
+  ['9. concentration',{concentrationRules:[{speciesId:'species.hcl',min:{value:1,unit:'mol/L'}}]}],
+  ['light',{lightRequired:true}],['current',{electricalCurrent:false}],
+];
+
+test('closeout 6–10: a non-tag requirement is never dropped — explicit EXPLORER_CONDITION_UNSUPPORTED, no false deep link',()=>{
+  for(const [why,cond] of UNSUPPORTED_CASES){
+    const reactions=withConditions(cond);
+    const field=Object.keys(cond)[0];
+    assert.deepEqual(unsupportedConditionFields({...NAOH_HCL.conditions,...cond}),[field],why);
+    // knowledge index: the field is kept, the record gets no explorer link and no search entry
+    const {index:ix}=buildChemistryKnowledge(root,{reactions});
+    const k=ix.reactions.find(r=>r.id==='rxn.naoh-hcl');
+    assert.deepEqual(k.unsupportedConditions,[field],why);
+    assert.equal(reactionExplorerHref(ix,'rxn.naoh-hcl',''),null,why);
+    const d=knowledgeDomain({species:SPECIES,reactions,conditionVocabulary:json('content-src/chemistry/condition-vocabulary.json')});
+    assert.ok(!reactionSearchEntries(ix,d.reactions,{kicker:'R',description:t=>t},'').some(e=>e.title===NAOH_HCL.molecularEquation),why);
+    // the explorer lands on "not yet supported", never on a match or a satisfiable "condition required"
+    const o=explore(d,['species.naoh','species.hcl'],{});
+    assert.equal(o.kind,'CONDITION_UNSUPPORTED',why);
+    assert.deepEqual(o.requirements,[{dimensions:{},unsupported:[field]}]);
+    // existing runtime callers that state the field keep matching it
+    assert.equal(d.matcher.match({reactants:[{formula:'NaOH'},{formula:'HCl'}],conditions:{...cond},conditionPolicy:'require-record-conditions'}).reaction?.id,'rxn.naoh-hcl',why);
+    // the KB self-check exercises the full condition object (no MATCHER_AMBIGUOUS, no tags-only reduction)
+    const gate=evaluateGate({...loadKb(root),reactions},buildAssertions({...loadKb(root),reactions}));
+    assert.ok(!gate.fail.some(f=>f.includes('rxn.naoh-hcl')),`${why}: ${gate.fail.filter(f=>f.includes('naoh'))}`);
+    // the report counts it as unsupported, not reachable
+  }
+  assert.equal(EXPLORER_CONDITION_UNSUPPORTED,'EXPLORER_CONDITION_UNSUPPORTED');
+  // two records that differ only in a non-tag field are not duplicates of each other
+  const twin={...NAOH_HCL,id:'rxn.fixture.naoh-hcl-basic',conditions:{medium:'basic'}};
+  const reactions=[...withConditions({medium:'acidic'}),twin];
+  const gate=evaluateGate({...loadKb(root),reactions},buildAssertions({...loadKb(root),reactions}));
+  assert.ok(!gate.fail.some(f=>/REACTION_(DUPLICATE|CONFLICT)/.test(f)&&f.includes('naoh-hcl')),gate.fail.join('\n'));
+});
+
+test('closeout 11: changing a non-tag condition makes the condition decision stale (and the reaction unreviewed)',()=>{
+  const base=withSource('rxn.naoh-hcl','src.test.accepted').map(r=>r.id==='rxn.naoh-hcl'?{...r,conditions:{medium:'acidic'}}:r);
+  const first=buildChemistryKnowledge(root,{reactions:base,sourceRegistry:FIX_REGISTRY});
+  const g=first.governance.reactions.find(x=>x.id==='rxn.naoh-hcl');
+  assert.deepEqual(g.condition.fields,['medium']);
+  const reviews=CHEM([APPROVE(g),{...APPROVE(g),assertionId:g.condition.assertionId,assertionHash:g.condition.hash}]);
+  const ok=buildChemistryKnowledge(root,{reactions:base,sourceRegistry:FIX_REGISTRY,chemistryReviews:reviews});
+  assert.equal(ok.governance.reactions.find(x=>x.id==='rxn.naoh-hcl').condition.review,'approved');
+  assert.equal(ok.index.reactions.find(r=>r.id==='rxn.naoh-hcl').review,'REVIEWED');
+  // reaction approved but the condition claim not → not reviewed
+  const half=buildChemistryKnowledge(root,{reactions:base,sourceRegistry:FIX_REGISTRY,chemistryReviews:CHEM([APPROVE(g)])});
+  assert.equal(half.index.reactions.find(r=>r.id==='rxn.naoh-hcl').review,'MODEL_RECORD');
+  for(const cond of [{medium:'basic'},{medium:'acidic',solvent:'water'},{medium:'acidic',catalystIds:['species.cu']},{medium:'acidic',lightRequired:false},{medium:'acidic',electricalCurrent:true},{medium:'acidic',temperatureRange:{min:50,unit:'C'}},{medium:'acidic',pressureRange:{min:{value:1,unit:'atm'}}},{medium:'acidic',concentrationRules:[{speciesId:'species.hcl'}]}]){
+    const edited=base.map(r=>r.id==='rxn.naoh-hcl'?{...r,conditions:cond}:r);
+    const after=buildChemistryKnowledge(root,{reactions:edited,sourceRegistry:FIX_REGISTRY,chemistryReviews:reviews});
+    const ga=after.governance.reactions.find(x=>x.id==='rxn.naoh-hcl');
+    assert.equal(ga.condition.review,'stale',JSON.stringify(cond));
+    assert.equal(after.index.reactions.find(r=>r.id==='rxn.naoh-hcl').review,'MODEL_RECORD');
+  }
+  // tag-only records keep exactly their previous condition hash (no review is lost or fabricated by this change)
+  const kb=buildAssertions(loadKb(root)).find(a=>a.id==='condition:rxn.h2-combustion');
+  assert.deepEqual(kb.data,{tags:['ignition'],dimensions:{ignition:'present'}});
+});
+
+test('closeout 12: the 28 canonical records use only tag conditions and stay reachable exactly as before',()=>{
+  assert.equal(REACTIONS.length,28);
+  assert.ok(REACTIONS.every(r=>conditionRequirementFields(r.conditions).every(f=>f==='tags')));
+  assert.ok(index.reactions.every(r=>r.unsupportedConditions.length===0));
+  const ex=JSON.parse(knowledgeOutputs(root)[KNOWLEDGE_REPORTS.explorer]);
+  assert.equal(ex.reachability.reachable,27);
+  assert.deepEqual(ex.reachability.unreachable.map(x=>[x.id,x.reason]),[['rxn.agno3-nacl','REACTANT_NOT_A_CANONICAL_SPECIES']]);
+  assert.deepEqual(ex.conditionContract.fieldsPresentInRecords,{tags:11});
+  assert.deepEqual(ex.conditionContract.explorerSupportedFields,['tags']);
+  assert.deepEqual(ex.conditionContract.unsupportedRecords,[]);
+  assert.equal(ex.conditionContract.explorerUnsupportedFields.length,8);
+  const gov=JSON.parse(knowledgeOutputs(root)[KNOWLEDGE_REPORTS.governance]);
+  assert.equal(gov.conditionGovernance.conditionAssertions,11);
+  assert.deepEqual(gov.conditionGovernance.review,{pending:11});
+  // the explorer's single matcher call states vocabulary dimensions only (every other field stays absent)
+  assert.match(read('src/features/chemistry-knowledge/explorer.ts'),/conditions:\{dimensions:\{\.\.\.stated\}\},conditionPolicy:'require-record-conditions'/);
 });

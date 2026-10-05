@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-10-05T10:35:51.112Z",
+  "createdAt": "2026-10-05T12:31:24.078Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -209,8 +209,8 @@
     {
       "path": "app-preview/domain/chemistry/reaction-matcher.js",
       "sourcePath": "public/app-preview/domain/chemistry/reaction-matcher.js",
-      "checksum": "d1bbb38dd22086868be24f45e08462eb86cbc2071870f6e5c2ca46ee90c6d92d",
-      "size": 7430
+      "checksum": "8650c884c849f381a2b949eecbbe0af6f572f65acfe6a4991f87ea9b64c7a6b1",
+      "size": 9014
     },
     {
       "path": "app-preview/domain/chemistry/redox-balancer.js",
@@ -419,26 +419,26 @@
     {
       "path": "app-preview/features/chemistry-knowledge/explorer-render.js",
       "sourcePath": "public/app-preview/features/chemistry-knowledge/explorer-render.js",
-      "checksum": "75da850eb24477866a6c6875cea7f5fb304bc4741d48e6f0762e1c1ef94fe3c1",
-      "size": 15225
+      "checksum": "9cc106ac01490c2d4d29f0a81bf438bed11d08fb82a65ae58e99824a90809bd2",
+      "size": 15766
     },
     {
       "path": "app-preview/features/chemistry-knowledge/explorer.js",
       "sourcePath": "public/app-preview/features/chemistry-knowledge/explorer.js",
-      "checksum": "dc990e36962cebdcce04847517a8f95772534b1d0098afad87b8986498c7c17c",
-      "size": 9177
+      "checksum": "abe16e28da6dd462e0ee590fdc4abf29fe3c2a313fad71a472bad07dfcd7e798",
+      "size": 11270
     },
     {
       "path": "app-preview/features/chemistry-knowledge/knowledge.js",
       "sourcePath": "public/app-preview/features/chemistry-knowledge/knowledge.js",
-      "checksum": "2b89194f605ca001df53c3027e95ff1c4dc103aebb169b7438aaa403e7f4ca98",
-      "size": 5982
+      "checksum": "400741de38fb27cec9deac12a7af51fada753b48c2af68e86ffa93c753c9a2fd",
+      "size": 6353
     },
     {
       "path": "app-preview/features/chemistry-knowledge/passport.js",
       "sourcePath": "public/app-preview/features/chemistry-knowledge/passport.js",
-      "checksum": "f7509c62bbba1bf68ceaf6ba6a51d55e3452c718568002cfe00cfc197ea31639",
-      "size": 11762
+      "checksum": "6ca06900babb8fa4c3b6118c73864bb9ecf173d20efc4deadc60258e2a353e4c",
+      "size": 12125
     },
     {
       "path": "app-preview/features/curriculum/render.js",
@@ -1289,8 +1289,8 @@
     {
       "path": "content/2026.09.1/knowledge/chemistry-knowledge.json",
       "sourcePath": "public/content/2026.09.1/knowledge/chemistry-knowledge.json",
-      "checksum": "3a1144e227e251eee91dc4fd577ad000aeb7fe5139cec501dc8a184d693e937d",
-      "size": 68260
+      "checksum": "ad71bb72708a0e8c134f83729034236d62bb7ec5da120139226d1b6b1984c38b",
+      "size": 69016
     },
     {
       "path": "content/2026.09.1/learning-cycle.json",
@@ -1343,8 +1343,8 @@
     {
       "path": "content/2026.09.1/locales/uz-latn/learner-interaction.json",
       "sourcePath": "public/content/2026.09.1/locales/uz-latn/learner-interaction.json",
-      "checksum": "e7cb6def774942357d326c21a808e0a5cc2e0983347276be7889eee7c4dd3fb6",
-      "size": 45060
+      "checksum": "0acb71db13bfbf4734d88ec98305192834fdf4b358b74e3140b8dc892ccf0360",
+      "size": 45567
     },
     {
       "path": "content/2026.09.1/locales/uz-latn/name-provenance.json",
@@ -1355,7 +1355,7 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "b20938960158e8996838367be471d1c97ead2b4f9e5516a6940adaa6fa3efe00",
+      "checksum": "3d999419c70fae78dbbfe54c3c85e7ff3ed86d89a6f08bc3b93b94a7ee66f3a2",
       "size": 8343
     },
     {
@@ -1397,7 +1397,7 @@
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "a479c8151346a0d23bb7b060db1cf503ce02ba4f6ed791c0ffb490405687415a",
+      "checksum": "d432ddb4e6e50418a8f3d0e3a5ca1872cd873827edf5a4954087ab1e0e2c1576",
       "size": 158
     },
     {

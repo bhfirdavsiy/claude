@@ -15,6 +15,7 @@
     "explicitNoReaction": 0
   },
   "reachability": {
+    "definition": "opening the generated deep link reproduces this exact record through ReactionMatcher (reactants resolved AND every required condition stated faithfully)",
     "reachable": 27,
     "unreachable": [
       {
@@ -31,6 +32,40 @@
         ]
       }
     ]
+  },
+  "conditionContract": {
+    "canonicalFields": [
+      "tags",
+      "lightRequired",
+      "electricalCurrent",
+      "medium",
+      "solvent",
+      "catalystIds",
+      "temperatureRange",
+      "pressureRange",
+      "concentrationRules"
+    ],
+    "fieldsPresentInRecords": {
+      "tags": 11
+    },
+    "recordsWithAnyRequirement": 11,
+    "explorerSupportedFields": [
+      "tags"
+    ],
+    "explorerSupportedAs": "condition-vocabulary dimensions (the learner states dimension values; nothing unstated is assumed)",
+    "explorerUnsupportedFields": [
+      "lightRequired",
+      "electricalCurrent",
+      "medium",
+      "solvent",
+      "catalystIds",
+      "temperatureRange",
+      "pressureRange",
+      "concentrationRules"
+    ],
+    "unsupportedRecords": [],
+    "rule": "a record that requires an unsupported field is EXPLORER_CONDITION_UNSUPPORTED: no deep link, not reachable, no search entry; the explorer shows \"not yet supported\", never a condition to choose",
+    "note": "today every record uses only tag conditions; this is a property of the current data, not a claim that every condition type is supported"
   },
   "pairsOfCanonicalSpecies": {
     "total": 3486,

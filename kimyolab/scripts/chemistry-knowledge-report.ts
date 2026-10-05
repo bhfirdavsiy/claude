@@ -7,7 +7,8 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {ReactionMatcher} from '../src/domain/chemistry/reaction-matcher.ts';
 import {parseConditionVocabulary} from '../src/domain/chemistry/condition-vocabulary.ts';
-import {explore,parseExplorerQuery,reactionExplorerHref} from '../src/features/chemistry-knowledge/explorer.ts';
+import {explore,parseExplorerQuery,reactionExplorerHref,EXPLORER_SUPPORTED_CONDITION_FIELDS,EXPLORER_CONDITION_UNSUPPORTED} from '../src/features/chemistry-knowledge/explorer.ts';
+import {RECORD_CONDITION_FIELDS,conditionRequirementFields} from '../src/domain/chemistry/reaction-matcher.ts';
 import {CHEMISTRY_KNOWLEDGE_PACK_PATH,RELATION_PROVENANCE,type KnowledgeField} from '../src/features/chemistry-knowledge/knowledge.ts';
 import {FEATURE_FLAGS} from '../src/app/feature-flags.ts';
 import {buildChemistryKnowledge} from './lib/chemistry-knowledge.ts';
@@ -111,8 +112,11 @@ export function knowledgeOutputs(root=ROOT):Record<string,string>{
   };
 
   // ------------------------------------------------------------ 3. explorer coverage (the real matcher, all pairs)
+  // explorerReachable (P2.14 closeout) = the generated link, opened, reproduces THIS record through ReactionMatcher —
+  // not merely "its reactants resolve": a record with a condition the explorer cannot state has no link at all
   const roundTrip=R.map(r=>{
     const href=reactionExplorerHref(index,r.id,'');
+    if(!href&&r.unsupportedConditions.length) return {id:r.id,reachable:false,reason:EXPLORER_CONDITION_UNSUPPORTED,unsupportedConditions:r.unsupportedConditions};
     if(!href) return {id:r.id,reachable:false,reason:'REACTANT_NOT_A_CANONICAL_SPECIES',unresolved:g.unresolvedParticipants.filter(u=>u.reactionId===r.id)};
     const st=parseExplorerQuery(new URL(`http://x${href}`).searchParams,index);
     const o=explore(domain,st.speciesIds,st.stated);
@@ -132,7 +136,18 @@ export function knowledgeOutputs(root=ROOT):Record<string,string>{
     semantics:'What the Reaction Explorer can answer through the existing ReactionMatcher. MODELED_REACTION, MODELED_NO_REACTION and NOT_MODELED are separate; NOT_MODELED is never shown as "no reaction".',
     matcher:{module:'src/domain/chemistry/reaction-matcher.ts',policy:'require-record-conditions',phase:'the canonical species\' own phase (never guessed)',conditions:'only what the learner states; unknown values are refused'},
     records:{total:R.length,modeledReactions:g.reactions.filter(r=>r.reactionType!=='no-reaction').length,explicitNoReaction:g.reactions.filter(r=>r.reactionType==='no-reaction').length},
-    reachability:{reachable:roundTrip.filter(x=>x.reachable).length,unreachable:roundTrip.filter(x=>!x.reachable)},
+    reachability:{definition:'opening the generated deep link reproduces this exact record through ReactionMatcher (reactants resolved AND every required condition stated faithfully)',reachable:roundTrip.filter(x=>x.reachable).length,unreachable:roundTrip.filter(x=>!x.reachable)},
+    conditionContract:{
+      canonicalFields:RECORD_CONDITION_FIELDS,
+      fieldsPresentInRecords:tally(g.reactions.flatMap(r=>conditionRequirementFields(r.conditions))),
+      recordsWithAnyRequirement:g.reactions.filter(r=>conditionRequirementFields(r.conditions).length).length,
+      explorerSupportedFields:EXPLORER_SUPPORTED_CONDITION_FIELDS,
+      explorerSupportedAs:'condition-vocabulary dimensions (the learner states dimension values; nothing unstated is assumed)',
+      explorerUnsupportedFields:RECORD_CONDITION_FIELDS.filter(f=>!EXPLORER_SUPPORTED_CONDITION_FIELDS.includes(f)),
+      unsupportedRecords:R.filter(r=>r.unsupportedConditions.length).map(r=>({id:r.id,fields:r.unsupportedConditions})),
+      rule:`a record that requires an unsupported field is ${EXPLORER_CONDITION_UNSUPPORTED}: no deep link, not reachable, no search entry; the explorer shows "not yet supported", never a condition to choose`,
+      note:'today every record uses only tag conditions; this is a property of the current data, not a claim that every condition type is supported',
+    },
     pairsOfCanonicalSpecies:{total:g.species.length*(g.species.length-1)/2,...pairs,note:'counts the records written for a pair (any conditions); NOT_MODELED pairs are unknown, not non-reacting'},
     conditionDependence:{recordsWithRequirements:R.filter(r=>Object.keys(r.requirements).length).length,reagentSetsWithSeveralRecords:Object.entries(reactantSets).filter(([,n])=>n>1).map(([set,records])=>({set,records}))},
     ionicEquation:{supported:R.filter(r=>r.ionicEquation.status==='COMPUTED').map(r=>r.id),notSupported:R.filter(r=>r.ionicEquation.status!=='COMPUTED').length,rule:'shown only when IonicEngine.support(reactionId) is supported:true; never a fallback'},
@@ -153,7 +168,14 @@ export function knowledgeOutputs(root=ROOT):Record<string,string>{
       ids:[...new Set([...governance.substances.flatMap(s=>s.sourceRefs),...G.flatMap(r=>r.sourceRefs)])].sort().map(id=>{ const e=(registryRaw.sources??[]).find((s:any)=>s.id===id); return {id,registered:registryIds.has(id),category:e?.category??null,classification:e?.classification??null}; }),
     },
     substances:{total:governance.substances.length,source:tally(governance.substances.map(s=>s.source)),hazardsClaimed:governance.substances.filter(s=>s.hazardsClaimed>0).length,propertiesClaimed:governance.substances.filter(s=>s.propertiesClaimed>0).length,reviewedHazards:0,reviewedProperties:0},
-    reactions:G.map(x=>({id:x.id,assertionId:x.assertionId,hash:x.hash,review:x.review,source:x.source,reviewed:x.reviewed,observationFlags:x.observationFlags,conditionAssertion:x.conditionAssertion})),
+    conditionGovernance:{
+      rule:'the condition assertion hashes EVERY canonical condition field the record requires (not only tags); changing medium, solvent, catalysts, light, current, temperature, pressure or concentration makes a decision on the old hash stale. A reaction counts as reviewed only when its condition claim is approved too',
+      recordsWithRequirements:G.filter(x=>x.condition).length,
+      conditionAssertions:G.filter(x=>x.condition).length,
+      fieldsCovered:tally(G.flatMap(x=>x.condition?.fields??[])),
+      review:tally(G.filter(x=>x.condition).map(x=>x.condition!.review)),
+    },
+    reactions:G.map(x=>({id:x.id,assertionId:x.assertionId,hash:x.hash,review:x.review,source:x.source,reviewed:x.reviewed,observationFlags:x.observationFlags,condition:x.condition,unsupportedConditions:x.unsupportedConditions})),
     learnerWording:{modelRecord:'a model record is shown as KimyoLab model data, never as expert-approved',reviewed:'only an effectively reviewed record may say it was checked by a chemistry reviewer'},
   };
 
@@ -193,7 +215,7 @@ export function knowledgeOutputs(root=ROOT):Record<string,string>{
       molarMassShown:S.filter(s=>s.molarMass.status!=='GAP').length,
       dissociationModeled:S.filter(s=>s.dissociation.status==='MODEL').length,
       reviewedProperties:0,reviewedHazards:0,
-      reactionRecords:R.length,explorerReachable:explorer.reachability.reachable,explicitNoReactionRecords:explorer.records.explicitNoReaction,
+      reactionRecords:R.length,explorerReachable:explorer.reachability.reachable,explorerConditionUnsupported:explorer.conditionContract.unsupportedRecords.length,explicitNoReactionRecords:explorer.records.explicitNoReaction,
       pairs:explorer.pairsOfCanonicalSpecies,
       ionicEquationSupported:explorer.ionicEquation.supported.length,
       humanReviewedReactions:gov.totals.effectiveHumanReviewed,sourceGaps:gov.totals.source,

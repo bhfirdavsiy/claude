@@ -61,8 +61,12 @@ export interface KnowledgeReaction {
   id:string;
   /** each participant's canonical species id, or null when the participant resolves to no single species */
   participants:{reactants:Array<string|null>;products:Array<string|null>};
-  /** the record's condition requirements as condition-vocabulary dimensions (an unknown tag fails the build) */
+  /** the record's tag requirements as condition-vocabulary dimensions (an unknown tag fails the build) */
   requirements:Record<string,string>;
+  /** P2.14 closeout: every OTHER canonical condition field the record requires (medium, solvent, catalystIds,
+   *  lightRequired, electricalCurrent, temperatureRange, pressureRange, concentrationRules, unknown:<key>) — the
+   *  explorer cannot state them, so the record is EXPLORER_CONDITION_UNSUPPORTED (no deep link). Never dropped. */
+  unsupportedConditions:string[];
   observations:KnowledgeField<unknown[]>;
   ionicEquation:KnowledgeField<string>;
   /** REVIEWED only with a human decision on the current hash AND an eligible source; else it is a model record */

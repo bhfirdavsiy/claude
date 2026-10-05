@@ -723,6 +723,10 @@
     "ui.reactions-val-acid-concentration-concentrated": "konsentrlangan",
     "ui.reactions-val-acid-concentration-dilute": "suyultirilgan",
     "ui.reactions-val-oxygen-supply-excess": "mo‘l",
-    "ui.reactions-val-oxygen-supply-limited": "cheklangan"
+    "ui.reactions-val-oxygen-supply-limited": "cheklangan",
+    "ui.reactions-condition-unsupported": "Bu reaksiya uchun kerakli sharoit turi Reaksiya izlagichda hali ko‘rsatilmaydi.",
+    "ui.reactions-condition-unsupported-note": "Modelda yozuv bor, lekin uning sharoitini bu sahifada aniq berib bo‘lmaydi, shuning uchun natija taxmin qilinmaydi.",
+    "ui.reactions-condition-unsupported-item": "Reaksiya izlagichda hali ko‘rsatilmaydigan sharoit turi",
+    "ui.reactions-announce-unsupported": "Natija: kerakli sharoit turi hali qo‘llab-quvvatlanmaydi."
   }
 }

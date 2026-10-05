@@ -33,6 +33,7 @@
     "reviewedHazards": 0,
     "reactionRecords": 28,
     "explorerReachable": 27,
+    "explorerConditionUnsupported": 0,
     "explicitNoReactionRecords": 0,
     "pairs": {
       "total": 3486,
@@ -85,12 +86,12 @@
     "chemistry": "browser-local: the ReactionMatcher runs in the page over the pack records; no server lookup",
     "knowledgeIndex": {
       "packFile": "knowledge/chemistry-knowledge.json",
-      "bytes": 68260
+      "bytes": 69016
     },
     "bundle": {
       "learnerModules": 4,
-      "learnerModuleBytes": 49947,
-      "standaloneBytes": 143127
+      "learnerModuleBytes": 54899,
+      "standaloneBytes": 149485
     },
     "report": "reports/guided-dynamic-lab-readiness.json#bundleDelta.phases[\"P2.14\"]"
   },

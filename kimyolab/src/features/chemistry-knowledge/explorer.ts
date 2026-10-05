@@ -7,12 +7,12 @@
 // are not (all) stated, the outcome names exactly the conditions the records require. Nothing is guessed: not a
 // phase (the canonical species' own phase is used), not a species (an ambiguous formula asks the learner), not a
 // condition (an unknown value is refused).
-import {classifyMatch,ReactionMatcher} from '../../domain/chemistry/reaction-matcher.ts';
+import {classifyMatch,conditionRequirementFields,ReactionMatcher} from '../../domain/chemistry/reaction-matcher.ts';
 import {SpeciesRegistry} from '../../domain/chemistry/species-registry.ts';
 import {parseFormula} from '../../domain/chemistry/formula-parser.ts';
 import {dimensionsOf,parseConditionVocabulary,type ConditionVocabulary} from '../../domain/chemistry/condition-vocabulary.ts';
 import {SPECIES_ID_PREFIX,substanceKey,type KnowledgeIndex} from './knowledge.ts';
-import type {ReactionRecord,Species} from '../../domain/chemistry/types.ts';
+import type {ReactionConditions,ReactionRecord,Species} from '../../domain/chemistry/types.ts';
 import type {SearchIndexEntry} from '../search/model.ts';
 
 export const MAX_REAGENTS=4;
@@ -36,14 +36,31 @@ export function resolveFormulaInput(registry:SpeciesRegistry,text:string):Formul
   return {status:'FOUND',speciesId:all[0]!.id};
 }
 
+/** P2.14 closeout: the canonical condition fields the explorer can state FAITHFULLY. V1 states condition-vocabulary
+ *  dimensions only (the record's `tags`). Every other field a record requires (medium, solvent, catalysts, light,
+ *  current, temperature, pressure, concentration, or an unknown key) cannot be supplied by the learner here, so such
+ *  a record is EXPLORER_CONDITION_UNSUPPORTED: no deep link, no reachability claim, a plain "not yet supported" state —
+ *  never a "condition required" the learner could not satisfy. The runtime callers that support those fields keep
+ *  using them; no control is invented to raise coverage. */
+export const EXPLORER_SUPPORTED_CONDITION_FIELDS:readonly string[]=['tags'];
+export const EXPLORER_CONDITION_UNSUPPORTED='EXPLORER_CONDITION_UNSUPPORTED';
+export function unsupportedConditionFields(c:ReactionConditions|undefined):string[]{
+  return conditionRequirementFields(c).filter(f=>!EXPLORER_SUPPORTED_CONDITION_FIELDS.includes(f));
+}
+
+/** One candidate record's requirement: its vocabulary dimensions and the fields the explorer cannot state. */
+export interface ExplorerRequirement { dimensions:Record<string,string>; unsupported:string[] }
 export type ExplorerOutcome=
   | {kind:'NO_REAGENTS'}
   | {kind:'MODELED_REACTION';reactionId:string}
   | {kind:'MODELED_NO_REACTION';reactionId:string}
-  /** records exist for these reagents, but their conditions do not hold in what was stated: what each one requires */
-  | {kind:'CONDITION_REQUIRED';requirements:Array<Record<string,string>>}
+  /** records exist for these reagents, but their conditions do not hold in what was stated: what each one requires
+   *  (records with a condition the explorer cannot state are listed with `unsupported`, never as satisfiable) */
+  | {kind:'CONDITION_REQUIRED';requirements:ExplorerRequirement[]}
   /** more than one record holds in what was stated: a further condition decides between them */
-  | {kind:'CONDITION_CHOICE_REQUIRED';requirements:Array<Record<string,string>>}
+  | {kind:'CONDITION_CHOICE_REQUIRED';requirements:ExplorerRequirement[]}
+  /** records exist for these reagents, but every one requires a condition type the explorer cannot state yet */
+  | {kind:'CONDITION_UNSUPPORTED';requirements:ExplorerRequirement[]}
   | {kind:'NOT_MODELED'};
 
 export interface ExplorerDomain { matcher:ReactionMatcher; registry:SpeciesRegistry; vocabulary:ConditionVocabulary }
@@ -51,11 +68,14 @@ export interface ExplorerDomain { matcher:ReactionMatcher; registry:SpeciesRegis
 export function explore(d:ExplorerDomain,speciesIds:readonly string[],stated:Readonly<Record<string,string>>):ExplorerOutcome{
   if(!speciesIds.length) return {kind:'NO_REAGENTS'};
   const reactants=speciesIds.map(id=>{ const s=d.registry.byId(id); if(!s) throw new Error(`EXPLORER_SPECIES_UNKNOWN:${id}`); return {formula:s.formula,phase:s.phase}; });
+  // only vocabulary dimensions are ever stated; every other field stays absent, so a record that requires one can
+  // never match here (requirementsMet: specified + missing = not met)
   const m=d.matcher.match({reactants,conditions:{dimensions:{...stated}},conditionPolicy:'require-record-conditions'});
   if(m.modeled) return classifyMatch(m)==='MODELED_NO_REACTION'?{kind:'MODELED_NO_REACTION',reactionId:m.reaction.id}:{kind:'MODELED_REACTION',reactionId:m.reaction.id};
-  const requirements=()=>d.matcher.candidates(reactants).map(r=>dimensionsOf(r.conditions?.tags??[],d.vocabulary).dimensions);
-  if(m.code==='REACTION_CONDITIONS_NOT_MET') return {kind:'CONDITION_REQUIRED',requirements:requirements()};
-  if(m.code==='REACTION_CONDITION_REQUIRED') return {kind:'CONDITION_CHOICE_REQUIRED',requirements:requirements()};
+  const requirements=d.matcher.candidates(reactants).map(r=>({dimensions:dimensionsOf(r.conditions?.tags??[],d.vocabulary).dimensions,unsupported:unsupportedConditionFields(r.conditions)}));
+  if(requirements.length&&requirements.every(r=>r.unsupported.length)) return {kind:'CONDITION_UNSUPPORTED',requirements};
+  if(m.code==='REACTION_CONDITIONS_NOT_MET') return {kind:'CONDITION_REQUIRED',requirements};
+  if(m.code==='REACTION_CONDITION_REQUIRED') return {kind:'CONDITION_CHOICE_REQUIRED',requirements};
   return {kind:'NOT_MODELED'};
 }
 
@@ -89,11 +109,13 @@ export function explorerHref(speciesIds:readonly string[],stated:Readonly<Record
   return `/reactions${q?`?${q}`:''}`;
 }
 
-/** The explorer link of a reaction record: its reactants (only when every one resolves to a canonical species) and
- *  the conditions the record itself requires. Opening it runs the matcher — the page never looks the record up. */
+/** The explorer link of a reaction record: its reactants and the conditions the record itself requires. Only when
+ *  every reactant resolves to a canonical species AND every required condition can be stated faithfully (P2.14
+ *  closeout: a record with an unsupported condition gets no link — never one that pretends all conditions were
+ *  supplied). Opening it runs the matcher — the page never looks the record up. */
 export function reactionExplorerHref(index:KnowledgeIndex,reactionId:string,flagQuery:string):string|null{
   const r=index.reactions.find(x=>x.id===reactionId);
-  if(!r||r.participants.reactants.some(x=>x===null)) return null;
+  if(!r||r.participants.reactants.some(x=>x===null)||r.unsupportedConditions.length) return null;
   return explorerHref(r.participants.reactants as string[],r.requirements,flagQuery);
 }
 
