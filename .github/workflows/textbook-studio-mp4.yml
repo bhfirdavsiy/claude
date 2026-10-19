@@ -1,0 +1,69 @@
+name: Textbook Studio MP4
+
+# Renders the approved 60-second film (textbook-studio/) to H.264 MP4, validates it with
+# ffprobe, and publishes it as a downloadable workflow artifact. Scoped to textbook-studio
+# only; it does not build, test or deploy any other project in this repository.
+
+on:
+  push:
+    paths:
+      - 'textbook-studio/**'
+      - '.github/workflows/textbook-studio-mp4.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: textbook-studio-mp4-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    defaults:
+      run:
+        working-directory: textbook-studio
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: textbook-studio/package-lock.json
+
+      - name: Install ffmpeg (for ffprobe validation)
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify original assets (SHA-256)
+        run: npm run verify-assets
+
+      - name: Typecheck
+        run: npx tsc --noEmit
+
+      - name: Download headless Chromium for Remotion
+        run: npx remotion browser ensure
+
+      - name: Render 1800 frames to MP4
+        env:
+          CONCURRENCY: '4'
+          # Hosted runners have no GPU: use ANGLE on SwiftShader (software WebGL).
+          REMOTION_GL: swangle
+        run: node scripts/render.mjs
+
+      - name: Validate MP4 (1920x1080, 30 fps, 1800 frames, 60 s, H.264, yuv420p, no audio)
+        run: bash scripts/verify-mp4.sh out/textbook-studio-60s.mp4
+
+      - name: Upload MP4
+        uses: actions/upload-artifact@v4
+        with:
+          name: textbook-studio-60s-mp4
+          path: textbook-studio/out/textbook-studio-60s.mp4
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 90

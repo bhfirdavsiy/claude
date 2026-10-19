@@ -1,0 +1,24 @@
+{
+  "$comment": "Verified asset manifest. Files live in the repository-root public/ folder and are used read-only. Paths are relative to that folder. Crop rectangles are applied at render time (texture UVs / CSS) and never written back to disk. Run `npm run verify-assets` to re-check every SHA-256.",
+  "verifiedAt": "2026-10-19",
+  "publicRoot": "../public",
+  "covers": [
+    { "id": "alifbe-1", "file": "textbooks/01_Alifbe_1sinf.png", "title": "Alifbe", "subject": "Alifbe", "grade": 1, "kind": "textbook", "width": 1080, "height": 1920, "bytes": 752813, "sha256": "22d0313d0bb829eb2b0dd0b300377755da8f11888cb79f3969f24d4d71bbd4d0", "crop": [0, 209, 1080, 1710], "spine": "#f0a020" },
+    { "id": "informatika-1", "file": "textbooks/02_Informatika_1sinf.png", "title": "Informatika va axborot texnologiyalari", "subject": "Informatika", "grade": 1, "kind": "textbook", "width": 1080, "height": 1920, "bytes": 601755, "sha256": "10291ca040f9d9520bca14e7afb723825f947965d7b8fc11c0d07f2eef1662e0", "crop": [45, 272, 1030, 1648], "spine": "#343c8a" },
+    { "id": "matematika-2", "file": "textbooks/03_Matematika_2sinf.png", "title": "Matematika, I qism", "subject": "Matematika", "grade": 2, "kind": "textbook", "width": 1080, "height": 1920, "bytes": 904883, "sha256": "6892682d0fcc8136434234c7b6958f7e7933d501864054c6c38ef87c3dd508d0", "crop": [0, 209, 1080, 1710], "spine": "#e8559a" },
+    { "id": "informatika-mashq-2", "file": "textbooks/04_Informatika_mashq_2sinf.png", "title": "Informatika va axborot texnologiyalari — Mashq daftari", "subject": "Informatika", "grade": 2, "kind": "workbook", "width": 1080, "height": 1920, "bytes": 547671, "sha256": "35118a3c15639878db10536415f5611be5c8b84ef3f938bcd00257b4f1ef5545", "crop": [49, 332, 1026, 1587], "spine": "#304591" },
+    { "id": "matematika-3", "file": "textbooks/05_Matematika_3sinf.png", "title": "Matematika, I qism", "subject": "Matematika", "grade": 3, "kind": "textbook", "width": 1080, "height": 1920, "bytes": 698747, "sha256": "eba6c9b3a07e9ef575bc4a0dc87192accc9f38a6235c54f62196fc5fe215631a", "crop": [0, 209, 1080, 1710], "spine": "#e8559a" },
+    { "id": "informatika-mashq-3", "file": "textbooks/06_Informatika_mashq_3sinf.png", "title": "Informatika va axborot texnologiyalari — Mashq daftari", "subject": "Informatika", "grade": 3, "kind": "workbook", "width": 1080, "height": 1920, "bytes": 479179, "sha256": "b00647a04347be9b64c3edeab806a649ef2dfbb92270c5ed1b67d9c6bff7e1c8", "crop": [49, 332, 1026, 1587], "spine": "#2e4b97" },
+    { "id": "matematika-7", "file": "textbooks/07_Matematika_7sinf.png", "title": "Matematika — Tadqiqot va kashfiyot, I qism", "subject": "Matematika", "grade": 7, "kind": "textbook", "width": 1080, "height": 1920, "bytes": 937522, "sha256": "59c69791d16c646c65e3a4021e5a078663cda8bc3dbb2aa5e730004ff5d67494", "crop": [0, 265, 1080, 1654], "spine": "#d4213d" },
+    { "id": "fizika-7", "file": "textbooks/08_Fizika_7sinf.png", "title": "Fizika", "subject": "Fizika", "grade": 7, "kind": "textbook", "width": 1080, "height": 1920, "bytes": 1001632, "sha256": "619674cc6ad57722c29d5f2c6e10870aa4a9ef9f2dfe2d4c013c90f00755c895", "crop": [0, 262, 1080, 1658], "spine": "#6b3f98" },
+    { "id": "kimyo-7", "file": "textbooks/09_Kimyo_7sinf.png", "title": "Kimyo", "subject": "Kimyo", "grade": 7, "kind": "textbook", "width": 1080, "height": 1920, "bytes": 614203, "sha256": "cb5def51ebd9301622a3af36e2a6d1a64c525587006feecbe16e10dd40dc76b2", "crop": [0, 260, 1080, 1659], "spine": "#29b6e6" }
+  ],
+  "examples": [
+    { "id": "matematika-7-p93", "file": "examples/photo_2026-10-19_17-15-00.jpg", "source": "Matematika 7-sinf, 93-bet", "topic": "Algebraik ifodaning qiymatini hisoblash va formulalar", "theme": "MANTIQIY FIKRLASH", "width": 637, "height": 841, "bytes": 86657, "sha256": "00f90c0c5f45f40995d7f1d2dd86844b7e37b0d3445e72669ee94f7db69fd943", "focus": [0.45, 0.37] },
+    { "id": "fizika-7-p19", "file": "examples/photo_2026-10-19_17-14-59.jpg", "source": "Fizika 7-sinf, 19-bet", "topic": "1-bobni yakunlash bo‘yicha nazorat savollari — magnitlar", "theme": "TAJRIBA VA KUZATISH", "width": 563, "height": 744, "bytes": 111488, "sha256": "2f9ec2fccc1b2b7f54427926280efc90a7832f565ab4a7fc8fc16348482198a5", "focus": [0.49, 0.665] },
+    { "id": "kimyo-7-p22", "file": "examples/image_2026-10-19_16-53-30.png", "source": "Kimyo 7-sinf, 22-bet", "topic": "Moddaning holat o‘zgarishlari", "theme": "TAHLIL VA XULOSA", "width": 1203, "height": 1599, "bytes": 774574, "sha256": "e99bd1d8ac53d88112740162a87cfb9682784a96d0aeced1759af029373468aa", "focus": [0.48, 0.38] }
+  ],
+  "referenceOnly": [
+    { "file": "../references/approved_storyboard.png", "sha256": "190976372c927cab60db6b3c9061ddd1271ac2343521bed41d6940f72767435c", "use": "Visual direction only (timing, navy/gold layout). Contains invented covers — never rendered." }
+  ]
+}
