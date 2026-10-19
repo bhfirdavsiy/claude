@@ -52,6 +52,8 @@ jobs:
       - name: Render 1800 frames to MP4
         env:
           CONCURRENCY: '4'
+          # Hosted runners have no GPU: use ANGLE on SwiftShader (software WebGL).
+          REMOTION_GL: swangle
         run: node scripts/render.mjs
 
       - name: Validate MP4 (1920x1080, 30 fps, 1800 frames, 60 s, H.264, yuv420p, no audio)
