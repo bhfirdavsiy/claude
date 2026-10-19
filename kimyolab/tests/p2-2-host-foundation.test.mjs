@@ -257,13 +257,15 @@ test('progress: portal readiness is a separate metric, not in the management for
 // open bucket is now "P2.13+".
 // P2.13 changed it again for the same reason: P2.13 is named (periodic table & Element Knowledge Hub), the open bucket
 // is now "P2.14+" (Substance Passport and Reaction Explorer are named there, out of P2.13's scope).
+// P2.14 changed it again for the same reason: P2.14 is named (Substance Passport & Reaction Explorer), the open bucket
+// is now "P2.15+".
 import {ROADMAP,milestoneState} from '../scripts/learning-depth.ts';
-test('roadmap: P2.2 → … → P2.12 → P2.13 → P2.14+ → P3; P3 is not "next" after P2.2',()=>{
-  assert.deepEqual(ROADMAP.map(r=>r.id),['P2.0','P2.1','P2.2','P2.3','P2.4','P2.5','P2.6','P2.7','P2.8','P2.9','P2.10','P2.11','P2.12','P2.13','P2.14+','P3']);
+test('roadmap: P2.2 → … → P2.13 → P2.14 → P2.15+ → P3; P3 is not "next" after P2.2',()=>{
+  assert.deepEqual(ROADMAP.map(r=>r.id),['P2.0','P2.1','P2.2','P2.3','P2.4','P2.5','P2.6','P2.7','P2.8','P2.9','P2.10','P2.11','P2.12','P2.13','P2.14','P2.15+','P3']);
   const p=json('reports/project-progress.json'); const ms=milestoneState(root);
   const next=p.nextMilestones[0].split(' ')[0];
   const order=ROADMAP.map(r=>r.id);
   assert.equal(next,order[order.indexOf(ms.current)+1],'next = the roadmap stage after the current one');
-  assert.ok(!p.nextMilestones.some(m=>m.startsWith('P3'))||ms.current==='P2.14+','P3 is never next before P2.14+ is delivered');
+  assert.ok(!p.nextMilestones.some(m=>m.startsWith('P3'))||ms.current==='P2.15+','P3 is never next before P2.15+ is delivered');
   if(ms.current==='P2.2') assert.equal(next,'P2.3');
 });
