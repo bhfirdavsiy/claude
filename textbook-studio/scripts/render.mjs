@@ -55,8 +55,9 @@ try {
     crf: 18,
     pixelFormat: 'yuv420p',
     muted: true,
-    imageFormat: 'jpeg',
-    jpegQuality: 92,
+    // PNG frames (lossless RGB) so x264 encodes standard limited-range yuv420p;
+    // JPEG frames would produce full-range yuvj420p.
+    imageFormat: 'png',
     outputLocation: output,
     browserExecutable,
     chromiumOptions,

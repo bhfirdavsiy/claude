@@ -4,8 +4,7 @@ import { Config } from '@remotion/cli/config';
 
 Config.setPublicDir('../public');
 Config.setEntryPoint('src/remotion/index.ts');
-Config.setVideoImageFormat('jpeg');
-Config.setJpegQuality(92);
+Config.setVideoImageFormat('png');
 Config.setChromiumOpenGlRenderer('angle');
 Config.setCodec('h264');
 Config.setPixelFormat('yuv420p');
