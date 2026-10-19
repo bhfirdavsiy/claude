@@ -19,8 +19,15 @@ export function example(id: string): Example {
   return e;
 }
 
+// The website (Vite) sets a base so assets resolve relative to wherever the site is hosted,
+// including under a sub-path. Remotion renders leave it unset and use staticFile().
+let assetBase: string | null = null;
+export function setAssetBase(base: string) {
+  assetBase = base;
+}
+
 /** URL of an original asset (served from the repository-root public/ folder). */
-export const assetUrl = (file: string) => staticFile(file);
+export const assetUrl = (file: string) => (assetBase !== null ? `${assetBase}${file}` : staticFile(file));
 
 /** Aspect ratio (w/h) of the printed cover inside its padded source image. */
 export const coverAspect = (c: Cover) => (c.crop[2] - c.crop[0]) / (c.crop[3] - c.crop[1]);

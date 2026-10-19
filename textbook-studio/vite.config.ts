@@ -88,6 +88,8 @@ function renderApi(): Plugin {
 }
 
 export default defineConfig({
+  // Relative base: the built site works at any URL path (local preview or hosted).
+  base: './',
   plugins: [react(), renderApi()],
   // Original, unmodified assets are served straight from the repository-root public/ folder
   // (textbooks/ and examples/). Vite copies them into dist/ for Vercel.

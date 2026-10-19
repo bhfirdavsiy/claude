@@ -200,7 +200,7 @@ function ExportPanel() {
 
   const poll = useCallback(async () => {
     try {
-      const res = await fetch('/api/render/status');
+      const res = await fetch('api/render/status');
       if (!res.ok || !res.headers.get('content-type')?.includes('json')) throw new Error('unavailable');
       setJob(await res.json());
       setAvailable(true);
@@ -221,7 +221,7 @@ function ExportPanel() {
   }, [busy, poll]);
 
   const start = async () => {
-    await fetch('/api/render/start', { method: 'POST' });
+    await fetch('api/render/start', { method: 'POST' });
     poll();
   };
 
@@ -256,7 +256,7 @@ function ExportPanel() {
           )}
           {job.status === 'error' && <p className="error">Xato: {job.message}</p>}
           {job.file && !busy && (
-            <a className="btn ghost" href="/api/render/file" download>
+            <a className="btn ghost" href="api/render/file" download>
               MP4 yuklab olish ({(job.file.bytes / 1e6).toFixed(1)} MB)
             </a>
           )}
