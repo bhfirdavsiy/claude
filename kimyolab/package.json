@@ -145,6 +145,7 @@
     "studio:report": "node --no-warnings scripts/content-studio.ts",
     "periodic:report": "node --experimental-strip-types scripts/periodic-table.ts",
     "knowledge:report": "node --experimental-strip-types scripts/chemistry-knowledge-report.ts",
+    "chemistry:expert-packet": "node --experimental-strip-types scripts/chemistry-expert-packet.ts",
     "freeze:manifest": "node --experimental-strip-types scripts/freeze-manifest.ts"
   },
   "devDependencies": {

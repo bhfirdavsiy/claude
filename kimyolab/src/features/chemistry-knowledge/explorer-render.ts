@@ -7,7 +7,7 @@ import {el,clear,link} from '../../ui/components/dom.ts';
 import {createLabeler} from '../practice/form-question.ts';
 import type {ReactionMatcher} from '../../domain/chemistry/reaction-matcher.ts';
 import type {ConditionVocabulary} from '../../domain/chemistry/condition-vocabulary.ts';
-import {explore,explorerHref,MAX_REAGENTS,parseExplorerQuery,resolveFormulaInput,substanceHref,type ExplorerOutcome} from './explorer.ts';
+import {explore,explorerHref,MAX_REAGENTS,reviewedReactionIdsOf,parseExplorerQuery,resolveFormulaInput,substanceHref,type ExplorerOutcome} from './explorer.ts';
 import {observationText,phaseText,requirementText,speciesLabel,elementText,type KnowledgeLinks,type KnowledgePageData,type Labeler} from './passport.ts';
 
 export interface ExplorerPageData extends KnowledgePageData { matcher:ReactionMatcher; vocabulary:ConditionVocabulary }
@@ -112,7 +112,7 @@ export function renderReactionExplorer(root:HTMLElement,data:ExplorerPageData,pa
   // ------------------------------------------------------------ the result (only what the matcher and the record give)
   const result=el('section',{className:'kl-card kl-knowledge__result',attrs:{'aria-labelledby':'kl-reactions-result-title','data-explorer-result':''}});
   if(state.speciesIds.length){
-    const outcome=explore(data,state.speciesIds,state.stated);
+    const outcome=explore({...data,reviewedReactionIds:reviewedReactionIdsOf(data.index)},state.speciesIds,state.stated);
     result.setAttribute('data-outcome',outcome.kind);
     result.append(el('h2',{text:t.ui('ui.reactions-result'),attrs:{id:'kl-reactions-result-title',tabindex:'-1'}}));
     result.append(el('p',{className:'kl-knowledge__asked',text:t.ui('ui.reactions-asked',{reagents:state.speciesIds.map(id=>data.registry.byId(id)!.formula).join(' + '),conditions:requirementText(t,state.stated,'ui.reactions-condition-unstated-asked')})}));
@@ -129,6 +129,7 @@ function announce(o:ExplorerOutcome,t:Labeler):string{
   switch(o.kind){
     case 'MODELED_REACTION': return t.ui('ui.reactions-announce-reaction');
     case 'MODELED_NO_REACTION': return t.ui('ui.reactions-announce-no-reaction');
+    case 'NO_REACTION_NOT_REVIEWED': return t.ui('ui.reactions-announce-no-reaction-unreviewed');
     case 'CONDITION_REQUIRED': case 'CONDITION_CHOICE_REQUIRED': return t.ui('ui.reactions-announce-condition');
     case 'CONDITION_UNSUPPORTED': return t.ui('ui.reactions-announce-unsupported');
     case 'NOT_MODELED': return t.ui('ui.reactions-not-modeled');
@@ -156,6 +157,11 @@ function renderOutcome(box:HTMLElement,o:ExplorerOutcome,data:ExplorerPageData,t
     return;
   }
   if(o.kind==='NO_REAGENTS') return;
+  // TT 4.2.6: an unreviewed no-reaction record is never presented as "these do not react"
+  if(o.kind==='NO_REACTION_NOT_REVIEWED'){
+    box.append(p('ui.reactions-no-reaction-unreviewed',undefined,{'data-explorer-no-reaction-unreviewed':''}),p('ui.knowledge-model-record'));
+    return;
+  }
   const r=data.reactions.get(o.reactionId)!;
   const k=data.index.reactions.find(x=>x.id===o.reactionId)!;
   if(o.kind==='MODELED_NO_REACTION'){

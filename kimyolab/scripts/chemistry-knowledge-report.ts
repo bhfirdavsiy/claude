@@ -7,7 +7,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {ReactionMatcher} from '../src/domain/chemistry/reaction-matcher.ts';
 import {parseConditionVocabulary} from '../src/domain/chemistry/condition-vocabulary.ts';
-import {explore,parseExplorerQuery,reactionExplorerHref,EXPLORER_SUPPORTED_CONDITION_FIELDS,EXPLORER_CONDITION_UNSUPPORTED} from '../src/features/chemistry-knowledge/explorer.ts';
+import {explore,parseExplorerQuery,reactionExplorerHref,reviewedReactionIdsOf,EXPLORER_SUPPORTED_CONDITION_FIELDS,EXPLORER_CONDITION_UNSUPPORTED} from '../src/features/chemistry-knowledge/explorer.ts';
 import {RECORD_CONDITION_FIELDS,conditionRequirementFields} from '../src/domain/chemistry/reaction-matcher.ts';
 import {CHEMISTRY_KNOWLEDGE_PACK_PATH,RELATION_PROVENANCE,type KnowledgeField} from '../src/features/chemistry-knowledge/knowledge.ts';
 import {FEATURE_FLAGS} from '../src/app/feature-flags.ts';
@@ -52,7 +52,7 @@ export function knowledgeOutputs(root=ROOT):Record<string,string>{
   const registryRaw=readJson(root,'content-src/source-registry.json');
   const speciesNames=readJson(root,'content-src/locales/uz-latn/chemistry-species.json');
   const matcher=ReactionMatcher.from(g.reactions,{vocabulary});
-  const domain={matcher,registry:g.registry,vocabulary};
+  const domain={matcher,registry:g.registry,vocabulary,reviewedReactionIds:reviewedReactionIdsOf(index)};
   const S=index.substances, R=index.reactions;
   const sp=(id:string)=>g.registry.byId(id)!;
 
@@ -135,7 +135,9 @@ export function knowledgeOutputs(root=ROOT):Record<string,string>{
   const explorer={schema:'kimyolab.reaction-explorer-coverage.v1',...BASE,
     semantics:'What the Reaction Explorer can answer through the existing ReactionMatcher. MODELED_REACTION, MODELED_NO_REACTION and NOT_MODELED are separate; NOT_MODELED is never shown as "no reaction".',
     matcher:{module:'src/domain/chemistry/reaction-matcher.ts',policy:'require-record-conditions',phase:'the canonical species\' own phase (never guessed)',conditions:'only what the learner states; unknown values are refused'},
-    records:{total:R.length,modeledReactions:g.reactions.filter(r=>r.reactionType!=='no-reaction').length,explicitNoReaction:g.reactions.filter(r=>r.reactionType==='no-reaction').length},
+    records:{total:R.length,modeledReactions:g.reactions.filter(r=>r.reactionType!=='no-reaction').length,explicitNoReaction:g.reactions.filter(r=>r.reactionType==='no-reaction').length,
+      // TT 4.2.6: only a REVIEWED no-reaction record is shown as MODELED_NO_REACTION; an unreviewed one is NO_REACTION_NOT_REVIEWED
+      reviewedNoReaction:R.filter(r=>g.reactions.find(x=>x.id===r.id)?.reactionType==='no-reaction'&&r.review==='REVIEWED').length},
     reachability:{definition:'opening the generated deep link reproduces this exact record through ReactionMatcher (reactants resolved AND every required condition stated faithfully)',reachable:roundTrip.filter(x=>x.reachable).length,unreachable:roundTrip.filter(x=>!x.reachable)},
     conditionContract:{
       canonicalFields:RECORD_CONDITION_FIELDS,

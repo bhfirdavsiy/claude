@@ -1,7 +1,8 @@
 // P2.14 — Reaksiya izlagich view logic (ADR-P2-015). Pure: no DOM. The ONLY reaction truth is the existing
 // ReactionMatcher over the canonical reaction records, under the explicit 'require-record-conditions' policy:
 //   MODELED_REACTION      a record matches the reagents and its conditions hold in the STATED conditions
-//   MODELED_NO_REACTION   only an explicit canonical no-reaction record
+//   MODELED_NO_REACTION   only an explicit canonical no-reaction record that a chemistry expert REVIEWED (TT 4.2.6)
+//   NO_REACTION_NOT_REVIEWED  an explicit no-reaction record exists but is not reviewed: no "does not react" claim
 //   NOT_MODELED           the model has no record for these reagents — never "they do not react"
 // A condition the learner did not state is never assumed; when records exist for the reagents but their conditions
 // are not (all) stated, the outcome names exactly the conditions the records require. Nothing is guessed: not a
@@ -54,6 +55,8 @@ export type ExplorerOutcome=
   | {kind:'NO_REAGENTS'}
   | {kind:'MODELED_REACTION';reactionId:string}
   | {kind:'MODELED_NO_REACTION';reactionId:string}
+  /** TT 4.2.6: a no-reaction record matched, but it is not reviewed — the learner is told no claim is made */
+  | {kind:'NO_REACTION_NOT_REVIEWED';reactionId:string}
   /** records exist for these reagents, but their conditions do not hold in what was stated: what each one requires
    *  (records with a condition the explorer cannot state are listed with `unsupported`, never as satisfiable) */
   | {kind:'CONDITION_REQUIRED';requirements:ExplorerRequirement[]}
@@ -63,7 +66,10 @@ export type ExplorerOutcome=
   | {kind:'CONDITION_UNSUPPORTED';requirements:ExplorerRequirement[]}
   | {kind:'NOT_MODELED'};
 
-export interface ExplorerDomain { matcher:ReactionMatcher; registry:SpeciesRegistry; vocabulary:ConditionVocabulary }
+/** `reviewedReactionIds` (TT 4.2.6): the records the knowledge index marks REVIEWED. Absent = none is reviewed (fail
+ *  closed), so an unreviewed no-reaction record can never be shown as "these do not react". */
+export interface ExplorerDomain { matcher:ReactionMatcher; registry:SpeciesRegistry; vocabulary:ConditionVocabulary; reviewedReactionIds?:ReadonlySet<string> }
+export const reviewedReactionIdsOf=(index:Pick<KnowledgeIndex,'reactions'>):ReadonlySet<string>=>new Set(index.reactions.filter(r=>r.review==='REVIEWED').map(r=>r.id));
 
 export function explore(d:ExplorerDomain,speciesIds:readonly string[],stated:Readonly<Record<string,string>>):ExplorerOutcome{
   if(!speciesIds.length) return {kind:'NO_REAGENTS'};
@@ -71,7 +77,10 @@ export function explore(d:ExplorerDomain,speciesIds:readonly string[],stated:Rea
   // only vocabulary dimensions are ever stated; every other field stays absent, so a record that requires one can
   // never match here (requirementsMet: specified + missing = not met)
   const m=d.matcher.match({reactants,conditions:{dimensions:{...stated}},conditionPolicy:'require-record-conditions'});
-  if(m.modeled) return classifyMatch(m)==='MODELED_NO_REACTION'?{kind:'MODELED_NO_REACTION',reactionId:m.reaction.id}:{kind:'MODELED_REACTION',reactionId:m.reaction.id};
+  if(m.modeled){
+    if(classifyMatch(m)!=='MODELED_NO_REACTION') return {kind:'MODELED_REACTION',reactionId:m.reaction.id};
+    return d.reviewedReactionIds?.has(m.reaction.id)?{kind:'MODELED_NO_REACTION',reactionId:m.reaction.id}:{kind:'NO_REACTION_NOT_REVIEWED',reactionId:m.reaction.id};
+  }
   const requirements=d.matcher.candidates(reactants).map(r=>({dimensions:dimensionsOf(r.conditions?.tags??[],d.vocabulary).dimensions,unsupported:unsupportedConditionFields(r.conditions)}));
   if(requirements.length&&requirements.every(r=>r.unsupported.length)) return {kind:'CONDITION_UNSUPPORTED',requirements};
   if(m.code==='REACTION_CONDITIONS_NOT_MET') return {kind:'CONDITION_REQUIRED',requirements};

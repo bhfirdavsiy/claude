@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-10-29T11:15:13.178Z",
+  "createdAt": "2026-10-29T14:14:07.060Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -299,8 +299,8 @@
     {
       "path": "app-preview/domain/governance/source-policy.js",
       "sourcePath": "public/app-preview/domain/governance/source-policy.js",
-      "checksum": "0318e04a7eaab8d3bd7ad7cb32a1d04db3b442fa35a1e64af8d2036e90d8a2e9",
-      "size": 5822
+      "checksum": "30d51e9b7c0309afa9ddc61ad0f0fa5f7d5cb24cbfa5871b9c4fbed4aafe80f3",
+      "size": 8242
     },
     {
       "path": "app-preview/domain/lab/action-catalog.js",
@@ -419,14 +419,14 @@
     {
       "path": "app-preview/features/chemistry-knowledge/explorer-render.js",
       "sourcePath": "public/app-preview/features/chemistry-knowledge/explorer-render.js",
-      "checksum": "9cc106ac01490c2d4d29f0a81bf438bed11d08fb82a65ae58e99824a90809bd2",
-      "size": 15766
+      "checksum": "f93e9185254c6f57abf24cd4e0c3317d88595c4531d48ea9dfec5d542ad0783c",
+      "size": 16238
     },
     {
       "path": "app-preview/features/chemistry-knowledge/explorer.js",
       "sourcePath": "public/app-preview/features/chemistry-knowledge/explorer.js",
-      "checksum": "abe16e28da6dd462e0ee590fdc4abf29fe3c2a313fad71a472bad07dfcd7e798",
-      "size": 11270
+      "checksum": "917562dba02bb3136acdc348faf71a0083537ad9751cf417dc591790bfb35cd9",
+      "size": 12150
     },
     {
       "path": "app-preview/features/chemistry-knowledge/knowledge.js",
@@ -1343,8 +1343,8 @@
     {
       "path": "content/2026.09.1/locales/uz-latn/learner-interaction.json",
       "sourcePath": "public/content/2026.09.1/locales/uz-latn/learner-interaction.json",
-      "checksum": "0acb71db13bfbf4734d88ec98305192834fdf4b358b74e3140b8dc892ccf0360",
-      "size": 45567
+      "checksum": "8355a81b94629226034283ad410a983442908ba34748d579a9160293d970d629",
+      "size": 45909
     },
     {
       "path": "content/2026.09.1/locales/uz-latn/name-provenance.json",
@@ -1355,7 +1355,7 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "3d999419c70fae78dbbfe54c3c85e7ff3ed86d89a6f08bc3b93b94a7ee66f3a2",
+      "checksum": "02c65b1ee306efc25933d32bac8a47150cab97d13579950a4a0f9743f2096291",
       "size": 8343
     },
     {
@@ -1397,7 +1397,7 @@
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "d432ddb4e6e50418a8f3d0e3a5ca1872cd873827edf5a4954087ab1e0e2c1576",
+      "checksum": "cc608c23df4b679953610b4d9933370f4d33e80d346ae5b946c62fe0e0438cb6",
       "size": 158
     },
     {

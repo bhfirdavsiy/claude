@@ -12,7 +12,8 @@
   "records": {
     "total": 28,
     "modeledReactions": 28,
-    "explicitNoReaction": 0
+    "explicitNoReaction": 0,
+    "reviewedNoReaction": 0
   },
   "reachability": {
     "definition": "opening the generated deep link reproduces this exact record through ReactionMatcher (reactants resolved AND every required condition stated faithfully)",

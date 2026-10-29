@@ -43,7 +43,8 @@ const LABELS=json('content-src/locales/uz-latn/learner-interaction.json').labels
 // deliberately not real atomic masses.
 const H=(c)=>c.repeat(64);
 const FIX_REGISTRY={schema:'kimyolab.source-registry.v1',sources:[...json('content-src/source-registry.json').sources,
-  {id:'src.test.accepted',category:'AUTHORITATIVE_REFERENCE',title:'Test fixture reference',classification:'HUMAN_ACCEPTED',acceptedBy:'Test Reviewer',acceptedAt:'2026-01-01T00:00:00.000Z',reviewedHash:H('a')}]};
+  // TT 4.2.4: an eligible source now also needs complete bibliography (fixture values, not a real source)
+  {id:'src.test.accepted',category:'AUTHORITATIVE_REFERENCE',title:'Test fixture reference',classification:'HUMAN_ACCEPTED',acceptedBy:'Test Reviewer',acceptedAt:'2026-01-01T00:00:00.000Z',reviewedHash:H('a'),authority:'Fixture publisher',edition:'1',bibliographic:{authors:['Fixture Author'],isbn:'fixture-isbn'},license:'fixture-licence',effectiveDate:'2026-01-01'}]};
 const CHEM=(records)=>({schema:'kimyolab.chemistry-reviews.v1',records});
 const APPROVE=(g,over={})=>({assertionId:g.assertionId,assertionHash:g.hash,decision:'approve',reviewerId:'Test Kimyogar',reviewerRole:'chemistry',reviewedAt:'2026-02-01T00:00:00.000Z',...over});
 const withSource=(id,src)=>REACTIONS.map(r=>r.id===id?{...r,sourceRefs:[{id:src,type:'reference',title:'fixture'}]}:r);
@@ -145,7 +146,10 @@ test('8. an explicit modeled no-reaction record is a separate outcome',()=>{
   assert.equal(REACTIONS.filter(r=>r.reactionType==='no-reaction').length,0);
   const fixture={id:'rxn.fixture.no-reaction',reactants:[{formula:'Cu'},{formula:'HCl'}],products:[],conditions:{},direction:'forward',reactionType:'no-reaction',molecularEquation:'Cu + HCl → (fixture)',observations:[{type:'no-visible-change'}],safety:[],curriculumRefs:[],sourceRefs:[{id:'src.beta1.migration',type:'internal',title:'fixture'}],version:'1.0.0'};
   const d={...domain,matcher:ReactionMatcher.from([...REACTIONS,fixture],{vocabulary})};
-  assert.deepEqual(explore(d,['species.cu','species.hcl'],{}),{kind:'MODELED_NO_REACTION',reactionId:'rxn.fixture.no-reaction'});
+  // TT 4.2.6 changed this expectation: an UNREVIEWED no-reaction record is no longer shown as "does not react" — only a
+  // record the knowledge index marks REVIEWED is MODELED_NO_REACTION (the domain without a review set is fail-closed)
+  assert.deepEqual(explore(d,['species.cu','species.hcl'],{}),{kind:'NO_REACTION_NOT_REVIEWED',reactionId:'rxn.fixture.no-reaction'});
+  assert.deepEqual(explore({...d,reviewedReactionIds:new Set(['rxn.fixture.no-reaction'])},['species.cu','species.hcl'],{}),{kind:'MODELED_NO_REACTION',reactionId:'rxn.fixture.no-reaction'});
   const {index:ix}=buildChemistryKnowledge(root,{reactions:[...REACTIONS,fixture]});
   const k=ix.reactions.find(r=>r.id==='rxn.fixture.no-reaction');
   assert.equal(k.ionicEquation.status,'GAP'); assert.equal(k.review,'MODEL_RECORD');

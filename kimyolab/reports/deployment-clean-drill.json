@@ -3,7 +3,7 @@
   "semantics": "Clean-environment installation drill (scripts/deploy-drill.mjs): repository files only, fresh HOME and npm prefix, minimal PATH, exactly the documented commands. Approximates a clean server; it is not a real target server.",
   "status": "PASS",
   "platform": "linux",
-  "node": "v22.22.2",
+  "node": "v22.22.0",
   "commands": [
     "npm ci",
     "npm run deploy:build",
@@ -15,7 +15,7 @@
       "id": "repository-files-only",
       "pass": true,
       "detail": {
-        "files": 1932
+        "files": 1939
       }
     },
     {
@@ -47,7 +47,7 @@
       "pass": true,
       "detail": {
         "exitCode": 0,
-        "seconds": 2.2
+        "seconds": 1.7
       }
     },
     {
@@ -55,7 +55,7 @@
       "pass": true,
       "detail": {
         "exitCode": 0,
-        "seconds": 1.8
+        "seconds": 1.4
       }
     },
     {
@@ -63,7 +63,7 @@
       "pass": true,
       "detail": {
         "exitCode": 0,
-        "seconds": 0.5
+        "seconds": 0.6
       }
     },
     {
@@ -71,15 +71,15 @@
       "pass": true,
       "detail": {
         "exitCode": 0,
-        "seconds": 8.6
+        "seconds": 10.1
       }
     },
     {
       "id": "generated-files-reproducible",
       "pass": true,
       "detail": {
-        "committed": "e058d35648ab9d2221bdceb438fc3ed808c599495aa52668824130e01e3d9737",
-        "rebuilt": "e058d35648ab9d2221bdceb438fc3ed808c599495aa52668824130e01e3d9737"
+        "committed": "ed762d52963b1995627eee2e43e0ab1d87f3c54d8e17adae62195fbd5ac146af",
+        "rebuilt": "ed762d52963b1995627eee2e43e0ab1d87f3c54d8e17adae62195fbd5ac146af"
       }
     },
     {
@@ -95,9 +95,9 @@
       "detail": {
         "mount": "/kimyolab/",
         "fileCount": 234,
-        "sha256": "619bb48b97ae6de561380d001fd48488a4ce44c9fdb244a6f34e7f61098dcc2f"
+        "sha256": "1f7ce9b23ea2b6a3321e9dd3973919496d50d0caf167d282ee5c794cee5a6259"
       }
     }
   ],
-  "seconds": 16
+  "seconds": 15
 }

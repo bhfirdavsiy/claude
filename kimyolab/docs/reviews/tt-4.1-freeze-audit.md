@@ -80,11 +80,11 @@ Shuning uchun qaror **DRAFT**: PR #30 merge qilinmaydi.
 |---|---|---|---|---|---|
 | T-4.1-01 | 4.1 | PR #30 bo‘yicha mustaqil kod review | texnik/release mas’uli | — | ochiq |
 | T-4.1-02 | 4.1/4.6 | `assets/home/*.png` va legacy bundle’lar uchun huquq/litsenziya qarori | huquq egasi + texnik mas’ul | — | **P1 blocker** |
-| T-4.2-01 | 4.2 | `rxn.agno3-nacl`: NaCl(aq) species qo‘shish yoki yozuvni tuzatish | kimyo eksperti | — | ochiq |
-| T-4.2-02 | 4.2 | 28 reaksiya + 6 flag’langan kuzatuvning individual review’i (decision register) | kimyo eksperti | T-4.2-03 | ochiq (0/28) |
-| T-4.2-03 | 4.2 | atom massalari va xossalar uchun registry’ga qabul qilingan manbalar (HUMAN_ACCEPTED) | kimyo eksperti | — | ochiq (5 manba, hammasi PROPOSED) |
-| T-4.2-04 | 4.2 | 39 xavf da’vosi va qolgan species uchun safety review | kimyogar + metodist | T-4.2-03 | ochiq |
-| T-4.2-05 | 4.2 | explicit no-reaction yozuvlari (faqat authored + reviewed) | kimyo eksperti | T-4.2-03 | ochiq (0) |
+| T-4.2-01 | 4.2 | `rxn.agno3-nacl`: NaCl(aq) species qo‘shish yoki yozuvni tuzatish (A/B/C variantlari: `docs/reviews/tt-4.2-expert-review-packet.md`) | kimyo eksperti | — | ochiq (paket tayyor, qaror PENDING) |
+| T-4.2-02 | 4.2 | 28 reaksiya + 6 flag’langan kuzatuvning individual review’i (decision register; 67 da’vo, hash’lari paketda) | kimyo eksperti | T-4.2-03 | ochiq (0/28; mashina tekshiruvi 28/28 balanslangan) |
+| T-4.2-03 | 4.2 | atom massalari va xossalar uchun registry’ga qabul qilingan manbalar (HUMAN_ACCEPTED + to‘liq bibliografiya: muallif, nashr, ISBN/URL, litsenziya, amal sanasi) | kimyo eksperti | — | ochiq (5 manba, hammasi PROPOSED, bibliografiyasi yo‘q) |
+| T-4.2-04 | 4.2 | 39 xavf da’vosi (45 kod) va 20 reaksiya safety tegi uchun safety review; hazard uchun review yo‘lini belgilash | kimyogar + metodist | T-4.2-03 | ochiq (ro‘yxat paketda) |
+| T-4.2-05 | 4.2 | explicit no-reaction yozuvlari (faqat authored + reviewed; explorer endi tasdiqlanmaganini `NO_REACTION_NOT_REVIEWED` deb ko‘rsatadi) | kimyo eksperti | T-4.2-03 | ochiq (0) |
 | T-4.3-01 | 4.3 | 122/122 unit uchun strukturali nazariya (avtomatik generatsiya qilingan matn approved sanalmaydi) | metodist + muallif | T-4.6-01 | ochiq (0/122) |
 | T-4.4-01 | 4.4 | har bir rejalashtirilgan laboratoriya uchun model contract, fixture, pedagog review, a11y sign-off | metodist + texnik | T-4.2-02 | ochiq |
 | T-4.5-01 | 4.5 | har unitga kamida 1 inson tasdiqlagan assessment; mavjud 5 item review | metodist | T-4.3-01 | ochiq (0/122) |
