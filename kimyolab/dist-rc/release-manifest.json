@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-10-05T12:31:24.078Z",
+  "createdAt": "2026-10-29T11:15:13.178Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -209,8 +209,8 @@
     {
       "path": "app-preview/domain/chemistry/reaction-matcher.js",
       "sourcePath": "public/app-preview/domain/chemistry/reaction-matcher.js",
-      "checksum": "8650c884c849f381a2b949eecbbe0af6f572f65acfe6a4991f87ea9b64c7a6b1",
-      "size": 9014
+      "checksum": "70e61804056bdf08dff6b5271c55f6dafb809f26c38cad91877b8f84a3a126e3",
+      "size": 10814
     },
     {
       "path": "app-preview/domain/chemistry/redox-balancer.js",

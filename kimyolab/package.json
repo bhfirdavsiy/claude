@@ -144,7 +144,8 @@
     "studio:check": "node --no-warnings scripts/content-studio.ts check",
     "studio:report": "node --no-warnings scripts/content-studio.ts",
     "periodic:report": "node --experimental-strip-types scripts/periodic-table.ts",
-    "knowledge:report": "node --experimental-strip-types scripts/chemistry-knowledge-report.ts"
+    "knowledge:report": "node --experimental-strip-types scripts/chemistry-knowledge-report.ts",
+    "freeze:manifest": "node --experimental-strip-types scripts/freeze-manifest.ts"
   },
   "devDependencies": {
     "@playwright/test": "1.56.1",
@@ -153,6 +154,6 @@
     "ajv-formats": "3.0.1",
     "fake-indexeddb": "6.2.5",
     "typescript": "5.9.3",
-    "vite": "8.3.1"
+    "vite": "8.3.5"
   }
 }

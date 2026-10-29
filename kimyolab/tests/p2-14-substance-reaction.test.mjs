@@ -493,3 +493,27 @@ test('closeout 12: the 28 canonical records use only tag conditions and stay rea
   // the explorer's single matcher call states vocabulary dimensions only (every other field stays absent)
   assert.match(read('src/features/chemistry-knowledge/explorer.ts'),/conditions:\{dimensions:\{\.\.\.stated\}\},conditionPolicy:'require-record-conditions'/);
 });
+
+// ------------------------------------------------------------------ TT 4.1 audit: 'filter-by-query' never drops a query field
+test('audit 4.1: filter-by-query — every stated query field narrows; an unknown key fails loudly',()=>{
+  const fixtureBase=REACTIONS.find(r=>r.id==='rxn.naoh-hcl');
+  const make=(conditions)=>ReactionMatcher.from([{...fixtureBase,conditions}],{vocabulary});
+  const q=(m,conditions)=>m.match({reactants:['NaOH','HCl'],conditions,conditionPolicy:'filter-by-query'});
+  const plain=make({});
+  // the record states nothing → a query that states a field does not match it (never "ignored")
+  for(const c of [{catalystIds:['species.cu']},{temperatureRange:{min:80,unit:'C'}},{pressureRange:{min:{value:2,unit:'atm'}}},{concentrationRules:[{speciesId:'species.hcl'}]},{medium:'acidic'},{solvent:'water'},{lightRequired:false},{electricalCurrent:false},{dimensions:{temperature:'heated'}}])
+    assert.equal(q(plain,c).modeled,false,JSON.stringify(c));
+  // the same stated value matches
+  assert.equal(q(make({catalystIds:['species.cu']}),{catalystIds:['species.cu']}).modeled,true);
+  assert.equal(q(make({temperatureRange:{min:80,unit:'C'}}),{temperatureRange:{min:80,unit:'C'}}).modeled,true);
+  assert.equal(q(make({lightRequired:false}),{lightRequired:false}).modeled,true);
+  assert.equal(q(make({tags:['heating']}),{dimensions:{temperature:'heated'}}).modeled,true);
+  assert.equal(q(make({tags:['heating']}),{dimensions:{temperature:'room'}}).modeled,false);
+  // no vocabulary → dimensions cannot be compared → no match (not "ignored")
+  assert.equal(ReactionMatcher.from([{...fixtureBase,conditions:{tags:['heating']}}]).match({reactants:['NaOH','HCl'],conditions:{dimensions:{temperature:'heated'}},conditionPolicy:'filter-by-query'}).modeled,false);
+  // an unknown key is a programming error, never silently skipped
+  assert.throws(()=>q(plain,{moonPhase:'full'}),/REACTION_QUERY_CONDITION_UNKNOWN:moonPhase/);
+  // no conditions → legacy behaviour unchanged (the production caller passes none)
+  assert.equal(q(plain,undefined).modeled,true);
+  assert.match(read('src/runtime/reference-slices/experiment-adapter.ts'),/match\(\{reactants,conditionPolicy:'filter-by-query'\}\)/);
+});

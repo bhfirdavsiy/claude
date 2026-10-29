@@ -15,13 +15,33 @@ function phasesCompatible(query:ReactantQuery[], refs:ReactionSpeciesRef[]):bool
 function sameFormulas(query:ReactantQuery[], refs:ReactionSpeciesRef[]):boolean{
   return [...query.map(formula)].sort().join('|')===[...refs.map(r=>r.formula)].sort().join('|');
 }
-function conditionMatch(q:ReactionConditions|undefined,r:ReactionConditions):boolean{
+/** The fields a QUERY may state under 'filter-by-query' (the record contract plus the ACTUAL-situation `dimensions`). */
+const QUERY_CONDITION_FIELDS=new Set(['tags','lightRequired','electricalCurrent','medium','solvent','catalystIds','temperatureRange','pressureRange','concentrationRules','dimensions']);
+/**
+ * 'filter-by-query': the query's conditions NARROW the candidates (a record's own requirements are not enforced —
+ * legacy policy, documented below). P2.14 audit: every field the query states narrows; none is silently ignored.
+ *   tags / catalystIds → each query value present on the record · medium / solvent / booleans → equal (a record that
+ *   does not state the field does not match a query that does) · ranges / concentration rules → the same value ·
+ *   dimensions → the record's tag meaning (condition vocabulary) states the same value; without a vocabulary the
+ *   query cannot be compared and matches nothing · any other key → REACTION_QUERY_CONDITION_UNKNOWN (thrown).
+ */
+function conditionMatch(q:ReactionConditions|undefined,r:ReactionConditions,vocabulary?:ConditionVocabulary):boolean{
   if(!q)return true;
+  for(const k of Object.keys(q)) if((q as any)[k]!==undefined&&!QUERY_CONDITION_FIELDS.has(k)) throw new Error(`REACTION_QUERY_CONDITION_UNKNOWN:${k}`);
   if(q.tags && !q.tags.every(t=>(r.tags||[]).includes(t))) return false;
-  if(q.medium && q.medium!==r.medium)return false;
-  if(q.solvent && q.solvent!==r.solvent)return false;
+  if(q.medium!==undefined && q.medium!==r.medium)return false;
+  if(q.solvent!==undefined && q.solvent!==r.solvent)return false;
   if(q.electricalCurrent!==undefined && q.electricalCurrent!==r.electricalCurrent)return false;
   if(q.lightRequired!==undefined && q.lightRequired!==r.lightRequired)return false;
+  if(q.catalystIds && !q.catalystIds.every(c=>(r.catalystIds??[]).includes(c)))return false;
+  for(const k of ['temperatureRange','pressureRange','concentrationRules'] as const)
+    if(q[k]!==undefined&&JSON.stringify(q[k])!==JSON.stringify(r[k]))return false;
+  if(q.dimensions&&Object.keys(q.dimensions).length){
+    if(!vocabulary)return false;
+    const have=dimensionsOf(r.tags??[],vocabulary);
+    if(have.unknown.length||have.conflicts.length)return false;
+    if(Object.entries(q.dimensions).some(([d,v])=>have.dimensions[d]!==v))return false;
+  }
   return true;
 }
 /** reactionType of an explicit modeled "no reaction" record (P1.6). */
@@ -127,7 +147,7 @@ export class ReactionMatcher{
     if(query?.conditionPolicy!=='filter-by-query'&&query?.conditionPolicy!=='require-record-conditions') throw new Error('REACTION_MATCH_POLICY_REQUIRED');
     let candidates=[...this.candidates(query.reactants)];
     if(query.conditionPolicy==='filter-by-query'){
-      if(query.conditions)candidates=candidates.filter(r=>conditionMatch(query.conditions,r.conditions));
+      if(query.conditions)candidates=candidates.filter(r=>conditionMatch(query.conditions,r.conditions,this.#vocabulary));
     }else{
       const before=candidates.length;
       candidates=candidates.filter(r=>requirementsMet(r.conditions,query.conditions,this.#vocabulary));
