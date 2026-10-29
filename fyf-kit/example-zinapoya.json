@@ -1,0 +1,7 @@
+{"ep":"#3","out":"/home/claude/fyf-test/lad/t.mp4",
+ "ladder":{"steps":[{"icon":"megaphone","text":"Reklama spami","cue":"spam"},{"icon":"chat","text":"«Yutuq chiqdi» SMS","cue":"yutuq"},{"icon":"bank","text":"Soxta bank boti","cue":"bot"},{"icon":"app","text":"APK fayl","cue":"APK"},{"icon":"phone","text":"Soxta ovozli qoʻngʻiroq","cue":"ovoz"}]},
+ "beats":[
+  {"line":"Qaysi biri eng xavfli? Pastdan tepaga chiqamiz.","eyebrow":"ZINAPOYA","headline":[[["Har qadam —",0]],[["xavfliroq",1]]],"ladder_upto":0},
+  {"line":"Ikkinchisi yutuq chiqdi degan SMS.","eyebrow":"ZINAPOYA","headline":[[["Har qadam —",0]],[["xavfliroq",1]]],"ladder_upto":1},
+  {"line":"Eng tepada esa tanish ovoz bilan soxta qoʻngʻiroq.","eyebrow":"ZINAPOYA","headline":[[["Har qadam —",0]],[["xavfliroq",1]]],"ladder_upto":4,"stamp":{"text":"FEYK","cue":"soxta"}},
+  {"line":"Ulashishdan oldin tekshiring. Obuna boʻling!","headline":[[["Ulashishdan",0]],[["oldin",0]],[["tekshiring",1]]],"cta":true}]}

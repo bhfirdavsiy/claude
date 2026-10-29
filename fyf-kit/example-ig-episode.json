@@ -1,0 +1,291 @@
+{
+ "ep": "#3",
+ "out": "/home/claude/feyk-yoki-fakt-03-ig.mp4",
+ "scenes_dir": "scenes",
+ "beats": [
+  {
+   "line": "Telefon raqamingizni kiritishsa, manzilingiz ham chiqib keladimi?",
+   "scene": 0,
+   "eyebrow": "TRENDDAGI SAVOL",
+   "headline": [
+    [
+     [
+      "Bitta ",
+      0
+     ],
+     [
+      "raqam",
+      1
+     ]
+    ],
+    [
+     [
+      "hammasini",
+      0
+     ]
+    ],
+    [
+     [
+      "ochadimi?",
+      0
+     ]
+    ]
+   ],
+   "head_size": 130,
+   "sub": "Shaxsiy maʼlumotlar qayerdan chiqyapti",
+   "chip": {
+    "text": "Bazalar tarqalyapti",
+    "cue": "manzilingiz"
+   }
+  },
+  {
+   "line": "Afsuski, bu rost. Raqamli texnologiyalar mutaxassisi tarqalgan bazadan oʻz maʼlumotlarini topdi.",
+   "scene": 1,
+   "scene_y": 860,
+   "scene_w": 1000,
+   "eyebrow": "FAKT",
+   "headline": [
+    [
+     [
+      "Bazalar",
+      0
+     ]
+    ],
+    [
+     [
+      "tarqalyapti",
+      1
+     ]
+    ]
+   ],
+   "head_size": 140,
+   "sub": "Mutaxassis oʻz maʼlumotini topgan",
+   "sub_cue": "Raqamli",
+   "chip": {
+    "text": "Manba: UzDaily, 28.10.2026",
+    "cue": "mutaxassisi"
+   }
+  },
+  {
+   "line": "Ichida JShShIR, uy manzili, mashina va uning raqami bor. Xabarlarga koʻra, hatto bir necha yil oldingi xaridlar ham.",
+   "scene": 9,
+   "eyebrow": "ICHIDA NIMA BOR",
+   "headline": [
+    [
+     [
+      "Siz haqingizda",
+      0
+     ]
+    ],
+    [
+     [
+      "nimalar",
+      1
+     ],
+     [
+      " bor",
+      0
+     ]
+    ]
+   ],
+   "head_size": 120,
+   "rows_color": "red",
+   "rows": [
+    {
+     "icon": "form",
+     "text": "JShShIR",
+     "cue": "JShShIR"
+    },
+    {
+     "icon": "search",
+     "text": "Uy manzili",
+     "cue": "manzili"
+    },
+    {
+     "icon": "card",
+     "text": "Mashina va davlat raqami",
+     "cue": "mashina"
+    },
+    {
+     "icon": "money",
+     "text": "Eski xaridlar",
+     "cue": "xaridlar"
+    }
+   ]
+  },
+  {
+   "line": "Qaysi tizimdan sizgani hali aniq emas. Rasmiy tasdiq yoʻq. Bir xizmat esa bu maʼlumotlar turli manbalardan yigʻilganini aytdi.",
+   "scene": 0,
+   "scene_y": 880,
+   "scene_w": 1000,
+   "eyebrow": "ANIQ EMAS",
+   "headline": [
+    [
+     [
+      "Manba",
+      0
+     ]
+    ],
+    [
+     [
+      "nomaʼlum",
+      1
+     ]
+    ]
+   ],
+   "head_size": 140,
+   "sub": "Rasmiy tasdiq hali yoʻq",
+   "sub_cue": "Rasmiy",
+   "stamp": {
+    "text": "TASDIQLANMAGAN",
+    "color": "yellow",
+    "cue": "Rasmiy"
+   }
+  },
+  {
+   "line": "Demak, asosiy savol bitta. Biz ishonib maʼlumot bergan tizimlar qanchalik himoyalangan?",
+   "scene": 3,
+   "scene_y": 820,
+   "scene_w": 1000,
+   "eyebrow": "ASOSIY SAVOL",
+   "headline": [
+    [
+     [
+      "Ishonilgan",
+      0
+     ]
+    ],
+    [
+     [
+      "tizim",
+      0
+     ]
+    ],
+    [
+     [
+      "xavfsizmi?",
+      1
+     ]
+    ]
+   ],
+   "head_size": 130
+  },
+  {
+   "line": "Bugun xaridlarimiz chiqyapti. Ertaga qidiruvlarimiz, joylashuv tarixi, kim bilan birga boʻlganimiz chiqishi mumkin.",
+   "scene": 0,
+   "scene_y": 1000,
+   "scene_w": 900,
+   "eyebrow": "KEYINGISI NIMA",
+   "headline": [
+    [
+     [
+      "Izlar",
+      0
+     ]
+    ],
+    [
+     [
+      "yigʻilyapti",
+      1
+     ]
+    ]
+   ],
+   "head_size": 140,
+   "grid": [
+    {
+     "icon": "money",
+     "text": "Xaridlar",
+     "cue": "xaridlarimiz"
+    },
+    {
+     "icon": "search",
+     "text": "Qidiruvlar",
+     "cue": "qidiruvlarimiz"
+    },
+    {
+     "icon": "clock",
+     "text": "Joylashuv tarixi",
+     "cue": "joylashuv"
+    },
+    {
+     "icon": "chat",
+     "text": "Kim bilan birga",
+     "cue": "birga"
+    }
+   ]
+  },
+  {
+   "line": "Shuning uchun ilovalarga faqat keraklisini bering. Joylashuv ruxsatini tekshiring. OneIDda kimga ruxsat berganingizni koʻring.",
+   "scene": 2,
+   "scene_y": 1020,
+   "scene_w": 900,
+   "eyebrow": "BUGUN QILING",
+   "headline": [
+    [
+     [
+      "Oʻzingiz ham",
+      0
+     ]
+    ],
+    [
+     [
+      "ehtiyot",
+      1
+     ],
+     [
+      " boʻling",
+      0
+     ]
+    ]
+   ],
+   "head_size": 120,
+   "rows_color": "green",
+   "rows": [
+    {
+     "icon": "form",
+     "text": "Faqat kerakli maʼlumot",
+     "cue": "keraklisini"
+    },
+    {
+     "icon": "search",
+     "text": "Joylashuv ruxsatini tekshiring",
+     "cue": "Joylashuv"
+    },
+    {
+     "icon": "lock",
+     "text": "OneID ruxsatlarini koʻring",
+     "cue": "OneIDda"
+    }
+   ]
+  },
+  {
+   "line": "Saqlab qoʻying va doʻstingizga yuboring!",
+   "scene": 5,
+   "scene_y": 760,
+   "headline": [
+    [
+     [
+      "Ulashishdan",
+      0
+     ]
+    ],
+    [
+     [
+      "oldin",
+      0
+     ]
+    ],
+    [
+     [
+      "tekshiring",
+      1
+     ]
+    ]
+   ],
+   "cta": true
+  }
+ ],
+ "handle": "@bh.firdavsiy",
+ "cta_text": "Saqlab qoʻying",
+ "cta_word": "Saqlab"
+}

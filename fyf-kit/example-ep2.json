@@ -1,0 +1,195 @@
+{
+ "ep": "#2",
+ "out": "/home/claude/fyf-test/ep2/test.mp4",
+ "beats": [
+  {
+   "line": "Haftasiga oʻn besh million soʻm toʻlov. Bu rostmi?",
+   "scene": 0,
+   "eyebrow": "TEKSHIRAMIZ",
+   "headline": [
+    [
+     [
+      "Haftasiga",
+      0
+     ]
+    ],
+    [
+     [
+      "15 mln",
+      1
+     ],
+     [
+      " soʻm?",
+      0
+     ]
+    ]
+   ],
+   "sub": "«Davlat toʻlovi» xabari",
+   "chip": {
+    "text": "Shubhali havola",
+    "cue": "Bu rostmi"
+   }
+  },
+  {
+   "line": "Bunday saytlar davlat dasturi nomidan pul vaʼda qiladi. Koʻpincha soxta yangilik koʻrinishida boʻladi.",
+   "scene": 1,
+   "eyebrow": "QANDAY ISHLAYDI",
+   "headline": [
+    [
+     [
+      "Soxta",
+      1
+     ],
+     [
+      " yangilik",
+      0
+     ]
+    ],
+    [
+     [
+      "va sayt",
+      0
+     ]
+    ]
+   ],
+   "sub": "Davlat dasturi nomidan",
+   "sub_cue": "Koʻpincha"
+  },
+  {
+   "line": "Avval ism va telefon raqamingizni soʻraydi. Keyin «menejer» qoʻngʻiroq qilib, komissiya soʻraydi. Oxirida ilova oʻrnatishni yoki pasport nusxasini soʻraydi.",
+   "scene": 2,
+   "scene_y": 820,
+   "scene_w": 1000,
+   "eyebrow": "TUZOQ BOSQICHLARI",
+   "headline": [
+    [
+     [
+      "4 qadam",
+      1
+     ]
+    ]
+   ],
+   "head_size": 140,
+   "grid": [
+    {
+     "icon": "form",
+     "text": "Ism va telefon",
+     "cue": "Avval"
+    },
+    {
+     "icon": "phone",
+     "text": "«Menejer» qoʻngʻirogʻi",
+     "cue": "Keyin"
+    },
+    {
+     "icon": "money",
+     "text": "Komissiya toʻlovi",
+     "cue": "komissiya"
+    },
+    {
+     "icon": "app",
+     "text": "Ilova yoki pasport",
+     "cue": "Oxirida"
+    }
+   ]
+  },
+  {
+   "line": "Kiberxavfsizlik mutaxassislari bunday uch yuz oltmishdan ortiq saytni topgan. Bu firibgarlik.",
+   "scene": 3,
+   "scene_y": 600,
+   "eyebrow": "XULOSA",
+   "headline": [
+    [
+     [
+      "360+",
+      1
+     ],
+     [
+      " soxta",
+      0
+     ]
+    ],
+    [
+     [
+      "sayt topilgan",
+      0
+     ]
+    ]
+   ],
+   "sub": "Kiberxavfsizlik kompaniyasi F6 maʼlumoti",
+   "stamp": {
+    "text": "FEYK",
+    "cue": "Bu firibgarlik"
+   }
+  },
+  {
+   "line": "Toʻlovlar haqida faqat rasmiy manbadan oʻqing. SMS kod va karta maʼlumotini hech kimga bermang.",
+   "scene": 4,
+   "scene_y": 760,
+   "scene_w": 1000,
+   "eyebrow": "ESLAB QOLING",
+   "headline": [
+    [
+     [
+      "Oʻzingizni",
+      0
+     ]
+    ],
+    [
+     [
+      "himoya",
+      1
+     ],
+     [
+      " qiling",
+      0
+     ]
+    ]
+   ],
+   "rows_color": "green",
+   "rows": [
+    {
+     "icon": "shield",
+     "text": "Faqat rasmiy manba",
+     "cue": "faqat"
+    },
+    {
+     "icon": "lock",
+     "text": "SMS kodni bermang",
+     "cue": "SMS"
+    },
+    {
+     "icon": "card",
+     "text": "Karta maʼlumotini bermang",
+     "cue": "karta"
+    }
+   ]
+  },
+  {
+   "line": "Ulashishdan oldin tekshiring. Obuna boʻling!",
+   "scene": 5,
+   "scene_y": 760,
+   "headline": [
+    [
+     [
+      "Ulashishdan",
+      0
+     ]
+    ],
+    [
+     [
+      "oldin",
+      0
+     ]
+    ],
+    [
+     [
+      "tekshiring",
+      1
+     ]
+    ]
+   ],
+   "cta": true
+  }
+ ]
+}
