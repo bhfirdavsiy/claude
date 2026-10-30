@@ -49,7 +49,7 @@ MARK = (255, 214, 10); RED = (229, 72, 77); RED_T = (253, 232, 233); GREEN = (18
 GREEN_T = (227, 246, 234); MUTED = (90, 106, 140); TRACK = (214, 226, 248); YEL_T = (255, 246, 204); AMBER = (196, 140, 0)
 COLORS = {"blue": (BLUE, TINT), "green": (GREEN, GREEN_T), "red": (RED, RED_T), "yellow": (AMBER, YEL_T)}
 M = 60; HANDLE = "@bhfirdavsiy"
-VO_LEAD, GAP = 0.15, 0.6
+VO_LEAD, GAP = 0.05, 0.3   # tight pacing: viewers leave in the first second (IG data 2026-10-30)
 
 def ease(x): x = max(0.0, min(1.0, x)); return 1 - (1 - x) ** 3
 def appear(lt, d, n=0.42): return ease((lt - d) / n)
@@ -72,6 +72,9 @@ def tts():
         if i < len(LINES) - 1: body["next_text"] = LINES[i + 1]
         wv, tx = os.path.join(VO, f"l{i}.wav"), os.path.join(VO, f"l{i}.txt")
         if os.path.exists(wv) and os.path.exists(tx) and open(tx).read() == t: continue   # same line already voiced
+        hit = [f for f in os.listdir(VO) if f.endswith(".txt") and open(os.path.join(VO, f)).read() == t and os.path.exists(os.path.join(VO, f[:-4] + ".wav"))]
+        if hit:
+            import shutil; shutil.copy(os.path.join(VO, hit[0][:-4] + ".wav"), wv + ".tmp"); os.replace(wv + ".tmp", wv); open(tx, "w").write(t); continue
         raw = os.path.join(VO, f"raw{i}.mp3")
         r = subprocess.run(["curl", "-s", "-o", raw, "-w", "%{http_code}", "-X", "POST",
                             f"https://api.elevenlabs.io/v1/text-to-speech/{vid}?output_format=mp3_44100_128",
@@ -97,10 +100,11 @@ def vo_len(i):
     p = os.path.join(VO, f"l{i}.wav")
     return wav_dur(p) if os.path.exists(p) else max(2.2, len(LINES[i].split()) * 0.42)
 
+GAP = E.get("gap", GAP)
 def timing():
     sc, t = [], 0.0
     for i in range(len(LINES)):
-        d = vo_len(i) + VO_LEAD + GAP + (0.9 if i == len(LINES) - 1 else 0)
+        d = vo_len(i) + VO_LEAD + GAP + (0.7 if i == len(LINES) - 1 else 0)
         sc.append((t, t + d)); t += d
     return sc
 SC = timing() if LINES else []
@@ -314,7 +318,9 @@ def beat(i, lt, im):
             mini_card(im, M, y + 36 + k * 122, W - 2 * M, 106, it.get("icon", "warning"), it["text"], appear(lt, at_word(i, it.get("cue")) - .1), col, tint)
         y += 36 + len(b["rows"]) * 122
     if "ladder_upto" in b: ladder(im, b["ladder_upto"], lt, i)
-    if b.get("chip"): chip(im, b["chip"]["text"], b["chip"].get("y", 1440), appear(lt, at_word(i, b["chip"].get("cue"))))
+    if b.get("chip"):
+        ct = 0.35 if first else at_word(i, b["chip"].get("cue"))   # hook: something new pops in within the first second
+        chip(im, b["chip"]["text"], b["chip"].get("y", 1440), appear(lt, ct, .25) if first else appear(lt, ct))
     if b.get("stamp"):
         st = b["stamp"]; col = {"red": RED, "green": GREEN}.get(st.get("color", "red"), RED)
         dx, dy = ((250, 780) if "ladder_upto" in b else (W / 2, 1180))
@@ -331,6 +337,9 @@ def frame(t):
         if s - 1e-6 <= t < (e if last else e + 0.25):
             lt = t - s; fo = 1.0 if (t < e or last) else max(0.0, 1 - (t - e) / 0.25)
             ly = layer(); beat(i, lt, ly)
+            if i == 0 and 0 < lt < 0.7:      # hook punch: zoom pulse so the first second moves
+                k = 1 + 0.10 * math.sin(math.pi * lt / 0.7); nw, nh = int(W * k), int(H * k)
+                ly = ly.resize((nw, nh), Image.BILINEAR).crop(((nw - W) // 2, (nh - H) // 3, (nw - W) // 2 + W, (nh - H) // 3 + H))
             if fo < 1: ly.putalpha(ly.getchannel("A").point(lambda v: int(v * fo)))
             im.alpha_composite(ly)
     chrome(im, t); return im.convert("RGB")
@@ -341,13 +350,14 @@ def sfx_events():
     for i, (s, e) in enumerate(SC):
         b = BEATS[i]
         if i: ev.append((s - .12, "whoosh"))
+        else: ev.append((0.02, "stamp"))   # hit on the very first frame
         if b.get("headline") and any(m for ln in b["headline"] for _, m in ln) and i: ev.append((s + .5, "swipe"))
         if i and b.get("scene") is not None: ev.append((s + .3, "ping"))
         for it in (b.get("grid") or []) + (b.get("rows") or []): ev.append((s + at_word(i, it.get("cue")) - .1, "pop"))
         if "ladder_upto" in b:
             st = (E.get("ladder") or {}).get("steps", [])
             if b["ladder_upto"] < len(st): ev.append((s + at_word(i, st[b["ladder_upto"]].get("cue")) - .1, "pop"))
-        if b.get("chip"): ev.append((s + at_word(i, b["chip"].get("cue")), "pop"))
+        if b.get("chip"): ev.append((s + (0.35 if not i else at_word(i, b["chip"].get("cue"))), "pop"))
         if b.get("stamp"): ev.append((s + at_word(i, b["stamp"].get("cue")), "stamp" if b["stamp"].get("color", "red") == "red" else "ding"))
         if b.get("cta"): ev.append((s + at_word(i, E.get("cta_word", "Obuna")), "pop"))
     ev.sort(); out, last = [], -9
