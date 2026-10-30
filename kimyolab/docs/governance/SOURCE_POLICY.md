@@ -56,5 +56,6 @@ The five existing entries keep `classification: PROPOSED`. Reclassifying them is
 ### Canonical structured theory needs a human-accepted source (P2.4 closeout)
 
 - A category-compatible source is **not** enough for canonical structured theory. A cited source must be registered, category-compatible **and** human-accepted (`HUMAN_ACCEPTED`, with `acceptedBy`, `acceptedAt` and `reviewedHash`, pinned to an intake file that is still APPROVED and still hashes to `reviewedHash`).
-- `theory:check`, `theory:apply` and the build guard report `SOURCE_UNREGISTERED`, `SOURCE_CATEGORY_NOT_ACCEPTABLE` or `SOURCE_NOT_HUMAN_ACCEPTED` per block and source.
+- TT 4.2.4: it must also be **bibliographically complete** — title, publisher/authority, edition (version), at least one author, an ISBN, URL or identifier, a licence (`license`) and a parseable effective date (`effectiveDate`, `YYYY-MM-DD`); the reviewer is `acceptedBy`. The intake schema accepts `license` and `effectiveDate` as optional while drafting; a source without them is never eligible (`missingBibliography` names what is missing, nothing is filled in by a machine). Until such a source exists, a value it would back (e.g. a molar mass) stays unknown.
+- `theory:check`, `theory:apply` and the build guard report `SOURCE_UNREGISTERED`, `SOURCE_CATEGORY_NOT_ACCEPTABLE`, `SOURCE_NOT_HUMAN_ACCEPTED` or `SOURCE_BIBLIOGRAPHY_INCOMPLETE` per block and source.
 - PROPOSED sources keep working for legacy content, the chemistry KB gates and reports. They never satisfy the governed theory apply.

@@ -13,6 +13,8 @@ export type AppRoute =
   | {name:'progress'}
   | {name:'search'}
   | {name:'periodic';symbol:string|null}
+  | {name:'substance';key:string}
+  | {name:'reactions'}
   | {name:'not-found';path:string};
 
 export function parseAppRoute(pathname:string):AppRoute {
@@ -26,6 +28,11 @@ export function parseAppRoute(pathname:string):AppRoute {
   // symbol — an unknown symbol is a notice on the page, never a guess)
   const periodic=path.match(/^\/periodic(?:\/([A-Z][a-z]?))?$/);
   if(periodic) return {name:'periodic',symbol:periodic[1]??null};
+  // P2.14: the Substance Passport (key = canonical species id without the species. namespace; never a formula) and the
+  // Reaction Explorer (state in the query); flags substancePassportV1 / reactionExplorerV1 — the page checks them
+  const substance=path.match(/^\/substance\/([a-z0-9][a-z0-9_-]*)$/);
+  if(substance) return {name:'substance',key:substance[1]!};
+  if(path==='/reactions') return {name:'reactions'};
   const external=path.match(/^\/external-lab\/(ext\.[A-Za-z0-9.-]+)$/);
   if(external) return {name:'external-lab',bindingId:decodeURIComponent(external[1])};
   const worksheet=path.match(/^\/worksheet\/(lu\.(?:7|8|9|10|11)\.[A-Za-z0-9.-]+)$/);

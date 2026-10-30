@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-30T13:57:08.229Z",
+  "generatedAt": "2026-10-29T14:14:31.484Z",
   "status": "pass",
   "viewport": "390x844",
   "checks": {
@@ -15,7 +15,7 @@
     "viewport": 390,
     "pageScrollWidth": 390,
     "navClientWidth": 358,
-    "navScrollWidth": 594
+    "navScrollWidth": 521
   },
   "screenshot": "reports/visual-regression/standalone-mobile-sinco.png",
   "exceptionCount": 0

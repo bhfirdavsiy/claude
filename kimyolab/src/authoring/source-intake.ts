@@ -31,6 +31,10 @@ export interface SourceIntakeEntry {
   year?:number;
   language:string;
   bibliographic:{authors?:string[];isbn?:string;identifier?:string;url?:string};
+  /** TT 4.2.4: the licence the source is used under and the date its content is in effect from (ISO date). Optional
+   *  while drafting; a source without them is never canonical-authoring eligible (missingBibliography). */
+  license?:string;
+  effectiveDate?:string;
   /** whether citations can point at a page/section range inside this source */
   locator:{kind:'page'|'section'|'none'};
   /** the hash of a local copy of the document, when one exists (computed by a machine, never invented) */
@@ -60,6 +64,7 @@ export function validateSourceIntake(raw:unknown):Array<{code:SourceIntakeIssue;
   const e=raw as any; const out:Array<{code:SourceIntakeIssue;where:string}>=[];
   const add=(code:SourceIntakeIssue,where:string)=>out.push({code,where});
   if(!e||typeof e!=='object'||e.schema!==SOURCE_INTAKE_SCHEMA||!/^src\.[a-z0-9][a-z0-9.\-]*$/.test(String(e.sourceId))||!isText(e.title)||!isText(e.authority)||!isText(e.language)) add('SCHEMA','entry');
+  if(e?.effectiveDate!==undefined&&!(typeof e.effectiveDate==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(e.effectiveDate)&&!Number.isNaN(Date.parse(e.effectiveDate)))) add('SCHEMA','effectiveDate');
   if(e?.year!==undefined&&!(Number.isInteger(e.year)&&e.year>1800&&e.year<2200)) add('SCHEMA','year');
   if(!e?.bibliographic||typeof e.bibliographic!=='object') add('SCHEMA','bibliographic');
   if(!['page','section','none'].includes(e?.locator?.kind)) add('SCHEMA','locator');
@@ -67,7 +72,7 @@ export function validateSourceIntake(raw:unknown):Array<{code:SourceIntakeIssue;
   if(!INTAKE_CATEGORIES.includes(e?.category)) add('CATEGORY_INVALID','category');
   if(!isText(e?.submittedBy)) add('SUBMITTER_MISSING','submittedBy'); else if(isAutomationIdentity(e.submittedBy)) add('AUTOMATION_SUBMITTER','submittedBy');
   if(!['draft','ready-for-review'].includes(e?.status)||!Array.isArray(e?.reviews)) add('SCHEMA','status/reviews');
-  for(const t of [e?.title,e?.authority,e?.edition,...(e?.bibliographic?.authors??[])]) if(typeof t==='string'&&PLACEHOLDER.test(t)){ add('PLACEHOLDER_TEXT','metadata'); break; }
+  for(const t of [e?.title,e?.authority,e?.edition,e?.license,...(e?.bibliographic?.authors??[])]) if(typeof t==='string'&&PLACEHOLDER.test(t)){ add('PLACEHOLDER_TEXT','metadata'); break; }
   for(const [i,r] of (Array.isArray(e?.reviews)?e.reviews:[]).entries()){
     if(!isText(r?.reviewerId)||!['approved','changes-requested','rejected'].includes(r?.decision)||!INTAKE_CATEGORIES.includes(r?.acceptedCategory)||!isText(r?.reviewedAt)||!/^[a-f0-9]{64}$/.test(String(r?.reviewedHash))) add('REVIEW_INVALID',`reviews[${i}]`);
     else if(isAutomationIdentity(r.reviewerId)) add('REVIEWER_NOT_HUMAN',`reviews[${i}]`);

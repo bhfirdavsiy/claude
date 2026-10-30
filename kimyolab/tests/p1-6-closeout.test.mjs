@@ -46,6 +46,9 @@ test('condition policy is explicit: no caller gets enforcement (or its absence) 
     // P2.11: the guided lab runtime evaluates substances in a container under the ACTUAL lab conditions (ADR-P2-012);
     // it states the enforcing policy explicitly, like ionic mixing
     'src/domain/lab/lab-runtime.ts':"conditionPolicy:'require-record-conditions'",
+    // P2.14 changed this matrix: the Reaction Explorer (ADR-P2-015) is a new production caller. It matches under the
+    // conditions the learner STATES, so it states the enforcing policy explicitly — nothing unstated is assumed
+    'src/features/chemistry-knowledge/explorer.ts':"conditionPolicy:'require-record-conditions'",
   };
   for(const [file,policy] of Object.entries(callers)){
     const src=fs.readFileSync(path.join(root,file),'utf8');

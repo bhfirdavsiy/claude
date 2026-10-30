@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-03T07:37:45.631Z",
+  "generatedAt": "2026-10-29T14:18:52.317Z",
   "schema": "kimyolab.reviewer-workspace.v1",
   "workspaceFingerprint": "e764c28a15d5c51310d8fabb922a5c46abed3f9a6002c4f047065e082ff5961e",
   "status": "READY",
@@ -50,7 +50,7 @@
   },
   "contentWorkbench": {
     "schema": "kimyolab.content-workbench.v1",
-    "fingerprint": "0a0df71a9499cf0c7c7172c8cd700b83bce8600eb3526ba2f14a6e84e99af54e",
+    "fingerprint": "2bc8af4021a6760c71dbb4070c61001fceab4321aa5108f548a6398f256b8a35",
     "tabs": [
       "theory",
       "sources",

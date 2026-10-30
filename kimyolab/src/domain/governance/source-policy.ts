@@ -22,7 +22,11 @@ export const ACCEPTABLE:Record<ClaimKind,readonly SourceCategory[]>={
 export type SourceClassification='PROPOSED'|'HUMAN_ACCEPTED';
 /** A registered source with the governance facts canonical authoring needs (P2.4 closeout A2). A source is
  *  HUMAN_ACCEPTED only through the governed source intake (npm run source:apply), pinned to the reviewed revision. */
-export interface SourceEntry { id:string; category:SourceCategory; title:string; classification:SourceClassification|null; acceptedBy:string|null; acceptedAt:string|null; reviewedHash:string|null }
+export interface SourceEntry { id:string; category:SourceCategory; title:string; classification:SourceClassification|null; acceptedBy:string|null; acceptedAt:string|null; reviewedHash:string|null; bibliography:SourceBibliography }
+/** TT 4.2.4: the bibliographic facts a source must carry before it can back a canonical claim (copied from the
+ *  governed intake by source:apply; a legacy record has none of them). Nothing here is ever filled in by a machine. */
+export interface SourceBibliography { authority:string|null; edition:string|null; authors:string[]; isbn:string|null; identifier:string|null; url:string|null; license:string|null; effectiveDate:string|null }
+const textOrNull=(v:unknown)=>typeof v==='string'&&v.trim()?v:null;
 export interface SourceRegistry { byId:Map<string,SourceEntry> }
 
 export function parseSourceRegistry(raw:any):{registry:SourceRegistry;issues:string[]}{
@@ -35,7 +39,11 @@ export function parseSourceRegistry(raw:any):{registry:SourceRegistry;issues:str
     if(byId.has(s.id)) issues.push(`SOURCE_DUPLICATE:${s.id}`);
     byId.set(s.id,{id:s.id,category:s.category,title:String(s.title??''),
       classification:s.classification==='HUMAN_ACCEPTED'||s.classification==='PROPOSED'?s.classification:null,
-      acceptedBy:typeof s.acceptedBy==='string'?s.acceptedBy:null,acceptedAt:typeof s.acceptedAt==='string'?s.acceptedAt:null,reviewedHash:typeof s.reviewedHash==='string'?s.reviewedHash:null});
+      acceptedBy:typeof s.acceptedBy==='string'?s.acceptedBy:null,acceptedAt:typeof s.acceptedAt==='string'?s.acceptedAt:null,reviewedHash:typeof s.reviewedHash==='string'?s.reviewedHash:null,
+      bibliography:{authority:textOrNull(s.authority),edition:textOrNull(s.edition),
+        authors:Array.isArray(s.bibliographic?.authors)?s.bibliographic.authors.filter((a:unknown)=>typeof a==='string'&&a.trim()):[],
+        isbn:textOrNull(s.bibliographic?.isbn),identifier:textOrNull(s.bibliographic?.identifier),url:textOrNull(s.bibliographic?.url),
+        license:textOrNull(s.license),effectiveDate:textOrNull(s.effectiveDate)}});
   }
   return {registry:{byId},issues};
 }
@@ -56,12 +64,31 @@ export function provenanceOf(sourceRefs:readonly string[],registry:SourceRegistr
 //                               when and the reviewed intake hash; never an automation identity)
 //   canonicalAuthoringEligible — both. Only this lets a block enter canonical structured theory.
 // A legacy PROPOSED source keeps working for legacy content and reports; it never satisfies the governed apply.
-export type CanonicalSourceIssue='SOURCE_UNREGISTERED'|'SOURCE_CATEGORY_NOT_ACCEPTABLE'|'SOURCE_NOT_HUMAN_ACCEPTED';
+// TT 4.2.4 adds a fourth fact, bibliographicComplete: title, publisher/authority, edition (version), at least one
+// author, an ISBN / URL / identifier, a licence and a parseable effective date (the reviewer is acceptedBy, checked by
+// humanAccepted). A source missing any of them is never eligible, so a value it would back (e.g. a molar mass) stays
+// unknown. The check never fills a field in; it only names the missing ones.
+export type CanonicalSourceIssue='SOURCE_UNREGISTERED'|'SOURCE_CATEGORY_NOT_ACCEPTABLE'|'SOURCE_NOT_HUMAN_ACCEPTED'|'SOURCE_BIBLIOGRAPHY_INCOMPLETE';
+export const BIBLIOGRAPHY_FIELDS=['title','authority','edition','authors','isbnOrUrl','license','effectiveDate'] as const;
+export function missingBibliography(entry:SourceEntry|undefined):string[]{
+  if(!entry) return [...BIBLIOGRAPHY_FIELDS];
+  const b=entry.bibliography??{} as SourceBibliography; const out:string[]=[];
+  if(!entry.title.trim()) out.push('title');
+  if(!b.authority) out.push('authority');
+  if(!b.edition) out.push('edition');
+  if(!b.authors?.length) out.push('authors');
+  if(!b.isbn&&!b.url&&!b.identifier) out.push('isbnOrUrl');
+  if(!b.license) out.push('license');
+  if(!b.effectiveDate||Number.isNaN(Date.parse(b.effectiveDate))) out.push('effectiveDate');
+  return out;
+}
 export function sourceAcceptance(entry:SourceEntry|undefined,kind:ClaimKind='chemistry'){
   const categoryCompatible=Boolean(entry&&ACCEPTABLE[kind].includes(entry.category));
   const humanAccepted=Boolean(entry&&entry.classification==='HUMAN_ACCEPTED'&&entry.acceptedBy&&entry.acceptedBy.trim()&&!isAutomationIdentity(entry.acceptedBy)
     &&entry.acceptedAt&&!Number.isNaN(Date.parse(entry.acceptedAt))&&/^[a-f0-9]{64}$/.test(String(entry.reviewedHash)));
-  return {registered:Boolean(entry),categoryCompatible,humanAccepted,canonicalAuthoringEligible:categoryCompatible&&humanAccepted};
+  const bibliographyMissing=missingBibliography(entry);
+  const bibliographicComplete=bibliographyMissing.length===0;
+  return {registered:Boolean(entry),categoryCompatible,humanAccepted,bibliographicComplete,bibliographyMissing,canonicalAuthoringEligible:categoryCompatible&&humanAccepted&&bibliographicComplete};
 }
 /** Why each cited source can or cannot support canonical structured theory (stable taxonomy, one code per source). */
 export function canonicalSourceIssues(sourceRefs:readonly string[],registry:SourceRegistry,kind:ClaimKind='chemistry'):Array<{ref:string;code:CanonicalSourceIssue}>{
@@ -71,6 +98,7 @@ export function canonicalSourceIssues(sourceRefs:readonly string[],registry:Sour
     if(!a.registered) out.push({ref,code:'SOURCE_UNREGISTERED'});
     else if(!a.categoryCompatible) out.push({ref,code:'SOURCE_CATEGORY_NOT_ACCEPTABLE'});
     else if(!a.humanAccepted) out.push({ref,code:'SOURCE_NOT_HUMAN_ACCEPTED'});
+    else if(!a.bibliographicComplete) out.push({ref,code:'SOURCE_BIBLIOGRAPHY_INCOMPLETE'});
   }
   return out;
 }

@@ -15,18 +15,59 @@ function phasesCompatible(query:ReactantQuery[], refs:ReactionSpeciesRef[]):bool
 function sameFormulas(query:ReactantQuery[], refs:ReactionSpeciesRef[]):boolean{
   return [...query.map(formula)].sort().join('|')===[...refs.map(r=>r.formula)].sort().join('|');
 }
-function conditionMatch(q:ReactionConditions|undefined,r:ReactionConditions):boolean{
+/** The fields a QUERY may state under 'filter-by-query' (the record contract plus the ACTUAL-situation `dimensions`). */
+const QUERY_CONDITION_FIELDS=new Set(['tags','lightRequired','electricalCurrent','medium','solvent','catalystIds','temperatureRange','pressureRange','concentrationRules','dimensions']);
+/**
+ * 'filter-by-query': the query's conditions NARROW the candidates (a record's own requirements are not enforced —
+ * legacy policy, documented below). P2.14 audit: every field the query states narrows; none is silently ignored.
+ *   tags / catalystIds → each query value present on the record · medium / solvent / booleans → equal (a record that
+ *   does not state the field does not match a query that does) · ranges / concentration rules → the same value ·
+ *   dimensions → the record's tag meaning (condition vocabulary) states the same value; without a vocabulary the
+ *   query cannot be compared and matches nothing · any other key → REACTION_QUERY_CONDITION_UNKNOWN (thrown).
+ */
+function conditionMatch(q:ReactionConditions|undefined,r:ReactionConditions,vocabulary?:ConditionVocabulary):boolean{
   if(!q)return true;
+  for(const k of Object.keys(q)) if((q as any)[k]!==undefined&&!QUERY_CONDITION_FIELDS.has(k)) throw new Error(`REACTION_QUERY_CONDITION_UNKNOWN:${k}`);
   if(q.tags && !q.tags.every(t=>(r.tags||[]).includes(t))) return false;
-  if(q.medium && q.medium!==r.medium)return false;
-  if(q.solvent && q.solvent!==r.solvent)return false;
+  if(q.medium!==undefined && q.medium!==r.medium)return false;
+  if(q.solvent!==undefined && q.solvent!==r.solvent)return false;
   if(q.electricalCurrent!==undefined && q.electricalCurrent!==r.electricalCurrent)return false;
   if(q.lightRequired!==undefined && q.lightRequired!==r.lightRequired)return false;
+  if(q.catalystIds && !q.catalystIds.every(c=>(r.catalystIds??[]).includes(c)))return false;
+  for(const k of ['temperatureRange','pressureRange','concentrationRules'] as const)
+    if(q[k]!==undefined&&JSON.stringify(q[k])!==JSON.stringify(r[k]))return false;
+  if(q.dimensions&&Object.keys(q.dimensions).length){
+    if(!vocabulary)return false;
+    const have=dimensionsOf(r.tags??[],vocabulary);
+    if(have.unknown.length||have.conflicts.length)return false;
+    if(Object.entries(q.dimensions).some(([d,v])=>have.dimensions[d]!==v))return false;
+  }
   return true;
 }
 /** reactionType of an explicit modeled "no reaction" record (P1.6). */
 export const NO_REACTION_TYPE='no-reaction';
 export const isNoReaction=(r:ReactionRecord)=>r.reactionType===NO_REACTION_TYPE;
+
+/** Every field of the canonical ReactionConditions contract a RECORD may state. `dimensions` is not one of them: it
+ *  describes an ACTUAL situation and is never set on a knowledge-base record. */
+export const RECORD_CONDITION_FIELDS=['tags','lightRequired','electricalCurrent','medium','solvent','catalystIds','temperatureRange','pressureRange','concentrationRules'] as const;
+export type RecordConditionField=typeof RECORD_CONDITION_FIELDS[number];
+/**
+ * P2.14 closeout: the condition fields a record actually REQUIRES, by the same rule requirementsMet() applies — the
+ * one definition shared by the matcher, the chemistry KB (assertions, self-check) and the Reaction Explorer. An empty
+ * tag or catalyst list is no requirement; a boolean `false` IS one. A key outside the contract (including `dimensions`
+ * on a record) is returned as `unknown:<key>` and is never met.
+ */
+export function conditionRequirementFields(c:ReactionConditions|undefined):string[]{
+  const out:string[]=[];
+  for(const [k,v] of Object.entries(c??{})){
+    if(v===undefined) continue;
+    if(!(RECORD_CONDITION_FIELDS as readonly string[]).includes(k)){ out.push(`unknown:${k}`); continue; }
+    if((k==='tags'||k==='catalystIds')&&Array.isArray(v)&&!v.length) continue;
+    out.push(k);
+  }
+  return out.sort();
+}
 
 /**
  * Does a record's condition requirement hold in the ACTUAL conditions? (policy 'require-record-conditions')
@@ -35,12 +76,14 @@ export const isNoReaction=(r:ReactionRecord)=>r.reactionType===NO_REACTION_TYPE;
  *   record field specified, actual missing  → NOT met (unknown is never assumed to be satisfied)
  *   record field specified, actual differs  → NOT met (conflicting)
  *
- * Fields: tags (each required tag present), lightRequired / electricalCurrent (booleans must agree), medium,
- * solvent (equal), catalystIds (each present), temperatureRange / pressureRange / concentrationRules (the actual
- * conditions must state the same value — no range arithmetic is guessed).
+ * Fields: tags (each required tag present), lightRequired / electricalCurrent (booleans must agree EXACTLY — a missing
+ * actual value is not `false`), medium, solvent (equal), catalystIds (each present), temperatureRange / pressureRange /
+ * concentrationRules (the actual conditions must state the same value — no range arithmetic is guessed). A record key
+ * outside the contract is never met (fail closed).
  */
 export function requirementsMet(r:ReactionConditions|undefined,actual:ReactionConditions|undefined,vocabulary?:ConditionVocabulary):boolean{
   const a=actual??{};
+  if(conditionRequirementFields(r).some(f=>f.startsWith('unknown:')))return false;
   if(vocabulary){
     // P1.7: tags are compared by MEANING (dimension = value) through the reviewed condition vocabulary. An unknown
     // or self-conflicting record tag is never guessed: the requirement is not met (and the chemistry gate FAILs).
@@ -50,8 +93,9 @@ export function requirementsMet(r:ReactionConditions|undefined,actual:ReactionCo
     if(Object.entries(req.dimensions).some(([d,v])=>have[d]!==v))return false;
   }
   else if((r?.tags??[]).some(t=>!(a.tags??[]).includes(t)))return false;
-  if(r?.lightRequired!==undefined&&Boolean(a.lightRequired)!==r.lightRequired)return false;
-  if(r?.electricalCurrent!==undefined&&Boolean(a.electricalCurrent)!==r.electricalCurrent)return false;
+  // P2.14 closeout: strict — `Boolean(undefined)` used to turn a missing actual value into `false`
+  if(r?.lightRequired!==undefined&&a.lightRequired!==r.lightRequired)return false;
+  if(r?.electricalCurrent!==undefined&&a.electricalCurrent!==r.electricalCurrent)return false;
   if(r?.medium!==undefined&&r.medium!==a.medium)return false;
   if(r?.solvent!==undefined&&r.solvent!==a.solvent)return false;
   if((r?.catalystIds??[]).some(c=>!(a.catalystIds??[]).includes(c)))return false;
@@ -93,11 +137,17 @@ export class ReactionMatcher{
     }
     return new ReactionMatcher(records,options.vocabulary);
   }
+  /** P2.14: the records written for exactly these reactants (the same formula + phase rule as match()), BEFORE any
+   *  condition is applied, so a caller can name which conditions the model requires. It decides nothing: an empty
+   *  list means "not modeled", never "does not react". */
+  candidates(reactants:ReactantQuery[]):readonly ReactionRecord[]{
+    return this.#records.filter(r=>sameFormulas(reactants,r.reactants)&&phasesCompatible(reactants,r.reactants));
+  }
   match(query:{reactants:ReactantQuery[];conditions?:ReactionConditions;conditionPolicy:ConditionPolicy}):ReactionMatchResult{
     if(query?.conditionPolicy!=='filter-by-query'&&query?.conditionPolicy!=='require-record-conditions') throw new Error('REACTION_MATCH_POLICY_REQUIRED');
-    let candidates=this.#records.filter(r=>sameFormulas(query.reactants,r.reactants)&&phasesCompatible(query.reactants,r.reactants));
+    let candidates=[...this.candidates(query.reactants)];
     if(query.conditionPolicy==='filter-by-query'){
-      if(query.conditions)candidates=candidates.filter(r=>conditionMatch(query.conditions,r.conditions));
+      if(query.conditions)candidates=candidates.filter(r=>conditionMatch(query.conditions,r.conditions,this.#vocabulary));
     }else{
       const before=candidates.length;
       candidates=candidates.filter(r=>requirementsMet(r.conditions,query.conditions,this.#vocabulary));

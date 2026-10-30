@@ -35,7 +35,8 @@ const approveAll=(e)=>({...e,explanation:approveBlock(e.explanation),workedExamp
 // helper runs that real path in a sandbox (intake file → human decision → applySourceIntake); repository data is untouched.
 const ACCEPTED_SOURCE='src.fixture.curriculum';
 function acceptFixtureSource(t,{id=ACCEPTED_SOURCE,category='CURRICULUM'}={}){
-  const e={schema:'kimyolab.source-intake.v1',sourceId:id,category,title:`Fixture ${category.toLowerCase()} ${id}`,authority:'Fixture authority',year:2021,language:'uz-Latn',bibliographic:{},locator:{kind:'section'},submittedBy:'fixture.submitter',status:'ready-for-review',reviews:[]};
+  // TT 4.2.4: the fixture intake carries complete (fixture) bibliography, which canonical eligibility now requires
+  const e={schema:'kimyolab.source-intake.v1',sourceId:id,category,title:`Fixture ${category.toLowerCase()} ${id}`,authority:'Fixture authority',edition:'1',year:2021,language:'uz-Latn',bibliographic:{authors:['Fixture Author'],identifier:`fixture-id-${id}`},license:'fixture-licence',effectiveDate:'2026-01-01',locator:{kind:'section'},submittedBy:'fixture.submitter',status:'ready-for-review',reviews:[]};
   const ok={...e,reviews:[{reviewerId:'fixture.source-reviewer',decision:'approved',acceptedCategory:category,reviewedAt:'2026-10-01T00:00:00.000Z',reviewedHash:sourceEntryHash(e)}]};
   fs.mkdirSync(path.join(t,'content-src/source-intake'),{recursive:true});
   fs.writeFileSync(path.join(t,`content-src/source-intake/${id}.json`),JSON.stringify(ok,null,2));
@@ -129,11 +130,12 @@ test('source acceptance (P2.4 closeout A1/A2): category-compatible ≠ human-acc
   const {registry}=loadGovernedSourceRegistry(root);
   const cur=registry.byId.get('src.curriculum.9.06');
   assert.equal(cur.classification,'PROPOSED','no existing source was reclassified');
-  assert.deepEqual(sourceAcceptance(cur),{registered:true,categoryCompatible:true,humanAccepted:false,canonicalAuthoringEligible:false},'PROPOSED CURRICULUM');
-  assert.deepEqual(sourceAcceptance(registry.byId.get('src.beta1.migration')),{registered:true,categoryCompatible:false,humanAccepted:false,canonicalAuthoringEligible:false},'INTERNAL_PROPOSAL');
+  // TT 4.2.4: sourceAcceptance also reports bibliographic completeness; the legacy records carry no bibliography at all
+  assert.deepEqual(sourceAcceptance(cur),{registered:true,categoryCompatible:true,humanAccepted:false,bibliographicComplete:false,bibliographyMissing:['authority','edition','authors','isbnOrUrl','license','effectiveDate'],canonicalAuthoringEligible:false},'PROPOSED CURRICULUM');
+  assert.deepEqual(sourceAcceptance(registry.byId.get('src.beta1.migration')),{registered:true,categoryCompatible:false,humanAccepted:false,bibliographicComplete:false,bibliographyMissing:['authority','edition','authors','isbnOrUrl','license','effectiveDate'],canonicalAuthoringEligible:false},'INTERNAL_PROPOSAL');
   assert.deepEqual(canonicalSourceIssues(['src.curriculum.9.06','src.beta1.migration','src.not.registered'],registry).map(i=>i.code),['SOURCE_NOT_HUMAN_ACCEPTED','SOURCE_CATEGORY_NOT_ACCEPTABLE','SOURCE_UNREGISTERED']);
   // a hand-written HUMAN_ACCEPTED record: an automation acceptor or missing pin facts never count
-  const reg=(over)=>parseSourceRegistry({schema:'kimyolab.source-registry.v1',sources:[{id:'src.x',category:'CURRICULUM',title:'x',classification:'HUMAN_ACCEPTED',acceptedBy:'fixture.person',acceptedAt:'2026-10-01T00:00:00Z',reviewedHash:'a'.repeat(64),...over}]}).registry;
+  const reg=(over)=>parseSourceRegistry({schema:'kimyolab.source-registry.v1',sources:[{id:'src.x',category:'CURRICULUM',title:'x',classification:'HUMAN_ACCEPTED',acceptedBy:'fixture.person',acceptedAt:'2026-10-01T00:00:00Z',reviewedHash:'a'.repeat(64),authority:'Fixture publisher',edition:'1',bibliographic:{authors:['Fixture Author'],isbn:'fixture-isbn'},license:'fixture-licence',effectiveDate:'2026-01-01',...over}]}).registry;
   assert.equal(sourceAcceptance(reg({}).byId.get('src.x')).humanAccepted,true,'well-formed record (still subject to the intake pin below)');
   for(const acceptedBy of ['claude','github-actions','kimyolab-bot']) assert.equal(sourceAcceptance(reg({acceptedBy}).byId.get('src.x')).humanAccepted,false,`automation may not accept: ${acceptedBy}`);
   assert.equal(sourceAcceptance(reg({reviewedHash:undefined}).byId.get('src.x')).humanAccepted,false,'unpinned');

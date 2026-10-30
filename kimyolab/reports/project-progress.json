@@ -121,7 +121,7 @@
     "milestone": "P0-INTEGRITY"
   },
   "whereWeAreNow": {
-    "milestone": "P2.13",
+    "milestone": "P2.14",
     "foundationPercent": 100,
     "learningProductPercent": 12.189,
     "facts": [
@@ -156,11 +156,12 @@
     "P2.9",
     "P2.10",
     "P2.11",
-    "P2.12"
+    "P2.12",
+    "P2.13"
   ],
-  "currentMilestone": "P2.13 — periodic table & Element Knowledge Hub",
+  "currentMilestone": "P2.14 — Substance Passport & Reaction Explorer",
   "nextMilestones": [
-    "P2.14+ — Substance Passport, Reaction Explorer / assessment / localization / governance expansion",
+    "P2.15+ — assessment / localization / governance expansion",
     "human review round (workbench): chemistry A–C queues, lu.9.15 assessment",
     "release decisions for the 27 pending activities"
   ],

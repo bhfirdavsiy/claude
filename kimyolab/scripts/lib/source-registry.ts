@@ -35,6 +35,8 @@ export function loadGovernedSourceRegistry(root:string):{registry:SourceRegistry
 export function sourceReadiness(registry:SourceRegistry){
   const xs=[...registry.byId.values()].map(e=>({id:e.id,...sourceAcceptance(e)}));
   return {registeredSources:xs.length,categoryCompatibleSources:xs.filter(x=>x.categoryCompatible).length,
-    humanAcceptedSources:xs.filter(x=>x.humanAccepted).length,canonicalTheoryEligibleSources:xs.filter(x=>x.canonicalAuthoringEligible).length,
-    eligibleSourceIds:xs.filter(x=>x.canonicalAuthoringEligible).map(x=>x.id).sort()};
+    humanAcceptedSources:xs.filter(x=>x.humanAccepted).length,bibliographicCompleteSources:xs.filter(x=>x.bibliographicComplete).length,canonicalTheoryEligibleSources:xs.filter(x=>x.canonicalAuthoringEligible).length,
+    eligibleSourceIds:xs.filter(x=>x.canonicalAuthoringEligible).map(x=>x.id).sort(),
+    // TT 4.2.4: which bibliographic facts each source still lacks (never filled in by a machine)
+    bibliographyMissing:Object.fromEntries(xs.filter(x=>!x.bibliographicComplete).map(x=>[x.id,x.bibliographyMissing]).sort(([a],[b])=>String(a).localeCompare(String(b))))};
 }
